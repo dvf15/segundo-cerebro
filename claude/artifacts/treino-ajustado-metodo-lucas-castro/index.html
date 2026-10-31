@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Treino ajustado: método Lucas Castro na sua fase atual</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#edf0f4; --surface:#ffffff; --ink:#14202e; --muted:#566273; --line:#d3d9e2;
+  --belt:#1f4fa3; --belt-soft:#dfe8f7; --go:#2b7a57; --go-soft:#dff1e8;
+  --hold:#b96a10; --hold-soft:#fbecd6; --stop:#a8322c; --stop-soft:#f8e1df; --lock:#8a94a3;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1621; --surface:#18212f; --ink:#e8edf4; --muted:#9aa7b8; --line:#2b3748;
+  --belt:#7fa6ee; --belt-soft:#1d2c47; --go:#6cc79d; --go-soft:#173428; --hold:#e9a955; --hold-soft:#3a2a12;
+  --stop:#ee8c85; --stop-soft:#3d1d1b; --lock:#6d7a8c;}}
+:root[data-theme="dark"]{
+  --bg:#0f1621; --surface:#18212f; --ink:#e8edf4; --muted:#9aa7b8; --line:#2b3748;
+  --belt:#7fa6ee; --belt-soft:#1d2c47; --go:#6cc79d; --go-soft:#173428; --hold:#e9a955; --hold-soft:#3a2a12;
+  --stop:#ee8c85; --stop-soft:#3d1d1b; --lock:#6d7a8c;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Barlow,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 56px}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;line-height:1.08;margin:0}
+h1{font-size:clamp(2.2rem,8vw,3.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.9rem;font-weight:600;margin:44px 0 6px}
+h3{font-size:1.3rem;font-weight:600;margin:0 0 6px}
+p{margin:8px 0}
+.lede{color:var(--muted);font-size:1.05rem;max-width:60ch}
+.sub{color:var(--muted);margin:0 0 14px;max-width:62ch}
+small,.small{font-size:.88rem;color:var(--muted)}
+a{color:var(--belt)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;margin:12px 0}
+.panel.hold{border-left:5px solid var(--hold);background:var(--hold-soft)}
+.panel.stop{border-left:5px solid var(--stop);background:var(--stop-soft)}
+
+/* faixa: linha do tempo */
+.belt{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin:18px 0 6px}
+.belt button{all:unset;cursor:pointer;text-align:center;padding:12px 2px 10px;background:var(--belt-soft);color:var(--ink);
+  font:600 1rem "Barlow Condensed","Arial Narrow",sans-serif;border-bottom:5px solid transparent}
+.belt button:first-child{border-radius:6px 0 0 6px}.belt button:last-child{border-radius:0 6px 6px 0}
+.belt button span{display:block;font:400 .72rem Barlow,sans-serif;color:var(--muted)}
+.belt button[aria-selected="true"]{background:var(--belt);color:#fff;border-bottom-color:var(--ink)}
+.belt button[aria-selected="true"] span{color:#e5ecf8}
+.belt button:focus-visible{outline:3px solid var(--hold);outline-offset:2px}
+.belt button.locked::after{content:"🔒";font-size:.7rem;margin-left:3px}
+.phase{display:none}.phase.on{display:block}
+.gate{font-size:.92rem;border:1px dashed var(--lock);border-radius:6px;padding:10px 12px;margin:10px 0;color:var(--muted)}
+.gate b{color:var(--ink)}
+
+/* semana */
+.week{border-top:1px solid var(--line);margin-top:10px}
+.day{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.day>b{font:700 1.25rem "Barlow Condensed",sans-serif;color:var(--belt)}
+.day ul{margin:4px 0 0;padding-left:18px}.day li{margin:2px 0}
+.tag{display:inline-block;font-size:.76rem;font-weight:600;padding:1px 8px;border-radius:99px;margin-left:4px;vertical-align:1px}
+.t-f{background:var(--belt-soft);color:var(--belt)}.t-c{background:var(--go-soft);color:var(--go)}
+.t-r{background:var(--hold-soft);color:var(--hold)}.t-b{background:var(--ink);color:var(--bg)}
+details{margin:10px 0}summary{cursor:pointer;font-weight:600;color:var(--belt)}
+
+.cols{display:grid;gap:10px}@media(min-width:640px){.cols{grid-template-columns:repeat(3,1fr)}}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;border-top:5px solid var(--go)}
+.col.adapt{border-top-color:var(--hold)}.col.no{border-top-color:var(--stop)}
+.col ul{margin:6px 0 0;padding-left:18px}.col li{margin:5px 0;font-size:.95rem}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 1rem "Barlow Condensed",sans-serif;color:var(--muted)}
+.check{list-style:none;padding:0;margin:6px 0}.check li{padding:5px 0 5px 28px;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border:2px solid var(--lock);border-radius:3px}
+.conf{display:grid;gap:10px}@media(min-width:560px){.conf{grid-template-columns:1fr 1fr}}
+.conf div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px}
+.conf strong{font:700 2.2rem "Barlow Condensed",sans-serif;display:block;line-height:1}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <p class="small">Daniel, 20/09/2026. Dia 8 da lesão de panturrilha (12/09).</p>
+  <h1>Forte, explosivo e resistente. Na ordem que a sua panturrilha permite.</h1>
+  <p class="lede">Rotina ajustada aos pilares do Lucas Castro (Base Training), filtrada pelo seu referencial (Attia, Galpin, McGill) e pela fase atual de reabilitação do gastrocnêmio medial.</p>
+</header>
+
+<div class="panel hold">
+  <h3>Leia antes: o que eu consegui ver do perfil</h3>
+  <p>O Instagram bloqueia leitura automática. <b>Não vi nenhum post nem reel.</b> Usei só o que é público: a bio do perfil e as páginas de venda do Base Training. O que dá para afirmar com fonte:</p>
+  <ul>
+    <li>Pilares declarados: força, explosão e resistência. Formação: educação física, faixa preta de judô (ex-Flamengo), atleta de CrossFit e jiu-jitsu.</li>
+    <li>Planilha de jiu-jitsu de 8 semanas em 3 fases com progressão de dificuldade, volume e exigência. Opções de 2, 3 ou 4 treinos por semana.</li>
+    <li>Módulos: Core Bruto, Power Legs, protocolos de agachamento, força de pegada, mobilidade, hipertrofia, VO2max e corrida.</li>
+    <li>Trabalho específico de alta intensidade fica no fim da preparação (post dele no Threads).</li>
+    <li>Material mínimo: barra com anilhas, halteres, barra fixa e paralelas.</li>
+  </ul>
+  <p class="small">Séries, repetições e exercícios exatos são pagos e eu não tenho acesso. O que está abaixo é a <b>estrutura</b> dele com prescrição minha, baseada em literatura. Se você mandar prints dos posts que te interessaram, eu refino.</p>
+</div>
+
+<h2>O que entra, o que muda, o que fica de fora</h2>
+<p class="sub">O método dele é pensado para atleta saudável. Você tem 108 kg, uma rotura parcial de alto grau com 1,4 cm de retração e pressão arterial em monitoramento. Isso muda a ordem das coisas.</p>
+<div class="cols">
+  <div class="col"><h3>Entra já</h3><ul>
+    <li>Força de pegada: você não tinha bloco dedicado e ele não depende da perna.</li>
+    <li>Core pesado, em versão McGill (rigidez, sem flexão repetida de coluna).</li>
+    <li>Potência de membros superiores sentado (arremessos de medicine ball).</li>
+    <li>Lógica de 3 fases com progressão.</li>
+  </ul></div>
+  <div class="col adapt"><h3>Entra adaptado</h3><ul>
+    <li>Power Legs e agachamento: só bilateral e controlado a partir da fase 2; explosivo só depois dos critérios de retorno.</li>
+    <li>VO2max: bike ou remo, não corrida. Corrida é a maior carga excêntrica de panturrilha que existe.</li>
+    <li>Circuitos estilo CrossFit: viram intervalos controlados por FC, com aval da Dra. Juliana por causa da PA.</li>
+  </ul></div>
+  <div class="col no"><h3>Fica de fora por ora</h3><ul>
+    <li>Saltos, pogo, sprints, corda, corrida.</li>
+    <li>Levantamento olímpico a partir do chão (tripla extensão = panturrilha explosiva).</li>
+    <li>Treino até a falha em circuito enquanto você está em déficit calórico: custo de recuperação alto, ganho baixo.</li>
+  </ul></div>
+</div>
+
+<h2>As cinco fases</h2>
+<p class="sub">Toque em cada fase. As datas são estimativa; quem destrava a fase seguinte é o critério, não o calendário. Quem dá a palavra final é a fisioterapia e o Dr. Fernando.</p>
+
+<div class="belt" role="tablist" aria-label="Fases do plano">
+  <button role="tab" aria-selected="true" data-p="0">Fase 0<span>agora</span></button>
+  <button role="tab" aria-selected="false" data-p="1">Fase 1<span>sem 3 a 6</span></button>
+  <button role="tab" aria-selected="false" data-p="2" class="locked">Fase 2<span>sem 6 a 10</span></button>
+  <button role="tab" aria-selected="false" data-p="3" class="locked">Fase 3<span>sem 10 a 14</span></button>
+  <button role="tab" aria-selected="false" data-p="4" class="locked">Fase 4<span>sem 14+</span></button>
+</div>
+
+<!-- FASE 0 -->
+<section class="phase on" id="p0">
+  <div class="panel">
+    <h3>Fase 0: proteger a perna, construir da cintura para cima</h3>
+    <p>Até ~03/10. Objetivo: zero perda de massa magra (meta ≥53 kg de MME), pegada e tronco mais fortes do que antes da lesão. Tudo sentado, deitado ou apoiado. Sem dorsiflexão forçada, sem alongar a panturrilha, sem ficar na ponta do pé.</p>
+    <div class="week">
+      <div class="day"><b>Seg</b><div>Superiores A, força <span class="tag t-f">50 min</span><ul>
+        <li>Supino com halteres 4×6–8, RIR 2</li><li>Remada com peito apoiado 4×8–10</li>
+        <li>Desenvolvimento sentado com encosto 3×8</li><li>Puxada alta 3×10 (barra fixa só se subir e descer de um banco, sem saltar)</li>
+        <li>Pescoço isométrico, 4 direções, 3×30 s</li></ul></div></div>
+      <div class="day"><b>Ter</b><div>Fisioterapia + core + pegada <span class="tag t-r">reab</span><ul>
+        <li>Colágeno 15 g + vit C 50 mg, 60 min antes (já no seu protocolo)</li>
+        <li>McGill: curl-up 3×6×10 s; prancha lateral apoiada nos joelhos 3×6×10 s; bird dog 3×6×10 s</li>
+        <li>Pegada: pinça de anilha 4×20–30 s; hold de haltere pesado sentado 4×30 s</li></ul></div></div>
+      <div class="day"><b>Qua</b><div>Zone 2 no ergômetro de braço <span class="tag t-c">30–40 min</span><ul>
+        <li>FC de braço fica ~10–15 bpm abaixo da de perna para o mesmo esforço: use o teste da fala, não o alvo 120–140</li>
+        <li>Bike sem carga só quando a fisio liberar</li></ul></div></div>
+      <div class="day"><b>Qui</b><div>Superiores B, puxar e pegada <span class="tag t-f">50 min</span><ul>
+        <li>Puxada com toalha ou pegada de gi 4×6–10</li><li>Remada unilateral apoiada 3×10</li>
+        <li>Floor press 3×8 (troca da flexão, que carrega o pé)</li><li>Face pull 3×15; rosca martelo 3×10</li>
+        <li>Dead hang descendo de banco 3×máx, RIR 1</li></ul></div></div>
+      <div class="day"><b>Sex</b><div>Fisioterapia + perna sã <span class="tag t-r">reab</span><ul>
+        <li>Cadeira extensora e flexora sentada, unilateral na perna boa, 3×10–12</li>
+        <li>Por quê: treinar um lado gera ~12% de ganho de força no lado parado (cross-education; Manca et al., Eur J Appl Physiol 2017)</li>
+        <li>Na perna lesionada: só o que a fisio prescrever</li></ul></div></div>
+      <div class="day"><b>Sáb</b><div>Potência de superiores + core <span class="tag t-f">35 min</span><ul>
+        <li>Arremesso de medicine ball do peito, sentado, 5×5, descanso 90 s, máxima velocidade</li>
+        <li>Slam de medicine ball ajoelhado (dois joelhos) 4×5</li>
+        <li>Pallof press ajoelhado 3×10 por lado</li><li>Se fizer sentido, assistir ao treino de BJJ para manter o olho técnico</li></ul></div></div>
+      <div class="day"><b>Dom</b><div>Livre <span class="tag t-c">mobilidade</span><ul>
+        <li>Quadril (90/90 no chão) e torácica, 10–15 min. Nada que estique panturrilha.</li></ul></div></div>
+    </div>
+    <details><summary>Versão mínima viável (semana corrida)</summary>
+      <ul><li>2 treinos de superiores de corpo inteiro (A e B fundidos, 45 min)</li><li>Fisioterapia sem faltar: é o item que não se negocia</li>
+      <li>1 Zone 2 de braço de 30 min</li><li>McGill Big 3 todo dia, 8 min</li></ul></details>
+    <div class="gate"><b>Para abrir a Fase 1:</b> andar sem mancar e sem salto no calçado; isometria de panturrilha sem dor; liberação da fisio para bike.</div>
+  </div>
+</section>
+
+<!-- FASE 1 -->
+<section class="phase" id="p1">
+  <div class="panel">
+    <h3>Fase 1: carga progressiva (semanas 3 a 6, ~04/10 a 24/10)</h3>
+    <p>Aqui a reabilitação vira treino. A panturrilha segue a progressão clássica: isometria, depois excêntrico lento sentado, depois em pé bilateral, depois unilateral. Os superiores continuam como na Fase 0, subindo carga.</p>
+    <div class="week">
+      <div class="day"><b>Seg</b><div>Superiores A <span class="tag t-f">força</span></div></div>
+      <div class="day"><b>Ter</b><div>Inferiores controlado + panturrilha <span class="tag t-r">reab</span><ul>
+        <li>Leg press, amplitude sem dor, 3×10–12, tempo 3 s na descida</li><li>Mesa/cadeira flexora 3×10; elevação pélvica 3×10</li>
+        <li>Panturrilha sentada, excêntrico de 4 s, 3×12–15; em pé bilateral quando liberado</li></ul></div></div>
+      <div class="day"><b>Qua</b><div>Zone 2 na bike <span class="tag t-c">40–45 min, 120–140 bpm</span></div></div>
+      <div class="day"><b>Qui</b><div>Superiores B + pegada <span class="tag t-f">força</span></div></div>
+      <div class="day"><b>Sex</b><div>Fisioterapia + core McGill <span class="tag t-r">reab</span></div></div>
+      <div class="day"><b>Sáb</b><div>Potência de superiores + Zone 2 curto na bike <span class="tag t-c">25 min</span></div></div>
+      <div class="day"><b>Dom</b><div>Caminhada plana tolerada + mobilidade</div></div>
+    </div>
+    <details><summary>Versão mínima viável</summary><ul><li>2 treinos corpo inteiro (superiores + leg press + panturrilha)</li><li>Fisio</li><li>1 Zone 2 de 45 min</li></ul></details>
+    <div class="gate"><b>Para abrir a Fase 2:</b> 15 elevações de panturrilha unilaterais sem dor; agachamento bilateral livre sem dor; revisão de fase de 24/10 com fisio e ortopedista.</div>
+  </div>
+</section>
+
+<!-- FASE 2 -->
+<section class="phase" id="p2">
+  <div class="panel">
+    <h3>Fase 2: base de força (equivale à fase 1 da planilha dele)</h3>
+    <p>Volta do tatame em modo técnico: drills, passagem e guarda no chão, sem queda, sem disputa em pé, sem rola duro. A regra das 48 h entre pernas e o BJJ de sábado continua valendo: pernas na terça.</p>
+    <div class="week">
+      <div class="day"><b>Seg</b><div>BJJ técnico <span class="tag t-b">tatame</span></div></div>
+      <div class="day"><b>Ter</b><div>Força A, inferiores <span class="tag t-f">55 min</span><ul>
+        <li>Agachamento (goblet ou front) 4×6–8, RIR 3</li><li>RDL 3×8</li><li>Split squat 2×8 por perna</li>
+        <li>Panturrilha em pé unilateral 4×10–12, pesada e lenta</li><li>Tibial anterior 2×15</li></ul></div></div>
+      <div class="day"><b>Qua</b><div>Zone 2 <span class="tag t-c">45–60 min</span> + pegada 6 séries</div></div>
+      <div class="day"><b>Qui</b><div>Força B, superiores + potência de superiores <span class="tag t-f">55 min</span></div></div>
+      <div class="day"><b>Sex</b><div>Core bruto + mobilidade <span class="tag t-r">30 min</span><ul><li>Big 3, Pallof, farmer's carry 3×30 m (volta aqui), Turkish get-up leve</li></ul></div></div>
+      <div class="day"><b>Sáb</b><div>BJJ técnico, rola leve só de chão <span class="tag t-b">tatame</span></div></div>
+      <div class="day"><b>Dom</b><div>Zone 2 leve ou livre</div></div>
+    </div>
+    <details><summary>Versão mínima viável</summary><ul><li>2 BJJ técnicos</li><li>2 forças de corpo inteiro</li><li>1 Zone 2 de 60 min</li><li>Big 3 diário</li></ul></details>
+    <div class="gate"><b>Para abrir a Fase 3 (critérios de retorno ao esporte que já definimos):</b> 25+ elevações unilaterais sem dor e assimetria de força &lt;10% entre as pernas. Eu acrescento: salto bilateral baixo e aterrissagem sem dor no dia seguinte.</div>
+  </div>
+</section>
+
+<!-- FASE 3 -->
+<section class="phase" id="p3">
+  <div class="panel">
+    <h3>Fase 3: explosão (equivale à fase 2 da planilha dele)</h3>
+    <p>É aqui que o estilo do Lucas entra de verdade. Potência antes da força, na mesma sessão, sempre descansado. A 108 kg, o volume de aterrissagens fica baixo: 25 a 40 contatos por sessão (opinião minha, extrapolada de diretrizes gerais de pliometria; não há estudo específico para grappler pesado pós-lesão).</p>
+    <div class="scroll"><table>
+      <tr><th>Semana</th><th>Inferiores explosivo</th><th>Superiores explosivo</th></tr>
+      <tr><td>1–2</td><td>Salto na caixa baixa 4×4, descendo andando; swing de kettlebell 4×8</td><td>Arremesso de medicine ball em pé 5×4</td></tr>
+      <tr><td>3–4</td><td>Salto horizontal 4×3; pogo bilateral 3×10</td><td>Flexão explosiva 4×5; slam rotacional 4×4 por lado</td></tr>
+      <tr><td>5+</td><td>Contraste: agachamento 3 reps pesado, 2 min, 3 saltos. 3–4 rodadas</td><td>Contraste: supino pesado + arremesso</td></tr>
+    </table></div>
+    <p>Semana: mesma grade da Fase 2, com a potência no início de terça e quinta, VO2max na bike entrando na sexta (4×4 min a 85–95% da FCmáx, Helgerud et al., MSSE 2007) e o rola de sábado voltando ao normal por etapas. VO2max só com liberação da Dra. Juliana.</p>
+    <div class="gate"><b>Para abrir a Fase 4:</b> 4 semanas de pliometria sem dor nem inchaço; rola completo no sábado sem proteger a perna.</div>
+  </div>
+</section>
+
+<!-- FASE 4 -->
+<section class="phase" id="p4">
+  <div class="panel">
+    <h3>Fase 4: específico e alta intensidade (fase 3 da planilha dele)</h3>
+    <p>O próprio Lucas diz que esse estímulo vem no fim da preparação. Para você, só faz sentido em bloco de 3 a 4 semanas antes de um campeonato ou como teste, não o ano todo: rola duro já conta como HIIT, e empilhar os dois derruba HRV e recuperação.</p>
+    <ul>
+      <li>Circuito em formato de luta: 5 a 6 min de trabalho, 1 a 2 min de pausa, 3 a 4 rounds. Exemplo: remo 250 m, 5 barras com pegada de gi, 10 slams, arrasto de trenó 20 m.</li>
+      <li>1 vez por semana, longe do sábado (segunda ou terça), substituindo o VO2max da semana.</li>
+      <li>Força cai para manutenção: 2 sessões, 6 a 8 séries cada.</li>
+      <li>Deload a cada 4 semanas, com volume 40–50% menor.</li>
+    </ul>
+  </div>
+</section>
+
+<h2>Bloco de pegada, o ganho mais barato</h2>
+<p class="sub">Duas vezes por semana, 6 a 8 séries no total, no fim do treino de superiores. Começa já.</p>
+<div class="scroll"><table>
+  <tr><th>Tipo de pegada</th><th>Exercício</th><th>Dose</th><th>No tatame</th></tr>
+  <tr><td>Esmagamento sustentado</td><td>Puxada ou barra com gi/toalha</td><td>3–4×6–10</td><td>Gola e manga</td></tr>
+  <tr><td>Suporte</td><td>Dead hang; hold de haltere</td><td>3×30–45 s</td><td>Resistência no 5º minuto</td></tr>
+  <tr><td>Pinça</td><td>Pinça de anilha</td><td>3×20–30 s</td><td>Pegada de calça e lapela</td></tr>
+  <tr><td>Punho</td><td>Rolo de punho ou rosca de punho</td><td>2×12–15</td><td>Quebra de pegada</td></tr>
+</table></div>
+<p class="small">Evidência: força de preensão é marcador de longevidade (Attia, Outlive, cap. 11; Leong et al., Lancet 2015, estudo PURE). Para performance no BJJ a evidência é observacional: atletas de elite têm mais resistência de pegada no gi, mas não há ensaio mostrando que treinar isso ganha luta.</p>
+
+<h2>Sinais para parar e procurar atendimento</h2>
+<div class="panel stop">
+  <ul class="check">
+    <li>Panturrilha quente, mais inchada, dor em repouso ou falta de ar: suspeita de trombose, pronto-socorro.</li>
+    <li>Estalo ou dor aguda nova durante exercício: parar e avisar o Dr. Fernando.</li>
+    <li>Dor acima de 3/10 durante ou na manhã seguinte ao treino de perna: voltar um degrau na progressão.</li>
+    <li>PA acima do limite configurado no NutriTreino: sem treino intenso no dia, avisar a Dra. Juliana.</li>
+  </ul>
+  <p class="small">Isto não é aconselhamento médico. A progressão de carga na perna é decisão da fisioterapia e do ortopedista.</p>
+</div>
+
+<h2>Confiança</h2>
+<div class="conf">
+  <div><strong>5/10</strong>Fidelidade ao método do Lucas Castro. Abaixo de 7 porque não vi os posts nem o conteúdo pago: só a estrutura pública.</div>
+  <div><strong>8/10</strong>Segurança e lógica do plano em si. Os prazos de cada fase variam muito em rotura com retração; o critério manda, não a data.</div>
+</div>
+
+<h2>Fontes</h2>
+<ul class="small">
+  <li>Perfil @lucascastroabrantes (bio pública) e páginas abasetraining.com.br, jiujitsu.abasetraining.com.br e /planilha-jj.</li>
+  <li>Dubois B, Esculier JF. Soft-tissue injuries simply need PEACE and LOVE. Br J Sports Med, 2020.</li>
+  <li>Manca A et al. Cross-education of muscular strength following unilateral resistance training: a meta-analysis. Eur J Appl Physiol, 2017.</li>
+  <li>Helgerud J et al. Aerobic high-intensity intervals improve VO2max more than moderate training. Med Sci Sports Exerc, 2007.</li>
+  <li>Wilson JM et al. Concurrent training: a meta-analysis. J Strength Cond Res, 2012.</li>
+  <li>Leong DP et al. Prognostic value of grip strength (PURE). Lancet, 2015.</li>
+  <li>McGill S. Low Back Disorders / Back Mechanic (Big 3). Attia P. Outlive, 2023.</li>
+</ul>
+</main>
+<script>
+document.querySelectorAll('.belt button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.belt button').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.phase').forEach(function(s){s.classList.remove('on')});
+    b.setAttribute('aria-selected','true');
+    document.getElementById('p'+b.dataset.p).classList.add('on');
+  });
+});
+</script>
+</body>
+</html>

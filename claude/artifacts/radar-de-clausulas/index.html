@@ -1,0 +1,968 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Radar de Cláusulas</title>
+<style>
+  :root{ color-scheme: light; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ max-width:100%; }
+  body{ margin:0; background:#e5ded4; color:#0d454a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+        padding:calc(16px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left)); }
+  .wrap{ max-width:720px; margin:0 auto; min-width:0; }
+  .brand{ display:flex; gap:12px; align-items:center; margin-bottom:6px; min-width:0; }
+  .brandmark{ width:42px; height:42px; border-radius:12px; background:#00616f; color:#fff; display:flex; align-items:center; justify-content:center; flex:0 0 auto; box-shadow:0 6px 16px rgba(0,97,111,.28); }
+  h1{ font-size:23px; font-weight:800; color:#00616f; margin:0 0 2px; letter-spacing:-.3px; }
+  h2{ font-size:16px; font-weight:800; color:#00616f; margin:0 0 4px; }
+  h3{ font-size:13px; font-weight:800; color:#00616f; margin:0 0 8px; }
+  .sub{ font-size:13px; color:rgba(13,69,74,.62); margin:0; overflow-wrap:anywhere; }
+  .muted{ font-size:11px; color:rgba(13,69,74,.5); margin-top:4px; }
+  .card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:16px; padding:18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 12px 28px rgba(13,69,74,.06); }
+  .lbl{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:rgba(13,69,74,.55); display:block; margin-bottom:5px; font-weight:600; }
+  .lblsec{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#00616f; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .lblsec .n{ background:rgba(0,97,111,.14); color:#00616f; width:20px; height:20px; border-radius:99px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
+  input, select, textarea{ width:100%; background:#ffffff; border:1px solid #ccc5bc; border-radius:10px; padding:10px 12px; color:#0d454a; font-size:16px; outline:none; font-family:inherit; transition:border-color .15s ease, box-shadow .15s ease; }
+  input:focus, select:focus, textarea:focus{ border-color:#00616f; box-shadow:0 0 0 3px rgba(0,97,111,.13); }
+  textarea{ resize:vertical; min-height:52px; }
+  input[type="checkbox"]{ width:auto; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  .field{ margin-bottom:12px; min-width:0; }
+  .hint{ font-size:10px; color:rgba(13,69,74,.5); margin-top:4px; line-height:1.4; }
+  .row{ display:flex; justify-content:space-between; align-items:center; padding:5px 0; font-size:14px; gap:10px; border-bottom:1px dashed rgba(204,197,188,.6); }
+  .row:last-child{ border-bottom:none; }
+  .row .k{ color:rgba(13,69,74,.62); } .row .v{ color:#0d454a; font-weight:700; text-align:right; font-variant-numeric:tabular-nums; }
+  .badge{ font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700; display:inline-block; }
+  .b-seg{ background:rgba(204,197,188,.45); color:#0d454a; }
+  .b-ok{ background:rgba(108,198,128,.3); color:#0d454a; }
+  .b-warn{ background:rgba(237,167,84,.34); color:#0d454a; }
+  .b-stop{ background:rgba(205,81,81,.18); color:#8e2f2f; }
+  .b-info{ background:rgba(0,97,111,.14); color:#00616f; }
+  .t-verde{ color:#3f9e6a; } .t-amarelo{ color:#c07d1e; } .t-vermelho{ color:#cd5151; } .t-cinza{ color:rgba(13,69,74,.55); } .t-blue{ color:#368c82; }
+  button{ border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:700; cursor:pointer; width:100%; font-family:inherit; transition:transform .05s ease, box-shadow .15s ease, filter .15s ease; }
+  button:active{ transform:translateY(1px); }
+  .btn-blue{ background:#00616f; color:#ffffff; box-shadow:0 6px 16px rgba(0,97,111,.22); } .btn-blue:hover{ filter:brightness(1.07); }
+  .btn-green{ background:#368c82; color:#ffffff; }
+  .btn-gray{ background:#ffffff; color:#0d454a; border:1px solid #ccc5bc; } .btn-gray:hover{ border-color:#00616f; }
+  .btn-wa{ background:#6cc680; color:#0d454a; }
+  .btn-sm{ padding:8px 12px; font-size:13px; width:auto; }
+  .btn-danger{ background:rgba(205,81,81,.12); color:#cd5151; border:1px solid rgba(205,81,81,.5); }
+  .btn-ok{ background:rgba(108,198,128,.25); color:#1f6b3f; border:1px solid rgba(108,198,128,.6); }
+  .btn-adj{ background:rgba(54,140,130,.18); color:#1d5f58; border:1px solid rgba(54,140,130,.55); }
+  .btn-warn{ background:rgba(237,167,84,.25); color:#7a4a0e; border:1px solid rgba(237,167,84,.6); }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px; }
+  .actions3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:4px; }
+  .warn{ font-size:11px; color:rgba(13,69,74,.5); border-top:1px solid #ccc5bc; padding-top:10px; margin-top:12px; line-height:1.5; }
+  .tabs{ display:flex; gap:8px; margin:16px 0 18px; flex-wrap:wrap; width:100%; }
+  .tab{ flex:1 1 142px; padding:9px 13px; border-radius:10px; background:#ffffff; border:1px solid #ccc5bc; color:rgba(13,69,74,.72); font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; display:flex; align-items:center; justify-content:center; gap:6px; min-width:0; box-shadow:0 1px 2px rgba(13,69,74,.05); }
+  .tab.on{ background:#00616f; border-color:#00616f; color:#ffffff; box-shadow:0 6px 16px rgba(0,97,111,.24); }
+  .tab .cnt{ background:rgba(255,255,255,.28); border-radius:99px; padding:0 7px; font-size:11px; }
+  .tab:not(.on) .cnt{ background:#f1ece3; color:rgba(13,69,74,.6); }
+  .seg{ display:flex; gap:6px; flex-wrap:wrap; }
+  .seg label{ flex:1 1 auto; text-align:center; padding:9px 8px; border-radius:10px; background:#ffffff; border:1px solid #ccc5bc; color:#0d454a; cursor:pointer; font-size:13px; font-weight:600; }
+  .seg label.on{ background:rgba(0,97,111,.14); border-color:#00616f; color:#00616f; }
+  .hidden{ display:none !important; }
+  .banner{ font-size:12px; line-height:1.5; background:rgba(0,97,111,.08); border:1px solid rgba(54,140,130,.35); border-radius:10px; padding:10px 12px; color:#0d454a; margin-bottom:14px; }
+  .banner.alerta{ background:rgba(237,167,84,.16); border-color:rgba(237,167,84,.6); }
+  .banner.lacuna{ background:rgba(205,81,81,.1); border-color:rgba(205,81,81,.45); }
+  .empty{ text-align:center; color:rgba(13,69,74,.5); padding:26px 12px; font-size:13px; }
+  .chk{ display:flex; gap:8px; align-items:flex-start; font-size:12.5px; line-height:1.45; margin:6px 0; }
+  .chk .ic{ flex:0 0 auto; font-weight:800; }
+  .metrics{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px; }
+  .metric{ background:#f1ece3; border:1px solid #e3dccf; border-radius:9px; padding:8px 10px; min-width:0; }
+  .metric .mk{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(13,69,74,.5); }
+  .metric .mv{ font-size:14px; font-weight:800; color:#0d454a; margin-top:2px; overflow-wrap:anywhere; }
+  .route{ border-radius:14px; padding:16px; margin-bottom:14px; border:1px solid; }
+  .route .rt{ font-size:10px; text-transform:uppercase; letter-spacing:.07em; font-weight:800; }
+  .route .rn{ font-size:18px; font-weight:800; margin-top:3px; }
+  .route .rd{ font-size:12.5px; line-height:1.5; margin-top:6px; }
+  .route.sup{ background:rgba(108,198,128,.16); border-color:rgba(108,198,128,.55); color:#0d454a; }
+  .route.dir{ background:rgba(237,167,84,.18); border-color:rgba(237,167,84,.6); color:#0d454a; }
+  .route.ops{ background:rgba(205,81,81,.12); border-color:rgba(205,81,81,.5); color:#0d454a; }
+  .route.ineg{ background:rgba(13,69,74,.08); border-color:#0d454a; color:#0d454a; }
+  .route.sup .rn{ color:#2f8a56; } .route.dir .rn{ color:#c07d1e; } .route.ops .rn{ color:#cd5151; } .route.ineg .rn{ color:#0d454a; }
+  .dossie{ background:#0d454a; color:#e5ded4; border-radius:13px; padding:16px; margin-top:12px; font-size:13px; line-height:1.7; }
+  .dossie h3{ color:#eda754; margin:0 0 8px; }
+  .dossie b{ color:#ffffff; }
+  .inv-card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:14px; padding:13px; margin-bottom:10px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 8px 20px rgba(13,69,74,.05); }
+  .inv-top{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .inv-name{ font-size:15px; font-weight:800; color:#00616f; }
+  .inv-meta{ font-size:11px; color:rgba(13,69,74,.5); margin-top:2px; line-height:1.45; }
+  .status-pill{ font-size:10px; font-weight:700; padding:3px 9px; border-radius:99px; border:1px solid; white-space:nowrap; display:inline-block; }
+  .st-aguardando{ color:#7a4a0e; border-color:rgba(237,167,84,.6); background:rgba(237,167,84,.28); }
+  .st-aprovada{ color:#1f6b3f; border-color:rgba(108,198,128,.6); background:rgba(108,198,128,.28); }
+  .st-ajuste{ color:#1d5f58; border-color:rgba(54,140,130,.55); background:rgba(54,140,130,.18); }
+  .st-negada{ color:#8e2f2f; border-color:rgba(205,81,81,.5); background:rgba(205,81,81,.14); }
+  .st-devolvida{ color:rgba(13,69,74,.7); border-color:#ccc5bc; background:rgba(204,197,188,.45); }
+  .al-pill{ font-size:10px; font-weight:800; padding:3px 9px; border-radius:99px; display:inline-block; }
+  .al-sup{ background:rgba(108,198,128,.3); color:#1f6b3f; } .al-dir{ background:rgba(237,167,84,.34); color:#7a4a0e; } .al-ops{ background:rgba(205,81,81,.18); color:#8e2f2f; }
+  .rec-mini{ font-size:12px; color:#0d454a; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+  .rec-tag{ background:#f1ece3; border:1px solid #e3dccf; border-radius:7px; padding:3px 8px; }
+  .tag-warn{ display:inline-block; font-size:10px; font-weight:800; padding:2px 8px; border-radius:99px; background:rgba(237,167,84,.3); color:#7a4a0e; margin-top:4px; }
+  .tag-stop{ display:inline-block; font-size:10px; font-weight:800; padding:2px 8px; border-radius:99px; background:rgba(205,81,81,.18); color:#8e2f2f; margin-top:4px; }
+  .toolbar{ display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+  .toolbar input, .toolbar select{ font-size:14px; padding:9px 10px; }
+  .toolbar .grow{ flex:1 1 160px; }
+  .addrow{ display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
+  .addrow .grow{ flex:1 1 140px; }
+  .rm{ background:#ffffff; color:rgba(13,69,74,.6); border:1px solid #ccc5bc; border-radius:8px; width:40px; height:40px; padding:0; font-size:18px; line-height:1; flex:0 0 auto; }
+  .goalrow{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 10px; background:#f1ece3; border:1px solid #e3dccf; border-radius:10px; margin-bottom:8px; flex-wrap:wrap; }
+  .goalrow .gn{ font-size:13px; font-weight:700; color:#00616f; }
+  .decide{ background:#f1ece3; border:1px solid #e3dccf; border-radius:10px; padding:10px; margin-top:10px; }
+  .decide textarea, .decide input{ font-size:14px; padding:8px 10px; margin-bottom:8px; }
+  .decide .actions3 button, .decide .actions button{ font-size:12.5px; padding:9px 6px; }
+  details summary{ cursor:pointer; font-size:12px; color:rgba(13,69,74,.6); padding:6px 0; }
+  .codebox{ width:100%; min-height:90px; font-family:ui-monospace,Menlo,monospace; font-size:12px; word-break:break-all; background:#f1ece3; padding:10px 11px; }
+  .linkbox{ border:1px solid #ccc5bc; border-radius:10px; padding:9px 11px; font-size:12px; font-family:ui-monospace,Menlo,monospace; color:#0d454a; word-break:break-all; line-height:1.5; background:#f1ece3; }
+  .toast{ position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:#00616f; color:#ffffff; font-size:13px; font-weight:700; padding:10px 16px; border-radius:10px; box-shadow:0 8px 24px rgba(13,69,74,.28); opacity:0; transition:opacity .2s; pointer-events:none; z-index:50; max-width:90vw; text-align:center; }
+  .toast.show{ opacity:1; }
+  table{ width:100%; border-collapse:collapse; font-size:12.5px; }
+  th,td{ text-align:left; padding:7px 6px; border-bottom:1px solid #e3dccf; vertical-align:middle; }
+  th{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:rgba(13,69,74,.55); }
+  td input, td select{ font-size:13px; padding:7px 9px; }
+  .tscroll{ overflow-x:auto; }
+  .evt{ border-left:3px solid #ccc5bc; padding:6px 10px; margin-bottom:8px; font-size:12.5px; line-height:1.5; background:#fbfaf8; border-radius:0 8px 8px 0; }
+  .evt .et{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; font-weight:800; color:#00616f; }
+  .evt .eh{ font-family:ui-monospace,Menlo,monospace; font-size:10px; color:rgba(13,69,74,.45); }
+  .evt.decisao{ border-left-color:#368c82; } .evt.solic_criada{ border-left-color:#00616f; } .evt.escalada{ border-left-color:#eda754; } .evt.negada{ border-left-color:#cd5151; } .evt.param{ border-left-color:#ccc5bc; }
+  a, .linklike{ color:#00616f; cursor:pointer; }
+  .linklike{ text-decoration:underline; font-size:12px; font-weight:600; }
+  svg.ic{ width:17px; height:17px; display:inline-block; flex:0 0 auto; vertical-align:-3px; stroke-width:2; }
+  .tab svg.ic{ width:16px; height:16px; vertical-align:-2px; }
+  .lblsec .n svg.ic{ width:12px; height:12px; vertical-align:0; }
+  button svg.ic{ margin-right:7px; }
+  .brandmark svg.ic{ width:26px; height:26px; }
+  /* Modo aprovador: só o card de decisão fica; o resto sai do DOM */
+  html.aprovador #tabs, html.aprovador #view-solic, html.aprovador #view-pipe, html.aprovador #view-param, html.aprovador #view-audit{ display:none !important; }
+  @media(max-width:520px){
+    .brandmark{ width:38px; height:38px; } h1{ font-size:21px; }
+    .grid2, .grid3{ grid-template-columns:1fr; } .metrics{ grid-template-columns:1fr 1fr; }
+    #tabs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; } #tabs .tab{ flex:none; }
+    .actions3{ grid-template-columns:1fr; } .btn-sm{ font-size:12.5px; padding:8px 10px; }
+  }
+</style>
+<div class="wrap">
+  <div class="brand">
+    <div class="brandmark" data-ic="scale" aria-hidden="true"></div>
+    <div>
+      <h1 id="appTitle">Radar de Cláusulas</h1>
+      <p class="sub" id="appSub">Gestão e aprovação de cláusulas por <b>alçada</b> — grau da marca, praças, portfólio e desconto, com trilha de auditoria</p>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <div class="tab on" data-view="solic" data-ic="clipboard">Solicitação</div>
+    <div class="tab" data-view="pipe" data-ic="list">Pipeline <span class="cnt" id="cntPipe">0</span></div>
+    <div class="tab" data-view="param" data-ic="settings">Parametrização</div>
+    <div class="tab" data-view="audit" data-ic="shield">Auditoria</div>
+  </nav>
+
+  <!-- ===================== MODO APROVADOR ===================== -->
+  <section id="view-aprovador" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="shield"></span> Decisão de cláusula</div>
+      <div class="banner" id="aprBanner">Cole o <b>código</b> da solicitação (começa com <code>RC1:</code>) que o executivo enviou, ou abra o link que ele mandou.</div>
+      <textarea id="aprCode" class="codebox" placeholder="Cole aqui o código RC1:..."></textarea>
+      <div class="actions" style="margin-top:8px"><button class="btn-gray btn-sm" id="aprLer" data-ic="inbox">Abrir solicitação</button><span></span></div>
+      <div id="aprDossie"></div>
+      <div id="aprForm" class="hidden">
+        <div class="field" style="margin-top:12px"><span class="lbl">Seu nome (decisor)</span><input id="aprNome" placeholder="ex.: Diretor de Portfólio — Nome"></div>
+        <div class="field"><span class="lbl">Justificativa (obrigatória — vira precedente)</span><textarea id="aprJust" placeholder="Por que aprova, ajusta ou nega?"></textarea></div>
+        <div class="actions3">
+          <button class="btn-ok" data-dec="aprovada" data-ic="check">Aprovar</button>
+          <button class="btn-adj" data-dec="ajuste" data-ic="edit">Aprovar com ajuste</button>
+          <button class="btn-danger" data-dec="negada" data-ic="x">Negar</button>
+        </div>
+        <div id="aprOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIEW: SOLICITAÇÃO ===================== -->
+  <section id="view-solic">
+    <div class="card" id="fichaCard">
+      <div class="lblsec"><span class="n" data-ic="mail"></span> Aprovação à distância — enviar &amp; receber</div>
+      <p class="sub" style="margin-bottom:10px">Avalie a cláusula abaixo e envie o <b>dossiê</b> ao aprovador por link/código; ele decide no celular e devolve um código que entra no pipeline e na auditoria.</p>
+      <div class="actions">
+        <button type="button" class="btn-gray" id="btnRecv" data-ic="inbox">Receber decisão</button>
+        <button type="button" class="btn-gray" id="btnLinkApr" data-ic="link">Link do aprovador</button>
+      </div>
+      <div id="recvBox" class="hidden" style="margin-top:10px">
+        <div class="banner">Cole o código <code>RC1D:</code> que o aprovador devolveu (pode colar a mensagem inteira do WhatsApp).</div>
+        <textarea id="recvCode" class="codebox" placeholder="Cole aqui o código RC1D:..."></textarea>
+        <div class="actions" style="margin-top:8px"><button class="btn-blue btn-sm" id="recvOk" data-ic="check">Registrar decisão</button><button class="btn-gray btn-sm" id="recvCancel">Cancelar</button></div>
+        <div id="recvMsg" class="hint"></div>
+      </div>
+      <div id="linkBox" class="hidden" style="margin-top:10px">
+        <div class="linkbox" id="linkApr"></div>
+        <div class="actions" style="margin-top:8px"><button class="btn-gray btn-sm" id="linkCopy" data-ic="copy">Copiar link</button><span></span></div>
+        <p class="hint">O aprovador abre este link, cola o código <code>RC1:</code> da solicitação e decide. Aberto como arquivo local, o link sai como <code>file://</code> e não serve para enviar.</p>
+      </div>
+    </div>
+
+    <form id="form" autocomplete="off">
+      <div class="card">
+        <div class="lblsec"><span class="n">1</span> Marca e cláusula</div>
+        <div class="grid2">
+          <div class="field"><span class="lbl">Marca (do cadastro)</span><select id="q_marca"></select><div class="hint">o grau vem do cadastro (Parametrização); marca fora do cadastro conta como Padrão</div></div>
+          <div class="field"><span class="lbl">Marca fora do cadastro</span><input id="q_marca_txt" placeholder="nome, se não estiver na lista"></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><span class="lbl">Tema</span><select id="q_tema"></select></div>
+          <div class="field"><span class="lbl">Tipo de cláusula</span><select id="q_tipo"></select></div>
+        </div>
+        <div class="grid3">
+          <div class="field"><span class="lbl">Segmento</span><select id="q_seg"></select></div>
+          <div class="field"><span class="lbl">Nº de praças (pegada)</span><input id="q_pracas" type="number" min="1" value="1" inputmode="numeric"></div>
+          <div class="field"><span class="lbl">Todas as lojas no portfólio do Diretor?</span><select id="q_dentro"><option value="sim">Sim</option><option value="nao">Não</option></select></div>
+        </div>
+        <div id="guiaInfo" class="hint"></div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">2</span> Valores da concessão</div>
+        <div id="painelQuant"></div>
+        <div id="painelGen" class="grid2">
+          <div class="field"><span class="lbl">Desconto concedido (%)</span><input id="q_desc" type="number" step="0.1" inputmode="decimal" placeholder="ex.: 40"><div class="hint">para a regra de alçada (até 50% nas alçadas delegadas)</div></div>
+          <div class="field"><span class="lbl">Aluguel mensal (R$) — opcional</span><input id="q_alug_gen" type="number" inputmode="numeric" placeholder="ex.: 20000"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">3</span> Solicitante</div>
+        <div class="grid2">
+          <div class="field"><span class="lbl">Executivo / shopping</span><input id="q_solic" placeholder="ex.: Ana · Shopping X"></div>
+          <div class="field"><span class="lbl">Observação (opcional)</span><input id="q_obs" placeholder="contexto da negociação"></div>
+        </div>
+        <button type="submit" class="btn-blue" id="btnRun" data-ic="scale">Avaliar a cláusula ▸</button>
+        <p class="warn">Apoio à decisão: o Radar calcula a <b>alçada</b> e o <b>custo</b>, mas quem aprova é sempre a pessoa. Compliance (anticorrupção, PEP, LGPD, confidencialidade) é inegociável.</p>
+      </div>
+    </form>
+
+    <section id="result" class="hidden"></section>
+  </section>
+
+  <!-- ===================== VIEW: PIPELINE ===================== -->
+  <section id="view-pipe" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="list"></span> Pipeline de aprovação</div>
+      <div class="toolbar">
+        <input class="grow" id="srch" placeholder="buscar marca, cláusula, solicitante…">
+        <select id="fstatus"><option value="">Todos os status</option><option value="aguardando">Aguardando</option><option value="aprovada">Aprovadas</option><option value="ajuste">Com ajuste</option><option value="negada">Negadas</option><option value="devolvida">Devolvidas</option><option value="parado">Parados há +7 dias</option></select>
+        <select id="falc"><option value="">Todas as alçadas</option><option>Superintendente</option><option>Diretor de Portfólio</option><option>Diretoria de Operações</option></select>
+      </div>
+      <div id="pipeResumo" class="metrics" style="margin:0 0 12px"></div>
+      <div id="pipeList"></div>
+      <div class="toolbar" style="margin-top:12px">
+        <button class="btn-gray btn-sm" id="btnCsv" data-ic="download">Excel (CSV)</button>
+        <button class="btn-gray btn-sm" id="btnJson" data-ic="download">Backup</button>
+        <button class="btn-gray btn-sm" id="btnImp" data-ic="upload">Importar</button>
+        <input type="file" id="fileJson" accept="application/json" class="hidden">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIEW: PARAMETRIZAÇÃO ===================== -->
+  <section id="view-param" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="settings"></span> Regras de alçada</div>
+      <div class="banner">
+        <b>Como a alçada é definida.</b> Marca <b>A (âncora)</b> ou <b>B (alavancadora de posicionamento)</b>: sempre <b>Diretoria de Operações</b>. Marca Padrão com <b>1 praça</b>: <b>Superintendente</b> até o desconto máximo. <b>2 a N praças, todas no portfólio</b>: <b>Diretor de Portfólio</b> até o desconto máximo. <b>Mais de N praças</b> ou <b>loja fora do portfólio</b>: Diretoria de Operações. <b>Desconto acima do máximo</b>: Diretoria de Operações.
+      </div>
+      <div class="grid2">
+        <div class="field"><span class="lbl">Desconto máximo das alçadas delegadas (%)</span><input id="p_dmax" type="number" step="1" inputmode="numeric"><div class="hint">Superintendente e Diretor decidem até este desconto</div></div>
+        <div class="field"><span class="lbl">Máx. de praças do Diretor de Portfólio</span><input id="p_maxp" type="number" step="1" inputmode="numeric"><div class="hint">acima disso (ou loja fora do portfólio) → só Diretoria</div></div>
+      </div>
+      <div class="field"><span class="lbl">Follow-up: dias sem atualização para marcar como parado</span><input id="p_dias" type="number" step="1" inputmode="numeric" style="max-width:140px"></div>
+      <h3>Graus estratégicos da marca</h3>
+      <p class="hint" style="margin-bottom:8px">Rótulo, critério e quais graus vão <b>sempre à Diretoria de Operações</b>.</p>
+      <div class="tscroll"><table id="tblGraus"></table></div>
+      <div class="actions" style="margin-top:12px"><button class="btn-blue btn-sm" id="btnSaveParams" data-ic="check">Salvar regras</button><button class="btn-gray btn-sm" id="btnParamReset">Restaurar padrão</button></div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="users"></span> Marcas</div>
+      <div class="addrow">
+        <input class="grow" id="m_nome" placeholder="Marca">
+        <select class="grow" id="m_seg"></select>
+        <select id="m_grau" style="width:auto"></select>
+        <input id="m_pracas" type="number" min="1" value="1" inputmode="numeric" style="width:84px" title="nº de praças">
+        <button class="btn-blue btn-sm" id="btnAddMarca" data-ic="plus">Adicionar</button>
+      </div>
+      <input id="fMarca" placeholder="filtrar por marca ou segmento…" style="margin-bottom:10px">
+      <div class="tscroll"><table id="tblMarcas"></table></div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="map"></span> Portfólios dos Diretores</div>
+      <p class="hint" style="margin-bottom:8px">Referência para responder "todas as lojas no portfólio?": quais praças cada Diretor de Portfólio responde.</p>
+      <div class="addrow"><input class="grow" id="pf_nome" placeholder="Diretor"><input class="grow" id="pf_pracas" placeholder="praças, separadas por vírgula"><button class="btn-blue btn-sm" id="btnAddPf" data-ic="plus">Adicionar</button></div>
+      <div id="pfList"></div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="book"></span> Biblioteca de cláusulas e status por segmento</div>
+      <p class="hint" style="margin-bottom:8px">Os 32 tipos com o status-padrão do guia (🟢 Recomendado · 🟡 com Ressalvas · 🔴 Não Recomendado). Abaixo, exceções por segmento (sobrepõem o padrão).</p>
+      <details><summary>Ver os 32 tipos</summary><div class="tscroll"><table id="tblClausulas"></table></div></details>
+      <h3 style="margin-top:12px">Exceções por segmento</h3>
+      <div class="addrow"><select class="grow" id="ov_seg"></select><select class="grow" id="ov_tipo"></select><select id="ov_status" style="width:auto"><option>Recomendado</option><option>Recomendado com Ressalvas</option><option>Não Recomendado</option></select><button class="btn-blue btn-sm" id="btnAddOv" data-ic="plus">Adicionar</button></div>
+      <div id="ovList"></div>
+      <div class="toolbar" style="margin-top:12px">
+        <button class="btn-gray btn-sm" id="btnParamJson" data-ic="download">Backup da parametrização</button>
+        <button class="btn-gray btn-sm" id="btnParamImp" data-ic="upload">Importar</button>
+        <input type="file" id="fileParam" accept="application/json" class="hidden">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIEW: AUDITORIA ===================== -->
+  <section id="view-audit" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="chart"></span> Indicadores</div>
+      <div id="auditKpis" class="metrics" style="margin-top:0"></div>
+      <div id="auditPorAlcada" style="margin-top:12px"></div>
+    </div>
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="search"></span> Precedentes</div>
+      <p class="hint" style="margin-bottom:8px">"Já decidimos isso antes?" — decisões anteriores por marca ou tipo de cláusula.</p>
+      <input id="precQ" placeholder="marca ou cláusula…">
+      <div id="precList" style="margin-top:10px"></div>
+    </div>
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="shield"></span> Trilha de auditoria</div>
+      <div class="toolbar">
+        <select id="auPeriodo"><option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="0">Tudo</option></select>
+        <select id="auTipo"><option value="">Todos os eventos</option><option value="solic_criada">Solicitações</option><option value="decisao">Decisões</option><option value="escalada">Escaladas</option><option value="param">Parametrização</option></select>
+        <button class="btn-gray btn-sm" id="btnIntegridade" data-ic="check">Verificar integridade</button>
+      </div>
+      <div id="integOut"></div>
+      <div id="auditList"></div>
+      <div class="toolbar" style="margin-top:10px"><button class="btn-gray btn-sm" id="btnAuditCsv" data-ic="download">Trilha (CSV)</button></div>
+    </div>
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="send"></span> Relatório de auditoria</div>
+      <div class="toolbar"><select id="relPeriodo"><option value="1">Hoje</option><option value="7" selected>Últimos 7 dias</option><option value="30">Últimos 30 dias</option><option value="0">Tudo</option></select></div>
+      <textarea id="relOut" class="codebox" style="min-height:180px; font-family:inherit; font-size:13px" readonly></textarea>
+      <div class="actions3" style="margin-top:8px">
+        <button class="btn-gray btn-sm" id="relCopy" data-ic="copy">Copiar</button>
+        <button class="btn-gray btn-sm" id="relFile" data-ic="download">Baixar .txt</button>
+        <button class="btn-wa btn-sm" id="relWa" data-ic="send">WhatsApp</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+/* ============================================================
+   RADAR DE CLÁUSULAS — gestão e aprovação por alçada
+   Família Radar: arquivo único, sem build, localStorage, ficha
+   enviar/receber por código, CSV/backup, trilha de auditoria.
+   ============================================================ */
+
+/* ---------- base de cláusulas (32 tipos) ---------- */
+const CLAUSULAS=[
+ ["Taxa de Transferência","Isenção de Taxa de Transferência","A",null,"Baixo","Não Recomendado"],
+ ["Taxa de Transferência","Isenção 1ª Taxa de Transferência","A",null,"Baixo","Não Recomendado"],
+ ["Taxa de Transferência","Isenção TT mesmo Grupo Econômico","A",null,"Baixo","Não Recomendado"],
+ ["Taxa de Transferência","Redução da Taxa de Transferência","A",null,"Baixo","Não Recomendado"],
+ ["Reajuste","Alteração de Índice de Reajuste","A",null,"Médio","Não Recomendado"],
+ ["Reajuste","Alteração de Prazo para Reajuste","A",null,"Médio","Não Recomendado"],
+ ["Multa","Alteração de Multa Rescisória","AB",null,"Médio","Recomendado com Ressalvas"],
+ ["Multa","Isenção de Multa Rescisória","A",null,"Alto","Não Recomendado"],
+ ["Multa","Redução de Multa Rescisória Fixa","A",null,"Médio","Não Recomendado"],
+ ["Multa","Redução de Multa Rescisória Gradual","A",null,"Médio","Não Recomendado"],
+ ["Multa","Redução de Multa Rescisória Proporcional","A",null,"Médio","Não Recomendado"],
+ ["Multa","Multa por Infração Contratual","B",3,"Médio","Recomendado"],
+ ["Multa","Multa por Infração - Auditoria de Vendas","B",9,"Alto","Recomendado"],
+ ["Multa","Multa por Infração - Auditoria de Vendas (agravada)","B",9,"Alto","Não Recomendado"],
+ ["Sistema de Inf de Vendas - NAPP","Cláusula Padrão","Referencia",0,"Baixo","Recomendado"],
+ ["Sistema de Inf de Vendas - NAPP","Cláusula sem multa e custos","B",3,"Médio","Recomendado com Ressalvas"],
+ ["Sistema de Inf de Vendas - NAPP","Cláusula \"Fumaça\"","B",9,"Alto","Não Recomendado"],
+ ["Sistema de Inf de Vendas - NAPP","Proteção de Dados ref. ao Sistema","Limite",null,"Crítico","Não Recomendado"],
+ ["Vendas","Vendas Líquidas","A",null,"Alto","Não Recomendado"],
+ ["Vendas","Vendas Online","AB",null,"Médio","Recomendado"],
+ ["Vendas","Vendas Online - Fumaça","B",9,"Alto","Não Recomendado"],
+ ["Vendas","Vendas - Ship from Store / Click & Collect","AB",null,"Médio","Recomendado"],
+ ["Vendas","Informe Mensal de Vendas","A",1,"Baixo","Não Recomendado"],
+ ["Vendas","Informe Mensal de Vendas - 3º d.ú.","A",1,"Baixo","Não Recomendado"],
+ ["Compliance","Confidencialidade","Limite",null,"Alto","Recomendado"],
+ ["Compliance","Anticorrupção","Limite",null,"Crítico","Recomendado"],
+ ["Compliance","PEP - Pessoa Exposta Politicamente","Limite",null,"Crítico","Recomendado"],
+ ["Compliance","Proteção de Dados (LGPD)","Limite",null,"Crítico","Recomendado"],
+ ["Outros","Remoção de Benfeitorias","AB",null,"Médio","Recomendado"],
+ ["Outros","Perda de Benefícios","A",null,"Médio","Recomendado"],
+ ["Outros","Renúncia ao Direito de Preferência/Vigência","B",9,"Alto","Recomendado"],
+ ["Outros","Comunicação","A",1,"Baixo","Não Recomendado"],
+].map(([tema,tipo,classe,peso,risco,status])=>({tema,tipo,classe,peso,risco,status}));
+const TEMAS=[...new Set(CLAUSULAS.map(c=>c.tema))];
+const RAMOS={
+ "Acessórios":["Cosméticos","Joias e Relógios","Ótica","Outros Acessórios"],
+ "Alimentação":["Café e lanches","Fast Food"],
+ "Conveniência & Serviços":["Academia de Ginástica","Agência de Viagens","Educação","Farmácia","Mantimentos","Outros Serviços","Saúde","Serviços de Beleza","Serviços Financeiros"],
+ "Diversos":["Brinquedos e Games","Papelaria e Livraria","Produtos Diversos"],
+ "Eletrodomésticos E Eletrônicos":["Eletrodomésticos e Eletrônicos","Telefonia"],
+ "Lar":["CAMEBA","Decoração e Construção"],
+ "Lazer":["Cinema, teatro e show","Lazer e Diversão"],
+ "Restaurantes":["Restaurantes"],
+ "Roupas E Calçados":["Calçados Femininos","Calçados Geral e Masculinos","Esportes","Lojas Departamento","Moda Íntima e Praia","Vestuário Feminino","Vestuário Geral","Vestuário Infantil","Vestuário Masculino"],
+};
+const SEGMENTOS=Object.values(RAMOS).flat();
+/* cláusulas com custo quantitativo: custo por loja × nº de praças */
+const KIND={
+ "Redução da Taxa de Transferência":"taxa","Isenção de Taxa de Transferência":"taxa","Isenção 1ª Taxa de Transferência":"taxa","Isenção TT mesmo Grupo Econômico":"taxa",
+ "Alteração de Índice de Reajuste":"reajuste_indice","Alteração de Prazo para Reajuste":"reajuste_prazo",
+ "Alteração de Multa Rescisória":"multa","Isenção de Multa Rescisória":"multa","Redução de Multa Rescisória Fixa":"multa","Redução de Multa Rescisória Gradual":"multa","Redução de Multa Rescisória Proporcional":"multa"};
+const ALCADAS=["Superintendente","Diretor de Portfólio","Diretoria de Operações"];
+const AL_CLS={"Superintendente":"sup","Diretor de Portfólio":"dir","Diretoria de Operações":"ops"};
+const STATUS={ aguardando:["Aguardando","st-aguardando"], aprovada:["Aprovada","st-aprovada"], ajuste:["Aprovada com ajuste","st-ajuste"], negada:["Negada","st-negada"], devolvida:["Devolvida","st-devolvida"] };
+
+const DEFAULT_PARAMS={
+  desconto_max:50, max_pracas:4, dias_parado:7,
+  graus_diretoria:["A","B"],
+  graus:{A:"Âncora",B:"Alavancadora de posicionamento",Padrao:"Padrão"},
+  graus_criterio:{A:"Puxa fluxo e sustenta o corredor / co-tenancy",B:"Eleva o mix e o posicionamento do shopping",Padrao:"Demais marcas"},
+  overrides:{"Serviços Financeiros":{"Cláusula Padrão":"Não Recomendado","Vendas Online":"Não Recomendado"},"Cinema, teatro e show":{"Vendas Líquidas":"Recomendado com Ressalvas"}}
+};
+const DEFAULT_MARCAS=[
+  {id:"m1",marca:"Marca Âncora Alfa",segmento:"Lojas Departamento",grau:"A",pracas:14},
+  {id:"m2",marca:"Boutique Beta",segmento:"Vestuário Feminino",grau:"Padrao",pracas:1},
+  {id:"m3",marca:"Modas Bella",segmento:"Vestuário Feminino",grau:"Padrao",pracas:6},
+  {id:"m4",marca:"Fast Sabor",segmento:"Fast Food",grau:"B",pracas:6},
+];
+const DEFAULT_PORTF=[{id:"pf1",diretor:"Diretor de Portfólio — Sul",pracas:"Shopping A, Shopping B, Shopping C"}];
+
+/* ---------- armazenamento ---------- */
+const LS={ params:"radarClausulas.params.v1", marcas:"radarClausulas.marcas.v1", solic:"radarClausulas.solic.v1", audit:"radarClausulas.audit.v1", portf:"radarClausulas.portf.v1" };
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function mesclaParams(s){ const b=JSON.parse(JSON.stringify(DEFAULT_PARAMS)); if(s&&typeof s==="object") for(const k in b){ if(s[k]!==undefined&&s[k]!==null) b[k]=s[k]; } return b; }
+let PARAMS=mesclaParams(lsGet(LS.params));
+let MARCAS=lsGet(LS.marcas); if(!Array.isArray(MARCAS)) MARCAS=JSON.parse(JSON.stringify(DEFAULT_MARCAS));
+let SOLIC=lsGet(LS.solic); if(!Array.isArray(SOLIC)) SOLIC=[];
+let AUDIT=lsGet(LS.audit); if(!Array.isArray(AUDIT)) AUDIT=[];
+let PORTF=lsGet(LS.portf); if(!Array.isArray(PORTF)) PORTF=JSON.parse(JSON.stringify(DEFAULT_PORTF));
+let APROVADOR_MODE=false; let ULTIMO=null; let ULTIMO_TEXTO="";
+
+/* ---------- utilidades ---------- */
+function nv(v){ if(v===null||v===undefined||v==="")return null; const n=parseFloat(v); return isNaN(n)?null:n; }
+function money(v){ return v==null?"—":"R$ "+Math.round(v).toLocaleString("pt-BR"); }
+function money2(v){ return v==null?"—":"R$ "+Number(v).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function newId(p){ return (p||"id")+"_"+Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); }
+function dataBr(iso){ const d=iso?new Date(iso):null; return d&&isFinite(d)?d.toLocaleDateString("pt-BR"):""; }
+function dataHoraBr(iso){ const d=iso?new Date(iso):null; return d&&isFinite(d)?d.toLocaleDateString("pt-BR")+" "+d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}):""; }
+function diasDesde(iso){ const d=iso?new Date(iso):null; return d&&isFinite(d)?Math.floor((Date.now()-d.getTime())/86400000):0; }
+function download(name,text,mime){ const b=new Blob([text],{type:mime||"text/plain;charset=utf-8"}); const u=URL.createObjectURL(b); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),1500); }
+function csvCell(v){ return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'; }
+function slugify(s){ return String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
+function copiar(t,msg){ navigator.clipboard.writeText(t).then(()=>toast(msg||"Copiado"),()=>toast("Não consegui copiar — selecione e copie")); }
+function opts(sel,arr,val){ sel.innerHTML=arr.map(x=>`<option value="${esc(x)}" ${x===val?"selected":""}>${esc(x)}</option>`).join(""); }
+
+/* ---------- ícones SVG monocromáticos ---------- */
+const ICONS={
+ scale:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M3 7l4 8 4-8M13 7l4 8 4-8"/><path d="M12 3 3 7M12 3l9 4"/></svg>',
+ clipboard:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h6"/></svg>',
+ list:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
+ settings:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+ shield:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>',
+ mail:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+ send:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>',
+ inbox:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-7A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1z"/></svg>',
+ link:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>',
+ download:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>',
+ upload:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>',
+ search:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
+ check:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>',
+ x:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+ edit:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+ chart:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19h16"/><path d="M7 15V9M12 15V5M17 15v-3"/></svg>',
+ users:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>',
+ map:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m1 6 7-3 8 3 7-3v15l-7 3-8-3-7 3z"/><path d="M8 3v15M16 6v15"/></svg>',
+ book:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+ plus:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+ copy:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+};
+function applyIcons(root){ (root||document).querySelectorAll("[data-ic]").forEach(el=>{ if(el.dataset.icd) return; el.dataset.icd="1"; const svg=ICONS[el.getAttribute("data-ic")]; if(!svg) return; el.insertAdjacentHTML("afterbegin",svg); }); }
+
+/* ============================================================
+   MOTOR — régua de alçada, desconto e custo (espelha o motor Python)
+   ============================================================ */
+function clausula(tipo){ return CLAUSULAS.find(c=>c.tipo===tipo); }
+function statusDo(tipo,seg){ const ov=PARAMS.overrides||{}; if(ov[seg]&&ov[seg][tipo]) return ov[seg][tipo]; const c=clausula(tipo); return c?c.status:"Não Recomendado"; }
+function custoPorLojaRS(tipo,ct){
+  const k=KIND[tipo]; const am=nv(ct.aluguel_mensal); if(!k||am===null) return null;
+  if(k==="taxa"){ const tp=nv(ct.taxa_padrao),tn=nv(ct.taxa_neg)||0; return tp===null?null:Math.max(0,tp-tn)*am; }
+  if(k==="reajuste_indice"){ const rp=nv(ct.reaj_padrao),rn=nv(ct.reaj_neg),m=nv(ct.meses)||12; return (rp===null||rn===null)?null:am*Math.max(0,rp-rn)/100*m; }
+  if(k==="reajuste_prazo"){ const r=nv(ct.reaj_pct),m=nv(ct.meses_post); return (r===null||m===null)?null:am*(r/100)*m; }
+  if(k==="multa"){ const mp=nv(ct.multa_padrao),mn=nv(ct.multa_neg)||0; let p=nv(ct.prob); p=(p===null?100:p); return mp===null?null:Math.max(0,mp-mn)*am*(p/100); }
+  return null;
+}
+function descontoPct(tipo,ct){
+  if(nv(ct.desconto)!==null) return nv(ct.desconto);
+  const k=KIND[tipo]; const r1=v=>Math.round(v*10)/10;
+  if(k==="taxa"){ const tp=nv(ct.taxa_padrao),tn=nv(ct.taxa_neg)||0; if(tp) return r1(Math.max(0,tp-tn)/tp*100); }
+  if(k==="multa"){ const mp=nv(ct.multa_padrao),mn=nv(ct.multa_neg)||0; if(mp) return r1(Math.max(0,mp-mn)/mp*100); }
+  if(k==="reajuste_indice"){ const rp=nv(ct.reaj_padrao),rn=nv(ct.reaj_neg); if(rp&&rn!==null) return r1(Math.max(0,rp-rn)/rp*100); }
+  return null;
+}
+function alcadaRule(grau,np,desc,dentro){
+  const dmax=PARAMS.desconto_max||50, maxp=PARAMS.max_pracas||4, g=PARAMS.graus||{};
+  if((PARAMS.graus_diretoria||[]).includes(grau)) return ["Diretoria de Operações","Marca "+grau+" ("+(g[grau]||grau)+") → alçada exclusiva da Diretoria de Operações."];
+  if(desc!==null&&desc>dmax) return ["Diretoria de Operações","Desconto de "+desc+"% acima do limite de "+dmax+"% das alçadas delegadas."];
+  if(np<=1) return ["Superintendente","Marca local (1 praça); desconto até "+dmax+"%."];
+  if(np<=maxp&&dentro) return ["Diretor de Portfólio","Marca em "+np+" praças, todas no portfólio (≤"+maxp+"); desconto até "+dmax+"%."];
+  const ms=[]; if(np>maxp) ms.push("mais de "+maxp+" praças"); if(!dentro) ms.push("loja fora do portfólio");
+  return ["Diretoria de Operações","Sem alçada delegada ("+(ms.join(" e ")||"regra de pegada")+")."];
+}
+function decidir(tipo,seg,marca,ct){
+  ct=ct||{}; marca=marca||{};
+  const c=clausula(tipo); if(!c) return null;
+  const status=statusDo(tipo,seg);
+  const grau=marca.grau||"Padrao", grauRot=(PARAMS.graus||{})[grau]||grau;
+  const np=parseInt(marca.pracas)||1;
+  const dentro=marca.dentro===undefined?true:!!marca.dentro;
+  const rs=custoPorLojaRS(tipo,ct); const am=nv(ct.aluguel_mensal); const anual=am?am*12:null;
+  let porLoja=null,total=null,clc=null;
+  if(rs!==null&&anual){ porLoja=Math.round(rs*100)/100; total=Math.round(rs*np*100)/100; clc=Math.round(rs/anual*1000)/10; }
+  const desc=descontoPct(tipo,ct);
+  let alcada,motivo,veredito,ineg=false;
+  if(c.classe==="Limite"){ alcada="Diretoria de Operações"; motivo="Compliance/LGPD — limite duro, inegociável."; veredito="INEGOCIÁVEL — limite duro (Compliance/LGPD). Não entra na balança econômica."; ineg=true; }
+  else{ const rr=alcadaRule(grau,np,desc,dentro); alcada=rr[0]; motivo=rr[1];
+    veredito=status==="Não Recomendado"?"Exceção — requer business case (guia: Não Recomendado).":(status==="Recomendado com Ressalvas"?"Aprovar com ressalva, dentro da alçada.":"Aprovar (recomendado), dentro da alçada."); }
+  return {tema:c.tema,tipo,seg,status,classe:c.classe,risco:c.risco,grau,grauRot,pracas:np,dentro,desconto:desc,porLoja,total,clc,alcada,motivo,veredito,ineg};
+}
+/* Checagens antes de registrar: nada bloqueia, mas o que fica passa marcado. */
+function checagens(r,ct,marca,solicitante){
+  const L=[]; const dmax=PARAMS.desconto_max||50;
+  if(r.ineg) L.push({n:"stop",m:"Cláusula de Compliance: inegociável — encaminhe ao Jurídico/Diretoria, não entra em negociação econômica."});
+  if(!marca.cadastrada) L.push({n:"warn",m:"Marca fora do cadastro: o grau foi assumido como Padrão. Cadastre a marca na Parametrização para usar o grau real."});
+  if(r.desconto!==null&&r.desconto>dmax&&!r.ineg) L.push({n:"warn",m:"Desconto de "+r.desconto+"% passa do máximo das alçadas delegadas ("+dmax+"%): o caso sobe à Diretoria de Operações."});
+  if(!r.dentro&&r.pracas>1&&!r.ineg) L.push({n:"warn",m:"Há loja fora do portfólio do Diretor: pela trava, a decisão é da Diretoria de Operações."});
+  if(r.desconto===null&&!r.ineg) L.push({n:"warn",m:"Sem o desconto (%), a régua não aplica o limite de "+dmax+"%: informe os valores da cláusula ou o desconto."});
+  if(KIND[r.tipo]&&r.porLoja===null&&!r.ineg) L.push({n:"warn",m:"Custo não calculado: informe o aluguel mensal e os valores padrão/negociado para ver o custo por loja e o total."});
+  if(r.status==="Não Recomendado"&&!r.ineg) L.push({n:"info",m:"O guia marca este tipo como Não Recomendado para o segmento: a aprovação é exceção e pede business case."});
+  if(!solicitante) L.push({n:"warn",m:"Solicitante em branco: informe executivo/shopping para a trilha de auditoria."});
+  return L;
+}
+
+/* ============================================================
+   AUDITORIA — trilha com hash encadeado (tamper-evident)
+   Não é prova criptográfica: é verificação de integridade local.
+   ============================================================ */
+function fnv1a(str,seed){ let h=(seed||0x811c9dc5)>>>0; for(let i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,0x01000193)>>>0; } return h; }
+function hashEvento(prev,e){ const base=JSON.stringify({em:e.em,tipo:e.tipo,solicId:e.solicId||"",marca:e.marca||"",clausula:e.clausula||"",alcada:e.alcada||"",decisao:e.decisao||"",decisor:e.decisor||"",just:e.just||"",resumo:e.resumo||""}); const s=(prev||"")+"|"+base; return fnv1a(s).toString(16).padStart(8,"0")+fnv1a(s,0x9747b28c).toString(16).padStart(8,"0"); }
+function registrar(e){
+  const prev=AUDIT.length?AUDIT[AUDIT.length-1].hash:"";
+  const ev=Object.assign({id:newId("ev"),em:new Date().toISOString()},e); ev.prev=prev; ev.hash=hashEvento(prev,ev);
+  AUDIT.push(ev); lsSet(LS.audit,AUDIT); return ev;
+}
+function verificarIntegridade(){
+  let prev=""; for(let i=0;i<AUDIT.length;i++){ const e=AUDIT[i]; if(e.prev!==prev||e.hash!==hashEvento(prev,e)) return {ok:false,em:i,evento:e}; prev=e.hash; }
+  return {ok:true,total:AUDIT.length};
+}
+
+/* ============================================================
+   SOLICITAÇÃO — formulário, avaliação e registro
+   ============================================================ */
+function marcaSel(){
+  const id=document.getElementById("q_marca").value; const txt=document.getElementById("q_marca_txt").value.trim();
+  const m=MARCAS.find(x=>x.id===id);
+  if(m) return {nome:m.marca,grau:m.grau,pracas:m.pracas,segmento:m.segmento,cadastrada:true};
+  return {nome:txt||"(marca não informada)",grau:"Padrao",pracas:parseInt(document.getElementById("q_pracas").value)||1,segmento:"",cadastrada:false};
+}
+function preencherMarcas(){ const s=document.getElementById("q_marca"); const cur=s.value; s.innerHTML='<option value="">— fora do cadastro —</option>'+MARCAS.slice().sort((a,b)=>a.marca.localeCompare(b.marca)).map(m=>`<option value="${esc(m.id)}">${esc(m.marca)} · ${esc((PARAMS.graus||{})[m.grau]||m.grau)} · ${m.pracas} praça(s)</option>`).join(""); if([...s.options].some(o=>o.value===cur)) s.value=cur; }
+function aplicarMarca(){ const m=MARCAS.find(x=>x.id===document.getElementById("q_marca").value); if(!m) return; document.getElementById("q_pracas").value=m.pracas; const seg=document.getElementById("q_seg"); if([...seg.options].some(o=>o.value===m.segmento)) seg.value=m.segmento; document.getElementById("q_marca_txt").value=""; }
+function preencherTipos(){ const tema=document.getElementById("q_tema").value; opts(document.getElementById("q_tipo"),CLAUSULAS.filter(c=>c.tema===tema).map(c=>c.tipo)); atualizarPainelQuant(); }
+function atualizarPainelQuant(){
+  const tipo=document.getElementById("q_tipo").value, k=KIND[tipo]; const pq=document.getElementById("painelQuant"), pg=document.getElementById("painelGen");
+  const c=clausula(tipo); const seg=document.getElementById("q_seg").value;
+  document.getElementById("guiaInfo").innerHTML=c?`Guia para <b>${esc(seg)}</b>: <b>${esc(statusDo(tipo,seg))}</b> · classe ${esc(c.classe)} · risco ${esc(c.risco)}${c.classe==="Limite"?" · <b>limite duro (inegociável)</b>":""}`:"";
+  if(!k){ pq.innerHTML=""; pg.classList.remove("hidden"); return; }
+  pg.classList.add("hidden");
+  const campos={
+    taxa:[["q_p1","Taxa padrão (nº de aluguéis)","3"],["q_p2","Taxa negociada (nº de aluguéis)","1,5"]],
+    reajuste_indice:[["q_p1","Reajuste padrão (% a.a.)","4,5"],["q_p2","Reajuste negociado (% a.a.)","3"],["q_p3","Prazo restante (meses)","12"]],
+    reajuste_prazo:[["q_p1","Reajuste anual (%)","4,5"],["q_p2","Meses de postergação","6"],["q_p3","Desconto equivalente (%) — opcional",""]],
+    multa:[["q_p1","Multa padrão (nº de aluguéis)","3"],["q_p2","Multa negociada (nº de aluguéis)","2"],["q_p3","Prob. de rescisão (%)","100"]],
+  }[k];
+  pq.innerHTML=`<div class="banner">Cálculo quantitativo: o custo é calculado <b>por loja</b> e multiplicado pelo <b>nº de praças</b> da marca para o total; o <b>desconto</b> sai dos valores padrão × negociado.</div>
+    <div class="grid3"><div class="field"><span class="lbl">Aluguel mensal (R$)</span><input id="q_alug" type="number" inputmode="decimal" placeholder="ex.: 20000"></div>`+
+    campos.map(([id,lab,ph])=>`<div class="field"><span class="lbl">${esc(lab)}</span><input id="${id}" type="number" step="0.01" inputmode="decimal" placeholder="ex.: ${esc(ph)}"></div>`).join("")+`</div>`;
+}
+function contratoDoForm(){
+  const tipo=document.getElementById("q_tipo").value, k=KIND[tipo]; const v=id=>{ const e=document.getElementById(id); return e?e.value:""; };
+  if(!k) return {desconto:v("q_desc"),aluguel_mensal:v("q_alug_gen")};
+  const ct={aluguel_mensal:v("q_alug")};
+  if(k==="taxa"){ ct.taxa_padrao=v("q_p1"); ct.taxa_neg=v("q_p2"); }
+  else if(k==="reajuste_indice"){ ct.reaj_padrao=v("q_p1"); ct.reaj_neg=v("q_p2"); ct.meses=v("q_p3"); }
+  else if(k==="reajuste_prazo"){ ct.reaj_pct=v("q_p1"); ct.meses_post=v("q_p2"); ct.desconto=v("q_p3"); }
+  else if(k==="multa"){ ct.multa_padrao=v("q_p1"); ct.multa_neg=v("q_p2"); ct.prob=v("q_p3"); }
+  return ct;
+}
+function run(){
+  const tipo=document.getElementById("q_tipo").value, seg=document.getElementById("q_seg").value;
+  const m=marcaSel(); const np=parseInt(document.getElementById("q_pracas").value)||m.pracas||1;
+  const dentro=document.getElementById("q_dentro").value==="sim";
+  const ct=contratoDoForm();
+  const r=decidir(tipo,seg,{grau:m.grau,pracas:np,dentro},ct); if(!r){ toast("Escolha um tipo de cláusula"); return; }
+  const solicitante=document.getElementById("q_solic").value.trim(); const obs=document.getElementById("q_obs").value.trim();
+  const chk=checagens(r,ct,m,solicitante);
+  ULTIMO={r,ct,marca:m,solicitante,obs,chk};
+  renderResult(ULTIMO);
+}
+function dossieTexto(s){
+  const r=s.r; const L=[];
+  L.push("DECISÃO DE CLÁUSULA — "+r.alcada.toUpperCase());
+  L.push("Marca: "+s.marca.nome+" · grau "+r.grau+" ("+r.grauRot+") · "+r.pracas+" praça(s) · "+(r.dentro?"todas no portfólio":"há loja fora do portfólio"));
+  L.push("Cláusula: "+r.tema+" → "+r.tipo+" · segmento "+r.seg);
+  L.push("Status do guia: "+r.status+(r.desconto!==null?" · Desconto: "+r.desconto+"%":""));
+  if(r.porLoja!==null) L.push("Custo: "+money2(r.porLoja)+"/loja → "+money2(r.total)+" total (× "+r.pracas+" praças)"+(r.clc!==null?" · "+r.clc+"% do aluguel anual":""));
+  L.push("Alçada: "+r.alcada+" — "+r.motivo);
+  L.push("Veredito: "+r.veredito);
+  if(s.solicitante) L.push("Solicitante: "+s.solicitante); if(s.obs) L.push("Obs.: "+s.obs);
+  if(s.id) L.push("Solicitação: "+s.id+(s.criadoEm?" · "+dataHoraBr(s.criadoEm):""));
+  return L.join("\n");
+}
+function alcadaRouteCls(r){ return r.ineg?"ineg":AL_CLS[r.alcada]; }
+function renderResult(s){
+  const r=s.r; const out=document.getElementById("result"); const row=(k,v)=>`<div class="row"><span class="k">${k}</span><span class="v">${v}</span></div>`;
+  const chk=s.chk.length?`<div class="card"><h3>Confira antes de registrar</h3>${s.chk.map(c=>`<div class="chk"><span class="ic ${c.n==="stop"?"t-vermelho":c.n==="warn"?"t-amarelo":"t-blue"}">${c.n==="stop"?"✕":c.n==="warn"?"!":"i"}</span><span>${esc(c.m)}</span></div>`).join("")}</div>`:"";
+  out.innerHTML=`
+    <div class="route ${alcadaRouteCls(r)}"><div class="rt">${r.ineg?"Limite duro":"Alçada que decide"}</div><div class="rn">${esc(r.ineg?"Inegociável":r.alcada)}</div><div class="rd">${esc(r.motivo)}</div></div>
+    ${chk}
+    <div class="card">
+      <h3>Leitura da régua</h3>
+      ${row("Grau da marca",esc(r.grau+" — "+r.grauRot))}
+      ${row("Praças / portfólio",r.pracas+" praça(s) · "+(r.dentro?"todas no portfólio":"há loja fora"))}
+      ${r.desconto!==null?row("Desconto concedido",r.desconto+"%"):""}
+      ${r.porLoja!==null?row("Custo por loja",money2(r.porLoja)+(r.clc!==null?" <span class='muted'>("+r.clc+"% do aluguel anual)</span>":"")):""}
+      ${r.porLoja!==null?row("Custo total (× "+r.pracas+" praças)","<b>"+money2(r.total)+"</b>"):""}
+      ${row("Status do guia",esc(r.status))}
+      ${row("Veredito",esc(r.veredito))}
+      <div class="dossie"><h3>📋 Dossiê para o aprovador</h3><pre style="white-space:pre-wrap;margin:0;font-family:inherit">${esc(dossieTexto(s))}</pre></div>
+      <div class="actions" style="margin-top:12px">
+        <button class="btn-blue" id="btnRegistrar" data-ic="check">${r.ineg?"Registrar como inegociável":"Registrar no pipeline"}</button>
+        <button class="btn-gray" id="btnEnviarApr" data-ic="send">Enviar ao aprovador</button>
+      </div>
+      <div id="sendBox" class="hidden" style="margin-top:10px"></div>
+      <div class="actions" style="margin-top:8px"><button class="btn-gray btn-sm" id="btnCopiarDossie" data-ic="copy">Copiar dossiê</button><button class="btn-gray btn-sm" id="btnNova">Nova solicitação</button></div>
+    </div>`;
+  out.classList.remove("hidden"); applyIcons(out);
+  document.getElementById("btnRegistrar").onclick=()=>{ const sol=registrarSolic(s); toast("Registrada · aguardando "+sol.alcada); showView("pipe"); };
+  document.getElementById("btnEnviarApr").onclick=()=>{ const sol=s.id?SOLIC.find(x=>x.id===s.id):registrarSolic(s); mostrarEnvio(sol,document.getElementById("sendBox")); };
+  document.getElementById("btnCopiarDossie").onclick=()=>copiar(dossieTexto(s),"Dossiê copiado");
+  document.getElementById("btnNova").onclick=()=>{ out.classList.add("hidden"); ULTIMO=null; window.scrollTo({top:0,behavior:"smooth"}); };
+  out.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function registrarSolic(s){
+  if(s.id){ return SOLIC.find(x=>x.id===s.id); }
+  const r=s.r; const agora=new Date().toISOString();
+  const sol={id:newId("sc"),criadoEm:agora,atualizadoEm:agora,marca:s.marca.nome,grau:r.grau,segmento:r.seg,tema:r.tema,tipo:r.tipo,pracas:r.pracas,dentro:r.dentro,
+    desconto:r.desconto,porLoja:r.porLoja,total:r.total,clc:r.clc,statusGuia:r.status,alcadaOrig:r.alcada,alcada:r.alcada,motivo:r.motivo,veredito:r.veredito,ineg:r.ineg,
+    status:"aguardando",solicitante:s.solicitante,obs:s.obs,ct:s.ct,decisoes:[],notas:""};
+  SOLIC.unshift(sol); lsSet(LS.solic,SOLIC); s.id=sol.id; s.criadoEm=agora;
+  registrar({tipo:"solic_criada",solicId:sol.id,marca:sol.marca,clausula:sol.tipo,alcada:sol.alcada,decisor:sol.solicitante,resumo:"Solicitação registrada · "+(sol.desconto!==null?sol.desconto+"% · ":"")+(sol.total!==null?money(sol.total)+" total · ":"")+"aguardando "+sol.alcada});
+  updateCounts(); return sol;
+}
+
+/* ============================================================
+   PIPELINE — decisões, escalada, follow-up, CSV/backup
+   ============================================================ */
+function proximaAlcada(a){ const i=ALCADAS.indexOf(a); return i>=0&&i<ALCADAS.length-1?ALCADAS[i+1]:null; }
+function decidirSolic(id,acao,decisor,just,origem){
+  const s=SOLIC.find(x=>x.id===id); if(!s) return null;
+  decisor=String(decisor||"").trim(); just=String(just||"").trim();
+  if(!decisor||!just){ toast("Decisor e justificativa são obrigatórios"); return null; }
+  const agora=new Date().toISOString();
+  if(acao==="escalar"){ const nx=proximaAlcada(s.alcada); if(!nx){ toast("Já está na alçada máxima"); return null; } const de=s.alcada; s.alcada=nx; s.status="aguardando"; s.atualizadoEm=agora;
+    s.decisoes.push({em:agora,acao:"escalada",de,para:nx,decisor,just});
+    registrar({tipo:"escalada",solicId:s.id,marca:s.marca,clausula:s.tipo,alcada:nx,decisao:"escalada",decisor,just,resumo:"Escalada de "+de+" para "+nx}); }
+  else if(acao==="devolvida"){ s.status="devolvida"; s.atualizadoEm=agora; s.decisoes.push({em:agora,acao:"devolvida",alcada:s.alcada,decisor,just});
+    registrar({tipo:"decisao",solicId:s.id,marca:s.marca,clausula:s.tipo,alcada:s.alcada,decisao:"devolvida",decisor,just,resumo:"Devolvida ao solicitante"}); }
+  else{ s.status=acao; s.atualizadoEm=agora; s.decisoes.push({em:agora,acao,alcada:s.alcada,decisor,just,origem:origem||"local"});
+    registrar({tipo:"decisao",solicId:s.id,marca:s.marca,clausula:s.tipo,alcada:s.alcada,decisao:acao,decisor,just,resumo:STATUS[acao][0]+" por "+s.alcada+(origem==="codigo"?" (via código)":"")+(s.total!==null?" · "+money(s.total)+" total":"")}); }
+  lsSet(LS.solic,SOLIC); updateCounts(); return s;
+}
+function parado(s){ return s.status==="aguardando"&&diasDesde(s.atualizadoEm)>(PARAMS.dias_parado||7); }
+function renderPipe(){
+  const q=(document.getElementById("srch").value||"").toLowerCase().trim(); const fs=document.getElementById("fstatus").value; const fa=document.getElementById("falc").value;
+  let L=SOLIC.slice();
+  if(q) L=L.filter(s=>[s.marca,s.tipo,s.tema,s.segmento,s.solicitante,s.obs].join(" ").toLowerCase().includes(q));
+  if(fs==="parado") L=L.filter(parado); else if(fs) L=L.filter(s=>s.status===fs);
+  if(fa) L=L.filter(s=>s.alcada===fa);
+  const res=document.getElementById("pipeResumo"); const ag=SOLIC.filter(s=>s.status==="aguardando");
+  res.innerHTML=ALCADAS.map(a=>`<div class="metric"><div class="mk">Aguardando · ${esc(a)}</div><div class="mv">${ag.filter(s=>s.alcada===a).length}</div></div>`).join("");
+  const out=document.getElementById("pipeList");
+  if(!L.length){ out.innerHTML='<div class="empty">Nenhuma solicitação'+(q||fs||fa?" para este filtro":"")+'. Avalie uma cláusula na aba Solicitação.</div>'; return; }
+  out.innerHTML=L.map(s=>{
+    const st=STATUS[s.status]||STATUS.aguardando; const dias=diasDesde(s.atualizadoEm);
+    const tags=(parado(s)?`<span class="tag-warn">sem atualização há ${dias} dias</span> `:"")+(s.ineg?`<span class="tag-stop">inegociável</span>`:"");
+    const ult=s.decisoes.length?s.decisoes[s.decisoes.length-1]:null;
+    const podeDecidir=s.status==="aguardando"||s.status==="devolvida";
+    return `<div class="inv-card" data-id="${esc(s.id)}">
+      <div class="inv-top"><div><div class="inv-name">${esc(s.marca)} <span class="al-pill al-${AL_CLS[s.alcada]}">${esc(s.alcada)}</span></div>
+        <div class="inv-meta">${esc(s.tema)} → <b>${esc(s.tipo)}</b> · ${esc(s.segmento)} · ${s.pracas} praça(s) · grau ${esc(s.grau)}${s.desconto!==null?" · desconto "+s.desconto+"%":""}${s.total!==null?" · <b>"+money(s.total)+"</b> total":""}</div>
+        <div class="inv-meta">${esc(s.solicitante||"—")} · criada ${dataBr(s.criadoEm)} · atualizada ${dataBr(s.atualizadoEm)}</div>${tags?`<div>${tags}</div>`:""}</div>
+        <span class="status-pill ${st[1]}">${st[0]}</span></div>
+      ${ult?`<div class="rec-mini"><span class="rec-tag">${esc(ult.acao==="escalada"?"escalada → "+ult.para:STATUS[ult.acao]?STATUS[ult.acao][0]:ult.acao)} · ${esc(ult.decisor)} · ${dataBr(ult.em)}</span><span class="rec-tag" style="flex:1 1 100%">“${esc(ult.just)}”</span></div>`:""}
+      <details><summary>Dossiê, decisão e notas</summary>
+        <div class="dossie" style="margin-top:8px"><pre style="white-space:pre-wrap;margin:0;font-family:inherit">${esc(dossieTexto({r:solicComoR(s),marca:{nome:s.marca},solicitante:s.solicitante,obs:s.obs,id:s.id,criadoEm:s.criadoEm}))}</pre></div>
+        <div class="actions" style="margin-top:8px"><button class="btn-gray btn-sm" data-act="copiar" data-ic="copy">Copiar dossiê</button><button class="btn-gray btn-sm" data-act="enviar" data-ic="send">Enviar ao aprovador</button></div>
+        <div class="sendbox hidden" style="margin-top:8px"></div>
+        ${podeDecidir?`<div class="decide"><span class="lbl">Decisão da alçada ${esc(s.alcada)}</span>
+          <input class="d-nome" placeholder="Decisor (nome e cargo)">
+          <textarea class="d-just" placeholder="Justificativa (obrigatória — vira precedente)"></textarea>
+          <div class="actions3"><button class="btn-ok" data-act="aprovada" data-ic="check">Aprovar</button><button class="btn-adj" data-act="ajuste" data-ic="edit">Aprovar c/ ajuste</button><button class="btn-danger" data-act="negada" data-ic="x">Negar</button></div>
+          <div class="actions" style="margin-top:8px"><button class="btn-warn btn-sm" data-act="escalar" data-ic="upload">Escalar para ${esc(proximaAlcada(s.alcada)||"—")}</button><button class="btn-gray btn-sm" data-act="devolvida">Devolver ao solicitante</button></div></div>`:
+          `<div class="decide"><span class="lbl">Histórico</span>${s.decisoes.map(d=>`<div class="chk"><span class="ic">•</span><span><b>${esc(d.acao==="escalada"?"Escalada → "+d.para:STATUS[d.acao]?STATUS[d.acao][0]:d.acao)}</b> · ${esc(d.decisor)} · ${dataHoraBr(d.em)}<br>${esc(d.just)}</span></div>`).join("")||"<div class='muted'>—</div>"}
+          <div class="actions" style="margin-top:8px"><button class="btn-gray btn-sm" data-act="reabrir">Reabrir (volta a aguardar)</button><span></span></div></div>`}
+        <textarea class="d-notas" placeholder="Notas do executivo" style="margin-top:8px;font-size:13px">${esc(s.notas||"")}</textarea>
+        <div class="actions" style="margin-top:6px"><button class="btn-gray btn-sm" data-act="notas">Salvar notas</button><button class="btn-danger btn-sm" data-act="excluir">Excluir</button></div>
+      </details></div>`;
+  }).join("");
+  applyIcons(out);
+  out.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{
+    const card=b.closest(".inv-card"); const id=card.getAttribute("data-id"); const s=SOLIC.find(x=>x.id===id); if(!s) return; const act=b.getAttribute("data-act");
+    if(act==="copiar"){ copiar(dossieTexto({r:solicComoR(s),marca:{nome:s.marca},solicitante:s.solicitante,obs:s.obs,id:s.id,criadoEm:s.criadoEm}),"Dossiê copiado"); return; }
+    if(act==="enviar"){ mostrarEnvio(s,card.querySelector(".sendbox")); return; }
+    if(act==="notas"){ s.notas=card.querySelector(".d-notas").value.slice(0,2000); s.atualizadoEm=new Date().toISOString(); lsSet(LS.solic,SOLIC); toast("Notas salvas"); return; }
+    if(act==="excluir"){ if(!confirm("Excluir a solicitação de "+s.marca+"? A trilha de auditoria mantém os eventos.")) return; SOLIC=SOLIC.filter(x=>x.id!==id); lsSet(LS.solic,SOLIC); registrar({tipo:"param",solicId:id,marca:s.marca,clausula:s.tipo,resumo:"Solicitação excluída do pipeline"}); updateCounts(); renderPipe(); return; }
+    if(act==="reabrir"){ s.status="aguardando"; s.atualizadoEm=new Date().toISOString(); lsSet(LS.solic,SOLIC); registrar({tipo:"escalada",solicId:s.id,marca:s.marca,clausula:s.tipo,alcada:s.alcada,decisao:"reaberta",resumo:"Reaberta — volta a aguardar "+s.alcada}); updateCounts(); renderPipe(); return; }
+    const nome=card.querySelector(".d-nome")?card.querySelector(".d-nome").value:""; const just=card.querySelector(".d-just")?card.querySelector(".d-just").value:"";
+    if(decidirSolic(id,act,nome,just,"local")){ toast(act==="escalar"?"Escalada":STATUS[act]?STATUS[act][0]:"Registrado"); renderPipe(); }
+  });
+}
+function solicComoR(s){ return {tema:s.tema,tipo:s.tipo,seg:s.segmento,status:s.statusGuia,grau:s.grau,grauRot:(PARAMS.graus||{})[s.grau]||s.grau,pracas:s.pracas,dentro:s.dentro,desconto:s.desconto,porLoja:s.porLoja,total:s.total,clc:s.clc,alcada:s.alcada,motivo:s.motivo,veredito:s.veredito,ineg:s.ineg}; }
+function updateCounts(){ document.getElementById("cntPipe").textContent=SOLIC.filter(s=>s.status==="aguardando").length; }
+function exportCsv(){
+  const head=["id","criado_em","atualizado_em","marca","grau","segmento","tema","tipo","pracas","todas_no_portfolio","desconto_pct","custo_por_loja","custo_total","alcada_original","alcada_atual","status","ultima_decisao","decisor","justificativa","solicitante","observacao","notas"];
+  const L=[head.map(csvCell).join(";")];
+  SOLIC.forEach(s=>{ const u=s.decisoes.length?s.decisoes[s.decisoes.length-1]:null;
+    L.push([s.id,dataBr(s.criadoEm),dataBr(s.atualizadoEm),s.marca,s.grau,s.segmento,s.tema,s.tipo,s.pracas,s.dentro?"sim":"não",s.desconto,s.porLoja,s.total,s.alcadaOrig,s.alcada,(STATUS[s.status]||[""])[0],u?u.acao:"",u?u.decisor:"",u?u.just:"",s.solicitante,s.obs,s.notas].map(csvCell).join(";")); });
+  download("radar-clausulas-pipeline.csv","﻿"+L.join("\n"),"text/csv;charset=utf-8");
+}
+function exportJson(){ download("radar-clausulas-backup.json",JSON.stringify({version:1,tipo:"radar-clausulas",exportedAt:new Date().toISOString(),solic:SOLIC,audit:AUDIT,params:PARAMS,marcas:MARCAS,portf:PORTF},null,2),"application/json"); }
+function sanitizeSolic(raw){
+  if(!raw||typeof raw!=="object") return null;
+  const s=(v,max)=>String(v==null?"":v).slice(0,max||160); const n=v=>{ const x=Number(v); return isFinite(x)?x:null; };
+  const st=STATUS[raw.status]?raw.status:"aguardando"; const al=ALCADAS.includes(raw.alcada)?raw.alcada:"Diretoria de Operações";
+  return {id:s(raw.id,40)||newId("sc"),criadoEm:s(raw.criadoEm,40)||new Date().toISOString(),atualizadoEm:s(raw.atualizadoEm,40)||new Date().toISOString(),marca:s(raw.marca,120),grau:["A","B","Padrao"].includes(raw.grau)?raw.grau:"Padrao",segmento:s(raw.segmento,80),tema:s(raw.tema,80),tipo:s(raw.tipo,120),
+    pracas:Math.max(1,Math.min(999,Math.round(n(raw.pracas)||1))),dentro:raw.dentro!==false,desconto:n(raw.desconto),porLoja:n(raw.porLoja),total:n(raw.total),clc:n(raw.clc),statusGuia:s(raw.statusGuia,60),alcadaOrig:ALCADAS.includes(raw.alcadaOrig)?raw.alcadaOrig:al,alcada:al,motivo:s(raw.motivo,300),veredito:s(raw.veredito,300),ineg:!!raw.ineg,
+    status:st,solicitante:s(raw.solicitante,120),obs:s(raw.obs,400),ct:(raw.ct&&typeof raw.ct==="object")?raw.ct:{},decisoes:Array.isArray(raw.decisoes)?raw.decisoes.slice(0,50).map(d=>({em:s(d.em,40),acao:s(d.acao,20),alcada:s(d.alcada,40),de:s(d.de,40),para:s(d.para,40),decisor:s(d.decisor,120),just:s(d.just,1000),origem:s(d.origem,20)})):[],notas:s(raw.notas,2000)};
+}
+function importJson(file){
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const d=JSON.parse(rd.result);
+      if(Array.isArray(d.solic)) SOLIC=d.solic.map(sanitizeSolic).filter(Boolean);
+      if(Array.isArray(d.audit)) AUDIT=d.audit.filter(e=>e&&typeof e==="object").slice(0,5000);
+      if(d.params) PARAMS=mesclaParams(d.params); if(Array.isArray(d.marcas)) MARCAS=d.marcas.map(sanitizeMarca).filter(Boolean); if(Array.isArray(d.portf)) PORTF=d.portf.map(sanitizePortf).filter(Boolean);
+      lsSet(LS.solic,SOLIC); lsSet(LS.audit,AUDIT); lsSet(LS.params,PARAMS); lsSet(LS.marcas,MARCAS); lsSet(LS.portf,PORTF);
+      registrar({tipo:"param",resumo:"Backup importado ("+SOLIC.length+" solicitações)"});
+      updateCounts(); renderPipe(); renderParams(); preencherMarcas(); toast("Backup importado");
+    }catch(e){ alert("Arquivo inválido."); } };
+  rd.readAsText(file);
+}
+
+/* ============================================================
+   FICHA — enviar ao aprovador · receber decisão (sem servidor)
+   ============================================================ */
+function encodePayload(prefix,o){ try{ return prefix+":"+btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }catch(e){ return JSON.stringify(o); } }
+function b64json(b){ b=b.replace(/-/g,"+").replace(/_/g,"/").replace(/=+$/,""); b+="=".repeat((4-b.length%4)%4); try{ return JSON.parse(decodeURIComponent(escape(atob(b)))); }catch(e){ return null; } }
+/* O código raramente chega intacto (e-mail dobra, WhatsApp insere espaço,
+   apps tiram o "=" do fim): cada forma é tentada antes de desistir. */
+function decodePayload(str,prefix){
+  ULTIMO_TEXTO=String(str==null?"":str); if(!str) return null; str=String(str).trim();
+  try{ if(str[0]==="{") return JSON.parse(str); }catch(e){}
+  let url=str; try{ url=decodeURIComponent(str); }catch(e){}
+  const re=new RegExp(prefix+"\\s*:\\s*([A-Za-z0-9+/=_-]+)");
+  for(const s of [str,url,str.replace(/\s+/g,""),url.replace(/\s+/g,"")]){ const m=s.match(re); if(m){ const d=b64json(m[1]); if(d) return d; } }
+  const acha=s=>s.match(/[A-Za-z0-9+/=_-]{40,}/g)||[];
+  for(const r of [...acha(str),...acha(str.replace(/\s+/g,""))].sort((a,b)=>b.length-a.length)){ const d=b64json(r.replace(new RegExp("^"+prefix+":?"),"")); if(d) return d; }
+  return null;
+}
+function linkAprovador(){ return location.origin+location.pathname+"#aprovador"; }
+function payloadSolic(s){ return {t:"RC-SOLIC",v:1,id:s.id,marca:s.marca,grau:s.grau,segmento:s.segmento,tema:s.tema,tipo:s.tipo,pracas:s.pracas,dentro:s.dentro,desconto:s.desconto,porLoja:s.porLoja,total:s.total,clc:s.clc,statusGuia:s.statusGuia,alcada:s.alcada,motivo:s.motivo,veredito:s.veredito,ineg:s.ineg,solicitante:s.solicitante,obs:s.obs,criadoEm:s.criadoEm}; }
+function mostrarEnvio(s,box){
+  if(!s||!box) return; const code=encodePayload("RC1",payloadSolic(s)); const link=linkAprovador();
+  const msg="Solicitação de cláusula para sua decisão ("+s.alcada+"):\n"+dossieTexto({r:solicComoR(s),marca:{nome:s.marca},solicitante:s.solicitante,obs:s.obs,id:s.id,criadoEm:s.criadoEm})+"\n\nAbra "+link+" e cole o código abaixo para decidir:\n"+code;
+  box.classList.remove("hidden");
+  box.innerHTML=`<div class="banner">Envie ao aprovador (<b>${esc(s.alcada)}</b>) a mensagem abaixo — ela leva o dossiê, o link e o código. Ele decide e devolve um código <code>RC1D:</code> que você cola em <b>Receber decisão</b>.</div>
+    <textarea class="codebox" readonly>${esc(msg)}</textarea>
+    <div class="actions3" style="margin-top:8px"><button class="btn-gray btn-sm" data-ic="copy">Copiar</button><button class="btn-wa btn-sm" data-ic="send">WhatsApp</button><button class="btn-gray btn-sm" data-ic="download">.json</button></div>`;
+  applyIcons(box); const bs=box.querySelectorAll("button");
+  bs[0].onclick=()=>copiar(msg,"Mensagem copiada"); bs[1].onclick=()=>{ if(msg.length>3000){ toast("Longo demais para o WhatsApp — use Copiar"); return; } window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener"); }; bs[2].onclick=()=>download("solicitacao-"+slugify(s.marca)+".json",JSON.stringify(payloadSolic(s),null,2),"application/json");
+  if(link.startsWith("file:")) box.insertAdjacentHTML("beforeend",'<p class="hint">Aberto como arquivo local, o link sai como file:// e não serve para enviar — publique a ferramenta e gere de novo.</p>');
+}
+function receberDecisao(d){
+  if(!d||d.t!=="RC-DEC"){ return "O código não é uma decisão do Radar de Cláusulas"+(d&&d.t?" ("+d.t+")":"")+"."; }
+  const acao=STATUS[d.decisao]?d.decisao:null; if(!acao) return "Decisão não reconhecida.";
+  let s=SOLIC.find(x=>x.id===d.id);
+  if(!s&&d.solic){ s=sanitizeSolic(Object.assign({},d.solic,{id:d.id,status:"aguardando",alcadaOrig:d.solic.alcada})); SOLIC.unshift(s); lsSet(LS.solic,SOLIC); registrar({tipo:"solic_criada",solicId:s.id,marca:s.marca,clausula:s.tipo,alcada:s.alcada,decisor:s.solicitante,resumo:"Solicitação recebida junto com a decisão (não estava neste navegador)"}); }
+  if(!s) return "Não encontrei a solicitação "+d.id+" neste navegador e o código não trouxe o dossiê.";
+  if(s.status!=="aguardando"&&s.status!=="devolvida") return "A solicitação de "+s.marca+" já está "+(STATUS[s.status]||[""])[0].toLowerCase()+". Reabra no pipeline para registrar outra decisão.";
+  const ok=decidirSolic(s.id,acao,d.decisor,d.just,"codigo"); return ok?null:"Decisor ou justificativa vieram em branco.";
+}
+function showRecv(){ const b=document.getElementById("recvBox"); b.classList.toggle("hidden"); document.getElementById("linkBox").classList.add("hidden"); document.getElementById("recvMsg").textContent=""; }
+function showLink(){ const b=document.getElementById("linkBox"); b.classList.toggle("hidden"); document.getElementById("recvBox").classList.add("hidden"); document.getElementById("linkApr").textContent=linkAprovador(); }
+
+/* ---------- modo aprovador (via #aprovador) ---------- */
+let APR_SOLIC=null;
+function applyAprovadorMode(){
+  APROVADOR_MODE=true; document.documentElement.classList.add("aprovador");
+  /* as áreas do executivo saem do DOM — quem recebe o link não tem pipeline, parametrização nem auditoria na página */
+  ["tabs","view-solic","view-pipe","view-param","view-audit"].forEach(id=>{ const el=document.getElementById(id); if(el) el.remove(); });
+  document.getElementById("view-aprovador").classList.remove("hidden");
+  document.getElementById("appTitle").textContent="Decisão de Cláusula";
+  document.getElementById("appSub").textContent="Abra a solicitação, leia o dossiê e registre sua decisão com justificativa — o código gerado volta para o executivo.";
+  document.getElementById("aprLer").onclick=()=>{ const d=decodePayload(document.getElementById("aprCode").value,"RC1"); if(!d||d.t!=="RC-SOLIC"){ document.getElementById("aprBanner").className="banner lacuna"; document.getElementById("aprBanner").textContent="Não consegui abrir a solicitação — o código está cortado ou é de outra ferramenta. Peça ao executivo para reenviar."; return; } aprAbrir(d); };
+  document.querySelectorAll("#aprForm [data-dec]").forEach(b=>b.onclick=()=>aprDecidir(b.getAttribute("data-dec")));
+  const m=(location.hash||"").match(/[#&]solic=([^&]+)/i); if(m){ try{ const d=decodePayload(decodeURIComponent(m[1]),"RC1"); if(d&&d.t==="RC-SOLIC"){ document.getElementById("aprCode").value=encodePayload("RC1",d); aprAbrir(d); } }catch(e){} }
+}
+function aprAbrir(d){
+  const s=sanitizeSolic(Object.assign({},d,{status:"aguardando"})); APR_SOLIC=s;
+  const r=solicComoR(s);
+  document.getElementById("aprDossie").innerHTML=`<div class="route ${r.ineg?"ineg":AL_CLS[s.alcada]}" style="margin-top:12px"><div class="rt">${r.ineg?"Limite duro":"Sua alçada"}</div><div class="rn">${esc(r.ineg?"Inegociável":s.alcada)}</div><div class="rd">${esc(s.motivo)}</div></div><div class="dossie"><h3>📋 Dossiê</h3><pre style="white-space:pre-wrap;margin:0;font-family:inherit">${esc(dossieTexto({r,marca:{nome:s.marca},solicitante:s.solicitante,obs:s.obs,id:s.id,criadoEm:s.criadoEm}))}</pre></div>`;
+  document.getElementById("aprForm").classList.remove("hidden"); document.getElementById("aprBanner").className="banner"; document.getElementById("aprBanner").textContent="Solicitação aberta. Registre sua decisão abaixo.";
+}
+function aprDecidir(dec){
+  if(!APR_SOLIC) return; const nome=document.getElementById("aprNome").value.trim(), just=document.getElementById("aprJust").value.trim();
+  if(!nome||!just){ toast("Informe seu nome e a justificativa"); return; }
+  const payload={t:"RC-DEC",v:1,id:APR_SOLIC.id,decisao:dec,decisor:nome,just,em:new Date().toISOString(),solic:payloadSolic(APR_SOLIC)};
+  const code=encodePayload("RC1D",payload); const msg="Decisão — "+STATUS[dec][0]+" · "+APR_SOLIC.marca+" / "+APR_SOLIC.tipo+"\nPor "+nome+": "+just+"\n\nCódigo para o Radar de Cláusulas:\n"+code;
+  const out=document.getElementById("aprOut");
+  out.innerHTML=`<div class="banner" style="margin-top:12px"><b>${esc(STATUS[dec][0])}.</b> Envie a mensagem abaixo ao executivo — ele cola em <b>Receber decisão</b> e a decisão entra no pipeline e na trilha de auditoria.</div><textarea class="codebox" readonly>${esc(msg)}</textarea><div class="actions" style="margin-top:8px"><button class="btn-gray btn-sm" data-ic="copy">Copiar</button><button class="btn-wa btn-sm" data-ic="send">WhatsApp</button></div>`;
+  applyIcons(out); const bs=out.querySelectorAll("button"); bs[0].onclick=()=>copiar(msg,"Copiado"); bs[1].onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener");
+}
+
+/* ============================================================
+   PARAMETRIZAÇÃO — regras, graus, marcas, portfólios, biblioteca
+   ============================================================ */
+const GRAU_CODES=["A","B","Padrao"];
+function sanitizeMarca(m){ if(!m||typeof m!=="object") return null; const s=(v,max)=>String(v==null?"":v).slice(0,max||120); return {id:s(m.id,40)||newId("m"),marca:s(m.marca,120),segmento:s(m.segmento,80),grau:GRAU_CODES.includes(m.grau)?m.grau:"Padrao",pracas:Math.max(1,Math.min(999,Math.round(Number(m.pracas)||1)))}; }
+function sanitizePortf(p){ if(!p||typeof p!=="object") return null; const s=(v,max)=>String(v==null?"":v).slice(0,max||200); return {id:s(p.id,40)||newId("pf"),diretor:s(p.diretor,120),pracas:s(p.pracas,400)}; }
+function renderParams(){
+  document.getElementById("p_dmax").value=PARAMS.desconto_max; document.getElementById("p_maxp").value=PARAMS.max_pracas; document.getElementById("p_dias").value=PARAMS.dias_parado||7;
+  const g=PARAMS.graus||{}, gc=PARAMS.graus_criterio||{}, gd=PARAMS.graus_diretoria||[];
+  document.getElementById("tblGraus").innerHTML=`<tr><th>Grau</th><th>Rótulo</th><th>Critério (definição)</th><th style="text-align:center">Só Diretoria</th></tr>`+GRAU_CODES.map(c=>`<tr><td><b>${c==="Padrao"?"Padrão":c}</b></td><td><input data-g="${c}" data-k="rot" value="${esc(g[c]||"")}"></td><td><input data-g="${c}" data-k="cri" value="${esc(gc[c]||"")}"></td><td style="text-align:center"><input type="checkbox" data-g="${c}" data-k="dir" ${gd.includes(c)?"checked":""}></td></tr>`).join("");
+  const sel=document.getElementById("m_grau"); sel.innerHTML=GRAU_CODES.map(c=>`<option value="${c}">${c==="Padrao"?"Padrão":c} — ${esc(g[c]||c)}</option>`).join(""); sel.value="Padrao";
+  if(!document.getElementById("m_seg").options.length) opts(document.getElementById("m_seg"),SEGMENTOS);
+  renderMarcas(); renderPortf(); renderBiblioteca(); renderOverrides();
+}
+function salvarParams(){
+  PARAMS.desconto_max=nv(document.getElementById("p_dmax").value)??PARAMS.desconto_max; PARAMS.max_pracas=Math.round(nv(document.getElementById("p_maxp").value)??PARAMS.max_pracas); PARAMS.dias_parado=Math.round(nv(document.getElementById("p_dias").value)??7);
+  const gd=[]; document.querySelectorAll("#tblGraus [data-g]").forEach(el=>{ const c=el.getAttribute("data-g"), k=el.getAttribute("data-k"); if(k==="rot") PARAMS.graus[c]=el.value.trim()||c; if(k==="cri") PARAMS.graus_criterio[c]=el.value.trim(); if(k==="dir"&&el.checked) gd.push(c); });
+  PARAMS.graus_diretoria=gd; lsSet(LS.params,PARAMS);
+  registrar({tipo:"param",resumo:"Regras salvas: desconto máx "+PARAMS.desconto_max+"% · máx praças "+PARAMS.max_pracas+" · só Diretoria: "+(gd.join(", ")||"nenhum")});
+  renderParams(); preencherMarcas(); toast("Regras salvas");
+}
+function renderMarcas(){
+  const f=(document.getElementById("fMarca").value||"").toLowerCase().trim(); const g=PARAMS.graus||{};
+  const L=MARCAS.filter(m=>!f||m.marca.toLowerCase().includes(f)||(m.segmento||"").toLowerCase().includes(f)).sort((a,b)=>a.marca.localeCompare(b.marca));
+  document.getElementById("tblMarcas").innerHTML=`<tr><th>Marca</th><th>Segmento</th><th>Grau</th><th>Praças</th><th></th></tr>`+(L.length?L.map(m=>`<tr data-id="${esc(m.id)}"><td><input data-k="marca" value="${esc(m.marca)}"></td><td><select data-k="segmento">${SEGMENTOS.map(s=>`<option ${s===m.segmento?"selected":""}>${esc(s)}</option>`).join("")}</select></td><td><select data-k="grau">${GRAU_CODES.map(c=>`<option value="${c}" ${c===m.grau?"selected":""}>${c==="Padrao"?"Padrão":c}</option>`).join("")}</select></td><td><input data-k="pracas" type="number" min="1" value="${m.pracas}" style="width:70px"></td><td><button class="rm" data-rm="${esc(m.id)}" title="remover">×</button></td></tr>`).join(""):`<tr><td colspan="5" class="empty">Nenhuma marca${f?" para este filtro":""}.</td></tr>`);
+  const t=document.getElementById("tblMarcas");
+  t.querySelectorAll("[data-k]").forEach(el=>el.onchange=()=>{ const id=el.closest("tr").getAttribute("data-id"); const m=MARCAS.find(x=>x.id===id); if(!m) return; const k=el.getAttribute("data-k"); m[k]=k==="pracas"?Math.max(1,parseInt(el.value)||1):el.value; lsSet(LS.marcas,MARCAS); registrar({tipo:"param",marca:m.marca,resumo:"Marca editada: "+m.marca+" · "+k+" = "+m[k]}); preencherMarcas(); toast("Marca atualizada"); });
+  t.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ const id=b.getAttribute("data-rm"); const m=MARCAS.find(x=>x.id===id); MARCAS=MARCAS.filter(x=>x.id!==id); lsSet(LS.marcas,MARCAS); if(m) registrar({tipo:"param",marca:m.marca,resumo:"Marca removida: "+m.marca}); renderMarcas(); preencherMarcas(); });
+}
+function addMarca(){
+  const nome=document.getElementById("m_nome").value.trim(); if(!nome){ toast("Dê um nome à marca"); return; }
+  const m={id:newId("m"),marca:nome.slice(0,120),segmento:document.getElementById("m_seg").value,grau:document.getElementById("m_grau").value,pracas:Math.max(1,parseInt(document.getElementById("m_pracas").value)||1)};
+  const ex=MARCAS.find(x=>x.marca.toLowerCase()===m.marca.toLowerCase()); if(ex){ Object.assign(ex,m,{id:ex.id}); } else MARCAS.push(m);
+  lsSet(LS.marcas,MARCAS); registrar({tipo:"param",marca:m.marca,resumo:(ex?"Marca atualizada: ":"Marca cadastrada: ")+m.marca+" · grau "+m.grau+" · "+m.pracas+" praça(s)"});
+  document.getElementById("m_nome").value=""; document.getElementById("m_pracas").value="1"; renderMarcas(); preencherMarcas(); toast(ex?"Marca atualizada":"Marca cadastrada");
+}
+function renderPortf(){ const out=document.getElementById("pfList"); out.innerHTML=PORTF.length?PORTF.map(p=>`<div class="goalrow"><div><div class="gn">${esc(p.diretor)}</div><div class="muted">${esc(p.pracas)}</div></div><button class="rm" data-rm="${esc(p.id)}">×</button></div>`).join(""):'<div class="empty">Nenhum portfólio cadastrado.</div>'; out.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ PORTF=PORTF.filter(x=>x.id!==b.getAttribute("data-rm")); lsSet(LS.portf,PORTF); renderPortf(); }); }
+function addPortf(){ const d=document.getElementById("pf_nome").value.trim(), p=document.getElementById("pf_pracas").value.trim(); if(!d){ toast("Informe o diretor"); return; } PORTF.push({id:newId("pf"),diretor:d.slice(0,120),pracas:p.slice(0,400)}); lsSet(LS.portf,PORTF); registrar({tipo:"param",resumo:"Portfólio cadastrado: "+d}); document.getElementById("pf_nome").value=""; document.getElementById("pf_pracas").value=""; renderPortf(); toast("Portfólio cadastrado"); }
+function renderBiblioteca(){ const ic={ "Recomendado":"🟢","Recomendado com Ressalvas":"🟡","Não Recomendado":"🔴" }; document.getElementById("tblClausulas").innerHTML=`<tr><th>Tema</th><th>Tipo</th><th>Classe</th><th>Risco</th><th>Status padrão</th></tr>`+CLAUSULAS.map(c=>`<tr><td>${esc(c.tema)}</td><td>${esc(c.tipo)}</td><td>${esc(c.classe)}</td><td>${esc(c.risco)}</td><td>${ic[c.status]||""} ${esc(c.status)}</td></tr>`).join(""); if(!document.getElementById("ov_seg").options.length){ opts(document.getElementById("ov_seg"),SEGMENTOS); opts(document.getElementById("ov_tipo"),CLAUSULAS.map(c=>c.tipo)); } }
+function renderOverrides(){ const ov=PARAMS.overrides||{}; const rows=[]; Object.keys(ov).forEach(seg=>Object.keys(ov[seg]).forEach(t=>rows.push([seg,t,ov[seg][t]]))); const out=document.getElementById("ovList"); out.innerHTML=rows.length?rows.map(([seg,t,st])=>`<div class="goalrow"><div><div class="gn">${esc(seg)} · ${esc(t)}</div><div class="muted">${esc(st)}</div></div><button class="rm" data-seg="${esc(seg)}" data-t="${esc(t)}">×</button></div>`).join(""):'<div class="empty">Sem exceções: vale o status padrão de cada tipo.</div>'; out.querySelectorAll(".rm").forEach(b=>b.onclick=()=>{ const seg=b.getAttribute("data-seg"), t=b.getAttribute("data-t"); if(ov[seg]){ delete ov[seg][t]; if(!Object.keys(ov[seg]).length) delete ov[seg]; } lsSet(LS.params,PARAMS); registrar({tipo:"param",resumo:"Exceção removida: "+seg+" · "+t}); renderOverrides(); }); }
+function addOverride(){ const seg=document.getElementById("ov_seg").value, t=document.getElementById("ov_tipo").value, st=document.getElementById("ov_status").value; PARAMS.overrides=PARAMS.overrides||{}; PARAMS.overrides[seg]=PARAMS.overrides[seg]||{}; PARAMS.overrides[seg][t]=st; lsSet(LS.params,PARAMS); registrar({tipo:"param",resumo:"Exceção: "+seg+" · "+t+" → "+st}); renderOverrides(); toast("Exceção registrada"); }
+function exportParamJson(){ download("radar-clausulas-parametrizacao.json",JSON.stringify({version:1,tipo:"parametrizacao",exportedAt:new Date().toISOString(),params:PARAMS,marcas:MARCAS,portf:PORTF},null,2),"application/json"); }
+function importParamJson(file){ const rd=new FileReader(); rd.onload=()=>{ try{ const d=JSON.parse(rd.result); if(d.params) PARAMS=mesclaParams(d.params); if(Array.isArray(d.marcas)) MARCAS=d.marcas.map(sanitizeMarca).filter(Boolean); if(Array.isArray(d.portf)) PORTF=d.portf.map(sanitizePortf).filter(Boolean); lsSet(LS.params,PARAMS); lsSet(LS.marcas,MARCAS); lsSet(LS.portf,PORTF); registrar({tipo:"param",resumo:"Parametrização importada ("+MARCAS.length+" marcas)"}); renderParams(); preencherMarcas(); toast("Parametrização importada"); }catch(e){ alert("Arquivo inválido."); } }; rd.readAsText(file); }
+
+/* ============================================================
+   AUDITORIA — indicadores, precedentes, trilha, relatório
+   ============================================================ */
+function dentroPeriodo(iso,dias){ if(!dias) return true; return diasDesde(iso)<dias; }
+function renderAudit(){
+  const dec=SOLIC.filter(s=>["aprovada","ajuste","negada"].includes(s.status)); const apr=SOLIC.filter(s=>s.status==="aprovada"||s.status==="ajuste");
+  const custo=apr.reduce((a,s)=>a+(s.total||0),0);
+  const tempos=dec.map(s=>{ const u=s.decisoes.filter(d=>STATUS[d.acao]).pop(); return u?(new Date(u.em)-new Date(s.criadoEm))/86400000:null; }).filter(x=>x!==null);
+  const tmed=tempos.length?(tempos.reduce((a,b)=>a+b,0)/tempos.length):null;
+  const integ=verificarIntegridade();
+  document.getElementById("auditKpis").innerHTML=[["Solicitações",SOLIC.length],["Aguardando",SOLIC.filter(s=>s.status==="aguardando").length],["Decididas",dec.length],["% aprovadas",dec.length?Math.round(apr.length/dec.length*100)+"%":"—"],["Custo concedido",money(custo)],["Tempo médio",tmed===null?"—":(tmed<1?"< 1 dia":Math.round(tmed)+" dias")],["Eventos na trilha",AUDIT.length],["Integridade",integ.ok?"✅ íntegra":"❌ quebrada"]].map(([k,v])=>`<div class="metric"><div class="mk">${k}</div><div class="mv">${v}</div></div>`).join("");
+  document.getElementById("auditPorAlcada").innerHTML=`<div class="tscroll"><table><tr><th>Alçada</th><th>Aguardando</th><th>Aprovadas</th><th>Negadas</th><th>Custo concedido</th></tr>`+ALCADAS.map(a=>{ const S=SOLIC.filter(s=>s.alcada===a); return `<tr><td><span class="al-pill al-${AL_CLS[a]}">${esc(a)}</span></td><td>${S.filter(s=>s.status==="aguardando").length}</td><td>${S.filter(s=>s.status==="aprovada"||s.status==="ajuste").length}</td><td>${S.filter(s=>s.status==="negada").length}</td><td>${money(S.filter(s=>s.status==="aprovada"||s.status==="ajuste").reduce((x,s)=>x+(s.total||0),0))}</td></tr>`; }).join("")+`</table></div>`;
+  renderPrecedentes(); renderTrilha(); renderRelatorio();
+}
+function renderPrecedentes(){
+  const q=(document.getElementById("precQ").value||"").toLowerCase().trim(); const out=document.getElementById("precList");
+  const L=SOLIC.filter(s=>["aprovada","ajuste","negada"].includes(s.status)).filter(s=>!q||[s.marca,s.tipo,s.tema].join(" ").toLowerCase().includes(q)).slice(0,30);
+  out.innerHTML=L.length?L.map(s=>{ const u=s.decisoes.filter(d=>STATUS[d.acao]).pop()||{}; const st=STATUS[s.status]; return `<div class="goalrow"><div style="min-width:0;flex:1"><div class="gn">${esc(s.marca)} · ${esc(s.tipo)} <span class="status-pill ${st[1]}">${st[0]}</span></div><div class="muted">${esc(s.alcada)} · ${s.desconto!==null?s.desconto+"% · ":""}${s.total!==null?money(s.total)+" total · ":""}${dataBr(u.em)} · ${esc(u.decisor||"")}</div><div class="muted">“${esc(u.just||"")}”</div></div></div>`; }).join(""):'<div class="empty">'+(q?"Nenhum precedente para esta busca.":"Ainda não há decisões registradas.")+'</div>';
+}
+function renderTrilha(){
+  const dias=parseInt(document.getElementById("auPeriodo").value)||0; const tipo=document.getElementById("auTipo").value;
+  const L=AUDIT.slice().reverse().filter(e=>dentroPeriodo(e.em,dias)&&(!tipo||e.tipo===tipo)).slice(0,200);
+  const nomes={solic_criada:"Solicitação",decisao:"Decisão",escalada:"Escalada",param:"Parametrização"};
+  document.getElementById("auditList").innerHTML=L.length?L.map(e=>`<div class="evt ${esc(e.tipo)}${e.decisao==="negada"?" negada":""}"><span class="et">${esc(nomes[e.tipo]||e.tipo)}</span> · ${dataHoraBr(e.em)}${e.marca?" · <b>"+esc(e.marca)+"</b>":""}${e.clausula?" · "+esc(e.clausula):""}${e.alcada?" · "+esc(e.alcada):""}<br>${esc(e.resumo||"")}${e.decisor?" — <b>"+esc(e.decisor)+"</b>":""}${e.just?"<br>“"+esc(e.just)+"”":""}<br><span class="eh">#${esc((e.hash||"").slice(0,12))} ← ${esc((e.prev||"").slice(0,8)||"início")}</span></div>`).join(""):'<div class="empty">Sem eventos no período.</div>';
+}
+function integridadeUI(){ const r=verificarIntegridade(); const out=document.getElementById("integOut"); out.innerHTML=r.ok?`<div class="banner"><b>✅ Trilha íntegra</b> — ${r.total} evento(s) encadeados; nenhum foi alterado ou removido fora da ferramenta.</div>`:`<div class="banner lacuna"><b>❌ Quebra de integridade</b> no evento ${r.em+1} (${dataHoraBr(r.evento.em)} · ${esc(r.evento.resumo||"")}). A trilha foi editada fora da ferramenta ou importada com alteração — registre o fato e reconstitua a partir do backup.</div>`; }
+function exportAuditCsv(){ const head=["em","tipo","solicitacao","marca","clausula","alcada","decisao","decisor","justificativa","resumo","hash","prev"]; const L=[head.map(csvCell).join(";")]; AUDIT.forEach(e=>L.push([dataHoraBr(e.em),e.tipo,e.solicId,e.marca,e.clausula,e.alcada,e.decisao,e.decisor,e.just,e.resumo,e.hash,e.prev].map(csvCell).join(";"))); download("radar-clausulas-auditoria.csv","﻿"+L.join("\n"),"text/csv;charset=utf-8"); }
+function relatorioTexto(dias){
+  const hoje=new Date().toLocaleDateString("pt-BR"); const per=dias===1?"hoje":dias?("últimos "+dias+" dias"):"toda a base";
+  const S=SOLIC.filter(s=>dentroPeriodo(s.atualizadoEm,dias)); const dec=S.filter(s=>["aprovada","ajuste","negada"].includes(s.status)); const apr=dec.filter(s=>s.status!=="negada");
+  const ag=SOLIC.filter(s=>s.status==="aguardando"); const integ=verificarIntegridade();
+  const L=["RELATÓRIO DE AUDITORIA — CLÁUSULAS · "+hoje+" · "+per,""];
+  L.push("1. RESUMO"); L.push("- Solicitações movimentadas no período: "+S.length+" · decididas: "+dec.length+" · aprovadas: "+apr.length+" · negadas: "+dec.filter(s=>s.status==="negada").length);
+  L.push("- Custo concedido (aprovadas no período): "+money(apr.reduce((a,s)=>a+(s.total||0),0)));
+  L.push("- Pendentes agora: "+ag.length+" ("+ALCADAS.map(a=>ag.filter(s=>s.alcada===a).length+" "+a).join(" · ")+")"+(ag.filter(parado).length?" · parados há +"+(PARAMS.dias_parado||7)+" dias: "+ag.filter(parado).length:""));
+  L.push("- Integridade da trilha: "+(integ.ok?"íntegra ("+integ.total+" eventos)":"QUEBRADA no evento "+(integ.em+1)));
+  L.push(""); L.push("2. DECISÕES DO PERÍODO");
+  if(!dec.length) L.push("- nenhuma"); dec.forEach(s=>{ const u=s.decisoes.filter(d=>STATUS[d.acao]).pop()||{}; L.push("- "+STATUS[s.status][0]+" · "+s.marca+" · "+s.tipo+" · "+s.alcada+(s.desconto!==null?" · "+s.desconto+"%":"")+(s.total!==null?" · "+money(s.total)+" total":"")+" · "+dataBr(u.em)+" · "+(u.decisor||"")+" — "+(u.just||"")); });
+  L.push(""); L.push("3. PENDÊNCIAS POR ALÇADA");
+  ALCADAS.forEach(a=>{ const P=ag.filter(s=>s.alcada===a); if(!P.length) return; L.push(a+":"); P.forEach(s=>L.push("  - "+s.marca+" · "+s.tipo+(s.desconto!==null?" · "+s.desconto+"%":"")+(s.total!==null?" · "+money(s.total):"")+" · há "+diasDesde(s.atualizadoEm)+" dia(s)"+(parado(s)?" ⚠ parado":""))); });
+  if(!ag.length) L.push("- nenhuma");
+  const esc_=SOLIC.filter(s=>s.decisoes.some(d=>d.acao==="escalada"&&dentroPeriodo(d.em,dias)));
+  if(esc_.length){ L.push(""); L.push("4. ESCALADAS NO PERÍODO"); esc_.forEach(s=>s.decisoes.filter(d=>d.acao==="escalada"&&dentroPeriodo(d.em,dias)).forEach(d=>L.push("- "+s.marca+" · "+s.tipo+" · "+d.de+" → "+d.para+" · "+dataBr(d.em)+" · "+d.decisor+" — "+d.just))); }
+  L.push(""); L.push("Radar de Cláusulas · apoio à decisão — quem aprova é sempre a alçada indicada.");
+  return L.join("\n");
+}
+function renderRelatorio(){ const t=relatorioTexto(parseInt(document.getElementById("relPeriodo").value)||0); document.getElementById("relOut").value=t; return t; }
+
+/* ============================================================
+   NAVEGAÇÃO & INICIALIZAÇÃO
+   ============================================================ */
+function showView(name){
+  if(APROVADOR_MODE) return;
+  ["solic","pipe","param","audit"].forEach(v=>{ const el=document.getElementById("view-"+v); if(el) el.classList.toggle("hidden",v!==name); });
+  document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.toggle("on",t.getAttribute("data-view")===name));
+  if(name==="pipe") renderPipe(); if(name==="param") renderParams(); if(name==="audit") renderAudit();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+if(/^#aprovador\b/i.test(location.hash||"")){ applyAprovadorMode(); applyIcons(document); }
+else{
+  document.querySelectorAll("#tabs .tab").forEach(t=>t.onclick=()=>showView(t.getAttribute("data-view")));
+  opts(document.getElementById("q_tema"),TEMAS); opts(document.getElementById("q_seg"),SEGMENTOS); preencherTipos(); preencherMarcas();
+  document.getElementById("q_tema").onchange=preencherTipos; document.getElementById("q_tipo").onchange=atualizarPainelQuant; document.getElementById("q_seg").onchange=atualizarPainelQuant; document.getElementById("q_marca").onchange=aplicarMarca;
+  document.getElementById("form").addEventListener("submit",e=>{ e.preventDefault(); run(); });
+  document.getElementById("btnRecv").onclick=showRecv; document.getElementById("btnLinkApr").onclick=showLink;
+  document.getElementById("linkCopy").onclick=()=>copiar(linkAprovador(),"Link copiado");
+  document.getElementById("recvCancel").onclick=()=>document.getElementById("recvBox").classList.add("hidden");
+  document.getElementById("recvOk").onclick=()=>{ const d=decodePayload(document.getElementById("recvCode").value,"RC1D"); const err=d?receberDecisao(d):"Não consegui ler o código — quase sempre está cortado no começo ou no fim. Peça ao aprovador para reenviar."; const m=document.getElementById("recvMsg"); if(err){ m.textContent=err; m.className="hint t-vermelho"; } else { m.textContent="Decisão registrada no pipeline e na trilha de auditoria."; m.className="hint t-verde"; document.getElementById("recvCode").value=""; toast("Decisão registrada"); showView("pipe"); } };
+  document.getElementById("srch").oninput=renderPipe; document.getElementById("fstatus").onchange=renderPipe; document.getElementById("falc").onchange=renderPipe;
+  document.getElementById("btnCsv").onclick=exportCsv; document.getElementById("btnJson").onclick=exportJson;
+  document.getElementById("btnImp").onclick=()=>document.getElementById("fileJson").click(); document.getElementById("fileJson").onchange=e=>{ const f=e.target.files&&e.target.files[0]; if(f) importJson(f); e.target.value=""; };
+  document.getElementById("btnSaveParams").onclick=salvarParams;
+  document.getElementById("btnParamReset").onclick=()=>{ if(!confirm("Restaurar as regras padrão (desconto 50%, 4 praças, graus A/B → Diretoria)? As marcas ficam.")) return; PARAMS=mesclaParams(null); lsSet(LS.params,PARAMS); registrar({tipo:"param",resumo:"Regras restauradas ao padrão"}); renderParams(); preencherMarcas(); toast("Regras restauradas"); };
+  document.getElementById("btnAddMarca").onclick=addMarca; document.getElementById("fMarca").oninput=renderMarcas;
+  document.getElementById("btnAddPf").onclick=addPortf; document.getElementById("btnAddOv").onclick=addOverride;
+  document.getElementById("btnParamJson").onclick=exportParamJson; document.getElementById("btnParamImp").onclick=()=>document.getElementById("fileParam").click(); document.getElementById("fileParam").onchange=e=>{ const f=e.target.files&&e.target.files[0]; if(f) importParamJson(f); e.target.value=""; };
+  document.getElementById("precQ").oninput=renderPrecedentes; document.getElementById("auPeriodo").onchange=renderTrilha; document.getElementById("auTipo").onchange=renderTrilha; document.getElementById("btnIntegridade").onclick=integridadeUI; document.getElementById("btnAuditCsv").onclick=exportAuditCsv;
+  document.getElementById("relPeriodo").onchange=renderRelatorio;
+  document.getElementById("relCopy").onclick=()=>copiar(renderRelatorio(),"Relatório copiado");
+  document.getElementById("relFile").onclick=()=>download("auditoria-clausulas-"+new Date().toISOString().slice(0,10)+".txt",renderRelatorio(),"text/plain;charset=utf-8");
+  document.getElementById("relWa").onclick=()=>{ const t=renderRelatorio(); if(t.length>3000){ toast("Relatório longo demais para o WhatsApp — use Copiar ou reduza o período"); return; } window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank","noopener"); };
+  applyIcons(document); updateCounts();
+  /* decisão recebida por link (#dec=CODE) */
+  (function(){ const m=(location.hash||"").match(/[#&]dec=([^&]+)/i); if(!m) return; let d=null; try{ d=decodePayload(decodeURIComponent(m[1]),"RC1D"); }catch(e){} try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){} if(d){ const err=receberDecisao(d); if(err) alert(err); else { toast("Decisão registrada"); showView("pipe"); } } })();
+}
+</script>
+
+</body></html>

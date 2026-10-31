@@ -1,0 +1,669 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Relatório Fotográfico Casa 4</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: carimbo de prancha no topo, fichas foto + campos em coluna única, cronograma de marcos ao final. */
+:root{
+  --bg:#EDF0F4; --surface:#FBFCFD; --ink:#131A24; --muted:#566273; --line:#C9D1DB;
+  --accent:#1B3FA0; --accent-soft:#E0E7F8; --wood:#8F5430;
+  --good:#1A7349; --good-soft:#DDF1E6; --bad:#B3261E; --bad-soft:#FADFDC; --idle-soft:#E3E8EE;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E131A; --surface:#161D27; --ink:#E7ECF2; --muted:#96A3B4; --line:#2C3746;
+  --accent:#93ACF6; --accent-soft:#1D2947; --wood:#D49B6E;
+  --good:#5FC896; --good-soft:#143326; --bad:#F28B82; --bad-soft:#3D1C1A; --idle-soft:#222C39;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0E131A; --surface:#161D27; --ink:#E7ECF2; --muted:#96A3B4; --line:#2C3746;
+  --accent:#93ACF6; --accent-soft:#1D2947; --wood:#D49B6E;
+  --good:#5FC896; --good-soft:#143326; --bad:#F28B82; --bad-soft:#3D1C1A; --idle-soft:#222C39;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;padding-inline:16px;padding-block:28px 64px}
+.wrap{max-width:1040px;margin-inline:auto;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.05}
+.rotulo{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Carimbo */
+.carimbo{border:1.5px solid var(--ink);background:var(--surface);display:grid;grid-template-columns:minmax(0,1fr) 220px}
+.carimbo-txt{display:flex;flex-direction:column;min-width:0}
+.carimbo-titulo{padding:22px 22px 18px;display:flex;flex-direction:column;gap:8px}
+.carimbo h1{font-size:clamp(34px,6vw,54px);font-weight:700;text-transform:uppercase;letter-spacing:.005em}
+.carimbo p{margin:0;color:var(--muted);max-width:62ch}
+.celulas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--ink);margin-top:auto}
+.celula{padding:10px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:0}
+.celula:last-child{border-right:0}
+.celula b{font-family:var(--display);font-size:20px;font-weight:600;line-height:1.15}
+.capa{border-left:1.5px solid var(--ink);padding:0;background:var(--idle-soft);cursor:zoom-in;border-block:0;border-right:0;display:block;position:relative;min-height:200px}
+.capa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+
+/* Resumo */
+.resumo{display:flex;flex-direction:column;gap:12px}
+.resumo-linha{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;justify-content:space-between}
+.contagem{display:flex;flex-wrap:wrap;gap:8px}
+.barra{height:10px;background:var(--idle-soft);border:1px solid var(--line);display:flex;overflow:hidden}
+.barra i{display:block;height:100%}
+.barra .b-done{background:var(--good)} .barra .b-ok{background:var(--accent)} .barra .b-late{background:var(--bad)}
+.salvo{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+.salvo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.salvo[data-s="ok"]::before{background:var(--good)} .salvo[data-s="err"]::before{background:var(--bad)} .salvo[data-s="busy"]::before{background:var(--accent)}
+
+.pill{font-family:var(--mono);font-size:12px;font-weight:500;padding:3px 9px;border:1px solid currentColor;white-space:nowrap;display:inline-flex;gap:6px;align-items:center}
+.pill::before{content:"";width:7px;height:7px;background:currentColor}
+.pill.done{color:var(--good);background:var(--good-soft)} .pill.done::before{border-radius:50%}
+.pill.ok{color:var(--accent);background:var(--accent-soft)} .pill.ok::before{transform:rotate(45deg)}
+.pill.late{color:var(--bad);background:var(--bad-soft)}
+.pill.none{color:var(--muted);background:var(--idle-soft)} .pill.none::before{background:transparent;border:1px solid currentColor}
+
+/* Seções */
+.sec-head{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between;border-bottom:1.5px solid var(--ink);padding-bottom:8px}
+.sec-head h2{font-size:30px;font-weight:600;text-transform:uppercase}
+.sec-head p{margin:0;color:var(--muted);font-size:14px;max-width:60ch}
+section{display:flex;flex-direction:column;gap:18px}
+
+/* Fichas */
+#etapas{display:flex;flex-direction:column;gap:18px}
+.etapa{background:var(--surface);border:1px solid var(--line);display:grid;grid-template-columns:230px minmax(0,1fr)}
+.col-foto{display:flex;border-right:1px solid var(--line);min-width:0}
+.foto{flex:1;padding:0;border:0;background:var(--idle-soft);cursor:zoom-in;display:block;position:relative;min-height:408px}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.semfoto{flex:1;min-height:200px;padding:16px;display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:12px;
+  background:repeating-linear-gradient(135deg,var(--idle-soft) 0 10px,var(--surface) 10px 20px)}
+.corpo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.etapa-head{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.num{font-family:var(--display);font-weight:700;font-size:34px;line-height:1;color:var(--wood);font-variant-numeric:tabular-nums;min-width:38px}
+.titulo{flex:1 1 220px;min-width:0;font-family:var(--display);font-size:25px;font-weight:600;line-height:1.15}
+.campo{display:flex;flex-direction:column;gap:3px;min-width:0}
+.campo>span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+input,textarea{font:inherit;color:var(--ink);background:transparent;border:1px solid transparent;border-bottom-color:var(--line);padding:4px 6px;margin-inline:-6px;width:calc(100% + 12px);border-radius:0}
+input.titulo{margin:0;width:auto;padding:2px 6px}
+textarea{resize:none;overflow:hidden;field-sizing:content;min-height:32px;line-height:1.45}
+input:hover:not(:disabled),textarea:hover:not(:disabled){border-color:var(--line);background:var(--bg)}
+input:focus,textarea:focus{border-color:var(--accent);background:var(--bg);outline:0}
+input:disabled,textarea:disabled{opacity:1;color:var(--ink);-webkit-text-fill-color:var(--ink)}
+input[type=date]{font-family:var(--mono);font-size:14px;min-height:34px}
+.grade{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:12px 22px;background:var(--bg);padding:12px 14px;border:1px solid var(--line)}
+.grade input:hover:not(:disabled),.grade input:focus{background:var(--surface)}
+.data-linha{display:flex;gap:4px;align-items:center}
+.limpa{flex:none;border:0;background:transparent;color:var(--muted);font-size:18px;line-height:1;cursor:pointer;padding:4px 6px}
+.limpa:hover{color:var(--bad)}
+.rodape-etapa{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.btn{font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);padding:9px 16px}
+.btn:hover{background:var(--ink);color:var(--surface)}
+.btn.fraco{border-color:var(--line);font-weight:500;font-size:13px;padding:5px 10px;color:var(--muted)}
+.btn.fraco:hover{background:var(--bad-soft);color:var(--bad);border-color:var(--bad)}
+.btn.perigo{border-color:var(--bad);color:var(--bad)} .btn.perigo:hover{background:var(--bad);color:var(--surface)}
+.btn:disabled{opacity:.5;cursor:default}
+.addfoto{position:relative;display:inline-flex;align-items:center;cursor:pointer;background:var(--surface);color:var(--ink);font-family:var(--body)}
+.btn.addfoto:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.addfoto:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+input.pick{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;opacity:0;cursor:pointer}
+.extras{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-top:6px}
+.mini{position:relative;display:block}
+.mini-ver{padding:0;border:1px solid var(--line);background:var(--idle-soft);cursor:zoom-in;display:block;width:72px;height:96px}
+.mini-ver img{display:block;width:100%;height:100%;object-fit:cover}
+.tira{position:absolute;top:-9px;right:-9px;min-width:24px;height:24px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font:inherit;font-size:15px;line-height:1;cursor:pointer;padding:0 6px}
+.tira:hover{color:var(--bad);border-color:var(--bad)}
+.tira.conf{background:var(--bad);color:var(--surface);border-color:var(--bad);font-size:12px;font-weight:600}
+.dica{color:var(--muted);font-size:14px}
+.btn.neutro:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.excluidas{display:flex;flex-direction:column;gap:8px;border:1px dashed var(--line);padding:12px 14px}
+.ex-linha{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:14px;color:var(--muted)}
+.acoes{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+
+/* Cronograma */
+.legenda{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:var(--muted)}
+.legenda span{display:inline-flex;align-items:center;gap:7px}
+.rolagem{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+#grafico svg{display:block}
+#grafico .vazio{padding:28px 20px;color:var(--muted);max-width:60ch}
+svg text{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+svg .lbl{font-family:var(--body);font-size:13px;fill:var(--ink)}
+svg .lbl-n{font-family:var(--display);font-weight:700;font-size:15px;fill:var(--wood)}
+svg .grid{stroke:var(--line);stroke-width:1}
+svg .faixa{fill:var(--bg)}
+svg .hoje{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:4 3}
+svg .hoje-t{fill:var(--ink);font-weight:500}
+svg .prev{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+svg .real{fill:var(--good);stroke:var(--surface);stroke-width:1.5}
+svg .real.tarde{fill:var(--bad)}
+svg .lig{stroke-width:3;stroke:var(--good)} svg .lig.tarde{stroke:var(--bad)}
+svg .aberto{stroke:var(--bad);stroke-width:2;stroke-dasharray:3 4}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:720px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1.5px solid var(--ink)}
+td.d{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.n{font-family:var(--display);font-weight:700;font-size:17px;color:var(--wood)}
+td.pos{color:var(--bad)} td.neg{color:var(--good)}
+tr:last-child td{border-bottom:0}
+
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(8,11,16,.86)}
+dialog img{display:block;max-width:96vw;max-height:92vh;cursor:zoom-out}
+
+@media (max-width:720px){
+  .carimbo{grid-template-columns:minmax(0,1fr)}
+  .capa{border-left:0;border-top:1.5px solid var(--ink);order:-1}
+  .capa{min-height:190px}
+  .celulas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .celula:nth-child(2){border-right:0} .celula:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .etapa{grid-template-columns:minmax(0,1fr)}
+  .col-foto{border-right:0;border-bottom:1px solid var(--line)}
+  .semfoto{min-height:150px}
+  .foto{min-height:0;aspect-ratio:4/3.6;width:100%}
+  .grade{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+
+<div class="wrap">
+  <header class="carimbo">
+    <div class="carimbo-txt">
+      <div class="carimbo-titulo">
+        <span class="rotulo">Obra Casa 4 · Palm Hill</span>
+        <h1>Relatório fotográfico</h1>
+        <p>Onze pontos registrados na vistoria, cada um com foto, situação, o que falta e as datas de conclusão prevista e realizada. Todos os textos e datas são editáveis, e novas etapas e fotos podem ser incluídas. O cronograma no fim da página acompanha o que for preenchido.</p>
+      </div>
+      <div class="celulas">
+        <div class="celula"><span class="rotulo">Fotos de</span><b>04/10/2026</b></div>
+        <div class="celula"><span class="rotulo">Etapas</span><b id="c-total">11</b></div>
+        <div class="celula"><span class="rotulo">Concluídas</span><b id="c-done">0</b></div>
+        <div class="celula"><span class="rotulo">Atrasadas</span><b id="c-late">0</b></div>
+      </div>
+    </div>
+    <button class="capa" type="button" data-zoom="fotos/2393.jpg" aria-label="Ampliar foto da fachada"><img src="fotos/2393.jpg" alt="Fachada da casa vista da entrada da garagem"></button>
+  </header>
+
+  <div class="resumo">
+    <div class="resumo-linha">
+      <div class="contagem" id="contagem"></div>
+      <div class="salvo" id="salvo" data-s="busy" role="status">Carregando datas salvas…</div>
+    </div>
+    <div class="barra" id="barra" aria-hidden="true"></div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <h2>Etapas</h2>
+      <p>As onze primeiras seguem a ordem das fotos da vistoria. Toque em uma foto para ampliar.</p>
+    </div>
+    <div id="etapas"></div>
+    <div class="acoes" id="gestao" hidden><button class="btn" id="add" type="button" disabled>Adicionar etapa</button><span class="dica">A nova etapa entra no fim da lista e no cronograma. Depois de criar, inclua uma ou mais fotos nela.</span></div>
+    <div class="excluidas" id="excluidas" hidden></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Cronograma previsto × realizado</h2>
+      <p>Cada linha é uma etapa. A distância entre os dois marcos é o desvio em dias.</p>
+    </div>
+    <div class="legenda">
+      <span><svg width="16" height="16" aria-hidden="true"><rect class="prev" x="4" y="4" width="8" height="8" transform="rotate(45 8 8)"/></svg>Conclusão prevista</span>
+      <span><svg width="16" height="16" aria-hidden="true"><circle class="real" cx="8" cy="8" r="5.5"/></svg>Realizada no prazo</span>
+      <span><svg width="16" height="16" aria-hidden="true"><circle class="real tarde" cx="8" cy="8" r="5.5"/></svg>Realizada com atraso</span>
+      <span><svg width="26" height="16" aria-hidden="true"><line class="aberto" x1="1" y1="8" x2="25" y2="8"/></svg>Atraso em aberto até hoje</span>
+    </div>
+    <div class="rolagem" id="grafico"></div>
+    <div class="rolagem"><table>
+      <thead><tr><th>Nº</th><th>Etapa</th><th>Responsável</th><th>Previsto</th><th>Realizado</th><th>Desvio</th><th>Situação</th></tr></thead>
+      <tbody id="tabela"></tbody>
+    </table></div>
+  </section>
+</div>
+
+<dialog id="zoom"><img id="zoom-img" alt=""></dialog>
+
+<script>
+(() => {
+const BASE = [
+ {id:"e01", foto:"fotos/2371.jpg", titulo:"Fachada e garagem",
+  situacao:"Parede da garagem com faixas de massa aparente e pontos elétricos sem acabamento. No terraço superior, o vão está fechado com tapume de compensado.",
+  pendencia:"Lixar e pintar a parede da garagem, dar acabamento aos pontos elétricos e retirar o tapume depois da esquadria do terraço."},
+ {id:"e02", foto:"fotos/2373.jpg", titulo:"Pontos hidráulicos junto à janela maxim-ar",
+  situacao:"Paredes pintadas e janela instalada. Dois pontos de água saem da mureta sem metais. Piso ainda sem acabamento, com papelão e resíduos.",
+  pendencia:"Instalar louça e metais nos pontos de água, concluir o piso e limpar."},
+ {id:"e03", foto:"fotos/2374.jpg", titulo:"Canto externo ao lado do deck",
+  situacao:"Tubo de queda, tubulação azul e mangueira amarela aparentes no encontro dos muros. A faixa de solo entre o deck e o muro tem restos de obra.",
+  pendencia:"Retirar o entulho, definir o acabamento da faixa de solo e proteger ou embutir as tubulações."},
+ {id:"e04", foto:"fotos/2375.jpg", titulo:"Piscina e deck",
+  situacao:"Piscina revestida com pastilha e deck de madeira montado. Piscina vazia, com folhas e mangueira no fundo. Atrás, bancada e paredes ainda em alvenaria e reboco, com pontos hidráulicos e elétricos abertos.",
+  pendencia:"Concluir a bancada e o revestimento das paredes do fundo, limpar e encher a piscina, dar o acabamento final no deck."},
+ {id:"e05", foto:"fotos/2376.jpg", titulo:"Bomba de calor da piscina",
+  situacao:"Bomba de calor fixada em suporte metálico no alto do muro, ao lado de uma veneziana branca. Muro com mancha escura de escorrimento e tubulação aparente.",
+  pendencia:"Confirmar ligação e teste da bomba de calor, tratar a mancha, repintar o muro e retirar as madeiras encostadas."},
+ {id:"e06", foto:"fotos/2377.jpg", titulo:"Deck sobre a tampa de inspeção",
+  situacao:"O deck termina antes de uma tampa de concreto com dois furos. O trecho segue descoberto, com papelão e latas de tinta ao redor.",
+  pendencia:"Completar o deck ou o tampão removível sobre a tampa e limpar o entorno."},
+ {id:"e07", foto:"fotos/2378.jpg", titulo:"Banheiro: bacia e área do box",
+  situacao:"Bacia sanitária instalada. Área do box com piso rebaixado e ralos, ainda sem fechamento de vidro. Foto com pouca luz.",
+  pendencia:"Instalar o box de vidro e conferir ralos e caimento."},
+ {id:"e08", foto:"fotos/2379.jpg", titulo:"Claraboia",
+  situacao:"Shaft da claraboia pintado. O vidro tem marcas e sujeira visíveis contra o céu.",
+  pendencia:"Limpar o vidro por dentro e por fora e conferir a vedação."},
+ {id:"e09", foto:"fotos/2380.jpg", titulo:"Terraço com cobertura de vidro",
+  situacao:"Parede com rasgo aberto em volta de um ponto embutido, sem fechamento. Arandelas ainda protegidas, piso no cimentado e sacos de entulho no local.",
+  pendencia:"Fechar o rasgo, emassar e pintar a parede, executar o piso e retirar o entulho."},
+ {id:"e10", foto:"fotos/2382.jpg", titulo:"Banheiro com porcelanato marmorizado",
+  situacao:"Porcelanato assentado no piso e nas paredes. Painel liso pintado com uma amostra colada no centro. Placa com furos e ponto de espera na parede baixa; peça embalada apoiada no piso.",
+  pendencia:"Definir o acabamento do painel, instalar louças e metais e fazer a limpeza fina."},
+ {id:"e11", foto:"fotos/2383.jpg", titulo:"Vão do terraço superior com tapume",
+  situacao:"Vão para o terraço fechado com chapas de compensado, sem esquadria. Piso do ambiente no contrapiso, com resíduos.",
+  pendencia:"Instalar a esquadria, retirar o tapume e executar o piso."}
+];
+const baseById = Object.fromEntries(BASE.map(b => [b.id, b]));
+const LS_KEY = "relatorio-casa4-etapas";
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let docs = {};          // id -> campos gravados
+let db = null;          // capacidade de gravação compartilhada
+let assets = null;      // armazenamento das fotos adicionadas
+let enviando = false;
+let datas = {};         // id -> {previsto, realizado}, editável por colaboradores
+let podeEstr = false;   // incluir/excluir etapas, textos e fotos: dono e editores
+let podeDatas = false;  // datas: dono, editores e colaboradores
+const EH_DATA = {previsto:1, realizado:1};
+let lastSig = "";
+const fila = {};        // id -> promessa da última gravação
+const pend = {};        // id -> gravações em curso
+
+/* ---------- datas ---------- */
+const dn = s => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ""); return m ? Date.UTC(+m[1], +m[2]-1, +m[3]) / 864e5 : null; };
+const hoje = () => { const t = new Date(); return Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()) / 864e5; };
+const p2 = n => String(n).padStart(2, "0");
+const fmt = n => { const d = new Date(n * 864e5); return p2(d.getUTCDate()) + "/" + p2(d.getUTCMonth()+1) + "/" + String(d.getUTCFullYear()).slice(2); };
+const dias = n => n + (n === 1 ? " dia" : " dias");
+const MES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+
+function situacao(p, r, t) {
+  if (r != null) {
+    if (p == null) return {k:"done", pill:"Concluída", desvio:"—", cls:""};
+    const d = r - p;
+    return {k:"done", tarde:d > 0, pill:"Concluída", desvio: d > 0 ? "+" + dias(d) : d < 0 ? "−" + dias(-d) : "no prazo", cls: d > 0 ? "pos" : d < 0 ? "neg" : ""};
+  }
+  if (p != null) {
+    if (t > p) return {k:"late", pill:"Atrasada " + dias(t - p), desvio:"+" + dias(t - p) + " em aberto", cls:"pos"};
+    return {k:"ok", pill: t === p ? "Vence hoje" : "Faltam " + dias(p - t), desvio:"—", cls:""};
+  }
+  return {k:"none", pill:"Sem data", desvio:"—", cls:""};
+}
+
+/* ---------- estado ---------- */
+function todas() {
+  const extras = Object.entries(docs)
+    .filter(([id, d]) => d && d.custom && !baseById[id])
+    .sort((a, b) => (a[1].criado || 0) - (b[1].criado || 0))
+    .map(([id]) => ({id, custom:true, titulo:"Nova etapa"}));
+  return BASE.concat(extras);
+}
+const fora = id => !!(docs[id] && docs[id].excluida === true);
+function etapas() { return todas().filter(s => !fora(s.id)).map((s, i) => ({...s, n: i + 1})); }
+function excluidas() { return todas().filter(s => fora(s.id)).map(s => ({id: s.id, titulo: val(s, "titulo") || "Etapa sem título"})); }
+function val(s, f) {
+  if (EH_DATA[f]) { const x = datas[s.id]; if (x && typeof x[f] === "string") return x[f]; }
+  const d = docs[s.id]; return d && typeof d[f] === "string" ? d[f] : (s[f] || "");
+}
+
+function setSalvo(s, txt) { const el = $("#salvo"); el.dataset.s = s; el.textContent = txt; }
+function hora() { const t = new Date(); return p2(t.getHours()) + ":" + p2(t.getMinutes()); }
+
+function gravar(id, col) {
+  col = col || "etapas";
+  const mapa = col === "datas" ? datas : docs;
+  if (!db) {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify(docs)); localStorage.setItem(LS_KEY + "-datas", JSON.stringify(datas));
+      setSalvo("ok", "Salvo só neste navegador às " + hora()); return Promise.resolve(true);
+    } catch (e) { setSalvo("err", "Sem espaço para salvar neste navegador"); return Promise.resolve(false); }
+  }
+  const k = col + "/" + id;
+  const corpo = mapa[id] ? {...mapa[id]} : null;
+  pend[k] = (pend[k] || 0) + 1;
+  setSalvo("busy", "Salvando…");
+  const ref = db.doc(k);
+  fila[k] = (fila[k] || Promise.resolve())
+    .then(() => corpo ? ref.set(corpo) : ref.delete())
+    .then(() => { setSalvo("ok", "Salvo às " + hora()); return true; })
+    .catch(e => {
+      if (e && e.code === "invalid_argument") {
+        if (col === "datas") { podeDatas = false; podeEstr = false; setSalvo("err", "Somente leitura: seu acesso não permite editar"); }
+        else { podeEstr = false; setSalvo("err", "Seu acesso permite alterar só as datas"); }
+        atualizar();
+      } else setSalvo("err", "Não salvou. Altere o campo de novo para tentar outra vez");
+      return false;
+    })
+    .then(ok => { pend[k]--; return ok; });
+  return fila[k];
+}
+function salvar(id, patch) {
+  const col = Object.keys(patch).every(f => EH_DATA[f]) ? "datas" : "etapas";
+  if (col === "datas") datas[id] = {...(datas[id] || {}), ...patch};
+  else docs[id] = {...(docs[id] || {}), ...patch};
+  atualizar();
+  return gravar(id, col);
+}
+
+/* ---------- fotos adicionadas ---------- */
+const srcFoto = f => f.startsWith("data:") ? f : "/_blob/" + f;
+function fotosDe(id) {
+  const d = docs[id];
+  return d && Array.isArray(d.fotos) ? d.fotos.filter(f => typeof f === "string" && (/^[A-Za-z0-9_-]{8,64}$/.test(f) || f.startsWith("data:image/"))) : [];
+}
+const podeFoto = () => podeEstr && (db ? !!assets : true);
+const BOTAO_FOTO = `<label class="btn fraco addfoto"><input class="pick" type="file" accept="image/*" multiple data-pick aria-label="Adicionar foto à etapa">Adicionar foto</label>`;
+
+function pintaFotos(art, s) {
+  const fs = fotosDe(s.id), pf = podeFoto();
+  const sig = (pf ? "1" : "0") + "|" + s.n + "|" + fs.map(f => f.length > 64 ? f.length + ":" + f.slice(-24) : f).join(",");
+  if (art.dataset.fsig === sig) return;
+  art.dataset.fsig = sig;
+  const principal = s.foto || (fs[0] ? srcFoto(fs[0]) : "");
+  art.querySelector("[data-colfoto]").innerHTML = principal
+    ? `<button class="foto" type="button" data-zoom="${esc(principal)}" aria-label="Ampliar foto da etapa ${s.n}"><img src="${esc(principal)}" alt="Foto da etapa ${s.n}"></button>`
+    : `<div class="semfoto">${pf ? BOTAO_FOTO : "Sem foto"}</div>`;
+  art.querySelector("[data-fotoscampo]").hidden = !fs.length && (!pf || !principal);
+  art.querySelector("[data-extras]").innerHTML = fs.map((f, i) =>
+    `<span class="mini"><button class="mini-ver" type="button" data-zoom="${esc(srcFoto(f))}" aria-label="Ampliar foto adicionada ${i + 1}"><img src="${esc(srcFoto(f))}" alt="Foto adicionada ${i + 1} da etapa ${s.n}"></button>` +
+    (pf ? `<button class="tira" type="button" data-tira="${i}" aria-label="Remover foto adicionada ${i + 1}">×</button>` : "") + `</span>`).join("") + (pf ? BOTAO_FOTO : "");
+}
+
+async function reduzir(file, lado) {
+  let img;
+  try { img = await createImageBitmap(file, {imageOrientation:"from-image"}); }
+  catch (e) {
+    img = await new Promise((ok, no) => {
+      const i = new Image(), u = URL.createObjectURL(file);
+      i.onload = () => { URL.revokeObjectURL(u); ok(i); };
+      i.onerror = () => { URL.revokeObjectURL(u); no({code:"formato"}); };
+      i.src = u;
+    });
+  }
+  const w = img.width, h = img.height, k = Math.min(1, lado / Math.max(w, h));
+  if (!w || !h) throw {code:"formato"};
+  const c = document.createElement("canvas");
+  c.width = Math.max(1, Math.round(w * k)); c.height = Math.max(1, Math.round(h * k));
+  c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+  if (img.close) img.close();
+  return c;
+}
+async function sobe(blob) {
+  try { return await assets.upload(blob, {type:"image/jpeg"}); }
+  catch (e) {
+    if (!e || e.code !== "store_unavailable") throw e;
+    await new Promise(r => setTimeout(r, 1200));
+    return assets.upload(blob, {type:"image/jpeg"});
+  }
+}
+function msgFoto(e) {
+  const c = e && e.code;
+  if (c === "formato" || c === "unsupported_type") return "Formato de imagem não aceito. Use JPG ou PNG";
+  if (c === "too_large") return "Foto grande demais para enviar";
+  if (c === "quota_or_state") return "O espaço de fotos deste relatório acabou";
+  if (c === "rate_limited") return "Muitas fotos em sequência. Aguarde um pouco e envie de novo";
+  if (c === "not_granted" || c === "capability_disabled" || c === "capability_removed") return "Seu acesso não permite enviar fotos";
+  return "Não foi possível enviar a foto. Envie de novo";
+}
+async function addFotos(id, files) {
+  files = files.filter(f => f && (!f.type || f.type.startsWith("image/")));
+  if (!files.length || enviando || !podeFoto()) return;
+  enviando = true;
+  const novas = []; let falha = "";
+  for (let i = 0; i < files.length; i++) {
+    setSalvo("busy", "Enviando foto " + (i + 1) + " de " + files.length + "…");
+    try {
+      if (db) {
+        const c = await reduzir(files[i], 1600);
+        const blob = await new Promise(r => c.toBlob(r, "image/jpeg", 0.82));
+        if (!blob) throw {code:"formato"};
+        novas.push((await sobe(blob)).id);
+      } else {
+        const c = await reduzir(files[i], 1000);
+        novas.push(c.toDataURL("image/jpeg", 0.7));
+      }
+    } catch (e) { falha = msgFoto(e); }
+  }
+  enviando = false;
+  if (novas.length) await salvar(id, {fotos: fotosDe(id).concat(novas)});
+  if (falha) setSalvo("err", falha);
+  else if (!novas.length) setSalvo("err", "Nenhuma foto foi enviada");
+}
+function apagaArquivos(lista) {
+  if (!assets) return;
+  lista.forEach(f => { if (!f.startsWith("data:")) assets.delete(f).catch(() => {}); });
+}
+
+/* ---------- fichas ---------- */
+function ficha(s) {
+  const a = document.createElement("article");
+  a.className = "etapa"; a.dataset.id = s.id;
+  a.innerHTML = `<div class="col-foto" data-colfoto></div>
+  <div class="corpo">
+    <div class="etapa-head">
+      <span class="num">${p2(s.n)}</span>
+      <input class="titulo" id="${s.id}-titulo" data-f="titulo" type="text" aria-label="Título da etapa ${s.n}">
+      <span class="pill none" data-pill>Sem data</span>
+    </div>
+    <label class="campo"><span>Situação na foto</span><textarea id="${s.id}-situacao" data-f="situacao" rows="1"></textarea></label>
+    <label class="campo"><span>O que falta</span><textarea id="${s.id}-pendencia" data-f="pendencia" rows="1"></textarea></label>
+    <div class="grade">
+      <label class="campo"><span>Responsável</span><input id="${s.id}-resp" data-f="resp" type="text" placeholder="Quem executa"></label>
+      <div class="campo"><span>Conclusão prevista</span><div class="data-linha"><input id="${s.id}-previsto" data-f="previsto" type="date" aria-label="Conclusão prevista da etapa ${s.n}"><button class="limpa" type="button" data-limpa="previsto" aria-label="Limpar data prevista" hidden>×</button></div></div>
+      <div class="campo"><span>Conclusão realizada</span><div class="data-linha"><input id="${s.id}-realizado" data-f="realizado" type="date" aria-label="Conclusão realizada da etapa ${s.n}"><button class="limpa" type="button" data-limpa="realizado" aria-label="Limpar data realizada" hidden>×</button></div></div>
+    </div>
+    <label class="campo"><span>Observações</span><textarea id="${s.id}-obs" data-f="obs" rows="1" placeholder="Anotações da vistoria, combinados, pendências de terceiros"></textarea></label>
+    <div class="campo" data-fotoscampo hidden><span>Fotos adicionadas</span><div class="extras" data-extras></div></div>
+    <div class="rodape-etapa" data-rodape hidden><span>${s.custom ? "Etapa incluída depois da vistoria." : ""}</span><span data-rem><button class="btn fraco" type="button" data-remover>Excluir etapa</button></span></div>
+  </div>`;
+  return a;
+}
+function cresce(t) { t.style.height = "auto"; t.style.height = t.scrollHeight + "px"; }
+
+function aplicaAcesso() {
+  document.querySelectorAll("#etapas [data-f]").forEach(el => { el.disabled = !(el.type === "date" ? podeDatas : podeEstr); });
+  document.querySelectorAll("#etapas button.limpa").forEach(el => { el.disabled = !podeDatas; });
+  document.querySelectorAll("#etapas [data-rodape]").forEach(el => { el.hidden = !podeEstr; });
+  $("#add").disabled = !podeEstr;
+  $("#gestao").hidden = !podeEstr;
+  const ex = podeEstr ? excluidas() : [], exBox = $("#excluidas");
+  exBox.hidden = !ex.length;
+  const exSig = ex.map(x => x.id + ":" + x.titulo).join("|");
+  if (exBox.dataset.sig !== exSig) {
+    exBox.dataset.sig = exSig;
+    exBox.innerHTML = `<span class="rotulo">Etapas excluídas</span>` + ex.map(x =>
+      `<div class="ex-linha"><span>${esc(x.titulo)}</span><button class="btn fraco neutro" type="button" data-restaurar="${esc(x.id)}">Restaurar</button></div>`).join("");
+  }
+}
+
+function atualizar() {
+  const lista = etapas(), t = hoje();
+  const sig = lista.map(s => s.id).join(",");
+  const box = $("#etapas");
+  if (sig !== lastSig) {
+    box.replaceChildren(...lista.map(ficha));
+    lastSig = sig;
+  }
+  aplicaAcesso();
+  const cont = {done:0, ok:0, late:0, none:0};
+  const linhas = [];
+  lista.forEach(s => {
+    const art = box.querySelector(`[data-id="${s.id}"]`);
+    art.querySelectorAll("[data-f]").forEach(el => {
+      const v = val(s, el.dataset.f);
+      if (el !== document.activeElement && el.value !== v) el.value = v;
+      if (el.tagName === "TEXTAREA") cresce(el);
+    });
+    pintaFotos(art, s);
+    const p = dn(val(s, "previsto")), r = dn(val(s, "realizado"));
+    art.querySelector('[data-limpa="previsto"]').hidden = p == null;
+    art.querySelector('[data-limpa="realizado"]').hidden = r == null;
+    const st = situacao(p, r, t);
+    cont[st.k]++;
+    const pill = art.querySelector("[data-pill]");
+    pill.className = "pill " + st.k; pill.textContent = st.pill + (st.k === "done" && st.desvio !== "—" ? " · " + st.desvio : "");
+    linhas.push({s, p, r, st, titulo: val(s, "titulo") || "Etapa " + s.n, resp: val(s, "resp")});
+  });
+
+  $("#c-total").textContent = lista.length;
+  $("#c-done").textContent = cont.done;
+  $("#c-late").textContent = cont.late;
+  $("#contagem").innerHTML =
+    `<span class="pill done">${cont.done} concluída${cont.done === 1 ? "" : "s"}</span>` +
+    `<span class="pill ok">${cont.ok} no prazo</span>` +
+    `<span class="pill late">${cont.late} atrasada${cont.late === 1 ? "" : "s"}</span>` +
+    `<span class="pill none">${cont.none} sem data</span>`;
+  const n = lista.length || 1;
+  $("#barra").innerHTML = ["done","ok","late"].map(k => `<i class="b-${k}" style="width:${cont[k] / n * 100}%"></i>`).join("");
+
+  $("#tabela").innerHTML = linhas.map(l => `<tr>
+    <td class="n">${p2(l.s.n)}</td><td>${esc(l.titulo)}</td><td>${esc(l.resp) || "—"}</td>
+    <td class="d">${l.p != null ? fmt(l.p) : "—"}</td><td class="d">${l.r != null ? fmt(l.r) : "—"}</td>
+    <td class="d ${l.st.cls}">${esc(l.st.desvio)}</td><td><span class="pill ${l.st.k}">${esc(l.st.pill)}</span></td></tr>`).join("");
+
+  grafico(linhas, t);
+}
+
+/* ---------- cronograma ---------- */
+function grafico(linhas, t) {
+  const el = $("#grafico");
+  const ds = linhas.flatMap(l => [l.p, l.r]).filter(d => d != null);
+  if (!ds.length) {
+    el.innerHTML = `<p class="vazio">O cronograma aparece aqui assim que a primeira data prevista for preenchida em uma etapa. Cada etapa ganha uma linha com o marco previsto, o realizado e o desvio entre eles.</p>`;
+    return;
+  }
+  let min = Math.min(...ds, t), max = Math.max(...ds, t);
+  const folga = Math.max(3, Math.round((max - min) * 0.06));
+  min -= folga; max += folga;
+  const span = max - min;
+  const W = Math.max(el.clientWidth || 0, 660), LW = 218, PR = 26, TOP = 40, RH = 34;
+  const H = TOP + linhas.length * RH + 12;
+  const x = d => LW + (d - min) / span * (W - LW - PR);
+
+  const ticks = [];
+  if (span > 150) {
+    const passo = span > 420 ? 3 : 1;
+    const d0 = new Date(min * 864e5); let y = d0.getUTCFullYear(), m = d0.getUTCMonth();
+    for (;;) { const d = Date.UTC(y, m, 1) / 864e5; if (d > max) break; if (d >= min) ticks.push([d, MES[m] + "/" + String(y).slice(2)]); m += passo; if (m > 11) { y++; m -= 12; } }
+  } else {
+    const passo = span <= 16 ? 2 : span <= 50 ? 7 : 14;
+    for (let d = Math.ceil(min); d <= max; d += passo) ticks.push([d, fmt(d).slice(0, 5)]);
+  }
+
+  let g = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Cronograma de conclusão prevista e realizada por etapa">`;
+  linhas.forEach((l, i) => { if (i % 2 === 0) g += `<rect class="faixa" x="0" y="${TOP + i * RH}" width="${W}" height="${RH}"/>`; });
+  ticks.forEach(([d, lb]) => { const X = x(d).toFixed(1); g += `<line class="grid" x1="${X}" y1="${TOP - 6}" x2="${X}" y2="${H - 8}"/><text x="${X}" y="${TOP - 12}" text-anchor="middle">${lb}</text>`; });
+  const XT = x(t).toFixed(1);
+  g += `<line class="hoje" x1="${XT}" y1="${TOP - 6}" x2="${XT}" y2="${H - 8}"/><text class="hoje-t" x="${XT}" y="12" text-anchor="middle">hoje ${fmt(t).slice(0, 5)}</text>`;
+  linhas.forEach((l, i) => {
+    const cy = TOP + i * RH + RH / 2;
+    const nome = l.titulo.length > 25 ? l.titulo.slice(0, 24).trimEnd() + "…" : l.titulo;
+    g += `<text class="lbl-n" x="12" y="${cy + 5}">${p2(l.s.n)}</text><text class="lbl" x="38" y="${cy + 4.5}">${esc(nome)}</text>`;
+    const tarde = l.p != null && l.r != null && l.r > l.p;
+    if (l.p != null && l.r != null && l.r !== l.p) g += `<line class="lig${tarde ? " tarde" : ""}" x1="${x(l.p).toFixed(1)}" y1="${cy}" x2="${x(l.r).toFixed(1)}" y2="${cy}"/>`;
+    if (l.p != null && l.r == null && t > l.p) g += `<line class="aberto" x1="${x(l.p).toFixed(1)}" y1="${cy}" x2="${XT}" y2="${cy}"/>`;
+    if (l.p != null) { const X = x(l.p); g += `<rect class="prev" x="${(X - 5.5).toFixed(1)}" y="${cy - 5.5}" width="11" height="11" transform="rotate(45 ${X.toFixed(1)} ${cy})"><title>Previsto ${fmt(l.p)}</title></rect>`; }
+    if (l.r != null) g += `<circle class="real${tarde ? " tarde" : ""}" cx="${x(l.r).toFixed(1)}" cy="${cy}" r="6"><title>Realizado ${fmt(l.r)}</title></circle>`;
+  });
+  el.innerHTML = g + "</svg>";
+}
+
+/* ---------- eventos ---------- */
+const box = $("#etapas");
+box.addEventListener("input", e => { if (e.target.tagName === "TEXTAREA") cresce(e.target); });
+box.addEventListener("change", e => {
+  const el = e.target, art = el.closest(".etapa");
+  if (art && el.matches("[data-pick]")) { const fs = Array.from(el.files || []); el.value = ""; addFotos(art.dataset.id, fs); return; }
+  if (!art || !el.dataset.f) return;
+  if (!(el.type === "date" ? podeDatas : podeEstr)) return;
+  salvar(art.dataset.id, {[el.dataset.f]: el.type === "date" ? el.value : el.value.trim()});
+});
+box.addEventListener("click", e => {
+  const art = e.target.closest(".etapa"); if (!art) return;
+  const lim = e.target.closest("[data-limpa]");
+  if (lim && podeDatas) { salvar(art.dataset.id, {[lim.dataset.limpa]: ""}); return; }
+  const tira = e.target.closest("[data-tira]");
+  if (tira && podeFoto()) {
+    if (tira.dataset.ok !== "1") {
+      tira.dataset.ok = "1"; tira.textContent = "Remover?"; tira.classList.add("conf");
+      setTimeout(() => { if (tira.isConnected) { tira.dataset.ok = ""; tira.textContent = "×"; tira.classList.remove("conf"); } }, 4000);
+      return;
+    }
+    const id = art.dataset.id, fs = fotosDe(id), fora = fs.splice(+tira.dataset.tira, 1);
+    salvar(id, {fotos: fs}).then(ok => { if (ok) apagaArquivos(fora); });
+    return;
+  }
+  const rem = e.target.closest("[data-remover]");
+  if (rem && podeEstr) {
+    const alvo = rem.parentElement;
+    alvo.innerHTML = `<button class="btn fraco neutro" type="button" data-cancela>Manter</button> <button class="btn fraco perigo" type="button" data-confirma>Confirmar exclusão</button>`;
+    return;
+  }
+  if (e.target.closest("[data-cancela]")) { e.target.parentElement.innerHTML = `<button class="btn fraco" type="button" data-remover>Excluir etapa</button>`; return; }
+  if (e.target.closest("[data-confirma]") && podeEstr) salvar(art.dataset.id, {excluida:true});
+});
+$("#excluidas").addEventListener("click", e => {
+  const r = e.target.closest("[data-restaurar]");
+  if (r && podeEstr) salvar(r.dataset.restaurar, {excluida:false});
+});
+$("#add").addEventListener("click", () => {
+  if (!podeEstr) return;
+  const id = "x" + Date.now().toString(36);
+  salvar(id, {custom:true, criado:Date.now(), titulo:"Nova etapa"});
+  const t = document.getElementById(id + "-titulo"); if (t) { t.focus(); t.select(); }
+});
+document.addEventListener("error", e => { const i = e.target; if (i && i.tagName === "IMG" && i.closest("#etapas")) i.alt = "Foto indisponível"; }, true);
+const dlg = $("#zoom");
+document.addEventListener("click", e => {
+  const z = e.target.closest("[data-zoom]");
+  if (z) { $("#zoom-img").src = z.dataset.zoom; if (dlg.showModal) dlg.showModal(); return; }
+  if (e.target.closest("#zoom")) dlg.close();
+});
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(atualizar, 150); });
+
+/* ---------- partida ---------- */
+function local() {
+  try { docs = JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { docs = {}; }
+  try { datas = JSON.parse(localStorage.getItem(LS_KEY + "-datas") || "{}") || {}; } catch (e) { datas = {}; }
+  podeEstr = podeDatas = true; atualizar();
+  setSalvo("", "As edições ficam salvas só neste navegador");
+}
+function mescla(snap, atual, prefixo) {
+  const novo = {};
+  snap.docs.forEach(d => { novo[d.id] = {...d.data()}; });
+  Object.keys(pend).forEach(k => {
+    if (pend[k] > 0 && k.startsWith(prefixo)) { const id = k.slice(prefixo.length); if (atual[id]) novo[id] = atual[id]; else delete novo[id]; }
+  });
+  return novo;
+}
+async function iniciar() {
+  atualizar();
+  let store = null;
+  try { store = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { store = null; }
+  if (!store) { local(); return; }
+  db = store;
+  try { assets = await window.claude.use("assets"); } catch (e) { assets = null; }
+  // Quem administra (dono e editores) mexe em etapas, textos e fotos; colaboradores, só nas datas.
+  let adm = true, escreve = null;
+  try { const u = await window.claude.use("user"); if (u) { adm = await u.canEdit(); escreve = await u.can("data.write"); } } catch (e) { adm = true; escreve = null; }
+  let primeiro = true;
+  db.collection("etapas").onSnapshot(snap => {
+    docs = mescla(snap, docs, "etapas/");
+    if (primeiro) {
+      primeiro = false;
+      podeEstr = adm; podeDatas = adm || escreve !== false;
+      setSalvo(podeEstr ? "ok" : "", podeEstr ? "Edições salvas no relatório, visíveis para quem tem acesso"
+        : podeDatas ? "Você pode alterar as datas. Etapas, textos e fotos ficam com os responsáveis pelo relatório" : "Somente leitura");
+    }
+    atualizar();
+  }, () => { podeEstr = podeDatas = false; atualizar(); setSalvo("err", "Sem conexão com os dados salvos. Recarregue a página"); });
+  db.collection("datas").onSnapshot(snap => { datas = mescla(snap, datas, "datas/"); atualizar(); }, () => {});
+}
+iniciar();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(atualizar);
+})();
+</script>
+
+</body></html>

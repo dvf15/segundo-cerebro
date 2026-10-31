@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloco de retorno: 8 semanas a partir de 09/11</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#edf0f4; --surface:#ffffff; --ink:#14202e; --muted:#566273; --line:#d3d9e2;
+  --belt:#1f4fa3; --belt-soft:#dfe8f7; --go:#2b7a57; --go-soft:#dff1e8;
+  --hold:#b96a10; --hold-soft:#fbecd6; --stop:#a8322c; --stop-soft:#f8e1df; --lock:#8a94a3;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1621; --surface:#18212f; --ink:#e8edf4; --muted:#9aa7b8; --line:#2b3748;
+  --belt:#7fa6ee; --belt-soft:#1d2c47; --go:#6cc79d; --go-soft:#173428; --hold:#e9a955; --hold-soft:#3a2a12;
+  --stop:#ee8c85; --stop-soft:#3d1d1b; --lock:#6d7a8c;}}
+:root[data-theme="dark"]{
+  --bg:#0f1621; --surface:#18212f; --ink:#e8edf4; --muted:#9aa7b8; --line:#2b3748;
+  --belt:#7fa6ee; --belt-soft:#1d2c47; --go:#6cc79d; --go-soft:#173428; --hold:#e9a955; --hold-soft:#3a2a12;
+  --stop:#ee8c85; --stop-soft:#3d1d1b; --lock:#6d7a8c;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Barlow,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 56px}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;line-height:1.08;margin:0}
+h1{font-size:clamp(2.2rem,8vw,3.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.9rem;font-weight:600;margin:44px 0 6px}
+h3{font-size:1.3rem;font-weight:600;margin:0 0 6px}
+p{margin:8px 0}
+.lede{color:var(--muted);font-size:1.05rem;max-width:60ch}
+.sub{color:var(--muted);margin:0 0 14px;max-width:62ch}
+small,.small{font-size:.88rem;color:var(--muted)}
+a{color:var(--belt)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;margin:12px 0}
+.panel.hold{border-left:5px solid var(--hold);background:var(--hold-soft)}
+.panel.stop{border-left:5px solid var(--stop);background:var(--stop-soft)}
+
+/* faixa: linha do tempo */
+.belt{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:18px 0 6px}
+.belt button{all:unset;cursor:pointer;text-align:center;padding:12px 2px 10px;background:var(--belt-soft);color:var(--ink);
+  font:600 1rem "Barlow Condensed","Arial Narrow",sans-serif;border-bottom:5px solid transparent}
+.belt button:first-child{border-radius:6px 0 0 6px}.belt button:last-child{border-radius:0 6px 6px 0}
+.belt button span{display:block;font:400 .72rem Barlow,sans-serif;color:var(--muted)}
+.belt button[aria-selected="true"]{background:var(--belt);color:#fff;border-bottom-color:var(--ink)}
+.belt button[aria-selected="true"] span{color:#e5ecf8}
+.belt button:focus-visible{outline:3px solid var(--hold);outline-offset:2px}
+.belt button.locked::after{content:"🔒";font-size:.7rem;margin-left:3px}
+.phase{display:none}.phase.on{display:block}
+.gate{font-size:.92rem;border:1px dashed var(--lock);border-radius:6px;padding:10px 12px;margin:10px 0;color:var(--muted)}
+.gate b{color:var(--ink)}
+
+/* semana */
+.week{border-top:1px solid var(--line);margin-top:10px}
+.day{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.day>b{font:700 1.25rem "Barlow Condensed",sans-serif;color:var(--belt)}
+.day ul{margin:4px 0 0;padding-left:18px}.day li{margin:2px 0}
+.tag{display:inline-block;font-size:.76rem;font-weight:600;padding:1px 8px;border-radius:99px;margin-left:4px;vertical-align:1px}
+.t-f{background:var(--belt-soft);color:var(--belt)}.t-c{background:var(--go-soft);color:var(--go)}
+.t-r{background:var(--hold-soft);color:var(--hold)}.t-b{background:var(--ink);color:var(--bg)}
+details{margin:10px 0}summary{cursor:pointer;font-weight:600;color:var(--belt)}
+
+.cols{display:grid;gap:10px}@media(min-width:640px){.cols{grid-template-columns:repeat(3,1fr)}}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;border-top:5px solid var(--go)}
+.col.adapt{border-top-color:var(--hold)}.col.no{border-top-color:var(--stop)}
+.col ul{margin:6px 0 0;padding-left:18px}.col li{margin:5px 0;font-size:.95rem}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 1rem "Barlow Condensed",sans-serif;color:var(--muted)}
+.check{list-style:none;padding:0;margin:6px 0}.check li{padding:5px 0 5px 28px;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border:2px solid var(--lock);border-radius:3px}
+.conf{display:grid;gap:10px}@media(min-width:560px){.conf{grid-template-columns:1fr 1fr}}
+.conf div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px}
+.conf strong{font:700 2.2rem "Barlow Condensed",sans-serif;display:block;line-height:1}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <p class="small">Daniel. Bloco de 09/11/2026 a 03/01/2027 (semanas 9 a 16 pós-lesão).</p>
+  <h1>Oito semanas para voltar mais forte do que saiu.</h1>
+  <p class="lede">Estrutura em 3 fases como a planilha do Lucas Castro (base, explosão, específico), com deload no Natal. Montado sobre a sua agenda real: musculação segunda, sexta e sábado (domingo às vezes), gi no sábado e, às vezes, quarta cedo.</p>
+</header>
+
+<div class="panel hold">
+  <h3>Antes de começar: teste de entrada em 07 ou 08/11</h3>
+  <p>"Recuperada" em 7 semanas é provável para andar e treinar força, mas não garantido para saltar: rotura de alto grau com 1,4 cm de retração está na faixa lenta. O teste decide o que destrava.</p>
+  <ul class="check">
+    <li>25+ elevações de panturrilha unilaterais, amplitude completa, sem dor</li>
+    <li>Assimetria de força entre as pernas menor que 10% (fisio mede)</li>
+    <li>10 saltitos bilaterais no lugar e 3 aterrissagens de caixa de 20 cm sem dor, inclusive na manhã seguinte</li>
+    <li>Liberação do Dr. Fernando e da fisio para tatame</li>
+    <li>Consulta com especialista em ombro feita antes de 09/11, com linha de base de força de rotação externa</li>
+  </ul>
+  <p><b>Passou nos itens de panturrilha:</b> siga o plano inteiro. <b>Falhou em algum:</b> faça a Fase A normalmente, mantenha a pliometria de perna travada e reteste a cada 2 semanas. Superiores, pegada e cardio não mudam.</p>
+  
+</div>
+
+
+
+<h2>Como a sua agenda foi encaixada</h2>
+<div class="panel">
+  <ul>
+    <li><b>Pernas na segunda.</b> É o único dia de musculação que respeita as 48 h: fica 48 h depois do gi de sábado e 5 dias antes do próximo. Sexta seria véspera de BJJ e domingo seria 24 h depois.</li>
+    <li><b>Sexta é superiores, com puxadas longe da falha e sem pegada.</b> Antebraço cansado na sexta é pegada pior no gi de sábado. O bloco de pegada foi para segunda.</li>
+    <li><b>Sábado: o ferro vem antes do gi, então vira ativação.</b> 25 a 30 min de core, manguito, mobilidade e, da semana 4 em diante, um primer curto de potência. O que cansava (carries, panturrilha com carga) saiu do sábado: carries foram para segunda e domingo, sóleo para sexta. Se houver 3 h ou mais entre os dois, coma carboidrato no intervalo; se for emendado, a sessão já serve de aquecimento.</li>
+    <li><b>Domingo, quando houver:</b> superiores leve e Zone 2. Nunca pernas.</li>
+    <li><b>Cardio nos dias sem ferro:</b> Zone 2 na terça e na quinta (mínimo de 2 por semana, sua principal alavanca de HDL). VO2max na quarta, só quando não tiver BJJ cedo.</li>
+  </ul>
+  <h3 style="margin-top:14px">Fundamentos de gi: ajuda?</h3>
+  <p>Sim, e principalmente nas semanas 1 a 3. Aula de fundamentos é técnica sem rola duro, exatamente os degraus 1 e 2 da escada de retorno, e o sábado sozinho é pouca frequência para reaprender a confiar na perna. Frequência pesa mais que intensidade para habilidade.</p>
+  <ul>
+    <li><b>Quinta à noite</b> é a melhor: longe das pernas de segunda e a sexta é só superiores.</li>
+    <li><b>Terça à noite</b> serve, mas a perna estará dolorida da segunda: só técnica.</li>
+    <li><b>Segunda à noite</b> só se a musculação tiver sido de manhã, e sem nada explosivo.</li>
+    <li><b>Teto:</b> 2 sessões de tatame por semana nas semanas 1 a 3 (sábado + uma), até 3 da semana 4 em diante. Aos 49, em déficit calórico e com 3 a 4 dias de ferro, o gargalo é recuperação. Na semana com quarta cedo, a quarta já é a segunda sessão.</li>
+  </ul>
+</div>
+
+<h2>Ombro: o que muda em todo o bloco</h2>
+<p class="sub">A ressonância mostrou quatro coisas: artrose glenoumeral com osso subcondral exposto, artrose acromioclavicular com edema ósseo (sobrecarga ativa), lesão labral quase circunferencial com cisto paralabral de 1,5 cm e tendinopatia do manguito com fissuras no subescapular. A versão anterior deste plano ignorava isso. Esta corrige.</p>
+<div class="cols">
+  <div class="col no"><h3>Sai</h3><ul>
+    <li>Desenvolvimento acima da cabeça e supino com barra em amplitude total</li>
+    <li>Paralelas, crucifixo profundo, elevação lateral acima de 90°</li>
+    <li>Dead hang e barra fixa solta no fundo: tração passiva no lábio e na âncora do bíceps</li>
+    <li>Flexão explosiva e slam acima da cabeça: impacto em cartilagem já exposta</li>
+    <li>Turkish get-up: carga sustentada acima da cabeça em ombro com lábio lesionado</li>
+  </ul></div>
+  <div class="col"><h3>Entra</h3><ul>
+    <li>Supino com halteres ou floor press, amplitude parcial</li>
+    <li>Landmine press no plano da escápula</li>
+    <li>Puxada com pegada neutra e remadas, em proporção de 2 séries de puxar para 1 de empurrar</li>
+    <li>Bloco de manguito 2 a 3 vezes por semana: rotação externa, rotação interna, serrátil, trapézio inferior</li>
+    <li>Carries e holds para pegada</li>
+  </ul></div>
+  <div class="col adapt"><h3>Regra de dor</h3><ul>
+    <li>Até 3/10 durante o exercício, sumindo em 24 h: segue</li>
+    <li>Acima disso, ou dor noturna: reduz amplitude, depois carga, depois troca o exercício</li>
+    <li>Empurrar fica em 6 a 10 reps. Força máxima de empurrar não é objetivo com artrose glenoumeral</li>
+  </ul></div>
+</div>
+<div class="panel hold"><h3>Ajuste imediato, para a fase em que você está hoje</h3>
+<p>No plano de reabilitação que montei antes (o primeiro arquivo) troque já: desenvolvimento sentado por landmine press ajoelhado nos dois joelhos ou sentado; dead hang por hold de haltere; slam por arremesso rotacional baixo. E o Zone 2 no ergômetro de braço passa a ser por tolerância: comece com 15 a 20 min e, se o ombro reclamar, a alternativa é bike só com a perna boa quando a fisio liberar.</p>
+<p class="small">Se o especialista indicar cirurgia (tenodese ou artroscopia), este bloco muda inteiro. Não sei qual é o lado afetado nem qual das quatro lesões gera o seu sintoma; por isso as trocas valem para os dois lados.</p></div>
+
+<h2>As fases do bloco</h2>
+<p class="sub">Toque em cada fase para ver a semana completa.</p>
+<div class="belt" role="tablist" aria-label="Fases do bloco">
+  <button role="tab" aria-selected="true" data-p="0">Fase A<span>sem 1–3, base</span></button>
+  <button role="tab" aria-selected="false" data-p="1">Fase B<span>sem 4–6, explosão</span></button>
+  <button role="tab" aria-selected="false" data-p="2">Deload<span>sem 7, Natal</span></button>
+  <button role="tab" aria-selected="false" data-p="3">Fase C<span>sem 8, específico</span></button>
+</div>
+
+<section class="phase on" id="p0"><div class="panel">
+  <h3>Fase A, base de força (09/11 a 29/11)</h3>
+  <p>Reconstruir força de pernas que ficou 8 semanas parada, sem pressa. Séries de 8 a 10, RIR 3 na semana 1, RIR 2 nas semanas 2 e 3. Suba carga 2,5 a 5% por semana só se a panturrilha estiver sem dor no dia seguinte.</p>
+  <div class="week">
+    <div class="day"><b>Seg</b><div>Força A, inferiores + pegada <span class="tag t-f">65 min</span><ul><li>Agachamento frontal ou goblet 4×8, descida de 3 s</li><li>RDL com barra 3×8</li><li>Split squat búlgaro 3×8 por perna (começa pela perna lesionada)</li><li>Mesa flexora 3×10</li><li>Panturrilha em pé unilateral 4×8–10 pesada, 2 s em cima, 3 s descendo</li><li>Panturrilha sentada (sóleo) 3×12–15; tibial anterior 2×15</li><li>Pegada: puxada com gi 3×8, pinça de anilha 3×25 s, farmer's carry 3×30 m. Fica aqui, a 5 dias do gi de sábado</li></ul></div></div>
+    <div class="day"><b>Ter</b><div>Zone 2 na bike <span class="tag t-c">45–60 min, 120–140 bpm</span><ul><li>Fundamentos de gi à noite: opção B</li></ul></div></div>
+    <div class="day"><b>Qua</b><div>BJJ gi cedo, quando houver <span class="tag t-b">tatame</span><ul><li>Sem BJJ: livre ou Zone 2 de 40 min</li></ul></div></div>
+    <div class="day"><b>Qui</b><div>Fundamentos de gi à noite <span class="tag t-b">opção A, a melhor</span><ul><li>Sem aula: Zone 2 de 45 min</li></ul></div></div>
+    <div class="day"><b>Sex</b><div>Força B, superiores + manguito <span class="tag t-f">55 min</span><ul><li>Arremesso de medicine ball do peito 4×5, bola de 3–4 kg</li><li>Supino com halteres ou floor press 4×8, cotovelo não passa da linha do tronco</li><li>Puxada alta pegada neutra 4×8–10, RIR 3</li><li>Landmine press unilateral 3×8–10</li><li>Remada com peito apoiado 3×10, RIR 3</li><li>Manguito: rotação externa 3×12–15; rotação interna 3×12; wall slide 2×12</li><li>Face pull 3×15; pescoço isométrico 3×30 s</li><li>Sóleo sentado 3×12–15, RIR 3, sem excêntrico lento: segunda dose de panturrilha da semana, leve o bastante para não pesar no sábado</li><li>Sem bloco de pegada e puxadas longe da falha: antebraço fresco para o gi de sábado</li></ul></div></div>
+    <div class="day"><b>Sáb</b><div>Força C, ativação antes do gi <span class="tag t-f">25–30 min</span> depois BJJ gi <span class="tag t-b">tatame</span><ul><li>McGill Big 3, 2 rodadas (rigidez de tronco sem fadiga)</li><li>Manguito leve: rotação externa 2×15, wall slide 2×12, face pull 2×15</li><li>Mobilidade de quadril e torácica, 5 min</li><li>Panturrilha: 2×15 elevações bilaterais com peso do corpo, só para aquecer</li><li>Pescoço isométrico 2×20 s, submáximo</li><li>Nada de pegada, carries, puxadas, panturrilha com carga ou série perto da falha. Você sai do ferro mais pronto, não mais cansado</li></ul></div></div>
+    <div class="day"><b>Dom</b><div>Às vezes: Força D + Zone 2 <span class="tag t-f">40 min</span> <span class="tag t-c">30 min</span><ul><li>Remada na máquina 3×12; supino inclinado baixo com halteres 3×10; rosca 3×12; tríceps no cabo 3×12; manguito</li><li>Suitcase carry 3×20 m por lado; panturrilha em pé bilateral 3×10 com carga</li><li>Sem pernas: são 24 h depois do BJJ</li></ul></div></div>
+  </div>
+  <details><summary>Versão mínima viável</summary><ul><li>Segunda: Força A completa (não se corta neste bloco)</li><li>Sexta: supino com halteres, puxada neutra, remada, manguito, 40 min</li><li>Sábado: Big 3 + BJJ</li><li>1 Zone 2 de 60 min</li></ul></details>
+</div></section>
+
+<section class="phase" id="p1"><div class="panel">
+  <h3>Fase B, força + explosão (30/11 a 20/12)</h3>
+  <p>Só com o teste de entrada aprovado. Cargas sobem para séries de 4 a 6, RIR 2. Potência sempre no começo da sessão, com descanso completo (90 s a 2 min) e parando quando a velocidade cair. Limite de 25 a 40 aterrissagens por sessão, 2 vezes por semana no máximo (opinião minha para 100+ kg pós-lesão; não há estudo específico).</p>
+  <div class="week">
+    <div class="day"><b>Seg</b><div>Força A, inferiores + potência + pegada <span class="tag t-f">70 min</span><ul><li>Sem 4: salto na caixa baixa 4×4, descendo andando. Sem 5: salto horizontal 4×3 + pogo 3×10. Sem 6: contraste, agachamento 3 reps e 3 saltos após 2 min, 4 rodadas</li><li>Agachamento frontal, goblet ou safety bar 4×5</li><li>Levantamento terra ou trap bar 3×5; swing de kettlebell 4×8</li><li>Panturrilha unilateral pesada 4×6–8; sóleo 3×12</li><li>Pegada, 8 séries</li></ul></div></div>
+    <div class="day"><b>Ter</b><div>Zone 2 <span class="tag t-c">45–60 min</span></div></div>
+    <div class="day"><b>Qua</b><div>BJJ gi cedo <span class="tag t-b">tatame</span> ou VO2max na bike <span class="tag t-c">35 min</span>, nunca os dois<ul><li>VO2max: sem 4, 3×4 min; sem 5 e 6, 4×4 min a 85–95% da FCmáx (Helgerud 2007), com liberação da Dra. Juliana</li><li>Com BJJ na quarta, são ~40 h depois de pernas: se a perna estiver pesada, fique na técnica</li></ul></div></div>
+    <div class="day"><b>Qui</b><div>Fundamentos de gi à noite ou Zone 2 <span class="tag t-c">45 min</span></div></div>
+    <div class="day"><b>Sex</b><div>Força B, superiores + potência <span class="tag t-f">55 min</span><ul><li>Arremesso do peito 5×4 + arremesso rotacional baixo 4×4 por lado</li><li>Supino com halteres 4×6–8; puxada neutra 4×6–8 RIR 3; landmine press 3×8; remada 4×8 RIR 3</li><li>Manguito, face pull e pescoço</li></ul></div></div>
+    <div class="day"><b>Sáb</b><div>Força C com primer de potência <span class="tag t-f">25–30 min</span> depois BJJ gi, rola completo <span class="tag t-b">tatame</span><ul><li>Mesma ativação da Fase A</li><li>Primer: arremesso do peito 3×3 e salto na caixa baixa 2×3, máxima velocidade, descanso completo. Volume baixo acorda o sistema nervoso sem cansar (mesma lógica do taper)</li></ul></div></div>
+    <div class="day"><b>Dom</b><div>Às vezes: Força D + Zone 2. Sem pernas</div></div>
+  </div>
+  <details><summary>Versão mínima viável</summary><ul><li>Segunda: potência + agachamento + terra + panturrilha, 45 min</li><li>Sexta: superiores reduzido, 40 min</li><li>Sábado: Big 3 + BJJ</li><li>1 Zone 2 de 60 min. O VO2max é o primeiro a sair</li></ul></details>
+</div></section>
+
+<section class="phase" id="p2"><div class="panel">
+  <h3>Deload (21/12 a 27/12)</h3>
+  <p>Cai na semana do Natal, o que ajuda. Volume de força 50% menor, mesma carga. Sem pliometria e sem VO2max.</p>
+  <ul>
+    <li>Segunda e sexta: os mesmos exercícios principais, 2 séries cada, RIR 3. Sábado só ativação, sem Força D</li>
+    <li>BJJ: só técnica e drill, sem rola duro</li>
+    <li>2 Zone 2 de 40 min</li><li>Big 3 e mobilidade todo dia</li>
+    <li>Bom momento para o InBody (mesma hora, mesmo estado de hidratação) e para reavaliar a assimetria da panturrilha</li>
+  </ul>
+  <p class="small">Deload a cada 4 a 8 semanas melhora adaptação em força (Helms et al.); em bloco de retorno pós-lesão eu não pularia.</p>
+</div></section>
+
+<section class="phase" id="p3"><div class="panel">
+  <h3>Fase C, específico (28/12 a 03/01) e ponte para 2027</h3>
+  <p>Uma semana de amostra do trabalho de alta intensidade que o Lucas coloca no fim da preparação, mais os retestes. Se houver campeonato no horizonte, esta fase vira um bloco de 3 a 4 semanas; sem competição, volta-se para a Fase B com cargas novas.</p>
+  <div class="week">
+    <div class="day"><b>Seg</b><div>Retestes descansado + Força A de manutenção <span class="tag t-f">45 min</span><ul><li>Panturrilha unilateral máx reps; salto horizontal</li><li>Contraste 3 rodadas, terra 2×5, panturrilha 3×8</li></ul></div></div>
+    <div class="day"><b>Ter</b><div>Zone 2 <span class="tag t-c">45 min</span></div></div>
+    <div class="day"><b>Qua</b><div>Circuito de luta no lugar do VO2max <span class="tag t-c">30 min</span><ul><li>3 rounds de 5 min, 90 s de pausa: remo 250 m, 8 remadas na argola com pegada de gi, 8 arremessos rotacionais baixos, arrasto de trenó com cinto 20 m</li><li>Se tiver BJJ cedo, o circuito sai</li></ul></div></div>
+    <div class="day"><b>Qui</b><div>Fundamentos de gi ou Zone 2</div></div>
+    <div class="day"><b>Sex</b><div>Força B de manutenção + retestes <span class="tag t-f">40 min</span><ul><li>Hold de haltere máx; rotação externa no dinamômetro com a fisio</li></ul></div></div>
+    <div class="day"><b>Sáb</b><div>BJJ gi, rola completo <span class="tag t-b">tatame</span></div></div>
+    <div class="day"><b>Dom</b><div>Livre</div></div>
+  </div>
+</div></section>
+
+<h2>Escada de retorno ao rola</h2>
+<p class="sub">O tennis leg acontece no empurrão explosivo com o joelho estendido: levantada técnica, entrada de queda, sprawl. Por isso o jogo em pé é o último degrau.</p>
+<div class="scroll"><table>
+  <tr><th>Semana</th><th>No tatame</th><th>Evitar</th></tr>
+  <tr><td>1</td><td>Drills e técnica, sem resistência</td><td>Qualquer rola</td></tr>
+  <tr><td>2</td><td>Rola posicional de chão a 50–70%, por cima e por baixo</td><td>Começar em pé; guarda de gancho forçando o pé</td></tr>
+  <tr><td>3</td><td>Rola completo começando do joelho, parceiros de confiança</td><td>Quedas, sprawl</td></tr>
+  <tr><td>4–5</td><td>Entradas de queda sem resistência; rola livre no chão</td><td>Disputa de queda ao vivo</td></tr>
+  <tr><td>6+</td><td>Em pé ao vivo, progressivo</td><td>Rola duro em dia seguinte a pernas</td></tr>
+</table></div>
+<p><b>Ombro no tatame:</b> bata cedo em kimura, americana e omoplata; evite apoiar o peso no braço estendido e frames longos com o lado afetado; avise os parceiros. Sprawl também carrega o ombro, mais um motivo para o jogo em pé ser o último degrau.</p>
+<p class="small">Progressão por degraus é prática padrão de retorno ao esporte; a divisão por semanas é minha, não vem de estudo em BJJ. Avance só se o degrau anterior não deu dor nem inchaço em 24 h.</p>
+
+<h2>Panturrilha continua no plano o ano todo</h2>
+<div class="panel">
+  <p>Lesão prévia de panturrilha e idade são os dois fatores de risco mais consistentes para nova lesão (Green e Pizzari, Br J Sports Med 2017, revisão sistemática). Então ela não sai do treino quando parar de doer:</p>
+  <ul><li>2 vezes por semana, para sempre: unilateral em pé pesada (gastrocnêmio) + sentada (sóleo)</li>
+  <li>Meta de força: 25+ reps unilaterais com peso do corpo e, depois, 3×8 com carga externa de 20 a 30% do peso corporal (meta minha, evidência fraca para o número exato)</li>
+  <li>Aquecimento específico antes do BJJ: 2×15 elevações + 20 saltitos leves, quando liberado</li></ul>
+</div>
+
+<h2>O que ajustar fora do treino</h2>
+<div class="panel">
+  <ul><li>NutriTreino: os tiers legs, bjj e double estão como "SUSPENSO". Precisam ser reativados em 09/11. Peça e eu gero o JSON.</li>
+  <li>Déficit: nas 3 primeiras semanas, carbo cheio nos dias de pernas e de BJJ (é o macro que você costuma deixar faltar). CarboLift volta só nas sessões glicolíticas.</li>
+  <li>Sinais de excesso: FC de repouso 5 a 10 bpm acima, HRV em queda por 3+ dias, sono pior. Resposta: cortar volume pela metade por 5 a 7 dias.</li></ul>
+</div>
+
+<h2>Sinais para parar</h2>
+<div class="panel stop"><ul class="check">
+  <li>Fisgada ou estalo na panturrilha: parar na hora, gelo não, avaliação com o Dr. Fernando</li>
+  <li>Dor acima de 3/10 no treino ou na manhã seguinte: voltar um degrau por uma semana</li>
+  <li>Inchaço novo, calor ou dor em repouso na perna: avaliação médica no mesmo dia</li>
+  <li>PA acima do limite configurado: sem VO2max nem circuito no dia</li>
+  <li>Ombro: fraqueza nova para rodar o braço para fora, dor noturna persistente ou perda de volume atrás da escápula: avaliação com o especialista (o cisto fica perto do nervo supraescapular)</li></ul>
+  <p class="small">Não é aconselhamento médico. A liberação para cada etapa é da fisioterapia e do ortopedista.</p>
+</div>
+
+<h2>Confiança</h2>
+<div class="conf">
+  <div><strong>8/10</strong>Estrutura, volumes e ordem das fases: bem sustentados por literatura de força, treino concorrente e retorno ao esporte.</div>
+  <div><strong>7/10</strong>Adaptações de ombro: seguem diretrizes conservadoras para artrose e tendinopatia, mas a escolha exercício a exercício é raciocínio mecânico meu, sem ensaio clínico, e ainda falta a avaliação do especialista.</div>
+  <div><strong>6/10</strong>Prazo. Assumir recuperação plena em 09/11 é otimista para rotura com retração; por isso o teste de entrada e o plano B. Os limites de pliometria e a escada de rola são julgamento meu, não dado de estudo.</div>
+</div>
+
+<h2>Fontes</h2>
+<ul class="small">
+  <li>Green B, Pizzari T. Calf muscle strain injuries in sport: a systematic review of risk factors for injury. Br J Sports Med, 2017.</li>
+  <li>Helgerud J et al. Med Sci Sports Exerc, 2007 (4×4). Wilson JM et al. J Strength Cond Res, 2012 (treino concorrente).</li>
+  <li>Schoenfeld BJ et al. Sports Med, 2017 (volume). Helms E et al. (deload). McGill S (Big 3). Attia P, Outlive, 2023.</li>
+  <li>Ombro: AAOS, diretriz de artrose glenoumeral, 2020; conduta discutida na análise da sua ressonância em 19/09.</li>
+  <li>Estrutura de 3 fases: páginas públicas do Base Training (abasetraining.com.br). Conteúdo pago não consultado.</li>
+</ul>
+</main>
+<script>
+document.querySelectorAll('.belt button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.belt button').forEach(function(x){x.setAttribute('aria-selected','false')});
+document.querySelectorAll('.phase').forEach(function(s){s.classList.remove('on')});
+b.setAttribute('aria-selected','true');document.getElementById('p'+b.dataset.p).classList.add('on');});});
+</script>
+</body></html>

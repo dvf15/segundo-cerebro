@@ -1,0 +1,50 @@
+name: Sincronizar segundo cérebro
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"        # segunda-feira, 06:17 UTC
+  workflow_dispatch:
+  push:
+    paths:
+      - "_raw/**"
+      - "codigo/repos.json"
+      - "scripts/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronizar
+  cancel-in-progress: false
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Converter export do claude.ai (se houver)
+        run: node scripts/converter-export.mjs
+      - name: Converter sessões do Claude Code (se houver)
+        run: node scripts/converter-sessao.mjs
+      - name: Anotar artifacts
+        run: node scripts/importar-artifacts.mjs
+      - name: Importar docs dos repositórios
+        env:
+          # PAT fine-grained só com leitura de conteúdo dos repos privados listados em codigo/repos.json.
+          # Sem ele, só os repositórios públicos entram.
+          REPOS_TOKEN: ${{ secrets.REPOS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/importar-repos.mjs
+      - name: Gerar índices
+        run: node scripts/gerar-indices.mjs
+      - name: Commit se houver mudanças
+        run: |
+          git config user.name "segundo-cerebro-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "sem mudanças"; exit 0; fi
+          git commit -m "sync: $(date -u +%Y-%m-%d)"
+          git push

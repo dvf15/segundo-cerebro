@@ -1,0 +1,9 @@
+{
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": false,
+  "showFrontmatter": true,
+  "attachmentFolderPath": "_anexos",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "inbox"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "segundo-cerebro",
+  "private": true,
+  "type": "module",
+  "description": "Vault Obsidian + backup indexado de tudo feito no Claude (conversas, sessões Claude Code, artifacts, skills, código).",
+  "scripts": {
+    "converter:export": "node scripts/converter-export.mjs",
+    "converter:sessao": "node scripts/converter-sessao.mjs",
+    "importar:artifacts": "node scripts/importar-artifacts.mjs",
+    "importar:repos": "node scripts/importar-repos.mjs",
+    "indices": "node scripts/gerar-indices.mjs",
+    "tudo": "npm run converter:export && npm run converter:sessao && npm run importar:artifacts && npm run importar:repos && npm run indices"
+  },
+  "engines": { "node": ">=20" }
+}

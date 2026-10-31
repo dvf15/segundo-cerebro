@@ -1,0 +1,934 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Quadra Antes da Obra</title>
+<style>
+  :root{
+    --bg:#EFF2F0;
+    --surface:#FFFFFF;
+    --surface-2:#E6EBE8;
+    --ink:#0F231D;
+    --ink-2:#2B3D37;
+    --muted:#5D716A;
+    --line:#CFD9D4;
+    --line-strong:#9FB0A9;
+    --accent:#0F6B50;
+    --accent-soft:#DDEBE5;
+    --clay:#B34C22;
+    --sand:#A8823F;
+    --shadow:0 1px 0 rgba(15,35,29,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B1411;
+      --surface:#111C18;
+      --surface-2:#16241F;
+      --ink:#E7EFEB;
+      --ink-2:#C3D2CC;
+      --muted:#8CA49B;
+      --line:#22332C;
+      --line-strong:#3A5148;
+      --accent:#48BE95;
+      --accent-soft:#153027;
+      --clay:#E58254;
+      --sand:#D6B472;
+      --shadow:0 1px 0 rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1411;
+    --surface:#111C18;
+    --surface-2:#16241F;
+    --ink:#E7EFEB;
+    --ink-2:#C3D2CC;
+    --muted:#8CA49B;
+    --line:#22332C;
+    --line-strong:#3A5148;
+    --accent:#48BE95;
+    --accent-soft:#153027;
+    --clay:#E58254;
+    --sand:#D6B472;
+    --shadow:0 1px 0 rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- typography roles ---------- */
+  .display{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.035em;
+    line-height:1.02;
+    text-wrap:balance;
+  }
+  .mono{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- slide scaffold ---------- */
+  section.slide{
+    border-top:1px solid var(--line);
+    padding:64px 0 72px;
+  }
+  section.slide:first-of-type{border-top:none;}
+  .slide-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:10px;
+    margin-bottom:34px;
+  }
+  .slide-head .eyebrow{color:var(--accent);}
+  .slide-head .folio{color:var(--muted);font-variant-numeric:tabular-nums;}
+  h2.title{
+    font-size:clamp(30px,4.4vw,50px);
+    margin:0 0 18px;
+  }
+  .lede{
+    font-size:19px;
+    color:var(--ink-2);
+    max-width:64ch;
+    margin:0 0 30px;
+  }
+  p{margin:0 0 16px;max-width:66ch;}
+  strong{color:var(--ink);}
+
+  /* ---------- cover ---------- */
+  .cover{
+    padding:0;
+    border-top:none;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+  }
+  .cover-inner{
+    position:relative;
+    padding:88px 0 72px;
+  }
+  .court{
+    position:absolute;
+    inset:auto 0 0 0;
+    height:190px;
+    pointer-events:none;
+    opacity:.5;
+  }
+  .cover h1{
+    font-size:clamp(46px,9vw,108px);
+    margin:22px 0 0;
+    position:relative;
+  }
+  .cover h1 em{font-style:normal;color:var(--accent);}
+  .cover .sub{
+    font-size:20px;
+    color:var(--ink-2);
+    max-width:56ch;
+    margin:26px 0 0;
+    position:relative;
+  }
+  .cover-meta{
+    position:relative;
+    margin-top:44px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 34px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:16px;
+  }
+
+  /* ---------- key numbers ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin:8px 0 34px;
+  }
+  .stat{background:var(--surface);padding:20px 20px 22px;}
+  .stat .n{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;
+    font-size:40px;
+    line-height:1;
+    letter-spacing:.01em;
+    color:var(--accent);
+    font-variant-numeric:tabular-nums;
+    display:block;
+  }
+  .stat .k{display:block;margin-top:10px;color:var(--muted);font-size:14px;line-height:1.4;font-family:Georgia,serif;}
+
+  /* ---------- generic card grid ---------- */
+  .grid{display:grid;gap:20px;}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr));}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    padding:22px 22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .card h3{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    font-size:23px;
+    line-height:1.1;
+    margin:12px 0 4px;
+  }
+  .card .where{
+    color:var(--muted);
+    font-size:14px;
+    margin:0 0 14px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .card p{font-size:15.5px;line-height:1.58;margin:0 0 12px;max-width:none;}
+  .card p:last-child{margin-bottom:0;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    padding:4px 8px;
+    border:1px solid var(--line-strong);
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .chip.surface{border-color:var(--accent);color:var(--accent);}
+  .chip.clay{border-color:var(--clay);color:var(--clay);}
+  .chip.sand{border-color:var(--sand);color:var(--sand);}
+
+  .takeaway{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px dashed var(--line-strong);
+    font-size:14.5px;
+    color:var(--ink-2);
+  }
+  .takeaway b{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:block;
+    margin-bottom:4px;
+  }
+
+  /* ---------- archetypes ---------- */
+  .arch{
+    background:var(--surface);
+    border:1px solid var(--line);
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .arch .lbl{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  }
+  .arch h3{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+    font-size:26px;line-height:1.05;margin:0;
+  }
+  .arch p{font-size:15.5px;margin:0;max-width:none;}
+  .arch dl{margin:6px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px;}
+  .arch dt{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    padding-top:3px;
+  }
+  .arch dd{margin:0;color:var(--ink-2);}
+
+  /* ---------- table ---------- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px;}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;}
+  thead th{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);background:var(--surface-2);border-bottom:2px solid var(--line-strong);
+    white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.name{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:16px;white-space:nowrap;
+  }
+
+  /* ---------- criteria list ---------- */
+  ol.criteria{list-style:none;counter-reset:c;margin:0;padding:0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+  ol.criteria li{
+    counter-increment:c;background:var(--surface);padding:18px 22px;
+    display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start;
+  }
+  ol.criteria li::before{
+    content:counter(c,decimal-leading-zero);
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:4px;
+  }
+  ol.criteria h4{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:19px;margin:0 0 4px;
+  }
+  ol.criteria p{margin:0;font-size:15.5px;color:var(--ink-2);max-width:none;}
+
+  /* ---------- risk ---------- */
+  .risk{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .risk-row{background:var(--surface);display:grid;grid-template-columns:1fr 1.4fr;gap:0;}
+  .risk-row > div{padding:16px 20px;}
+  .risk-row > div:first-child{border-right:1px solid var(--line);}
+  .risk-row .r{font-weight:normal;color:var(--ink);}
+  .risk-head{background:var(--surface-2);}
+  .risk-head > div{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:11px 20px;
+  }
+
+  /* ---------- timeline ---------- */
+  .phases{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .phase{border-top:3px solid var(--accent);padding-top:16px;}
+  .phase .w{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  }
+  .phase h4{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:21px;margin:8px 0 10px;
+  }
+  .phase ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink-2);}
+  .phase li{margin-bottom:7px;}
+
+  /* ---------- pull quote ---------- */
+  blockquote{
+    margin:0 0 26px;
+    padding:22px 26px;
+    background:var(--accent-soft);
+    border-left:3px solid var(--accent);
+    font-size:19px;
+    line-height:1.5;
+    color:var(--ink);
+  }
+  blockquote cite{
+    display:block;margin-top:12px;font-style:normal;
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- sources ---------- */
+  .sources{columns:2;column-gap:36px;font-size:14px;color:var(--muted);}
+  .sources p{max-width:none;break-inside:avoid;margin:0 0 12px;}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);}
+  a:hover{border-bottom-color:var(--accent);}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+  .note{
+    font-size:14px;color:var(--muted);border-top:1px solid var(--line);
+    padding-top:14px;margin-top:30px;max-width:78ch;
+  }
+
+  @media (max-width:640px){
+    .risk-row{grid-template-columns:1fr;}
+    .risk-row > div:first-child{border-right:none;border-bottom:1px solid var(--line);}
+    .sources{columns:1;}
+    .cover-inner{padding:60px 0 56px;}
+  }
+</style>
+
+<header class="cover">
+  <div class="wrap cover-inner">
+    <svg class="court" viewBox="0 0 1200 190" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="var(--line-strong)" stroke-width="1.5">
+        <rect x="60" y="16" width="1080" height="158"/>
+        <line x1="600" y1="16" x2="600" y2="174"/>
+        <rect x="60" y="52" width="1080" height="86"/>
+        <line x1="330" y1="52" x2="330" y2="138"/>
+        <line x1="870" y1="52" x2="870" y2="138"/>
+      </g>
+    </svg>
+    <div class="mono" style="color:var(--muted);position:relative;">Material para o Board &middot; Marketing &amp; Incorporação</div>
+    <h1 class="display">Quadra<br><em>antes</em> da obra</h1>
+    <p class="sub">Como incorporadoras no Brasil e no mundo transformam o terreno ocioso de um futuro empreendimento em quadra esportiva — e usam isso como principal peça de divulgação do lançamento.</p>
+    <div class="cover-meta mono">
+      <span>Agosto 2026</span>
+      <span>13 cases mapeados</span>
+      <span>4 arquétipos</span>
+      <span>Playbook de 90 dias</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Sumário executivo</span>
+      <span class="mono folio">01</span>
+    </div>
+    <h2 class="title display">A tese em uma frase</h2>
+    <p class="lede">O terreno parado entre a compra e a obra é o ativo de mídia mais barato e mais subutilizado de uma incorporadora. Quem coloca uma quadra nele compra três coisas de uma vez: tráfego qualificado, licença social na vizinhança e uma prova física do estilo de vida que o empreendimento promete.</p>
+
+    <div class="stats">
+      <div class="stat"><span class="n">2–3% &rarr; 5%+</span><span class="k">Fatia do VGV que incorporadoras alocam a estande, decorado e marketing — o patamar tradicional já foi superado</span></div>
+      <div class="stat"><span class="n">~R$ 60 mil</span><span class="k">Custo total de implantação de uma quadra de areia, segundo a Trisul — irrelevante frente ao VGV</span></div>
+      <div class="stat"><span class="n">R$ 25 mi</span><span class="k">Verba de marketing da Netcorp em um projeto de R$ 500 mi de VGV, com quadra de padel oficial no estande</span></div>
+      <div class="stat"><span class="n">3 anos</span><span class="k">Prazo do uso temporário aprovado pela Quintain em Wembley Park antes de iniciar o residencial</span></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <div class="chips"><span class="chip surface">Achado 1</span></div>
+        <h3>O estande virou clube</h3>
+        <p>No alto padrão brasileiro, a quadra deixou de ser render em maquete e virou equipamento operante dentro do ponto de venda. Yuny, Netcorp e Tecnisa já operam estandes com quadra, café e marca esportiva parceira — o visitante joga antes de ver a planta.</p>
+      </div>
+      <div class="card">
+        <div class="chips"><span class="chip surface">Achado 2</span></div>
+        <h3>Fora do Brasil, o jogo é de bairro</h3>
+        <p>Quintain (Londres), Two Trees (Nova York) e Argent (King's Cross) não ativam o estande: ativam o <em>bairro</em>, entregando o espaço público e esportivo anos antes da primeira torre. O ativo de marketing é a reputação do lugar, não a visita.</p>
+      </div>
+      <div class="card">
+        <div class="chips"><span class="chip surface">Achado 3</span></div>
+        <h3>A comunidade é o canal</h3>
+        <p>Os cases mais fortes não compram mídia: cedem o terreno a um operador esportivo local que já tem fila de espera. A base de alunos vira audiência recorrente e o conteúdo é gerado por quem joga, não pela agência.</p>
+      </div>
+      <div class="card">
+        <div class="chips"><span class="chip clay">Alerta</span></div>
+        <h3>Ninguém publica conversão</h3>
+        <p>Nenhum dos cases divulga taxa de conversão de jogador em comprador. Métrica pública se limita a visitas, verba e velocidade de vendas agregada. Se aprovarmos, precisamos instrumentar a medição desde o dia 1 — é aí que ganhamos vantagem sobre o mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Contexto de mercado</span>
+      <span class="mono folio">02</span>
+    </div>
+    <h2 class="title display">Por que agora</h2>
+    <p class="lede">Três movimentos simultâneos tornaram a quadra no terreno uma jogada óbvia — e ainda pouco explorada com método.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>Esporte de areia e padel viraram infraestrutura social</h3>
+        <p>Beach tennis e padel deixaram de ser moda e viraram rotina semanal de público A/B — exatamente o perfil-alvo do médio e alto padrão. Em várias praças a demanda supera a oferta e há fila de espera por horário de quadra.</p>
+      </div>
+      <div class="card">
+        <h3>A verba de marketing migrou de mídia para experiência</h3>
+        <p>O que era gasto em estande, decorado, maquete e impresso (2% a 3% do VGV) hoje passa de 5% e está diretamente ligado a experiências. A Yuny alocou 5% dos recursos do Quaddra Lorena em ativações.</p>
+      </div>
+      <div class="card">
+        <h3>O terreno ocioso passou a ter custo reputacional</h3>
+        <p>Tapume por 18 meses gera atrito com a vizinhança justamente onde precisamos de aprovação, indicação e boca a boca. A quadra converte esse passivo em "gentileza urbana" — e em capital político para o licenciamento.</p>
+      </div>
+    </div>
+
+    <blockquote>
+      "Tentamos trazer esse cliente que não estava procurando um imóvel."
+      <cite>Miele Abrão, diretora comercial da Tecnisa, sobre estandes com esporte, gastronomia e varejo</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Framework</span>
+      <span class="mono folio">03</span>
+    </div>
+    <h2 class="title display">Quatro arquétipos de ativação</h2>
+    <p class="lede">Todos os cases mapeados caem em um destes quatro modelos. Eles resolvem problemas diferentes, custam ordens de grandeza diferentes e devem ser escolhidos pelo objetivo — não pelo esporte da moda.</p>
+
+    <div class="grid g2">
+      <div class="arch">
+        <span class="lbl">Arquétipo A</span>
+        <h3>Estande-clube</h3>
+        <p>A quadra é construída dentro ou colada ao estande de vendas e opera com aulas, professor e agenda. O visitante entra para jogar e sai com uma visita de vendas feita.</p>
+        <dl>
+          <dt>Objetivo</dt><dd>Tráfego qualificado e tempo de permanência no PDV</dd>
+          <dt>Capex</dt><dd>Médio a alto (padel oficial &gt; saibro &gt; areia)</dd>
+          <dt>Prazo</dt><dd>Vida do estande (12–36 meses)</dd>
+          <dt>Cases</dt><dd>Yuny, Netcorp, Tecnisa, Trisul</dd>
+          <dt>Risco</dt><dd>Virar academia de graça sem captura de lead</dd>
+        </dl>
+      </div>
+
+      <div class="arch">
+        <span class="lbl">Arquétipo B</span>
+        <h3>Gentileza urbana</h3>
+        <p>O terreno é cedido a um operador esportivo local ou à comunidade enquanto a obra não começa. A incorporadora assina o gesto; o operador toca a rotina.</p>
+        <dl>
+          <dt>Objetivo</dt><dd>Licença social, marca e mídia espontânea local</dd>
+          <dt>Capex</dt><dd>Baixo — parte do capex é do operador</dd>
+          <dt>Prazo</dt><dd>Da compra do terreno ao início da obra</dd>
+          <dt>Cases</dt><dd>Terral/brm (Casa Pedra), Trisul, Denver, Mountain View</dd>
+          <dt>Risco</dt><dd>Comunidade se apropria e resiste à devolução</dd>
+        </dl>
+      </div>
+
+      <div class="arch">
+        <span class="lbl">Arquétipo C</span>
+        <h3>Uso temporário estruturado</h3>
+        <p><em>Meanwhile use</em>: equipamento esportivo licenciado formalmente por prazo determinado, com receita própria, operador profissional e cláusula de reversão. Não é cortesia — é uma unidade de negócio interina.</p>
+        <dl>
+          <dt>Objetivo</dt><dd>Receita no terreno parado + construção de marca do bairro</dd>
+          <dt>Capex</dt><dd>Alto, mas com payback próprio</dd>
+          <dt>Prazo</dt><dd>2 a 5 anos, com licença específica</dd>
+          <dt>Cases</dt><dd>Quintain (Wembley Park), Argent (King's Cross)</dd>
+          <dt>Risco</dt><dd>Complexidade de licenciamento e desmobilização</dd>
+        </dl>
+      </div>
+
+      <div class="arch">
+        <span class="lbl">Arquétipo D</span>
+        <h3>Espaço público primeiro</h3>
+        <p>Em masterplans, o parque e as quadras são a <em>primeira</em> entrega — antes de qualquer torre. O lugar já existe e funciona quando as unidades entram à venda.</p>
+        <dl>
+          <dt>Objetivo</dt><dd>Prêmio de preço e velocidade nas fases seguintes</dd>
+          <dt>Capex</dt><dd>Muito alto, tratado como infraestrutura</dd>
+          <dt>Prazo</dt><dd>Permanente</dd>
+          <dt>Cases</dt><dd>Two Trees (Domino Park), Battersea Power Station</dd>
+          <dt>Risco</dt><dd>Só faz sentido em terreno grande e multifásico</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Cases &middot; Brasil</span>
+      <span class="mono folio">04</span>
+    </div>
+    <h2 class="title display">O estande virou clube</h2>
+    <p class="lede">O alto padrão paulistano é hoje o laboratório mais avançado do mundo em <em>estande-clube</em>. Nenhum outro mercado colocou tanta operação esportiva dentro do ponto de venda.</p>
+
+    <div class="grid g2">
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo A</span>
+          <span class="chip clay">Saibro</span>
+          <span class="chip">Co-branding</span>
+        </div>
+        <h3>Yuny &middot; Quaddra Lorena</h3>
+        <p class="where">Jardim Paulista, São Paulo &middot; VGV ~R$ 700 mi &middot; antigo terreno do GPA</p>
+        <p>A incorporadora alocou <strong>5% dos recursos do projeto em ativações de marketing</strong> e montou no estande uma operação completa: academia assinada pela Track&amp;Field, café e uma <strong>quadra de saibro com aulas de tênis para quem visita</strong>. O conceito de wellness do produto é sustentado por duas marcas âncora — Technogym e Track&amp;Field —, e a Track&amp;Field abriu ali um pop-up com o TFC Food&amp;Market.</p>
+        <div class="takeaway"><b>Leitura para o board</b>O co-branding com marca esportiva resolve dois problemas de uma vez: dá credibilidade ao "wellness" prometido no produto e importa a audiência da marca parceira, que sozinha custaria mídia paga.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo A</span>
+          <span class="chip">Padel</span>
+          <span class="chip">Gastronomia</span>
+        </div>
+        <h3>Netcorp &middot; Netcorp Tower</h3>
+        <p class="where">São Paulo &middot; VGV ~R$ 500 mi &middot; R$ 25 mi em marketing</p>
+        <p>Estande com <strong>quadra de padel oficial</strong> — paredes de vidro e piso de padrão de competição — mais a cafeteria Il Capitale Dolci operando no local. O CEO Fabrizio Belvilacqua tratou a verba de marketing como investimento de diferenciação, e não como custo de estande.</p>
+        <div class="takeaway"><b>Leitura para o board</b>Padel com especificação oficial é o teto de capex do arquétipo A, mas é o único formato que atrai o jogador sério — que é também o perfil de renda que compra alto padrão.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo A + B</span>
+          <span class="chip sand">Areia</span>
+          <span class="chip">Aulas grátis</span>
+        </div>
+        <h3>Trisul &middot; região da Nova Klabin</h3>
+        <p class="where">São Paulo &middot; capex de quadra ~R$ 60 mil</p>
+        <p>A Trisul implantou <strong>quadra de beach tennis no terreno do estande</strong>, em uma região com <strong>fila de espera pelo esporte</strong>, e promoveu eventos e aulas gratuitas para visitantes. Além de atrair cliente, funcionou como gesto urbano para os vizinhos. O esporte foi depois incorporado ao próprio produto, com quadra de areia para os futuros moradores.</p>
+        <div class="takeaway"><b>Leitura para o board</b>É o melhor caso de eficiência de capital do dossiê: cerca de R$ 60 mil de capex — arredondamento dentro do VGV — para ocupar um terreno em praça com demanda reprimida comprovada. Escolher a praça pela fila de espera é a decisão que fez o case funcionar.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo A</span>
+          <span class="chip">Varejo + esporte</span>
+        </div>
+        <h3>Tecnisa &middot; estandes de nova geração</h3>
+        <p class="where">São Paulo &middot; médio e alto padrão</p>
+        <p>A Tecnisa passou a operar pontos de venda com restaurante, quadras, cafeteria e marcas de luxo, convertendo terreno ocioso em espaço de convívio. A tese declarada é capturar quem <strong>não estava procurando imóvel</strong> — invertendo a lógica do funil, que passa a começar por lazer e não por interesse de compra.</p>
+        <div class="takeaway"><b>Leitura para o board</b>Muda a métrica de sucesso do estande: de "visitas agendadas" para "frequência semanal". O KPI correto passa a ser recorrência, não fluxo bruto.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Cases &middot; Brasil</span>
+      <span class="mono folio">05</span>
+    </div>
+    <h2 class="title display">Terreno cedido, marca construída</h2>
+    <p class="lede">Fora do eixo do alto padrão paulistano, o modelo dominante é ceder o terreno a um operador local. Capex baixo, densidade de comunidade alta.</p>
+
+    <div class="grid g3">
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo B</span>
+          <span class="chip sand">Areia</span>
+        </div>
+        <h3>Terral + brm Asset &middot; Casa Pedra</h3>
+        <p class="where">Av. Flamboyant, Águas Claras, Brasília &middot; 60 unidades &middot; projeto Triptyque</p>
+        <p>Antes do início da obra, o terreno foi <strong>cedido ao Calango Beach Tennis</strong> para uso esportivo aberto. A incorporadora enquadrou a ação como <em>gentileza urbana</em> — quando o empreendimento agrega ao urbanismo do entorno. Para César Durão, sócio executivo da Terral, a lógica foi impactar positivamente a comunidade e incentivar a prática esportiva.</p>
+        <div class="takeaway"><b>Leitura para o board</b>O ativo de comunicação aqui não é a quadra: é a <em>narrativa de vizinhança</em> em um endereço nobre e disputado. O operador parceiro assume operação e risco.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo A</span>
+          <span class="chip">Evento</span>
+        </div>
+        <h3>Quadra Realty &middot; Vila Nova Conceição</h3>
+        <p class="where">São Paulo &middot; lançamento a 200 m da Praça Pereira Coutinho</p>
+        <p>Formato mais leve e mais barato: <strong>torneio de beach tennis com networking</strong>, unindo jogo, conversa sobre mercado de luxo e apresentação do lançamento — sem construir equipamento permanente no terreno.</p>
+        <div class="takeaway"><b>Leitura para o board</b>É o teste A/B natural do arquétipo A. Um evento pontual custa uma fração da quadra fixa e valida se o público-alvo responde ao esporte antes de comprometermos capex.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Produto</span>
+          <span class="chip sand">Areia</span>
+        </div>
+        <h3>Opus &middot; Gyro O2 e Geo Home</h3>
+        <p class="where">Goiânia</p>
+        <p>Primeira incorporadora da praça a lançar produtos com quadra de beach tennis, transformando o item em argumento de diferenciação de produto em um mercado onde ainda não era padrão.</p>
+        <div class="takeaway"><b>Leitura para o board</b>Mostra o ciclo de vida do ativo: o esporte entra como ativação, vira diferencial de produto e depois vira commodity. A janela de vantagem é curta — e vale para nós.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Cases &middot; Mundo</span>
+      <span class="mono folio">06</span>
+    </div>
+    <h2 class="title display">Lá fora, ativa-se o bairro</h2>
+    <p class="lede">Os cases internacionais mais qualificados quase nunca colocam a quadra dentro do estande. Eles usam o esporte para dar identidade e público ao lugar anos antes de vender a primeira unidade.</p>
+
+    <div class="grid g2">
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo C</span>
+          <span class="chip">Society 5x5</span>
+          <span class="chip">3 anos</span>
+        </div>
+        <h3>Quintain &middot; Wembley Park</h3>
+        <p class="where">Brent, Londres &middot; plots NE04–NE06, antigo Yellow Car Park</p>
+        <p>Referência mais recente e mais replicável do dossiê. Com o início das obras residenciais previsto para <strong>2029</strong>, a Quintain aprovou junto ao conselho local um <strong>uso temporário de três anos</strong>: cinco campos society iluminados e all-weather, mais pavilhão com recepção e vestiários, e um galpão de entretenimento com a experiência Mundo Pixar. Parte da capacidade é reservada com <strong>acesso gratuito ou com desconto a moradores, escolas e entidades locais</strong>.</p>
+        <div class="takeaway"><b>Leitura para o board</b>É o modelo mais maduro: uso temporário formalizado, com prazo, licença, operação profissional e contrapartida social explícita. Estacionamento vago virou receita, mídia e ativo político de licenciamento ao mesmo tempo.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo D</span>
+          <span class="chip">Vôlei de praia + bocha</span>
+        </div>
+        <h3>Two Trees &middot; Domino Park</h3>
+        <p class="where">Williamsburg, Brooklyn, Nova York &middot; ~5 acres &middot; aberto em jun/2018</p>
+        <p>No terreno da antiga refinaria Domino Sugar, o parque foi entregue como <strong>primeira fase</strong> de um masterplan de cerca de 2.300 apartamentos — antes das torres. Quadra de vôlei de praia, cancha de bocha e campo sintético de uso o ano todo saíram diretamente de <em>charrettes</em> com a comunidade, que pediu esses equipamentos.</p>
+        <div class="takeaway"><b>Leitura para o board</b>Quando o programa esportivo é definido pela vizinhança e não pelo marketing, o parque deixa de ser contrapartida e vira o principal argumento de venda das fases seguintes.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo C</span>
+          <span class="chip">Natação natural</span>
+        </div>
+        <h3>Argent &middot; King's Cross Pond Club</h3>
+        <p class="where">King's Cross Central, Londres &middot; 2015</p>
+        <p>Um <strong>lago de natação natural instalado dentro do canteiro de obras</strong> do maior masterplan de Londres, com água filtrada por plantas aquáticas. Ao lado, o Skip Garden — horta comunitária construída em caçambas, projetada para ser <strong>realocada a cada avanço da obra</strong> (já mudou de lugar quatro vezes).</p>
+        <div class="takeaway"><b>Leitura para o board</b>Aula de desenho: equipamento móvel e desmontável convive com o cronograma da obra em vez de brigar com ele. Nosso equipamento esportivo deve ser especificado para ser realocado, não demolido.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo D</span>
+          <span class="chip">Programação contínua</span>
+        </div>
+        <h3>Battersea Power Station &middot; Circus West</h3>
+        <p class="where">Nine Elms, Londres</p>
+        <p>A primeira fase, Circus West Village, foi entregue como <em>destino</em> — bares, restaurantes, lazer e uma agenda permanente de eventos (o programa "Power of Summer"), com <strong>gerência de placemaking dedicada na estrutura</strong>. Concluída em 2017, hoje abriga mais de 1.800 moradores; em 2016 o empreendimento reportou £110 mi de vendas em quatro meses.</p>
+        <div class="takeaway"><b>Leitura para o board</b>O cargo importa tanto quanto a obra: existe um gestor de placemaking com orçamento e metas. Ativação sem dono vira evento isolado.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Arquétipo B</span>
+          <span class="chip">Pickleball</span>
+        </div>
+        <h3>EUA &middot; terreno vago como quadra pública</h3>
+        <p class="where">Denver (Colfax &amp; Broadway) e Mountain View, Califórnia</p>
+        <p>Em Denver, quadras de pickleball ativam temporariamente um terreno vago enquanto os proprietários preparam o desenvolvimento futuro. Em Mountain View, a prefeitura fechou um <strong>arrendamento de sete anos de dois terrenos vagos da Google</strong> para criar um parque público com quadras.</p>
+        <div class="takeaway"><b>Leitura para o board</b>Existe um terceiro caminho: arrendar o terreno ao poder público ou a um operador. O município assume capex e operação, e a incorporadora fica com o benefício reputacional e com o terreno cuidado.</div>
+      </div>
+
+      <div class="card">
+        <div class="chips">
+          <span class="chip surface">Tendência</span>
+          <span class="chip">Padel</span>
+        </div>
+        <h3>Dubai &middot; padel como ativo de marca</h3>
+        <p class="where">Emirados Árabes Unidos &middot; 250+ instalações, 900+ quadras</p>
+        <p>Incorporadoras compram quadras já como peça de branding: vidro serigrafado, grama sintética na cor da marca e <em>wraps</em> no perímetro, com lounge e F&amp;B integrados. A quadra é projetada para render foto, vídeo, influenciador e torneio.</p>
+        <div class="takeaway"><b>Leitura para o board</b>É o extremo da lógica de mídia: a quadra é especificada como cenário. Vale copiar a disciplina de <em>design for content</em> — enquadramento, iluminação noturna e identidade visual definidos no projeto, não depois.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Comparativo</span>
+      <span class="mono folio">07</span>
+    </div>
+    <h2 class="title display">Matriz de decisão</h2>
+    <p class="lede">Como escolher o arquétipo em função do que o projeto precisa. Faixas de capex são ordens de grandeza para debate, ancoradas no único dado público de custo (quadra de areia, ~R$ 60 mil).</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Arquétipo</th>
+            <th>Quando usar</th>
+            <th>Capex (ordem)</th>
+            <th>Horizonte</th>
+            <th>KPI primário</th>
+            <th>Referência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">A &middot; Estande-clube</td>
+            <td>Produto de alto padrão com tese de wellness; praça com demanda reprimida</td>
+            <td class="num">R$ 60 mil – R$ 1,5 mi</td>
+            <td class="num">12–36 meses</td>
+            <td>Visitantes recorrentes/semana e leads gerados por aula</td>
+            <td>Yuny, Netcorp, Trisul</td>
+          </tr>
+          <tr>
+            <td class="name">B &middot; Gentileza urbana</td>
+            <td>Terreno parado por longo intervalo; vizinhança sensível ao canteiro</td>
+            <td class="num">R$ 60 mil – R$ 300 mil</td>
+            <td class="num">6–24 meses</td>
+            <td>Mídia espontânea local e tempo de aprovação/atrito</td>
+            <td>Terral/brm, Denver</td>
+          </tr>
+          <tr>
+            <td class="name">C &middot; Uso temporário</td>
+            <td>Terreno grande com início de obra distante (3+ anos)</td>
+            <td class="num">R$ 2 mi – R$ 15 mi</td>
+            <td class="num">2–5 anos</td>
+            <td>Resultado operacional próprio + reconhecimento do bairro</td>
+            <td>Quintain, Argent</td>
+          </tr>
+          <tr>
+            <td class="name">D &middot; Espaço público</td>
+            <td>Masterplan multifásico onde o bairro precisa existir antes das torres</td>
+            <td class="num">Infraestrutura</td>
+            <td class="num">Permanente</td>
+            <td>Prêmio de preço e velocidade de venda das fases seguintes</td>
+            <td>Two Trees, Battersea</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Faixas de capex são estimativas de ordem de grandeza para orientar a discussão, não orçamentos. Apenas o valor da quadra de areia (~R$ 60 mil) tem fonte pública; os demais devem ser cotados antes de qualquer aprovação.</p>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Critérios</span>
+      <span class="mono folio">08</span>
+    </div>
+    <h2 class="title display">O que separa um case forte de um evento caro</h2>
+    <p class="lede">Comparando os treze cases, sete atributos aparecem sempre nos que funcionaram — e faltam nos que viraram apenas foto de inauguração.</p>
+
+    <ol class="criteria">
+      <li><div><h4>Demanda reprimida comprovada na praça</h4><p>A Trisul escolheu a região pela fila de espera existente pelo esporte. Sem escassez local, a quadra compete com dez arenas e não gera fluxo. Primeiro se mede a demanda, depois se escolhe o esporte.</p></div></li>
+      <li><div><h4>Operação recorrente, não evento</h4><p>Professor, agenda fixa, aula e torneio. O que gera dado e relacionamento é a frequência semanal; a inauguração gera só um pico de mídia.</p></div></li>
+      <li><div><h4>Operador parceiro com base própria</h4><p>Ceder a um operador local importa comunidade pronta, transfere risco operacional e evita que a incorporadora vire gestora de arena esportiva.</p></div></li>
+      <li><div><h4>Continuidade entre ativação e produto</h4><p>A quadra provisória tem que existir também na planta. No Quaddra Lorena o saibro está no produto final; na Trisul a areia foi incorporada ao projeto. Sem isso, a ativação vira promessa não cumprida.</p></div></li>
+      <li><div><h4>Contrapartida explícita à comunidade</h4><p>Wembley Park reserva acesso gratuito ou com desconto a moradores, escolas e entidades. Isso é o que transforma a ativação em capital político no licenciamento.</p></div></li>
+      <li><div><h4>Projetado para sair</h4><p>O Skip Garden foi desenhado para ser realocado e já mudou quatro vezes conforme a obra avançou. Equipamento modular e cláusula de reversão desde o contrato inicial.</p></div></li>
+      <li><div><h4>Dono, orçamento e meta</h4><p>Battersea tem gerência de placemaking na estrutura. Ativação sem responsável nomeado e sem meta não sobrevive ao segundo trimestre.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Riscos</span>
+      <span class="mono folio">09</span>
+    </div>
+    <h2 class="title display">Riscos e mitigadores</h2>
+    <p class="lede">Os riscos aqui são conhecidos e endereçáveis em contrato. O maior deles não é jurídico — é a comunidade se apropriar do espaço e a devolução virar crise de imagem no exato momento do lançamento.</p>
+
+    <div class="risk">
+      <div class="risk-row risk-head"><div>Risco</div><div>Mitigador</div></div>
+      <div class="risk-row"><div class="r">Apropriação afetiva: a vizinhança passa a tratar a quadra como direito adquirido e a desmobilização vira crise</div><div>Prazo comunicado desde o primeiro dia em sinalização física; compromisso público de destino do equipamento (doação a escola ou praça); reserva de uso esportivo no produto final</div></div>
+      <div class="risk-row"><div class="r">Licenciamento e uso do solo para atividade não prevista</div><div>Enquadrar como uso temporário formal, no modelo Quintain; alinhar com o município antes do capex; prazo determinado em alvará</div></div>
+      <div class="risk-row"><div class="r">Responsabilidade civil por acidente e segurança do terreno</div><div>Operação por terceiro com seguro, CNPJ e responsabilidade técnica próprios; incorporadora como cedente, nunca operadora</div></div>
+      <div class="risk-row"><div class="r">Custo tributário e de manutenção do terreno em uso</div><div>Avaliar impacto de IPTU e obrigações acessórias antes; contrato de cessão com repasse de custeio ao operador</div></div>
+      <div class="risk-row"><div class="r">Ruído, iluminação noturna e circulação no entorno</div><div>Horário limitado, luminária direcionada, canal de reclamação com SLA — o mesmo canal serve de escuta para o lançamento</div></div>
+      <div class="risk-row"><div class="r">Fluxo alto sem conversão: muita gente jogando, nenhum lead</div><div>Reserva por cadastro digital; corretor de plantão em horário de pico; medir origem do lead até a escritura, não até a visita</div></div>
+      <div class="risk-row"><div class="r">Conflito com o cronograma de obra e canteiro</div><div>Especificar equipamento modular e desmontável; posicionar na fração do terreno de mobilização mais tardia</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Recomendação</span>
+      <span class="mono folio">10</span>
+    </div>
+    <h2 class="title display">Playbook de 90 dias</h2>
+    <p class="lede">Proposta: um piloto único, em uma praça escolhida por demanda reprimida, no arquétipo B com gancho de arquétipo A — capex baixo, risco baixo, aprendizado alto. Só depois se decide sobre uso temporário estruturado.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <span class="w">Semanas 1–3</span>
+        <h4>Diagnóstico de praça</h4>
+        <ul>
+          <li>Mapear arenas, ocupação e fila de espera num raio de 3 km de cada terreno do landbank</li>
+          <li>Cruzar com o cronograma: priorizar terrenos com 18+ meses até a obra</li>
+          <li>Escolher o esporte pelo dado local, não pela tendência nacional</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="w">Semanas 4–6</span>
+        <h4>Parceiro e contrato</h4>
+        <ul>
+          <li>Selecionar operador local com base de alunos e seguro próprios</li>
+          <li>Cessão com prazo, reversão, repasse de custeio e destino do equipamento</li>
+          <li>Alinhamento prévio com o município sobre uso temporário</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="w">Semanas 7–10</span>
+        <h4>Implantação</h4>
+        <ul>
+          <li>Quadra modular na fração de mobilização mais tardia do terreno</li>
+          <li>Projeto de identidade e iluminação pensado para conteúdo desde o desenho</li>
+          <li>Reserva por cadastro digital: cada partida gera um lead identificado</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="w">Semanas 11–13</span>
+        <h4>Abertura e leitura</h4>
+        <ul>
+          <li>Abertura com torneio e cota de horários gratuitos para escolas e vizinhos</li>
+          <li>Corretor em campo nos horários de pico, sem abordagem no jogo</li>
+          <li>Primeiro relatório de coorte: jogador &rarr; visita &rarr; proposta</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:34px;">
+      <div class="card">
+        <div class="chips"><span class="chip surface">KPI de tráfego</span></div>
+        <h3>Jogadores únicos por semana</h3>
+        <p>Mede se o equipamento tem vida própria. Meta de referência: base recorrente, não pico de inauguração.</p>
+      </div>
+      <div class="card">
+        <div class="chips"><span class="chip surface">KPI de funil</span></div>
+        <h3>Jogador &rarr; proposta</h3>
+        <p>A métrica que nenhum case público divulga e que decide a continuidade do programa. Coorte rastreada do cadastro à proposta.</p>
+      </div>
+      <div class="card">
+        <div class="chips"><span class="chip surface">KPI de marca</span></div>
+        <h3>Custo por visita qualificada</h3>
+        <p>Capex e custeio da quadra divididos pelas visitas qualificadas geradas, comparados diretamente com a mídia paga do lançamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="wrap">
+    <div class="slide-head">
+      <span class="mono eyebrow">Fontes</span>
+      <span class="mono folio">11</span>
+    </div>
+    <h2 class="title display">Base documental</h2>
+    <p class="lede">Todos os dados citados vêm de material público. Onde há estimativa nossa, está sinalizado no próprio slide.</p>
+    <div class="sources">
+      <p><a href="https://metroquadrado.com/residencial/aula-de-tenis-e-passeio-de-lancha-o-novo-marketing-das-incorporadoras/">Metro Quadrado — Aula de tênis, passeio de lancha: o novo marketing das incorporadoras</a></p>
+      <p><a href="https://investnews.com.br/negocios/imoveis-novos-estande-vendas-tecnisa/">InvestNews — Padel, café e restaurante: o novo estande de vendas do alto padrão</a></p>
+      <p><a href="https://mercadoeconsumo.com.br/02/06/2025/noticias-varejo/trackfield-inaugura-pop-up-com-tfc-foodmarket-em-condominio-de-luxo-em-sao-paulo/">Mercado&amp;Consumo — Track&amp;Field inaugura pop-up com TFC Food&amp;Market no Quaddra Lorena</a></p>
+      <p><a href="https://iapartamentos.com.br/empreendimento/quaddra-lorena/">iApartamentos — Quaddra Lorena: quadra de saibro oficial, Technogym e Track&amp;Field</a></p>
+      <p><a href="https://portal.loft.com.br/quadra-de-beach-tennis-no-condominio/">Loft — Como ter uma quadra de beach tennis no condomínio (capex e case Trisul)</a></p>
+      <p><a href="https://jornaldebrasilia.com.br/blogs-e-colunas/analice-nicolau/construtora-firma-parceria-para-uso-de-terreno-de-empreendimento-para-pratica-de-beach-tennis-em-brasilia/">Jornal de Brasília — Terreno do Casa Pedra cedido para beach tennis</a></p>
+      <p><a href="https://www.terralincorporadora.com.br/lancamento/casa-pedra/66">Terral Incorporadora — Residencial Casa Pedra</a></p>
+      <p><a href="https://blog.quadrarealty.com.br/beach-tennis-e-networking-em-um-dos-enderecos-mais-desejados-de-sao-paulo/">Quadra Realty — Beach tennis e networking em Vila Nova Conceição</a></p>
+      <p><a href="https://www.aredacao.com.br/imoveis/174383/nova-mania-dos-goianienses-beach-tennis-chega-aos-residenciais">A Redação — Beach tennis chega aos residenciais de Goiânia (Opus)</a></p>
+      <p><a href="https://harrowonline.org/2026/02/05/plan-for-temporary-5-a-side-football-pitches-on-wembley-site-earmarked-for-housing/">Harrow Online — Campos society temporários em terreno destinado a moradias, Wembley</a></p>
+      <p><a href="https://harrowonline.org/2026/02/17/wembley-park-plot-set-for-football-pitches-and-disney-pixar-attraction-before-homes-built/">Harrow Online — Wembley Park: campos e atração Pixar antes das moradias</a></p>
+      <p><a href="https://en.wikipedia.org/wiki/Domino_Park">Domino Park — histórico, programa e masterplan da Two Trees</a></p>
+      <p><a href="https://www.asla.org/2022awards/5909.html">ASLA 2022 Professional Awards — Domino Park e o processo comunitário</a></p>
+      <p><a href="https://www.instituteforpublicart.org/case-studies/of-soil-and-water/">Institute for Public Art — Of Soil and Water: King's Cross Pond Club</a></p>
+      <p><a href="http://leepenghui.blogspot.com/2015/10/an-imaginative-temporary-community.html">Skip Garden, King's Cross — jardim em caçambas realocável</a></p>
+      <p><a href="https://mediacentre.kallaway.com/battersea-power-station-development-company/press-releases/power-of-summer-events-at-battersea-power-station">Battersea Power Station — programa de eventos Power of Summer</a></p>
+      <p><a href="https://www.burohappold.com/projects/battersea-power-station-phase-one-circus-west-village/">Buro Happold — Battersea Power Station, fase 1: Circus West Village</a></p>
+      <p><a href="https://cbsnews.com/colorado/news/plans-proposed-pickleball-courts-colfax-broadway-intersection-denver">CBS Colorado — Quadras de pickleball para ativar terreno vago em Denver</a></p>
+      <p><a href="https://www.mv-voice.com/land-use/2026/06/23/mountain-view-finds-a-spot-for-pickleball-courts-by-leasing-land-from-google/">Mountain View Voice — Cidade arrenda terrenos da Google para quadras públicas</a></p>
+      <p><a href="https://dubaiactiveindustry.com/newsroom/the-uae-s-padel-industry-boom-everything-you-need-to-know/">Dubai Active Industry — O boom do padel nos Emirados</a></p>
+    </div>
+    <p class="note">Não foi possível abrir os dois reels do Instagram enviados como referência — o acesso ao domínio está bloqueado nesta sessão. Assim que houver a descrição dos dois cases, eles entram no dossiê e o enquadramento dos arquétipos é revisado.</p>
+  </div>
+</section>
+
+</main>
+
+</body></html>

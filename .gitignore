@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+# Obsidian: estado local por máquina
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+# zips do export já extraídos ficam, mas nunca suba credenciais
+*.env

@@ -1,0 +1,413 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>Fortalecimento Funcional BJJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F5F1;
+    --card:#FFFFFF;
+    --ink:#22252A;
+    --muted:#6A6F78;
+    --line:#E4E0D8;
+    --accent:#1F4E79;          /* azul-marinho */
+    --accent-soft:#E3EBF3;
+    --warn:#8F5A24;            /* alerta dia duplo */
+    --warn-soft:#F4ECE0;
+    --pe:#2E6B4F;              /* etiqueta luta em pé */
+    --pe-soft:#E2EFE7;
+    --deep:#5B4B8A;            /* etiqueta musculatura profunda */
+    --deep-soft:#EBE7F4;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#16181C; --card:#1E2126; --ink:#E8E6E1; --muted:#9AA0A8; --line:#2E323A;
+      --accent:#7FA8CC; --accent-soft:#22303C;
+      --warn:#D9A868; --warn-soft:#2C2417; --pe:#8FC7A6; --pe-soft:#1C2B22; --deep:#B3A5DE; --deep-soft:#251F36;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#16181C; --card:#1E2126; --ink:#E8E6E1; --muted:#9AA0A8; --line:#2E323A;
+    --accent:#7FA8CC; --accent-soft:#22303C;
+    --warn:#D9A868; --warn-soft:#2C2417; --pe:#8FC7A6; --pe-soft:#1C2B22; --deep:#B3A5DE; --deep-soft:#251F36;
+  }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:15px; line-height:1.6; margin:0;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:40px 22px 64px;}
+  header{margin-bottom:36px;}
+  .kicker{
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 10px;
+  }
+  h1{
+    font-family:"Source Serif 4",Georgia,serif; font-weight:700;
+    font-size:clamp(30px,5vw,42px); line-height:1.12; margin:0 0 14px; letter-spacing:-.01em;
+  }
+  .lede{font-size:16.5px; color:var(--ink); max-width:56ch; margin:0 0 12px;}
+  .meta{
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12px; color:var(--muted);
+    margin:0 0 18px; line-height:1.7;
+  }
+  .bar{display:flex; gap:5px; align-items:center;}
+  .bar i{display:block; height:6px; border-radius:3px; background:var(--accent);}
+  .bar i:nth-child(1){width:72%;} .bar i:nth-child(2){width:16px;} .bar i:nth-child(3){width:9px; background:var(--ink);}
+  h2{
+    font-family:"Source Serif 4",Georgia,serif; font-weight:600; font-size:24px;
+    margin:44px 0 6px; letter-spacing:-.01em;
+  }
+  .sub{color:var(--muted); margin:0 0 18px; max-width:64ch;}
+  .note{
+    font-size:13.5px; color:var(--muted); background:var(--card);
+    border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:14px 0;
+  }
+  /* pilares */
+  .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:18px;}
+  .pillar{
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 18px 16px;
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .pillar svg{
+    width:30px; height:30px; flex:none; margin-top:2px; color:var(--accent);
+    fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .pillar h3{margin:0 0 5px; font-size:15.5px; font-weight:700;}
+  .pillar p{margin:0; font-size:13.8px; color:var(--muted); line-height:1.55;}
+  /* dias */
+  .day{background:var(--card); border:1px solid var(--line); border-radius:14px; margin:20px 0; overflow:hidden;}
+  .day-head{padding:18px 22px 12px; border-bottom:1px solid var(--line);}
+  .day-head .bar{margin-bottom:12px;}
+  .day.b .bar i{background:var(--warn);} .day.b .bar i:nth-child(3){background:var(--ink);}
+  .day.c .bar i{background:var(--pe);} .day.c .bar i:nth-child(3){background:var(--ink);}
+  .day h3{font-family:"Source Serif 4",Georgia,serif; font-size:20px; margin:0 0 4px;}
+  .was{
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px; color:var(--muted);
+  }
+  .day-body{padding:8px 22px 18px; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th{
+    text-align:left; font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+    padding:10px 8px 8px 0; border-bottom:1px solid var(--line);
+  }
+  td{padding:11px 8px 11px 0; border-bottom:1px solid var(--line); vertical-align:top; font-size:14px;}
+  tr:last-child td{border-bottom:none;}
+  .day td:first-child{font-weight:600; width:44%; min-width:300px;}
+  .day td.sr{
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12.5px; white-space:nowrap;
+    padding-right:16px; color:var(--ink); font-weight:400;
+  }
+  .tag{
+    display:inline-block; font-family:"JetBrains Mono",ui-monospace,monospace; font-size:10px;
+    letter-spacing:.08em; text-transform:uppercase; border-radius:5px; padding:2px 7px;
+    margin-left:6px; vertical-align:2px; font-weight:500;
+  }
+  .tag.keep{background:var(--accent-soft); color:var(--accent);}
+  .tag.new{background:var(--warn-soft); color:var(--warn);}
+  .tag.pe{background:var(--pe-soft); color:var(--pe);}
+  .tag.deep{background:var(--deep-soft); color:var(--deep);}
+  .exrow{display:flex; gap:12px; align-items:flex-start;}
+  .exill{
+    width:92px; height:61px; flex:none; margin-top:2px;
+    color:var(--accent); fill:none; stroke:currentColor; stroke-width:2.2;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+  tr.act .exill{color:var(--deep);}
+  .day-why{
+    font-size:13.5px; color:var(--muted); background:var(--bg); border-radius:10px;
+    padding:12px 16px; margin:14px 0 4px;
+  }
+  /* dia duplo */
+  .double{
+    background:var(--card); border:1px solid var(--line); border-left:4px solid var(--warn);
+    border-radius:12px; padding:18px 22px; margin:22px 0;
+  }
+  .double h3{margin:0 0 10px; font-size:16px;}
+  ul.clean{margin:8px 0 0; padding-left:20px;}
+  ul.clean li{margin:7px 0; font-size:14px;}
+  ul.clean li::marker{color:var(--accent);}
+  /* semana */
+  .week-scroll{overflow-x:auto;}
+  .week{display:grid; grid-template-columns:repeat(7,1fr); gap:8px; min-width:640px; margin-top:16px;}
+  .wday{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:10px 10px 12px; display:flex; flex-direction:column; gap:6px;
+  }
+  .wday.dbl{border-color:var(--warn);}
+  .wday .d{
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted);
+  }
+  .wday .s{font-size:12.5px; line-height:1.4; border-radius:6px; padding:5px 7px; font-weight:600;}
+  .wday .s.gym{background:var(--accent-soft); color:var(--accent);}
+  .wday .s.bjj{background:var(--pe-soft); color:var(--pe);}
+  .wday .s.off{background:transparent; color:var(--muted); font-weight:400;}
+  footer{margin-top:48px; font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:16px;}
+</style>
+
+<div class="wrap">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <marker id="ah" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1l5 3-5 3z" fill="currentColor" stroke="none"/></marker>
+      <linearGradient id="gBody" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="64"><stop offset="0" stop-color="#6E9AC8"/><stop offset="1" stop-color="#1C4569"/></linearGradient>
+      <radialGradient id="gHead" cx=".35" cy=".3" r=".95"><stop offset="0" stop-color="#9FC0E0"/><stop offset="1" stop-color="#2A5684"/></radialGradient>
+      <linearGradient id="gDeep" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="64"><stop offset="0" stop-color="#A290D2"/><stop offset="1" stop-color="#443768"/></linearGradient>
+      <radialGradient id="gHeadDeep" cx=".35" cy=".3" r=".95"><stop offset="0" stop-color="#C7BAE8"/><stop offset="1" stop-color="#55467F"/></radialGradient>
+      <linearGradient id="gSteel" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="64"><stop offset="0" stop-color="#C2C7CF"/><stop offset="1" stop-color="#6E747E"/></linearGradient>
+      <radialGradient id="gShadow"><stop offset="0" stop-color="#000" stop-opacity=".26"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+      <symbol id="i-grip" viewBox="0 0 24 24"><line x1="3" y1="9" x2="21" y2="9"/><path d="M7 9v5a5 5 0 0 0 10 0V9"/><line x1="10" y1="9" x2="10" y2="15"/><line x1="14" y1="9" x2="14" y2="15"/></symbol>
+      <symbol id="i-core" viewBox="0 0 24 24"><rect x="8" y="4" width="8" height="16" rx="3"/><path d="M4 9c-2 2-2 4 0 6"/><path d="M20 9c2 2 2 4 0 6"/></symbol>
+      <symbol id="i-hip" viewBox="0 0 24 24"><circle cx="5" cy="14" r="1.8"/><path d="M7 15c3-4 8-5 12-3"/><path d="M3 18h18"/></symbol>
+      <symbol id="i-lunge" viewBox="0 0 24 24"><circle cx="10" cy="5" r="2"/><path d="M10 7v5l-4 4v4"/><path d="M10 12l5 2 2 6"/><path d="M3 20h18"/></symbol>
+      <symbol id="i-press" viewBox="0 0 24 24"><circle cx="12" cy="15" r="3"/><path d="M12 10V4"/><path d="M9 7l3-3 3 3"/></symbol>
+      <symbol id="i-neck" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M9 12c0 3-1 5-2 7"/><path d="M15 12c0 3 1 5 2 7"/></symbol>
+
+      <symbol id="x-birddog" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="34" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gDeep)" stroke-width="4.6"><line x1="30" y1="35" x2="28" y2="56"/><line x1="28" y1="34" x2="6" y2="36"/><line x1="60" y1="36" x2="62" y2="50"/><line x1="62" y1="50" x2="74" y2="56"/><line x1="60" y1="36" x2="88" y2="28"/><line x1="24" y1="34" x2="60" y2="36" stroke-width="5.4"/></g><circle cx="18" cy="30" r="5.5" fill="url(#gHeadDeep)"/></symbol>
+      <symbol id="x-chintuck" viewBox="0 0 96 64"><g stroke="url(#gDeep)" stroke-width="5"><line x1="30" y1="48" x2="70" y2="48" stroke-width="6"/><line x1="48" y1="48" x2="50" y2="32"/></g><circle cx="62" cy="23" r="7" fill="none" stroke="#A290D2" stroke-width="1.6" opacity=".45"/><circle cx="51" cy="23" r="7.5" fill="url(#gHeadDeep)"/><line x1="80" y1="23" x2="71" y2="23" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-remada" viewBox="0 0 96 64"><ellipse cx="46" cy="58" rx="30" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="58" y1="58" x2="56" y2="38"/><line x1="56" y1="38" x2="32" y2="24" stroke-width="5.4"/><line x1="38" y1="27" x2="40" y2="44"/></g><circle cx="27" cy="20" r="5.5" fill="url(#gHead)"/><line x1="32" y1="46" x2="48" y2="46" stroke="url(#gSteel)" stroke-width="2.6"/><ellipse cx="31.6" cy="46" rx="2.4" ry="4.8" fill="#565B63"/><ellipse cx="29.8" cy="46" rx="2.4" ry="4.8" fill="url(#gSteel)"/><ellipse cx="51.6" cy="46" rx="2.4" ry="4.8" fill="#565B63"/><ellipse cx="49.8" cy="46" rx="2.4" ry="4.8" fill="url(#gSteel)"/><line x1="66" y1="44" x2="66" y2="33" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-toalha" viewBox="0 0 96 64"><line x1="22" y1="6" x2="74" y2="6" stroke="url(#gSteel)" stroke-width="3.4"/><g stroke="#B98A4A" stroke-width="3"><line x1="44" y1="6" x2="42" y2="18"/><line x1="52" y1="6" x2="54" y2="18"/></g><g stroke="url(#gBody)" stroke-width="4.6"><line x1="42" y1="18" x2="46" y2="29"/><line x1="54" y1="18" x2="50" y2="29"/><line x1="48" y1="29" x2="48" y2="44" stroke-width="5.4"/><line x1="48" y1="44" x2="42" y2="54"/><line x1="48" y1="44" x2="54" y2="52"/></g><circle cx="48" cy="22" r="5.5" fill="url(#gHead)"/><line x1="68" y1="30" x2="68" y2="17" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-remada1" viewBox="0 0 96 64"><ellipse cx="40" cy="58" rx="34" ry="4.5" fill="url(#gShadow)"/><rect x="10" y="43" width="48" height="5" rx="2" fill="url(#gSteel)"/><rect x="15" y="48" width="3" height="10" fill="#565B63"/><rect x="49" y="48" width="3" height="10" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="24" y1="31" x2="56" y2="34" stroke-width="5.4"/><line x1="27" y1="32" x2="22" y2="43"/><line x1="56" y1="34" x2="50" y2="43"/><line x1="56" y1="34" x2="64" y2="58"/><line x1="35" y1="32" x2="35" y2="49"/></g><circle cx="18" cy="26" r="5.5" fill="url(#gHead)"/><line x1="31" y1="51" x2="39" y2="51" stroke="url(#gSteel)" stroke-width="2.4"/><ellipse cx="30.5" cy="51" rx="1.8" ry="3.6" fill="url(#gSteel)"/><ellipse cx="40.5" cy="51" rx="1.8" ry="3.6" fill="#565B63"/></symbol>
+      <symbol id="x-highpull" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="26" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6" fill="none"><line x1="48" y1="18" x2="48" y2="40" stroke-width="5.4"/><line x1="48" y1="40" x2="40" y2="58"/><line x1="48" y1="40" x2="56" y2="58"/><polyline points="48,21 34,26 36,38"/><polyline points="48,21 62,26 60,38"/></g><circle cx="48" cy="13" r="5.5" fill="url(#gHead)"/><line x1="35" y1="40" x2="61" y2="40" stroke="url(#gSteel)" stroke-width="2.6"/><ellipse cx="34.4" cy="40" rx="2" ry="4" fill="url(#gSteel)"/><ellipse cx="62.4" cy="40" rx="2" ry="4" fill="#565B63"/><line x1="76" y1="38" x2="76" y2="25" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-facepull" viewBox="0 0 96 64"><ellipse cx="36" cy="58" rx="22" ry="4.5" fill="url(#gShadow)"/><rect x="84" y="18" width="6" height="12" rx="1" fill="url(#gSteel)"/><line x1="84" y1="24" x2="52" y2="23" stroke="#8A8F98" stroke-width="1.8" stroke-dasharray="4 3"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="36" y1="21" x2="36" y2="42" stroke-width="5.4"/><line x1="36" y1="42" x2="30" y2="58"/><line x1="36" y1="42" x2="42" y2="58"/><line x1="36" y1="24" x2="50" y2="20"/><line x1="36" y1="28" x2="50" y2="26"/></g><circle cx="36" cy="16" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-martelo" viewBox="0 0 96 64"><ellipse cx="44" cy="58" rx="22" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="44" y1="17" x2="44" y2="40" stroke-width="5.4"/><line x1="44" y1="40" x2="38" y2="58"/><line x1="44" y1="40" x2="50" y2="58"/><line x1="44" y1="21" x2="46" y2="32"/><line x1="46" y1="32" x2="58" y2="25"/></g><circle cx="44" cy="12" r="5.5" fill="url(#gHead)"/><line x1="60" y1="20" x2="60" y2="29" stroke="url(#gSteel)" stroke-width="2.4"/><ellipse cx="60" cy="19" rx="3.4" ry="1.8" fill="url(#gSteel)"/><ellipse cx="60" cy="30" rx="3.4" ry="1.8" fill="#565B63"/></symbol>
+      <symbol id="x-farmer" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="30" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="48" y1="15" x2="48" y2="34" stroke-width="5.4"/><line x1="48" y1="34" x2="38" y2="56"/><line x1="48" y1="34" x2="60" y2="56"/><line x1="48" y1="19" x2="36" y2="37"/><line x1="48" y1="19" x2="60" y2="37"/></g><circle cx="48" cy="10" r="5.5" fill="url(#gHead)"/><path d="M32.5 40 Q36 35.5 39.5 40" fill="none" stroke="#565B63" stroke-width="2"/><path d="M56.5 40 Q60 35.5 63.5 40" fill="none" stroke="#565B63" stroke-width="2"/><circle cx="36" cy="44" r="4.5" fill="url(#gSteel)"/><circle cx="60" cy="44" r="4.5" fill="url(#gSteel)"/><line x1="70" y1="51" x2="84" y2="51" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-pinch" viewBox="0 0 96 64"><ellipse cx="48" cy="57" rx="16" ry="3.5" fill="url(#gShadow)"/><ellipse cx="49.8" cy="40" rx="11.5" ry="13" fill="#565B63"/><ellipse cx="47" cy="40" rx="11.5" ry="13" fill="url(#gSteel)"/><ellipse cx="47" cy="40" rx="1.8" ry="2.2" fill="#3A3E44"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="48" y1="8" x2="48" y2="20" stroke-width="5"/><line x1="44" y1="20" x2="46" y2="27" stroke-width="3.4"/><line x1="52" y1="20" x2="50" y2="27" stroke-width="3.4"/></g></symbol>
+      <symbol id="x-deadbug" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="34" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gDeep)" stroke-width="4.6"><line x1="28" y1="53" x2="56" y2="53" stroke-width="5.4"/><line x1="36" y1="53" x2="36" y2="32"/><line x1="56" y1="53" x2="56" y2="38"/><line x1="56" y1="38" x2="66" y2="38"/><line x1="56" y1="53" x2="80" y2="45"/></g><circle cx="22" cy="50" r="5.5" fill="url(#gHeadDeep)"/><line x1="36" y1="29" x2="36" y2="23" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/><line x1="83" y1="44" x2="89" y2="42" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-pushplus" viewBox="0 0 96 64"><ellipse cx="52" cy="58" rx="36" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gDeep)" stroke-width="4.6"><line x1="22" y1="30" x2="62" y2="40" stroke-width="5.4"/><line x1="28" y1="31" x2="26" y2="56"/><line x1="62" y1="40" x2="86" y2="54"/></g><circle cx="16" cy="26" r="5.5" fill="url(#gHeadDeep)"/><line x1="28" y1="21" x2="28" y2="10" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-supino" viewBox="0 0 96 64"><ellipse cx="44" cy="58" rx="32" ry="4.5" fill="url(#gShadow)"/><rect x="16" y="44" width="50" height="5" rx="2" fill="url(#gSteel)"/><rect x="22" y="49" width="3" height="9" fill="#565B63"/><rect x="56" y="49" width="3" height="9" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="28" y1="42" x2="56" y2="42" stroke-width="5.4"/><line x1="56" y1="42" x2="68" y2="50"/><line x1="68" y1="50" x2="68" y2="58"/><line x1="38" y1="42" x2="38" y2="26"/></g><circle cx="22" cy="38" r="5" fill="url(#gHead)"/><line x1="32" y1="24" x2="44" y2="24" stroke="url(#gSteel)" stroke-width="2.4"/><ellipse cx="31" cy="24" rx="1.8" ry="3.6" fill="url(#gSteel)"/><ellipse cx="45" cy="24" rx="1.8" ry="3.6" fill="#565B63"/><line x1="54" y1="34" x2="54" y2="23" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-landpress" viewBox="0 0 96 64"><ellipse cx="62" cy="58" rx="28" ry="4.5" fill="url(#gShadow)"/><polygon points="6,58 16,58 11,51" fill="#565B63"/><line x1="11" y1="53" x2="56" y2="22" stroke="url(#gSteel)" stroke-width="2.8"/><circle cx="53.4" cy="25.4" r="4.6" fill="#565B63"/><circle cx="52" cy="24.4" r="4.6" fill="url(#gSteel)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="68" y1="21" x2="70" y2="42" stroke-width="5.4"/><line x1="70" y1="42" x2="62" y2="58"/><line x1="70" y1="42" x2="78" y2="58"/><line x1="68" y1="25" x2="58" y2="23"/></g><circle cx="68" cy="16" r="5.5" fill="url(#gHead)"/><line x1="50" y1="15" x2="43" y2="10" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-paralelas" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="32" ry="4.5" fill="url(#gShadow)"/><rect x="24.5" y="32" width="3" height="26" fill="url(#gSteel)"/><rect x="68.5" y="32" width="3" height="26" fill="url(#gSteel)"/><rect x="17" y="30.5" width="18" height="3" rx="1.5" fill="url(#gSteel)"/><rect x="61" y="30.5" width="18" height="3" rx="1.5" fill="url(#gSteel)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="48" y1="21" x2="48" y2="38" stroke-width="5.4"/><line x1="48" y1="24" x2="30" y2="32"/><line x1="48" y1="24" x2="66" y2="32"/><line x1="48" y1="38" x2="40" y2="52"/></g><circle cx="48" cy="16" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-flexdef" viewBox="0 0 96 64"><ellipse cx="52" cy="58" rx="36" ry="4.5" fill="url(#gShadow)"/><rect x="24" y="50" width="12" height="8" rx="1" fill="url(#gSteel)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="32" y1="50" x2="34" y2="30"/><line x1="36" y1="31" x2="68" y2="42" stroke-width="5.4"/><line x1="68" y1="42" x2="88" y2="54"/></g><circle cx="28" cy="25" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-pallof" viewBox="0 0 96 64"><ellipse cx="42" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><rect x="86" y="26" width="5" height="12" rx="1" fill="url(#gSteel)"/><line x1="86" y1="32" x2="62" y2="30" stroke="#8A8F98" stroke-width="1.8" stroke-dasharray="4 3"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="42" y1="19" x2="42" y2="42" stroke-width="5.4"/><line x1="42" y1="42" x2="36" y2="58"/><line x1="42" y1="42" x2="48" y2="58"/><line x1="42" y1="23" x2="60" y2="29"/><line x1="42" y1="27" x2="60" y2="31"/></g><circle cx="42" cy="14" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-prancharem" viewBox="0 0 96 64"><ellipse cx="50" cy="58" rx="36" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="22" y1="26" x2="58" y2="36" stroke-width="5.4"/><line x1="28" y1="27" x2="26" y2="54"/><line x1="58" y1="36" x2="86" y2="50"/><line x1="36" y1="29" x2="38" y2="44"/></g><circle cx="16" cy="22" r="5.5" fill="url(#gHead)"/><line x1="33" y1="47" x2="43" y2="47" stroke="url(#gSteel)" stroke-width="2.4"/><ellipse cx="32.5" cy="47" rx="1.8" ry="3.6" fill="url(#gSteel)"/><ellipse cx="43.5" cy="47" rx="1.8" ry="3.6" fill="#565B63"/></symbol>
+      <symbol id="x-copenhagen" viewBox="0 0 96 64"><ellipse cx="34" cy="58" rx="26" ry="4" fill="url(#gShadow)"/><rect x="58" y="31" width="30" height="5" rx="2" fill="url(#gSteel)"/><rect x="61" y="36" width="3" height="22" fill="#565B63"/><rect x="81" y="36" width="3" height="22" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="14" y1="56" x2="28" y2="56"/><line x1="22" y1="56" x2="26" y2="43"/><line x1="28" y1="43" x2="64" y2="33" stroke-width="5.4"/><line x1="46" y1="38" x2="52" y2="50"/></g><circle cx="21" cy="36" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-miniband" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gDeep)" stroke-width="4.6"><line x1="48" y1="15" x2="48" y2="32" stroke-width="5.4"/><line x1="48" y1="32" x2="38" y2="44"/><line x1="38" y1="44" x2="36" y2="58"/><line x1="48" y1="32" x2="58" y2="44"/><line x1="58" y1="44" x2="60" y2="58"/></g><circle cx="48" cy="10" r="5.5" fill="url(#gHeadDeep)"/><line x1="37" y1="47" x2="59" y2="47" stroke="#B98A4A" stroke-width="3.6"/><line x1="70" y1="52" x2="84" y2="52" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-pranchalat" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="34" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gDeep)" stroke-width="4.6"><line x1="20" y1="56" x2="34" y2="56"/><line x1="27" y1="56" x2="31" y2="43"/><line x1="31" y1="43" x2="78" y2="56" stroke-width="5.4"/><line x1="38" y1="42" x2="42" y2="30"/></g><circle cx="25" cy="36" r="5.5" fill="url(#gHeadDeep)"/></symbol>
+      <symbol id="x-agacha" viewBox="0 0 96 64"><ellipse cx="46" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><line x1="28" y1="22" x2="60" y2="22" stroke="url(#gSteel)" stroke-width="2.8"/><ellipse cx="27" cy="22" rx="2.4" ry="5" fill="url(#gSteel)"/><ellipse cx="61.8" cy="22" rx="2.4" ry="5" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="44" y1="22" x2="40" y2="36" stroke-width="5.4"/><line x1="40" y1="36" x2="52" y2="44"/><line x1="52" y1="44" x2="50" y2="58"/></g><circle cx="44" cy="14" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-rdl" viewBox="0 0 96 64"><ellipse cx="44" cy="58" rx="28" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="54" y1="58" x2="54" y2="36"/><line x1="54" y1="36" x2="32" y2="22" stroke-width="5.4"/><line x1="37" y1="25" x2="39" y2="42"/></g><circle cx="27" cy="18" r="5.5" fill="url(#gHead)"/><line x1="32" y1="44" x2="46" y2="44" stroke="url(#gSteel)" stroke-width="2.6"/><ellipse cx="31.6" cy="44" rx="2.4" ry="4.8" fill="url(#gSteel)"/><ellipse cx="48" cy="44" rx="2.4" ry="4.8" fill="#565B63"/></symbol>
+      <symbol id="x-hipthrust" viewBox="0 0 96 64"><ellipse cx="40" cy="58" rx="34" ry="4.5" fill="url(#gShadow)"/><rect x="5" y="32" width="15" height="8" rx="2" fill="url(#gSteel)"/><rect x="7" y="40" width="3" height="18" fill="#565B63"/><rect x="15" y="40" width="3" height="18" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="19" y1="33" x2="46" y2="30" stroke-width="5.4"/><line x1="46" y1="30" x2="62" y2="42"/><line x1="62" y1="42" x2="62" y2="58"/></g><circle cx="13" cy="27" r="5" fill="url(#gHead)"/><circle cx="47.4" cy="26.2" r="5" fill="#565B63"/><circle cx="46" cy="25" r="5" fill="url(#gSteel)"/><line x1="74" y1="36" x2="74" y2="25" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-bulgaro" viewBox="0 0 96 64"><ellipse cx="42" cy="58" rx="26" ry="4.5" fill="url(#gShadow)"/><rect x="63" y="40" width="26" height="5" rx="2" fill="url(#gSteel)"/><rect x="67" y="45" width="3" height="13" fill="#565B63"/><rect x="82" y="45" width="3" height="13" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="38" y1="15" x2="40" y2="32" stroke-width="5.4"/><line x1="40" y1="32" x2="46" y2="46"/><line x1="46" y1="46" x2="44" y2="58"/><line x1="40" y1="32" x2="66" y2="42"/><line x1="38" y1="19" x2="32" y2="34"/></g><circle cx="38" cy="10" r="5.5" fill="url(#gHead)"/><line x1="28" y1="36" x2="36" y2="36" stroke="url(#gSteel)" stroke-width="2.4"/><ellipse cx="27" cy="36" rx="1.8" ry="3.6" fill="url(#gSteel)"/><ellipse cx="37.4" cy="36" rx="1.8" ry="3.6" fill="#565B63"/></symbol>
+      <symbol id="x-swing" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="26" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="44" y1="19" x2="44" y2="40" stroke-width="5.4"/><line x1="44" y1="40" x2="38" y2="58"/><line x1="44" y1="40" x2="52" y2="58"/><line x1="44" y1="23" x2="62" y2="29"/></g><circle cx="44" cy="14" r="5.5" fill="url(#gHead)"/><path d="M62.5 30 Q67 25.5 71.5 30" fill="none" stroke="#565B63" stroke-width="2"/><circle cx="67" cy="34" r="5" fill="url(#gSteel)"/><path d="M52 54 Q74 52 70 41" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".75"/></symbol>
+      <symbol id="x-landtwist" viewBox="0 0 96 64"><ellipse cx="58" cy="58" rx="28" ry="4.5" fill="url(#gShadow)"/><polygon points="6,58 16,58 11,51" fill="#565B63"/><line x1="11" y1="53" x2="52" y2="18" stroke="url(#gSteel)" stroke-width="2.8"/><circle cx="49.4" cy="22.4" r="4" fill="#565B63"/><circle cx="48" cy="21" r="4" fill="url(#gSteel)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="62" y1="21" x2="64" y2="42" stroke-width="5.4"/><line x1="64" y1="42" x2="56" y2="58"/><line x1="64" y1="42" x2="72" y2="58"/><line x1="62" y1="25" x2="53" y2="20"/></g><circle cx="62" cy="16" r="5.5" fill="url(#gHead)"/><path d="M34 10 Q52 2 68 8" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".75"/></symbol>
+      <symbol id="x-desenv" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="48" y1="25" x2="48" y2="44" stroke-width="5.4"/><line x1="48" y1="44" x2="42" y2="58"/><line x1="48" y1="44" x2="54" y2="58"/><line x1="48" y1="27" x2="40" y2="14"/><line x1="48" y1="27" x2="56" y2="14"/></g><circle cx="48" cy="20" r="5.5" fill="url(#gHead)"/><line x1="34" y1="12" x2="62" y2="12" stroke="url(#gSteel)" stroke-width="2.6"/><ellipse cx="33" cy="12" rx="2.2" ry="4.4" fill="url(#gSteel)"/><ellipse cx="63.8" cy="12" rx="2.2" ry="4.4" fill="#565B63"/></symbol>
+      <symbol id="x-ytw" viewBox="0 0 96 64"><ellipse cx="44" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="44" y1="23" x2="44" y2="46" stroke-width="5.4"/><line x1="44" y1="46" x2="38" y2="58"/><line x1="44" y1="46" x2="50" y2="58"/><line x1="44" y1="26" x2="30" y2="12"/><line x1="44" y1="26" x2="58" y2="12"/></g><circle cx="44" cy="18" r="5.5" fill="url(#gHead)"/><text x="62" y="16" font-size="9" fill="currentColor" stroke="none" font-family="inherit">Y·T·W</text></symbol>
+      <symbol id="x-pescoco" viewBox="0 0 96 64"><g stroke="url(#gBody)" stroke-width="5"><line x1="28" y1="52" x2="64" y2="52" stroke-width="6"/><line x1="46" y1="52" x2="46" y2="37"/><line x1="82" y1="27" x2="69" y2="27" stroke-width="4.6"/><line x1="69" y1="21" x2="69" y2="33" stroke-width="4.6"/></g><circle cx="46" cy="27" r="8.5" fill="url(#gHead)"/><line x1="64" y1="27" x2="58" y2="27" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-chestrow" viewBox="0 0 96 64"><ellipse cx="40" cy="58" rx="30" ry="4.5" fill="url(#gShadow)"/><line x1="20" y1="48" x2="58" y2="28" stroke="url(#gSteel)" stroke-width="7"/><rect x="36" y="46" width="3" height="12" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="24" y1="43" x2="52" y2="24" stroke-width="5.4"/><line x1="38" y1="33" x2="40" y2="48"/></g><circle cx="56" cy="19" r="5.5" fill="url(#gHead)"/><line x1="36" y1="50" x2="44" y2="50" stroke="url(#gSteel)" stroke-width="2.4"/><ellipse cx="35" cy="50" rx="1.8" ry="3.6" fill="url(#gSteel)"/><ellipse cx="45.4" cy="50" rx="1.8" ry="3.6" fill="#565B63"/></symbol>
+      <symbol id="x-pulldown" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><rect x="44" y="2" width="8" height="4" rx="1" fill="url(#gSteel)"/><line x1="48" y1="6" x2="48" y2="12" stroke="#8A8F98" stroke-width="1.8"/><line x1="35" y1="12" x2="61" y2="12" stroke="url(#gSteel)" stroke-width="2.6"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="48" y1="26" x2="37" y2="13"/><line x1="48" y1="26" x2="59" y2="13"/><line x1="48" y1="26" x2="48" y2="42" stroke-width="5.4"/><line x1="48" y1="42" x2="56" y2="45"/><line x1="56" y1="45" x2="56" y2="58"/></g><circle cx="48" cy="20" r="5.5" fill="url(#gHead)"/><rect x="38" y="46" width="20" height="4" rx="2" fill="url(#gSteel)"/><line x1="72" y1="16" x2="72" y2="28" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-pushdown" viewBox="0 0 96 64"><ellipse cx="46" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><rect x="58" y="2" width="8" height="5" rx="1" fill="url(#gSteel)"/><line x1="62" y1="7" x2="57" y2="36" stroke="#8A8F98" stroke-width="1.8" stroke-dasharray="4 3"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="44" y1="19" x2="44" y2="42" stroke-width="5.4"/><line x1="44" y1="42" x2="38" y2="58"/><line x1="44" y1="42" x2="50" y2="58"/><line x1="44" y1="23" x2="50" y2="30"/><line x1="50" y1="30" x2="56" y2="38"/></g><circle cx="44" cy="14" r="5.5" fill="url(#gHead)"/><line x1="66" y1="40" x2="66" y2="50" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-goblet" viewBox="0 0 96 64"><ellipse cx="48" cy="58" rx="24" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="46" y1="21" x2="42" y2="36" stroke-width="5.4"/><line x1="42" y1="36" x2="54" y2="44"/><line x1="54" y1="44" x2="52" y2="58"/><line x1="46" y1="25" x2="50" y2="27"/></g><circle cx="46" cy="14" r="5.5" fill="url(#gHead)"/><path d="M48.5 24 Q52 20.5 55.5 24" fill="none" stroke="#565B63" stroke-width="2"/><circle cx="52" cy="27" r="4.5" fill="url(#gSteel)"/></symbol>
+      <symbol id="x-stepup" viewBox="0 0 96 64"><ellipse cx="46" cy="58" rx="28" ry="4.5" fill="url(#gShadow)"/><rect x="56" y="38" width="26" height="5" rx="2" fill="url(#gSteel)"/><rect x="60" y="43" width="3" height="15" fill="#565B63"/><rect x="76" y="43" width="3" height="15" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="40" y1="13" x2="42" y2="30" stroke-width="5.4"/><line x1="42" y1="30" x2="56" y2="34"/><line x1="56" y1="34" x2="58" y2="38"/><line x1="42" y1="30" x2="40" y2="46"/><line x1="40" y1="46" x2="38" y2="58"/></g><circle cx="40" cy="8" r="5.5" fill="url(#gHead)"/><line x1="72" y1="30" x2="72" y2="18" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-wallslide" viewBox="0 0 96 64"><ellipse cx="56" cy="58" rx="20" ry="4.5" fill="url(#gShadow)"/><rect x="72" y="4" width="4" height="54" rx="1" fill="url(#gSteel)"/><g stroke="url(#gDeep)" stroke-width="4.6"><line x1="58" y1="21" x2="58" y2="44" stroke-width="5.4"/><line x1="58" y1="44" x2="52" y2="58"/><line x1="58" y1="44" x2="62" y2="58"/><line x1="58" y1="24" x2="67" y2="18"/><line x1="67" y1="18" x2="67" y2="8"/></g><circle cx="58" cy="16" r="5.5" fill="url(#gHeadDeep)"/><line x1="46" y1="16" x2="46" y2="6" stroke="currentColor" stroke-width="2" marker-end="url(#ah)" opacity=".85"/></symbol>
+      <symbol id="x-flexao" viewBox="0 0 96 64"><ellipse cx="52" cy="58" rx="36" ry="4.5" fill="url(#gShadow)"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="36" y1="30" x2="34" y2="56"/><line x1="38" y1="30" x2="68" y2="41" stroke-width="5.4"/><line x1="68" y1="41" x2="88" y2="53"/></g><circle cx="30" cy="25" r="5.5" fill="url(#gHead)"/></symbol>
+      <symbol id="x-crucifixo" viewBox="0 0 96 64"><ellipse cx="42" cy="58" rx="30" ry="4.5" fill="url(#gShadow)"/><rect x="16" y="47" width="48" height="5" rx="2" fill="url(#gSteel)"/><rect x="23" y="52" width="3" height="6" fill="#565B63"/><rect x="55" y="52" width="3" height="6" fill="#565B63"/><g stroke="url(#gBody)" stroke-width="4.6"><line x1="28" y1="45" x2="56" y2="45" stroke-width="5.4"/><line x1="56" y1="45" x2="66" y2="52"/><line x1="40" y1="45" x2="26" y2="26"/><line x1="40" y1="45" x2="54" y2="26"/></g><circle cx="22" cy="41" r="5" fill="url(#gHead)"/><circle cx="25" cy="24" r="3.4" fill="url(#gSteel)"/><circle cx="55" cy="24" r="3.4" fill="url(#gSteel)"/></symbol>
+    </defs>
+  </svg>
+  <header>
+    <p class="kicker">Proposta para o personal · Adaptação do treino atual</p>
+    <h1>Fortalecimento funcional para o Jiu-Jitsu</h1>
+    <p class="lede">A ideia <strong>não é trocar o treino</strong> — é manter a divisão atual em três grupamentos e redirecionar parte dos exercícios para os padrões de movimento que o jiu-jitsu mais exige: pegada, quadril, core, ombro estável, pescoço e a musculatura profunda que estabiliza tudo isso.</p>
+    <p class="meta">Aluno: Daniel · Divisão atual: costas+bíceps / peito+tríceps / perna+ombros · Musculação seg, sex, sáb e dom · BJJ qua (no-gi) e sáb (kimono) · Esteira qua e qui · Dia duplo: sábado · FASE ATUAL: poupar trapézio e ombro (dor + recuperação prejudicada)</p>
+    <div class="bar"><i></i><i></i><i></i></div>
+  </header>
+
+  <section>
+    <h2>Por que adaptar</h2>
+    <p class="sub">O que o jiu-jitsu pede do corpo — e onde o treino atual pode transferir mais.</p>
+    <p>A divisão clássica (empurrar / puxar / pernas) constrói músculo, mas trabalha quase tudo <strong>bilateral, estável e no plano reto</strong>. O jiu-jitsu é o oposto: forças assimétricas, posições instáveis, muita isometria (segurar pegada, segurar posição) e potência vinda do quadril. A proposta é trocar ~30–40% dos exercícios analíticos de cada dia por variações funcionais que atacam exatamente estes pontos:</p>
+    <div class="pillars">
+      <div class="pillar"><svg><use href="#i-grip"/></svg><div>
+        <h3>1 · Pegada e antebraço</h3>
+        <p>É o primeiro contato com o oponente. Grip forte controla o kimono e demora a fadigar no rola — e antebraço fadigado é o que mais limita treino de gi.</p>
+      </div></div>
+      <div class="pillar"><svg><use href="#i-hip"/></svg><div>
+        <h3>2 · Quadril e cadeia posterior</h3>
+        <p>Upa (ponte), quedas, guarda, finalização de arm-lock: tudo nasce da extensão de quadril. Glúteo e posterior fortes = mais explosão e menos sobrecarga lombar.</p>
+      </div></div>
+      <div class="pillar"><svg><use href="#i-core"/></svg><div>
+        <h3>3 · Core anti-movimento</h3>
+        <p>No jiu-jitsu o core quase nunca "faz" o movimento — ele <em>resiste</em> (à rotação, à extensão) para você não ser raspado nem perder base. Pallof e pranchas ativas transferem mais que abdominal tradicional.</p>
+      </div></div>
+      <div class="pillar"><svg><use href="#i-press"/></svg><div>
+        <h3>4 · Ombro estável (escápula)</h3>
+        <p>Frames, underhook, defesa de kimura: o ombro trabalha em posições ruins. Escápula e manguito fortes protegem a articulação mais lesionada do BJJ.</p>
+      </div></div>
+      <div class="pillar"><svg><use href="#i-neck"/></svg><div>
+        <h3>5 · Pescoço</h3>
+        <p>Base da defesa de estrangulamento e da postura na guarda fechada. Quase nunca treinado na musculação tradicional — começar leve e isométrico já muda o jogo.</p>
+      </div></div>
+      <div class="pillar"><svg><use href="#i-lunge"/></svg><div>
+        <h3>6 · Força unilateral</h3>
+        <p>Passagem, queda e raspagem acontecem com um lado de cada vez, em base instável. Búlgaro, avanço e remada unilateral corrigem assimetrias e dão base forte.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fase atual: poupar trapézio e ombro</h2>
+    <p class="sub">Dor no trapézio e no ombro, com recuperação prejudicada, muda as prioridades: sai tudo o que sobrecarrega o trapézio superior e comprime o ombro; entra o padrão equivalente sem o estresse. <strong>Os dias da semana e o jiu-jitsu não mudam.</strong></p>
+    <div class="double">
+      <h3>⚠ O que muda nesta fase (3–6 semanas)</h3>
+      <ul class="clean">
+        <li><strong>Saíram (por ora):</strong> high pull/encolhimento (o maior agressor do trapézio), farmer's carry (isometria pesada pendurada no trapézio), barra fixa com toalha (tração com o peso do corpo), paralelas (comprimem a cápsula anterior do ombro), desenvolvimento (carga acima da cabeça), agachamento com barra nas costas (a barra apoia exatamente onde dói), kettlebell swing (tração balística no trapézio) e flexão com déficit.</li>
+        <li><strong>Entraram no lugar:</strong> remada com peito apoiado, puxada na polia com pegada neutra, tríceps na polia, goblet squat ou leg press, step-up explosivo, wall slide e flexão padrão — mesmos padrões de movimento, sem o ponto de estresse.</li>
+        <li><strong>Viraram protagonistas:</strong> face pull leve, Y-T-W, push-up plus e chin tuck. O quadro típico dessa dor é trapézio superior sobrecarregado com trapézio inferior, serrátil e manguito fracos — esses exercícios atacam a causa, não só o sintoma.</li>
+        <li><strong>Recuperação:</strong> RIR 3 em tudo nas duas primeiras semanas, volume ~20% menor, sono como prioridade. Nada até a falha.</li>
+        <li><strong>No tatame (dias inalterados):</strong> avisar o professor; moderar clinch, snap down e pegadas longas de gola enquanto houver dor; pescoço só isométrico bem leve.</li>
+        <li><strong>Critério de retorno:</strong> 2–3 semanas sem dor no dia a dia → reintroduzir um exercício por semana, na ordem: desenvolvimento leve → farmer's carry → high pull. <strong>Sinal vermelho:</strong> dor irradiando para o braço, formigamento ou dor noturna → avaliação com fisioterapeuta antes de continuar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>A adaptação, dia a dia</h2>
+    <p class="sub">Mesma divisão, mesmos grupamentos — muda a seleção de exercícios e a intenção de cada dia. Os exercícios estão na ordem de execução sugerida.</p>
+    <p class="note">Séries × repetições são ponto de partida: encerrar as séries com 1–2 repetições na reserva (2–3 no dia duplo). Descanso: 2–3&nbsp;min nos básicos pesados, 60–90&nbsp;s nos acessórios. A etiqueta <span class="tag pe">em pé</span> marca os exercícios que servem à luta em pé (clinch, queda, arremesso); a etiqueta <span class="tag deep">profunda</span> marca a musculatura profunda estabilizadora, feita como <strong>ativação no início do treino</strong> — carga leve, movimento controlado, sem falha.</p>
+
+    <div class="day a">
+      <div class="day-head">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <h3>Dia A — Puxar + Pegada</h3>
+        <div class="was">hoje: costas e bíceps · na rotina: SEGUNDA (sem BJJ no mesmo dia)</div>
+      </div>
+      <div class="day-body">
+        <table>
+          <tr><th>Exercício</th><th>Séries × reps</th><th>Por que transfere</th></tr>
+          <tr class="act"><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-birddog"/></svg><span>Bird dog (perdigueiro) <span class="tag deep">ativação · profunda</span></span></span></td><td class="sr">2 × 8 /lado</td><td>Multífidos e transverso do abdômen: estabiliza vértebra por vértebra antes das puxadas pesadas. Lento, com pausa de 2&nbsp;s no topo.</td></tr>
+          <tr class="act"><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-chintuck"/></svg><span>Retração cervical (chin tuck) <span class="tag deep">ativação · profunda</span></span></span></td><td class="sr">2 × 10</td><td>Flexores profundos do pescoço — a base que a isometria de sexta vai carregar. Protege contra snap down e postura de guarda.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-chestrow"/></svg><span>Remada com peito apoiado no banco <span class="tag new">troca temporária</span></span></span></td><td class="sr">4 × 8–10</td><td>Substitui a remada curvada nesta fase: o banco sustenta o tronco, tirando do trapézio o trabalho de segurar postura e carga — a puxada continua inteira.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pulldown"/></svg><span>Puxada na polia, pegada neutra <span class="tag new">troca temporária</span> <span class="tag pe">em pé · gi</span></span></span></td><td class="sr">3 × 8–10</td><td>Substitui a barra fixa com toalha por ora: mantém a puxada vertical dosando a carga, sem pendurar o peso do corpo num ombro dolorido. A toalha volta com o fim da dor.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-remada1"/></svg><span>Remada unilateral com halter <span class="tag keep">manter</span></span></span></td><td class="sr">3 × 8–10 /lado</td><td>Puxada assimétrica com core estabilizando — e com joelho e mão apoiados no banco, o trapézio não sustenta nada.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-facepull"/></svg><span>Face pull leve <span class="tag keep">manter · terapêutico</span></span></span></td><td class="sr">3 × 12–15</td><td>Fortalece trapézio inferior e manguito — parte da solução da dor, não do problema. Carga leve, execução perfeita, pausa de 1&nbsp;s no fim.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-martelo"/></svg><span>Rosca martelo ou com fat grip <span class="tag keep">manter</span></span></span></td><td class="sr">3 × 10–12</td><td>Bíceps continua trabalhando, mas com braquiorradial e punho — os músculos que seguram pegada.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pinch"/></svg><span>Pinch grip + wrist curl <span class="tag keep">manter</span> <span class="tag pe">em pé · no-gi</span></span></span></td><td class="sr">3 × 20–30 s</td><td>Toda a pegada da fase mora aqui: pinça e punho trabalham sem nenhuma carga pendurada no trapézio — substitui também o farmer's carry por enquanto.</td></tr>
+        </table>
+        <p class="day-why"><strong>O que saiu deste dia na fase atual:</strong> high pull/encolhimento, farmer's carry e barra fixa com toalha — os três maiores carregadores de trapézio do plano. A pegada continua treinada (pinça, punho, rosca), mas sem tração pendurada. Quando a dor zerar, eles voltam um por semana.</p>
+      </div>
+    </div>
+
+    <div class="day b">
+      <div class="day-head">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <h3>Dia B — Empurrar + Core</h3>
+        <div class="was">hoje: peito e tríceps · na rotina: SÁBADO — dia DUPLO com BJJ de kimono</div>
+      </div>
+      <div class="day-body">
+        <table>
+          <tr><th>Exercício</th><th>Séries × reps</th><th>Por que transfere</th></tr>
+          <tr class="act"><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-deadbug"/></svg><span>Dead bug <span class="tag deep">ativação · profunda</span></span></span></td><td class="sr">2 × 8 /lado</td><td>Transverso do abdômen com respiração (bracing) — o "cinturão natural" que segura a lombar na guarda e sob pressão.</td></tr>
+          <tr class="act"><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pushplus"/></svg><span>Flexão com protração (push-up plus) <span class="tag deep">ativação · profunda</span></span></span></td><td class="sr">2 × 10</td><td>Serrátil anterior: cola a escápula na caixa torácica. É a base de frames fortes e prepara o ombro para o supino.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-supino"/></svg><span>Supino com halteres, pegada neutra <span class="tag keep">manter · ajustar</span></span></span></td><td class="sr">4 × 8–10</td><td>Halteres deixam a escápula livre e permitem pegada neutra. Nesta fase: amplitude até onde não dói, sem forçar o fundo do movimento.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-landpress"/></svg><span>Landmine press leve <span class="tag keep">manter · ajustar</span> <span class="tag pe">em pé</span></span></span></td><td class="sr">2–3 × 8–10 /lado</td><td>O único empurrar "para cima" da fase: o ângulo diagonal poupa a articulação. Substitui o desenvolvimento enquanto houver dor — carga leve.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pushdown"/></svg><span>Tríceps na polia (corda) <span class="tag new">troca temporária</span></span></span></td><td class="sr">3 × 12–15</td><td>Substitui as paralelas: dips comprimem a cápsula anterior do ombro. O tríceps continua forte para frames, sem o estresse articular.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-flexao"/></svg><span>Flexão padrão (sem déficit) <span class="tag keep">manter · ajustar</span></span></span></td><td class="sr">3 × 10–15</td><td>Cadeia fechada como nos frames — mas sem o déficit, que aumenta a extensão do ombro no fundo. O déficit volta com o fim da dor.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pallof"/></svg><span>Pallof press (anti-rotação) <span class="tag new">incluir</span></span></span></td><td class="sr">3 × 10–12 /lado</td><td>Core resistindo à rotação = não ser raspado. Segurar 2–3&nbsp;s em cada repetição; encaixa bem entre séries de supino.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-prancharem"/></svg><span>Prancha com toque de ombro <span class="tag keep">manter · ajustar</span></span></span></td><td class="sr">3 × 10–12 /lado</td><td>Anti-rotação sob apoio unilateral — base de quem passa guarda. Nesta fase, preferir o toque de ombro à remada com halter: menos tensão no trapézio em apoio.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-copenhagen"/></svg><span>Prancha de Copenhagen <span class="tag new">incluir</span> <span class="tag deep">profunda</span></span></span></td><td class="sr">2 × 15–20 s /lado</td><td>Adutores profundos: a força de fechar a guarda, do triângulo e da meia-guarda — e a melhor prevenção de lesão de virilha. Começar na versão com joelho apoiado.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-crucifixo"/></svg><span>Crucifixo e isolados de peito <span class="tag new">reduzir</span></span></span></td><td class="sr">0–2 × 12–15</td><td>Pouca transferência; abre espaço e poupa fadiga para o tatame no mesmo dia.</td></tr>
+        </table>
+        <p class="day-why"><strong>Sábado é o dia duplo — e é de propósito:</strong> empurrar não frita pegada nem pescoço antes do gi. Valem as regras de dia duplo abaixo: RIR 2–3, volume 20–30% menor, musculação antes do tatame quando possível.</p>
+      </div>
+    </div>
+
+    <div class="day c">
+      <div class="day-head">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <h3>Dia C — Quadril potente + Ombro blindado + Pescoço</h3>
+        <div class="was">hoje: perna e ombros · na rotina: dividido em SEXTA (C-1 ombro+pescoço) e DOMINGO (C-2 perna)</div>
+      </div>
+      <div class="day-body">
+        <table>
+          <tr><th>Exercício</th><th>Séries × reps</th><th>Por que transfere</th></tr>
+          <tr class="act"><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-miniband"/></svg><span>Caminhada lateral com mini-band ou concha <span class="tag deep">ativação · profunda</span></span></span></td><td class="sr">2 × 12 /lado</td><td>Glúteo médio e rotadores profundos do quadril: estabilizam pelve e joelho na mudança de nível e na base. Antes da perna pesada (C-2).</td></tr>
+          <tr class="act"><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pranchalat"/></svg><span>Prancha lateral <span class="tag deep">ativação · profunda</span></span></span></td><td class="sr">2 × 20–30 s /lado</td><td>Quadrado lombar e oblíquos profundos (McGill): blinda a lombar antes de agachamento e RDL.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-goblet"/></svg><span>Goblet squat ou leg press <span class="tag new">troca temporária</span></span></span></td><td class="sr">4 × 8–10</td><td>Substitui o agachamento com barra nas costas: a barra apoia exatamente onde dói. A perna continua treinando pesado com a carga na frente do corpo ou na máquina.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-rdl"/></svg><span>RDL com halteres + straps, moderado <span class="tag keep">manter · ajustar</span> <span class="tag pe">em pé</span></span></span></td><td class="sr">3 × 8–10</td><td>Cadeia posterior segue treinando. Halteres ao lado do corpo e straps tiram a tensão de pegada e trapézio; carga moderada nesta fase.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-hipthrust"/></svg><span>Hip thrust (elevação de quadril) <span class="tag keep">o pesado principal</span></span></span></td><td class="sr">3–4 × 8–12</td><td>Zero estresse de ombro e trapézio — vira o exercício pesado principal da fase. É literalmente o upa com carga: subida explosiva, descida controlada.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-bulgaro"/></svg><span>Búlgaro com peso do corpo ou halteres leves <span class="tag keep">manter · ajustar</span> <span class="tag pe">em pé</span></span></span></td><td class="sr">3 × 8–10 /perna</td><td>Força unilateral saindo de posição baixa — o padrão da mudança de nível. Sem halteres pesados na mão (segurar carga também é trapézio).</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-stepup"/></svg><span>Step-up explosivo no banco <span class="tag new">troca temporária</span></span></span></td><td class="sr">3 × 8 /perna</td><td>Substitui o kettlebell swing por ora: mantém a potência de quadril sem a tração balística do peso puxando o trapézio a cada repetição.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-landtwist"/></svg><span>Landmine twist moderado <span class="tag keep">manter · ajustar</span> <span class="tag pe">em pé</span></span></span></td><td class="sr">2–3 × 8–10 /lado</td><td>Potência rotacional de tronco — o motor das quedas de quadril. Carga moderada, sem levar a barra acima da linha do ombro.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-ytw"/></svg><span>Y-T-W / rotação externa no cabo <span class="tag keep">protagonista</span> <span class="tag deep">profunda</span></span></span></td><td class="sr">3 × 10–12</td><td>Manguito e trapézio inferior — o centro do tratamento. Sobe de 2 para 3 séries nesta fase, sempre leve e sem dor.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-wallslide"/></svg><span>Wall slide (deslizamento na parede) <span class="tag new">incluir</span> <span class="tag deep">profunda</span></span></span></td><td class="sr">2 × 10–12</td><td>Serrátil e trapézio inferior guiando a escápula na parede — reeducação do ritmo escapular que a dor bagunçou.</td></tr>
+          <tr><td><span class="exrow"><svg class="exill" viewBox="0 0 96 64"><use href="#x-pescoco"/></svg><span>Pescoço: isometria bem leve <span class="tag keep">manter · ajustar</span> <span class="tag pe">em pé</span></span></span></td><td class="sr">2 × 15–20 s /direção</td><td>Só pressão suave das mãos, sem dor. Pausar em dia ruim — pescoço e trapézio dividem musculatura; irritar um cobra do outro.</td></tr>
+        </table>
+        <p class="day-why"><strong>Na rotina atual, este dia se divide em dois:</strong> sexta (C-1) vira o dia de <em>blindagem do ombro</em> — chin tuck, wall slide, Y-T-W/rotação externa, pescoço bem leve e landmine twist moderado, nada pesado antes do sábado; domingo (C-2) fica com a perna — mini-band, prancha lateral, goblet/leg press, RDL, hip thrust, búlgaro e step-up. O desenvolvimento saiu da fase: o landmine press do sábado cobre o empurrar vertical até a dor zerar.</p>
+      </div>
+    </div>
+
+    <div class="double">
+      <h3>⚠ Regras do dia duplo (sábado: musculação + BJJ de kimono)</h3>
+      <ul class="clean">
+        <li><strong>Nada de falha:</strong> encerrar todas as séries com 2–3 repetições na reserva (RIR 2–3).</li>
+        <li><strong>Volume 20–30% menor</strong> que num dia isolado — cortar 1 série de cada exercício já resolve.</li>
+        <li><strong>Ordem ideal:</strong> musculação antes do BJJ, com algumas horas de intervalo se possível.</li>
+        <li><strong>Poupar pegada e pescoço antes do rola</strong> — por isso o sábado é o dia de empurrar, não o de puxar.</li>
+        <li><strong>Comer e hidratar entre as sessões</strong> — as metas do dia duplo (3.300–3.500&nbsp;kcal) já estão configuradas no NutriTreino.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Onde mora a luta em pé (com e sem kimono)</h2>
+    <p class="sub">Não há um quarto dia: as demandas da fase em pé estão encaixadas nos três treinos, nos exercícios marcados com <span class="tag pe">em pé</span>. Este é o mapa para o personal conferir a cobertura.</p>
+    <ul class="clean">
+      <li><strong>Pegada de kimono (gola/manga):</strong> na fase atual, treinada no próprio tatame + puxada na polia (dia A). Barra fixa com toalha e farmer's carry estão pausados e voltam com o fim da dor.</li>
+      <li><strong>Controle sem kimono (punho, overhook, body lock):</strong> pinch grip + wrist curl + rosca com fat grip — dia A. Nenhum deles pendura carga no trapézio.</li>
+      <li><strong>Clinch e hand fight:</strong> landmine press leve (dia B). O high pull está pausado na fase poupa-trapézio — era o exercício mais agressivo para essa musculatura.</li>
+      <li><strong>Mudança de nível e entrada de queda:</strong> búlgaro/avanço — dia C.</li>
+      <li><strong>Finalizar a queda / levantar o oponente:</strong> RDL + hip thrust — dia C.</li>
+      <li><strong>Quedas de quadril e arremessos (o-goshi, uchi-mata):</strong> landmine twist moderado (dia C); o step-up explosivo cobre a potência de quadril no lugar do swing.</li>
+      <li><strong>Postura contra snap down:</strong> face pull e chin tuck (dia A) + isometria bem leve de pescoço (dia C) — nesta fase a prioridade é não irritar trapézio/cervical.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Musculatura profunda: os estabilizadores</h2>
+    <p class="sub">Músculos que não aparecem no espelho, mas seguram articulação e coluna quando o oponente aplica força em ângulos ruins. Entram como <strong>ativação de 5–8 minutos no início de cada treino</strong> — não como treino extra.</p>
+    <ul class="clean">
+      <li><strong>Transverso do abdômen e multífidos</strong> (coluna): dead bug (dia B), bird dog (dia A) e prancha lateral (dia C). São o "cinturão natural" — protegem a lombar na guarda, sob pressão e nos levantamentos pesados.</li>
+      <li><strong>Flexores cervicais profundos</strong> (pescoço): retração cervical / chin tuck (dia A e antes da isometria de sexta). A isometria fortalece a camada externa; o chin tuck ensina a profunda a ligar primeiro.</li>
+      <li><strong>Serrátil anterior</strong> (escápula): flexão com protração / push-up plus (dia B). Escápula colada na caixa torácica = frames que não cedem e ombro protegido no supino.</li>
+      <li><strong>Manguito rotador</strong> (ombro): rotação externa Y-T-W (dia C) — já estava no plano; é musculatura profunda por definição.</li>
+      <li><strong>Glúteo médio e rotadores profundos do quadril:</strong> mini-band / concha (dia C, antes da perna). Estabilizam pelve e joelho na mudança de nível, no búlgaro e na base em pé.</li>
+      <li><strong>Adutores profundos</strong> (virilha): prancha de Copenhagen (dia B). Fechar guarda, triângulo, meia-guarda — e a lesão de virilha é das mais comuns do BJJ; Copenhagen é a prevenção com mais evidência.</li>
+    </ul>
+    <p class="note"><strong>Como treinar essa camada:</strong> carga leve ou peso do corpo, execução lenta, respiração ativa (expirar aplicando o bracing), nunca até a falha. Progressão primeiro em tempo e repetições, só depois em dificuldade (ex.: Copenhagen do joelho apoiado para a perna estendida). Estabilizador fadigado deixa a articulação desprotegida — por isso ativação vem no começo, não no fim.</p>
+  </section>
+
+  <section>
+    <h2>A semana, na rotina real</h2>
+    <p class="sub">Quatro dias de musculação permitem abrir o dia C em dois: ombro+pescoço na sexta e perna pesada no domingo. Cada peça foi posicionada em função dos dias de tatame.</p>
+    <div class="week-scroll">
+      <div class="week">
+        <div class="wday"><span class="d">Seg</span><span class="s gym">Dia A — Puxar + Pegada</span><span class="s off">apoiado, sem trapézio</span></div>
+        <div class="wday"><span class="d">Ter</span><span class="s off">Descanso</span></div>
+        <div class="wday"><span class="d">Qua</span><span class="s bjj">BJJ no-gi</span><span class="s">Esteira: caminhada leve</span></div>
+        <div class="wday"><span class="d">Qui</span><span class="s gym">Esteira: HIIT ou caminhada</span></div>
+        <div class="wday"><span class="d">Sex</span><span class="s gym">Dia C-1 — Ombro blindado</span><span class="s off">terapêutico</span></div>
+        <div class="wday dbl"><span class="d">Sáb</span><span class="s gym">Dia B — Empurrar + Core</span><span class="s bjj">BJJ de kimono</span></div>
+        <div class="wday"><span class="d">Dom</span><span class="s gym">Dia C-2 — Perna pesada</span><span class="s off">sem barra nas costas</span></div>
+      </div>
+    </div>
+    <p class="note"><strong>A lógica das posições continua a mesma:</strong> o dia duplo do sábado é o de empurrar — não frita pegada nem pescoço antes do gi. A perna pesada fica no domingo, com três dias até o próximo tatame. A sexta, que era ombro+pescoço, vira o dia terapêutico da fase: nada pesado antes do sábado. Na esteira, caminhada leve na quarta (dia de tatame) e HIIT na quinta — se a recuperação seguir ruim, trocar o HIIT por caminhada também.</p>
+    <p class="note"><strong>Divisão dos exercícios do dia C na fase atual:</strong> sexta (C-1 — blindagem): chin tuck, wall slide, Y-T-W/rotação externa, pescoço bem leve e landmine twist moderado; domingo (C-2 — perna): mini-band, prancha lateral, goblet squat ou leg press, RDL com halteres, hip thrust, búlgaro e step-up explosivo.</p>
+  </section>
+
+  <section>
+    <h2>Notas para o personal</h2>
+    <ul class="clean">
+      <li><strong>Introdução gradual:</strong> trocar 1–2 exercícios por semana ao longo de 3–4 semanas, mantendo o esqueleto da divisão — nada muda de uma vez.</li>
+      <li><strong>Progressão sugerida:</strong> nos básicos (agachamento, supino, remada), progressão de carga normal; nos funcionais novos (pescoço, pegada, swing) e na musculatura profunda, progredir primeiro em tempo/repetições e só depois em carga ou dificuldade.</li>
+      <li><strong>Séries × repetições são ponto de partida</strong>, calibradas para RIR 1–2 em dia normal e RIR 2–3 em dia duplo — ajustar volume conforme a resposta do aluno e a carga semanal de tatame.</li>
+      <li><strong>Ativação de musculatura profunda</strong> ocupa 5–8 minutos no início do treino e substitui o "aquecimento genérico" — não somar como volume extra.</li>
+      <li><strong>Marcadores de transferência</strong> para acompanhar: tempo pendurado na toalha, carga/distância no farmer's carry, tempo de prancha lateral e de isometria de pescoço.</li>
+      <li><strong>Contexto de cutting lento</strong> (~110&nbsp;kg → 102&nbsp;kg): recuperação é limitada — preferir volume conservador e qualidade de execução a acumular séries.</li>
+      <li><strong>Fase poupa-trapézio/ombro:</strong> manter as trocas por 3–6 semanas. O sinal de progresso é treinar e rolar sem dor no dia seguinte. Reintroduzir os exercícios pausados um por semana (desenvolvimento leve → farmer's → high pull) e recuar um passo se a dor voltar. Dor irradiando, formigamento ou dor noturna: encaminhar para fisioterapia.</li>
+    </ul>
+  </section>
+
+  <footer>Documento preparado a partir da rotina real registrada no NutriTreino (musculação seg/sex/sáb/dom · BJJ qua no-gi e sáb gi · esteira qua/qui · metas de dia duplo 3.300–3.500 kcal). Sugestões para discutir com o personal — não substitui a avaliação presencial.</footer>
+</div>
+
+</body></html>

@@ -1,0 +1,726 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Núcleo de Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F5F4; --surface:#FFFFFF; --ink:#18252D; --ink-2:#4A5A63; --line:#D6DDDA;
+  --accent:#0B6F61; --accent-soft:#DCEEEA;
+  --neg:#A85A17; --neg-soft:#F6E7D8;
+  --ops:#2F6394; --ops-soft:#DDE8F3;
+  --mkt:#9B3563; --mkt-soft:#F4DEE8;
+  --warn:#8A6100; --warn-soft:#F7ECCB;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#11181C; --surface:#182228; --ink:#E4ECE9; --ink-2:#A3B2B0; --line:#2C3A40;
+    --accent:#4CC2AE; --accent-soft:#16332E;
+    --neg:#E39A57; --neg-soft:#35261A;
+    --ops:#7FB0E0; --ops-soft:#1B2A3A;
+    --mkt:#E07FA9; --mkt-soft:#351E29;
+    --warn:#E2BC5A; --warn-soft:#332A14;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#11181C; --surface:#182228; --ink:#E4ECE9; --ink-2:#A3B2B0; --line:#2C3A40;
+  --accent:#4CC2AE; --accent-soft:#16332E;
+  --neg:#E39A57; --neg-soft:#35261A;
+  --ops:#7FB0E0; --ops-soft:#1B2A3A;
+  --mkt:#E07FA9; --mkt-soft:#351E29;
+  --warn:#E2BC5A; --warn-soft:#332A14;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding:0 20px}
+.wrap{max-width:960px;margin:0 auto;padding-block:40px 80px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(34px,6vw,52px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:28px;font-weight:750;margin-bottom:6px}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+.prose p,.prose li{max-width:68ch}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.lede{font-size:19px;color:var(--ink-2);max-width:62ch;margin-top:14px}
+header{display:grid;gap:10px;padding-bottom:28px;border-bottom:2px solid var(--ink)}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+nav a{font-family:var(--mono);font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--surface);padding:5px 10px;border-radius:4px}
+nav a:hover{border-color:var(--accent);color:var(--accent)}
+section{padding-top:52px;display:grid;gap:18px}
+.sec-head{display:grid;gap:4px}
+.sub{color:var(--ink-2);max-width:68ch}
+
+/* decisions */
+.decisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.dec{background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 35%,transparent);border-radius:6px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.dec b{font-family:var(--display);font-stretch:85%;font-size:16.5px}
+.dec span{font-size:14.5px;color:var(--ink-2)}
+
+/* org chart */
+.org{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:28px 20px;display:grid;gap:0;justify-items:center}
+.node{border:1.5px solid var(--ink);border-radius:6px;padding:10px 16px;text-align:center;background:var(--surface);display:grid;gap:2px;min-width:0}
+.node .t{font-family:var(--display);font-stretch:85%;font-weight:750;font-size:17px}
+.node .d{font-size:13.5px;color:var(--ink-2)}
+.seat{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.04em}
+.node.hub{border-color:var(--accent);background:var(--accent-soft);border-width:2px}
+.vline{width:2px;height:22px;background:var(--line)}
+.focals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;position:relative;padding-top:22px}
+.focals::before{content:"";position:absolute;top:0;left:16.6%;right:16.6%;height:2px;background:var(--line)}
+.focal{position:relative;border-radius:6px;padding:12px 14px;display:grid;gap:4px;align-content:start;border:1.5px solid}
+.focal::before{content:"";position:absolute;top:-22px;left:50%;width:2px;height:22px;background:var(--line)}
+.focal.neg{border-color:var(--neg);background:var(--neg-soft)}
+.focal.ops{border-color:var(--ops);background:var(--ops-soft)}
+.focal.mkt{border-color:var(--mkt);background:var(--mkt-soft)}
+.focal .t{font-family:var(--display);font-stretch:85%;font-weight:750;font-size:16.5px}
+.focal .d{font-size:13.5px;color:var(--ink-2)}
+.malls{margin-top:22px;width:100%;border:1.5px dashed var(--ink-2);border-radius:6px;padding:12px 14px;text-align:center;display:grid;gap:4px}
+.malls .t{font-family:var(--display);font-stretch:85%;font-weight:700}
+.malls .d{font-size:13.5px;color:var(--ink-2)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-2);margin-top:14px}
+@media (max-width:620px){
+  .focals{grid-template-columns:1fr;padding-top:14px}
+  .focals::before,.focal::before{display:none}
+  .focal{margin-top:0}
+}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.col ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px}
+@media (max-width:620px){.compare{grid-template-columns:1fr}}
+
+/* role cards */
+.roles{display:grid;gap:12px}
+.role{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:4px;padding:16px 18px;display:grid;gap:8px}
+.role.hub{border-left-color:var(--accent)}
+.role.neg{border-left-color:var(--neg)}
+.role.ops{border-left-color:var(--ops)}
+.role.mkt{border-left-color:var(--mkt)}
+.role ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:15px}
+.role .meta{font-size:14px;color:var(--ink-2)}
+
+/* flow */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;counter-reset:s}
+.flow li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;display:grid;gap:4px;align-content:start;font-size:14px}
+.flow li::before{content:"Etapa " counter(s);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.flow li b{font-family:var(--display);font-stretch:85%;font-size:16px}
+.flow li span{color:var(--ink-2)}
+@media (max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.flow{grid-template-columns:1fr}}
+
+/* tables */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:640px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:500;background:color-mix(in srgb,var(--ground) 60%,var(--surface))}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.raci td:not(:first-child){text-align:center;font-family:var(--mono);font-weight:500}
+
+/* chips */
+.chip{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.03em;padding:2px 7px;border-radius:3px;white-space:nowrap;border:1px solid}
+.c-have{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.c-adapt{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+.c-build{color:var(--ink);border-color:var(--ink-2)}
+.w1{color:var(--surface);background:var(--ink);border-color:var(--ink)}
+.w2{color:var(--ink);border-color:var(--ink)}
+.w3{color:var(--ink-2);border-color:var(--line)}
+
+.front-title{display:flex;align-items:center;gap:10px;margin-top:10px}
+.sw{width:12px;height:12px;border-radius:2px;display:inline-block}
+.sw.hub{background:var(--accent)}.sw.neg{background:var(--neg)}.sw.ops{background:var(--ops)}.sw.mkt{background:var(--mkt)}
+
+.note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:15px;display:grid;gap:6px}
+.note.warn{background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 35%,transparent)}
+.note ul{margin:0;padding-left:18px;display:grid;gap:4px}
+
+/* training tiers */
+.tier{display:grid;gap:10px}
+.course{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:4px 16px}
+.course .n{font-weight:600}
+.course .n a{color:var(--ink);text-decoration-color:var(--accent)}
+.course .p{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.course .w{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
+.course .who{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+.verdict{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:3px}
+.v-yes{background:var(--accent-soft);color:var(--accent)}
+.v-maybe{background:var(--warn-soft);color:var(--warn)}
+.v-no{background:color-mix(in srgb,var(--line) 60%,transparent);color:var(--ink-2)}
+
+/* timeline */
+.tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.tl .step{position:relative;padding:0 0 22px 22px;display:grid;gap:4px}
+.tl .step::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.tl .when{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.04em}
+.tl .step b{font-family:var(--display);font-stretch:85%;font-size:17px}
+.tl ul{margin:0;padding-left:18px;font-size:15px;display:grid;gap:3px;max-width:70ch}
+
+.sources{font-size:13.5px;color:var(--ink-2)}
+.sources ol{padding-left:20px;display:grid;gap:4px;margin:0}
+.sources a{word-break:break-word}
+code{font-family:var(--mono);font-size:.9em;background:color-mix(in srgb,var(--line) 50%,transparent);padding:1px 5px;border-radius:3px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-2);display:grid;gap:6px}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="label">Proposta de estrutura · Diretoria de Portfólio · v4.1 · 14/set/2026 · reconstruída a partir do vault Obsidian, da skill de renovações e do site de RI da Allos</span>
+  <h1>Núcleo de Portfólio</h1>
+  <p class="lede">Um gerente centralizando o portfólio, três sêniores como pontos focais nos shoppings (Negócios, Operações, Marketing) a 10–20% do tempo, cinco assentos Claude Enterprise, dados no M365 — e uma camada de agentes montada sobre o que o vault já especificou: o Shopping Inteligente OS v5, o Handbook de Operações, as diretrizes por cluster e os frameworks de Stanford.</p>
+  <nav aria-label="Seções">
+    <a href="#partida">Ponto de partida</a><a href="#premissas">Premissas</a><a href="#estrutura">Estrutura</a><a href="#papeis">Papéis</a><a href="#operacao">Operação</a><a href="#claude">Claude e M365</a><a href="#skills">Skills</a><a href="#agentes">Agentes</a><a href="#treinamento">Treinamento</a><a href="#metricas">Métricas e riscos</a><a href="#divergencias">Divergências</a><a href="#fontes">Fontes</a>
+  </nav>
+</header>
+
+<section id="partida">
+  <div class="sec-head">
+    <span class="label">Ponto de partida</span>
+    <h2>A Allos e o portfólio, em números públicos</h2>
+    <p class="sub">Companhia: site de RI (portfólio atualizado em 10/set/2026) e cobertura do release do 2T26 (6/ago/2026). Portfólio: os 10 ativos que você indicou, com ABL e participação do site de RI. Cluster de cada shopping vem do vault e está marcado como inferência.</p>
+  </div>
+
+  <div class="note" style="border-left:4px solid var(--accent)">
+    <b>Objetivo do Núcleo — Goal do Shopping Inteligente mesclado com o objetivo atual</b>
+    <span style="font-size:16px;line-height:1.55">“Trazer as melhores ofertas de lojas, serviços, entretenimento e gastronomia, de acordo com o posicionamento de cada shopping, para aumentar a frequência de visita e o ticket médio gasto nas lojas, com uma experiência qualificada que encanta o consumidor e maximiza a venda de lojistas e anunciantes — e, com isso, crescer a receita operacional do portfólio de forma perene acima da inflação, maximizando o retorno sobre investimento dos empreendedores no longo prazo.”</span>
+    <span style="font-size:13.5px;color:var(--ink-2)">Vetores de resultado: frequência · ticket médio · experiência/encantamento · venda de lojistas e anunciantes · receita real acima da inflação · ROI de longo prazo. É o texto que vai nas instruções de todos os Projects (regra da Orientação 5: um lugar canônico, ninguém parafraseia).</span>
+  </div>
+
+  <h3 style="margin-top:8px">Allos · 2T26</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Indicador</th><th>2T26</th><th>Variação a/a</th><th>Leitura para o Núcleo</th></tr></thead>
+    <tbody>
+      <tr><td>Portfólio</td><td class="num">55 shoppings (45 próprios, 10 administrados) · ABL total 1.918.897 m² · ABL própria 1.244.298 m² · 16 estados · 13.000+ lojas</td><td>—</td><td>Os 10 ativos do seu portfólio somam 454.755 m² de ABL total (23,7% da Allos) e 309.470 m² de ABL própria (24,9%)</td></tr>
+      <tr><td>Receita líquida</td><td class="num">R$ 732,3 mi</td><td class="num">+11,6%</td><td>Locação 63,5% · estacionamento 16,9% · serviços 14,7%</td></tr>
+      <tr><td>NOI</td><td class="num">R$ 601,3 mi · margem 92%</td><td class="num">+3,8% (+5,2% ex-Tijuca)</td><td>Farol NOI da RMR tem esse benchmark de crescimento</td></tr>
+      <tr><td>FFO · Lucro líquido</td><td class="num">R$ 340,8 mi · R$ 294,0 mi</td><td class="num">+12,0% · +57,7%</td><td>—</td></tr>
+      <tr><td>Vendas · SSS · SSR</td><td class="num">R$ 10,5 bi · +2,4% · +3,2%</td><td class="num">vendas +3,4% (+4,6% ex-Tijuca) · SSR +4,6% ex-Tijuca</td><td>SSR é o LSR agregado: a alavanca da skill de renovações medida pelo mercado</td></tr>
+      <tr><td>Vendas/m²</td><td class="num">R$ 2.061</td><td class="num">+4,0%</td><td>Referência para o quadrante da skill de renovações e para a Master Equation</td></tr>
+      <tr><td>Taxa de ocupação</td><td class="num">96,2% (96,3% ex-Tijuca)</td><td>—</td><td>Benchmark do farol TO</td></tr>
+      <tr><td>Custo de ocupação</td><td class="num">10,3% das vendas</td><td>—</td><td>Dentro da faixa “saudável ~8–12%” do Credit Engine</td></tr>
+      <tr><td>Inadimplência líquida</td><td class="num">1,4%</td><td class="num">de 1,9%</td><td>Benchmark para o farol Risco (negativo em 8 dos 9 shoppings na RMR de junho)</td></tr>
+      <tr><td>Mídia (helloo)</td><td class="num">R$ 83,4 mi · 10,6% da receita bruta</td><td class="num">+84,5%</td><td>Frente que mais cresce; entra no Seller e no report mensal por shopping</td></tr>
+      <tr><td>Plataforma digital</td><td class="num">GMV R$ 1,56 bi · 17,1 mi sessões</td><td class="num">+31% · +12%</td><td>—</td></tr>
+      <tr><td>Alavancagem · custo da dívida</td><td class="num">1,7× dívida líquida/EBITDA · CDI + 0,57%</td><td>—</td><td>Capex de retrofit (Racional Retrofit) compete por esse balanço</td></tr>
+      <tr><td>Reciclagem de portfólio (2026)</td><td colspan="2">Venda de 49% do Shopping Curitiba por R$ 193,7 mi (cap 9,5%); compra de ~7,3% do Amazonas por até R$ 178,2 mi; troca Taboão → Campo Grande e Villagio Caxias + R$ 20 mi</td><td>Critério declarado: ativos que ganham exposição vendem 20%+ por m² acima dos que perdem. Center Uberlândia (21%) é a menor participação do seu portfólio</td></tr>
+      <tr><td>Shopping Tijuca</td><td colspan="2">Incêndio em 2/jan/2026; fechado 14 dias; reabertura integral em 16/jan. O 2T26 ainda reporta métricas “ex-Tijuca”; a imprensa especializada cita risco à expansão e ao guidance</td><td>Recuperação do Tijuca é prioridade de Negócios + Operações no piloto</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:8px">Os 10 shoppings do portfólio</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Shopping</th><th>UF</th><th>Participação Allos</th><th>ABL total (m²)</th><th>ABL própria (m²)</th><th>Cluster (inferido do vault)</th><th>Sinal recente</th></tr></thead>
+    <tbody>
+      <tr><td>NorteShopping</td><td>RJ</td><td class="num">72,5%</td><td class="num">71.665</td><td class="num">51.950</td><td>Imensos</td><td>—</td></tr>
+      <tr><td>Plaza Niterói</td><td>RJ</td><td class="num">100,0%</td><td class="num">44.636</td><td class="num">44.636</td><td>Entretenimento (fev/24) · Sofisticados (mai/24)</td><td>RMR jun/26: farol negativo, só pontua Balanceamento</td></tr>
+      <tr><td>Shopping Tijuca</td><td>RJ</td><td class="num">90,0%</td><td class="num">37.359</td><td class="num">33.780</td><td>Compactos de Alto Padrão</td><td>Incêndio jan/26; expansão em risco</td></tr>
+      <tr><td>Carioca Shopping</td><td>RJ</td><td class="num">65,0%</td><td class="num">36.269</td><td class="num">23.574</td><td>Convenientes</td><td>RMR jun/26: NOI e Risco negativos; Assaí até fim de julho</td></tr>
+      <tr><td>Mooca Plaza Shopping</td><td>SP</td><td class="num">60,0%</td><td class="num">42.067</td><td class="num">25.240</td><td>Entretenimento</td><td>RMR jun/26: NOI e Spending negativos · time já fez o workshop de IA · PE 2027: viário, restaurante R$ 3 mi, café Zara R$ 800 mil</td></tr>
+      <tr><td>Boulevard Shopping BH</td><td>MG</td><td class="num">70,0%</td><td class="num">41.683</td><td class="num">29.178</td><td>Sofisticados</td><td>NOI 2025 R$ 81,4 mi (nota CSul) · RMR: Risco · PE 2027: sair Levi’s, entrar Le Lis</td></tr>
+      <tr><td>Shopping Del Rey</td><td>MG</td><td class="num">80,0%</td><td class="num">38.394</td><td class="num">30.455</td><td>Entretenimento</td><td>NOI 2025 R$ 73,6 mi · RMR: Risco e Mix · PE 2027: aguardar Decathlon</td></tr>
+      <tr><td>Shopping Estação BH</td><td>MG</td><td class="num">60,0%</td><td class="num">37.503</td><td class="num">22.502</td><td>Convenientes</td><td>NOI 2025 R$ 60,5 mi · RMR: GMV e Risco</td></tr>
+      <tr><td>Center Shopping Uberlândia</td><td>MG</td><td class="num">21,0%</td><td class="num">56.906</td><td class="num">11.950</td><td>Sofisticados</td><td>RMR: Risco e TO · PE 2027: retrofit PA2, ancorar lado fraco, Parkeye</td></tr>
+      <tr><td>Shopping Estação Cuiabá</td><td>MT</td><td class="num">75,0%</td><td class="num">48.273</td><td class="num">36.205</td><td>Sofisticados</td><td>RMR: Risco (se “ECB” = Estação Cuiabá)</td></tr>
+      <tr><td><b>Total</b></td><td>4 UFs</td><td class="num">—</td><td class="num"><b>454.755</b></td><td class="num"><b>309.470</b></td><td>5 clusters</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="compare">
+    <div class="col">
+      <span class="label">Como o portfólio já é medido</span>
+      <ul>
+        <li><b>RMR mensal dos superintendentes</b> com faróis NOI, Risco, Balanceamento, VGLi, Spending, GMV, Mix, TO e forecast</li>
+        <li>Diretrizes por cluster (mai/2024) com prazos de 6 meses a 5 anos; a própria nota pede verificar execução</li>
+        <li>PE 2027 em discussão na diretoria desde 03/08/26</li>
+        <li>10 superintendentes; ~50 pessoas administrativas por shopping</li>
+      </ul>
+    </div>
+    <div class="col">
+      <span class="label">O que isso muda no desenho</span>
+      <ul>
+        <li>Cinco clusters no mesmo portfólio: o Monitor de Diretrizes e o Cluster Positioning precisam rodar por cluster, não por média</li>
+        <li>Três ativos de MG têm NOI 2025 conhecido (R$ 215,5 mi somados) — linha de base pronta para o report mensal</li>
+        <li>Tijuca (recuperação), Carioca (NOI) e Center Uberlândia (retrofit, 21% de participação) são os casos de uso mais urgentes para os agentes</li>
+        <li>Helloo crescendo 84,5% muda o peso de Marketing: Seller e mídia entram na onda 2 com prioridade</li>
+      </ul>
+    </div>
+  </div>
+  <p class="sources">Inferências: clusters cruzados com as listas do Plano de Ação (fev/24) e da Clusterização (mai/24) do vault; siglas “NS” e “ECB” da RMR não confirmadas; “Plaza” assumido como Plaza Niterói. Os números do 2T26 vêm da cobertura do release (BP Money, Investfy) — o PDF do RI não abriu daqui; confirmar no site de RI antes de citar em documento oficial.</p>
+</section>
+
+<section id="premissas">
+  <div class="sec-head">
+    <span class="label">Premissas confirmadas em 11/set</span>
+    <h2>As quatro decisões que definem o desenho</h2>
+  </div>
+  <div class="decisions">
+    <div class="dec"><b>Dedicação: 10–20% do tempo</b><span>4 a 8 h por semana, variando com a época. Avaliação continua com o superintendente; diferencial de performance validado pelo diretor em trabalho excepcional ou projeto relevante.</span></div>
+    <div class="dec"><b>Licenças: 5 assentos Enterprise já contratados</b><span>Diretor, gerente central e 3 pontos focais entram como grupo no contrato existente. Sem contratação nova — só configuração pelo Owner.</span></div>
+    <div class="dec"><b>Plataforma: gerente central curador, todos contribuem</b><span>Trilha Laboratório (qualquer um publica skill experimental) e trilha Oficial (revisada, empacotada no plugin Portfólio).</span></div>
+    <div class="dec"><b>Dados: M365 corporativo</b><span>Site SharePoint “Núcleo de Portfólio” é a fonte de verdade. Nada de dado interno em stack pessoal.</span></div>
+  </div>
+  <div class="note warn">
+    <b>Uma separação que o vault exige</b>
+    <ul>
+      <li>As notas <em>Tracking Fase 0</em>, <em>Curso AI Orchestrator</em> e <em>Setup Semana 1</em> descrevem uma trilha <b>pessoal</b> (Claude Pro, API própria, Supabase, Lovable, Neon/Vercel) com restrições explícitas: “não usar dados Allos reais”, “não documentar nada em sistemas Allos”. O Radar Quiosques (<em>radarbazin1.vercel.app</em>) roda nessa trilha.</li>
+      <li>O Núcleo é <b>corporativo</b>: Claude Enterprise, M365, dados reais. As especificações do vault (Prompts v5, Ajustes, Credit Engine, Cláusulas) servem como <b>fonte de regras</b>; qualquer coisa que toque dado real é reconstruída dentro do perímetro da empresa, como skill + SharePoint, ou com TI sobre o Sistema Bahia.</li>
+      <li>O que depende de outros: Owner da organização Claude (grupo, plugin, sessões em nuvem), administrador do Entra (consentimento do conector M365), G&amp;G (formalizar o % e o diferencial).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="estrutura">
+  <div class="sec-head">
+    <span class="label">Estrutura</span>
+    <h2>Hub central, pontos focais no campo</h2>
+    <p class="sub">É o modelo IBM EBO da aula do O’Reilly no seu vault: unidade transversal com gestor sênior dedicado, revisão mensal com o executivo, recursos protegidos das unidades e critérios explícitos de entrada e saída.</p>
+  </div>
+  <div class="org" role="img" aria-label="Organograma: Diretor de Portfólio acima do Gerente de Portfólio, que coordena três sêniores pontos focais (Negócios, Operações, Marketing), que apoiam os 10 shoppings.">
+    <div class="node"><span class="t">Diretor de Portfólio</span><span class="d">Estratégia, prioridades, revisão mensal, valida diferencial</span><span class="seat">assento Claude</span></div>
+    <div class="vline"></div>
+    <div class="node hub"><span class="t">Gerente de Portfólio</span><span class="d">Backlog único · padrões · KPIs · curador da plataforma · única pessoa 100%</span><span class="seat">assento Claude · 100%</span></div>
+    <div class="focals">
+      <div class="focal neg"><span class="t">Sênior · Negócios</span><span class="d">Deal Conversion, vacância, mix, renovações, risco de crédito</span><span class="seat">assento Claude · 10–20%</span></div>
+      <div class="focal ops"><span class="t">Sênior · Operações</span><span class="d">Handbook, condomínio, capex, seguros, obra do lojista</span><span class="seat">assento Claude · 10–20%</span></div>
+      <div class="focal mkt"><span class="t">Sênior · Marketing</span><span class="d">Diretrizes de cluster, eventos, Seller, mídia</span><span class="seat">assento Claude · 10–20%</span></div>
+    </div>
+    <div class="malls"><span class="t">10 shoppings (RJ 4 · SP 1 · MG 4 · MT 1) · superintendentes e equipes locais</span><span class="d">Executam · abrem demandas pelo canal único · recebem padrões, playbooks e relatórios · avaliam os pontos focais</span></div>
+  </div>
+  <div class="legend"><span>Linha cheia: reporte hierárquico</span><span>Borda tracejada: apoio, não reporte</span><span>5 assentos Enterprise do contrato existente</span></div>
+
+  <h3 style="margin-top:8px">Teste de alinhamento (PARC + Congruence)</h3>
+  <p class="sub" style="font-size:15px">Sørensen e O’Reilly, nas suas notas de Stanford, dizem a mesma coisa: não há “melhor prática” de desenho, só alinhamento entre tarefas críticas, pessoas, arquitetura/rotinas e cultura. A pergunta-gate antes de qualquer mudança: “isso fortalece ou rompe o alinhamento existente?”</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Elemento</th><th>Onde o desenho está alinhado</th><th>Onde rompe — e o que compensa</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tarefas críticas</b></td><td>Replicar boas práticas e padronizar entregas em 10 shoppings — exatamente o que o Handbook e o PES já fazem por auditoria</td><td>Nada novo: o Núcleo muda o <em>como</em> (contínuo, com agentes), não o <em>quê</em></td></tr>
+      <tr><td><b>Pessoas</b></td><td>Sêniores que já operam a frente no shopping; conhecem o campo</td><td>10–20% é pouco para produção. Compensa: gerente central produz, sêniores revisam e decidem</td></tr>
+      <tr><td><b>Arquitetura e rotinas</b></td><td>Encaixa nos ritos existentes (RMR mensal, comitês do <em>governance-kpi-monitor</em>)</td><td>Avaliação pelo superintendente com recompensa individual é o desalinhamento clássico que Sørensen descreve (“estratégia que exige colaboração, cargos rígidos e recompensa individual”). Compensa: diferencial validado pelo diretor + report mensal por shopping do que o Núcleo entregou</td></tr>
+      <tr><td><b>Cultura</b></td><td>“Máquinas predizem, pessoas julgam” já é o princípio do treinamento Mooca</td><td>Silent killer #1 (identidade do core): KA/superintendente vê o Núcleo como intromissão. Compensa: Núcleo entrega para o shopping, nunca decide por ele</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="papeis">
+  <div class="sec-head">
+    <span class="label">Papéis</span>
+    <h2>Quem faz o quê</h2>
+  </div>
+  <div class="roles">
+    <div class="role hub">
+      <h3>Gerente de Portfólio (central, 100%)</h3>
+      <ul>
+        <li>Opera o backlog único e prioriza com o diretor; absorve toda produção que exige mais de 1 h/semana de um ponto focal</li>
+        <li>Curador da plataforma: Projects, skills, plugin Portfólio, conectores; revisa em lote na sexta</li>
+        <li>Consolida KPIs nas mesmas dimensões da RMR (NOI, Risco, Balanceamento, VGLi, Spending, GMV, Mix, TO) e prepara os ritos</li>
+        <li>Transforma acerto em playbook, no padrão do <em>segundo-cerebro</em>: raw imutável → wiki curada → log append-only</li>
+      </ul>
+      <p class="meta">Perfil: visão de negócio + processo + gosto por escrever instruções. É o “gestor sênior dedicado” do modelo EBO. Sugestão: mentoria do diretor em 6 sessões, pelo <em>Framework Mentoria – Allos</em>, nos primeiros 90 dias.</p>
+    </div>
+    <div class="role neg">
+      <h3>Sênior de Negócios</h3>
+      <ul>
+        <li>Dono do Deal Conversion Layer do portfólio: pipeline com 16 estágios (Lead → … → Performance Review → Lost/Parked), dono, próxima ação, prazo, probabilidade, critério de kill</li>
+        <li>Dono do <b>planejamento anual de renovações</b> do portfólio (feito com o orçamento, antes de qualquer negociação do ano) e do LSR planejado × realizado por shopping</li>
+        <li>Vacância, janela de negociação (12–6 meses para Essenciais/Relevantes; &lt; 6 meses para Indiferentes/Ofensores) e risco de crédito de lojistas</li>
+        <li>Mantém as skills comerciais já existentes (Hunter, Farmer, KA, Alavancador, mandamentos 3–8)</li>
+      </ul>
+    </div>
+    <div class="role ops">
+      <h3>Sênior de Operações</h3>
+      <ul>
+        <li>Dono do Handbook como fonte dos agentes; transforma a auditoria anual em acompanhamento contínuo</li>
+        <li>Condomínio (ISC, OBZ, base de rateio), CAPEX (Comitê Técnico, CAF), seguros de lojas, obra do lojista (Builder)</li>
+        <li>Dono da classificação de marca estratégica A / B / Padrão do Projeto Cláusulas — decisão já tomada no vault: “dono = Operações central”</li>
+      </ul>
+    </div>
+    <div class="role mkt">
+      <h3>Sênior de Marketing</h3>
+      <ul>
+        <li>Dono do acompanhamento das diretrizes por cluster (as de Marketing têm prazos de 6 meses a 5 anos desde mai/2024)</li>
+        <li>Calendário de eventos do portfólio (Entertainer), performance do lojista (Seller / Master Equation), mídia Helloo</li>
+        <li>Guarda de marca com a paleta Allos (petróleo #00616F, teal #368C82, âmbar #EDA754, coral #CD5151, menta #6CC680)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:8px">Liderar três pessoas a 10–20%</h3>
+  <p class="sub" style="font-size:15px">O PDL no seu vault pede “rituais diferenciados por indivíduo”. Com pouco tempo, isso é o que evita micro gestão de um lado e distanciamento do outro.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Ferramenta do vault</th><th>Uso no Núcleo</th><th>Quando</th></tr></thead>
+    <tbody>
+      <tr><td><b>Template de Preparação para Liderança</b> (PDL 3)</td><td>Gerente central classifica cada ponto focal por quadrante (Q1–Q4) para a tarefa “operar agentes da frente” e escolhe o estilo (Comandante / Treinador / Orientador / Desafiador)</td><td>Semana 2, revisto a cada trimestre</td></tr>
+      <tr><td><b>SAG</b> (ICL × ICLL)</td><td>Gap entre como o gerente central acha que lidera e como cada ponto focal percebe — “dispersão grande = atrito futuro”. Aplicar também no par ponto focal ↔ superintendente</td><td>Mês 3 e mês 9</td></tr>
+      <tr><td><b>Contrato de expectativas</b> (PDL: “expectativas nunca são óbvias”)</td><td>Uma página por ponto focal: % de tempo, o que entrega, o que não entrega, como o diferencial é avaliado, o que o superintendente recebe em troca</td><td>Semana 1, assinada pelos três lados</td></tr>
+      <tr><td><b>Manual de Mentoria</b> (Appana/Allos)</td><td>Diretor mentora o gerente central: 6–8 encontros, demanda estruturada em 5 perguntas, ações com prazo cobradas no encontro seguinte</td><td>Primeiros 90 dias</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:8px">Matriz de responsabilidade</h3>
+  <div class="tbl">
+    <table class="raci">
+      <thead><tr><th>Atividade</th><th>Diretor</th><th>Gerente central</th><th>Ponto focal</th><th>Superintendente</th></tr></thead>
+      <tbody>
+        <tr><td>Priorizar o backlog do portfólio</td><td>A</td><td>R</td><td>C</td><td>I</td></tr>
+        <tr><td>Definir padrão ou boa prática</td><td>A</td><td>R</td><td>R</td><td>C</td></tr>
+        <tr><td>Executar no shopping</td><td>I</td><td>I</td><td>C</td><td>R/A</td></tr>
+        <tr><td>Criar ou alterar um agente (skill)</td><td>I</td><td>A</td><td>R</td><td>C</td></tr>
+        <tr><td>Liberar entrega externa (contrato, peça, comunicado)</td><td>—</td><td>C</td><td>R</td><td>A</td></tr>
+        <tr><td>Avaliar o ponto focal</td><td>valida diferencial</td><td>C</td><td>—</td><td>R/A</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sources">R executa · A aprova e responde · C consultado · I informado. Regra fixa, copiada do treinamento Mooca e do Prompt v5: “a IA propõe o rascunho; você decide e assina”. Nada gerado por agente sai para lojista, fornecedor ou público sem revisão de uma pessoa.</p>
+</section>
+
+<section id="operacao">
+  <div class="sec-head">
+    <span class="label">Modelo operacional</span>
+    <h2>Da demanda à boa prática replicada</h2>
+  </div>
+  <ol class="flow">
+    <li><b>Entrada</b><span>Shopping abre a demanda na lista SharePoint (Forms/Teams).</span></li>
+    <li><b>Triagem</b><span>Orquestrador classifica com a regra das 7 perguntas do v5; gerente central confirma dono e prazo.</span></li>
+    <li><b>Execução</b><span>Ponto focal resolve com os agentes da frente e o time local.</span></li>
+    <li><b>Revisão</b><span>Pessoa valida; o “delta da decisão humana” é registrado (métrica de qualidade do treinamento de Orquestração).</span></li>
+    <li><b>Replicação</b><span>Vira playbook ou skill e é oferecido aos outros 9 shoppings.</span></li>
+  </ol>
+
+  <h3 style="margin-top:8px">Orçamento de tempo de um ponto focal</h3>
+  <p class="sub" style="font-size:15px">10% ≈ 4 h/semana; 20% ≈ 8 h/semana. Regra: agentes produzem à noite, o ponto focal revisa de manhã. Tarefa que exige mais de 1 h de produção humana por semana vai para o gerente central ou vira agente.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Bloco</th><th>Semana de 10% (4 h)</th><th>Semana de 20% (8 h)</th><th>O que é</th></tr></thead>
+    <tbody>
+      <tr><td>Ritos</td><td class="num">1 h</td><td class="num">1 h 30</td><td>Backlog (30 min) + clínica quinzenal (45 min) + comitê da frente (mensal consolidado)</td></tr>
+      <tr><td>Revisão de entregas dos agentes</td><td class="num">1 h 30</td><td class="num">3 h</td><td>Relatórios agendados, radares, triagem — aprovar, corrigir, devolver</td></tr>
+      <tr><td>Demandas dos shoppings</td><td class="num">1 h</td><td class="num">2 h 30</td><td>Casos que precisam de julgamento sênior; o resto o gerente central resolve</td></tr>
+      <tr><td>Manutenção de skills da frente</td><td class="num">30 min</td><td class="num">1 h</td><td>Ajustar instruções a partir dos erros vistos na revisão</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:8px">Ritos — com cadência, pauta, quórum e consequência</h3>
+  <p class="sub" style="font-size:15px">A sua Skill 17 (<em>Strategic Plan Evaluation</em>) lista “governança nominal” como falha recorrente: fóruns e squads sem cadência, pauta, quórum de decisão e consequência. Cada rito abaixo declara os quatro.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Rito</th><th>Cadência</th><th>Quórum de decisão</th><th>Pauta (gerada por agente na véspera)</th><th>Consequência</th></tr></thead>
+      <tbody>
+        <tr><td>Backlog do portfólio</td><td class="num">Semanal · 30 min</td><td>Gerente central + 2 dos 3 sêniores</td><td>Prioridades, bloqueios, donos</td><td>Demanda sem dono em 2 semanas sobe ao diretor</td></tr>
+        <tr><td>Clínica de IA</td><td class="num">Quinzenal · 45 min (semanal nas semanas 3–6)</td><td>Os 5 usuários</td><td>Um caso real; erros da revisão; ajuste de skill</td><td>Skill com 3 erros iguais é corrigida antes da próxima clínica</td></tr>
+        <tr><td>Comitês por frente</td><td class="num">Conforme <em>governance-kpi-monitor</em></td><td>Superintendente + ponto focal</td><td>Deal Conversion e <b>comitê comercial semanal</b> (renovações: mix validado, valor-alvo aprovado antes do 2º contato com o lojista), vacância (quinzenal), experiência de cluster (mensal)</td><td>Oportunidade sem próxima ação em 2 ciclos vai para Lost/Parked; renovação sem auditoria integral nos 6 meses anteriores não entra em pauta</td></tr>
+        <tr><td>RMR — bloco do Núcleo</td><td class="num">Mensal · 20 min dentro da RMR</td><td>Diretor + superintendentes</td><td>O que o Núcleo entregou a cada shopping; faróis que moveu</td><td>Entrega sem uso pelo shopping em 60 dias é retirada</td></tr>
+        <tr><td>Revisão de estratégia por cluster</td><td class="num">Semestral</td><td>Diretor + time + superintendentes do cluster</td><td>Diretrizes de cluster: executadas / atrasadas / mortas; score da Skill 17 no plano</td><td>Diretriz sem KPI e orçamento sai do plano</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="font-size:14px">Épocas de pico (Natal, Dia das Mães, orçamento): o portfólio assume 10% e o gerente central publica com antecedência o que fica em modo automático.</p>
+</section>
+
+<section id="claude">
+  <div class="sec-head">
+    <span class="label">Plataforma</span>
+    <h2>Como organizar no Claude e no M365</h2>
+    <p class="sub">Quatro camadas. Comece por Projects e Skills; plugin e tarefas agendadas quando os padrões estiverem estáveis. Fonte de verdade dos dados: SharePoint.</p>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Camada</th><th>O que é</th><th>Como usar aqui</th></tr></thead>
+      <tbody>
+        <tr><td><b>Projects</b></td><td>Instruções e referências estáveis compartilhadas</td><td>Um por frente + um do Portfólio. Instruções = o Goal do Núcleo (texto mesclado da seção Ponto de partida; Orientação 5: um lugar canônico, “nenhum agente parafraseia”), os 6 clusters com batalhas, a Master Equation e a regra das 7 perguntas. Referências: PDF do Handbook, diretrizes por cluster, política comercial</td></tr>
+        <tr><td><b>Skills</b></td><td>Procedimentos que o Claude segue sempre do mesmo jeito</td><td>Cada agente do catálogo é uma skill, no padrão SKILL.md do <em>Roteiro Tático</em>: gatilho, passos, fontes, tabela de saída, dono. “Skill sem tabela de output definida não é skill”</td></tr>
+        <tr><td><b>Plugin privado</b></td><td>Pacote de skills distribuído pelo Owner</td><td>Plugin “Portfólio”, enviado como ZIP (sem GitHub), obrigatório só para o grupo dos 5</td></tr>
+        <tr><td><b>Conector M365 e tarefas agendadas</b></td><td>SharePoint, OneDrive, Outlook e Teams; execuções recorrentes em nuvem</td><td>Radares e relatórios rodam agendados, leem o SharePoint e gravam na biblioteca da frente. Exige sessões em nuvem liberadas para o grupo (no Enterprise vêm desligadas)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:8px">Site SharePoint “Núcleo de Portfólio”</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Biblioteca / lista</th><th>Conteúdo</th><th>Quem escreve</th><th>Origem no vault</th></tr></thead>
+    <tbody>
+      <tr><td><b>00 Governança</b></td><td>Goal, clusters e batalhas, Handbook, políticas, playbooks, calendário de picos</td><td>Gerente central</td><td>Ajustes Or. 5 · Clusterização · Handbook</td></tr>
+      <tr><td><b>Demandas</b> (lista)</td><td>Backlog único: shopping, frente, urgência, dono, prazo, status</td><td>Shoppings via Forms/Teams; Orquestrador classifica</td><td>Prompt v5 #0</td></tr>
+      <tr><td><b>Negócios</b> (listas)</td><td>Pontos (loja/quiosque, status, mix1–3, cluster) · Investidores · Negócios (funil com 16 estágios, termômetro 15 dias) · Marcas em expansão · <b>Planejamento de Renovações</b> (cadastro, parâmetros, planejado, realizado — blocos da Fase 7 da skill)</td><td>Pontos focais e times comerciais</td><td>Ajustes Or. 1, 2, 8 · Radar Quiosques · skill <em>renovacao-contratos-shopping</em></td></tr>
+      <tr><td><b>Operações</b></td><td>Prazos críticos, SLA de facilities, ISC, apólices de lojistas, obras em andamento</td><td>Sênior de Operações e shoppings</td><td>Handbook · Seguro Lojas · Builder</td></tr>
+      <tr><td><b>Marketing</b></td><td>Diretrizes por cluster com status, calendário de eventos, resultados de campanhas</td><td>Sênior de Marketing</td><td>Clusterização · Entertainer · Seller</td></tr>
+      <tr><td><b>90 Skills</b></td><td>Propostas · Fonte (uma pasta por skill, histórico nativo) · Releases (ZIPs)</td><td>Qualquer um propõe; gerente central publica</td><td>Roteiro Tático (Anexo A)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn">
+    <b>Regras de dados — e o que muda em relação às notas do vault</b>
+    <ul>
+      <li>Os Ajustes pedem “base única Postgres (Neon + Vercel)”. No Núcleo, a base única são listas SharePoint; o modelo de dados dos Ajustes (Investidor, Ponto, Negocio, MixIdeal) vira colunas dessas listas. Quando TI entrar, migra para o Sistema Bahia.</li>
+      <li>Cowork local só em pasta sincronizada do OneDrive corporativo desse site.</li>
+      <li>Dado de lojista (vendas, boleto, garantias) só entra em agente que grava a saída de volta no SharePoint. LGPD: dado de PF de sócios nunca em saída compartilhada (regra do Credit Engine).</li>
+      <li>Sessões locais do Cowork não são exportáveis pelo admin; trabalho que precisa de trilha de auditoria roda em nuvem. Registro mínimo por execução, do treinamento de Orquestração: data, versão do prompt, contexto, saída, decisão humana (aceito / editado / rejeitado).</li>
+      <li>Escrita em Outlook/Teams/SharePoint pelo agente só depois do consentimento adicional no Entra.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-head">
+    <span class="label">Skills e plugins</span>
+    <h2>Como qualquer um contribui sem virar bagunça</h2>
+    <p class="sub">Duas trilhas. O gerente central é curador, não gargalo. O padrão de skill é o do <em>Roteiro Tático do Cowork</em>, que já foi testado com superintendentes e gerentes.</p>
+  </div>
+  <div class="compare">
+    <div class="col">
+      <span class="label">Trilha A · Laboratório</span>
+      <ul>
+        <li>Qualquer um dos 5 cria skill pessoal e publica no diretório da organização (o Owner habilita)</li>
+        <li>Nome começa com <code>lab-</code>; descrição diz “experimental, sem revisão”</li>
+        <li>Pode usar dados públicos e documentos de governança</li>
+        <li>Não pode: tarefa agendada, escrita no M365, dado de lojista</li>
+        <li>Vive 60 dias; ou vira candidata à trilha B ou sai</li>
+      </ul>
+    </div>
+    <div class="col">
+      <span class="label">Trilha B · Oficial (plugin Portfólio)</span>
+      <ul>
+        <li>Entra pela ficha e passa pelas 5 etapas abaixo</li>
+        <li>Guardrails nas 4 camadas do treinamento de Orquestração: entrada, saída, ação, processo — pelo menos uma regra por camada</li>
+        <li>Golden set: 3–5 casos com resultado esperado, rodados a cada mudança de instrução ou de modelo</li>
+        <li>Versão numerada; skill sem uso em 60 dias volta para revisão</li>
+      </ul>
+    </div>
+  </div>
+  <ol class="flow">
+    <li><b>Propor</b><span>Ficha de 1 página: gatilho, passos, fontes, colunas da saída, dono, alavanca do Goal que move (regra da Or. 5: “melhoria que não move alavanca não entra”).</span></li>
+    <li><b>Rascunhar</b><span>Autor constrói na própria conta ou em par com o gerente central, passos 2–3 do Roteiro Tático.</span></li>
+    <li><b>Testar</b><span>2 semanas em caso real, mínimo 3 execuções, régua de qualidade do Roteiro: formato, fontes com link, VERIFICAR onde falta dado, utilidade.</span></li>
+    <li><b>Revisar</b><span>Gerente central + ponto focal, na sexta: dados sensíveis, sobreposição com skill existente, golden set passa.</span></li>
+    <li><b>Publicar</b><span>Pasta Fonte atualizada, ZIP com versão nova, Owner sobe no marketplace, changelog em Releases.</span></li>
+  </ol>
+  <p class="sub" style="font-size:14px">Cadência de publicação: quinzenal nas primeiras 12 semanas, depois mensal.</p>
+</section>
+
+<section id="agentes">
+  <div class="sec-head">
+    <span class="label">Agentes</span>
+    <h2>Catálogo reconciliado</h2>
+    <p class="sub">O vault tem quatro listas de agentes que não batem entre si (ver Divergências). Este catálogo escolhe uma por frente, diz de onde cada agente vem e o que falta para rodar no Núcleo. O stress test do seu <em>segundo-cerebro</em> pede “cortar 80% do escopo” — por isso onda 1 tem 9 agentes (6 deles já existentes ou só adaptados), não 30.</p>
+  </div>
+  <p style="display:flex;flex-wrap:wrap;gap:8px;font-size:13.5px;color:var(--ink-2)"><span class="chip c-have">já existe na conta</span><span class="chip c-adapt">existe no vault, adaptar</span><span class="chip c-build">construir</span><span class="chip w1">onda 1 · sem 3–8</span><span class="chip w2">onda 2 · sem 9–12</span><span class="chip w3">onda 3 · depois</span></p>
+
+  <div class="front-title"><span class="sw hub"></span><h3>Portfólio · gerente central</h3></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Agente</th><th>Faz</th><th>Origem e regra que aplica</th><th>Gatilho</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Orquestrador / Triagem</b></td><td>Classifica cada demanda, sugere dono e prazo, alimenta o backlog</td><td>Prompt v5 #0: regra das 7 perguntas (problema econômico, batalha, quem converte, dono, próximo passo, impacto R$, KPI) — “se não leva a ação concreta, está incompleta”</td><td>Sob demanda + resumo diário</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w1">onda 1</span></td></tr>
+      <tr><td><b>Governance &amp; KPI Monitor</b></td><td>Consolida faróis por shopping e prepara os ritos</td><td>Skill <em>governance-kpi-monitor</em> + dimensões da RMR (NOI, Risco, Balanceamento, VGLi, Spending, GMV, Mix, TO)</td><td>Agendado semanal/mensal</td><td><span class="chip c-have">já existe</span> <span class="chip w1">onda 1</span></td></tr>
+      <tr><td><b>Crítico de Plano Estratégico</b></td><td>Avalia o PE 2027 de cada shopping: 7 testes, score 0–100, reescreve diretrizes no formato [ação] para [target] atacando [batalha], movendo [variável], KPI baseline → meta, dono, orçamento</td><td>Skill 17 do vault. Plano sem KPI quantitativo ou sem orçamento cai uma faixa</td><td>Antes de cada revisão de PE</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w1">onda 1</span><br><small>PE 2027 já em discussão — uso imediato</small></td></tr>
+      <tr><td><b>Curador de Boas Práticas</b></td><td>Transforma caso de sucesso em playbook e acompanha adoção</td><td>Padrão <em>segundo-cerebro</em>: raw imutável → wiki com 1 responsabilidade por página → log append-only; “estenda a existente”</td><td>Sob demanda</td><td><span class="chip c-build">construir</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Secretário de Ritos</b></td><td>Pauta, ata, pendências, cobrança</td><td>Granola já conectado à sua conta</td><td>Após cada rito</td><td><span class="chip c-build">construir</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Simulador de Estrutura</b></td><td>Criticidade (12 fatores), volumetria (h ÷ 185), organograma e Δ custo por shopping</td><td>Skill do vault, dados de referência de jul/26 (portfólio 639 → 710 HC, +5,59% custo)</td><td>Sob demanda; revisão anual</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w3">onda 3</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="front-title"><span class="sw neg"></span><h3>Negócios</h3></div>
+  <div class="note">
+    <b>Já na conta: 16 skills</b>
+    <span style="font-size:14px;color:var(--ink-2)">cluster-positioning-engine · hunter-retail-innovation-hunter · premium-hunter · regional-hunter · street-converter · ka-brand-expansion-connector · farmer-investor-matchmaker · alavancador-retail-financial-engine · builder-store-builder-os · opportunity-channel-juntos-pelo-varejo · <b>renovacao-contratos-shopping</b> (nova) · mandamentos 3, 4, 6, 7, 8</span>
+    <span>Decisão do próprio vault (Prompt v5 e Agente Hunter no segundo-cerebro): Hunter unifica Retail Innovation + Street Converter + Regional; hunting zones obrigatórias (F&amp;B inovador, bem-estar/saúde, DTC physical-first) — “zoo de experimentos mata o aprendizado”.</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Agente</th><th>Faz</th><th>Origem e regra que aplica</th><th>Gatilho</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Deal Conversion Layer</b></td><td>Funil do portfólio por responsável, termômetro de assinatura e inauguração, tempo por estágio</td><td>Prompt v5 #2 (16 estágios, critérios de kill) + Ajustes Or. 8 (🟢 no prazo · 🟡 a 15 dias · 🔴 estourado)</td><td>Agendado semanal</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w1">onda 1</span></td></tr>
+      <tr><td><b>Hunter unificado</b></td><td>Prospecção com Cluster Fit Score e saída padrão; “ruas quentes” por aberturas nos últimos 2 anos</td><td>Prompt v5 #3 + Ajustes Or. 9 + mandamentos 3–8. Só fontes gratuitas; API paga só com confirmação</td><td>Semanal por shopping piloto</td><td><span class="chip c-have">já existe</span> <span class="chip w1">onda 1</span></td></tr>
+      <tr><td><b>Credit &amp; Default Engine</b></td><td>Tenant Credit Score por perfil A/B/C/D, faixas Verde/Amarelo/Laranja/Vermelho, 15 gatilhos de early warning, ESI</td><td>Skill 16 do vault. “Boleto é soberano”; “vermelho sem pipeline = falha de processo”; PF de sócios nunca em saída compartilhada</td><td>Mensal + gatilho</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w2">onda 2</span><br><small>ataca o farol Risco (8 de 9 negativos) e alimenta o bloqueio “não renovar com inadimplente” da skill de renovações</small></td></tr>
+      <tr><td><b>Renovações — planejamento e radar</b></td><td>Planejamento anual de renovações do portfólio (Fase 7 da skill) e radar mensal: lojas que entram na janela, classificação preliminar mix × quadrante, trava de auditoria, LSR planejado × realizado por shopping</td><td>Skill <em>renovacao-contratos-shopping</em> (Book de Renovações) + Handbook “Mapa de Oportunidades na Base de Rateio” (18 meses). Regras: nunca negociar antes do último reajuste; 100% das lojas com auditoria integral nos 6 meses anteriores; nenhuma loja opera com contrato vencido; só lojas-satélite</td><td>Anual (com o orçamento) + mensal</td><td><span class="chip c-have">já existe</span> <span class="chip w1">onda 1</span><br><small>é a alavanca direta do objetivo “receita acima da inflação”</small></td></tr>
+      <tr><td><b>Renovações — análise por loja</b></td><td>Ficha de renovação no padrão Obsidian: classificação, janela, due diligence, os 4 argumentos (maior valor de cada), LSR real por mix × quadrante + inflação, Tabela ABC, teste do perito, faixa de alçada, risco renovatório</td><td>Mesma skill. Alçadas 115% → 110% → 105% → 100% (coordenador / gerente / superintendente); bloqueios: inadimplente e ação judicial contra o shopping; “a decisão é do comitê comercial”. Dados faltantes marcados como [FALTA], nunca estimados</td><td>Sob demanda, 12 meses antes do fim</td><td><span class="chip c-have">já existe</span> <span class="chip w1">onda 1</span><br><small>primeiro caso da clínica de Negócios</small></td></tr>
+      <tr><td><b>Farmer / Radar Quiosques</b></td><td>Triagem de investidor (restrições antes de desejos), match 6 dimensões com trava financeira, cruzamento com pontos vagos</td><td>Piloto Mooca, hoje em stack pessoal. Fórmula: score = match × (0,7 + 0,3 × mix/100) + bônus lacuna — “o mix modula, nunca infla”</td><td>Sob demanda</td><td><span class="chip c-have">já existe</span> <span class="chip w2">onda 2</span><br><small>reconstruir sobre lista SharePoint de investidores</small></td></tr>
+      <tr><td><b>Copiloto de Cláusulas</b></td><td>Lê cláusula em texto livre, compara com padrão, aplica matriz, pondera custo × risco × valor, encaminha à alçada</td><td>Projeto Cláusulas (status: discussão conceitual, jun/26). “LLM lê; regras decidem.” Alçadas: Superintendente → Diretor de Portfólio → Diretoria de Operações</td><td>Sob demanda</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w3">onda 3</span><br><small>depende da oficina D1–D3 com Comercial + Jurídico</small></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="front-title"><span class="sw ops"></span><h3>Operações</h3></div>
+  <div class="note">
+    <b>Base: Handbook de Operações Allos 2024 (Elio Galvão, ago/2024, 203 págs., 13 seções)</b>
+    <span>A nota no vault resume ~30 páginas. Primeiro passo: PDF completo e Book de Políticas de Manutenção no Project de Operações. Os agentes transformam a auditoria anual (rubrica Ótimo/Bom/Razoável/Ruim) em acompanhamento contínuo.</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Agente</th><th>Faz</th><th>Origem e regra que aplica</th><th>Gatilho</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Calendário de Prazos Críticos</b></td><td>Cruza os prazos fixos do handbook com cada shopping e avisa o que vence na semana, com dono</td><td>Dia 10 (SLA facilities/NF) · 5º dia útil (balancete Parking) · 30 dias (corretiva) · 2 anos (baterias) · as built 1 mês pós-CAF · treinamentos de brigada · 3 dias úteis pré-Comitê Técnico</td><td>Agendado semanal</td><td><span class="chip c-build">construir</span> <span class="chip w1">onda 1</span></td></tr>
+      <tr><td><b>Pré-auditoria do Handbook</b></td><td>Autoavaliação por seção com a rubrica oficial, evidências faltantes e “dispersão” (declarado × encontrado, conceito do PES)</td><td>Handbook, todas as seções</td><td>Trimestral + antes da auditoria</td><td><span class="chip c-build">construir</span> <span class="chip w1">onda 1</span><br><small>piloto: 1 seção em 2 shoppings</small></td></tr>
+      <tr><td><b>Radar de Conformidade Documental</b></td><td>Vencimento de licenças, laudos e cadastros obrigatórios</td><td>Handbook Documentação: &gt;95% docs válidos = Ótimo · PRSSO, GAIA, Manual Licenças · alvará PF, CNV, ANATEL, outorga de poço, PGRS, manifestos/CDF</td><td>Agendado semanal</td><td><span class="chip c-build">construir</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Analista de Caixa e Condomínio</b></td><td>ISC líquido por shopping, orçado × realizado por pacote OBZ, mapa de oportunidades na base de rateio</td><td>Handbook: ISC &lt;30% crítico, 30–50% atenção, &gt;50% saudável · renovações/vagas em 18 meses · praça de alimentação 10–30% acima das satélites</td><td>Mensal</td><td><span class="chip c-build">construir</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Builder — obra do lojista</b></td><td>Cronograma assinatura → inauguração com dependências; AVCB/CBMERJ antes de confirmar abertura; atraso &gt; 30 dias investigado em 7 dias</td><td>System prompt <em>BUILDER – Store Builder OS</em> do vault + Opening Delay Risk do Credit Engine. Saída: Loja | Etapa | Fornecedor | Prazo | Risco | Dependência | Próxima ação</td><td>Semanal por obra ativa</td><td><span class="chip c-have">já existe</span> <span class="chip w2">onda 2</span><br><small>Plataforma Builder no segundo-cerebro pede V0 concierge em 1 shopping: meta −30% no tempo de abertura</small></td></tr>
+      <tr><td><b>Seguro Lojas — governança</b></td><td>Checklist de entrada (apólice, certificado, RC, seguradora homologada), alertas de vencimento, escalonamento</td><td>Projeto Seguro Lojas, Fase 1. KPIs: % lojas seguradas, % apólices válidas, tempo de regularização</td><td>Mensal + entrada de lojista</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Gestor de SLA de Facilities</b></td><td>SLA mensal dos terceiros, descontos na NF, comparação entre shoppings</td><td>Handbook Manutenção: Predial, PMOC, Brigada, Vigilância, Portaria, Limpeza · planilha até o dia 10</td><td>Mensal, até o dia 8</td><td><span class="chip c-build">construir</span> <span class="chip w3">onda 3</span></td></tr>
+      <tr><td><b>Breakeven Reverso de Retrofit</b></td><td>Capex defensivo: θ* (fração do declínio a evitar), NPV com/sem, cenários de concorrente</td><td><em>Racional Retrofit</em>: modelo de 7 abas já existe. Center Uberlândia (PA2) já está na pauta do PE 2027</td><td>Sob demanda</td><td><span class="chip c-adapt">adaptar</span> <span class="chip w3">onda 3</span></td></tr>
+      <tr><td><b>Assistente de CAPEX</b> · <b>Utilidades</b> · <b>Estacionamento</b> · <b>Atendimento</b></td><td>Como na versão anterior desta página</td><td>Handbook §CAPEX, §Utilidades, §Estacionamento, §Atendimento</td><td>—</td><td><span class="chip c-build">construir</span> <span class="chip w3">onda 3</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="front-title"><span class="sw mkt"></span><h3>Marketing</h3></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Agente</th><th>Faz</th><th>Origem e regra que aplica</th><th>Gatilho</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Monitor de Diretrizes de Cluster</b></td><td>Para cada shopping, status de cada diretriz de mai/2024: executada / atrasada / morta; e o que falta para virar KPI</td><td>Clusterização Allos. A própria nota aponta: “sem KPIs quantitativos, sem orçamento, sem governança formal”; único KPI disponível é NPS (Sofisticados 62 · Entretenimento 52 · Imensos 49 · Compactos 40 · Passeio 34 · Convenientes 17 vs média 42)</td><td>Trimestral</td><td><span class="chip c-build">construir</span> <span class="chip w1">onda 1</span><br><small>lacuna explícita no vault</small></td></tr>
+      <tr><td><b>Entertainer</b></td><td>Calendário anual por shopping com Event Occupancy Score; nenhuma praça vaga &gt; 1 semana</td><td>Prompt v5 #10 + regras do treinamento Mooca. Receitas além de patrocínio: assinatura, bilheteria, lojinha, cupom em dobro (Ajustes, bloco A)</td><td>Mensal + calendário anual</td><td><span class="chip c-have">já existe</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Seller / Performance do Lojista</b></td><td>Diagnóstico pela Master Equation (Fluxo × Conversão × Ticket), variável prioritária, ação em 30/90 dias</td><td>Prompt v5 #9 + Cockpit. Plataforma Seller no segundo-cerebro: V0 = 10 lojistas, bundle mídia + push + ativação, lift ≥ 15% vs controle</td><td>Mensal por shopping</td><td><span class="chip c-have">já existe</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Calendário e Briefing Padrão</b></td><td>Briefings no mesmo formato para os 10 shoppings, com a paleta Allos</td><td>Skill <em>pptallos</em> (cores exatas) + plugin marketing da Anthropic</td><td>Sob demanda</td><td><span class="chip c-build">construir</span> <span class="chip w2">onda 2</span></td></tr>
+      <tr><td><b>Juntos pelo Varejo / Cresça e Apareça</b></td><td>Canal de conteúdo para captar investidores e marcas; pilares editoriais</td><td>Skill <em>opportunity-channel</em> já na conta; “Cresça e Apareça” citado nos Ajustes sem especificação</td><td>Semanal</td><td><span class="chip c-have">já existe</span> <span class="chip w3">onda 3</span><br><small>o stress test tira o canal do escopo do wedge</small></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="treinamento">
+  <div class="sec-head">
+    <span class="label">Treinamento</span>
+    <h2>Trilha: primeiro o que já está escrito no vault</h2>
+    <p class="sub">Você já tem três materiais internos e um roteiro testado com superintendentes. A Anthropic Academy cobre a ferramenta de graça. Curso pago só para visão estratégica — e nenhum ensina Claude especificamente.</p>
+  </div>
+
+  <div class="tier">
+    <span class="label">Nível 0 · interno · já existe no vault</span>
+    <div class="course"><span class="n">Shopping Inteligente — IA para eficiência e agilidade</span><span class="p">45 min</span><span class="w">Workshop em 2 atos já usado no Mooca: tese, 7 agentes em 2 camadas, método C.R.I.A.R. (Contexto, Resultado, Informação, Audiência, Restrições), 6 salvaguardas, plano 30-60-90. Para os 5 e, depois, para os superintendentes.</span></div>
+    <div class="course"><span class="n">Roteiro Tático do Cowork — WS Supers e Gerentes</span><span class="p">4–6 h prática</span><span class="w">8 passos com blocos prontos para colar: pasta, contexto.md, SKILL.md com 6 campos, teste com dados fictícios, resumo em Word. É o formato oficial de skill do Núcleo. Precisa de um ajuste: trocar “dados fictícios” por “dados do SharePoint” na trilha B.</span></div>
+    <div class="course"><span class="n">Treinamento Introdutório — Orquestração de IA</span><span class="p">10 módulos · ~5 h de exercícios</span><span class="w">Harness, contexto mínimo e suficiente, contratos de saída, guardrails em 4 camadas, auditoria, golden set, “delta da decisão humana”. Obrigatório para o gerente central; módulos 1, 8 e 9 para os pontos focais.</span></div>
+    <div class="course"><span class="n">Cheat Codes + Codebook Obsidian</span><span class="p">30 min</span><span class="w">Pre-mortem, steelman, red team, first principles — usar na revisão de cada skill nova. Os 12 comandos do Codebook viram inspiração para o Curador de Boas Práticas.</span></div>
+  </div>
+
+  <div class="tier">
+    <span class="label">Nível 1 · Anthropic Academy · gratuito · obrigatório para os 5</span>
+    <div class="course"><span class="n"><a href="https://anthropic.skilljar.com/claude-101">Claude 101</a></span><span class="p">Grátis</span><span class="w">Uso diário, Projects, artifacts, skills, conectores, busca corporativa. Certificado.</span></div>
+    <div class="course"><span class="n"><a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations">AI Fluency: Framework &amp; Foundations</a></span><span class="p">Grátis</span><span class="w">Os 4Ds: delegação, descrição, discernimento, diligência. Casa com o C.R.I.A.R. Certificado.</span></div>
+    <div class="course"><span class="n"><a href="https://anthropic.skilljar.com/introduction-to-claude-cowork">Introduction to Claude Cowork</a></span><span class="p">Grátis</span><span class="w">Cowork com arquivos, plugins, skills, tarefas em etapas.</span></div>
+    <div class="course"><span class="n"><a href="https://anthropic.skilljar.com/ai-capabilities-and-limitations">AI Capabilities and Limitations</a></span><span class="p">Grátis</span><span class="w">Como a IA erra e como corrigir — essencial para quem revisa.</span></div>
+  </div>
+
+  <div class="tier">
+    <span class="label">Nível 2 · gratuito · por papel</span>
+    <div class="course"><span class="n"><a href="https://anthropic.skilljar.com/introduction-to-agent-skills">Introduction to Agent Skills</a> + <a href="https://anthropic.skilljar.com/claude-code-101">Claude Code 101</a></span><span class="p">Grátis</span><span class="w">Gerente central. Técnico; fazer nessa ordem invertida (Code 101 primeiro).</span></div>
+    <div class="course"><span class="n"><a href="https://anthropic.skilljar.com/ai-fluency-for-small-businesses">AI Fluency for Small Businesses</a></span><span class="p">Grátis</span><span class="w">Pontos focais. Aplica os 4Ds a atendimento, back-office e liderança.</span></div>
+    <div class="course"><span class="n"><a href="https://online.pucrs.br/formacao-gratuita/gestao-da-mudanca">Gestão da Mudança — PUCRS Online</a></span><span class="p">Grátis · 10 h</span><span class="w">Diretor e gerente central. Português, ADKAR, certificado. Sem avaliação nem professor.</span></div>
+    <div class="course"><span class="n">Aulas de Stanford já resumidas no vault</span><span class="p">Já feito</span><span class="w">Ambidextrous Organization (O’Reilly), Strategy &amp; Org Design (Sørensen), AI-Powered Organization (Goldberg). Reler os três antes de apresentar a proposta à diretoria — o argumento está lá.</span></div>
+  </div>
+
+  <div class="tier">
+    <span class="label">Nível 3 · pago · opcional</span>
+    <div class="course"><span class="n"><a href="https://ee.insper.edu.br/cursos/tecnologia-data-science/ia-aplicada-aos-negocios/">IA Aplicada aos Negócios — Insper</a></span><span class="p">R$ 8.250<br><small>R$ 7.425 antecipado</small></span><span class="w">32 h presencial, 5–8/out/2026. LLMs, decisão com dados, LGPD, PL 2338/23. Você já fez Insper (M&amp;A, PE&amp;VC) e Stanford; o ganho marginal aqui é o regulatório. Melhor opção paga, se houver alguma.</span><span class="who"><span class="verdict v-maybe">só se quiser o regulatório</span></span></div>
+    <div class="course"><span class="n"><a href="https://executive.mit.edu/course/artificial-intelligence/a056g00000URaa3AAD.html">AI: Implications for Business Strategy — MIT Sloan</a></span><span class="p">US$ 3.850</span><span class="w">6 semanas online, 7/out–24/nov/2026. Sobrepõe com o que você já tem de Stanford.</span><span class="who"><span class="verdict v-no">redundante com o vault</span></span></div>
+    <div class="course"><span class="n"><a href="https://www.prosci.com/solutions/training-programs/change-management-certification-program">Prosci</a> · <a href="https://posead.fdc.org.br/cursos/ia-aplicada-gestao-empresarial">FDC pós 12 meses</a></span><span class="p">US$ 4.500 · n/d</span><span class="w">Desproporcionais para um time de 5.</span><span class="who"><span class="verdict v-no">não recomendo</span></span></div>
+  </div>
+
+  <div class="note">
+    <b>Recomendação</b>
+    <ul>
+      <li><b>Custo em dinheiro: zero.</b> Nível 0 (seu), Nível 1 e 2 (Anthropic + PUCRS) + clínicas. O material interno é mais aderente ao negócio do que qualquer curso externo.</li>
+      <li>O que mais acelera continua sendo a clínica com casos reais — e o vault já tem o formato (Roteiro Tático, passo 4: régua de qualidade). Primeiro caso de Negócios: uma renovação real de satélite rodada pela skill, com os dados do SharePoint e o resultado conferido pelo KA.</li>
+    </ul>
+  </div>
+
+  <h3 style="margin-top:8px">Cronograma de 90 dias</h3>
+  <div class="tl">
+    <div class="step"><span class="when">Semana 0</span><b>Pedidos a TI, Entra e G&amp;G</b><ul><li>Owner: grupo “Núcleo de Portfólio” com os 5, sessões em nuvem, diretório de skills aberto para publicação</li><li>Entra: consentimento do conector M365 (leitura)</li><li>G&amp;G: formalizar 10–20% e o diferencial; contrato de expectativas com os 3 superintendentes envolvidos</li><li>Site SharePoint criado com as listas da seção Claude e M365</li></ul></div>
+    <div class="step"><span class="when">Semanas 1–2</span><b>Fundamentos e linha de base</b><ul><li>Os 5 fazem Nível 0 (workshop de 45 min) e Nível 1</li><li>Projects por frente com Goal canônico, clusters e Master Equation; PDF do Handbook e diretrizes de cluster no SharePoint</li><li>Linha de base: 20 demandas recorrentes com tempo atual; faróis da RMR de agosto como referência</li><li>Template de liderança situacional preenchido para cada ponto focal</li></ul></div>
+    <div class="step"><span class="when">Semanas 3–4</span><b>Onda 1 em pares</b><ul><li>Roteiro Tático: gerente central + ponto focal constroem os 9 agentes de onda 1</li><li>Crítico de Plano Estratégico roda no PE 2027 dos 2 shoppings piloto</li><li>Clínicas semanais começam</li></ul></div>
+    <div class="step"><span class="when">Semanas 5–8</span><b>Piloto em 2 shoppings</b><ul><li>Um de Entretenimento (Mooca, onde o time já fez o workshop) e um de Convenientes (Carioca: NOI e Risco negativos na RMR; cluster com menor NPS, 17)</li><li>Tijuca entra como caso de Operações + Negócios desde a semana 5 (recuperação pós-incêndio), sem esperar a expansão para os 10</li><li>Canal único e onda 1 rodando; Monitor de Diretrizes entrega o primeiro status</li><li>Diretor e gerente central: Gestão da Mudança (PUCRS); mentoria em andamento</li></ul></div>
+    <div class="step"><span class="when">Semanas 9–12</span><b>Decidir com métricas de pivotagem</b><ul><li>Onda 2; plugin Portfólio v1; consentimento de escrita no M365</li><li>Comparar com a linha de base; critério de kill definido na semana 2 (regra do Barnett: métricas de pivotagem antes de lançar)</li><li>Se passa: expansão aos 10 shoppings e assentos para superintendentes em avaliação</li></ul></div>
+  </div>
+</section>
+
+<section id="metricas">
+  <div class="sec-head">
+    <span class="label">Métricas e riscos</span>
+    <h2>Como saber se está funcionando</h2>
+    <p class="sub">Regras da Skill 17 aplicadas ao próprio Núcleo: meta de resultado, não de insumo; baseline → meta → prazo; critério de kill. Metas numéricas só depois da linha de base.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Indicador</th><th>Mede</th><th>Fonte</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr><td>Faróis da RMR movidos</td><td>Shoppings que saíram de farol negativo em Risco, TO, Mix após entrega do Núcleo</td><td>RMR mensal</td><td>Resultado</td></tr>
+      <tr><td>Portfólio × Allos</td><td>SSR, ocupação e inadimplência dos 10 shoppings contra a Allos (2T26: SSR +3,2%, ocupação 96,2%, inadimplência 1,4%)</td><td>RMR + release trimestral</td><td>Resultado</td></tr>
+      <tr><td>LSR realizado × planejado</td><td>Leasing Spread real das satélites renovadas, por shopping, contra o planejamento anual (meta e % de atingimento validados no comitê)</td><td>Lista Planejamento de Renovações</td><td>Resultado</td></tr>
+      <tr><td>Renovações dentro da janela</td><td>% de contratos com 1º contato entre 12 e 6 meses (Essenciais/Relevantes) e nenhum contrato vencido em operação</td><td>Radar de renovações</td><td>Governança</td></tr>
+      <tr><td>Tempo de ciclo da demanda</td><td>Da abertura à entrega</td><td>Lista Demandas</td><td>Resultado</td></tr>
+      <tr><td>Boas práticas replicadas</td><td>Playbooks adotados por ≥ 2 shoppings no trimestre</td><td>Curador</td><td>Resultado</td></tr>
+      <tr><td>Horas liberadas por pessoa</td><td>Antes × depois nas 20 demandas recorrentes</td><td>Linha de base</td><td>Resultado</td></tr>
+      <tr><td>Taxa de aceitação sem edição</td><td>Saídas de agente aceitas como estão (métrica do treinamento de Orquestração)</td><td>Registro nas clínicas</td><td>Qualidade</td></tr>
+      <tr><td>Diretrizes de cluster com KPI</td><td>% das diretrizes de mai/2024 que ganharam baseline, meta e dono</td><td>Monitor de Diretrizes</td><td>Governança</td></tr>
+      <tr><td>Adoção</td><td>Usuários ativos e tarefas por semana</td><td>Painel admin do Claude</td><td>Insumo</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:8px">Os 4 silent killers, aplicados ao Núcleo</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Silent killer (O’Reilly)</th><th>Como aparece aqui</th><th>Mitigação</th></tr></thead>
+    <tbody>
+      <tr><td>#1 Identidade do core</td><td>Superintendente/KA vê o Núcleo como intromissão; ponto focal vira “o cara da IA”</td><td>Núcleo entrega ao shopping e nunca decide por ele; ponto focal continua avaliado pela função-fim</td></tr>
+      <tr><td>#2 Risco de carreira</td><td>Ponto focal não quer falhar em algo que não é o cargo dele</td><td>Diretor absorve o risco publicamente (“sponsor absorve”, como nos planos V0 do segundo-cerebro)</td></tr>
+      <tr><td>#3 Incentivos de curto prazo</td><td>10–20% vira 0% em pico; RMR trimestral vs arco de 12 meses</td><td>Diferencial validado pelo diretor; calendário de picos; agentes agendados seguem rodando</td></tr>
+      <tr><td>#4 Harmonia</td><td>Ninguém diz que uma skill não funciona</td><td>Clínica com régua de qualidade e “delta humano” medido; red team (Cheat Code 04) antes de publicar</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Outros riscos</th><th>Mitigação</th></tr></thead>
+    <tbody>
+      <tr><td>Gerente central vira gargalo</td><td>Cada ponto focal mantém as skills da própria frente; central aprova e publica em lote</td></tr>
+      <tr><td>Owner (TI) demora a publicar</td><td>Cadência fixa; trilha A para o que não pode esperar</td></tr>
+      <tr><td>Misturar trilha pessoal e corporativa</td><td>Regra da seção Premissas; Radar Quiosques fica como referência, não como sistema</td></tr>
+      <tr><td>Excesso de agentes sem manutenção</td><td>Máximo 8 por onda, e só 3 construídos do zero; skill sem uso em 60 dias é revisada ou arquivada; “Build Deep, don’t build wide”</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="divergencias">
+  <div class="sec-head">
+    <span class="label">Divergências no vault</span>
+    <h2>O que precisa ser fechado antes de virar Project</h2>
+    <p class="sub">Achados da leitura. Nenhum é grave, mas todos viram ruído se entrarem numa instrução de agente sem decisão.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Tema</th><th>Onde diverge</th><th>Decisão sugerida</th></tr></thead>
+    <tbody>
+      <tr><td><b>Catálogo de agentes</b></td><td>Quatro listas: <em>Shopping inteligente.md</em> (7 + Orquestrador + Plataforma), <em>Plataformas</em> (Financeiro, Obra, Mídia, Benefícios, Performance como agentes; Alavancadora/Builder/Seller como plataformas), <em>CLAUDE.md Fase 1</em> (12), <em>Ajustes Or. 5</em> (8 + Regional, Premium, Deal Conversion)</td><td>Adotar a numeração do Prompt v5 (13) como canônica; é a que está instalada na conta</td></tr>
+      <tr><td><b>Texto do Goal</b></td><td><em>Shopping inteligente.md</em> tem “de acordo com o seu posicionamento”; Or. 5 (canônico) não tem; versão bruta diz “como consequência”</td><td>Decidido nesta versão: o Núcleo usa o texto mesclado (Goal + “receita perene acima da inflação”) da seção Ponto de partida, colado idêntico em todos os Projects. Atualizar <em>docs/GOAL.md</em> no vault para não haver duas versões</td></tr>
+      <tr><td><b>“Cluster”</b></td><td>Allos = 6 clusters de portfólio; Ajustes Or. 3 = agrupamento de pontos dentro do shopping</td><td>Chamar o segundo de “zona” ou “setor” do mall</td></tr>
+      <tr><td><b>Listas de shoppings por cluster</b></td><td>Eldorado, Plaza Niterói, Jardim Sul, Curitiba mudam de cluster entre fev/24 e mai/24</td><td>Usar mai/24; confirmar os 10 do portfólio com a área de Alexandria</td></tr>
+      <tr><td><b>Builder</b></td><td>Três definições: marketplace de fornecedores; base de fornecedores de obra; gestor de cronograma/go-live</td><td>No Núcleo, Builder = gestor de cronograma (system prompt existente); fornecedores viram lista SharePoint</td></tr>
+      <tr><td><b>Stack</b></td><td>Next.js/Prisma/Postgres (Radar) vs Python/JSON (Fase 1) vs M365 (Núcleo)</td><td>M365 para o Núcleo; as outras ficam como protótipo pessoal</td></tr>
+      <tr><td><b>Frameworks de orquestração</b></td><td>Treinamento (Orquestrador/Trabalhadores/Contexto/Verificador) vs Workflow Framework (Research/Strategy/Execution/QA/Orchestrator)</td><td>Usar o vocabulário do Treinamento — é o que tem exercícios</td></tr>
+      <tr><td><b>Alçadas</b></td><td>Skill de renovações: Coordenador → Gerente Financeiro/Comercial → Superintendente (115/110/105/100% do valor do comitê). Projeto Cláusulas: Superintendente → Diretor de Portfólio → Diretoria de Operações. A própria skill avisa que o material-fonte é de 2011 e que PES, Tabela ABC, comitê e auditoria “podem ter mudado”</td><td>Validar as duas escadas contra a política de Compliance vigente (Portal Conecta) antes de colocar nos Projects; a skill não substitui parecer jurídico</td></tr>
+      <tr><td><b>Match do Farmer</b></td><td>“7 dimensões” no texto, 6 na tabela (30+18+14+14+14+10)</td><td>Corrigir para 6</td></tr>
+      <tr><td><b>Estágios do funil</b></td><td>Or. 8 diz “confirmar com time comercial”; v5 tem 16 estágios</td><td>Confirmar com um KA antes da onda 1</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="fontes" class="sources">
+  <div class="sec-head"><span class="label">Fontes</span></div>
+  <p style="font-size:14px;margin-bottom:8px"><b>Vault Obsidian</b> (OneDrive/Documentos/Obsidian Vault), lidos na íntegra em 11 e 14/set/2026:</p>
+  <ol>
+    <li>DVF15/_Processos_Operacionais/ Handbook Operações Allos 2024 · Manual Operacional – Antigo PES · Projeto PES BRMALLS + Book de Renovações</li>
+    <li>DVF15/_AI/_Shopping_Inteligente/ PROMPTS DE ACIONAMENTO v5 (Orquestrador) · Ecossistema de Agentes (MOC) · Operational Conversion Cockpit · Shopping inteligente · Plataformas do Shopping · Clusterização de Shoppings – Allos · Plano de Ação Clusterização · __Ajustes Shopping Inteligente · CREDIT &amp; DEFAULT PREDICTION ENGINE v5 · Treinamento – Shopping Inteligente · Curso AI Orchestrator do Zero · Setup Semana 1 · CLAUDE.md Fase 1 · Simulador de Estrutura (skill + dados) · Piloto Quiosques Mooca · _WS Supers e Gerentes (Roteiro Tático, BUILDER)</li>
+    <li>DVF15/_AI/ Treinamento Introdutório – Orquestração de IA · CLAUDE CHEAT CODES · Codebook Obsidian + Claude Code · Workflow Orchestration Framework · AI Operating System – Template · Tracking · The Last Economy – destaques</li>
+    <li>DVF15/_Gestao_Pessoas/ SAG – Liderança Situacional · PDL – Desenvolvimento de Lideranças · Framework Mentoria – Allos · Manual de Mentoria · Monografia</li>
+    <li>DVF15/_EPSO_Stanford/ AI-Powered Organization (Goldberg) · Ambidextrous Organization (O’Reilly) · Strategy and Organizational Design (Sørensen) · Estratégia Operacional – Resumo</li>
+    <li>DVF15/segundo-cerebro/ CLAUDE.md · wiki/index · projetos/Shopping Inteligente, Agente Hunter, Plataforma Builder, Plataforma Seller</li>
+    <li>allos/ Racional Retrofit · RMR Supers – Junho26 · PE 2027/Discussao PE Diretoria · STRATEGIC PLAN EVALUATION &amp; CRITIQUE ENGINE · CSul · Projeto Clausulas (MOC, Problema, Solução, Road Map, Skill Geração de Artefatos) · Skill – Paleta Allos · _Seguro_Lojas</li>
+    <li>Teste IA profissional.md</li>
+    <li>Skill instalada na conta: <em>renovacao-contratos-shopping</em> (método do Book de Renovações — classificação, janela, 4 argumentos, LSR real, alçadas, planejamento anual)</li>
+  </ol>
+  <p style="font-size:14px;margin:10px 0 8px"><b>Web</b> (11/set/2026):</p>
+  <ol>
+    <li>Allos RI — <a href="https://ri.allos.com.br/en/the-company/our-malls/">Our Malls</a> (atualizado 10/set/2026: 55 shoppings, ABL e participação por ativo) · cobertura do release 2T26: <a href="https://bpmoney.com.br/mercado/alos3-allos-registra-receita-de-r-7323-milhoes-e-alta-de-12-no-ffo-no-2t26/">BP Money</a>, <a href="https://investfy.com/alos3-e-o-2t26-o-shopping-virou-plataforma/">Investfy</a>, <a href="https://renovainvest.com.br/blog/allos-2t26-resultados/">Renova Invest</a> · reciclagem: <a href="https://www.seudinheiro.com/2026/empresas/allos-alos3-recicla-portfolio-e-mira-shoppings-que-vendem-mais-lvgb/">Seu Dinheiro</a> · Tijuca: <a href="https://sindilojas.rio/2026/01/14/apos-incendio-shopping-tijuca-sera-reaberto-nesta-sexta-feira-16/">SindilojasRio</a>, <a href="https://relatorioreservado.com.br/noticias/incendio-coloca-em-risco-expansao-do-shopping-tijuca-e-guidance-da-allos/">Relatório Reservado</a> (título; conteúdo restrito)</li>
+    <li><a href="https://claude.com/solutions/enterprise">Claude Enterprise</a> · <a href="https://claude.com/pricing">Preços</a></li>
+    <li><a href="https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans">Cowork em Team e Enterprise</a> · <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork">Tarefas recorrentes</a></li>
+    <li><a href="https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization">Skills da organização</a> · <a href="https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization">Plugins da organização</a> · <a href="https://support.claude.com/en/articles/15183774-connect-to-microsoft-365">Conector Microsoft 365</a></li>
+    <li><a href="https://github.com/anthropics/knowledge-work-plugins">Anthropic knowledge-work plugins</a> · <a href="https://anthropic.skilljar.com/">Anthropic Academy</a></li>
+    <li><a href="https://online.pucrs.br/formacao-gratuita/gestao-da-mudanca">PUCRS – Gestão da Mudança</a> · <a href="https://ee.insper.edu.br/cursos/tecnologia-data-science/ia-aplicada-aos-negocios/">Insper</a> · <a href="https://executive.mit.edu/course/artificial-intelligence/a056g00000URaa3AAD.html">MIT Sloan</a> · <a href="https://www.prosci.com/solutions/training-programs/change-management-certification-program">Prosci</a> · <a href="https://posead.fdc.org.br/cursos/ia-aplicada-gestao-empresarial">FDC</a></li>
+  </ol>
+</section>
+
+<footer>
+  <span>Não lidos: as 5 notas numéricas do Projeto Cláusulas (Balança, Custo da Concessão, 32 Cláusulas, D1–D10, Parâmetros), os 5 arquivos de nome curto na raiz do vault (00-NDI~1 a 04-DAS~1 — o caminho não é aceito pela ponte), os PDFs e o restante das aulas de Stanford e do bloco M&amp;A/PE-VC.</span>
+  <span>Preços e datas de cursos mudam; confirmar antes de inscrever.</span>
+</footer>
+</div>
+
+</body></html>

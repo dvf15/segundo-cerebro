@@ -1,0 +1,902 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Pré-Comitê Seguro Lojas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+:root{
+  --ground:#F7F4EE; --surface:#FFFFFF; --panel:#F0EBE1; --panel-2:#E7E0D2;
+  --ink:#12282B; --ink-2:#41565A; --muted:#77898B;
+  --rule:#D9D1C2; --rule-strong:#B9AF9C;
+  --brand:#0D454A; --brand-soft:#1B6B73;
+  --accent:#C07A10; --accent-soft:#EDA754;
+  --crit:#B0392B; --warn:#C07A10; --good:#177A53; --info:#1B2A4A;
+  --crit-bg:#F7E7E4; --warn-bg:#FAF0DC; --good-bg:#E2F1E9; --info-bg:#E6EAF2;
+  --viz-a:#008C9E; --viz-b:#C07A10; --viz-track:#E7E0D2; --viz-ref:#8A7F6C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1719; --surface:#132225; --panel:#17292D; --panel-2:#1E353A;
+    --ink:#ECE5D8; --ink-2:#B4C2C3; --muted:#7E9092;
+    --rule:#26403F; --rule-strong:#3A5A5A;
+    --brand:#7ACBD3; --brand-soft:#4FB0BA;
+    --accent:#EDA754; --accent-soft:#C9862B;
+    --crit:#E2796A; --warn:#E0A03A; --good:#4FBF8B; --info:#93A9D6;
+    --crit-bg:#2C1B18; --warn-bg:#2B2113; --good-bg:#12291F; --info-bg:#17203A;
+    --viz-a:#1B9CA8; --viz-b:#C08822; --viz-track:#1E353A; --viz-ref:#7E9092;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1719; --surface:#132225; --panel:#17292D; --panel-2:#1E353A;
+  --ink:#ECE5D8; --ink-2:#B4C2C3; --muted:#7E9092;
+  --rule:#26403F; --rule-strong:#3A5A5A;
+  --brand:#7ACBD3; --brand-soft:#4FB0BA;
+  --accent:#EDA754; --accent-soft:#C9862B;
+  --crit:#E2796A; --warn:#E0A03A; --good:#4FBF8B; --info:#93A9D6;
+  --crit-bg:#2C1B18; --warn-bg:#2B2113; --good-bg:#12291F; --info-bg:#17203A;
+  --viz-a:#1B9CA8; --viz-b:#C08822; --viz-track:#1E353A; --viz-ref:#7E9092;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.ui{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+.mono{font-family:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace}
+
+/* ---------- shell ---------- */
+.shell{display:grid; grid-template-columns:1fr; max-width:1320px; margin:0 auto}
+@media (min-width:1080px){
+  .shell{grid-template-columns:232px minmax(0,1fr); gap:0}
+}
+.rail{display:none}
+@media (min-width:1080px){
+  .rail{
+    display:block; position:sticky; top:0; align-self:start; height:100vh;
+    overflow-y:auto; padding:38px 22px 40px 28px;
+    border-right:1px solid var(--rule); background:var(--ground);
+  }
+}
+.rail .brandmark{font-family:Archivo,sans-serif; font-weight:700; font-size:13px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--brand); line-height:1.4}
+.rail .sub{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--muted); margin-top:6px}
+.rail nav{margin-top:26px; display:flex; flex-direction:column; gap:1px}
+.rail a{
+  display:grid; grid-template-columns:26px 1fr; gap:8px; align-items:baseline;
+  text-decoration:none; color:var(--ink-2); padding:6px 8px 6px 0;
+  font-family:Archivo,sans-serif; font-size:13.5px; line-height:1.3;
+  border-left:2px solid transparent; padding-left:10px;
+}
+.rail a:hover{color:var(--ink); border-left-color:var(--accent); background:var(--panel)}
+.rail a:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.rail a .n{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--muted)}
+
+main{padding:34px 22px 90px; min-width:0}
+@media (min-width:1080px){ main{padding:56px 56px 110px 52px} }
+.wrap{max-width:900px}
+.prose{max-width:68ch}
+
+/* ---------- masthead ---------- */
+.masthead{border-top:3px solid var(--brand); padding-top:20px; margin-bottom:34px}
+.kicker{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); display:flex; flex-wrap:wrap; gap:14px}
+.kicker span:not(:first-child){color:var(--muted)}
+h1{
+  font-size:clamp(30px,5.2vw,50px); line-height:1.02; letter-spacing:-.028em;
+  font-weight:700; margin:16px 0 0; text-wrap:balance; color:var(--brand);
+}
+.deck{font-size:clamp(17px,2.2vw,20px); line-height:1.5; color:var(--ink-2);
+  margin:14px 0 0; max-width:60ch}
+.stamp{margin-top:22px; display:flex; flex-wrap:wrap; gap:0;
+  border:1px solid var(--rule); background:var(--surface)}
+.stamp div{padding:11px 16px; border-right:1px solid var(--rule); flex:1 1 auto}
+.stamp div:last-child{border-right:0}
+.stamp dt{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted); margin:0}
+.stamp dd{margin:4px 0 0; font-family:Archivo,sans-serif; font-weight:600; font-size:14px}
+
+/* ---------- sections ---------- */
+section{margin-top:56px; scroll-margin-top:20px}
+.shead{border-top:1px solid var(--rule-strong); padding-top:12px; margin-bottom:22px}
+.shead .n{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent)}
+h2{font-size:clamp(22px,3.2vw,30px); line-height:1.1; letter-spacing:-.022em;
+  font-weight:700; margin:8px 0 0; text-wrap:balance}
+.lede{color:var(--ink-2); margin:12px 0 0; max-width:66ch}
+h3{font-size:17px; letter-spacing:-.008em; font-weight:600; margin:34px 0 10px}
+p{margin:0 0 14px}
+.prose p:last-child{margin-bottom:0}
+a.inline{color:var(--brand-soft); text-underline-offset:3px}
+
+/* ---------- metric row ---------- */
+.metrics{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule);
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin:24px 0}
+.metric{background:var(--surface); padding:16px 18px 15px}
+.metric .v{font-family:Archivo,sans-serif; font-weight:700; font-size:30px;
+  letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.metric .l{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); margin-top:9px; line-height:1.45}
+.metric .note{font-size:13px; color:var(--ink-2); margin-top:7px; line-height:1.4}
+.metric.alert .v{color:var(--crit)}
+.metric.flag .v{color:var(--accent)}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto; margin:22px 0; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px}
+thead th{
+  font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); text-align:left; font-weight:500;
+  padding:11px 14px; border-bottom:1px solid var(--rule-strong); vertical-align:bottom;
+  background:var(--panel); white-space:nowrap;
+}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--rule); vertical-align:top; line-height:1.48}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--panel)}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums;
+  font-family:"IBM Plex Mono",monospace; font-size:13px; white-space:nowrap}
+td strong{font-family:Archivo,sans-serif; font-weight:600; font-size:14px}
+.compact td{padding:9px 14px}
+
+/* ---------- tags ---------- */
+.tag{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:9.5px;
+  letter-spacing:.1em; text-transform:uppercase; padding:3px 7px 2px;
+  border:1px solid currentColor; white-space:nowrap; line-height:1.3}
+.t-crit{color:var(--crit); background:var(--crit-bg)}
+.t-warn{color:var(--warn); background:var(--warn-bg)}
+.t-good{color:var(--good); background:var(--good-bg)}
+.t-info{color:var(--info); background:var(--info-bg)}
+.t-plain{color:var(--muted); background:transparent}
+
+/* ---------- finding blocks ---------- */
+.findings{display:flex; flex-direction:column; gap:0; margin:24px 0;
+  border:1px solid var(--rule); background:var(--surface)}
+.finding{display:grid; grid-template-columns:1fr; gap:0;
+  border-bottom:1px solid var(--rule); padding:18px 20px 18px 22px;
+  border-left:3px solid var(--crit)}
+.finding:last-child{border-bottom:0}
+.finding .fh{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:8px}
+.finding .fn{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted)}
+.finding h4{font-family:Archivo,sans-serif; font-weight:600; font-size:16.5px;
+  letter-spacing:-.012em; margin:0; flex:1 1 240px; line-height:1.25}
+.finding p{margin:0 0 10px; max-width:68ch}
+.finding p:last-child{margin-bottom:0}
+.finding .ev{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-2);
+  background:var(--panel); border-left:2px solid var(--rule-strong);
+  padding:9px 12px; margin:12px 0 0; line-height:1.5}
+
+/* ---------- chart ---------- */
+.figure{margin:26px 0; border:1px solid var(--rule); background:var(--surface); padding:20px 20px 16px}
+.figtitle{font-family:Archivo,sans-serif; font-weight:600; font-size:16px; letter-spacing:-.01em; margin:0}
+.figsub{font-size:13.5px; color:var(--ink-2); margin:6px 0 0; max-width:64ch}
+.legend{display:flex; flex-wrap:wrap; gap:16px; margin:16px 0 4px;
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--ink-2)}
+.legend i{display:inline-block; width:11px; height:11px; margin-right:6px;
+  vertical-align:-1px; background:var(--viz-a)}
+.legend .b i{background:var(--viz-b)}
+.legend .r i{background:transparent; border-top:2px dashed var(--viz-ref); height:0; width:16px; vertical-align:3px}
+.chart{width:100%; border-collapse:collapse; min-width:0; margin-top:6px}
+.chart caption{caption-side:top; text-align:left; font-size:0; height:0; overflow:hidden}
+.chart th[scope="row"]{
+  font-family:Archivo,sans-serif; font-weight:500; font-size:13.5px; text-align:left;
+  padding:0 12px 0 0; white-space:nowrap; width:1%; color:var(--ink); border:0; background:none;
+  letter-spacing:0; text-transform:none;
+}
+.chart td{border:0; padding:3px 0}
+.chart td.track{width:100%; padding-right:10px}
+.chart td.val{font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+  font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap;
+  width:1%; color:var(--ink-2); padding-left:2px}
+.bartrack{position:relative; background:var(--viz-track); height:17px}
+.bar{height:17px; background:var(--viz-a); border-radius:0 3px 3px 0;
+  position:relative; transition:filter .12s ease}
+.bar.hyb{background:var(--viz-b)}
+.chart tr:hover .bar{filter:brightness(1.12)}
+.refline{position:absolute; top:-4px; bottom:-4px; width:0;
+  border-left:2px dashed var(--viz-ref); pointer-events:none}
+.chart tr:hover th[scope="row"]{color:var(--brand)}
+.figfoot{font-size:12.5px; color:var(--muted); margin:14px 0 0; line-height:1.5; max-width:70ch}
+
+/* ---------- callout ---------- */
+.callout{border:1px solid var(--rule); border-left:3px solid var(--accent);
+  background:var(--panel); padding:18px 20px; margin:24px 0}
+.callout .ch{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:9px}
+.callout p{margin:0 0 10px; max-width:68ch}
+.callout p:last-child{margin-bottom:0}
+
+/* ---------- question list ---------- */
+.qlist{list-style:none; padding:0; margin:22px 0; counter-reset:q;
+  border-top:1px solid var(--rule)}
+.qlist li{counter-increment:q; display:grid; grid-template-columns:34px 1fr;
+  gap:12px; padding:13px 4px 13px 0; border-bottom:1px solid var(--rule); align-items:baseline}
+.qlist li::before{content:counter(q,decimal-leading-zero);
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent)}
+.qlist .qt{font-size:15.5px; line-height:1.5}
+.qlist .qm{display:block; font-family:"IBM Plex Mono",monospace; font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:5px}
+
+/* ---------- hypothesis cards ---------- */
+.hyps{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin:24px 0}
+.hyp{background:var(--surface); padding:18px 20px}
+.hyp .hh{display:flex; gap:10px; align-items:baseline; margin-bottom:9px; flex-wrap:wrap}
+.hyp .hid{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent); font-weight:600}
+.hyp h4{font-family:Archivo,sans-serif; font-weight:600; font-size:16px;
+  margin:0; flex:1 1 240px; line-height:1.3; letter-spacing:-.01em}
+.hyp dl{display:grid; grid-template-columns:1fr; gap:0; margin:12px 0 0}
+@media (min-width:720px){ .hyp dl{grid-template-columns:118px 1fr; gap:0 20px} .hyp dt{margin-top:12px} .hyp dd{margin-top:12px} }
+.hyp dt{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); margin-top:10px}
+.hyp dd{margin:4px 0 0; font-size:14.5px; line-height:1.5}
+.hyp .unlock{grid-column:1/-1; display:grid; grid-template-columns:subgrid; border-top:1px solid var(--rule); margin-top:16px; padding-top:4px}
+.hyp .unlock dd{color:var(--brand-soft); font-weight:600; font-family:Archivo,sans-serif; font-size:14.5px}
+
+/* ---------- phases ---------- */
+.phases{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule);
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); margin:24px 0}
+.phase{background:var(--surface); padding:18px 20px}
+.phase .pn{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--accent)}
+.phase h4{font-family:Archivo,sans-serif; font-weight:600; font-size:17px; margin:8px 0 4px;
+  letter-spacing:-.012em}
+.phase .pw{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted)}
+.phase ul{margin:12px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px}
+.phase li{font-size:14.5px; line-height:1.45; padding-left:14px; position:relative}
+.phase li::before{content:""; position:absolute; left:0; top:.62em; width:6px; height:1px;
+  background:var(--rule-strong)}
+
+/* ---------- ask ---------- */
+.ask{border:2px solid var(--brand); background:var(--surface); padding:24px 24px 22px; margin:30px 0 0}
+.ask .ah{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:12px}
+.ask h3{font-family:Archivo,sans-serif; font-weight:700; font-size:clamp(19px,2.6vw,24px);
+  margin:0 0 12px; letter-spacing:-.02em; color:var(--brand); line-height:1.2}
+.ask ol{margin:16px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:9px}
+.ask li{font-size:15.5px; line-height:1.5}
+
+footer{margin-top:64px; padding-top:16px; border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted);
+  display:flex; flex-wrap:wrap; gap:8px 20px; line-height:1.6}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
+</style>
+
+<div class="shell">
+<aside class="rail">
+  <div class="brandmark">Seguro de Lojas</div>
+  <div class="sub">Base de decisão · v1<br>23 ago 2026</div>
+  <nav>
+    <a href="#s1"><span class="n">01</span><span>Onde estamos</span></a>
+    <a href="#s2"><span class="n">02</span><span>O que já sabemos</span></a>
+    <a href="#s3"><span class="n">03</span><span>Os cinco furos</span></a>
+    <a href="#s4"><span class="n">04</span><span>A evidência sob escrutínio</span></a>
+    <a href="#s5"><span class="n">05</span><span>Modelos em avaliação</span></a>
+    <a href="#s6"><span class="n">06</span><span>Perguntas-chave</span></a>
+    <a href="#s7"><span class="n">07</span><span>Decisões a tomar</span></a>
+    <a href="#s8"><span class="n">08</span><span>Dados a levantar</span></a>
+    <a href="#s9"><span class="n">09</span><span>Conclusões a buscar</span></a>
+    <a href="#s10"><span class="n">10</span><span>Plano e pedido</span></a>
+  </nav>
+</aside>
+
+<main>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">
+    <span>Documento de trabalho</span><span>Pré-comitê</span><span>Confidencial</span>
+  </div>
+  <h1>Seguro de Lojas: o que sabemos, o que falta e o que precisamos provar</h1>
+  <p class="deck">Consolidação da estratégia v21.08 e da crítica técnica. Este material não pede
+  aprovação de modelo — pede aprovação do levantamento que torna a decisão de modelo defensável.</p>
+  <dl class="stamp">
+    <div><dt>Base analisada</dt><dd>Deck v21.08 · 15 slides</dd></div>
+    <div><dt>Escopo dos dados</dt><dd>10 shoppings · ~2.570 lojas</dd></div>
+    <div><dt>Estágio</dt><dd>Pré-Fase 0</dd></div>
+    <div><dt>Decisão pedida</dt><dd>Aprovar baseline, não o modelo</dd></div>
+  </dl>
+</header>
+
+<!-- 01 -->
+<section id="s1">
+  <div class="shead"><div class="n">01 · Situação</div><h2>Onde estamos</h2></div>
+  <div class="prose">
+    <p>Há um programa em curso de cobrança de apólices de lojistas, acompanhado desde março/26
+    em 10 shoppings. A adesão subiu de forma relevante, mas estacionou abaixo da metade do
+    portfólio acompanhado, a qualidade das apólices não é verificada e a primeira negociação
+    com seguradora foi encerrada pela contraparte.</p>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="v">48%</div><div class="l">Adesão nominal · jul/26</div>
+      <div class="note">Partiu de ~16% em março. Mede posse de documento.</div></div>
+    <div class="metric alert"><div class="v">63 p.p.</div><div class="l">Dispersão entre shoppings</div>
+      <div class="note">De 8,2% (Norteshopping) a 74,9% (Estação Cuiabá).</div></div>
+    <div class="metric alert"><div class="v">4.667×</div><div class="l">Variação de LMI observada</div>
+      <div class="note">De R$ 1,5 mil a R$ 7 milhões — sem regra mínima.</div></div>
+    <div class="metric flag"><div class="v">3%</div><div class="l">Apólices já vencidas</div>
+      <div class="note">Sem rotina de detecção de cancelamento.</div></div>
+    <div class="metric flag"><div class="v">30%</div><div class="l">Comissão de referência</div>
+      <div class="note">Tabela usada na negociação Ezze, encerrada em jul.</div></div>
+  </div>
+
+  <div class="prose">
+    <p>O deck v21.08 recomenda migrar do modelo individual para um modelo híbrido, com corretora
+    homologada e regras mínimas. A recomendação é razoável em tese. O problema é que, hoje, ela
+    não está sustentada por números — e há dúvidas materiais sobre o que exatamente ela resolve.</p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="s2">
+  <div class="shead"><div class="n">02 · Inventário</div><h2>O que já sabemos, com que confiança</h2></div>
+  <p class="lede">Separar o que está estabelecido do que é hipótese é o primeiro passo para saber
+  o que ir buscar.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Afirmação</th><th style="width:120px">Status</th><th>Base</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A exigência contratual de seguro não garante transferência efetiva de risco</strong></td>
+          <td><span class="tag t-good">Estabelecido</span></td>
+          <td>Diagnóstico do deck, confirmado pelos dados de LMI e vencimento.</td></tr>
+        <tr><td><strong>A cobertura contratada é heterogênea a ponto de ser inútil em parte dos casos</strong></td>
+          <td><span class="tag t-good">Estabelecido</span></td>
+          <td>LMI de R$ 1,5 mil convivendo com R$ 7 milhões na mesma base.</td></tr>
+        <tr><td><strong>A adesão depende de esforço operacional recorrente e não se sustenta sozinha</strong></td>
+          <td><span class="tag t-good">Estabelecido</span></td>
+          <td>Curva de adesão e reconhecimento explícito no material.</td></tr>
+        <tr><td><strong>O mercado segurador não priorizou o projeto como desenhado</strong></td>
+          <td><span class="tag t-good">Estabelecido</span></td>
+          <td>Ezze: 5 meses, 3 calls não realizadas ou sem retorno, desistência unilateral.</td></tr>
+        <tr><td><strong>O modelo híbrido produz adesão maior que o individual</strong></td>
+          <td><span class="tag t-crit">Não provado</span></td>
+          <td>Um único caso (Cuiabá, 74,9%) contra Mooca individual a 71,3%. Ver seção 04.</td></tr>
+        <tr><td><strong>Existe transbordo material de risco do lojista para o empreendedor</strong></td>
+          <td><span class="tag t-crit">Não medido</span></td>
+          <td>Afirmado no deck sem quantificação, jurisprudência ou histórico de sinistros.</td></tr>
+        <tr><td><strong>Há ganho de escala de prêmio a capturar</strong></td>
+          <td><span class="tag t-crit">Não medido</span></td>
+          <td>Nenhuma cotação comparativa. Parte do "ganho" pode ser apenas corte de comissão.</td></tr>
+        <tr><td><strong>O programa reduz o custo da apólice master</strong></td>
+          <td><span class="tag t-crit">Não endereçado</span></td>
+          <td>A apólice master não é mencionada em nenhum dos 15 slides.</td></tr>
+        <tr><td><strong>Julho/26 teve evolução sobre junho</strong></td>
+          <td><span class="tag t-warn">A verificar</span></td>
+          <td>Todas as séries do gráfico repetem junho em julho. Ver seção 04.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="s3">
+  <div class="shead"><div class="n">03 · Diagnóstico</div><h2>Os cinco furos que impedem a decisão</h2></div>
+  <p class="lede">Não são críticas de forma. Cada um deles muda a resposta que o comitê daria.</p>
+
+  <div class="findings">
+    <div class="finding">
+      <div class="fh"><span class="fn">F1</span><h4>Não existe business case — e o objetivo nº 1 não aparece</h4>
+        <span class="tag t-crit">Crítico</span></div>
+      <p>O material promete "eficiência de capital" e não traz um único número financeiro: nem prêmio,
+      nem sinistralidade, nem valor em risco, nem economia esperada, nem custo da estrutura que propõe criar.</p>
+      <p>Mais grave: <strong>a apólice master, cujo custo o objetivo macro nº 1 pretende reduzir, não é
+      mencionada em nenhum slide.</strong> Sem o mecanismo de transmissão — cobertura do lojista sobe,
+      sinistro que hoje bate no master cai, retenção e prêmio ficam renegociáveis — a tese é retórica.</p>
+    </div>
+
+    <div class="finding">
+      <div class="fh"><span class="fn">F2</span><h4>A métrica principal mede a coisa errada</h4>
+        <span class="tag t-crit">Crítico</span></div>
+      <p>"Adesão" mede posse de documento. Uma apólice com LMI de R$ 1,5 mil conta como aderente e
+      não protege nada. O programa pode chegar a 100% sem reduzir a exposição em um centavo —
+      e o incentivo do time regional passa a ser caçar papel.</p>
+      <div class="ev">Substituir por <strong>Cobertura Qualificada</strong> = % do GLA com apólice
+      vigente que atende às coberturas e LMIs mínimos da categoria. Adesão vira métrica de processo.</div>
+    </div>
+
+    <div class="finding">
+      <div class="fh"><span class="fn">F3</span><h4>A recomendação não é sustentada pelos dados apresentados</h4>
+        <span class="tag t-crit">Crítico</span></div>
+      <p>O único caso híbrido (Cuiabá, 74,9%) está 3,6 p.p. acima do melhor caso individual
+      (Mooca, 71,3%) — ruído. Já a dispersão dentro do próprio modelo individual é de 63 p.p.
+      A variável que mais explica adesão nesses dados é execução local, não modelo.</p>
+    </div>
+
+    <div class="finding">
+      <div class="fh"><span class="fn">F4</span><h4>A pergunta central do desenho não é respondida: quem fica com a comissão?</h4>
+        <span class="tag t-crit">Crítico</span></div>
+      <p>O material promete "remuneração transparente" e nunca diz quem recebe o quê. De passagem,
+      revela o dado mais importante do deck: comissão de referência de <strong>30%</strong>. Ou seja,
+      a maior alavanca de preço para o lojista não é escala — é comissão.</p>
+      <p>Se o shopping ou a administradora capturam qualquer parte, o discurso de "benefício direto ao
+      varejista" cai e o risco deixa de ser reputacional para virar jurídico.</p>
+    </div>
+
+    <div class="finding">
+      <div class="fh"><span class="fn">F5</span><h4>O roadmap não alcança o estoque de contratos vigentes</h4>
+        <span class="tag t-crit">Crítico</span></div>
+      <p>Minuta nova só afeta novas locações e renovações. Com prazo típico de 5 anos, "portfólio
+      inteiro em 12–24 meses" não fecha aritmeticamente — algo em torno de 40% do portfólio terá
+      renovado no período.</p>
+      <p>Falta a segunda via: <strong>Normas Gerais e regimento interno</strong>, alteráveis por
+      assembleia e aplicáveis ao estoque. O próprio deck aponta que esses documentos estão
+      despadronizados entre shoppings — e não os coloca no plano.</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>Riscos que o material subavalia</h3>
+  </div>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th>Risco</th><th style="width:110px">No deck</th><th style="width:110px">Proposto</th><th>Por quê</th></tr></thead>
+      <tbody>
+        <tr><td>Regulatório / venda casada</td><td><span class="tag t-plain">Baixo</span></td>
+          <td><span class="tag t-warn">Médio</span></td>
+          <td>Cobre SUSEP, ignora CDC art. 39 I, ângulo concorrencial e Lei 4.594/64 se houver captura de comissão.</td></tr>
+        <tr><td>Conflito de interesse da corretora</td><td><span class="tag t-plain">Médio</span></td>
+          <td><span class="tag t-crit">Alto até decidir</span></td>
+          <td>A severidade depende inteiramente de uma decisão ainda não tomada (D1).</td></tr>
+        <tr><td>Prazo de implantação</td><td><span class="tag t-plain">—</span></td>
+          <td><span class="tag t-warn">Médio</span></td>
+          <td>Não avaliado; o ciclo contratual de 5 anos é restrição estrutural.</td></tr>
+        <tr><td>Apetite do mercado segurador</td><td><span class="tag t-plain">—</span></td>
+          <td><span class="tag t-warn">Médio</span></td>
+          <td>Já se materializou uma vez (Ezze) e não entrou na matriz de riscos.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="s4">
+  <div class="shead"><div class="n">04 · Evidência</div><h2>A evidência sob escrutínio</h2></div>
+  <p class="lede">O gráfico abaixo é a única evidência empírica do material a favor do modelo
+  híbrido. Lido com atenção, ele diz outra coisa.</p>
+
+  <div class="figure">
+    <p class="figtitle">Adesão por shopping · jul/26</p>
+    <p class="figsub">Um único shopping opera em modelo híbrido. A diferença para o melhor caso do
+    modelo individual é de 3,6 p.p.; a diferença dentro do modelo individual é de 63 p.p.</p>
+
+    <div class="legend">
+      <span><i></i>Individual</span>
+      <span class="b"><i></i>Híbrido</span>
+      <span class="r"><i></i>Média portfólio 47,8%</span>
+    </div>
+
+    <table class="chart">
+      <caption>Adesão por shopping em julho de 2026, em percentual</caption>
+      <tbody>
+        <tr><th scope="row" title="Modelo híbrido · 74,9% de adesão">Estação Cuiabá</th>
+          <td class="track"><div class="bartrack"><div class="bar hyb" style="width:74.9%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">74,9%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 71,3% de adesão">Mooca</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:71.3%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">71,3%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 63,2% de adesão">Belo Horizonte</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:63.2%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">63,2%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 58,3% de adesão">Estação BH</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:58.3%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">58,3%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 43,5% de adesão">Center Uberlândia</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:43.5%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">43,5%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 36,7% de adesão">Plaza Niterói</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:36.7%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">36,7%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 29,2% de adesão">Del Rey</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:29.2%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">29,2%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 21,7% de adesão">Carioca</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:21.7%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">21,7%</td></tr>
+        <tr><th scope="row" title="Modelo individual · 8,2% de adesão">Norteshopping</th>
+          <td class="track"><div class="bartrack"><div class="bar" style="width:8.2%"></div><div class="refline" style="left:47.8%"></div></div></td>
+          <td class="val">8,2%</td></tr>
+      </tbody>
+    </table>
+    <p class="figfoot">Fonte: deck v21.08, slide 14. A leitura correta desses números não é
+    "o híbrido funciona" — é "a execução explica quase tudo, e nós ainda não sabemos por quê".</p>
+  </div>
+
+  <div class="callout">
+    <div class="ch">Alerta de dado · verificar antes de qualquer apresentação</div>
+    <p><strong>Julho parece replicar junho.</strong> Na série mensal do slide 13, todos os estágios
+    repetem exatamente os valores de junho em julho (181, 786, 378, 1.223). Ou o mês não foi
+    atualizado, ou o gráfico está mal montado — e o material reporta "48% em jul/26" e "evolução"
+    sobre ele.</p>
+    <p><strong>Outros três pontos:</strong> "+32 p.p. vs março" implica base de ~16%, mas a série
+    começa em abril (~21%) e a base de março não é mostrada; "−68% em sem contato" não é uma queda
+    contínua (576 → 129 → 181 → 181); e o material nunca diz se os 10 shoppings são o portfólio
+    inteiro ou um piloto — o que muda completamente a leitura dos 48%.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="s5">
+  <div class="shead"><div class="n">05 · Opções</div><h2>Quatro modelos, não três</h2></div>
+  <p class="lede">O deck compara os modelos por um único eixo — quem contrata. Falta o eixo mais
+  produtivo: o que se contrata. Nem toda cobertura tem o mesmo dono de interesse.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Cobertura</th><th style="width:150px">Interesse primário</th><th style="width:150px">Quem deveria contratar</th></tr></thead>
+      <tbody>
+        <tr><td>RC Operações — danos a terceiros e ao empreendimento</td><td>Shopping</td><td><strong>Shopping</strong></td></tr>
+        <tr><td>Incêndio e explosão com dano à estrutura</td><td>Shopping</td><td><strong>Shopping</strong></td></tr>
+        <tr><td>Perda de aluguel e encargos</td><td>Shopping (locador)</td><td><strong>Shopping</strong></td></tr>
+        <tr><td>Estoque, benfeitorias e equipamentos</td><td>Lojista</td><td>Lojista</td></tr>
+        <tr><td>Lucros cessantes da operação</td><td>Lojista</td><td>Lojista</td></tr>
+        <tr><td>RC profissional (saúde, estética)</td><td>Lojista</td><td>Lojista</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <h3>Modelo IV — centralizado por escopo</h3>
+    <p>O shopping contrata, como estipulante, uma apólice coletiva cobrindo <strong>apenas as
+    coberturas de interesse do empreendedor</strong> (RC, incêndio com dano ao imóvel locado, perda
+    de aluguel), com rateio por m². As coberturas de interesse exclusivo do lojista permanecem livres,
+    com regras mínimas e corretora homologada opcional.</p>
+    <p>É um híbrido por escopo, não por adesão — e é a única opção sobre a mesa que leva a proteção
+    do empreendedor a 100% no dia 1, sem depender de uma curva de adesão que hoje está em 48% e
+    desacelerando.</p>
+  </div>
+
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th>Critério</th><th>I · Individual</th><th>II · Híbrido</th><th>III · Centralizado</th><th>IV · Por escopo</th></tr></thead>
+      <tbody>
+        <tr><td>Proteção do empreendedor</td><td>Depende da adesão</td><td>Depende da adesão</td><td>Total</td><td><strong>Total, na camada que importa</strong></td></tr>
+        <tr><td>Fricção com redes nacionais</td><td>Nenhuma</td><td>Média</td><td>Alta</td><td>Baixa</td></tr>
+        <tr><td>Custo repassado ao lojista</td><td>Variável</td><td>Variável</td><td>Integral</td><td>Parcial e previsível</td></tr>
+        <tr><td>Poder de negociação</td><td>Nenhum</td><td>Volume esperado</td><td>Volume contratado</td><td>Volume contratado</td></tr>
+        <tr><td>Papel de estipulante / SUSEP</td><td>Não</td><td>Não</td><td>Sim</td><td>Sim</td></tr>
+        <tr><td>Prazo até efeito pleno</td><td>—</td><td>~5 anos (ciclo contratual)</td><td>~5 anos</td><td>1 ciclo de assembleia</td></tr>
+        <tr><td>Esforço operacional recorrente</td><td>Alto e improdutivo</td><td>Alto</td><td>Médio</td><td>Baixo na camada central</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="ch">O que falta para comparar de verdade</div>
+    <p>A tabela do deck (slide 7) é qualitativa, mistura dimensões e não tem pesos — não permite
+    auditar como a recomendação foi obtida. A comparação final deve ser uma matriz ponderada com
+    pesos declarados por critério, alimentada pelos dados da Fase 0. Até lá, nenhum modelo deveria
+    ser recomendado.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section id="s6">
+  <div class="shead"><div class="n">06 · Perguntas</div><h2>As dez perguntas que o comitê vai fazer</h2></div>
+  <p class="lede">Nenhuma delas é respondível com o material atual. Cada uma está mapeada ao dado
+  que a responde na seção 08.</p>
+
+  <ol class="qlist">
+    <li><span class="qt">Quanto custa hoje a apólice master, e quanto deste projeto retorna para ela?
+      <span class="qm">Dado A1 · A2</span></span></li>
+    <li><span class="qt">Quantos sinistros com origem em loja o shopping absorveu nos últimos 5 anos, e quanto pagou?
+      <span class="qm">Dado A3 · A4</span></span></li>
+    <li><span class="qt">Quanto custa montar e operar o programa por ano — headcount, sistema, auditoria?
+      <span class="qm">Dado A5</span></span></li>
+    <li><span class="qt">Qual é a economia esperada para o lojista, em R$/m², e com que evidência?
+      <span class="qm">Dado D1</span></span></li>
+    <li><span class="qt">O shopping recebe alguma remuneração da corretora ou da seguradora, direta ou indireta?
+      <span class="qm">Decisão D1 — não é dado, é escolha</span></span></li>
+    <li><span class="qt">Se a comissão de mercado é 30%, quanto do "ganho de escala" prometido é, na verdade, corte de comissão?
+      <span class="qm">Dado D2</span></span></li>
+    <li><span class="qt">Quais são exatamente as coberturas e os LMIs mínimos que estamos aprovando?
+      <span class="qm">Dado B1 · B2 · D1</span></span></li>
+    <li><span class="qt">Como isso alcança os contratos vigentes, e não só as novas locações?
+      <span class="qm">Dado C1 · C3 · C4</span></span></li>
+    <li><span class="qt">Por que Norteshopping está em 8,2% e Cuiabá em 74,9%? Isso é modelo ou é gestão?
+      <span class="qm">Dado E1 · E2</span></span></li>
+    <li><span class="qt">Qual é o gate de go/no-go da Fase 1, com que critério e em que prazo?
+      <span class="qm">Seção 10</span></span></li>
+  </ol>
+</section>
+
+<!-- 07 -->
+<section id="s7">
+  <div class="shead"><div class="n">07 · Decisões</div><h2>O que depende de escolha, não de dado</h2></div>
+  <p class="lede">Estas seis não esperam levantamento. São posições que a liderança precisa tomar
+  para que o resto do trabalho tenha direção.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th style="width:52px">#</th><th>Decisão</th><th style="width:230px">Recomendação</th><th style="width:120px">Dono</th></tr></thead>
+      <tbody>
+        <tr><td class="num">D1</td><td><strong>O shopping recebe alguma remuneração da corretora ou seguradora?</strong>
+          Direta, indireta, verba de marketing, rebate.</td>
+          <td>Não receber nada. Se houver qualquer valor, reverter ao condomínio com transparência
+          em assembleia. Teto de comissão de 15–20% no RFP, com a diferença revertida em prêmio.</td>
+          <td>Jurídico + Diretoria</td></tr>
+        <tr><td class="num">D2</td><td><strong>Qual é a métrica oficial do programa?</strong></td>
+          <td>Cobertura Qualificada (% do GLA). Adesão nominal vira métrica de processo.</td>
+          <td>Riscos</td></tr>
+        <tr><td class="num">D3</td><td><strong>O escopo é o portfólio inteiro ou os 10 shoppings acompanhados?</strong></td>
+          <td>Definir e declarar. Muda a leitura de todos os números reportados até aqui.</td>
+          <td>Diretoria de Portfólio</td></tr>
+        <tr><td class="num">D4</td><td><strong>Quem é o dono do KPI?</strong> Hoje o programa não tem dono nomeado,
+          meta por shopping nem consequência.</td>
+          <td>Gerente geral de cada shopping, com meta trimestral, escalada regional e revisão em comitê.</td>
+          <td>Diretoria de Portfólio</td></tr>
+        <tr><td class="num">D5</td><td><strong>Qual é o apetite para atrito com redes nacionais?</strong></td>
+          <td>Aceitar apólices próprias que cumpram os mínimos. Define a viabilidade dos modelos III e IV.</td>
+          <td>Comercial + Diretoria</td></tr>
+        <tr><td class="num">D6</td><td><strong>Como vamos a mercado?</strong> A negociação Ezze foi sequencial e exclusiva.</td>
+          <td>RFP simultâneo com 4–6 seguradoras, critérios publicados e gates de 30 dias.</td>
+          <td>Riscos + Suprimentos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="ch">A lição estrutural da Ezze</div>
+    <p>Cinco meses, duas calls remarcadas e não realizadas, uma call sem retornos e desistência
+    unilateral. Os aprendizados registrados no deck são todos táticos. A lição estrutural é outra:
+    <strong>o projeto, como foi ao mercado, não foi atrativo o suficiente para ser priorizado.</strong>
+    Pediu produto customizado, comissão reduzida e não ofereceu volume contratado — porque, no modelo
+    híbrido, a adesão é voluntária. Isso é um argumento a favor do Modelo IV, que leva volume contratado
+    à mesa.</p>
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="s8">
+  <div class="shead"><div class="n">08 · Levantamento</div><h2>Os dados que precisamos buscar</h2></div>
+  <p class="lede">Fase 0 — 45 dias. Cada linha existe porque destrava uma pergunta da seção 06 ou
+  uma hipótese da seção 09. O que não destrava nada não entra.</p>
+
+  <h3>Bloco A · Financeiro e apólice master</h3>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th style="width:44px">#</th><th>Dado</th><th style="width:190px">Onde buscar</th><th style="width:130px">Responsável</th><th class="num" style="width:70px">Prazo</th></tr></thead>
+      <tbody>
+        <tr><td class="num">A1</td><td>Prêmio anual, franquia e escopo da apólice master, por shopping e consolidado</td><td>Corretora atual · Seguros corporativos</td><td>Riscos</td><td class="num">D+10</td></tr>
+        <tr><td class="num">A2</td><td>Sinistralidade do master nos últimos 5 anos — avisados, pagos, negados</td><td>Corretora · seguradora</td><td>Riscos</td><td class="num">D+15</td></tr>
+        <tr><td class="num">A3</td><td>Sinistros com origem em loja: quantidade, valor e quanto o shopping absorveu (franquia, não coberto, acordo, condenação)</td><td>Jurídico + Riscos</td><td>Jurídico</td><td class="num">D+20</td></tr>
+        <tr><td class="num">A4</td><td>Contingências e provisões judiciais ligadas a sinistros de lojistas</td><td>Jurídico · Contabilidade</td><td>Jurídico</td><td class="num">D+20</td></tr>
+        <tr><td class="num">A5</td><td>Custo atual do processo de cobrança — horas de time regional e jurídico, por amostragem</td><td>Operações · Regional</td><td>Operações</td><td class="num">D+15</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bloco B · Exposição e cobertura real</h3>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th style="width:44px">#</th><th>Dado</th><th style="width:190px">Onde buscar</th><th style="width:130px">Responsável</th><th class="num" style="width:70px">Prazo</th></tr></thead>
+      <tbody>
+        <tr><td class="num">B1</td><td>Auditoria amostral de 200 apólices vigentes: LMI por cobertura, exclusões, vigência, seguradora, corretora</td><td>Base documental dos shoppings</td><td>Riscos + corretora</td><td class="num">D+25</td></tr>
+        <tr><td class="num">B2</td><td>Distribuição de LMI por categoria de operação, derivada da amostra</td><td>Derivado de B1</td><td>Riscos</td><td class="num">D+30</td></tr>
+        <tr><td class="num">B3</td><td><strong>Baseline de Cobertura Qualificada</strong> — % do GLA que atenderia a um mínimo razoável hoje</td><td>Derivado de B1 + B2</td><td>Riscos</td><td class="num">D+30</td></tr>
+        <tr><td class="num">B4</td><td>Mapa de operações de alto risco por shopping — cocção, lazer infantil, saúde, alto valor de estoque</td><td>Base de mix · Comercial</td><td>Comercial</td><td class="num">D+10</td></tr>
+        <tr><td class="num">B5</td><td>Conformidade PPCI / AVCB / laudo elétrico por loja</td><td>Engenharia · Operações</td><td>Operações</td><td class="num">D+20</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bloco C · Contratos e alavancas jurídicas</h3>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th style="width:44px">#</th><th>Dado</th><th style="width:190px">Onde buscar</th><th style="width:130px">Responsável</th><th class="num" style="width:70px">Prazo</th></tr></thead>
+      <tbody>
+        <tr><td class="num">C1</td><td>Curva de vencimento dos contratos de locação nos próximos 60 meses</td><td>Contratos · BI</td><td>Jurídico</td><td class="num">D+10</td></tr>
+        <tr><td class="num">C2</td><td>Redação atual da cláusula de seguro — quantas versões de minuta circulam no portfólio</td><td>Jurídico</td><td>Jurídico</td><td class="num">D+10</td></tr>
+        <tr><td class="num">C3</td><td>Normas Gerais vigentes por shopping, rito de alteração e calendário de assembleias</td><td>Jurídico · Condomínio</td><td>Jurídico</td><td class="num">D+15</td></tr>
+        <tr><td class="num">C4</td><td>Parecer sobre <em>force-placed insurance</em> — contratação pelo shopping por conta do lojista inadimplente, com repasse a custo</td><td>Parecer jurídico externo</td><td>Jurídico</td><td class="num">D+30</td></tr>
+        <tr><td class="num">C5</td><td>Parecer sobre venda casada, papel de estipulante e repasse via condomínio</td><td>Parecer jurídico externo</td><td>Jurídico</td><td class="num">D+30</td></tr>
+        <tr><td class="num">C6</td><td>Covenants de financiamento que exijam programa de seguros — alavanca interna ainda não usada</td><td>Tesouraria</td><td>Financeiro</td><td class="num">D+15</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bloco D · Mercado e preço</h3>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th style="width:44px">#</th><th>Dado</th><th style="width:190px">Onde buscar</th><th style="width:130px">Responsável</th><th class="num" style="width:70px">Prazo</th></tr></thead>
+      <tbody>
+        <tr><td class="num">D1</td><td>Cotação-referência por categoria e por m², com 4–6 seguradoras</td><td>RFP / sondagem simultânea</td><td>Riscos</td><td class="num">D+45</td></tr>
+        <tr><td class="num">D2</td><td>Tabela de comissionamento praticada e teto negociável por player</td><td>RFP</td><td>Riscos</td><td class="num">D+45</td></tr>
+        <tr><td class="num">D3</td><td>Apetite do mercado para a camada centralizada por escopo (Modelo IV) e preço por m²</td><td>Sondagem dirigida</td><td>Riscos</td><td class="num">D+45</td></tr>
+        <tr><td class="num">D4</td><td>Benchmark de como outros grupos estruturam — modelo, escopo, adesão obtida</td><td>Pares de mercado · corretoras · Abrasce</td><td>Riscos</td><td class="num">D+30</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bloco E · Execução — a variância de 63 p.p.</h3>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th style="width:44px">#</th><th>Dado</th><th style="width:190px">Onde buscar</th><th style="width:130px">Responsável</th><th class="num" style="width:70px">Prazo</th></tr></thead>
+      <tbody>
+        <tr><td class="num">E1</td><td>Entrevistas estruturadas nos extremos: Cuiabá e Mooca (alta) contra Norteshopping e Carioca (baixa) — processo, pessoas, ferramentas, discurso usado com o lojista</td><td>Regional</td><td>Operações</td><td class="num">D+20</td></tr>
+        <tr><td class="num">E2</td><td>Perfil dos 10 shoppings: % de redes nacionais, GLA médio, idade, vacância, tempo médio de contrato — para controlar a comparação entre modelos</td><td>BI · Comercial</td><td>BI</td><td class="num">D+10</td></tr>
+        <tr><td class="num">E3</td><td><strong>Reconstrução e validação da série abr–jul/26</strong>, com atenção ao mês de julho</td><td>BI · RMR</td><td>BI</td><td class="num">D+5</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="s9">
+  <div class="shead"><div class="n">09 · Hipóteses</div><h2>As conclusões que precisamos buscar</h2></div>
+  <p class="lede">O levantamento não existe para produzir um relatório. Existe para confirmar ou
+  derrubar sete hipóteses — cada uma com critério de refutação declarado antes de olhar o dado.</p>
+
+  <div class="hyps">
+    <div class="hyp">
+      <div class="hh"><span class="hid">H1</span><h4>Existe transbordo material de risco do lojista para o empreendedor</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>Os últimos 5 anos mostram custo absorvido pelo shopping — franquia, não coberto, acordo, condenação — em volume que justifique uma estrutura permanente.</dd>
+        <dt>Refuta se</dt><dd>A exposição histórica é imaterial. Nesse caso o projeto é compliance, não gestão de risco, e o investimento deve ser dimensionado para baixo.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>O tamanho do prêmio que vale a pena pagar — e se há caso econômico para o Modelo IV.</dd></div>
+      </dl>
+    </div>
+
+    <div class="hyp">
+      <div class="hh"><span class="hid">H2</span><h4>A cobertura real é muito menor do que a adesão nominal sugere</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>A auditoria amostral mostra que uma minoria das apólices vigentes atenderia a um conjunto mínimo razoável de coberturas e limites.</dd>
+        <dt>Refuta se</dt><dd>A cauda de LMI baixo é residual e a mediana já é adequada — então o problema é de cobertura dos 52% restantes, não de qualidade.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>A troca da métrica oficial e a calibragem dos LMIs mínimos por categoria.</dd></div>
+      </dl>
+    </div>
+
+    <div class="hyp">
+      <div class="hh"><span class="hid">H3</span><h4>A variação de adesão é explicada por execução, não por modelo</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>Após controlar porte, mix e % de redes nacionais, o efeito do modelo híbrido é pequeno e as entrevistas apontam diferenças de processo e disciplina.</dd>
+        <dt>Refuta se</dt><dd>Shoppings comparáveis divergem sistematicamente pelo modelo adotado, e não pela gestão.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>A prioridade: processo e enforcement (barato e rápido) contra mudança de modelo (caro e lento).</dd></div>
+      </dl>
+    </div>
+
+    <div class="hyp">
+      <div class="hh"><span class="hid">H4</span><h4>Existe ganho de escala real, e ele não é só corte de comissão</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>A cotação consolidada fica abaixo do prêmio médio hoje pago pelos lojistas, por categoria e por m², mesmo mantida a comissão de mercado.</dd>
+        <dt>Refuta se</dt><dd>A diferença desaparece quando a comissão é normalizada. O ganho seria de negociação de remuneração, não de escala — e o argumento ao lojista muda.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>A proposta de valor apresentada ao lojista e a régua de negociação com as seguradoras.</dd></div>
+      </dl>
+    </div>
+
+    <div class="hyp">
+      <div class="hh"><span class="hid">H5</span><h4>A camada centralizada por escopo é viável, barata e juridicamente segura</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>A cotação de RC + incêndio + perda de aluguel sai a um valor por m² absorvível no rateio, e o parecer valida o repasse e o papel de estipulante.</dd>
+        <dt>Refuta se</dt><dd>O preço da camada se aproxima do seguro completo, ou o repasse via condomínio é juridicamente frágil.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>A recomendação final de modelo ao comitê — hoje prematura.</dd></div>
+      </dl>
+    </div>
+
+    <div class="hyp">
+      <div class="hh"><span class="hid">H6</span><h4>O gargalo é enforcement, e existe alavanca melhor que o despejo</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>O parecer valida <em>force-placed insurance</em> e as Normas Gerais admitem alteração em prazo razoável.</dd>
+        <dt>Refuta se</dt><dd>A contratação por conta do lojista é inexequível no arcabouço atual — então restam bloqueio de benefícios e retenção de aprovações.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>Um ganho rápido, independente da escolha de modelo. O fluxo atual termina em despejo, sanção que ninguém executa — e o lojista sabe disso.</dd></div>
+      </dl>
+    </div>
+
+    <div class="hyp">
+      <div class="hh"><span class="hid">H7</span><h4>O programa se paga</h4></div>
+      <dl>
+        <dt>Confirma se</dt><dd>Economia no prêmio do master, mais perdas evitadas, mais economia no prêmio do lojista, supera o custo do programa em 24 meses ou menos.</dd>
+        <dt>Refuta se</dt><dd>O payback passa de 36 meses. Nesse caso a justificativa passa a ser puramente de governança e risco de cauda — e precisa ser defendida nesses termos, não como eficiência.</dd>
+        <div class="unlock"><dt>Destrava</dt><dd>O orçamento e o headcount que o comitê está sendo chamado a aprovar.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <div class="shead"><div class="n">10 · Plano</div><h2>Plano revisado e o que se pede agora</h2></div>
+
+  <div class="phases">
+    <div class="phase">
+      <div class="pn">Fase 0 · nova</div><h4>Baseline</h4><div class="pw">0 – 45 dias</div>
+      <ul>
+        <li>Blocos A a E da seção 08</li>
+        <li>Decisões D1 a D6 tomadas</li>
+        <li>Pareceres jurídicos contratados</li>
+        <li>Série abr–jul reconstruída</li>
+        <li>Matriz ponderada dos 4 modelos</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="pn">Fase 1</div><h4>Estruturação</h4><div class="pw">45 dias – 6 meses</div>
+      <ul>
+        <li>Matriz de coberturas e LMIs mínimos por categoria</li>
+        <li>RFP simultâneo com 4–6 seguradoras</li>
+        <li>Padronização das Normas Gerais</li>
+        <li>Nova cláusula na minuta de locação</li>
+        <li>Piloto controlado e pareado, 3 contra 3</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="pn">Fase 2</div><h4>Implantação</h4><div class="pw">6 – 18 meses</div>
+      <ul>
+        <li>Duas vias: locação para o fluxo novo, assembleia para o estoque</li>
+        <li>Painel de Cobertura Qualificada</li>
+        <li>Enforcement gradual em produção</li>
+        <li>Primeiro ciclo de auditoria independente</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="pn">Fase 3</div><h4>Consolidação</h4><div class="pw">18 – 36 meses</div>
+      <ul>
+        <li>Renegociação consolidada, master incluída</li>
+        <li>Índice de Risco da Loja em produção</li>
+        <li>Precificação diferenciada por conformidade</li>
+        <li>Replicação no portfólio inteiro</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>Do painel de conformidade ao painel de risco</h3>
+    <p>A tese de que o seguro vira "camada de inteligência operacional" só se sustenta se o dado
+    retroalimentar decisão. Hoje ele produz um relatório de conformidade que não muda nada. A ponte
+    é um <strong>Índice de Risco da Loja</strong> — cobertura qualificada, conformidade de PPCI e
+    laudos, histórico de ocorrências e categoria de operação — exposto no mesmo painel e usado como
+    entrada formal em renovação contratual, aprovação de reforma e precificação diferenciada.
+    Roda sobre dados que a operação já coleta.</p>
+
+    <h3>Painel de KPIs proposto</h3>
+  </div>
+  <div class="tablewrap">
+    <table class="compact">
+      <thead><tr><th>Indicador</th><th style="width:120px">Papel</th><th>Por que existe</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cobertura Qualificada (% do GLA)</strong></td><td><span class="tag t-good">Principal</span></td><td>Mede proteção, não papel. Meta por shopping.</td></tr>
+        <tr><td>Adesão nominal (%)</td><td><span class="tag t-plain">Processo</span></td><td>Continua útil para gestão da esteira de cobrança.</td></tr>
+        <tr><td>Apólices vencidas ou canceladas em 30 dias</td><td><span class="tag t-plain">Processo</span></td><td>Hoje em 3%, sem rotina de detecção.</td></tr>
+        <tr><td>Prazo médio de regularização</td><td><span class="tag t-plain">Processo</span></td><td>Da notificação à apólice válida. Mede eficiência real.</td></tr>
+        <tr><td>LMI mediano por categoria contra o mínimo</td><td><span class="tag t-info">Qualidade</span></td><td>Mede a qualidade da cobertura, não a quantidade.</td></tr>
+        <tr><td>Prêmio médio por m² por categoria</td><td><span class="tag t-info">Econômico</span></td><td>Única forma de provar o ganho de escala prometido.</td></tr>
+        <tr><td>Sinistros com transbordo ao shopping — nº e R$</td><td><span class="tag t-good">Resultado</span></td><td>O desfecho que de fato importa.</td></tr>
+        <tr><td>Custo do programa contra economia comprovada</td><td><span class="tag t-good">Resultado</span></td><td>O business case, medido continuamente e não só na aprovação.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ask">
+    <div class="ah">Pedido ao comitê</div>
+    <h3>Aprovar a Fase 0, não o modelo</h3>
+    <p>Escolher entre híbrido, centralizado ou camada por escopo hoje seria escolher sem baseline,
+    sem preço e sem parecer. O pedido é outro, e é menor:</p>
+    <ol>
+      <li>Aprovar o levantamento de 45 dias descrito na seção 08, com orçamento de pareceres
+        jurídicos externos e auditoria amostral de 200 apólices.</li>
+      <li>Tomar as seis decisões da seção 07 — em especial <strong>D1</strong>, sobre remuneração,
+        que condiciona todo o desenho.</li>
+      <li>Adotar desde já a <strong>Cobertura Qualificada</strong> como métrica oficial e nomear
+        dono do KPI por shopping.</li>
+      <li>Autorizar o RFP simultâneo com 4–6 seguradoras, com gates de 30 dias, em substituição à
+        negociação exclusiva.</li>
+      <li>Fixar o gate de go/no-go: a recomendação de modelo volta ao comitê em D+60, com matriz
+        ponderada, business case e as sete hipóteses respondidas.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <span>Documento de trabalho · v1 · 23 ago 2026</span>
+  <span>Base: Estratégia de Seguro para Lojas v21.08</span>
+  <span>Confidencial · uso interno</span>
+</footer>
+
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,1553 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Radar de Operações</title>
+<script>try{if(/^#investidor\b/i.test(location.hash||""))document.documentElement.classList.add("investor");}catch(e){}</script>
+<style>
+  :root{ color-scheme: light; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:#ffffff; color:#0d454a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:16px; padding-bottom:64px; }
+  .wrap{ max-width:760px; margin:0 auto; }
+  h1{ font-size:23px; font-weight:800; color:#00616f; margin:0 0 2px; }
+  h2{ font-size:16px; font-weight:800; color:#00616f; margin:0 0 4px; }
+  h3{ font-size:13px; font-weight:800; color:#00616f; margin:0 0 8px; }
+  .sub{ font-size:13px; color:rgba(13,69,74,.62); margin:0; }
+  .muted{ font-size:11px; color:rgba(13,69,74,.5); margin-top:4px; }
+  .card{ background:#e5ded4; border:1px solid #ccc5bc; border-radius:14px; padding:16px; margin-bottom:14px; }
+  .lbl{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:rgba(13,69,74,.55); display:block; margin-bottom:5px; font-weight:600; }
+  .lblsec{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#00616f; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .lblsec .n{ background:rgba(0,97,111,.14); color:#00616f; width:20px; height:20px; border-radius:99px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
+  input, select, textarea{ width:100%; background:#ffffff; border:1px solid #ccc5bc; border-radius:10px; padding:10px 12px; color:#0d454a; font-size:16px; outline:none; font-family:inherit; }
+  input:focus, select:focus, textarea:focus{ border-color:#00616f; }
+  textarea{ resize:vertical; min-height:52px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .field{ margin-bottom:12px; }
+  .hint{ font-size:10px; color:rgba(13,69,74,.5); margin-top:4px; line-height:1.4; }
+  .row{ display:flex; justify-content:space-between; align-items:center; padding:4px 0; font-size:14px; gap:10px; }
+  .row .k{ color:rgba(13,69,74,.62); } .row .v{ color:#0d454a; font-weight:700; }
+  .badge{ font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700; display:inline-block; }
+  .b-abf{ background:rgba(108,198,128,.3); color:#0d454a; }
+  .b-pegn{ background:rgba(54,140,130,.2); color:#00616f; }
+  .b-seg{ background:rgba(204,197,188,.45); color:#0d454a; margin:1px 0; }
+  .b-goal{ background:rgba(237,167,84,.34); color:#0d454a; }
+  .acard{ border-radius:14px; border:1px solid; padding:16px; margin-bottom:12px; }
+  .verde{ background:rgba(108,198,128,.16); border-color:rgba(108,198,128,.55); }
+  .amarelo{ background:rgba(237,167,84,.16); border-color:rgba(237,167,84,.55); }
+  .vermelho{ background:rgba(205,81,81,.12); border-color:rgba(205,81,81,.5); }
+  .cinza{ background:rgba(204,197,188,.22); border-color:#ccc5bc; }
+  .t-verde{ color:#3f9e6a; } .t-amarelo{ color:#c07d1e; } .t-vermelho{ color:#cd5151; } .t-cinza{ color:rgba(13,69,74,.55); } .t-blue{ color:#368c82; }
+  button{ border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:700; cursor:pointer; width:100%; font-family:inherit; }
+  .btn-blue{ background:#00616f; color:#ffffff; }
+  .btn-green{ background:#368c82; color:#ffffff; }
+  .btn-gray{ background:#ffffff; color:#0d454a; border:1px solid #ccc5bc; }
+  .btn-wa{ background:#6cc680; color:#0d454a; }
+  .btn-sm{ padding:8px 12px; font-size:13px; width:auto; }
+  .btn-danger{ background:rgba(205,81,81,.12); color:#cd5151; border:1px solid rgba(205,81,81,.5); }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px; }
+  .actions3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:4px; }
+  .warn{ font-size:11px; color:rgba(13,69,74,.5); border-top:1px solid #ccc5bc; padding-top:10px; margin-top:12px; line-height:1.5; }
+  .tabs{ display:flex; gap:6px; margin:14px 0 16px; overflow-x:auto; padding-bottom:2px; }
+  .tab{ flex:0 0 auto; padding:9px 13px; border-radius:10px; background:#e5ded4; border:1px solid #ccc5bc; color:rgba(13,69,74,.72); font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:6px; }
+  .tab.on{ background:#00616f; border-color:#00616f; color:#ffffff; }
+  .tab .cnt{ background:rgba(255,255,255,.28); border-radius:99px; padding:0 7px; font-size:11px; }
+  .tab:not(.on) .cnt{ background:#ffffff; color:rgba(13,69,74,.6); }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-size:13px; padding:8px 12px; border-radius:99px; background:#ffffff; color:#0d454a; cursor:pointer; border:1px solid #ccc5bc; user-select:none; }
+  .chip.on{ background:rgba(0,97,111,.14); border-color:#00616f; color:#00616f; }
+  .seg{ display:flex; gap:6px; flex-wrap:wrap; }
+  .seg label{ flex:1 1 auto; text-align:center; padding:9px 8px; border-radius:10px; background:#ffffff; border:1px solid #ccc5bc; color:#0d454a; cursor:pointer; font-size:13px; font-weight:600; }
+  .seg label.on{ background:rgba(0,97,111,.14); border-color:#00616f; color:#00616f; }
+  .steps{ display:flex; gap:6px; margin-bottom:16px; }
+  .steps .s{ flex:1; height:5px; border-radius:99px; background:#ccc5bc; }
+  .steps .s.done{ background:#00616f; } .steps .s.cur{ background:#368c82; }
+  .scorebar{ height:8px; border-radius:99px; background:#ccc5bc; overflow:hidden; margin-top:6px; }
+  .scorebar > div{ height:100%; border-radius:99px; }
+  .bigscore{ font-size:26px; font-weight:800; line-height:1; }
+  .brand-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .brand-name{ font-size:16px; font-weight:800; color:#00616f; }
+  .brand-seg{ font-size:11px; color:rgba(13,69,74,.62); margin-top:2px; }
+  .metrics{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px; }
+  .metric{ background:#ffffff; border:1px solid #ccc5bc; border-radius:9px; padding:8px 10px; }
+  .metric .mk{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(13,69,74,.5); }
+  .metric .mv{ font-size:13px; font-weight:700; color:#0d454a; margin-top:2px; }
+  .reasons{ margin-top:12px; display:flex; flex-direction:column; gap:5px; }
+  .reason{ font-size:12px; line-height:1.4; display:flex; gap:7px; align-items:flex-start; color:#0d454a; }
+  .reason .ic{ flex:0 0 auto; }
+  .subscores{ display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; }
+  .ss{ font-size:10px; padding:3px 8px; border-radius:8px; background:#ffffff; border:1px solid #ccc5bc; color:rgba(13,69,74,.6); }
+  .ss b{ color:#0d454a; }
+  .hidden{ display:none; }
+  /* Modo investidor: só a Triagem fica visível; abas e demais views nunca aparecem */
+  html.investor #tabs,
+  html.investor #intakeCard,
+  html.investor #view-leads,
+  html.investor #view-plano,
+  html.investor #view-cruzamento,
+  html.investor #execNote{ display:none !important; }
+  a, .linklike{ color:#00616f; cursor:pointer; }
+  .linklike{ text-decoration:underline; font-size:12px; font-weight:600; }
+  .banner{ font-size:12px; line-height:1.5; background:rgba(0,97,111,.08); border:1px solid rgba(54,140,130,.35); border-radius:10px; padding:10px 12px; color:#0d454a; margin-bottom:14px; }
+  .empty{ text-align:center; color:rgba(13,69,74,.5); padding:26px 12px; font-size:13px; }
+  details summary{ cursor:pointer; font-size:12px; color:rgba(13,69,74,.6); padding:6px 0; }
+  .tag-mem{ font-size:10px; color:#c07d1e; } .tag-mem svg.ic{ width:10px; height:10px; margin-right:2px; vertical-align:-1px; }
+  .inv-card{ background:#e5ded4; border:1px solid #ccc5bc; border-radius:12px; padding:13px; margin-bottom:10px; }
+  .inv-top{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .inv-name{ font-size:15px; font-weight:800; color:#00616f; }
+  .inv-meta{ font-size:11px; color:rgba(13,69,74,.5); margin-top:2px; }
+  .status-pill{ font-size:10px; font-weight:700; padding:3px 9px; border-radius:99px; border:1px solid; cursor:pointer; white-space:nowrap; }
+  .st-novo{ color:#00616f; border-color:rgba(54,140,130,.45); background:rgba(54,140,130,.16); }
+  .st-contato{ color:#0d454a; border-color:rgba(237,167,84,.55); background:rgba(237,167,84,.28); }
+  .st-proposta{ color:#ffffff; border-color:#00616f; background:#00616f; }
+  .st-fechado{ color:#0d454a; border-color:rgba(108,198,128,.55); background:rgba(108,198,128,.28); }
+  .st-descartado{ color:rgba(13,69,74,.6); border-color:#ccc5bc; background:rgba(204,197,188,.35); }
+  .rec-mini{ font-size:12px; color:#0d454a; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+  .rec-tag{ background:#ffffff; border:1px solid #ccc5bc; border-radius:7px; padding:3px 8px; }
+  .toolbar{ display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+  .toolbar input, .toolbar select{ font-size:14px; padding:9px 10px; }
+  .toolbar .grow{ flex:1 1 160px; }
+  .addrow{ display:flex; gap:8px; margin-bottom:10px; }
+  .addrow .grow{ flex:1; }
+  .rm{ background:#ffffff; color:rgba(13,69,74,.6); border:1px solid #ccc5bc; border-radius:8px; width:40px; height:40px; padding:0; font-size:18px; line-height:1; flex:0 0 auto; }
+  .goalrow{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 10px; background:#ffffff; border:1px solid #ccc5bc; border-radius:10px; margin-bottom:8px; }
+  .goalrow .gn{ font-size:13px; font-weight:700; color:#00616f; }
+  .pt-card{ border:1px solid #ccc5bc; border-radius:12px; padding:12px; margin-bottom:10px; background:#ffffff; }
+  .pt-card .seg label{ font-size:12px; padding:7px 6px; }
+  .mixrow{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .mixrow .mixnum{ flex:0 0 auto; width:24px; height:24px; border-radius:99px; background:#00616f; color:#ffffff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .mixrow select{ flex:1; margin:0; }
+  .mixrow .rm{ width:34px; height:34px; font-size:16px; }
+  .mixrow .rmspacer{ width:34px; flex:0 0 auto; }
+  .mixadd{ background:#ffffff; border:1px dashed #ccc5bc; color:#00616f; font-size:13px; font-weight:700; border-radius:8px; padding:8px; margin-top:2px; }
+  .mixadd:hover{ border-color:#00616f; }
+  .mixdet summary{ font-size:12px; font-weight:700; color:#00616f; padding:6px 0; }
+  .codebox{ width:100%; min-height:90px; font-family:ui-monospace,Menlo,monospace; font-size:12px; word-break:break-all; }
+  .toast{ position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:#00616f; color:#ffffff; font-size:13px; font-weight:700; padding:10px 16px; border-radius:10px; box-shadow:0 8px 24px rgba(13,69,74,.28); opacity:0; transition:opacity .2s; pointer-events:none; z-index:50; }
+  .toast.show{ opacity:1; }
+  @media(max-width:520px){ .metrics{ grid-template-columns:1fr 1fr; } .grid2{ grid-template-columns:1fr; } }
+
+  /* ===== polimento profissional (ALLOS claro) ===== */
+  body{ background:#e5ded4; overflow-x:hidden; -webkit-font-smoothing:antialiased; padding-left:max(16px,env(safe-area-inset-left)); padding-right:max(16px,env(safe-area-inset-right)); }
+  .wrap{ max-width:720px; }
+  .brand{ display:flex; gap:12px; align-items:center; margin-bottom:6px; }
+  .brandmark{ width:42px; height:42px; border-radius:12px; background:#00616f; color:#fff; font-weight:800; font-size:22px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; box-shadow:0 6px 16px rgba(0,97,111,.28); }
+  h1{ letter-spacing:-.3px; }
+  .card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:16px; padding:18px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 12px 28px rgba(13,69,74,.06); }
+  .inv-card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:14px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 8px 20px rgba(13,69,74,.05); }
+  .metric, .rec-tag, .ss, .pt-card, .goalrow, .linkbox, .codebox{ background:#f1ece3; }
+  .metric{ border:1px solid #e3dccf; } .ss{ border:1px solid #e3dccf; } .rec-tag{ border:1px solid #e3dccf; }
+  input, select, textarea, .chip, .seg label, .btn-gray, .rm{ transition:border-color .15s ease, box-shadow .15s ease; }
+  input:focus, select:focus, textarea:focus{ border-color:#00616f; box-shadow:0 0 0 3px rgba(0,97,111,.13); }
+  button{ transition:transform .05s ease, box-shadow .15s ease, filter .15s ease; }
+  button:active{ transform:translateY(1px); }
+  .btn-blue{ box-shadow:0 6px 16px rgba(0,97,111,.22); } .btn-blue:hover{ filter:brightness(1.07); }
+  .btn-green:hover, .btn-wa:hover{ filter:brightness(1.05); } .btn-gray:hover{ border-color:#00616f; }
+  .tabs{ flex-wrap:wrap; overflow:visible; gap:8px; margin:16px 0 18px; }
+  .tab{ background:#ffffff; box-shadow:0 1px 2px rgba(13,69,74,.05); }
+  .tab.on{ box-shadow:0 6px 16px rgba(0,97,111,.24); }
+  .linkbox{ border:1px solid #ccc5bc; border-radius:10px; padding:9px 11px; font-size:12px; font-family:ui-monospace,Menlo,monospace; color:#0d454a; word-break:break-all; line-height:1.5; }
+  .codebox{ padding:10px 11px; }
+  .acard{ box-shadow:0 6px 18px rgba(13,69,74,.05); }
+  .status-pill{ box-shadow:0 1px 2px rgba(13,69,74,.05); }
+  @media(max-width:520px){
+    .brandmark{ width:38px; height:38px; font-size:20px; }
+    h1{ font-size:21px; }
+    .tab{ font-size:12.5px; padding:8px 11px; }
+    .btn-sm{ font-size:12.5px; padding:8px 10px; }
+    .actions3{ gap:8px; }
+  }
+
+  /* ===== fit iPhone / sem rolagem horizontal ===== */
+  html,body{ max-width:100%; }
+  .wrap, .brand, .brand>div{ min-width:0; max-width:100%; }
+  .sub{ overflow-wrap:anywhere; }
+  .tabs{ width:100%; }
+  .tab{ flex:1 1 142px; justify-content:center; min-width:0; }
+  .actions, .actions3{ min-width:0; }
+  .actions button, .actions3 button{ min-width:0; overflow:hidden; text-overflow:ellipsis; }
+
+  /* abas em 2x2 no celular (cabe sem rolagem) */
+  @media(max-width:520px){
+    #tabs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    #tabs .tab{ flex:none; }
+  }
+
+  /* status bar (relogio) + safe areas */
+  body{ padding-top:calc(16px + env(safe-area-inset-top)); padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
+  /* icones SVG monocromaticos */
+  svg.ic{ width:17px; height:17px; display:inline-block; flex:0 0 auto; vertical-align:-3px; stroke-width:2; }
+  .tab svg.ic{ width:16px; height:16px; vertical-align:-2px; }
+  .lblsec .n svg.ic{ width:12px; height:12px; vertical-align:0; }
+  .badge svg.ic{ width:11px; height:11px; vertical-align:-1px; margin-right:3px; stroke-width:2.2; }
+  button svg.ic{ margin-right:7px; }
+  .rec-tag svg.ic, .rec-mini svg.ic{ width:12px; height:12px; vertical-align:-2px; }
+  .brandmark svg.ic{ width:27px; height:27px; }
+</style>
+<style>
+  /* ===== específico do Radar de Operações ===== */
+  .fmt-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:10px; }
+  .fmt{ border:1px solid #ccc5bc; border-radius:12px; padding:10px; background:#f1ece3; }
+  .fmt.on{ border-color:#00616f; background:rgba(0,97,111,.10); box-shadow:0 0 0 2px rgba(0,97,111,.12); }
+  .fmt.off{ opacity:.55; }
+  .fmt .fn{ font-size:12px; font-weight:800; color:#00616f; }
+  .fmt .fv{ font-size:11px; color:rgba(13,69,74,.62); margin-top:3px; line-height:1.45; }
+  .fmt .ftag{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; font-weight:800; margin-top:6px; display:block; }
+  .route{ border-radius:14px; padding:16px; margin-bottom:14px; border:1px solid; }
+  .route .rt{ font-size:10px; text-transform:uppercase; letter-spacing:.07em; font-weight:800; }
+  .route .rn{ font-size:18px; font-weight:800; margin-top:3px; }
+  .route .rd{ font-size:12.5px; line-height:1.5; margin-top:6px; }
+  .route.a{ background:rgba(0,97,111,.12); border-color:rgba(0,97,111,.45); color:#0d454a; }
+  .route.b{ background:rgba(54,140,130,.14); border-color:rgba(54,140,130,.5); color:#0d454a; }
+  .route.c{ background:rgba(237,167,84,.18); border-color:rgba(237,167,84,.6); color:#0d454a; }
+  .route.s{ background:rgba(204,197,188,.35); border-color:#ccc5bc; color:#0d454a; }
+  .route.a .rn, .route.b .rn{ color:#00616f; } .route.c .rn{ color:#c07d1e; }
+  .pill{ font-size:10px; font-weight:800; padding:3px 9px; border-radius:99px; background:rgba(0,97,111,.12); color:#00616f; display:inline-block; }
+  .pill.q{ background:rgba(237,167,84,.28); color:#0d454a; }
+  .pill.s{ background:rgba(54,140,130,.2); color:#00616f; }
+  .pill.m{ background:rgba(108,198,128,.28); color:#0d454a; }
+  .st-triagem{ color:#00616f; border-color:rgba(54,140,130,.45); background:rgba(54,140,130,.16); }
+  .st-viabilidade{ color:#0d454a; border-color:rgba(237,167,84,.55); background:rgba(237,167,84,.28); }
+  .st-standby{ color:rgba(13,69,74,.7); border-color:#ccc5bc; background:rgba(204,197,188,.45); }
+  .ptline{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px; }
+  .ptline .grow{ flex:1 1 120px; }
+  .ptline input[type="number"]{ max-width:96px; }
+  @media(max-width:520px){ .fmt-grid{ grid-template-columns:1fr; } }
+</style>
+
+<div class="wrap">
+  <div class="brand">
+    <div class="brandmark" data-ic="planta" aria-hidden="true"></div>
+    <div>
+      <h1 id="appTitle">Radar de Operações</h1>
+      <p class="sub" id="appSub">Triagem de leads de shopping — <b>loja ou quiosque</b> conforme a área necessária e o capital disponível</p>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <div class="tab on" data-view="triagem" data-ic="clipboard">Triagem</div>
+    <div class="tab" data-view="leads" data-ic="users">Leads <span class="cnt" id="cntLead">0</span></div>
+    <div class="tab" data-view="plano" data-ic="map">Planejamento</div>
+    <div class="tab" data-view="cruzamento" data-ic="link">Cruzamento</div>
+  </nav>
+
+  <!-- ===================== VIEW: TRIAGEM ===================== -->
+  <section id="view-triagem">
+    <div id="intakeCard" class="card">
+      <div class="lblsec"><span class="n" data-ic="mail"></span> Ficha do operador — enviar &amp; receber</div>
+      <p class="hint" style="margin:-6px 0 12px;">Envie a ficha ao interessado, ele preenche no próprio celular e devolve. Ele vê <b>apenas</b> a ficha — planejamento, leads e cruzamento nunca são enviados.</p>
+      <div class="actions">
+        <button type="button" class="btn-gray" id="btnSendForm" data-ic="send">Enviar ficha</button>
+        <button type="button" class="btn-gray" id="btnRecvForm" data-ic="inbox">Receber resposta</button>
+      </div>
+      <div id="intakeOut" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="steps" id="steps"></div>
+    <div id="editBanner"></div>
+
+    <form id="form">
+      <div class="card">
+        <div class="lblsec"><span class="n">1</span> Lead entra em contato</div>
+        <div class="grid2">
+          <div class="field"><span class="lbl">Nome do interessado</span><input id="q_nome" placeholder="Nome"></div>
+          <div class="field"><span class="lbl">Contato (tel / e-mail)</span><input id="q_contato" placeholder="WhatsApp ou e-mail"></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><span class="lbl">Empresa / grupo</span><input id="q_empresa" placeholder="Razão social ou grupo"></div>
+          <div class="field">
+            <span class="lbl">Origem / como chegou</span>
+            <select id="q_origem">
+              <option value="">—</option>
+              <option>Indicação</option><option>Site / formulário do shopping</option>
+              <option>Feira / evento (ex.: ABF Franchising Expo)</option>
+              <option>Corretor / consultoria</option><option>Prospecção ativa</option>
+              <option>Balcão da administração</option><option>Redes sociais</option><option>Outro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">2</span> Triagem prévia — a operação</div>
+        <div class="field">
+          <span class="lbl">Qual é a operação pretendida?</span>
+          <div class="seg" data-seg="q_form">
+            <label data-v="indiferente">Não sei</label>
+            <label data-v="quiosque">Quiosque</label>
+            <label data-v="satelite">Loja satélite</label>
+            <label data-v="mega">Megaloja</label>
+          </div>
+          <div class="hint">Se marcar <b>não sei</b>, a ferramenta enquadra o formato pela área necessária e pelo capital disponível.</div>
+        </div>
+        <div class="field">
+          <span class="lbl">Marca própria ou franquia?</span>
+          <div class="seg" data-seg="q_tipo">
+            <label data-v="propria">Marca própria</label>
+            <label data-v="nova">Marca em criação</label>
+            <label data-v="franquia">Franqueado</label>
+            <label data-v="multi">Multifranqueado</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Já tem uma <b>marca</b> específica em mente? (opcional)</span>
+          <input id="q_marca" placeholder="ex.: Chilli Beans, Cacau Show, Havaianas…" list="oplist">
+          <datalist id="oplist"></datalist>
+        </div>
+        <div class="field">
+          <span class="lbl">Segmentos de interesse</span>
+          <div class="chips" id="chipsInt"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">3</span> Área, ticket e faturamento</div>
+        <div class="grid2">
+          <div class="field">
+            <span class="lbl">Metragem desejada (m²)</span>
+            <input id="q_area" type="number" inputmode="numeric" placeholder="ex.: 60">
+            <div class="hint">Deixe em branco se o lead não souber — o enquadramento sugere a área pelo capital.</div>
+          </div>
+          <div class="field">
+            <span class="lbl">Ticket médio (R$)</span>
+            <input id="q_ticket" type="number" inputmode="numeric" placeholder="ex.: 180">
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Previsão de faturamento do lead (R$/mês) — opcional</span>
+          <input id="q_fat" type="number" inputmode="numeric" placeholder="ex.: 90000">
+          <div class="hint">Comparada com a estimativa do shopping (venda por m² do segmento). Divergência acima de 25% vira alerta.</div>
+        </div>
+        <div class="field">
+          <span class="lbl">Possui apresentação ou projeto?</span>
+          <div class="seg" data-seg="q_material">
+            <label data-v="completo">Apresentação + projeto</label>
+            <label data-v="parcial">Só apresentação</label>
+            <label data-v="nenhum">Nada formalizado</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">4</span> Capacidade de investimento</div>
+        <div class="grid2">
+          <div class="field">
+            <span class="lbl">Capital para implantação (R$)</span>
+            <input id="q_capital" type="number" inputmode="numeric" placeholder="ex.: 450000">
+            <div class="hint">Obra, instalações, equipamentos, estoque inicial, taxa de franquia e projeto.</div>
+          </div>
+          <div class="field">
+            <span class="lbl">Capital de giro reservado (R$)</span>
+            <input id="q_giro" type="number" inputmode="numeric" placeholder="ex.: 90000">
+            <div class="hint">Reserva <b>além</b> da implantação até o ponto de equilíbrio.</div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Fonte do capital</span>
+          <div class="seg" data-seg="q_fonte">
+            <label data-v="proprio">Recursos próprios</label>
+            <label data-v="socio">Com sócio</label>
+            <label data-v="financiado">Parte financiada</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">5</span> Dedicação e quem opera</div>
+        <div class="field">
+          <span class="lbl">Disponibilidade para tocar o negócio</span>
+          <div class="seg" data-seg="q_tempo">
+            <label data-v="integral">Integral · operador</label>
+            <label data-v="parcial">Parcial · meio-período</label>
+            <label data-v="baixo">Baixa · investidor / à distância</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Vai operar pessoalmente ou contratar gerente?</span>
+          <div class="seg" data-seg="q_operacao">
+            <label data-v="dono">Eu na loja</label>
+            <label data-v="gerente">Contrato gerente</label>
+            <label data-v="misto">Misto</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">6</span> Experiência prévia</div>
+        <div class="field">
+          <span class="lbl">Já teve ou tocou algum negócio?</span>
+          <div class="seg" data-seg="q_exp">
+            <label data-v="nenhuma">Primeira vez</label>
+            <label data-v="gestao">Já geriu negócio/equipe</label>
+            <label data-v="setor">Experiência no varejo/setor</label>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <span class="lbl">Já é ou foi franqueado?</span>
+            <div class="seg" data-seg="q_franq"><label data-v="nao">Não</label><label data-v="sim">Sim</label></div>
+          </div>
+          <div class="field">
+            <span class="lbl">Já operou em shopping?</span>
+            <div class="seg" data-seg="q_shopping"><label data-v="nao">Não</label><label data-v="sim">Sim</label></div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Segmentos em que tem experiência (opcional)</span>
+          <div class="chips" id="chipsExp"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">7</span> Risco e objetivo</div>
+        <div class="grid2">
+          <div class="field">
+            <span class="lbl">Perfil de risco</span>
+            <div class="seg" data-seg="q_risco">
+              <label data-v="conservador">Conservador</label><label data-v="moderado">Moderado</label><label data-v="arrojado">Arrojado</label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="lbl">Principal objetivo</span>
+            <select id="q_objetivo">
+              <option value="renda">Gerar renda / novo trabalho</option>
+              <option value="passivo">Investimento (renda passiva)</option>
+              <option value="realizacao">Realização / marca que admira</option>
+              <option value="portfolio">Ampliar portfólio (já é franqueado)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn-gray" id="btnClear">Limpar</button>
+        <button type="submit" class="btn-green" id="btnRun">Enquadrar & recomendar ▸</button>
+      </div>
+    </form>
+
+    <div id="result" class="hidden"></div>
+  </section>
+
+  <!-- ===================== VIEW: LEADS ===================== -->
+  <section id="view-leads" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="users"></span> Banco de leads</div>
+      <div class="toolbar">
+        <input id="srch" class="grow" placeholder="Buscar por nome, empresa, marca ou segmento">
+        <select id="fstatus" class="grow">
+          <option value="">Todos os status</option>
+          <option value="novo">Novo</option><option value="triagem">Triagem</option>
+          <option value="viabilidade">Viabilidade</option><option value="proposta">Proposta</option>
+          <option value="standby">Standby</option><option value="fechado">Fechado</option>
+          <option value="descartado">Descartado</option>
+        </select>
+        <select id="fsaida" class="grow">
+          <option value="">Todas as saídas</option>
+          <option value="A">A · Negócio estruturado</option>
+          <option value="B">B · Investidor sem operação</option>
+          <option value="C">C · Segmento saturado</option>
+          <option value="S">Standby</option>
+        </select>
+      </div>
+      <div class="actions3">
+        <button class="btn-gray btn-sm" id="btnCsv" data-ic="download">CSV</button>
+        <button class="btn-gray btn-sm" id="btnJson" data-ic="download">Backup</button>
+        <button class="btn-gray btn-sm" id="btnImp" data-ic="upload">Importar</button>
+      </div>
+      <input type="file" id="fileJson" accept="application/json,.json" class="hidden">
+      <p class="hint" style="margin-top:10px;">Os leads ficam salvos neste navegador (<code>localStorage</code>). Use <b>Backup</b> para levar entre dispositivos.</p>
+    </div>
+    <div id="leadList"></div>
+  </section>
+
+  <!-- ===================== VIEW: PLANEJAMENTO ===================== -->
+  <section id="view-plano" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="chart"></span> Parâmetros do empreendimento</div>
+      <p class="hint" style="margin-bottom:12px;">Referências usadas no enquadramento de formato e no <b>CTO estimado</b>. Ajuste com os números reais do seu shopping — ficam salvos no navegador.</p>
+      <div id="paramBox"></div>
+      <button class="btn-gray btn-sm" id="btnParamReset" style="margin-top:8px;">Restaurar padrão</button>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="map"></span> Pontos do shopping</div>
+      <p class="hint" style="margin-bottom:12px;">Cadastre cada ponto com <b>área</b> e <b>tipologia</b>. Pontos ocupados informam a marca; pontos vagos recebem até 3 opções de mix desejado, em ordem de prioridade.</p>
+      <div class="addrow">
+        <input id="newPt" class="grow" placeholder="Nome do ponto (ex.: L-118 · Piso 1)">
+        <button class="btn-gray btn-sm" id="btnAddPt" style="flex:0 0 auto;">Adicionar</button>
+      </div>
+      <div id="ptList"></div>
+      <div id="planSummary" class="warn"></div>
+    </div>
+  </section>
+
+  <!-- ===================== VIEW: CRUZAMENTO ===================== -->
+  <section id="view-cruzamento" class="hidden">
+    <div id="crossOut"></div>
+  </section>
+
+  <p class="warn" id="execNote">Valores de implantação, faturamento por m², payback, royalties e fundo de promoção são <b>referências</b> compiladas de material público (ABF · PEGN) e de práticas de mercado de shopping. Confirme na COF e na proposta comercial antes de qualquer decisão. Ferramenta de apoio — não substitui análise financeira formal.</p>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+/* ============================================================
+   RADAR DE OPERAÇÕES — dados de referência
+   Mesma metodologia do Radar Quiosques (public/quiosques.html),
+   estendida para lojas: o formato (quiosque · satélite · megaloja)
+   é decidido pela ÁREA necessária e pelo CAPITAL disponível.
+   ============================================================ */
+const SEGMENTS = [
+  "Vestuário feminino","Vestuário masculino","Moda íntima & praia","Calçados & bolsas",
+  "Acessórios & bijuterias","Joalheria & relógios","Óticas","Cosméticos & perfumaria",
+  "Casa & decoração","Eletro & tech","Acessórios de celular & tech","Esporte",
+  "Infantil","Pet","Livraria & papelaria","Presentes & utilidades",
+  "Chocolates & doces","Snacks & castanhas","Cafeteria & padaria","Sorvetes & açaí",
+  "Alimentação — praça","Restaurante","Serviços & bem-estar","Saúde","Entretenimento"
+];
+
+/* form: quiosque | satelite | mega   ·   aMin/aMax: faixa de área (m²)
+   taxa: taxa de franquia/entrada (R$)   ·   cm2: implantação por m² (R$)
+   fm2: faturamento por m²/mês (R$)      ·   gp: giro sugerido (% da implantação)
+   tempo: dono|gerente|passivo · exp: iniciante|intermediario|avancado · compl 1–5 */
+const BASE_OPS = [
+  /* ---------- QUIOSQUES ---------- */
+  {n:"Cacau Show",seg:"Chocolates & doces",form:"quiosque",aMin:4,aMax:9,taxa:30000,cm2:15000,fm2:10000,gp:.21,payback:24,roy:0,fpp:0,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Maior rede de chocolates finos do país; quiosque express de alto giro."},
+  {n:"Chocolates Brasil Cacau",seg:"Chocolates & doces",form:"quiosque",aMin:4,aMax:9,taxa:35000,cm2:19000,fm2:11500,gp:.20,payback:28,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Chocolate acessível, forte em datas comemorativas."},
+  {n:"Kopenhagen",seg:"Chocolates & doces",form:"quiosque",aMin:5,aMax:10,taxa:60000,cm2:36000,fm2:18000,gp:.16,payback:30,roy:7,fpp:2,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Chocolate premium; ticket alto e público AB."},
+  {n:"Amor aos Pedaços",seg:"Chocolates & doces",form:"quiosque",aMin:5,aMax:10,taxa:40000,cm2:25000,fm2:14000,gp:.18,payback:30,roy:6,fpp:3,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Doces e bolos premium; forte em presentes."},
+  {n:"Brigaderia",seg:"Chocolates & doces",form:"quiosque",aMin:3,aMax:7,taxa:25000,cm2:17000,fm2:9500,gp:.20,payback:26,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Brigadeiros gourmet; operação compacta."},
+  {n:"Nutty Bavarian",seg:"Snacks & castanhas",form:"quiosque",aMin:4,aMax:8,taxa:25000,cm2:14000,fm2:9000,gp:.19,payback:20,roy:6,fpp:2,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Castanhas caramelizadas na hora; aroma como atrativo."},
+  {n:"Balonè",seg:"Snacks & castanhas",form:"quiosque",aMin:4,aMax:9,taxa:30000,cm2:17000,fm2:9200,gp:.19,payback:24,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Pipoca gourmet, doces e presentes; alto apelo impulsivo."},
+  {n:"Casa do Pão de Queijo",seg:"Cafeteria & padaria",form:"quiosque",aMin:6,aMax:12,taxa:35000,cm2:17000,fm2:8000,gp:.19,payback:26,roy:5,fpp:2,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Pão de queijo, cafés e salgados; tráfego o dia todo."},
+  {n:"Croasonho",seg:"Cafeteria & padaria",form:"quiosque",aMin:5,aMax:10,taxa:35000,cm2:19000,fm2:9000,gp:.18,payback:28,roy:5,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Croissants recheados na hora; forte no lanche da tarde."},
+  {n:"Mr. Cheney",seg:"Cafeteria & padaria",form:"quiosque",aMin:5,aMax:10,taxa:40000,cm2:20000,fm2:9600,gp:.18,payback:28,roy:6,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Cookies americanos e cafés; público jovem."},
+  {n:"The Coffee",seg:"Cafeteria & padaria",form:"quiosque",aMin:6,aMax:12,taxa:50000,cm2:24000,fm2:11000,gp:.18,payback:26,roy:7,fpp:2,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Café de especialidade; formato compacto e alto giro."},
+  {n:"Grão Espresso",seg:"Cafeteria & padaria",form:"quiosque",aMin:5,aMax:10,taxa:30000,cm2:18000,fm2:8000,gp:.19,payback:26,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Café e snacks em quiosque; operação simples."},
+  {n:"Rei do Mate",seg:"Cafeteria & padaria",form:"quiosque",aMin:5,aMax:10,taxa:28000,cm2:16000,fm2:7500,gp:.19,payback:24,roy:6,fpp:4,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Mate gelado, sucos e salgados; marca tradicional."},
+  {n:"Oakberry",seg:"Sorvetes & açaí",form:"quiosque",aMin:5,aMax:11,taxa:45000,cm2:20000,fm2:11000,gp:.18,payback:24,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Açaí premium com marca global; sazonalidade no verão."},
+  {n:"Los Paleteros",seg:"Sorvetes & açaí",form:"quiosque",aMin:4,aMax:8,taxa:25000,cm2:16000,fm2:8000,gp:.20,payback:26,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Paletas mexicanas artesanais; apelo visual e impulsivo."},
+  {n:"Bacio di Latte",seg:"Sorvetes & açaí",form:"quiosque",aMin:6,aMax:12,taxa:60000,cm2:28000,fm2:13000,gp:.18,payback:30,roy:5,fpp:2,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Gelato italiano premium; ticket alto, operação exigente."},
+  {n:"Morana",seg:"Acessórios & bijuterias",form:"quiosque",aMin:4,aMax:9,taxa:28000,cm2:15000,fm2:8500,gp:.18,payback:24,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Bijuterias e acessórios femininos; líder em quiosque."},
+  {n:"Chilli Beans",seg:"Acessórios & bijuterias",form:"quiosque",aMin:5,aMax:10,taxa:40000,cm2:20000,fm2:11000,gp:.18,payback:26,roy:8,fpp:4,tempo:"gerente",exp:"intermediario",compl:2,abf:1,pegn:1,desc:"Óculos e acessórios; marca desejo, coleções frequentes."},
+  {n:"Uatt?",seg:"Presentes & utilidades",form:"quiosque",aMin:5,aMax:10,taxa:30000,cm2:18000,fm2:9000,gp:.20,payback:26,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Presentes criativos; campeão de compra por impulso."},
+  {n:"Life by Vivara",seg:"Joalheria & relógios",form:"quiosque",aMin:5,aMax:10,taxa:55000,cm2:28000,fm2:14000,gp:.16,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Braço acessível da Vivara; joias e Life charms."},
+  {n:"Monreale",seg:"Joalheria & relógios",form:"quiosque",aMin:4,aMax:9,taxa:35000,cm2:20000,fm2:11000,gp:.18,payback:28,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Joias em prata e semijoias; forte presença em quiosque."},
+  {n:"Água de Cheiro",seg:"Cosméticos & perfumaria",form:"quiosque",aMin:4,aMax:8,taxa:22000,cm2:14000,fm2:7500,gp:.20,payback:24,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Perfumaria e cosméticos nacionais; marca tradicional."},
+  {n:"Amakha Paris",seg:"Cosméticos & perfumaria",form:"quiosque",aMin:3,aMax:6,taxa:12000,cm2:9000,fm2:6000,gp:.22,payback:20,roy:0,fpp:0,tempo:"dono",exp:"iniciante",compl:1,abf:1,pegn:0,desc:"Perfumaria de baixo investimento; entrada acessível."},
+  {n:"Doctor Feet",seg:"Serviços & bem-estar",form:"quiosque",aMin:6,aMax:12,taxa:25000,cm2:13000,fm2:5500,gp:.19,payback:24,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Podologia e cuidados com os pés; serviço recorrente."},
+  {n:"The Case",seg:"Acessórios de celular & tech",form:"quiosque",aMin:4,aMax:9,taxa:25000,cm2:16000,fm2:9000,gp:.20,payback:24,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Capas e acessórios para celular; compra por impulso."},
+  {n:"iPlace",seg:"Acessórios de celular & tech",form:"quiosque",aMin:8,aMax:16,taxa:80000,cm2:34000,fm2:19000,gp:.17,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:1,desc:"Apple Premium Reseller; estoque alto, gestão robusta."},
+
+  /* ---------- LOJAS SATÉLITE ---------- */
+  {n:"Chilli Beans Store",seg:"Acessórios & bijuterias",form:"satelite",aMin:25,aMax:50,taxa:60000,cm2:6500,fm2:2100,gp:.20,payback:30,roy:8,fpp:4,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Loja da marca de óculos; vitrine forte e coleções mensais."},
+  {n:"Cacau Show Loja",seg:"Chocolates & doces",form:"satelite",aMin:25,aMax:50,taxa:50000,cm2:5500,fm2:1900,gp:.22,payback:28,roy:0,fpp:0,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Formato loja da maior rede de chocolates; picos em datas."},
+  {n:"Arezzo",seg:"Calçados & bolsas",form:"satelite",aMin:60,aMax:120,taxa:90000,cm2:5200,fm2:1500,gp:.22,payback:34,roy:5,fpp:2,tempo:"gerente",exp:"avancado",compl:3,abf:1,pegn:1,desc:"Calçados e bolsas femininos; giro por coleção, público AB."},
+  {n:"Anacapri",seg:"Calçados & bolsas",form:"satelite",aMin:45,aMax:90,taxa:70000,cm2:4800,fm2:1300,gp:.22,payback:32,roy:5,fpp:2,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Calçados femininos casuais; ticket médio acessível."},
+  {n:"Usaflex",seg:"Calçados & bolsas",form:"satelite",aMin:45,aMax:85,taxa:55000,cm2:4200,fm2:1150,gp:.22,payback:30,roy:5,fpp:2,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Calçados de conforto; público 40+, recompra alta."},
+  {n:"Havaianas",seg:"Calçados & bolsas",form:"satelite",aMin:40,aMax:80,taxa:70000,cm2:5000,fm2:1600,gp:.20,payback:30,roy:5,fpp:3,tempo:"gerente",exp:"intermediario",compl:2,abf:1,pegn:1,desc:"Marca global de chinelos; forte sazonalidade de verão."},
+  {n:"Hering Store",seg:"Vestuário feminino",form:"satelite",aMin:90,aMax:170,taxa:100000,cm2:4300,fm2:1050,gp:.24,payback:36,roy:4,fpp:2,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Básicos de vestuário para toda a família; giro estável."},
+  {n:"Reserva",seg:"Vestuário masculino",form:"satelite",aMin:80,aMax:150,taxa:120000,cm2:5800,fm2:1450,gp:.24,payback:38,roy:6,fpp:3,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:1,desc:"Moda masculina premium-casual; comunidade de marca forte."},
+  {n:"Colcci",seg:"Vestuário feminino",form:"satelite",aMin:80,aMax:150,taxa:110000,cm2:5600,fm2:1400,gp:.24,payback:38,roy:5,fpp:3,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:0,desc:"Moda feminina fashion; coleção rápida, vitrine decisiva."},
+  {n:"Lupo",seg:"Moda íntima & praia",form:"satelite",aMin:40,aMax:80,taxa:60000,cm2:4000,fm2:1100,gp:.22,payback:32,roy:5,fpp:2,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Meias e moda íntima; recompra frequente e ticket baixo."},
+  {n:"Puket",seg:"Moda íntima & praia",form:"satelite",aMin:40,aMax:75,taxa:65000,cm2:4600,fm2:1250,gp:.22,payback:32,roy:5,fpp:3,tempo:"gerente",exp:"intermediario",compl:2,abf:1,pegn:1,desc:"Pijamas, meias e presentes; forte apelo em datas."},
+  {n:"Imaginarium",seg:"Presentes & utilidades",form:"satelite",aMin:40,aMax:75,taxa:70000,cm2:5000,fm2:1350,gp:.24,payback:32,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Presentes criativos; picos em Natal e Dia dos Namorados."},
+  {n:"Vivara",seg:"Joalheria & relógios",form:"satelite",aMin:45,aMax:85,taxa:150000,cm2:8500,fm2:2600,gp:.20,payback:36,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:1,desc:"Maior joalheria do país; estoque de alto valor e segurança."},
+  {n:"Óticas Carol",seg:"Óticas",form:"satelite",aMin:30,aMax:65,taxa:60000,cm2:5200,fm2:1500,gp:.20,payback:30,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Óculos de grau e solar; serviço técnico e recompra."},
+  {n:"O Boticário",seg:"Cosméticos & perfumaria",form:"satelite",aMin:40,aMax:80,taxa:70000,cm2:5000,fm2:1800,gp:.22,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Perfumaria e cosméticos; a rede mais capilarizada do Brasil."},
+  {n:"Mundo Verde",seg:"Saúde",form:"satelite",aMin:50,aMax:95,taxa:65000,cm2:4200,fm2:1250,gp:.24,payback:32,roy:5,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Produtos naturais e suplementos; consultor no balcão."},
+  {n:"Track&Field",seg:"Esporte",form:"satelite",aMin:60,aMax:120,taxa:110000,cm2:5400,fm2:1400,gp:.24,payback:36,roy:6,fpp:3,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:1,desc:"Moda esportiva premium; comunidade e eventos de corrida."},
+  {n:"Ri Happy",seg:"Infantil",form:"satelite",aMin:90,aMax:180,taxa:100000,cm2:4000,fm2:1100,gp:.26,payback:36,roy:5,fpp:3,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Brinquedos; forte sazonalidade (Dia das Crianças e Natal)."},
+  {n:"Multi Coisas",seg:"Casa & decoração",form:"satelite",aMin:60,aMax:120,taxa:70000,cm2:3800,fm2:1000,gp:.26,payback:34,roy:5,fpp:2,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Utilidades domésticas; mix amplo e ticket baixo."},
+  {n:"Espaçolaser",seg:"Serviços & bem-estar",form:"satelite",aMin:35,aMax:70,taxa:90000,cm2:6000,fm2:1900,gp:.18,payback:28,roy:6,fpp:3,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Depilação a laser; receita recorrente por pacotes."},
+  {n:"Subway",seg:"Alimentação — praça",form:"satelite",aMin:30,aMax:60,taxa:70000,cm2:8500,fm2:4200,gp:.18,payback:30,roy:8,fpp:5,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:0,desc:"Sanduíches montados na hora; operação de praça de alimentação."},
+  {n:"Giraffas",seg:"Alimentação — praça",form:"satelite",aMin:50,aMax:110,taxa:80000,cm2:8000,fm2:3800,gp:.18,payback:32,roy:6,fpp:4,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Refeições rápidas brasileiras; almoço como pico."},
+  {n:"Spoleto",seg:"Alimentação — praça",form:"satelite",aMin:50,aMax:100,taxa:75000,cm2:8200,fm2:4000,gp:.18,payback:30,roy:7,fpp:4,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Massas montadas na hora; alta rotatividade no almoço."},
+  {n:"Sodiê Doces",seg:"Cafeteria & padaria",form:"satelite",aMin:60,aMax:110,taxa:60000,cm2:6000,fm2:2200,gp:.20,payback:28,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Bolos por fatia e inteiros; forte em festas e encomendas."},
+
+  /* ---------- MEGALOJAS / ÂNCORAS ---------- */
+  {n:"Centauro",seg:"Esporte",form:"mega",aMin:400,aMax:900,taxa:0,cm2:3200,fm2:700,gp:.26,payback:42,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:5,abf:0,pegn:0,desc:"Megaloja esportiva; exige capital e gestão de estoque robustos."},
+  {n:"Smart Fit",seg:"Entretenimento",form:"mega",aMin:700,aMax:1600,taxa:150000,cm2:2600,fm2:320,gp:.22,payback:42,roy:6,fpp:3,tempo:"gerente",exp:"avancado",compl:5,abf:1,pegn:1,desc:"Academia de baixo custo; receita recorrente por mensalidade."},
+  {n:"Kalunga",seg:"Livraria & papelaria",form:"mega",aMin:300,aMax:700,taxa:0,cm2:2800,fm2:600,gp:.28,payback:40,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:4,abf:0,pegn:0,desc:"Papelaria e informática; pico na volta às aulas."},
+  {n:"Petz",seg:"Pet",form:"mega",aMin:300,aMax:700,taxa:0,cm2:3400,fm2:750,gp:.26,payback:40,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:5,abf:0,pegn:0,desc:"Pet shop com banho, tosa e clínica; recorrência alta."},
+  {n:"Livraria Leitura",seg:"Livraria & papelaria",form:"mega",aMin:250,aMax:600,taxa:120000,cm2:3000,fm2:620,gp:.28,payback:42,roy:5,fpp:2,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:0,desc:"Livraria com café; gera fluxo e tempo de permanência."},
+  {n:"Madero",seg:"Restaurante",form:"mega",aMin:180,aMax:400,taxa:200000,cm2:9000,fm2:2200,gp:.20,payback:44,roy:5,fpp:2,tempo:"gerente",exp:"avancado",compl:5,abf:1,pegn:1,desc:"Restaurante full-service; obra pesada (cozinha, exaustão, gás)."},
+  {n:"Outback",seg:"Restaurante",form:"mega",aMin:280,aMax:500,taxa:250000,cm2:10000,fm2:2400,gp:.20,payback:48,roy:5,fpp:3,tempo:"gerente",exp:"avancado",compl:5,abf:0,pegn:0,desc:"Casual dining âncora de gastronomia; fila como atrativo."},
+  {n:"Cinesystem",seg:"Entretenimento",form:"mega",aMin:1200,aMax:3000,taxa:0,cm2:2400,fm2:180,gp:.24,payback:60,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:5,abf:0,pegn:0,desc:"Complexo de cinema; gerador de fluxo noturno e de fim de semana."}
+];
+
+const DEFAULT_PARAMS = {
+  /* implantação de referência (R$/m²) quando a marca não está na base */
+  cmQuiosque:16000, cmSatelite:5000, cmMega:3000,
+  /* faixas de área por formato (m²) */
+  qMax:12, sMin:20, sMax:150, mMin:150,
+  /* CTO: aluguel mínimo e condomínio (R$/m²/mês) + FPP (% do aluguel) + taxas (% do CTO) */
+  aluQuiosque:1200, conQuiosque:250,
+  aluSatelite:115, conSatelite:55,
+  aluMega:55, conMega:30,
+  fpp:10, taxas:4
+};
+
+const DEFAULT_POINTS = [
+  {id:"p1", nome:"L-118 · Piso 1", form:"satelite", area:75, status:"vago", marca:"", mix:["Vestuário feminino","Calçados & bolsas","Cosméticos & perfumaria"]},
+  {id:"p2", nome:"L-232 · Piso 2", form:"satelite", area:140, status:"vago", marca:"", mix:["Esporte","Vestuário masculino"]},
+  {id:"p3", nome:"Q-07 · Praça central", form:"quiosque", area:7, status:"vago", marca:"", mix:["Cafeteria & padaria","Chocolates & doces"]},
+  {id:"p4", nome:"Q-11 · Corredor âncora", form:"quiosque", area:6, status:"ocupado", marca:"Morana", mix:[]},
+  {id:"p5", nome:"M-01 · Piso 1 (ex-âncora)", form:"mega", area:420, status:"vago", marca:"", mix:["Entretenimento","Pet"]},
+  {id:"p6", nome:"L-104 · Piso 1", form:"satelite", area:60, status:"ocupado", marca:"O Boticário", mix:[]}
+];
+
+/* ============================================================
+   ESTADO & PERSISTÊNCIA
+   ============================================================ */
+const LS = { plan:"radarOperacoes.plan.v1", leads:"radarOperacoes.leads.v1", params:"radarOperacoes.params.v1" };
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+
+let PARAMS = Object.assign({}, DEFAULT_PARAMS, lsGet(LS.params)||{});
+let PLAN   = lsGet(LS.plan) || { points: JSON.parse(JSON.stringify(DEFAULT_POINTS)) };
+if(!Array.isArray(PLAN.points)) PLAN.points = JSON.parse(JSON.stringify(DEFAULT_POINTS));
+let LEADS  = lsGet(LS.leads) || [];
+if(!Array.isArray(LEADS)) LEADS = [];
+const OPS = BASE_OPS;
+let editingId = null;
+let INVESTOR_MODE = false;
+const state = { seg:{}, exp:new Set(), int:new Set() };
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function escHtml(v){ return String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function normalize(str){ return (str||"").toString().trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+function money(v){ return "R$ "+Math.round(v||0).toLocaleString("pt-BR"); }
+function moneyK(v){ v=Math.round(v||0); return v>=1000000 ? "R$ "+(v/1000000).toFixed(1).replace(".",",")+" mi" : v>=1000 ? "R$ "+Math.round(v/1000)+" mil" : "R$ "+v; }
+function m2(v){ return Math.round(v||0).toLocaleString("pt-BR")+" m²"; }
+function pct(v){ return (Math.round((v||0)*1000)/10).toString().replace(".",",")+"%"; }
+function newId(p){ return (p||"id")+"_"+Date.now().toString(36)+"_"+Math.floor(Math.random()*1e4).toString(36); }
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1600); }
+function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):"—"; }
+const FORM_LABEL = { quiosque:"Quiosque", satelite:"Loja satélite", mega:"Megaloja" };
+const FORM_PILL  = { quiosque:"q", satelite:"s", mega:"m" };
+function labelTempo(v){ return {integral:"Integral",parcial:"Parcial",baixo:"Baixa dedicação"}[v]||"—"; }
+function labelOper(v){ return {dono:"opera pessoalmente",gerente:"contrata gerente",misto:"misto"}[v]||"—"; }
+function labelExp(v){ return {nenhuma:"Primeira vez",gestao:"Já geriu negócio",setor:"Experiência no setor"}[v]||"—"; }
+function labelTipo(v){ return {propria:"Marca própria",nova:"Marca em criação",franquia:"Franqueado",multi:"Multifranqueado"}[v]||"—"; }
+const ICONS={clipboard:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="4" rx="1"/><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M9 13l2 2 4-4"/></svg>',users:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',map:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>',link:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2-2a5 5 0 1 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-2 2a5 5 0 1 0 7.07 7.07l1-1"/></svg>',star:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>',chart:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-3"/><path d="M12 16v-6"/><path d="M17 16v-9"/></svg>',download:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>',upload:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>',target:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg>',mail:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',send:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>',inbox:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>',check:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',planta:'<svg class="ic" viewBox="0 0 100 100" fill="none"><rect x="50" y="44" width="32" height="38" rx="2" fill="#6cc680"/><path d="M46 14 L46 86 M14 50 L46 50 M46 40 L86 40" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M24 86 L18 86 A4 4 0 0 1 14 82 L14 18 A4 4 0 0 1 18 14 L82 14 A4 4 0 0 1 86 18 L86 82 A4 4 0 0 1 82 86 L38 86" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 79 C66 79 77.5 65 77.5 58 A11.5 11.5 0 1 0 54.5 58 C54.5 65 66 79 66 79 Z" fill="currentColor"/><circle cx="66" cy="57.5" r="4.8" fill="#00616f"/></svg>'};
+function applyIcons(root){ (root||document).querySelectorAll('[data-ic]').forEach(el=>{ if(el.dataset.icd) return; el.dataset.icd="1"; const svg=ICONS[el.getAttribute('data-ic')]; if(!svg) return; if(el.classList.contains('n')) el.innerHTML=svg; else el.insertAdjacentHTML('afterbegin', svg); }); }
+
+/* ============================================================
+   PLANEJAMENTO — estatísticas por segmento
+   ============================================================ */
+let SEGSTATS={}, PRESENT=new Set();
+function recomputeSegStats(){
+  SEGSTATS={}; SEGMENTS.forEach(s=>SEGSTATS[s]={atual:0,demand:0,top:false,areas:[]});
+  PRESENT=new Set();
+  (PLAN.points||[]).forEach(p=>{
+    if(p.status==="ocupado"){
+      if(p.marca) PRESENT.add(normalize(p.marca));
+      const op=findOp(p.marca); if(op&&SEGSTATS[op.seg]) SEGSTATS[op.seg].atual++;
+    } else {
+      (p.mix||[]).forEach((s,i)=>{ if(!s||!SEGSTATS[s]) return; SEGSTATS[s].demand += (i===0?2:1); if(i===0) SEGSTATS[s].top=true; SEGSTATS[s].areas.push(p.area||0); });
+    }
+  });
+}
+function findOp(name){ return OPS.find(o=>normalize(o.n)===normalize(name)); }
+function vacantPoints(){ return (PLAN.points||[]).filter(p=>p.status==="vago"); }
+
+/* ============================================================
+   ENQUADRAMENTO DE FORMATO (área × capital)
+   ============================================================ */
+function formParams(form){
+  if(form==="quiosque") return {cm:PARAMS.cmQuiosque, alu:PARAMS.aluQuiosque, con:PARAMS.conQuiosque, min:2, max:PARAMS.qMax};
+  if(form==="mega")     return {cm:PARAMS.cmMega,     alu:PARAMS.aluMega,     con:PARAMS.conMega,     min:PARAMS.mMin, max:3000};
+  return {cm:PARAMS.cmSatelite, alu:PARAMS.aluSatelite, con:PARAMS.conSatelite, min:PARAMS.sMin, max:PARAMS.sMax};
+}
+function formatByArea(area){
+  if(!area) return "";
+  if(area<=PARAMS.qMax) return "quiosque";
+  if(area< PARAMS.mMin) return "satelite";
+  return "mega";
+}
+function ctoFor(form, area, fat){
+  const p=formParams(form);
+  const aluguel=p.alu*area, cond=p.con*area;
+  const fppV=aluguel*(PARAMS.fpp/100);
+  const base=aluguel+cond+fppV;
+  const taxasV=base*(PARAMS.taxas/100);
+  const cto=base+taxasV;
+  return { cto, aluguel, cond, fppV, taxasV, pct: fat>0 ? cto/fat : 0 };
+}
+function fm2Ref(form, segs){
+  let pool=OPS.filter(o=>o.form===form);
+  if(segs&&segs.length){ const f=pool.filter(o=>segs.includes(o.seg)); if(f.length) pool=f; }
+  if(!pool.length) return 0;
+  return Math.round(pool.reduce((a,o)=>a+o.fm2,0)/pool.length);
+}
+/* Analisa os três formatos para o capital e a área informados */
+function enquadrar(lead){
+  const capital=lead.capital||0, segs=lead.intSegs||[];
+  const expOk = lead.exp==="setor"||lead.exp==="gestao"||lead.franq==="sim"||lead.tipo==="multi";
+  const forms=["quiosque","satelite","mega"].map(form=>{
+    const p=formParams(form);
+    const areaViavel=Math.floor(capital/p.cm);
+    const cabe=areaViavel>=p.min;
+    const areaAlvo=clamp(lead.area||Math.min(areaViavel||p.min, form==="quiosque"?7:form==="satelite"?70:350), p.min, p.max);
+    const areaEfetiva=cabe?clamp(Math.min(areaViavel,areaAlvo), p.min, p.max):p.min;
+    const fm2=fm2Ref(form,segs);
+    const fat=fm2*areaEfetiva;
+    const c=ctoFor(form,areaEfetiva,fat);
+    const invest=p.cm*areaEfetiva;
+    const bloq = (form==="mega"&&!expOk) ? "exige gestão comprovada" : "";
+    return { form, cm:p.cm, faixa:[p.min,p.max], areaViavel, cabe, bloq, areaEfetiva, fat, invest, cto:c.cto, ctoPct:c.pct };
+  });
+  const byForm=f=>forms.find(x=>x.form===f);
+  let escolhido="", motivo="";
+  const pedido=lead.form&&lead.form!=="indiferente"?lead.form:"";
+  const porArea=formatByArea(lead.area);
+  if(pedido){
+    escolhido=pedido; motivo="formato pedido pelo lead";
+    if(!byForm(pedido).cabe){ motivo="formato pedido não cabe no capital"; }
+  } else if(porArea){
+    escolhido=porArea; motivo="área declarada de "+m2(lead.area);
+    if(!byForm(porArea).cabe) motivo="área declarada não cabe no capital";
+  } else {
+    const viaveis=forms.filter(f=>f.cabe&&!f.bloq).slice().sort((a,b)=>(b.fat-b.cto)-(a.fat-a.cto));
+    if(viaveis.length){ escolhido=viaveis[0].form; motivo="melhor uso do capital disponível (maior margem estimada sobre o CTO)"; }
+    else { escolhido="quiosque"; motivo="capital abaixo do mínimo de qualquer tipologia"; }
+  }
+  /* rebaixamento quando o capital não cobre o formato escolhido */
+  let rebaixado="";
+  if(!byForm(escolhido).cabe){
+    const ordem=["mega","satelite","quiosque"];
+    const alt=ordem.slice(ordem.indexOf(escolhido)+1).find(f=>byForm(f).cabe);
+    if(alt){ rebaixado=escolhido; escolhido=alt; }
+  }
+  const bloqueio=byForm(escolhido).bloq;
+  if(bloqueio) motivo+=" — atenção: "+bloqueio;
+  const viavel=byForm(escolhido).cabe;
+  return { forms, escolhido, motivo, rebaixado, viavel, bloqueio, area:byForm(escolhido).areaEfetiva, alvo:lead.area||0 };
+}
+
+/* ============================================================
+   MOTOR DE MATCHING (mesma metodologia do Radar Quiosques)
+   Pesos: financeiro é a trava; área/formato entra como dimensão
+   própria porque decide a tipologia de ponto ofertável.
+   ============================================================ */
+const W = { fin:30, giro:14, exp:16, interesse:12, area:18, tempo:5, risco:5 };
+const WSUM = Object.values(W).reduce((a,b)=>a+b,0);
+
+function scoreOp(lead, op){
+  const parts={}, reasons=[];
+  const capital=lead.capital||0, giro=lead.giro||0;
+  const mid=Math.round((op.aMin+op.aMax)/2);
+  const areaAlvo=clamp(lead.area||mid, op.aMin, op.aMax);
+  const investAlvo=op.taxa+op.cm2*areaAlvo;
+  const giroNec=Math.round(investAlvo*op.gp);
+  const fat=op.fm2*areaAlvo;
+  const c=ctoFor(op.form, areaAlvo, fat);
+  const areaViavel=Math.floor(Math.max(0,(capital-op.taxa))/op.cm2);
+
+  /* --- financeiro (trava) --- */
+  let fin;
+  if(capital<=0){ fin=50; }
+  else{ const r=capital/investAlvo;
+    if(r<0.85){ fin=Math.max(0,60*r); reasons.push(["✗","t-vermelho",`Implantação de ${moneyK(investAlvo)} (${m2(areaAlvo)}) acima do capital de ${moneyK(capital)}.`]); }
+    else if(r<1){ fin=70; reasons.push(["△","t-amarelo",`Implantação ${moneyK(investAlvo)} no limite do capital — margem apertada.`]); }
+    else if(r<=1.8){ fin=100; reasons.push(["✓","t-verde",`Implantação ${moneyK(investAlvo)} cabe no capital com folga saudável.`]); }
+    else if(r<=3){ fin=88; }
+    else { fin=72; reasons.push(["△","t-cinza",`Capital bem acima do necessário — poderia mirar metragem ou formato maior.`]); }
+  }
+  parts.fin=fin;
+
+  /* --- capital de giro --- */
+  let g;
+  if(giro<=0){ g=45; reasons.push(["△","t-amarelo",`Capital de giro não informado — confirmar reserva de ~${moneyK(giroNec)}.`]); }
+  else{ const rg=giro/giroNec;
+    if(rg>=1){ g=100; } else if(rg>=0.6){ g=72; reasons.push(["△","t-amarelo",`Giro reservado (${moneyK(giro)}) abaixo do sugerido (${moneyK(giroNec)}).`]); }
+    else { g=40; reasons.push(["✗","t-vermelho",`Giro insuficiente: ${moneyK(giro)} vs. ~${moneyK(giroNec)} recomendados.`]); }
+  }
+  parts.giro=g;
+
+  /* --- área & formato --- */
+  let a;
+  if(!lead.area){ a=72; reasons.push(["○","t-cinza",`Área não informada — enquadrada em ${m2(areaAlvo)} pelo padrão da operação.`]); }
+  else if(lead.area>=op.aMin&&lead.area<=op.aMax){ a=100; reasons.push(["✓","t-verde",`Área desejada (${m2(lead.area)}) dentro do padrão da marca (${op.aMin}–${op.aMax} m²).`]); }
+  else if(lead.area<op.aMin){ const r=lead.area/op.aMin; a=r>=.75?70:40; reasons.push(["△","t-amarelo",`Área desejada (${m2(lead.area)}) abaixo do mínimo da operação (${m2(op.aMin)}).`]); }
+  else { const r=op.aMax/lead.area; a=r>=.7?72:42; reasons.push(["△","t-amarelo",`Área desejada (${m2(lead.area)}) acima do padrão da marca (máx. ${m2(op.aMax)}).`]); }
+  if(lead.form&&lead.form!=="indiferente"&&lead.form!==op.form){ a=Math.min(a,55); reasons.push(["△","t-amarelo",`Lead pediu ${FORM_LABEL[lead.form]} — esta operação é ${FORM_LABEL[op.form].toLowerCase()}.`]); }
+  else if(!lead.area&&lead.enqForm&&lead.enqForm!==op.form){ a=Math.min(a,62); reasons.push(["△","t-amarelo",`Enquadramento do capital aponta ${FORM_LABEL[lead.enqForm]} — esta operação é ${FORM_LABEL[op.form].toLowerCase()}.`]); }
+  if(capital>0&&areaViavel<op.aMin){ a=Math.min(a,35); reasons.push(["✗","t-vermelho",`Com ${moneyK(capital)} o capital cobre ${m2(Math.max(0,areaViavel))} — abaixo do mínimo de ${m2(op.aMin)} da marca.`]); }
+  else if(capital>0&&areaViavel<areaAlvo){ reasons.push(["△","t-amarelo",`O capital comporta até ${m2(areaViavel)} nesta marca — considere a metragem menor da faixa.`]); }
+  parts.area=a;
+
+  /* --- dedicação × exigência --- */
+  let t; const wantHandsOff = lead.tempo==="baixo"||lead.operacao==="gerente";
+  if(op.tempo==="dono"){
+    if(lead.tempo==="integral"&&lead.operacao!=="gerente"){ t=100; }
+    else if(lead.tempo==="parcial"){ t=70; reasons.push(["△","t-amarelo","Operação pede dono presente; dedicação parcial exige um gerente forte."]); }
+    else { t=42; reasons.push(["✗","t-vermelho","Operação mão-na-massa e o lead quer baixa dedicação/gerente."]); }
+  } else if(op.tempo==="gerente"){ t=wantHandsOff?100:88; }
+  else { t=95; }
+  parts.tempo=t;
+
+  /* --- experiência --- */
+  let e; const rank={iniciante:1,intermediario:2,avancado:3};
+  const need_e=rank[op.exp], has_e=lead.exp==="setor"?3:lead.exp==="gestao"?2:1;
+  const eff=Math.min(3, has_e+((lead.franq==="sim"||lead.tipo==="multi")?1:0));
+  if(eff>=need_e){ e=100; }
+  else if(eff===need_e-1){ e=op.compl>=4?62:78; reasons.push(["△","t-amarelo",`Complexidade ${op.compl}/5 — recomendável suporte e treino reforçados.`]); }
+  else { e=op.compl>=4?38:58; reasons.push(["✗","t-vermelho",`Operação pede perfil ${op.exp}; experiência abaixo — risco na curva.`]); }
+  if((lead.expSegs||[]).includes(op.seg)){ e=Math.min(100,e+15); reasons.push(["✓","t-verde",`Experiência no segmento ${op.seg} — fator de peso na recomendação.`]); }
+  if(lead.shopping==="nao"&&op.form!=="quiosque"&&e>60){ e=Math.max(50,e-8); reasons.push(["△","t-amarelo","Nunca operou em shopping — CTO fixo, horário estendido e condomínio são novos para o lead."]); }
+  parts.exp=e;
+
+  /* --- interesse / marca em mente --- */
+  let it=60, memHit=false;
+  if(lead.marca&&normalize(lead.marca)===normalize(op.n)){ it=100; memHit=true; reasons.push(["★","t-blue","Marca que o lead já tinha em mente."]); }
+  else if(lead.marca&&normalize(op.n).includes(normalize(lead.marca))&&normalize(lead.marca).length>=3){ it=92; memHit=true; }
+  if((lead.intSegs||[]).length){
+    if(lead.intSegs.includes(op.seg)){ it=Math.max(it,88); reasons.push(["✓","t-verde",`Segmento de interesse: ${op.seg}.`]); }
+    else if(!memHit){ it=Math.min(it,50); }
+  }
+  parts.interesse=it;
+
+  /* --- risco (complexidade + payback + CTO) --- */
+  let rk=80;
+  const riskLevel=op.compl+(op.payback>36?2:op.payback>28?1:0)+(c.pct>.22?2:c.pct>.18?1:0);
+  if(lead.risco==="conservador") rk=riskLevel<=3?100:riskLevel<=5?70:45;
+  else if(lead.risco==="moderado") rk=riskLevel<=5?92:70; else rk=88;
+  parts.risco=rk;
+
+  /* --- match --- */
+  let score=Math.round((parts.fin*W.fin+parts.giro*W.giro+parts.exp*W.exp+parts.interesse*W.interesse+parts.area*W.area+parts.tempo*W.tempo+parts.risco*W.risco)/WSUM);
+
+  /* --- travas (pré-requisitos) --- */
+  const podeImplantar = capital>0 && capital>=investAlvo*0.85;
+  if(!podeImplantar){ score=Math.min(score,38); reasons.unshift(["✗","t-vermelho",`Capital de implantação insuficiente: ${moneyK(capital)} vs. ${moneyK(investAlvo)} — pré-requisito não atendido.`]); }
+  else if(giro>0&&giro<giroNec*0.5){ score=Math.min(score,62); reasons.unshift(["✗","t-vermelho",`Reserva de giro muito baixa: ${moneyK(giro)} vs. ~${moneyK(giroNec)} — sustentação do 1º ano em risco.`]); }
+  if(lead.area&&(lead.area>op.aMax*2||lead.area<op.aMin*0.5)){ score=Math.min(score,50); reasons.unshift(["✗","t-vermelho",`Metragem pedida (${m2(lead.area)}) incompatível com o formato desta operação (${op.aMin}–${op.aMax} m²).`]); }
+  if(lead.form&&lead.form!=="indiferente"&&lead.form!==op.form){ score=Math.min(score,62); }
+  if(c.pct>0.25){ score=Math.min(score,55); reasons.unshift(["✗","t-vermelho",`CTO estimado em ${pct(c.pct)} do faturamento — insustentável nesta metragem.`]); }
+  else if(c.pct>0.18){ reasons.push(["△","t-amarelo",`CTO estimado em ${pct(c.pct)} do faturamento — apertado, depende de margem alta.`]); }
+  else if(c.pct>0){ reasons.push(["✓","t-verde",`CTO estimado em ${pct(c.pct)} do faturamento — dentro da faixa usual.`]); }
+
+  /* --- modulação pelo mix do shopping --- */
+  const st=SEGSTATS[op.seg]||{atual:0,demand:0,top:false};
+  const duplicate=PRESENT.has(normalize(op.n));
+  let mix, mixReason, lacunaBonus=0;
+  if(duplicate){ mix=32; mixReason=["✗","t-vermelho","Marca já opera em um ponto do shopping — evitar duplicar."]; }
+  else if(st.demand>0){ if(st.top){ mix=100; lacunaBonus=3; mixReason=["✓","t-verde","Segmento pedido como 1ª opção de mix em ponto vago."]; } else { mix=88; mixReason=["✓","t-verde","Segmento consta no mix desejado de ponto(s) vago(s)."]; } }
+  else if(st.atual>0){ mix=34; mixReason=["✗","t-vermelho","Segmento já ocupado e fora do mix desejado das vagas — risco de canibalização."]; }
+  else { mix=52; mixReason=["△","t-cinza","Segmento fora das opções de mix dos pontos vagos atuais."]; }
+
+  let finalScore=Math.min(100, Math.round(score*(0.85+0.15*(mix/100))+lacunaBonus));
+  if(duplicate) finalScore=Math.min(finalScore,45);
+
+  /* --- pontos compatíveis (formato + área) --- */
+  const pontos=vacantPoints().filter(p=>p.form===op.form&&p.area>=op.aMin*0.8&&p.area<=op.aMax*1.2);
+  if(pontos.length) reasons.push(["✓","t-verde",`Ponto(s) compatível(is): ${pontos.map(p=>p.nome).join(", ")}.`]);
+
+  return { op, parts, score, mix, mixReason, finalScore, reasons, memHit, areaAlvo, investAlvo, giroNec, fat, cto:c, areaViavel, pontos, duplicate };
+}
+function tierOf(s){ if(s>=78) return {t:"Alto match",cls:"verde",tc:"t-verde"}; if(s>=60) return {t:"Match médio",cls:"amarelo",tc:"t-amarelo"}; if(s>=42) return {t:"Match baixo",cls:"cinza",tc:"t-cinza"}; return {t:"Não recomendado",cls:"vermelho",tc:"t-vermelho"}; }
+function barColor(s){ return s>=78?"#6cc680":s>=60?"#eda754":s>=42?"#ccc5bc":"#cd5151"; }
+
+/* ============================================================
+   ROTEAMENTO (decisão do workflow: A · B · C · standby)
+   ============================================================ */
+function rotear(lead, scored, enq){
+  const best=scored[0];
+  const nota = enq.rebaixado ? ` O formato pedido (${FORM_LABEL[enq.rebaixado]}) não cabe no capital — a conversa deve partir de ${FORM_LABEL[enq.escolhido].toLowerCase()} de ${m2(enq.area)}.` : "";
+  const semOperacao=!lead.marca&&!(lead.intSegs||[]).length;
+  const investidorPuro=(lead.tempo==="baixo"||lead.objetivo==="passivo")&&lead.operacao==="gerente";
+  const temPonto=scored.slice(0,5).some(r=>r.pontos.length);
+  if(!enq.viavel||!best||best.finalScore<42){
+    if(best&&best.mix<=34) return {k:"C",cls:"c",t:"Saída C · Segmento saturado",d:"Segmento já ocupado e fora do mix desejado das vagas — redirecionar para segmentos com lacuna ou para outro formato/praça."};
+    return {k:"S",cls:"s",t:"Standby · recompor capital ou metragem",d:"O capital informado não sustenta a operação pretendida na metragem pedida. Manter na base com data de revisão e oferecer formato menor (quiosque ou satélite compacta)."};
+  }
+  if(best.mix<=34) return {k:"C",cls:"c",t:"Saída C · Segmento saturado",d:"A melhor operação para este perfil cai em segmento já ocupado e fora do mix desejado. Ofereça as lacunas do mix antes de avançar para ponto e valores."};
+  if(semOperacao||investidorPuro||best.finalScore<60) return {k:"B",cls:"b",t:"Saída B · Investidor sem operação",d:"Capital disponível sem operação definida (ou sem dedicação para operar). Apresentar as lacunas do mix e as marcas delegáveis do ranking — não abrir ponto e valores antes da escolha da operação."+nota};
+  if(!temPonto) return {k:"S",cls:"s",t:"Standby · sem ponto compatível",d:"Perfil aprovado, mas não há ponto vago compatível com o formato e a metragem. Registrar a metragem-alvo para busca reversa e revisar quando abrir vaga."};
+  return {k:"A",cls:"a",t:"Saída A · Negócio estruturado",d:"Direcionar ao executivo comercial e avaliar o ponto: capital coerente, formato enquadrado e ponto compatível disponível."+nota};
+}
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+function buildChips(el,set){ el.innerHTML=""; SEGMENTS.forEach(s=>{ const c=document.createElement("div"); c.className="chip"; if(set.has(s)) c.classList.add("on"); c.textContent=s; c.onclick=()=>{ if(set.has(s)){set.delete(s);c.classList.remove("on");}else{set.add(s);c.classList.add("on");} }; el.appendChild(c); }); }
+function rebuildChips(){ buildChips(document.getElementById("chipsExp"),state.exp); buildChips(document.getElementById("chipsInt"),state.int); }
+function refreshOpList(){ document.getElementById("oplist").innerHTML=OPS.map(o=>`<option value="${escHtml(o.n)}">`).join(""); }
+document.querySelectorAll("[data-seg]").forEach(g=>{ const key=g.getAttribute("data-seg"); g.querySelectorAll("label").forEach(l=>{ l.onclick=()=>{ g.querySelectorAll("label").forEach(x=>x.classList.remove("on")); l.classList.add("on"); state.seg[key]=l.getAttribute("data-v"); }; }); });
+function setSeg(key,val){ const g=document.querySelector(`[data-seg="${key}"]`); const l=g&&g.querySelector(`[data-v="${val}"]`); if(l) l.click(); }
+function resetSegDefaults(){ setSeg("q_form","indiferente"); setSeg("q_tipo","franquia"); setSeg("q_material","parcial"); setSeg("q_fonte","proprio"); setSeg("q_tempo","integral"); setSeg("q_operacao","dono"); setSeg("q_exp","nenhuma"); setSeg("q_franq","nao"); setSeg("q_shopping","nao"); setSeg("q_risco","moderado"); }
+function val(id){ const e=document.getElementById(id); return e?e.value.trim():""; }
+function num(id){ return parseFloat(val(id))||0; }
+
+function readLead(){
+  return { nome:val("q_nome"), contato:val("q_contato"), empresa:val("q_empresa"), origem:val("q_origem"),
+    form:state.seg.q_form, tipo:state.seg.q_tipo, marca:val("q_marca"),
+    area:num("q_area"), ticket:num("q_ticket"), fatPrev:num("q_fat"), material:state.seg.q_material,
+    capital:num("q_capital"), giro:num("q_giro"), fonte:state.seg.q_fonte,
+    tempo:state.seg.q_tempo, operacao:state.seg.q_operacao,
+    exp:state.seg.q_exp, franq:state.seg.q_franq, shopping:state.seg.q_shopping,
+    risco:state.seg.q_risco, objetivo:val("q_objetivo"),
+    expSegs:[...state.exp], intSegs:[...state.int] };
+}
+function fillForm(l){
+  ["q_nome","q_contato","q_empresa","q_marca"].forEach(id=>{ document.getElementById(id).value=l[id.slice(2)]||""; });
+  document.getElementById("q_origem").value=l.origem||"";
+  document.getElementById("q_area").value=l.area||""; document.getElementById("q_ticket").value=l.ticket||"";
+  document.getElementById("q_fat").value=l.fatPrev||""; document.getElementById("q_capital").value=l.capital||"";
+  document.getElementById("q_giro").value=l.giro||""; document.getElementById("q_objetivo").value=l.objetivo||"renda";
+  state.exp=new Set(l.expSegs||[]); state.int=new Set(l.intSegs||[]); rebuildChips();
+  setSeg("q_form",l.form||"indiferente"); setSeg("q_tipo",l.tipo||"franquia"); setSeg("q_material",l.material||"parcial");
+  setSeg("q_fonte",l.fonte||"proprio"); setSeg("q_tempo",l.tempo||"integral"); setSeg("q_operacao",l.operacao||"dono");
+  setSeg("q_exp",l.exp||"nenhuma"); setSeg("q_franq",l.franq||"nao"); setSeg("q_shopping",l.shopping||"nao"); setSeg("q_risco",l.risco||"moderado");
+}
+
+function perfilResumo(lead){
+  let tipo;
+  if(lead.tempo==="baixo"||lead.operacao==="gerente") tipo="Perfil investidor (gestão à distância)";
+  else if(lead.tempo==="integral") tipo="Perfil operador (mão-na-massa)"; else tipo="Perfil semi-operador";
+  if(lead.tipo==="multi"||lead.objetivo==="portfolio") tipo+=" · multifranqueado";
+  else if(lead.tipo==="nova") tipo+=" · marca em criação";
+  const notas=[]; const c=lead.capital, giro=lead.giro;
+  if(c&&giro){ const p=giro/(c||1); if(p<0.15) notas.push(["△","t-amarelo",`Giro (${moneyK(giro)}) baixo frente à implantação — ideal ~18–25% do aporte para loja.`]); else notas.push(["✓","t-verde",`Boa reserva de giro (${Math.round(p*100)}% do capital de implantação).`]); }
+  else notas.push(["△","t-amarelo","Falta detalhar a reserva de capital de giro — maior causa de mortalidade no 1º ano."]);
+  if(lead.exp==="nenhuma"&&lead.franq==="nao") notas.push(["△","t-amarelo","Primeira operação: priorizar marcas de baixa complexidade e rede com suporte."]);
+  if(lead.exp==="setor") notas.push(["✓","t-verde","Experiência prévia no setor reduz risco de curva de aprendizado."]);
+  if(lead.shopping==="nao") notas.push(["△","t-amarelo","Nunca operou em shopping: alinhar CTO fixo, horário de 7 dias, condomínio, FPP e regras de obra."]);
+  if(lead.tipo==="nova") notas.push(["△","t-amarelo","Marca em criação: sem histórico nem manual de operação — due diligence maior."]);
+  if(lead.tipo==="multi") notas.push(["✓","t-verde","Multifranqueado: capital e gestão comprovados — ciclo comercial mais curto."]);
+  if(lead.fonte==="financiado") notas.push(["△","t-amarelo","Capital parcialmente financiado: a parcela antecipa o ponto de equilíbrio."]);
+  if(lead.material==="nenhum") notas.push(["△","t-amarelo","Sem apresentação nem projeto — a proposta terá de ser construída junto."]);
+  return {tipo,notas};
+}
+function computeScored(lead){ return OPS.map(o=>scoreOp(lead,o)).sort((a,b)=>b.finalScore-a.finalScore); }
+
+/* ---------- render do enquadramento ---------- */
+function enqHTML(lead, enq){
+  const cards=enq.forms.map(f=>{
+    const on=f.form===enq.escolhido;
+    const cls=on?"fmt on":(f.cabe?"fmt":"fmt off");
+    const tag=f.bloq?`<span class="ftag t-amarelo">△ ${escHtml(f.bloq)}</span>`:on?`<span class="ftag t-verde">▲ Recomendado</span>`:(f.cabe?`<span class="ftag t-cinza">Alternativa viável</span>`:`<span class="ftag t-vermelho">Fora do capital</span>`);
+    return `<div class="${cls}">
+      <div class="fn">${FORM_LABEL[f.form]}</div>
+      <div class="fv">Faixa: ${f.faixa[0]}–${f.faixa[1]} m²<br>Implantação ref.: ${moneyK(f.cm)}/m²<br>Cabe no capital: <b>${f.areaViavel>0?m2(Math.min(f.areaViavel,f.faixa[1])):"—"}</b>${f.areaViavel>f.faixa[1]?" (teto do formato)":""}${f.cabe?`<br>Estimativa a ${m2(f.areaEfetiva)}: fat. ${moneyK(f.fat)}/mês · CTO ${pct(f.ctoPct)}`:""}</div>
+      ${tag}</div>`;
+  }).join("");
+  const alerta = enq.rebaixado ? `<div class="banner"><b>Rebaixamento de formato:</b> ${FORM_LABEL[enq.rebaixado]} não cabe em ${moneyK(lead.capital)}. O enquadramento viável é <b>${FORM_LABEL[enq.escolhido]}</b>.</div>`
+    : !enq.viavel ? `<div class="banner"><b>Atenção:</b> o capital informado (${moneyK(lead.capital)}) não cobre nem a menor tipologia cadastrada. Reveja capital, metragem ou considere operação temporária/mídia.</div>` : "";
+  return `<div class="card">
+    <h2>Enquadramento de formato</h2>
+    <p class="sub" style="margin-bottom:10px;">Decidido por <b>área necessária × capital disponível</b> — ${escHtml(enq.motivo)}.</p>
+    <div class="row"><span class="k">Área desejada</span><span class="v">${enq.alvo?m2(enq.alvo):"não informada"}</span></div>
+    <div class="row"><span class="k">Capital de implantação</span><span class="v">${money(lead.capital)}</span></div>
+    <div class="row"><span class="k">Formato recomendado</span><span class="v">${enq.viavel?`<span class="pill ${FORM_PILL[enq.escolhido]}">${FORM_LABEL[enq.escolhido]} · ${m2(enq.area)}</span>`:`<span class="t-vermelho">não viável com o capital informado</span>`}</span></div>
+    <div class="fmt-grid">${cards}</div>
+  </div>${alerta}`;
+}
+
+function fatCheckHTML(lead, enq){
+  if(!lead.fatPrev) return "";
+  const f=enq.forms.find(x=>x.form===enq.escolhido);
+  const est=f?f.fat:0; if(!est) return "";
+  const dif=(lead.fatPrev-est)/est;
+  const tone = dif<=0 ? ["✓","t-verde","Projeção conservadora frente à referência do shopping."]
+    : dif<=0.25 ? ["△","t-amarelo","Projeção otimista — checar a base da previsão (unidade comparável ou média de rede)."]
+    : ["✗","t-vermelho","Projeção superestimada — refazer a conta antes de qualquer proposta."];
+  return `<div class="card">
+    <h2>Previsão de faturamento</h2>
+    <div class="row"><span class="k">Previsão do lead</span><span class="v">${money(lead.fatPrev)}/mês</span></div>
+    <div class="row"><span class="k">Estimativa do shopping (${m2(f.areaEfetiva)})</span><span class="v">${money(est)}/mês</span></div>
+    <div class="row"><span class="k">Divergência</span><span class="v ${tone[1]}">${dif>=0?"+":""}${pct(dif)}</span></div>
+    <div class="reasons" style="margin-top:8px;"><div class="reason"><span class="ic ${tone[1]}">${tone[0]}</span><span>${tone[2]}</span></div></div>
+  </div>`;
+}
+
+function renderOpCard(r){
+  const tv=tierOf(r.finalScore), o=r.op;
+  const badges=[ `<span class="pill ${FORM_PILL[o.form]}">${FORM_LABEL[o.form]}</span>`, o.abf?`<span class="badge b-abf">ABF</span>`:"", o.pegn?`<span class="badge b-pegn">Destaque PEGN</span>`:"", `<span class="badge b-seg">${escHtml(o.seg)}</span>` ].join(" ");
+  const ss=[["Financeiro",r.parts.fin],["Giro",r.parts.giro],["Área",r.parts.area],["Experiência",r.parts.exp],["Interesse",r.parts.interesse],["Dedicação",r.parts.tempo],["Risco",r.parts.risco],["Mix",r.mix]]
+    .map(([k,v])=>`<span class="ss">${k} <b class="${v>=75?'t-verde':v>=55?'t-amarelo':'t-vermelho'}">${v}</b></span>`).join("");
+  const reasons=[r.mixReason,...r.reasons].slice(0,6).map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${escHtml(n[2])}</span></div>`).join("");
+  return `<div class="acard ${tv.cls}">
+    <div class="brand-head">
+      <div><div class="brand-name">${escHtml(o.n)} ${r.memHit?'<span class="tag-mem">'+ICONS.star+'citada</span>':''}</div><div style="margin-top:6px;">${badges}</div></div>
+      <div style="text-align:right;"><div class="bigscore ${tv.tc}">${r.finalScore}</div><div class="brand-seg ${tv.tc}" style="font-weight:700;">${tv.t}</div></div>
+    </div>
+    <div class="scorebar"><div style="width:${r.finalScore}%;background:${barColor(r.finalScore)};"></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="mk">Área de referência</div><div class="mv">${m2(r.areaAlvo)}</div></div>
+      <div class="metric"><div class="mk">Implantação</div><div class="mv">${moneyK(r.investAlvo)}</div></div>
+      <div class="metric"><div class="mk">Capital giro</div><div class="mv">${moneyK(r.giroNec)}</div></div>
+      <div class="metric"><div class="mk">Fat. estimado/mês</div><div class="mv">${moneyK(r.fat)}</div></div>
+      <div class="metric"><div class="mk">CTO estimado</div><div class="mv">${moneyK(r.cto.cto)} · ${pct(r.cto.pct)}</div></div>
+      <div class="metric"><div class="mk">Payback</div><div class="mv">${o.payback} meses</div></div>
+    </div>
+    <div class="subscores">${ss}</div>
+    <div class="reasons">${reasons}</div>
+    <details><summary>Sobre a operação</summary><p class="sub" style="margin:4px 0 0;">${escHtml(o.desc)} Royalties ${o.roy?o.roy+"%":"—"} · fundo de promoção ${o.fpp?o.fpp+"%":"—"} · faixa de área ${o.aMin}–${o.aMax} m² · implantação ref. ${moneyK(o.cm2)}/m² + taxa ${moneyK(o.taxa)}.</p></details>
+  </div>`;
+}
+
+function resultInnerHTML(lead, scored, enq){
+  const perfil=perfilResumo(lead);
+  const rota=rotear(lead,scored,enq);
+  const top=scored.slice(0,8);
+  const vagos=vacantPoints();
+  const demanded=SEGMENTS.filter(s=>SEGSTATS[s].demand>0).sort((a,b)=>SEGSTATS[b].demand-SEGSTATS[a].demand);
+  let marcaMsg="";
+  if(lead.marca){
+    const hit=scored.find(s=>normalize(s.op.n)===normalize(lead.marca)||(normalize(s.op.n).includes(normalize(lead.marca))&&normalize(lead.marca).length>=3));
+    if(hit){ const tv=tierOf(hit.finalScore); marcaMsg=`<div class="banner"><b>Marca citada:</b> ${escHtml(hit.op.n)} — <span class="${tv.tc}">${tv.t} (${hit.finalScore})</span> · ${FORM_LABEL[hit.op.form]} de ${m2(hit.areaAlvo)}. ${hit.finalScore<60?"Aderência limitada; veja as alternativas do ranking.":"Boa aderência — candidata forte."}</div>`; }
+    else marcaMsg=`<div class="banner"><b>Marca citada:</b> “${escHtml(lead.marca)}” não está na base de referência. Avalie as equivalentes do ranking e busque a COF/apresentação da rede.</div>`;
+  }
+  return `
+    <div class="route ${rota.cls}">
+      <div class="rt">Direcionamento comercial</div>
+      <div class="rn">${escHtml(rota.t)}</div>
+      <div class="rd">${escHtml(rota.d)}</div>
+    </div>
+    ${enqHTML(lead,enq)}
+    ${fatCheckHTML(lead,enq)}
+    <div class="card">
+      <h2>Diagnóstico do lead</h2>
+      <p class="sub" style="margin-bottom:10px;">${lead.nome?escHtml(lead.nome)+" · ":""}${perfil.tipo} · ${labelTipo(lead.tipo)}</p>
+      <div class="row"><span class="k">Capital total (implantação + giro)</span><span class="v">${money((lead.capital||0)+(lead.giro||0))}</span></div>
+      <div class="row"><span class="k">Dedicação</span><span class="v">${labelTempo(lead.tempo)} · ${labelOper(lead.operacao)}</span></div>
+      <div class="row"><span class="k">Experiência</span><span class="v">${labelExp(lead.exp)}${lead.franq==="sim"?" · já franqueado":""}${lead.shopping==="sim"?" · já operou em shopping":""}</span></div>
+      <div class="row"><span class="k">Perfil de risco</span><span class="v">${cap(lead.risco)}</span></div>
+      ${lead.ticket?`<div class="row"><span class="k">Ticket médio</span><span class="v">${money(lead.ticket)}</span></div>`:""}
+      ${(lead.intSegs||[]).length?`<div class="row"><span class="k">Interesse</span><span class="v" style="text-align:right;">${lead.intSegs.map(escHtml).join(", ")}</span></div>`:""}
+      <div class="reasons" style="margin-top:10px;">${perfil.notas.map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${escHtml(n[2])}</span></div>`).join("")}</div>
+    </div>
+    ${marcaMsg}
+    <div class="card" style="background:rgba(0,97,111,.12);border-color:rgba(54,140,130,.28);">
+      <div class="lblsec" style="margin-bottom:8px;">Pontos vagos & mix desejado</div>
+      ${vagos.length?`<p class="sub"><b>${vagos.length}</b> ponto(s) vago(s) — ${vagos.map(p=>escHtml(p.nome)+" ("+m2(p.area)+")").join(" · ")}. Segmentos mais pedidos: ${demanded.slice(0,4).map(escHtml).join(", ")||"—"}.</p>`:`<p class="sub">Nenhum ponto vago cadastrado — o ranking pondera apenas o perfil. Cadastre pontos em <b>Planejamento</b>.</p>`}
+    </div>
+    ${scored[0]&&scored[0].op.form!==enq.escolhido?`<div class="banner"><b>Enquadramento × perfil:</b> o capital e a área apontam <b>${FORM_LABEL[enq.escolhido]}</b>, mas o perfil do lead (experiência, dedicação e interesse) leva o ranking para <b>${FORM_LABEL[scored[0].op.form].toLowerCase()}</b>. Prevalece o ranking — ajuste a metragem da conversa para a faixa da operação escolhida.</div>`:""}
+    <h2 style="margin:18px 0 4px;">Operações recomendadas</h2>
+    <p class="sub" style="margin-bottom:12px;">Prioridade: <b>1º</b> capital + giro (pré-requisito) · <b>2º</b> área e formato viáveis · <b>3º</b> experiência · <b>4º</b> preferência do lead · <b>5º</b> planejamento de mix (modulação). CTO calculado com os parâmetros da aba Planejamento.</p>
+    ${top.map(renderOpCard).join("")}`;
+}
+
+/* ---------- execução ---------- */
+function run(){
+  const lead=readLead();
+  if(!lead.capital){ alert("Informe o capital para implantação (bloco 4)."); document.getElementById("q_capital").focus(); return; }
+  recomputeSegStats();
+  const enq=enquadrar(lead);
+  const scored=computeScored(Object.assign({},lead,{enqForm:enq.escolhido}));
+  const rota=rotear(lead,scored,enq);
+  const el=document.getElementById("result");
+  el.innerHTML = resultInnerHTML(lead,scored,enq) + `
+    <div class="actions3" style="margin-top:6px;">
+      <button class="btn-gray" id="btnBack">◂ Ajustar</button>
+      <button class="btn-gray" id="btnCopy">Copiar resumo</button>
+      <button class="btn-green" id="btnSave">${editingId?"Atualizar":"Salvar lead"}</button>
+    </div>`;
+  document.getElementById("form").classList.add("hidden");
+  el.classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"});
+  document.getElementById("btnBack").onclick=()=>{ el.classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); buildSteps(1); window.scrollTo({top:0,behavior:"smooth"}); };
+  document.getElementById("btnCopy").onclick=()=>copySummary(lead,enq,scored,rota);
+  document.getElementById("btnSave").onclick=()=>saveLead(lead,enq,scored,rota);
+  buildSteps(3);
+}
+
+function copySummary(lead,enq,scored,rota){
+  const L=["RADAR DE OPERAÇÕES — Triagem de lead","Data: "+new Date().toLocaleDateString("pt-BR")];
+  if(lead.nome) L.push("Lead: "+lead.nome+(lead.contato?" · "+lead.contato:"")+(lead.empresa?" · "+lead.empresa:""));
+  L.push("Perfil: "+perfilResumo(lead).tipo+" | "+labelTipo(lead.tipo));
+  L.push("Enquadramento: "+FORM_LABEL[enq.escolhido]+" · "+m2(enq.area)+(enq.alvo?" (área pedida: "+m2(enq.alvo)+")":" (área não informada)"));
+  L.push("Capital implantação: "+money(lead.capital)+" | Giro: "+money(lead.giro)+" | Total: "+money((lead.capital||0)+(lead.giro||0)));
+  L.push("Dedicação: "+labelTempo(lead.tempo)+" ("+labelOper(lead.operacao)+") | Experiência: "+labelExp(lead.exp)+" | Risco: "+cap(lead.risco));
+  if((lead.intSegs||[]).length) L.push("Interesse: "+lead.intSegs.join(", "));
+  if(lead.marca) L.push("Marca em mente: "+lead.marca);
+  L.push("","DIRECIONAMENTO: "+rota.t);
+  L.push(rota.d);
+  L.push("","TOP RECOMENDAÇÕES:");
+  scored.slice(0,5).forEach((r,i)=>{ L.push(`${i+1}. ${r.op.n} — ${r.finalScore}/100 (${tierOf(r.finalScore).t}) · ${FORM_LABEL[r.op.form]} ${m2(r.areaAlvo)} · implantação ${moneyK(r.investAlvo)} · fat. est. ${moneyK(r.fat)}/mês · CTO ${pct(r.cto.pct)}`); });
+  L.push("","Valores de referência (ABF/PEGN e práticas de mercado) — validar na COF e na proposta comercial.");
+  const txt=L.join("\n");
+  navigator.clipboard.writeText(txt).then(()=>toast("Resumo copiado"),()=>prompt("Copie o resumo:",txt));
+}
+
+function buildSteps(cur){ const labels=["Perguntas","Enquadramento","Viabilidade","Direcionamento"]; document.getElementById("steps").innerHTML=labels.map((_,i)=>`<div class="s ${i<cur?'done':i===cur?'cur':''}"></div>`).join(""); }
+function clearForm(){
+  fillForm({}); document.getElementById("q_origem").value=""; resetSegDefaults();
+  editingId=null; document.getElementById("editBanner").innerHTML="";
+  document.getElementById("result").classList.add("hidden"); document.getElementById("form").classList.remove("hidden");
+  buildSteps(0); window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ============================================================
+   FICHA DO OPERADOR / INVESTIDOR — enviar · preencher · receber
+   O link #investidor abre a MESMA página em modo ficha: só a
+   triagem aparece; leads, planejamento e cruzamento nunca são
+   enviados nem ficam acessíveis para quem recebe o link.
+   ============================================================ */
+/* Whitelist + coerção de tipos de uma ficha vinda de fora (link #resp / código / arquivo):
+   descarta campos inesperados, limita tamanhos e garante números. */
+function sanitizeLead(raw){
+  if(!raw || typeof raw!=="object") return null;
+  const s=(v,max)=>String(v==null?"":v).slice(0,max||160);
+  const n=v=>{ const x=Number(v); return (isFinite(x)&&x>0)?Math.min(Math.round(x),1e11):0; };
+  const segs=a=>Array.isArray(a)?a.filter(x=>typeof x==="string").slice(0,30).map(x=>s(x,80)):[];
+  return {
+    nome:s(raw.nome,120), contato:s(raw.contato,120), empresa:s(raw.empresa,120), origem:s(raw.origem,80),
+    form:s(raw.form,20), tipo:s(raw.tipo,20), marca:s(raw.marca,80), material:s(raw.material,20),
+    area:n(raw.area), ticket:n(raw.ticket), fatPrev:n(raw.fatPrev),
+    capital:n(raw.capital), giro:n(raw.giro), fonte:s(raw.fonte,40),
+    tempo:s(raw.tempo,40), operacao:s(raw.operacao,40),
+    exp:s(raw.exp,40), franq:s(raw.franq,10), shopping:s(raw.shopping,10),
+    risco:s(raw.risco,40), objetivo:s(raw.objetivo,40),
+    expSegs:segs(raw.expSegs), intSegs:segs(raw.intSegs)
+  };
+}
+function encodePayload(o){ try{ return "RO1:"+btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }catch(e){ return JSON.stringify(o); } }
+function decodePayload(str){
+  if(!str) return null; str=str.trim();
+  try{ if(str[0]==="{") return JSON.parse(str); }catch(e){}
+  const m=str.match(/RO1:[A-Za-z0-9+/=]+/);
+  const b=(m?m[0]:str).replace(/^RO1:/,"");
+  try{ return JSON.parse(decodeURIComponent(escape(atob(b)))); }catch(e){ return null; }
+}
+function fichaLink(){ return location.origin+location.pathname+"#investidor"; }
+
+function showSendForm(){
+  const link=fichaLink();
+  const msg="Olá! Para avaliarmos a melhor oportunidade no shopping, preencha esta ficha rápida (2 min) e me devolva o link gerado ao final:\n"+link;
+  const out=document.getElementById("intakeOut");
+  out.innerHTML=`
+    <div class="banner">Envie este link ao interessado. Ele preenche no próprio celular — vendo <b>somente a ficha</b> — e devolve por WhatsApp/e-mail um <b>link</b> que, ao ser tocado por você, lança a ficha já pontuada no seu banco (ou um <b>código</b> para colar em <b>Receber resposta</b>).</div>
+    <div class="field"><span class="lbl">Link da ficha</span><div class="linkbox">${escHtml(link)}</div></div>
+    <div class="actions3">
+      <button class="btn-gray btn-sm" id="lkCopy">Copiar link</button>
+      <button class="btn-wa btn-sm" id="lkWa">WhatsApp</button>
+      <button class="btn-gray btn-sm" id="lkMail">E-mail</button>
+    </div>`;
+  document.getElementById("lkCopy").onclick=()=>{ navigator.clipboard.writeText(link).then(()=>toast("Link copiado"),()=>prompt("Copie:",link)); };
+  document.getElementById("lkWa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener");
+  document.getElementById("lkMail").onclick=()=>window.open("mailto:?subject="+encodeURIComponent("Ficha de interesse — operação no shopping")+"&body="+encodeURIComponent(msg),"_blank","noopener");
+}
+function showRecvForm(){
+  const out=document.getElementById("intakeOut");
+  out.innerHTML=`
+    <div class="banner">Se o interessado enviou um <b>link</b>, basta tocá-lo — a ficha entra sozinha no banco. Ou cole aqui o <b>código</b> (começa com <code>RO1:</code>) — pode colar a mensagem inteira do WhatsApp — ou selecione o arquivo <code>.json</code> da ficha.</div>
+    <textarea id="recvCode" class="codebox" placeholder="Cole aqui o código RO1:..."></textarea>
+    <div class="actions" style="margin-top:8px;">
+      <button class="btn-gray btn-sm" id="recvFile">Selecionar arquivo</button>
+      <button class="btn-green btn-sm" id="recvGo">Lançar no banco</button>
+    </div>
+    <input type="file" id="respFile" accept="application/json,.json" class="hidden">`;
+  document.getElementById("recvGo").onclick=()=>{ receiveResponse(decodePayload(document.getElementById("recvCode").value)); };
+  document.getElementById("recvFile").onclick=()=>document.getElementById("respFile").click();
+  document.getElementById("respFile").onchange=e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>receiveResponse(decodePayload(rd.result)); rd.readAsText(f); e.target.value=""; };
+}
+function receiveResponse(d, fromLink){
+  const raw = d && (d.lead || (d.capital!=null ? d : null));
+  const lead = sanitizeLead(raw);
+  if(!lead || !(lead.capital>0)){ alert("Não consegui ler a ficha. Confira se colou o código completo (RO1:...) ou o arquivo correto."); return; }
+  if(!lead.origem) lead.origem="Ficha do operador";
+  /* auto-import por link é iniciado por terceiro: confirmar antes de gravar */
+  if(fromLink && !confirm(`Lançar no seu banco a ficha recebida de "${lead.nome||"interessado"}"?`)) return;
+  recomputeSegStats();
+  const enq=enquadrar(lead);
+  const scored=computeScored(Object.assign({},lead,{enqForm:enq.escolhido}));
+  const rota=rotear(lead,scored,enq);
+  editingId=null;
+  saveLead(lead,enq,scored,rota);
+  document.getElementById("intakeOut").innerHTML=`<div class="banner">${ICONS.check} Ficha de <b>${escHtml(lead.nome||"interessado")}</b> lançada no banco, enquadrada em <b>${FORM_LABEL[enq.escolhido]}</b> e pontuada. Veja em <b>Leads</b>.</div>`;
+}
+
+/* ---------- o que o interessado vê ao concluir (sem CTO, sem mix, sem pontos) ---------- */
+function renderFichaRecs(lead, enq, scored){
+  const top=scored.slice(0,3);
+  const cards=top.map(r=>{
+    const tv=tierOf(r.score);
+    return `<div class="acard ${tv.cls}">
+      <div class="brand-head">
+        <div><div class="brand-name">${escHtml(r.op.n)}</div>
+          <div style="margin-top:6px;"><span class="pill ${FORM_PILL[r.op.form]}">${FORM_LABEL[r.op.form]}</span> ${r.op.abf?'<span class="badge b-abf">ABF</span>':''} ${r.op.pegn?'<span class="badge b-pegn">Destaque PEGN</span>':''} <span class="badge b-seg">${escHtml(r.op.seg)}</span></div>
+        </div>
+        <div style="text-align:right;"><div class="bigscore ${tv.tc}">${r.score}</div><div class="brand-seg ${tv.tc}" style="font-weight:700;">${tv.t}</div></div>
+      </div>
+      <div class="scorebar"><div style="width:${r.score}%;background:${barColor(r.score)};"></div></div>
+      <div class="metrics">
+        <div class="metric"><div class="mk">Área de referência</div><div class="mv">${m2(r.areaAlvo)}</div></div>
+        <div class="metric"><div class="mk">Implantação</div><div class="mv">${moneyK(r.investAlvo)}</div></div>
+        <div class="metric"><div class="mk">Capital de giro</div><div class="mv">${moneyK(r.giroNec)}</div></div>
+        <div class="metric"><div class="mk">Payback</div><div class="mv">${r.op.payback} meses</div></div>
+      </div>
+      <details><summary>Sobre a operação</summary><p class="sub" style="margin:4px 0 0;">${escHtml(r.op.desc)}</p></details>
+    </div>`;
+  }).join("");
+  return `<div class="card">
+      <h2>Formato sugerido para o seu perfil</h2>
+      <p class="sub" style="margin-bottom:10px;">Pela área que você precisa e pelo capital informado, a operação se enquadra como:</p>
+      <div class="row"><span class="k">Formato</span><span class="v">${enq.viavel?`<span class="pill ${FORM_PILL[enq.escolhido]}">${FORM_LABEL[enq.escolhido]} · ${m2(enq.area)}</span>`:`<span class="t-amarelo">a definir com o executivo</span>`}</span></div>
+      <div class="row"><span class="k">Capital de implantação</span><span class="v">${money(lead.capital)}</span></div>
+      ${lead.giro?`<div class="row"><span class="k">Capital de giro reservado</span><span class="v">${money(lead.giro)}</span></div>`:""}
+    </div>
+    <div class="card">
+      <h2>Operações que combinam com você</h2>
+      <p class="sub" style="margin-bottom:10px;">Cruzamento do seu perfil com a base de referência (ABF · PEGN e práticas de mercado). Aderência ao seu perfil, de 0 a 100 — o executivo do shopping refina considerando os pontos disponíveis.</p>
+      ${cards}
+      <p class="sub" style="margin-top:12px;">Valores de <b>referência</b> — confirme na COF de cada rede antes de qualquer decisão.</p>
+    </div>`;
+}
+
+function generateInvestorResponse(){
+  const lead=readLead();
+  if(!lead.nome){ alert("Por favor, preencha seu nome."); document.getElementById("q_nome").focus(); return; }
+  if(!lead.capital){ alert("Por favor, informe o capital disponível para implantação."); document.getElementById("q_capital").focus(); return; }
+  recomputeSegStats();
+  const enq=enquadrar(lead);
+  const scored=computeScored(Object.assign({},lead,{enqForm:enq.escolhido}));
+  const code=encodePayload({t:"RO-FICHA",v:1,sentAt:new Date().toISOString(),lead});
+  const link=location.origin+location.pathname+"#resp="+encodeURIComponent(code);
+  const msg="Segue minha ficha de interesse para operar no shopping.\n\n▶ Toque no link para lançar a ficha automaticamente:\n"+link+"\n\nSe o link não abrir, copie e me envie este código:\n"+code;
+  const el=document.getElementById("result");
+  el.innerHTML=renderFichaRecs(lead,enq,scored)+`
+    <div class="card">
+      <h2>Envie sua ficha ao executivo</h2>
+      <p class="sub" style="margin-bottom:12px;">Obrigado, ${escHtml(lead.nome)}. Agora <b>envie sua ficha ao executivo do shopping</b> pelo WhatsApp ou e-mail. A mensagem já leva um <b>link</b> que lança sua ficha automaticamente — e o código, caso o link não abra.</p>
+      <div class="actions">
+        <button class="btn-wa btn-sm" id="genWa">Enviar por WhatsApp</button>
+        <button class="btn-gray btn-sm" id="genMail">Enviar por e-mail</button>
+      </div>
+      <p class="sub" style="margin:14px 0 6px;">Alternativas (caso prefira):</p>
+      <textarea class="codebox" id="genCode" readonly>${escHtml(code)}</textarea>
+      <div class="actions" style="margin-top:10px;">
+        <button class="btn-gray btn-sm" id="genCopy">Copiar código</button>
+        <button class="btn-gray btn-sm" id="genFile">Baixar arquivo (.json)</button>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:6px;">
+      <button class="btn-gray" id="genBack">◂ Corrigir a ficha</button>
+    </div>`;
+  document.getElementById("form").classList.add("hidden");
+  el.classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"});
+  document.getElementById("genWa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener");
+  document.getElementById("genMail").onclick=()=>window.open("mailto:?subject="+encodeURIComponent("Minha ficha de interesse — operação no shopping")+"&body="+encodeURIComponent(msg),"_blank","noopener");
+  document.getElementById("genCopy").onclick=()=>{ navigator.clipboard.writeText(code).then(()=>toast("Código copiado"),()=>{ const t=document.getElementById("genCode"); t.focus(); t.select(); }); };
+  document.getElementById("genFile").onclick=()=>download("ficha-"+((normalize(lead.nome)||"interessado").replace(/\s+/g,"-"))+".json",JSON.stringify({t:"RO-FICHA",v:1,lead},null,2),"application/json");
+  document.getElementById("genBack").onclick=()=>{ el.classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); };
+}
+
+/* ---------- modo ficha (via #investidor) ---------- */
+function applyInvestorMode(){
+  INVESTOR_MODE=true;
+  document.documentElement.classList.add("investor");
+  /* as áreas do executivo saem do DOM — não só escondidas: quem recebe o link
+     não tem leads, planejamento nem cruzamento na página. */
+  ["tabs","intakeCard","execNote","view-leads","view-plano","view-cruzamento"].forEach(id=>{ const el=document.getElementById(id); if(el) el.remove(); });
+  const steps=document.getElementById("steps"); if(steps) steps.classList.add("hidden");
+  /* rótulos do executivo viram linguagem de quem preenche */
+  const secs=document.querySelectorAll("#form .lblsec");
+  if(secs[0]) secs[0].innerHTML='<span class="n">1</span> Seus dados';
+  if(secs[1]) secs[1].innerHTML='<span class="n">2</span> Sua operação';
+  const org=document.getElementById("q_origem"); if(org&&org.closest(".field")) org.closest(".field").classList.add("hidden");
+  document.getElementById("appTitle").textContent="Ficha de Interesse — Loja ou Quiosque";
+  document.getElementById("appSub").textContent="Preencha em 2 minutos, veja o formato que combina com o seu capital e envie ao executivo do shopping.";
+  document.getElementById("editBanner").innerHTML=`<div class="banner">Bem-vindo! Responda sobre a operação pretendida e sua capacidade de investimento. Ao final mostramos o <b>formato sugerido</b> (loja ou quiosque) e geramos um <b>link</b> para você enviar a ficha ao executivo.</div>`;
+  document.getElementById("btnRun").textContent="Ver formato sugerido & concluir ▸";
+}
+
+/* ============================================================
+   BANCO DE LEADS
+   ============================================================ */
+const STATUS={ novo:["Novo","st-novo"], triagem:["Triagem","st-triagem"], viabilidade:["Viabilidade","st-viabilidade"],
+  proposta:["Proposta","st-proposta"], standby:["Standby","st-standby"], fechado:["Fechado","st-fechado"], descartado:["Descartado","st-descartado"] };
+const STATUS_ORDER=["novo","triagem","viabilidade","proposta","standby","fechado","descartado"];
+const SAIDA={ A:["A · Negócio estruturado","t-verde"], B:["B · Investidor sem operação","t-blue"], C:["C · Segmento saturado","t-amarelo"], S:["Standby","t-cinza"] };
+
+function saveLead(lead,enq,scored,rota){
+  const top=scored.slice(0,5).map(r=>({n:r.op.n,seg:r.op.seg,form:r.op.form,area:r.areaAlvo,invest:r.investAlvo,fat:r.fat,ctoPct:r.cto.pct,score:r.finalScore}));
+  const payload={ ...lead, formato:enq.escolhido, areaEnq:enq.area, saida:rota.k, score:scored[0]?scored[0].finalScore:0, top };
+  if(editingId){
+    const i=LEADS.findIndex(x=>x.id===editingId);
+    if(i>=0){ LEADS[i]=Object.assign({},LEADS[i],payload,{updatedAt:new Date().toISOString()}); toast("Lead atualizado"); }
+    editingId=null;
+  } else {
+    LEADS.unshift(Object.assign({id:newId("ld"),status:rota.k==="A"?"viabilidade":rota.k==="S"?"standby":"triagem",notes:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()},payload));
+    toast("Lead salvo no banco");
+  }
+  lsSet(LS.leads,LEADS); updateCounts(); renderLeads(); showView("leads");
+}
+
+function renderLeads(){
+  const busca=document.getElementById("srch"); if(!busca) return;
+  const q=normalize(busca.value);
+  const fs=document.getElementById("fstatus").value, fx=document.getElementById("fsaida").value;
+  const list=LEADS.filter(l=>{
+    if(fs&&l.status!==fs) return false;
+    if(fx&&l.saida!==fx) return false;
+    if(!q) return true;
+    return [l.nome,l.empresa,l.marca,(l.intSegs||[]).join(" "),l.contato].some(v=>normalize(v).includes(q));
+  });
+  const box=document.getElementById("leadList");
+  if(!list.length){ box.innerHTML=`<div class="empty">${LEADS.length?"Nenhum lead com esse filtro.":"Nenhum lead salvo ainda. Faça uma triagem e clique em <b>Salvar lead</b>."}</div>`; return; }
+  box.innerHTML=list.map(l=>{
+    const st=STATUS[l.status]||STATUS.novo, sd=SAIDA[l.saida]||SAIDA.S;
+    const tv=tierOf(l.score||0);
+    const recs=(l.top||[]).slice(0,3).map(r=>`<span class="rec-tag">${escHtml(r.n)} · ${r.score}</span>`).join("");
+    return `<div class="inv-card" data-id="${l.id}">
+      <div class="inv-top">
+        <div style="min-width:0;">
+          <div class="inv-name">${escHtml(l.nome||"(sem nome)")}</div>
+          <div class="inv-meta">${escHtml(l.empresa||"")}${l.empresa&&l.contato?" · ":""}${escHtml(l.contato||"")}</div>
+          <div class="inv-meta"><span class="pill ${FORM_PILL[l.formato]||''}">${FORM_LABEL[l.formato]||"—"} · ${m2(l.areaEnq)}</span> <span class="${sd[1]}" style="font-weight:700;font-size:11px;">${escHtml(sd[0])}</span></div>
+        </div>
+        <div style="text-align:right;flex:0 0 auto;">
+          <div class="bigscore ${tv.tc}" style="font-size:20px;">${l.score||0}</div>
+          <div class="status-pill ${st[1]}" data-st="${l.id}" style="margin-top:6px;">${st[0]}</div>
+        </div>
+      </div>
+      <div class="rec-mini">${recs||'<span class="rec-tag">sem recomendações</span>'}</div>
+      <div class="field" style="margin-top:10px;margin-bottom:0;">
+        <span class="lbl">Anotações do executivo</span>
+        <textarea data-notes="${l.id}" placeholder="Follow-up, objeções, próximos passos…">${escHtml(l.notes||"")}</textarea>
+      </div>
+      <div class="actions3" style="margin-top:8px;">
+        <button class="btn-gray btn-sm" data-open="${l.id}">Abrir na triagem</button>
+        <button class="btn-gray btn-sm" data-save="${l.id}">Salvar nota</button>
+        <button class="btn-danger btn-sm" data-del="${l.id}">Excluir</button>
+      </div>
+    </div>`;
+  }).join("");
+  box.querySelectorAll("[data-st]").forEach(el=>el.onclick=()=>{ const l=LEADS.find(x=>x.id===el.getAttribute("data-st")); if(!l) return; const i=STATUS_ORDER.indexOf(l.status); l.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length]; l.updatedAt=new Date().toISOString(); lsSet(LS.leads,LEADS); renderLeads(); });
+  box.querySelectorAll("[data-save]").forEach(el=>el.onclick=()=>{ const id=el.getAttribute("data-save"); const l=LEADS.find(x=>x.id===id); const ta=box.querySelector(`[data-notes="${id}"]`); if(l&&ta){ l.notes=ta.value; l.updatedAt=new Date().toISOString(); lsSet(LS.leads,LEADS); toast("Anotação salva"); } });
+  box.querySelectorAll("[data-del]").forEach(el=>el.onclick=()=>{ const id=el.getAttribute("data-del"); if(!confirm("Excluir este lead?")) return; LEADS=LEADS.filter(x=>x.id!==id); lsSet(LS.leads,LEADS); updateCounts(); renderLeads(); });
+  box.querySelectorAll("[data-open]").forEach(el=>el.onclick=()=>{ const l=LEADS.find(x=>x.id===el.getAttribute("data-open")); if(!l) return; fillForm(l); editingId=l.id;
+    document.getElementById("editBanner").innerHTML=`<div class="banner">Editando <b>${escHtml(l.nome||"lead")}</b>. Ao recalcular e salvar, o registro é atualizado. <span class="linklike" id="cancelEdit">cancelar</span></div>`;
+    document.getElementById("cancelEdit").onclick=()=>clearForm();
+    showView("triagem"); document.getElementById("result").classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); buildSteps(1); window.scrollTo({top:0,behavior:"smooth"});
+  });
+}
+function updateCounts(){ const el=document.getElementById("cntLead"); if(el) el.textContent=LEADS.length; }
+
+/* Salva o arquivo gerado. Publicado como artifact, o navegador não baixa
+   direto — pede o salvamento ao visualizador; local/Vercel usa blob + link. */
+async function download(name,text,mime){
+  try{
+    const dl = (window.claude && typeof window.claude.use==="function") ? await window.claude.use("downloads") : null;
+    if(dl){
+      try{ await dl.save({filename:name, data:text}); toast("Arquivo salvo"); }
+      catch(err){
+        const code=err&&err.code;
+        if(code==="declined") return;
+        if(code==="extension_not_enabled"&&/\.csv$/i.test(name)){
+          try{ await dl.save({filename:name.replace(/\.csv$/i,".txt"), data:text}); toast("Salvo como .txt — renomeie para .csv"); return; }catch(e2){}
+        }
+        toast("Não foi possível salvar o arquivo");
+      }
+      return;
+    }
+  }catch(e){}
+  const b=new Blob([text],{type:mime||"text/plain;charset=utf-8"}); const u=URL.createObjectURL(b);
+  const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),1500);
+}
+function csvCell(v){ return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'; }
+function exportCsv(){
+  const head=["nome","empresa","contato","origem","status","saida","formato","area_enquadrada","area_desejada","capital","giro","fonte","tempo","operacao","experiencia","franqueado","operou_shopping","risco","objetivo","tipo_marca","marca","ticket","faturamento_previsto","segmentos_interesse","score","top1","top2","top3","notas"];
+  const L=[head.map(csvCell).join(",")];
+  LEADS.forEach(l=>{ const t=l.top||[];
+    L.push([l.nome,l.empresa,l.contato,l.origem,(STATUS[l.status]||[""])[0],(SAIDA[l.saida]||[""])[0],FORM_LABEL[l.formato]||"",l.areaEnq,l.area,l.capital,l.giro,l.fonte,labelTempo(l.tempo),labelOper(l.operacao),labelExp(l.exp),l.franq,l.shopping,l.risco,l.objetivo,labelTipo(l.tipo),l.marca,l.ticket,l.fatPrev,(l.intSegs||[]).join(" | "),l.score,t[0]?t[0].n+" ("+t[0].score+")":"",t[1]?t[1].n+" ("+t[1].score+")":"",t[2]?t[2].n+" ("+t[2].score+")":"",l.notes].map(csvCell).join(","));
+  });
+  download("radar-operacoes-leads.csv","﻿"+L.join("\n"),"text/csv;charset=utf-8");
+}
+function exportJson(){ download("radar-operacoes-backup.json",JSON.stringify({version:1,exportedAt:new Date().toISOString(),leads:LEADS,plan:PLAN,params:PARAMS},null,2),"application/json"); }
+function importJson(file){
+  const rd=new FileReader();
+  rd.onload=()=>{ try{
+      const d=JSON.parse(rd.result);
+      if(Array.isArray(d.leads)) LEADS=d.leads;
+      if(d.plan&&Array.isArray(d.plan.points)) PLAN=d.plan;
+      if(d.params) PARAMS=Object.assign({},DEFAULT_PARAMS,d.params);
+      lsSet(LS.leads,LEADS); lsSet(LS.plan,PLAN); lsSet(LS.params,PARAMS);
+      recomputeSegStats(); updateCounts(); renderLeads(); renderParams(); renderPoints();
+      toast("Backup importado");
+    }catch(e){ alert("Arquivo inválido."); } };
+  rd.readAsText(file);
+}
+
+/* ============================================================
+   PLANEJAMENTO — parâmetros e pontos
+   ============================================================ */
+const PARAM_FIELDS=[
+  ["Implantação de referência (R$/m²)",[["cmQuiosque","Quiosque"],["cmSatelite","Loja satélite"],["cmMega","Megaloja"]]],
+  ["Faixas de área (m²)",[["qMax","Quiosque até"],["sMin","Satélite de"],["sMax","Satélite até"],["mMin","Megaloja a partir de"]]],
+  ["Aluguel mínimo (R$/m²/mês)",[["aluQuiosque","Quiosque"],["aluSatelite","Satélite"],["aluMega","Megaloja"]]],
+  ["Condomínio (R$/m²/mês)",[["conQuiosque","Quiosque"],["conSatelite","Satélite"],["conMega","Megaloja"]]],
+  ["Encargos (%)",[["fpp","FPP (% do aluguel)"],["taxas","IPTU e taxas (% do CTO)"]]]
+];
+function renderParams(){
+  document.getElementById("paramBox").innerHTML=PARAM_FIELDS.map(([titulo,campos])=>`
+    <h3 style="margin-top:10px;">${escHtml(titulo)}</h3>
+    <div class="grid2">${campos.map(([k,lbl])=>`<div class="field"><span class="lbl">${escHtml(lbl)}</span><input type="number" data-param="${k}" value="${Number(PARAMS[k])||0}"></div>`).join("")}</div>`).join("");
+  document.querySelectorAll("[data-param]").forEach(el=>el.onchange=()=>{
+    const k=el.getAttribute("data-param"); const v=parseFloat(el.value)||0; PARAMS[k]=v; lsSet(LS.params,PARAMS); renderPlanSummary(); toast("Parâmetro atualizado");
+  });
+}
+function mixSelect(p,i){
+  const cur=(p.mix||[])[i]||"";
+  return `<div class="mixrow"><span class="mixnum">${i+1}</span>
+    <select data-mix="${p.id}" data-i="${i}"><option value="">— escolher segmento —</option>${SEGMENTS.map(s=>`<option ${s===cur?"selected":""}>${escHtml(s)}</option>`).join("")}</select>
+    ${cur?`<button class="rm" data-rmmix="${p.id}" data-i="${i}">×</button>`:`<span class="rmspacer"></span>`}</div>`;
+}
+function renderPoints(){
+  const box=document.getElementById("ptList");
+  if(!PLAN.points.length){ box.innerHTML=`<div class="empty">Nenhum ponto cadastrado.</div>`; renderPlanSummary(); return; }
+  box.innerHTML=PLAN.points.map(p=>`<div class="pt-card">
+    <div class="ptline">
+      <input class="grow" data-nome="${p.id}" value="${escHtml(p.nome)}" placeholder="Nome do ponto">
+      <button class="rm" data-rmpt="${p.id}">×</button>
+    </div>
+    <div class="ptline">
+      <select data-form="${p.id}" class="grow">${["quiosque","satelite","mega"].map(f=>`<option value="${f}" ${p.form===f?"selected":""}>${FORM_LABEL[f]}</option>`).join("")}</select>
+      <input type="number" data-area="${p.id}" value="${Number(p.area)||0}" placeholder="m²"> <span class="hint" style="margin:0;">m²</span>
+    </div>
+    <div class="seg" data-ptstatus="${p.id}" style="margin-bottom:8px;">
+      <label data-v="vago" class="${p.status==="vago"?"on":""}">Vago</label>
+      <label data-v="ocupado" class="${p.status==="ocupado"?"on":""}">Ocupado</label>
+    </div>
+    ${p.status==="ocupado"
+      ? `<div class="field" style="margin-bottom:0;"><span class="lbl">Marca que opera</span><input data-marca="${p.id}" value="${escHtml(p.marca||"")}" list="oplist" placeholder="ex.: O Boticário"></div>`
+      : `<details class="mixdet" open><summary>Mix desejado (até 3, em ordem de prioridade)</summary>
+          ${[0,1,2].map(i=>((p.mix||[])[i]||i===((p.mix||[]).length))?mixSelect(p,i):"").join("")}
+         </details>`}
+  </div>`).join("");
+  box.querySelectorAll("[data-nome]").forEach(el=>el.onchange=()=>{ const p=pt(el.getAttribute("data-nome")); if(p){ p.nome=el.value.slice(0,80); savePlan(); } });
+  box.querySelectorAll("[data-area]").forEach(el=>el.onchange=()=>{ const p=pt(el.getAttribute("data-area")); if(p){ p.area=Math.max(0,parseFloat(el.value)||0); savePlan(); renderPlanSummary(); } });
+  box.querySelectorAll("[data-form]").forEach(el=>el.onchange=()=>{ const p=pt(el.getAttribute("data-form")); if(p){ p.form=el.value; savePlan(); renderPlanSummary(); } });
+  box.querySelectorAll("[data-marca]").forEach(el=>el.onchange=()=>{ const p=pt(el.getAttribute("data-marca")); if(p){ p.marca=el.value.slice(0,80); savePlan(); recomputeSegStats(); renderPlanSummary(); } });
+  box.querySelectorAll("[data-rmpt]").forEach(el=>el.onclick=()=>{ PLAN.points=PLAN.points.filter(x=>x.id!==el.getAttribute("data-rmpt")); savePlan(); renderPoints(); });
+  box.querySelectorAll("[data-ptstatus]").forEach(g=>{ g.querySelectorAll("label").forEach(l=>l.onclick=()=>{ const p=pt(g.getAttribute("data-ptstatus")); if(!p) return; p.status=l.getAttribute("data-v"); if(p.status==="vago") p.marca=""; else p.mix=[]; savePlan(); renderPoints(); }); });
+  box.querySelectorAll("[data-mix]").forEach(el=>el.onchange=()=>{ const p=pt(el.getAttribute("data-mix")); const i=parseInt(el.getAttribute("data-i"),10); if(!p) return; p.mix=p.mix||[]; if(el.value) p.mix[i]=el.value; else p.mix.splice(i,1); p.mix=p.mix.filter(Boolean); savePlan(); renderPoints(); });
+  box.querySelectorAll("[data-rmmix]").forEach(el=>el.onclick=()=>{ const p=pt(el.getAttribute("data-rmmix")); const i=parseInt(el.getAttribute("data-i"),10); if(!p) return; (p.mix||[]).splice(i,1); savePlan(); renderPoints(); });
+  renderPlanSummary();
+}
+function pt(id){ return PLAN.points.find(p=>p.id===id); }
+function savePlan(){ lsSet(LS.plan,PLAN); recomputeSegStats(); updateCounts(); }
+function renderPlanSummary(){
+  recomputeSegStats();
+  const vg=vacantPoints(), oc=PLAN.points.filter(p=>p.status==="ocupado");
+  const areaVaga=vg.reduce((a,p)=>a+(p.area||0),0);
+  const porForm=["quiosque","satelite","mega"].map(f=>{ const n=vg.filter(p=>p.form===f).length; return n?`${n} ${FORM_LABEL[f].toLowerCase()}(s)`:""; }).filter(Boolean).join(" · ")||"—";
+  const dem=SEGMENTS.filter(s=>SEGSTATS[s].demand>0).sort((a,b)=>SEGSTATS[b].demand-SEGSTATS[a].demand).slice(0,5);
+  document.getElementById("planSummary").innerHTML=
+    `<b>${PLAN.points.length}</b> ponto(s): ${oc.length} ocupado(s) · ${vg.length} vago(s) (${m2(areaVaga)}) — ${escHtml(porForm)}.<br>
+     Segmentos mais pedidos no mix das vagas: ${dem.length?dem.map(s=>escHtml(s)+" ("+SEGSTATS[s].demand+")").join(", "):"—"}.`;
+}
+
+/* ============================================================
+   CRUZAMENTO — ponto vago × lead × operação
+   ============================================================ */
+function activeLeads(){ return LEADS.filter(l=>l.status!=="descartado"&&l.status!=="fechado"); }
+function bestForPoint(p){
+  const cands=[];
+  const leads=activeLeads(); if(!leads.length) return cands;
+  OPS.forEach(op=>{
+    if(op.form!==p.form) return;
+    if(p.area&&(p.area<op.aMin*0.8||p.area>op.aMax*1.2)) return;
+    if((p.mix||[]).length&&!p.mix.includes(op.seg)) return;
+    if(PRESENT.has(normalize(op.n))) return;
+    leads.forEach(l=>{
+      const lp=Object.assign({},l,{area:p.area||l.area,form:p.form});
+      cands.push({lead:l, r:scoreOp(lp,op)});
+    });
+  });
+  return cands.sort((a,b)=>b.r.finalScore-a.r.finalScore).slice(0,3);
+}
+function renderCruzamento(){
+  recomputeSegStats();
+  const vg=vacantPoints();
+  const out=document.getElementById("crossOut");
+  if(!vg.length){ out.innerHTML=`<div class="card"><div class="empty">Cadastre pontos vagos em <b>Planejamento</b> para cruzar com a base de leads.</div></div>`; return; }
+  if(!activeLeads().length){ out.innerHTML=`<div class="card"><div class="empty">Nenhum lead ativo na base. Faça uma triagem e salve o lead.</div></div>`; return; }
+  let comCandidato=0;
+  const blocos=vg.map(p=>{
+    const top=bestForPoint(p);
+    if(top.length&&top[0].r.finalScore>=60) comCandidato++;
+    const linhas=top.length?top.map(({lead,r})=>{
+      const tv=tierOf(r.finalScore);
+      return `<div class="goalrow" style="align-items:flex-start;">
+        <div style="min-width:0;">
+          <div class="gn">${escHtml(lead.nome||"(sem nome)")} → ${escHtml(r.op.n)}</div>
+          <div class="inv-meta">${escHtml(r.op.seg)} · ${m2(r.areaAlvo)} · implantação ${moneyK(r.investAlvo)} · fat. est. ${moneyK(r.fat)}/mês · CTO ${pct(r.cto.pct)}</div>
+        </div>
+        <div style="text-align:right;flex:0 0 auto;"><b class="${tv.tc}">${r.finalScore}</b><div class="inv-meta">${tv.t}</div></div>
+      </div>`;
+    }).join(""):`<div class="empty" style="padding:14px;">Sem combinação viável: nenhum lead da base cobre o capital/formato deste ponto com o mix desejado.</div>`;
+    return `<div class="card">
+      <div class="lblsec" style="margin-bottom:8px;"><span class="n" data-ic="target"></span> ${escHtml(p.nome)}</div>
+      <p class="sub" style="margin-bottom:10px;"><span class="pill ${FORM_PILL[p.form]}">${FORM_LABEL[p.form]} · ${m2(p.area)}</span> ${(p.mix||[]).length?"Mix desejado: "+p.mix.map(escHtml).join(" › "):"Sem mix definido — aceita qualquer segmento"}</p>
+      ${linhas}
+    </div>`;
+  }).join("");
+  const cob=Math.round(comCandidato/vg.length*100);
+  out.innerHTML=`<div class="card" style="background:rgba(0,97,111,.12);border-color:rgba(54,140,130,.28);">
+      <h2>Cobertura da vacância</h2>
+      <p class="sub"><b>${comCandidato}</b> de <b>${vg.length}</b> ponto(s) vago(s) já têm candidato com match ≥ 60 (${cob}%). Os demais são foco de captação — use as lacunas do mix na abordagem.</p>
+    </div>${blocos}`;
+  applyIcons(out);
+}
+
+/* ============================================================
+   NAVEGAÇÃO & INICIALIZAÇÃO
+   ============================================================ */
+function showView(name){
+  if(INVESTOR_MODE) return;
+  ["triagem","leads","plano","cruzamento"].forEach(v=>{ const el=document.getElementById("view-"+v); if(el) el.classList.toggle("hidden", v!==name); });
+  document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.toggle("on", t.getAttribute("data-view")===name));
+  if(name==="leads") renderLeads();
+  if(name==="plano"){ renderParams(); renderPoints(); }
+  if(name==="cruzamento") renderCruzamento();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("#tabs .tab").forEach(t=>t.onclick=()=>showView(t.getAttribute("data-view")));
+
+document.getElementById("form").addEventListener("submit",e=>{ e.preventDefault(); if(INVESTOR_MODE){ generateInvestorResponse(); } else { buildSteps(2); run(); } });
+document.getElementById("btnClear").onclick=()=>clearForm();
+document.getElementById("srch").oninput=renderLeads;
+document.getElementById("fstatus").onchange=renderLeads;
+document.getElementById("fsaida").onchange=renderLeads;
+document.getElementById("btnCsv").onclick=exportCsv;
+document.getElementById("btnJson").onclick=exportJson;
+document.getElementById("btnImp").onclick=()=>document.getElementById("fileJson").click();
+document.getElementById("fileJson").onchange=e=>{ const f=e.target.files&&e.target.files[0]; if(f) importJson(f); e.target.value=""; };
+document.getElementById("btnAddPt").onclick=()=>{
+  const nome=document.getElementById("newPt").value.trim(); if(!nome){ toast("Dê um nome ao ponto"); return; }
+  PLAN.points.push({id:newId("pt"),nome:nome.slice(0,80),form:"satelite",area:60,status:"vago",marca:"",mix:[]});
+  document.getElementById("newPt").value=""; savePlan(); renderPoints(); toast("Ponto adicionado");
+};
+document.getElementById("btnParamReset").onclick=()=>{ if(!confirm("Restaurar os parâmetros padrão do empreendimento?")) return; PARAMS=Object.assign({},DEFAULT_PARAMS); lsSet(LS.params,PARAMS); renderParams(); renderPlanSummary(); toast("Parâmetros restaurados"); };
+
+document.getElementById("btnSendForm").onclick=showSendForm;
+document.getElementById("btnRecvForm").onclick=showRecvForm;
+
+applyIcons(document);
+rebuildChips();
+refreshOpList();
+resetSegDefaults();
+recomputeSegStats();
+updateCounts();
+renderLeads();
+buildSteps(0);
+
+if(/^#investidor\b/i.test(location.hash||"")) applyInvestorMode();
+
+/* ---------- ficha recebida por link (#resp=CODE) ---------- */
+(function(){
+  const m=(location.hash||"").match(/[#&]resp=([^&]+)/i);
+  if(!m) return;
+  let d=null;
+  try{ d=decodePayload(decodeURIComponent(m[1])); }catch(e){}
+  try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){}
+  if(d) receiveResponse(d, true);
+  else alert("Não consegui ler a ficha recebida pelo link. Peça ao interessado para reenviar o código (RO1:...).");
+})();
+</script>
+
+
+
+</body></html>

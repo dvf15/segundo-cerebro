@@ -1,0 +1,708 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<style>
+  :root{ color-scheme: dark; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:#020617; color:#e2e8f0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:16px; padding-bottom:64px; }
+  .wrap{ max-width:720px; margin:0 auto; }
+  h1{ font-size:24px; font-weight:800; color:#fff; margin:0 0 2px; }
+  h2{ font-size:16px; font-weight:800; color:#fff; margin:0 0 4px; }
+  .sub{ font-size:13px; color:#94a3b8; margin:0; }
+  .muted{ font-size:11px; color:#64748b; margin-top:4px; }
+  .card{ background:#0f172a; border:1px solid #1e293b; border-radius:14px; padding:16px; margin-bottom:14px; }
+  .lbl{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:#64748b; display:block; margin-bottom:5px; font-weight:600; }
+  .lblsec{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#94a3b8; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .lblsec .n{ background:#1e293b; color:#94a3b8; width:20px; height:20px; border-radius:99px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
+  input, select, textarea{ width:100%; background:#1e293b; border:1px solid #334155; border-radius:10px; padding:10px 12px; color:#fff; font-size:16px; outline:none; font-family:inherit; }
+  input:focus, select:focus, textarea:focus{ border-color:#3b82f6; }
+  textarea{ resize:vertical; min-height:52px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .field{ margin-bottom:12px; }
+  .hint{ font-size:10px; color:#64748b; margin-top:4px; line-height:1.4; }
+  .row{ display:flex; justify-content:space-between; align-items:center; padding:4px 0; font-size:14px; gap:10px; }
+  .row .k{ color:#94a3b8; } .row .v{ color:#fff; font-weight:700; }
+  .badge{ font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700; display:inline-block; }
+  .b-abf{ background:rgba(52,211,153,.14); color:#34d399; }
+  .b-pegn{ background:rgba(96,165,250,.14); color:#60a5fa; }
+  .b-seg{ background:rgba(148,163,184,.14); color:#cbd5e1; }
+  .acard{ border-radius:14px; border:1px solid; padding:16px; margin-bottom:12px; }
+  .verde{ background:rgba(16,185,129,.10); border-color:rgba(16,185,129,.40); }
+  .amarelo{ background:rgba(245,158,11,.10); border-color:rgba(245,158,11,.40); }
+  .vermelho{ background:rgba(244,63,94,.10); border-color:rgba(244,63,94,.40); }
+  .cinza{ background:rgba(100,116,139,.10); border-color:rgba(100,116,139,.40); }
+  .t-verde{ color:#34d399; } .t-amarelo{ color:#fbbf24; } .t-vermelho{ color:#fb7185; } .t-cinza{ color:#94a3b8; } .t-blue{ color:#60a5fa; }
+  button{ border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:700; cursor:pointer; width:100%; font-family:inherit; }
+  .btn-blue{ background:#2563eb; color:#fff; }
+  .btn-green{ background:#059669; color:#fff; }
+  .btn-gray{ background:#1e293b; color:#e2e8f0; border:1px solid #334155; }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px; }
+  .footer{ font-size:12px; color:#94a3b8; line-height:1.6; }
+  .footer strong{ color:#cbd5e1; }
+  .warn{ font-size:11px; color:#64748b; border-top:1px solid #1e293b; padding-top:10px; margin-top:12px; line-height:1.5; }
+  .pill{ display:inline-flex; align-items:center; gap:6px; font-size:12px; padding:6px 10px; border-radius:99px; background:#1e293b; color:#cbd5e1; cursor:pointer; border:1px solid #334155; }
+  /* chip multiselect */
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-size:13px; padding:8px 12px; border-radius:99px; background:#1e293b; color:#cbd5e1; cursor:pointer; border:1px solid #334155; user-select:none; }
+  .chip.on{ background:rgba(37,99,235,.22); border-color:#3b82f6; color:#dbeafe; }
+  /* segmented radio */
+  .seg{ display:flex; gap:6px; flex-wrap:wrap; }
+  .seg label{ flex:1 1 auto; text-align:center; padding:9px 8px; border-radius:10px; background:#1e293b; border:1px solid #334155; color:#cbd5e1; cursor:pointer; font-size:13px; font-weight:600; }
+  .seg input{ display:none; }
+  .seg input:checked + span{ }
+  .seg label.on{ background:rgba(37,99,235,.22); border-color:#3b82f6; color:#fff; }
+  .steps{ display:flex; gap:6px; margin-bottom:16px; }
+  .steps .s{ flex:1; height:5px; border-radius:99px; background:#1e293b; }
+  .steps .s.done{ background:#2563eb; }
+  .steps .s.cur{ background:#60a5fa; }
+  .scorebar{ height:8px; border-radius:99px; background:#1e293b; overflow:hidden; margin-top:6px; }
+  .scorebar > div{ height:100%; border-radius:99px; }
+  .bigscore{ font-size:26px; font-weight:800; line-height:1; }
+  .brand-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .brand-name{ font-size:16px; font-weight:800; color:#fff; }
+  .brand-seg{ font-size:11px; color:#94a3b8; margin-top:2px; }
+  .metrics{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px; }
+  .metric{ background:rgba(2,6,23,.45); border-radius:9px; padding:8px 10px; }
+  .metric .mk{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:#64748b; }
+  .metric .mv{ font-size:13px; font-weight:700; color:#e2e8f0; margin-top:2px; }
+  .reasons{ margin-top:12px; display:flex; flex-direction:column; gap:5px; }
+  .reason{ font-size:12px; line-height:1.4; display:flex; gap:7px; align-items:flex-start; }
+  .reason .ic{ flex:0 0 auto; }
+  .subscores{ display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; }
+  .ss{ font-size:10px; padding:3px 8px; border-radius:8px; background:rgba(2,6,23,.5); border:1px solid #1e293b; color:#94a3b8; }
+  .ss b{ color:#e2e8f0; }
+  .mixrow{ display:grid; grid-template-columns:1.4fr 60px 60px 70px; gap:8px; align-items:center; margin-bottom:8px; }
+  .mixrow .seg-nm{ font-size:13px; color:#cbd5e1; }
+  .mixrow input{ padding:8px; font-size:14px; text-align:center; }
+  .mixhead{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:#64748b; text-align:center; }
+  .hidden{ display:none; }
+  a, .linklike{ color:#60a5fa; cursor:pointer; }
+  .banner{ font-size:12px; line-height:1.5; background:rgba(96,165,250,.08); border:1px solid rgba(96,165,250,.25); border-radius:10px; padding:10px 12px; color:#bfdbfe; margin-bottom:14px; }
+  .empty{ text-align:center; color:#64748b; padding:24px 12px; font-size:13px; }
+  details summary{ cursor:pointer; font-size:12px; color:#94a3b8; padding:6px 0; }
+  .tag-mem{ font-size:10px; color:#fbbf24; }
+  @media(max-width:520px){ .grid3{ grid-template-columns:1fr; } .metrics{ grid-template-columns:1fr 1fr; } }
+</style>
+<div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+    <div>
+      <h1>Radar Quiosques</h1>
+      <p class="sub">Triagem e seleção de investidores · matching ABF × mix do shopping</p>
+    </div>
+    <span class="pill" id="mixBtn">⚙ Mix do Shopping</span>
+  </div>
+  <p class="muted" id="ctxline"></p>
+
+  <div class="steps" id="steps"></div>
+
+  <!-- ===================== CONFIG MIX (painel) ===================== -->
+  <div id="mixPanel" class="card hidden">
+    <div class="lblsec"><span class="n">⚙</span> Planejamento de mix do shopping</div>
+    <p class="hint" style="margin-bottom:12px;">Defina, por segmento, quantos quiosques o shopping <b>quer no mix</b> (meta), quantos <b>já operam</b> e quantas <b>vagas</b> há disponíveis no momento. A ferramenta usa isso para priorizar marcas que preenchem lacunas e evitar canibalização em segmentos saturados.</p>
+    <div class="mixrow"><div class="mixhead" style="text-align:left;">Segmento</div><div class="mixhead">Meta</div><div class="mixhead">Atual</div><div class="mixhead">Vagas</div></div>
+    <div id="mixRows"></div>
+    <div class="actions" style="margin-top:12px;">
+      <button class="btn-gray" id="mixReset">Restaurar padrão</button>
+      <button class="btn-blue" id="mixSave">Salvar mix</button>
+    </div>
+    <p class="warn">O mix é salvo neste navegador (localStorage). Ajuste conforme o plano de tenant mix / merchandising do empreendimento.</p>
+  </div>
+
+  <!-- ===================== FORMULÁRIO ===================== -->
+  <form id="form">
+
+    <div class="card">
+      <div class="lblsec"><span class="n">1</span> Identificação do investidor</div>
+      <div class="grid2">
+        <div class="field"><span class="lbl">Nome</span><input id="q_nome" placeholder="Nome do investidor"></div>
+        <div class="field"><span class="lbl">Contato (tel / e-mail)</span><input id="q_contato" placeholder="opcional"></div>
+      </div>
+      <div class="field">
+        <span class="lbl">Origem / como chegou</span>
+        <select id="q_origem">
+          <option value="">—</option>
+          <option>Indicação</option><option>Site / formulário do shopping</option>
+          <option>Feira / evento (ex.: ABF Franchising Expo)</option>
+          <option>Corretor / consultoria</option><option>Prospecção ativa</option><option>Outro</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n">2</span> Capacidade de investimento</div>
+      <div class="grid2">
+        <div class="field">
+          <span class="lbl">Capital para implantação (R$)</span>
+          <input id="q_capital" type="number" inputmode="numeric" placeholder="ex.: 200000">
+          <div class="hint">Total que consegue aportar na montagem (obra, equipamentos, estoque inicial, taxa de franquia).</div>
+        </div>
+        <div class="field">
+          <span class="lbl">Capital de giro reservado (R$)</span>
+          <input id="q_giro" type="number" inputmode="numeric" placeholder="ex.: 40000">
+          <div class="hint">Reserva <b>além</b> da implantação para bancar os primeiros meses (aluguel, folha, reposição) até o ponto de equilíbrio.</div>
+        </div>
+      </div>
+      <div class="field">
+        <span class="lbl">Fonte do capital</span>
+        <div class="seg" data-seg="q_fonte">
+          <label data-v="proprio">Recursos próprios</label>
+          <label data-v="socio">Com sócio</label>
+          <label data-v="financiado">Parte financiada</label>
+        </div>
+        <div class="hint">Capital de giro insuficiente é a principal causa de mortalidade de quiosque no 1º ano — sinalize se a reserva estiver curta.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n">3</span> Tempo dedicado</div>
+      <div class="field">
+        <span class="lbl">Disponibilidade para tocar o negócio</span>
+        <div class="seg" data-seg="q_tempo">
+          <label data-v="integral">Integral · operador</label>
+          <label data-v="parcial">Parcial · meio-período</label>
+          <label data-v="baixo">Baixa · investidor / à distância</label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="lbl">Vai operar pessoalmente ou contratar gerente?</span>
+        <div class="seg" data-seg="q_operacao">
+          <label data-v="dono">Eu no balcão</label>
+          <label data-v="gerente">Contrato gerente</label>
+          <label data-v="misto">Misto</label>
+        </div>
+        <div class="hint">Quiosque tem operação enxuta (1–3 pessoas): quem não fica presente precisa de marca com processos e gestão simples.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n">4</span> Experiência prévia</div>
+      <div class="field">
+        <span class="lbl">Já teve ou tocou algum negócio?</span>
+        <div class="seg" data-seg="q_exp">
+          <label data-v="nenhuma">Primeira vez</label>
+          <label data-v="gestao">Já geriu negócio/equipe</label>
+          <label data-v="setor">Experiência no varejo/setor</label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="lbl">Segmentos em que tem experiência (opcional)</span>
+        <div class="chips" id="chipsExp"></div>
+      </div>
+      <div class="field">
+        <span class="lbl">Já é ou foi franqueado?</span>
+        <div class="seg" data-seg="q_franq">
+          <label data-v="nao">Não</label>
+          <label data-v="sim">Sim</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n">5</span> Marca & segmento em mente</div>
+      <div class="field">
+        <span class="lbl">Já tem alguma <b>marca</b> específica em mente? (opcional)</span>
+        <input id="q_marca" placeholder="ex.: Cacau Show, Chilli Beans... ou deixe em branco" list="brandlist">
+        <datalist id="brandlist"></datalist>
+        <div class="hint">Se citar uma marca, a ferramenta valida a aderência dela ao perfil e ao mix — e sugere alternativas equivalentes.</div>
+      </div>
+      <div class="field">
+        <span class="lbl">Segmentos de interesse (opcional — marque os que atraem)</span>
+        <div class="chips" id="chipsInt"></div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <span class="lbl">Perfil de risco</span>
+          <div class="seg" data-seg="q_risco">
+            <label data-v="conservador">Conservador</label>
+            <label data-v="moderado">Moderado</label>
+            <label data-v="arrojado">Arrojado</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Principal objetivo</span>
+          <select id="q_objetivo">
+            <option value="renda">Gerar renda / novo trabalho</option>
+            <option value="passivo">Investimento (renda passiva)</option>
+            <option value="realizacao">Realização / marca que admira</option>
+            <option value="portfolio">Ampliar portfólio (já é franqueado)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-gray" id="btnClear">Limpar</button>
+      <button type="submit" class="btn-green" id="btnRun">Cruzar dados & recomendar ▸</button>
+    </div>
+  </form>
+
+  <!-- ===================== RESULTADO ===================== -->
+  <div id="result" class="hidden" style="margin-top:18px;"></div>
+
+  <div class="warn" style="margin-top:24px;">
+    <b style="color:#cbd5e1;">Sobre os dados.</b> A base de marcas reúne franquias em formato quiosque/quiosque-express que operam em shoppings, com faixas de investimento, capital de giro, payback e royalties em valores de <b>referência</b> compilados de material público da <b>ABF (Associação Brasileira de Franchising)</b> e do <b>PEGN — Pequenas Empresas &amp; Grandes Negócios</b> (Guia/Ranking de Franquias). Números reais variam por praça, formato e ano — <b>sempre confirme na COF (Circular de Oferta de Franquia)</b> e na proposta comercial da rede antes de fechar. O mix é o do seu empreendimento. Ferramenta de apoio à decisão do executivo — não substitui a análise financeira formal.
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   BASE DE MARCAS (referência ABF / PEGN) — formato quiosque
+   invest = implantação média (R$); giro = capital de giro sugerido (R$)
+   fat = faturamento médio mensal (R$); payback em meses; roy/fpp em %
+   tempo: dono | gerente | passivo  (perfil de dedicação que a rede pede)
+   exp: iniciante | intermediario | avancado (experiência recomendada)
+   compl: complexidade operacional 1..5
+   ============================================================ */
+const BRANDS = [
+  // ---- Alimentação: chocolates & doces ----
+  {n:"Cacau Show",seg:"Chocolates & doces",invest:120000,giro:25000,fat:60000,payback:24,roy:0,fpp:0,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Maior rede de chocolates finos do país; quiosque express de alto giro."},
+  {n:"Chocolates Brasil Cacau",seg:"Chocolates & doces",invest:150000,giro:30000,fat:70000,payback:28,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Chocolate acessível, forte em datas comemorativas."},
+  {n:"Kopenhagen",seg:"Chocolates & doces",invest:280000,giro:45000,fat:110000,payback:30,roy:7,fpp:2,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Chocolate premium; ticket alto e público AB."},
+  {n:"Amor aos Pedaços",seg:"Chocolates & doces",invest:190000,giro:35000,fat:85000,payback:30,roy:6,fpp:3,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Doces e bolos premium; forte em presentes."},
+  {n:"Brigaderia",seg:"Chocolates & doces",invest:110000,giro:22000,fat:48000,payback:26,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Brigadeiros gourmet; operação compacta."},
+  // ---- Alimentação: castanhas / snacks doces ----
+  {n:"Nutty Bavarian",seg:"Snacks & castanhas",invest:95000,giro:18000,fat:45000,payback:20,roy:6,fpp:2,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Castanhas caramelizadas na hora; aroma como atrativo — clássico de quiosque."},
+  {n:"Balonè",seg:"Snacks & castanhas",invest:130000,giro:25000,fat:55000,payback:24,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Pipoca gourmet, doces e presentes; alto apelo impulsivo."},
+  // ---- Alimentação: padaria / salgados ----
+  {n:"Casa do Pão de Queijo",seg:"Cafeteria & padaria",invest:160000,giro:30000,fat:65000,payback:26,roy:5,fpp:2,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Pão de queijo, cafés e salgados; tráfego o dia todo."},
+  {n:"Croasonho",seg:"Cafeteria & padaria",invest:170000,giro:30000,fat:70000,payback:28,roy:5,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Croissants recheados na hora; forte no lanche da tarde."},
+  {n:"Mr. Cheney",seg:"Cafeteria & padaria",invest:180000,giro:32000,fat:75000,payback:28,roy:6,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Cookies americanos e cafés; público jovem."},
+  // ---- Bebidas / café ----
+  {n:"The Coffee",seg:"Cafeteria & padaria",invest:220000,giro:40000,fat:90000,payback:26,roy:7,fpp:2,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Café de especialidade, marca de forte apelo entre jovens; formato compacto."},
+  {n:"Grão Espresso",seg:"Cafeteria & padaria",invest:150000,giro:28000,fat:60000,payback:26,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Café e snacks em quiosque; operação simples."},
+  {n:"Rei do Mate",seg:"Cafeteria & padaria",invest:130000,giro:25000,fat:55000,payback:24,roy:6,fpp:4,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Mate gelado, sucos e salgados; marca tradicional de quiosque."},
+  // ---- Sorvete / açaí ----
+  {n:"Oakberry",seg:"Sorvetes & açaí",invest:180000,giro:32000,fat:80000,payback:24,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Açaí premium com forte marca global; alta sazonalidade no verão."},
+  {n:"Los Paleteros",seg:"Sorvetes & açaí",invest:110000,giro:22000,fat:45000,payback:26,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Paletas mexicanas artesanais; apelo visual e impulsivo."},
+  // ---- Acessórios / bijuteria / moda ----
+  {n:"Morana",seg:"Acessórios & bijuterias",invest:110000,giro:20000,fat:50000,payback:24,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Bijuterias e acessórios femininos; líder do segmento em quiosque."},
+  {n:"Chilli Beans",seg:"Acessórios & bijuterias",invest:160000,giro:28000,fat:70000,payback:26,roy:8,fpp:4,tempo:"gerente",exp:"intermediario",compl:2,abf:1,pegn:1,desc:"Óculos e acessórios; marca desejo, coleções frequentes."},
+  {n:"Jorge Bischoff",seg:"Acessórios & bijuterias",invest:250000,giro:40000,fat:95000,payback:30,roy:5,fpp:2,tempo:"gerente",exp:"avancado",compl:3,abf:1,pegn:0,desc:"Bolsas e calçados em couro; público AB, ticket alto."},
+  {n:"Uatt?",seg:"Presentes & utilidades",invest:120000,giro:24000,fat:55000,payback:26,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Presentes criativos e itens de humor; campeão de compra por impulso."},
+  {n:"Life by Vivara",seg:"Joalheria & relógios",invest:220000,giro:35000,fat:85000,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Braço acessível da Vivara em quiosque; joias e Life charms."},
+  // ---- Cosméticos / perfumaria ----
+  {n:"Água de Cheiro",seg:"Cosméticos & perfumaria",invest:90000,giro:18000,fat:42000,payback:24,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Perfumaria e cosméticos nacionais; marca tradicional."},
+  {n:"L'acqua di Fiori",seg:"Cosméticos & perfumaria",invest:110000,giro:20000,fat:48000,payback:26,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Perfumaria fina nacional; boa margem."},
+  {n:"Amakha Paris",seg:"Cosméticos & perfumaria",invest:45000,giro:12000,fat:28000,payback:20,roy:0,fpp:0,tempo:"dono",exp:"iniciante",compl:1,abf:1,pegn:0,desc:"Perfumaria de baixo investimento; entrada acessível ao pequeno investidor."},
+  // ---- Serviços ----
+  {n:"Doctor Feet",seg:"Serviços & bem-estar",invest:95000,giro:18000,fat:40000,payback:24,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Podologia e cuidados com os pés; serviço recorrente, pouca concorrência em quiosque."},
+  // ---- Sorvete / café adicionais ----
+  {n:"Bacio di Latte",seg:"Sorvetes & açaí",invest:250000,giro:45000,fat:100000,payback:30,roy:5,fpp:2,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Gelato italiano premium; ticket alto e forte marca, operação mais exigente."},
+  {n:"Havanna",seg:"Cafeteria & padaria",invest:230000,giro:40000,fat:95000,payback:30,roy:6,fpp:2,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Cafeteria e alfajores argentinos; público AB, formato café/quiosque."},
+  // ---- Joalheria adicional ----
+  {n:"Monreale",seg:"Joalheria & relógios",invest:150000,giro:28000,fat:70000,payback:28,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Joias em prata e semijoias; rede com forte presença em quiosque de shopping."},
+  // ---- Acessórios de celular & tech ----
+  {n:"iPlace",seg:"Acessórios de celular & tech",invest:350000,giro:60000,fat:180000,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:1,desc:"Apple Premium Reseller; ticket e estoque altos, exige capital e gestão robustos."},
+  {n:"The Case",seg:"Acessórios de celular & tech",invest:110000,giro:22000,fat:55000,payback:24,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Capas e acessórios para celular; compra por impulso, operação simples de quiosque."},
+];
+
+/* Segmentos (derivados + fixos p/ mix e chips) */
+const SEGMENTS = [
+  "Chocolates & doces","Snacks & castanhas","Cafeteria & padaria","Sorvetes & açaí",
+  "Acessórios & bijuterias","Presentes & utilidades","Joalheria & relógios",
+  "Cosméticos & perfumaria","Serviços & bem-estar","Acessórios de celular & tech"
+];
+
+/* Mix padrão do shopping (meta / atual / vagas) — editável */
+const DEFAULT_MIX = {
+  "Chocolates & doces":      {meta:3, atual:2, vagas:1},
+  "Snacks & castanhas":      {meta:2, atual:1, vagas:1},
+  "Cafeteria & padaria":     {meta:4, atual:2, vagas:2},
+  "Sorvetes & açaí":         {meta:2, atual:2, vagas:0},
+  "Acessórios & bijuterias": {meta:3, atual:3, vagas:0},
+  "Presentes & utilidades":  {meta:2, atual:1, vagas:1},
+  "Joalheria & relógios":    {meta:2, atual:1, vagas:1},
+  "Cosméticos & perfumaria": {meta:2, atual:1, vagas:1},
+  "Serviços & bem-estar":    {meta:2, atual:0, vagas:2},
+  "Acessórios de celular & tech":{meta:2, atual:1, vagas:1},
+};
+
+const LS_MIX = "radarQuiosques.mix.v1";
+const money = n => "R$ " + Number(n||0).toLocaleString("pt-BR");
+const moneyK = n => n>=1000 ? "R$ "+(n/1000).toLocaleString("pt-BR",{maximumFractionDigits:0})+"k" : money(n);
+
+/* ---------- estado de multiseleção ---------- */
+const state = { exp:new Set(), int:new Set(), seg:{} };
+
+/* ---------- montar chips ---------- */
+function buildChips(el, set){
+  el.innerHTML="";
+  SEGMENTS.forEach(s=>{
+    const c=document.createElement("div"); c.className="chip"; c.textContent=s;
+    c.onclick=()=>{ if(set.has(s)){set.delete(s);c.classList.remove("on");} else {set.add(s);c.classList.add("on");} };
+    el.appendChild(c);
+  });
+}
+buildChips(document.getElementById("chipsExp"), state.exp);
+buildChips(document.getElementById("chipsInt"), state.int);
+
+/* ---------- datalist de marcas ---------- */
+document.getElementById("brandlist").innerHTML = BRANDS.map(b=>`<option value="${b.n}">`).join("");
+
+/* ---------- segmented controls ---------- */
+document.querySelectorAll("[data-seg]").forEach(g=>{
+  const key=g.getAttribute("data-seg");
+  g.querySelectorAll("label").forEach(l=>{
+    l.onclick=()=>{
+      g.querySelectorAll("label").forEach(x=>x.classList.remove("on"));
+      l.classList.add("on"); state.seg[key]=l.getAttribute("data-v");
+    };
+  });
+});
+/* defaults */
+function setSeg(key,val){ const g=document.querySelector(`[data-seg="${key}"]`); const l=g&&g.querySelector(`[data-v="${val}"]`); if(l){l.click();} }
+setSeg("q_fonte","proprio"); setSeg("q_tempo","integral"); setSeg("q_operacao","dono");
+setSeg("q_exp","nenhuma"); setSeg("q_franq","nao"); setSeg("q_risco","moderado");
+
+/* ============================================================
+   PAINEL DE MIX
+   ============================================================ */
+function loadMix(){
+  try{ const s=JSON.parse(localStorage.getItem(LS_MIX)); if(s) return {...structuredCloneSafe(DEFAULT_MIX), ...s}; }catch(e){}
+  return structuredCloneSafe(DEFAULT_MIX);
+}
+function structuredCloneSafe(o){ return JSON.parse(JSON.stringify(o)); }
+function saveMix(m){ try{ localStorage.setItem(LS_MIX, JSON.stringify(m)); }catch(e){} }
+let MIX = loadMix();
+
+function renderMixRows(){
+  const box=document.getElementById("mixRows"); box.innerHTML="";
+  SEGMENTS.forEach(s=>{
+    const m=MIX[s]||{meta:0,atual:0,vagas:0};
+    const row=document.createElement("div"); row.className="mixrow";
+    row.innerHTML=`<div class="seg-nm">${s}</div>
+      <input type="number" min="0" value="${m.meta}" data-s="${s}" data-f="meta">
+      <input type="number" min="0" value="${m.atual}" data-s="${s}" data-f="atual">
+      <input type="number" min="0" value="${m.vagas}" data-s="${s}" data-f="vagas">`;
+    box.appendChild(row);
+  });
+}
+renderMixRows();
+document.getElementById("mixBtn").onclick=()=>{
+  const p=document.getElementById("mixPanel"); p.classList.toggle("hidden");
+  if(!p.classList.contains("hidden")) p.scrollIntoView({behavior:"smooth",block:"start"});
+};
+document.getElementById("mixSave").onclick=()=>{
+  document.querySelectorAll("#mixRows input").forEach(i=>{
+    const s=i.getAttribute("data-s"), f=i.getAttribute("data-f");
+    MIX[s]=MIX[s]||{meta:0,atual:0,vagas:0}; MIX[s][f]=Math.max(0,parseInt(i.value||0,10));
+  });
+  saveMix(MIX); document.getElementById("mixPanel").classList.add("hidden"); updateCtx();
+};
+document.getElementById("mixReset").onclick=()=>{ MIX=structuredCloneSafe(DEFAULT_MIX); saveMix(MIX); renderMixRows(); updateCtx(); };
+
+function updateCtx(){
+  const vagas=SEGMENTS.filter(s=>(MIX[s]?.vagas||0)>0);
+  document.getElementById("ctxline").textContent =
+    `Mix: ${vagas.length} segmento(s) com vaga aberta — ${vagas.slice(0,4).join(", ")}${vagas.length>4?"…":""}`;
+}
+updateCtx();
+
+/* ============================================================
+   MOTOR DE MATCHING
+   ============================================================ */
+function normalize(str){ return (str||"").toString().trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+
+function readInvestor(){
+  return {
+    nome: val("q_nome"), contato: val("q_contato"), origem: val("q_origem"),
+    capital: num("q_capital"), giro: num("q_giro"),
+    fonte: state.seg.q_fonte, tempo: state.seg.q_tempo, operacao: state.seg.q_operacao,
+    exp: state.seg.q_exp, franq: state.seg.q_franq, risco: state.seg.q_risco,
+    objetivo: val("q_objetivo"), marca: val("q_marca"),
+    expSegs:[...state.exp], intSegs:[...state.int],
+  };
+}
+function val(id){ return document.getElementById(id).value.trim(); }
+function num(id){ return parseFloat(document.getElementById(id).value)||0; }
+
+/* pesos das dimensões do match investidor↔marca */
+const W = { fin:30, giro:14, tempo:14, exp:14, interesse:18, risco:10 };
+
+function scoreBrand(inv, b){
+  const need = b.invest;                 // implantação da marca
+  const needGiro = b.giro;               // giro sugerido
+  const capital = inv.capital, giro = inv.giro;
+  const parts = {}; const reasons = [];
+
+  // --- financeiro ---
+  let fin;
+  if(capital<=0){ fin=50; }
+  else{
+    const r = capital/need;
+    if(r<0.85){ fin = Math.max(0, 60*r); reasons.push(["✗","t-vermelho",`Implantação ${moneyK(need)} acima do capital disponível (${moneyK(capital)}).`]); }
+    else if(r<1){ fin = 70; reasons.push(["△","t-amarelo",`Implantação ${moneyK(need)} no limite do capital — margem apertada.`]); }
+    else if(r<=1.8){ fin = 100; reasons.push(["✓","t-verde",`Implantação ${moneyK(need)} cabe no capital com folga saudável.`]); }
+    else if(r<=3){ fin = 88; }
+    else { fin = 72; reasons.push(["△","t-cinza",`Capital bem acima do necessário — poderia mirar formato/marca de maior porte.`]); }
+  }
+  parts.fin=fin;
+
+  // --- capital de giro ---
+  let g;
+  if(giro<=0){ g=45; reasons.push(["△","t-amarelo",`Capital de giro não informado — confirmar reserva de ~${moneyK(needGiro)}.`]); }
+  else{
+    const rg=giro/needGiro;
+    if(rg>=1){ g=100; }
+    else if(rg>=0.6){ g=72; reasons.push(["△","t-amarelo",`Giro reservado (${moneyK(giro)}) abaixo do sugerido (${moneyK(needGiro)}).`]); }
+    else { g=40; reasons.push(["✗","t-vermelho",`Giro insuficiente: ${moneyK(giro)} vs. ~${moneyK(needGiro)} recomendados.`]); }
+  }
+  parts.giro=g;
+
+  // --- tempo / operação ---
+  let t;
+  const wantHandsOff = inv.tempo==="baixo" || inv.operacao==="gerente";
+  if(b.tempo==="dono"){
+    if(inv.tempo==="integral" && inv.operacao!=="gerente"){ t=100; }
+    else if(inv.tempo==="parcial"){ t=70; reasons.push(["△","t-amarelo","Marca pede dono presente; dedicação parcial exige um gerente forte."]); }
+    else { t=42; reasons.push(["✗","t-vermelho","Marca de operação mão-na-massa e você quer baixa dedicação/gerente."]); }
+  } else if(b.tempo==="gerente"){
+    t = wantHandsOff ? 100 : 88;
+    if(inv.tempo==="integral") reasons.push(["✓","t-verde","Operação gerenciável — compatível com sua disponibilidade integral e também delegável."]);
+  } else { t=95; }
+  parts.tempo=t;
+
+  // --- experiência ---
+  let e;
+  const rank={iniciante:1,intermediario:2,avancado:3};
+  const need_e=rank[b.exp], has_e = inv.exp==="setor"?3 : inv.exp==="gestao"?2 : 1;
+  const franqBonus = inv.franq==="sim"?1:0;
+  const eff = Math.min(3, has_e+franqBonus);
+  if(eff>=need_e){ e=100; }
+  else if(eff===need_e-1){ e = b.compl>=4?62:78; reasons.push(["△","t-amarelo",`Operação de complexidade ${b.compl}/5 — recomendável suporte/treino reforçado.`]); }
+  else { e = b.compl>=4?38:58; reasons.push(["✗","t-vermelho",`Marca pede perfil ${b.exp}; experiência atual abaixo — risco na curva de aprendizado.`]); }
+  // bônus por experiência no próprio segmento
+  if(inv.expSegs.includes(b.seg)){ e=Math.min(100,e+12); reasons.push(["✓","t-verde",`Você tem experiência em ${b.seg}.`]); }
+  parts.exp=e;
+
+  // --- interesse (marca em mente / segmento desejado) ---
+  let it=60; let memHit=false;
+  if(inv.marca && normalize(inv.marca)===normalize(b.n)){ it=100; memHit=true; reasons.push(["★","t-blue","Marca que o investidor já tinha em mente."]); }
+  else if(inv.marca && normalize(b.n).includes(normalize(inv.marca)) && normalize(inv.marca).length>=3){ it=92; memHit=true; }
+  if(inv.intSegs.length){
+    if(inv.intSegs.includes(b.seg)){ it=Math.max(it,88); reasons.push(["✓","t-verde",`Segmento de interesse declarado: ${b.seg}.`]); }
+    else if(!memHit){ it=Math.min(it,50); }
+  }
+  parts.interesse=it;
+
+  // --- risco ---
+  let rk=80;
+  const riskLevel = (b.compl + (b.payback>28?2: b.payback>24?1:0));  // ~1..7
+  if(inv.risco==="conservador"){ rk = riskLevel<=3?100: riskLevel<=5?70:45; }
+  else if(inv.risco==="moderado"){ rk = riskLevel<=5?92:70; }
+  else { rk = 88; } // arrojado tolera tudo
+  parts.risco=rk;
+
+  // --- score investidor ponderado ---
+  const invScore = Math.round(
+    (parts.fin*W.fin + parts.giro*W.giro + parts.tempo*W.tempo +
+     parts.exp*W.exp + parts.interesse*W.interesse + parts.risco*W.risco) /
+    (W.fin+W.giro+W.tempo+W.exp+W.interesse+W.risco)
+  );
+
+  // --- aderência ao mix do shopping ---
+  const m = MIX[b.seg] || {meta:0,atual:0,vagas:0};
+  const lacuna = Math.max(0, (m.meta||0)-(m.atual||0));
+  let mix, mixReason, lacunaBonus=0;
+  if(m.vagas>0){
+    if(lacuna>=1){ mix=100; lacunaBonus=4; mixReason=["✓","t-verde",`Segmento com vaga e lacuna no mix (meta ${m.meta}, atual ${m.atual}) — prioridade de tenant mix.`]; }
+    else { mix=82; mixReason=["✓","t-verde",`Há vaga disponível para ${b.seg}.`]; }
+  } else if(m.atual>=m.meta && m.meta>0){
+    mix=28; mixReason=["✗","t-vermelho",`Segmento saturado no shopping (atual ${m.atual} ≥ meta ${m.meta}) — risco de canibalização.`];
+  } else if(m.meta===0){
+    mix=45; mixReason=["△","t-cinza",`${b.seg} não está no plano de mix atual — avaliar caso a caso.`];
+  } else {
+    mix=55; mixReason=["△","t-amarelo",`Sem vaga formal, mas abaixo da meta — depende de disponibilidade de ponto.`];
+  }
+
+  // --- score final: o mix MODULA o match do investidor (0.7x..1.0x) e nunca o
+  //     infla acima dele — assim uma marca inviável no perfil (ex.: acima do
+  //     capital) não é "resgatada" por haver vaga. Lacuna real dá bônus pequeno.
+  const finalScore = Math.min(100, Math.round(invScore*(0.7 + 0.3*(mix/100)) + lacunaBonus));
+
+  return { b, parts, invScore, mix, mixReason, finalScore, reasons, memHit };
+}
+
+function tierOf(s){ if(s>=78) return {t:"Alto match",cls:"verde",tc:"t-verde"}; if(s>=60) return {t:"Match médio",cls:"amarelo",tc:"t-amarelo"}; if(s>=42) return {t:"Match baixo",cls:"cinza",tc:"t-cinza"}; return {t:"Não recomendado",cls:"vermelho",tc:"t-vermelho"}; }
+function barColor(s){ return s>=78?"#34d399":s>=60?"#fbbf24":s>=42?"#94a3b8":"#fb7185"; }
+
+/* ============================================================
+   RENDER RESULTADO
+   ============================================================ */
+function run(){
+  const inv = readInvestor();
+
+  // validações leves
+  if(!inv.capital){ alert("Informe o capital para implantação (etapa 2) para cruzar as faixas de investimento."); document.getElementById("q_capital").focus(); return; }
+
+  const scored = BRANDS.map(b=>scoreBrand(inv,b)).sort((a,b)=> b.finalScore-a.finalScore);
+  const top = scored.slice(0,8);
+
+  // resumo do perfil
+  const perfil = perfilResumo(inv);
+  const capTotal = inv.capital + inv.giro;
+
+  // aviso de marca em mente
+  let marcaMsg="";
+  if(inv.marca){
+    const hit = scored.find(s=>normalize(s.b.n)===normalize(inv.marca) || (normalize(s.b.n).includes(normalize(inv.marca))&&normalize(inv.marca).length>=3));
+    if(hit){
+      const tv=tierOf(hit.finalScore);
+      marcaMsg=`<div class="banner"><b>Marca citada:</b> ${hit.b.n} — <span class="${tv.tc}">${tv.t} (${hit.finalScore})</span>. ${hit.finalScore<60?"Aderência limitada ao perfil/mix; veja alternativas equivalentes abaixo.":"Boa aderência — segue como candidata forte."}</div>`;
+    } else {
+      marcaMsg=`<div class="banner"><b>Marca citada:</b> “${inv.marca}” não está na base de referência (formato quiosque). Considere as marcas equivalentes do ranking abaixo, ou cadastre-a no mix.</div>`;
+    }
+  }
+
+  const cards = top.map(renderBrandCard).join("");
+
+  // segmentos com lacuna (visão do shopping)
+  const gaps = SEGMENTS.filter(s=>(MIX[s]?.vagas||0)>0 && (MIX[s].meta-MIX[s].atual)>0)
+    .map(s=>`${s} (${MIX[s].meta-MIX[s].atual})`);
+
+  document.getElementById("result").innerHTML = `
+    <div class="card">
+      <h2>Diagnóstico do investidor</h2>
+      <p class="sub" style="margin-bottom:10px;">${inv.nome?inv.nome+" · ":""}${perfil.tipo}</p>
+      <div class="row"><span class="k">Capital total (implantação + giro)</span><span class="v">${money(capTotal)}</span></div>
+      <div class="row"><span class="k">Dedicação</span><span class="v">${labelTempo(inv.tempo)} · ${labelOper(inv.operacao)}</span></div>
+      <div class="row"><span class="k">Experiência</span><span class="v">${labelExp(inv.exp)}${inv.franq==="sim"?" · já franqueado":""}</span></div>
+      <div class="row"><span class="k">Perfil de risco</span><span class="v">${cap(inv.risco)}</span></div>
+      ${inv.intSegs.length?`<div class="row"><span class="k">Segmentos de interesse</span><span class="v" style="text-align:right;">${inv.intSegs.join(", ")}</span></div>`:""}
+      <div class="reasons" style="margin-top:10px;">${perfil.notas.map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${n[2]}</span></div>`).join("")}</div>
+    </div>
+    ${marcaMsg}
+    <div class="card" style="background:rgba(96,165,250,.06);border-color:rgba(96,165,250,.22);">
+      <div class="lblsec" style="margin-bottom:8px;">Lacunas do mix do shopping</div>
+      ${gaps.length?`<p class="sub">Segmentos com vaga <b>e</b> abaixo da meta (nº de posições): ${gaps.join(" · ")}. Marcas nesses segmentos ganham prioridade no ranking.</p>`:`<p class="sub">Nenhuma lacuna prioritária no mix atual — o ranking pondera match do investidor com as vagas existentes.</p>`}
+    </div>
+    <h2 style="margin:18px 0 4px;">Ranking de marcas recomendadas</h2>
+    <p class="sub" style="margin-bottom:12px;">Cruzamento ABF/PEGN × perfil do investidor × mix do shopping. O score final parte do match do investidor e é <b>modulado</b> pela aderência ao mix (vaga, lacuna ou saturação) — segmento saturado reduz o score; lacuna prioritária o reforça.</p>
+    ${cards}
+    <div class="actions" style="margin-top:6px;">
+      <button class="btn-gray" id="btnBack">◂ Ajustar respostas</button>
+      <button class="btn-blue" id="btnCopy">Copiar resumo p/ o investidor</button>
+    </div>
+  `;
+  document.getElementById("form").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+  document.getElementById("btnBack").onclick=()=>{ document.getElementById("result").classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); };
+  document.getElementById("btnCopy").onclick=()=>copySummary(inv, perfil, top);
+  buildSteps(2);
+}
+
+function renderBrandCard(r){
+  const tv=tierOf(r.finalScore);
+  const b=r.b;
+  const badges = [
+    b.abf?`<span class="badge b-abf">ABF</span>`:"",
+    b.pegn?`<span class="badge b-pegn">Destaque PEGN</span>`:"",
+    `<span class="badge b-seg">${b.seg}</span>`,
+  ].join(" ");
+  const ss = [
+    ["Financeiro",r.parts.fin],["Giro",r.parts.giro],["Tempo",r.parts.tempo],
+    ["Experiência",r.parts.exp],["Interesse",r.parts.interesse],["Risco",r.parts.risco],["Mix",r.mix],
+  ].map(([k,v])=>`<span class="ss">${k} <b class="${v>=75?'t-verde':v>=55?'t-amarelo':'t-vermelho'}">${v}</b></span>`).join("");
+  const reasons = [r.mixReason, ...r.reasons].slice(0,5)
+    .map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${n[2]}</span></div>`).join("");
+  return `<div class="acard ${tv.cls}">
+    <div class="brand-head">
+      <div>
+        <div class="brand-name">${b.n} ${r.memHit?'<span class="tag-mem">★ citada</span>':''}</div>
+        <div style="margin-top:6px;">${badges}</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="bigscore ${tv.tc}">${r.finalScore}</div>
+        <div class="brand-seg ${tv.tc}" style="font-weight:700;">${tv.t}</div>
+      </div>
+    </div>
+    <div class="scorebar"><div style="width:${r.finalScore}%;background:${barColor(r.finalScore)};"></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="mk">Implantação</div><div class="mv">${moneyK(b.invest)}</div></div>
+      <div class="metric"><div class="mk">Capital giro</div><div class="mv">${moneyK(b.giro)}</div></div>
+      <div class="metric"><div class="mk">Fat. médio/mês</div><div class="mv">${moneyK(b.fat)}</div></div>
+      <div class="metric"><div class="mk">Payback</div><div class="mv">${b.payback} meses</div></div>
+      <div class="metric"><div class="mk">Royalties</div><div class="mv">${b.roy?b.roy+"%":"—"}</div></div>
+      <div class="metric"><div class="mk">Fundo promo.</div><div class="mv">${b.fpp?b.fpp+"%":"—"}</div></div>
+    </div>
+    <div class="subscores">${ss}</div>
+    <div class="reasons">${reasons}</div>
+    <details><summary>Sobre a marca</summary><p class="sub" style="margin:4px 0 0;">${b.desc}</p></details>
+  </div>`;
+}
+
+/* ---------- perfil textual do investidor ---------- */
+function perfilResumo(inv){
+  const notas=[];
+  let tipo;
+  if(inv.tempo==="baixo"||inv.operacao==="gerente"){ tipo="Perfil investidor (gestão à distância)"; }
+  else if(inv.tempo==="integral"){ tipo="Perfil operador (mão-na-massa)"; }
+  else { tipo="Perfil semi-operador"; }
+  if(inv.franq==="sim"||inv.objetivo==="portfolio"){ tipo+=" · multifranqueado"; }
+
+  const cap=inv.capital, giro=inv.giro;
+  if(cap && giro){
+    const pct = giro/(cap||1);
+    if(pct<0.12) notas.push(["△","t-amarelo",`Capital de giro (${moneyK(giro)}) parece baixo frente à implantação — ideal reservar ~15–25% do aporte para os primeiros meses.`]);
+    else notas.push(["✓","t-verde",`Boa proporção de reserva de giro (${Math.round(pct*100)}% do capital de implantação).`]);
+  } else {
+    notas.push(["△","t-amarelo","Falta detalhar a reserva de capital de giro — item crítico para sobrevivência no 1º ano."]);
+  }
+  if(inv.exp==="nenhuma" && inv.franq==="nao") notas.push(["△","t-amarelo","Primeira operação: priorizar marcas de baixa complexidade, com forte suporte e treinamento da franqueadora."]);
+  if(inv.exp==="setor") notas.push(["✓","t-verde","Experiência prévia no setor reduz risco de curva de aprendizado."]);
+  if(!inv.marca && !inv.intSegs.length) notas.push(["○","t-cinza","Investidor sem marca/segmento definidos — recomendação puxada por capacidade, tempo e lacunas do shopping."]);
+  return {tipo, notas};
+}
+
+/* ---------- helpers de rótulo ---------- */
+function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):"—"; }
+function labelTempo(v){ return {integral:"Integral",parcial:"Parcial",baixo:"Baixa dedicação"}[v]||"—"; }
+function labelOper(v){ return {dono:"opera pessoalmente",gerente:"contrata gerente",misto:"misto"}[v]||"—"; }
+function labelExp(v){ return {nenhuma:"Primeira vez",gestao:"Já geriu negócio",setor:"Experiência no setor"}[v]||"—"; }
+
+/* ---------- copiar resumo ---------- */
+function copySummary(inv, perfil, top){
+  const L=[];
+  L.push("RADAR QUIOSQUES — Triagem de Investidor");
+  L.push("Data: "+new Date().toLocaleDateString("pt-BR"));
+  if(inv.nome) L.push("Investidor: "+inv.nome+(inv.contato?" · "+inv.contato:""));
+  L.push("Perfil: "+perfil.tipo);
+  L.push("Capital implantação: "+money(inv.capital)+" | Giro: "+money(inv.giro)+" | Total: "+money(inv.capital+inv.giro));
+  L.push("Dedicação: "+labelTempo(inv.tempo)+" ("+labelOper(inv.operacao)+") | Experiência: "+labelExp(inv.exp)+" | Risco: "+cap(inv.risco));
+  if(inv.intSegs.length) L.push("Interesse: "+inv.intSegs.join(", "));
+  if(inv.marca) L.push("Marca em mente: "+inv.marca);
+  L.push("");
+  L.push("TOP RECOMENDAÇÕES (score final):");
+  top.slice(0,5).forEach((r,i)=>{
+    L.push(`${i+1}. ${r.b.n} — ${r.finalScore}/100 (${tierOf(r.finalScore).t}) · ${r.b.seg}`);
+    L.push(`   Implantação ${moneyK(r.b.invest)} + giro ${moneyK(r.b.giro)} · payback ${r.b.payback}m · royalties ${r.b.roy||0}%`);
+  });
+  L.push("");
+  L.push("Valores de referência (ABF/PEGN) — validar na COF de cada rede.");
+  const txt=L.join("\n");
+  navigator.clipboard.writeText(txt).then(
+    ()=>{ const btn=document.getElementById("btnCopy"); btn.textContent="✓ Copiado!"; setTimeout(()=>btn.textContent="Copiar resumo p/ o investidor",1800); },
+    ()=>{ prompt("Copie o resumo:", txt); }
+  );
+}
+
+/* ---------- steps ---------- */
+function buildSteps(cur){
+  const labels=["Perguntas","Cruzamento","Recomendação"];
+  document.getElementById("steps").innerHTML = labels.map((_,i)=>
+    `<div class="s ${i<cur?'done':i===cur?'cur':''}"></div>`).join("");
+}
+buildSteps(0);
+
+/* ---------- submit / clear ---------- */
+document.getElementById("form").addEventListener("submit", e=>{ e.preventDefault(); buildSteps(1); run(); });
+document.getElementById("btnClear").onclick=()=>{
+  document.querySelectorAll("input,select,textarea").forEach(el=>{ if(el.type!=="button") el.value=""; });
+  state.exp.clear(); state.int.clear();
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("on"));
+  setSeg("q_fonte","proprio"); setSeg("q_tempo","integral"); setSeg("q_operacao","dono");
+  setSeg("q_exp","nenhuma"); setSeg("q_franq","nao"); setSeg("q_risco","moderado");
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+</script>
+</body></html>
