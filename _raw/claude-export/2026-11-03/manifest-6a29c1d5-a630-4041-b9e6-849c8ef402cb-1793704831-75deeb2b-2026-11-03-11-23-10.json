@@ -1,0 +1,71 @@
+{
+  "instructions": "Download each file using the export_url. Each link expires 24 hours after it is created and may stop working before then once it has been used, so download each file completely when you open its link.",
+  "created_at": "2026-11-03T11:23:10.681407+00:00",
+  "total_files": 9,
+  "data_files": [
+    {
+      "batch_index": 0,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/b5964e1eed9fb28e86307174bbc7c03a",
+      "category": "light_metadata",
+      "part": 0,
+      "filename": "light_metadata-000.zip"
+    },
+    {
+      "batch_index": 1,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/8b0e6035938246d9331e7c962a67d13a",
+      "category": "projects",
+      "part": 0,
+      "filename": "projects-000.zip"
+    },
+    {
+      "batch_index": 2,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/71194a1f701d1442ecd25c6fc83022c8",
+      "category": "memories",
+      "part": 0,
+      "filename": "memories-000.zip"
+    },
+    {
+      "batch_index": 3,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/10fff822971a5f65060683ee1dd2023b",
+      "category": "feedback",
+      "part": 0,
+      "filename": "feedback-000.zip"
+    },
+    {
+      "batch_index": 4,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/4e82a36d81b28d4a02294fdbe4017d43",
+      "category": "design_chats",
+      "part": 0,
+      "filename": "design_chats-000.zip"
+    },
+    {
+      "batch_index": 5,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/c4ad5f6a57544a8cd8b858430903ba28",
+      "category": "frames",
+      "part": 0,
+      "filename": "frames-000.zip"
+    },
+    {
+      "batch_index": 6,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/8699af8c097a9bbce54c5dcfa1e485cf",
+      "category": "artifact_data",
+      "part": 0,
+      "filename": "artifact_data-000.zip"
+    },
+    {
+      "batch_index": 7,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/925fa766c623a4697df569c59584e636",
+      "category": "claude_code_cloud",
+      "part": 0,
+      "filename": "claude_code_cloud-000.zip"
+    },
+    {
+      "batch_index": 8,
+      "export_url": "https://claude.ai/export/6a29c1d5-a630-4041-b9e6-849c8ef402cb/download/b51704380d8594161cb4917c104ee546",
+      "category": "conversations",
+      "part": 0,
+      "filename": "conversations-000.zip"
+    }
+  ],
+  "version": "1.0"
+}
