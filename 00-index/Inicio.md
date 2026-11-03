@@ -1,12 +1,12 @@
 ---
 title: "Início"
-generated: 2026-10-31
+generated: 2026-11-03
 total: 135
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_135 notas indexadas · gerado em 2026-10-31_
+_135 notas indexadas · gerado em 2026-11-03_
 
 ## Mapas de conteúdo
 
