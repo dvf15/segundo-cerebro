@@ -6,3 +6,4 @@ node_modules/
 .obsidian/cache
 # zips do export já extraídos ficam, mas nunca suba credenciais
 *.env
+_raw/claude-export/*/frames-*.zip
