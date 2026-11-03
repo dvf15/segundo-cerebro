@@ -11,13 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Services: The New Software
 
-> **Resumo:** **Conversation Overview**
-
-The person asked Claude to find a report from Sequoia Capital referred to as "Service is the New Software." Claude identified the correct title as "Services: The New Software," a blog post authored by Julien Bek, a Sequoia partner based in London, published in March 2026 on the Sequoia Capital website.
-
-Claude summarized the central thesis and key arguments of the piece, including the distinction between intelligence and judgment in AI applications, the difference between copilot and autopilot business models, the strategic opportunity in outsourced services markets, and a breakdown of high-value labor market sectors identified as targets for AI-native service companies. Claude also noted a critical perspective published in an external source, flagging a potential portfolio bias in the original Sequoia piece.
-
-Claude clarified that the content is a blog post of approximately 1,500 words rather than a formal report, and provided the direct URL to the primary source. The person used Portuguese in their request, and Claude responded in Portuguese throughout. No corrections or special handling instructions were provided by the person during the exchange.
+> **Resumo:** **Conversation Overview** The person asked Claude to find a report from Sequoia Capital referred to as "Service is the New Software." Claude identified the correct title as "Services: The New Software," a blog post authored by Julien Bek, a Sequoia partner based in London, published in March 2026 on the Sequoia Capital website. Claude summarized the central thesis and key arguments of the piece, including the distinction between intelligence and judgment in AI applications, the difference between copilot and autopilot business models, the strategic opportunity in outsourced services markets, and a breakdown of high-value labor market sectors identified as targets for AI-native service companies. Claude also noted a critical perspective published in an external source, flagging a potential portfolio bias in the original Sequoia piece. Claude clarified that the content is a blog post of approximately 1,500 words rather than a formal report, and provided the direct URL to the primary source. The person used Portuguese in their request, and Claude responded in Portuguese throughout. No corrections or special handling instructions were provided by the person during the exchange.
 
 **Mensagens:** 2 · **Criada:** 2026-08-20 · **Atualizada:** 2026-08-20
 

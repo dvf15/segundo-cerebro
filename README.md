@@ -20,7 +20,7 @@ Toda nota tem frontmatter YAML com, no mínimo: `title`, `date`, `source`, `sour
 
 ## Rotina
 
-1. **Export do claude.ai (mensal, manual).** No claude.ai: Configurações → Privacidade → Exportar dados. Chega um e-mail com link válido por 24 h (só no navegador ou app desktop). Salve o zip em `_raw/claude-export/AAAA-MM-DD/` e faça commit. A Action converte; ou rode `npm run converter:export` localmente.
+1. **Export do claude.ai (mensal, manual).** No claude.ai: Configurações → Privacidade → Exportar dados. Chega um e-mail com um `manifest-*.json` listando 9 zips (conversas, projetos, memória, design chats, dados de artifacts, tarefas agendadas, reflexões, metadados e frames). Baixe os zips pelos links do manifesto (expiram em 24 h, só logado) e coloque todos em `_raw/claude-export/AAAA-MM-DD/`. **Não suba `frames-*.zip`**: são capturas de tela com centenas de MB, acima do limite de 100 MB do GitHub; o `.gitignore` já os exclui. Faça commit; a Action converte tudo (ou rode `npm run converter:export`). O export **não** inclui transcrições das sessões do Claude Code, só as tarefas agendadas.
 2. **Sessões do Claude Code.** Veja `claude/sessoes-code/COMO-EXPORTAR.md`. Resumo: ao fim de cada sessão peça "exporte sua transcrição para o segundo-cerebro"; para sessões antigas, `claude --teleport <id>` e depois `npm run converter:sessao ~/.claude/projects/<pasta>/<id>.jsonl`.
 3. **Repositórios.** Liste-os em `codigo/repos.json`. A Action semanal copia os `.md` deles. Para repositórios privados, crie o secret `REPOS_TOKEN` (PAT fine-grained, só leitura de conteúdo).
 4. **Índices.** `npm run indices` regenera `00-index/`. A Action faz isso toda segunda-feira e em todo push em `_raw/`.

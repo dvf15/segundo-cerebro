@@ -11,13 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Criar arquivo AI-Style.md
 
-> **Resumo:** **Conversation Overview**
-
-Daniel requested help creating a markdown file named `AI-Style.md` containing his personal guidelines for how Claude should communicate with him. The conversation involved a back-and-forth to gather the complete text, as Daniel pasted it in multiple segments and the content arrived with apparent OCR or transcription errors.
-
-The file was successfully created with two sections: "Ask before you act" and "Challenge my thinking." The first section establishes that Claude should ask clarifying questions before producing any deliverable, never assume missing context, and use specific examples (viral video scripts, offers, improvement requests) as benchmarks for when to pause and ask. The second section instructs Claude to push back on logical errors, name obvious weaknesses in plans, and suggest better framings when they exist.
-
-Claude corrected several apparent transcription errors in the text ("lask" → "I ask," "beer way wirame" → "better way to frame") and disclosed these changes transparently, including a self-aware note acknowledging that making unchecked corrections was itself inconsistent with the document's first rule about asking before acting. No correction was requested by Daniel, and the file was delivered as-is. The file was created at `/mnt/user-data/outputs/AI-Style.md`.
+> **Resumo:** **Conversation Overview** Daniel requested help creating a markdown file named `AI-Style.md` containing his personal guidelines for how Claude should communicate with him. The conversation involved a back-and-forth to gather the complete text, as Daniel pasted it in multiple segments and the content arrived with apparent OCR or transcription errors. The file was successfully created with two sections: "Ask before you act" and "Challenge my thinking." The first section establishes that Claude should ask clarifying questions before producing any deliverable, never assume missing context, and use specific examples (viral video scripts, offers, improvement requests) as benchmarks for when to pause and ask. The second section instructs Claude to push back on logical errors, name obvious weaknesses in plans, and suggest better framings when they exist. Claude corrected several apparent transcription errors in the text ("lask" → "I ask," "beer way wirame" → "better way to frame") and disclosed these changes transparently, including a self-aware note acknowledging that making unchecked corrections was itself inconsistent with the document's first rule about asking before acting. No correction was requested by Daniel, and the file was delivered as-is. The file was created at `/mnt/user-data/outputs/AI-Style.md`.
 
 **Mensagens:** 10 · **Criada:** 2026-05-15 · **Atualizada:** 2026-05-15
 

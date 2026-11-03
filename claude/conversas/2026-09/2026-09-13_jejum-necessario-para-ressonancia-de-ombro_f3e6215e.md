@@ -11,11 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Jejum necessário para ressonância de ombro?
 
-> **Resumo:** **Conversation Overview**
-
-The person asked whether fasting is required for a shoulder MRI without contrast. Claude used a web search to research the topic and provided a clear answer: fasting is generally not required for a shoulder MRI without contrast, and the person can eat normally and maintain routine wellness approaches beforehand. Claude cited multiple Brazilian clinical sources (Clínica São Camilo, Rede D'Or, drconsulta, Biolabor) to support this conclusion.
-
-Claude also noted two important caveats: some clinics may have their own internal protocols requiring fasting even without contrast (citing Biolabor as an example), and fasting becomes necessary if contrast is added during the exam or if sedation is used. Claude recommended the person confirm directly with their specific clinic. Additionally, Claude highlighted standard MRI safety preparation steps, such as removing metal objects and disclosing any implanted devices. The response included a stated confidence level of 9/10, explaining that the one point of uncertainty stems from variation in clinic-specific protocols.
+> **Resumo:** **Conversation Overview** The person asked whether fasting is required for a shoulder MRI without contrast. Claude used a web search to research the topic and provided a clear answer: fasting is generally not required for a shoulder MRI without contrast, and the person can eat normally and maintain routine wellness approaches beforehand. Claude cited multiple Brazilian clinical sources (Clínica São Camilo, Rede D'Or, drconsulta, Biolabor) to support this conclusion. Claude also noted two important caveats: some clinics may have their own internal protocols requiring fasting even without contrast (citing Biolabor as an example), and fasting becomes necessary if contrast is added during the exam or if sedation is used. Claude recommended the person confirm directly with their specific clinic. Additionally, Claude highlighted standard MRI safety preparation steps, such as removing metal objects and disclosing any implanted devices. The response included a stated confidence level of 9/10, explaining that the one point of uncertainty stems from variation in clinic-specific protocols.
 
 **Mensagens:** 2 · **Criada:** 2026-09-13 · **Atualizada:** 2026-09-13
 

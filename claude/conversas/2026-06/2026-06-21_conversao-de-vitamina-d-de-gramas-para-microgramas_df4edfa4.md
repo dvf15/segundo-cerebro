@@ -11,9 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Conversão de vitamina D de gramas para microgramas
 
-> **Resumo:** **Conversation Overview**
-
-The person asked a unit conversion question about vitamin D, specifically how many micrograms (mcg) are in 0.8 grams. Claude provided the mathematical conversion (0.8 g = 800,000 mcg) and added a contextual note explaining that vitamin D is typically measured in IU (International Units) or mcg rather than grams, and that 800,000 mcg would represent an extremely high dose far exceeding standard safe daily limits. Claude flagged the discrepancy as a potential source of confusion and suggested the person verify the original unit on any label or prescription they may have been referencing.
+> **Resumo:** **Conversation Overview** The person asked a unit conversion question about vitamin D, specifically how many micrograms (mcg) are in 0.8 grams. Claude provided the mathematical conversion (0.8 g = 800,000 mcg) and added a contextual note explaining that vitamin D is typically measured in IU (International Units) or mcg rather than grams, and that 800,000 mcg would represent an extremely high dose far exceeding standard safe daily limits. Claude flagged the discrepancy as a potential source of confusion and suggested the person verify the original unit on any label or prescription they may have been referencing.
 
 **Mensagens:** 2 · **Criada:** 2026-06-21 · **Atualizada:** 2026-06-21
 

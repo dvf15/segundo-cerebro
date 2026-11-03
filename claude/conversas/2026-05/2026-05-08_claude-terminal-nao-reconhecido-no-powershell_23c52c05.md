@@ -11,11 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Claude terminal não reconhecido no PowerShell
 
-> **Resumo:** **Conversation Overview**
-
-The person sought help installing and running Claude Code (the terminal/CLI tool) on Windows using PowerShell. The conversation was entirely technical, focused on troubleshooting a `CommandNotFoundException` error when attempting to run the `claude` command.
-
-The session progressed through several steps: Claude first identified that the tool was not installed and directed the person to run the native Windows installer (`irm https://claude.ai/install.ps1 | iex`). There was initial confusion as the person ran only `claude --version` without first executing the installer, requiring Claude to clarify the correct sequence. Once the installer was run successfully, it installed Claude Code version 2.1.133 to `C:\Users\dvfre\.local\bin\claude.exe`, but the installer flagged that the install directory was not in the system PATH. Claude then provided a PowerShell command to add the path to the user's environment variables and instructed the person to restart the terminal to apply the change. The conversation ended before confirming whether the final PATH fix resolved the issue.
+> **Resumo:** **Conversation Overview** The person sought help installing and running Claude Code (the terminal/CLI tool) on Windows using PowerShell. The conversation was entirely technical, focused on troubleshooting a `CommandNotFoundException` error when attempting to run the `claude` command. The session progressed through several steps: Claude first identified that the tool was not installed and directed the person to run the native Windows installer (`irm https://claude.ai/install.ps1 | iex`). There was initial confusion as the person ran only `claude --version` without first executing the installer, requiring Claude to clarify the correct sequence. Once the installer was run successfully, it installed Claude Code version 2.1.133 to `C:\Users\dvfre\.local\bin\claude.exe`, but the installer flagged that the install directory was not in the system PATH. Claude then provided a PowerShell command to add the path to the user's environment variables and instructed the person to restart the terminal to apply the change. The conversation ended before confirming whether the final PATH fix resolved the issue.
 
 **Mensagens:** 12 · **Criada:** 2026-05-08 · **Atualizada:** 2026-05-08
 

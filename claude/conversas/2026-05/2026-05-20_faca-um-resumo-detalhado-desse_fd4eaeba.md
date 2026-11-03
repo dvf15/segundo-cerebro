@@ -11,13 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # 💬 Faça um resumo detalhado desse…
 
-> **Resumo:** **Conversation Overview**
-
-The person asked Claude to create a detailed summary of an uploaded PowerPoint file (PEVC16_Programas_Executivos_fev2020_T16_Aula16_imprimir.pptx), specifically formatted for use within Obsidian. The request implied familiarity with Obsidian's note-taking ecosystem and a preference for structured, interconnected notes.
-
-Claude attempted to extract the file content using bash tools but found the uploads directory empty, meaning the file was not successfully received. Rather than fabricating content, Claude informed the person that the file was inaccessible and requested a re-upload. Claude also outlined the specific Obsidian formatting it would apply once the file was available: YAML frontmatter with fields like `tipo`, `área`, `status`, `criado`, `tags`, and `aliases`; `[[wikilinks]]` on key concepts; `>[!info]` callouts; checkboxes for action items; a Dataview block at the end; sections separated by `---`; a plugin dependency note; and a confidence rating.
-
-This exchange reveals the person works with Obsidian and expects summaries formatted to its conventions, including metadata, wikilinks, and Dataview compatibility. The person's system prompt or prior instructions include a rule against fabricating content, which Claude explicitly referenced when explaining why it could not proceed without the actual file.
+> **Resumo:** **Conversation Overview** The person asked Claude to create a detailed summary of an uploaded PowerPoint file (PEVC16_Programas_Executivos_fev2020_T16_Aula16_imprimir.pptx), specifically formatted for use within Obsidian. The request implied familiarity with Obsidian's note-taking ecosystem and a preference for structured, interconnected notes. Claude attempted to extract the file content using bash tools but found the uploads directory empty, meaning the file was not successfully received. Rather than fabricating content, Claude informed the person that the file was inaccessible and requested a re-upload. Claude also outlined the specific Obsidian formatting it would apply once the file was available: YAML frontmatter with fields like `tipo`, `área`, `status`, `criado`, `tags`, and `aliases`; `[[wikilinks]]` on key concepts; `>[!info]` callouts; checkboxes for action items; a Dataview block at the end; sections separated by `---`; a plugin dependency note; and a confidence rating. This exchange reveals the person works with Obsidian and expects summaries formatted to its conventions, including metadata, wikilinks, and Dataview compatibility. The person's system prompt or prior instructions include a rule against fabricating content, which Claude explicitly referenced when explaining why it could not proceed without the actual file.
 
 **Mensagens:** 2 · **Criada:** 2026-05-20 · **Atualizada:** 2026-05-20
 

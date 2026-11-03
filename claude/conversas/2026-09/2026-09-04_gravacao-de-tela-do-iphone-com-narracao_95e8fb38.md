@@ -11,11 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Gravação de tela do iPhone com narração
 
-> **Resumo:** **Conversation Overview**
-
-The person asked whether it is possible to record an iPhone screen with simultaneous voice narration to create step-by-step tutorial content. Claude confirmed this is natively supported and provided a detailed walkthrough using iOS's built-in Screen Recording feature, including how to add it to Control Center, how to enable the microphone before recording, and how to stop and save the recording to the Photos app.
-
-Claude also highlighted common pitfalls, such as the microphone defaulting to off in some scenarios, DRM restrictions causing black screens on certain streaming apps, and ambient noise interference with the iPhone's microphone. Additional context was provided about audio mixing considerations when recording apps that produce their own sound. Claude closed with suggestions for post-production tools (Photos app, CapCut, Descript) and rated confidence in the instructions at 9/10, noting minor uncertainty around exact UI element placement depending on the iOS version, particularly given Control Center customization changes introduced in iOS 18.
+> **Resumo:** **Conversation Overview** The person asked whether it is possible to record an iPhone screen with simultaneous voice narration to create step-by-step tutorial content. Claude confirmed this is natively supported and provided a detailed walkthrough using iOS's built-in Screen Recording feature, including how to add it to Control Center, how to enable the microphone before recording, and how to stop and save the recording to the Photos app. Claude also highlighted common pitfalls, such as the microphone defaulting to off in some scenarios, DRM restrictions causing black screens on certain streaming apps, and ambient noise interference with the iPhone's microphone. Additional context was provided about audio mixing considerations when recording apps that produce their own sound. Claude closed with suggestions for post-production tools (Photos app, CapCut, Descript) and rated confidence in the instructions at 9/10, noting minor uncertainty around exact UI element placement depending on the iOS version, particularly given Control Center customization changes introduced in iOS 18.
 
 **Mensagens:** 2 · **Criada:** 2026-09-04 · **Atualizada:** 2026-09-04
 

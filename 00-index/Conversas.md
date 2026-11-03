@@ -1,12 +1,12 @@
 ---
 title: "Conversas do claude.ai"
 generated: 2026-11-03
-count: 293
+count: 268
 tags: ["index"]
 ---
 # Conversas do claude.ai
 
-_293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
+_268 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Projeto |
 | --- | --- | --- |
@@ -36,7 +36,6 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-10-07 | [[claude/conversas/2026-10/2026-10-07_resposta-a-mensagem-de-recrutamento_062e6dc0\|Resposta a mensagem de recrutamento]] |  |
 | 2026-10-04 | [[claude/conversas/2026-10/2026-10-04_relatorio-fotografico-com-cronograma_39212d8b\|Relatório fotográfico com cronograma]] |  |
 | 2026-10-03 | [[claude/conversas/2026-10/2026-10-03_ajuste-de-agenda_84e17ac1\|Ajuste de agenda]] |  |
-| 2026-10-02 | [[claude/conversas/2026-10/2026-10-02_conversa-sem-titulo_8e0f56a6\|Conversa sem título]] |  |
 | 2026-09-28 | [[claude/conversas/2026-09/2026-09-28_metas-nutricionais-personalizadas_89086881\|Metas nutricionais personalizadas]] |  |
 | 2026-09-27 | [[claude/conversas/2026-09/2026-09-27_carrefour-comper-acquisition_aca6c705\|Carrefour Comper acquisition]] |  |
 | 2026-09-24 | [[claude/conversas/2026-09/2026-09-24_analisador-modular-de-empresas-para-investimento_611aea54\|Analisador modular de empresas para investimento]] |  |
@@ -79,17 +78,14 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-07-28 | [[claude/conversas/2026-07/2026-07-28_analise-de-potassio-e-pcr-nos-exames_9c801657\|Análise de potássio e PCR nos exames]] |  |
 | 2026-07-24 | [[claude/conversas/2026-07/2026-07-24_analise-mapa-sem-anti-hipertensivo_5cce3f1e\|Análise MAPA sem anti-hipertensivo]] |  |
 | 2026-07-24 | [[claude/conversas/2026-07/2026-07-24_equivalencia-salarial-entre-pj-e-clt_2b0d7645\|Equivalência salarial entre PJ e CLT]] |  |
-| 2026-07-23 | [[claude/conversas/2026-07/2026-07-23_conversa-sem-titulo_eacaddd6\|Conversa sem título]] |  |
 | 2026-07-21 | [[claude/conversas/2026-07/2026-07-21_avaliacao-critica-do-planejamento-estrategico-de-shoppings_0ef6a421\|Avaliação crítica do planejamento estratégico de shoppings]] |  |
 | 2026-07-19 | [[claude/conversas/2026-07/2026-07-19_consumo-calorico-em-sauna-seca_f22b1a9a\|Consumo calórico em sauna seca]] |  |
-| 2026-07-14 | [[claude/conversas/2026-07/2026-07-14_conversa-sem-titulo_4771d187\|Conversa sem título]] |  |
 | 2026-07-12 | [[claude/conversas/2026-07/2026-07-12_sistema-de-analise-de-credito-e-predicao-de-default-para-loj_e734582c\|Sistema de análise de crédito e predição de default para lojistas]] |  |
 | 2026-07-10 | [[claude/conversas/2026-07/2026-07-10_construa-as-instrucoes-para-qu_8c7c34ce\|💬 Construa as instruções para qu…]] |  |
 | 2026-07-10 | [[claude/conversas/2026-07/2026-07-10_organize-isso-em-uma-tabela-em_611d7317\|💬 Organize isso em uma tabela em…]] |  |
 | 2026-07-08 | [[claude/conversas/2026-07/2026-07-08_reclassificacao-de-nota-fiscal-como-gerenciamento-de-obra_42efcd3a\|Reclassificação de nota fiscal como gerenciamento de obra]] |  |
 | 2026-07-03 | [[claude/conversas/2026-07/2026-07-03_perguntas-para-avaliar-superintendente-de-shopping_8c5e16b6\|Perguntas para avaliar superintendente de shopping]] |  |
 | 2026-07-01 | [[claude/conversas/2026-07/2026-07-01_transforme-o-conteudo-em-arqui_c0f1b89e\|💬 Transforme o conteudo em arqui…]] |  |
-| 2026-07-01 | [[claude/conversas/2026-07/2026-07-01_conversa-sem-titulo_1faca919\|Conversa sem título]] |  |
 | 2026-06-30 | [[claude/conversas/2026-06/2026-06-30_json-para-nutritreino_00f4b327\|JSON para NutriTreino]] |  |
 | 2026-06-26 | [[claude/conversas/2026-06/2026-06-26_analise-de-sinergia-csul-e-shoppings-allos_7270a35b\|Análise de sinergia CSul e shoppings Allos]] |  |
 | 2026-06-26 | [[claude/conversas/2026-06/2026-06-26_noi-do-morumbi-shopping_284e068f\|NOI do Morumbi Shopping]] |  |
@@ -113,7 +109,6 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-06-10 | [[claude/conversas/2026-06/2026-06-10_analise-nutricional-do-prato_9b36b47e\|Análise nutricional do prato]] |  |
 | 2026-06-10 | [[claude/conversas/2026-06/2026-06-10_orientacao-de-projeto-para-coworking_b0df7ddb\|Orientação de projeto para coworking]] |  |
 | 2026-06-09 | [[claude/conversas/2026-06/2026-06-09_conversao-para-formato-obsidian_24f35200\|Conversão para formato Obsidian]] |  |
-| 2026-06-08 | [[claude/conversas/2026-06/2026-06-08_conversa-sem-titulo_b7e0edc8\|Conversa sem título]] |  |
 | 2026-06-08 | [[claude/conversas/2026-06/2026-06-08_resumo-detalhado-sobre-warren-buffett-para-obsidian_5cf19574\|Resumo detalhado sobre Warren Buffett para Obsidian]] |  |
 | 2026-06-07 | [[claude/conversas/2026-06/2026-06-07_checkup_0369b46b\|CheckUp]] |  |
 | 2026-06-06 | [[claude/conversas/2026-06/2026-06-06_configurar-comando-de-voz_7813e63e\|Configurar comando de voz]] |  |
@@ -123,14 +118,11 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-06-03 | [[claude/conversas/2026-06/2026-06-03_transcricao-de-notas-para-obsidian-com-avaliacao-de-legibili_c71a422b\|Transcrição de notas para Obsidian com avaliação de legibilidade]] |  |
 | 2026-06-02 | [[claude/conversas/2026-06/2026-06-02_zonas-de-batimentos-cardiacos-do-exame-ergometrico_60411aa5\|Zonas de batimentos cardíacos do exame ergométrico]] |  |
 | 2026-06-01 | [[claude/conversas/2026-06/2026-06-01_otimizando-instrucoes-para-resumir-podcasts-no-obsidian_f590cdf9\|Otimizando instruções para resumir podcasts no Obsidian]] |  |
-| 2026-05-31 | [[claude/conversas/2026-05/2026-05-31_conversa-sem-titulo_edcdbb60\|Conversa sem título]] |  |
 | 2026-05-31 | [[claude/conversas/2026-05/2026-05-31_mover-projeto-para-claude-cowork_e0838011\|Mover projeto para Claude Cowork]] |  |
-| 2026-05-29 | [[claude/conversas/2026-05/2026-05-29_conversa-sem-titulo_fabca5c9\|Conversa sem título]] |  |
 | 2026-05-29 | [[claude/conversas/2026-05/2026-05-29_evolucao-economica-e-populacional-da-regiao_505feab5\|Evolução econômica e populacional da região]] |  |
 | 2026-05-29 | [[claude/conversas/2026-05/2026-05-29_evolucao-economica-e-populacional-da-zona-norte-do-rj_7819b751\|Evolução econômica e populacional da zona norte do RJ]] |  |
 | 2026-05-29 | [[claude/conversas/2026-05/2026-05-29_framework-personalizavel-para-calibracao-de-dados-fitness_3978d1c7\|Framework personalizável para calibração de dados fitness]] |  |
 | 2026-05-27 | [[claude/conversas/2026-05/2026-05-27_campo-bem-com-usufruto-na-declaracao-de-ir_379cb9e7\|Campo "bem com usufruto" na declaração de IR]] |  |
-| 2026-05-26 | [[claude/conversas/2026-05/2026-05-26_conversa-sem-titulo_37fec50c\|Conversa sem título]] |  |
 | 2026-05-26 | [[claude/conversas/2026-05/2026-05-26_integrar-notas-do-claude-com-obsidian-no-celular_f528f2da\|Integrar notas do Claude com Obsidian no celular]] |  |
 | 2026-05-25 | [[claude/conversas/2026-05/2026-05-25_analise-de-refeicoes-para-fitness_88f88c2d\|Análise de refeições para fitness]] |  |
 | 2026-05-25 | [[claude/conversas/2026-05/2026-05-25_nutri-desativado_659d497a\|NUTRI desativado]] |  |
@@ -242,20 +234,6 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-05-19 | [[claude/conversas/2026-05/2026-05-19_resumo-formatado-para-obsidian_a3e259e4\|Resumo formatado para Obsidian]] |  |
 | 2026-05-19 | [[claude/conversas/2026-05/2026-05-19_resumo-formatado-para-obsidian_b7640b71\|Resumo formatado para Obsidian]] |  |
 | 2026-05-19 | [[claude/conversas/2026-05/2026-05-19_resumo-formatado-para-obsidian_bfa0330d\|Resumo formatado para Obsidian]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_022d4a36\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_10a6e52a\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_1e62e712\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_5afb1650\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_6f93d1b5\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_75771f0a\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_879e3835\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_8934ff0d\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_b681fe3f\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_c247c8b1\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_d1dfd683\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_de0ae5f1\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_e767c0aa\|Conversa sem título]] |  |
-| 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_conversa-sem-titulo_ebb5d595\|Conversa sem título]] |  |
 | 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_framework-de-mentoria-em-formato-obsidian_a3af41b2\|Framework de mentoria em formato Obsidian]] |  |
 | 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_resumo-de-livro-para-obsidian_22e0624c\|Resumo de livro para Obsidian]] |  |
 | 2026-05-18 | [[claude/conversas/2026-05/2026-05-18_resumo-de-livro-para-obsidian_d3742544\|Resumo de livro para Obsidian]] |  |
@@ -270,7 +248,6 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_coloque-esse-arquivo-no-format_5ab7a5cc\|💬 Coloque esse arquivo no format…]] |  |
 | 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_faca-um-resumo-detalhado-desse_c1c3a9e5\|💬 Faça um resumo detalhado desse…]] |  |
 | 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_configuracao-de-estilo-de-interacao_4a81a135\|Configuração de estilo de interação]] |  |
-| 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_conversa-sem-titulo_ca7400bd\|Conversa sem título]] |  |
 | 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_convertendo-arquivo-para-formato-obsidian_fbea509d\|Convertendo arquivo para formato Obsidian]] |  |
 | 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_extrair-conteudo-para-arquivo-txt-do-obsidian_aae4c546\|Extrair conteúdo para arquivo txt do Obsidian]] |  |
 | 2026-05-16 | [[claude/conversas/2026-05/2026-05-16_extrair-conteudo-para-arquivo-txt-do-obsidian_bb5cd1bd\|Extrair conteúdo para arquivo txt do Obsidian]] |  |
@@ -284,9 +261,7 @@ _293 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
 | 2026-05-15 | [[claude/conversas/2026-05/2026-05-15_organizacao-de-conceitos-em-arquivo-texto_0e44b88d\|Organização de conceitos em arquivo texto]] |  |
 | 2026-05-15 | [[claude/conversas/2026-05/2026-05-15_radar-de-acoes-baratas-pelo-metodo-bazin_2c4c657c\|Radar de ações baratas pelo método Bazin]] |  |
 | 2026-05-14 | [[claude/conversas/2026-05/2026-05-14_skill-pptallos-para-paleta-de-cores-allos_806c8351\|Skill pptallos para paleta de cores Allos]] |  |
-| 2026-05-11 | [[claude/conversas/2026-05/2026-05-11_conversa-sem-titulo_97b192e0\|Conversa sem título]] |  |
 | 2026-05-11 | [[claude/conversas/2026-05/2026-05-11_workflow-de-preenchimento-de-vacancias-plaza-shopping-nitero_0059e4e0\|Workflow de preenchimento de vacâncias Plaza Shopping Niterói]] |  |
-| 2026-05-10 | [[claude/conversas/2026-05/2026-05-10_conversa-sem-titulo_afe3456d\|Conversa sem título]] |  |
 | 2026-05-10 | [[claude/conversas/2026-05/2026-05-10_vault-do-obsidian-nao-sincroniza-no-iphone_5ca6e593\|Vault do Obsidian não sincroniza no iPhone]] |  |
 | 2026-05-09 | [[claude/conversas/2026-05/2026-05-09_informacoes-a-preencher-manualmente-na-irpf-2026_e43beb12\|Informações a preencher manualmente na IRPF 2026]] |  |
 | 2026-05-09 | [[claude/conversas/2026-05/2026-05-09_planilha-de-preco-ideal-de-acoes-com-metodo-bazin_a483e308\|Planilha de preço ideal de ações com método Bazin]] |  |

@@ -11,13 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Localizando "Organizational Evolution by Design" de Barnett
 
-> **Resumo:** **Conversation Overview**
-
-The person asked Claude to help locate a text or book titled "Organizational Evolution by Design" by Bill Barnett. Claude conducted web searches and determined that no published book or paper exists with that exact title. Claude explained that the title most likely refers to a session or module within the EPSO (Executive Program for Strategic Officers) at Stanford, distributed as internal course material not available publicly.
-
-Claude pointed the person toward Barnett's actual published works on related themes, including the book "The Red Queen Among Organizations: How Competitiveness Evolves" (Princeton University Press, 2008) and relevant academic papers such as "The Red Queen in Organizational Evolution" (Strategic Management Journal, 1996, co-authored with Morten Hansen). Claude provided sourcing guidance via Google Scholar, ResearchGate, and Amazon. Claude also noted that if the person participated in the EPSO program, the material would likely only exist in their own retained course materials.
-
-Claude offered a follow-up suggestion to help the person reconstruct the content from memory into a structured Obsidian note, indicating familiarity with that tool. The conversation used EPSO-specific terminology and referenced Stanford GSB context, suggesting the person has participated in that executive program.
+> **Resumo:** **Conversation Overview** The person asked Claude to help locate a text or book titled "Organizational Evolution by Design" by Bill Barnett. Claude conducted web searches and determined that no published book or paper exists with that exact title. Claude explained that the title most likely refers to a session or module within the EPSO (Executive Program for Strategic Officers) at Stanford, distributed as internal course material not available publicly. Claude pointed the person toward Barnett's actual published works on related themes, including the book "The Red Queen Among Organizations: How Competitiveness Evolves" (Princeton University Press, 2008) and relevant academic papers such as "The Red Queen in Organizational Evolution" (Strategic Management Journal, 1996, co-authored with Morten Hansen). Claude provided sourcing guidance via Google Scholar, ResearchGate, and Amazon. Claude also noted that if the person participated in the EPSO program, the material would likely only exist in their own retained course materials. Claude offered a follow-up suggestion to help the person reconstruct the content from memory into a structured Obsidian note, indicating familiarity with that tool. The conversation used EPSO-specific terminology and referenced Stanford GSB context, suggesting the person has participated in that executive program.
 
 **Mensagens:** 2 · **Criada:** 2026-06-12 · **Atualizada:** 2026-06-12
 

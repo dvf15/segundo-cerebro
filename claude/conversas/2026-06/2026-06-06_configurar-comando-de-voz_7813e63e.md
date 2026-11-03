@@ -11,9 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Configurar comando de voz
 
-> **Resumo:** **Conversation Overview**
-
-The person communicated in Portuguese and asked how to configure voice commands, specifically the voice feature within the Claude mobile app. Claude asked a clarifying question to identify which voice command context the person meant, offering multiple-choice options. Once the person confirmed they were asking about the Claude app's built-in voice mode, Claude performed a web search to retrieve current documentation and provided a step-by-step walkthrough covering how to activate voice mode, available voice options, in-conversation controls, and plan-based feature differences. Claude noted the feature was in beta and flagged that voice mode currently works best in English, with a caveat that language support may have expanded since the sources were published. The conversation ended with an unrelated, incomplete message from the person ("From afar, he stood bar"), which does not appear to be a follow-up question and was left unaddressed.
+> **Resumo:** **Conversation Overview** The person communicated in Portuguese and asked how to configure voice commands, specifically the voice feature within the Claude mobile app. Claude asked a clarifying question to identify which voice command context the person meant, offering multiple-choice options. Once the person confirmed they were asking about the Claude app's built-in voice mode, Claude performed a web search to retrieve current documentation and provided a step-by-step walkthrough covering how to activate voice mode, available voice options, in-conversation controls, and plan-based feature differences. Claude noted the feature was in beta and flagged that voice mode currently works best in English, with a caveat that language support may have expanded since the sources were published. The conversation ended with an unrelated, incomplete message from the person ("From afar, he stood bar"), which does not appear to be a follow-up question and was left unaddressed.
 
 **Mensagens:** 5 · **Criada:** 2026-06-06 · **Atualizada:** 2026-06-06
 

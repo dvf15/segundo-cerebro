@@ -11,9 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Correção de 40 mil reais pelo IPCA
 
-> **Resumo:** **Conversation Overview**
-
-The person asked Claude to calculate the inflation-adjusted value of a sum of money from 2013 to the present using the IPCA (Brazil's official consumer price index). Claude performed the calculation by chaining annual IPCA rates from 2013 through July 2026, presenting results in a table format broken down by different starting months within 2013. Claude also explained the methodology, noted the accumulated inflation percentage for the period, and flagged the confidence level of the response along with its limitations (use of annualized rather than monthly rates). Claude recommended the Banco Central do Brasil's Calculadora do Cidadão for precise official calculations, particularly for contractual or legal purposes.
+> **Resumo:** **Conversation Overview** The person asked Claude to calculate the inflation-adjusted value of a sum of money from 2013 to the present using the IPCA (Brazil's official consumer price index). Claude performed the calculation by chaining annual IPCA rates from 2013 through July 2026, presenting results in a table format broken down by different starting months within 2013. Claude also explained the methodology, noted the accumulated inflation percentage for the period, and flagged the confidence level of the response along with its limitations (use of annualized rather than monthly rates). Claude recommended the Banco Central do Brasil's Calculadora do Cidadão for precise official calculations, particularly for contractual or legal purposes.
 
 **Mensagens:** 2 · **Criada:** 2026-09-04 · **Atualizada:** 2026-09-04
 

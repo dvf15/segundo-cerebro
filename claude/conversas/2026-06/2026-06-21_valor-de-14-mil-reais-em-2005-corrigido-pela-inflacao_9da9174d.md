@@ -11,11 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Valor de 14 mil reais em 2005 corrigido pela inflação
 
-> **Resumo:** **Conversation Overview**
-
-The person asked Claude to calculate what R$14,000 from 2005 would be worth today in 2026, adjusted for inflation using Brazil's official IPCA index. Claude used web search tools and a Python script to perform the compound inflation calculation, drawing on official annual IPCA rates from IBGE/BCB for 2005–2025, plus the individually published monthly IPCA figures for January through May 2026 (0.16%, 0.99%, 0.56%, 0.43%, and 0.58% respectively).
-
-The calculation yielded a total accumulated IPCA of approximately 221%, resulting in a correction factor of roughly 3.2x. The conclusion was that R$14,000 in January 2005 is equivalent to approximately R$44,900 in May 2026. Claude noted a confidence level of 8/10 due to not consulting exact month-by-month SIDRA index numbers, and indicated a potential deviation of 1–2% depending on the precise starting month within 2005. Claude also directed the person to the Banco Central do Brasil's official Calculadora do Cidadão for authoritative verification.
+> **Resumo:** **Conversation Overview** The person asked Claude to calculate what R$14,000 from 2005 would be worth today in 2026, adjusted for inflation using Brazil's official IPCA index. Claude used web search tools and a Python script to perform the compound inflation calculation, drawing on official annual IPCA rates from IBGE/BCB for 2005–2025, plus the individually published monthly IPCA figures for January through May 2026 (0.16%, 0.99%, 0.56%, 0.43%, and 0.58% respectively). The calculation yielded a total accumulated IPCA of approximately 221%, resulting in a correction factor of roughly 3.2x. The conclusion was that R$14,000 in January 2005 is equivalent to approximately R$44,900 in May 2026. Claude noted a confidence level of 8/10 due to not consulting exact month-by-month SIDRA index numbers, and indicated a potential deviation of 1–2% depending on the precise starting month within 2005. Claude also directed the person to the Banco Central do Brasil's official Calculadora do Cidadão for authoritative verification.
 
 **Mensagens:** 2 · **Criada:** 2026-06-21 · **Atualizada:** 2026-06-21
 

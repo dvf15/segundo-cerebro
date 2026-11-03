@@ -11,9 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Preço Fipe Triumph Bobber Black 2020
 
-> **Resumo:** **Conversation Overview**
-
-The person asked Claude for the FIPE table price of a 2020 Triumph Bobber Black motorcycle (gasoline, black color) in Brazil. Claude provided the FIPE reference value for the Triumph Bonneville Bobber Black 1200cc 2020, citing FIPE code 826069-9 and an approximate value for April/2026, along with a brief historical price trajectory for the model. Claude also clarified that vehicle color does not affect FIPE valuations and recommended consulting the official FIPE website (veiculos.fipe.org.br) directly for the most current and authoritative pricing, noting that the values sourced came from third-party aggregators rather than the official source directly.
+> **Resumo:** **Conversation Overview** The person asked Claude for the FIPE table price of a 2020 Triumph Bobber Black motorcycle (gasoline, black color) in Brazil. Claude provided the FIPE reference value for the Triumph Bonneville Bobber Black 1200cc 2020, citing FIPE code 826069-9 and an approximate value for April/2026, along with a brief historical price trajectory for the model. Claude also clarified that vehicle color does not affect FIPE valuations and recommended consulting the official FIPE website (veiculos.fipe.org.br) directly for the most current and authoritative pricing, noting that the values sourced came from third-party aggregators rather than the official source directly.
 
 **Mensagens:** 2 · **Criada:** 2026-05-17 · **Atualizada:** 2026-05-17
 

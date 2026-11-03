@@ -11,13 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Vault do Obsidian não sincroniza no iPhone
 
-> **Resumo:** **Conversation Overview**
-
-The person sought help troubleshooting an Obsidian vault synchronization issue between their iPhone and desktop. Specifically, they had created a vault in Obsidian on iOS and could not sync it with the desktop version because the app was prompting for a password they did not recall creating.
-
-Claude identified the issue as likely related to Obsidian Sync's end-to-end encryption feature, explaining that a password can be set during Sync setup without the user fully noticing. Claude walked through several resolution steps: checking the encryption password settings within the Sync menu on the iPhone, attempting to connect with a blank password field on the desktop, and as a last resort, deleting the remote vault and recreating it without an encryption password. Claude also clarified an important limitation — the Obsidian Sync encryption password has no recovery mechanism, so if forgotten, recreating the remote vault is the only path forward. Claude noted that deleting the remote vault does not affect local files.
-
-The conversation ended with Claude asking a clarifying question to better tailor further assistance: whether the person was using Obsidian Sync (the paid service) or another synchronization method such as iCloud or a shared folder. No response to this follow-up was provided within the conversation.
+> **Resumo:** **Conversation Overview** The person sought help troubleshooting an Obsidian vault synchronization issue between their iPhone and desktop. Specifically, they had created a vault in Obsidian on iOS and could not sync it with the desktop version because the app was prompting for a password they did not recall creating. Claude identified the issue as likely related to Obsidian Sync's end-to-end encryption feature, explaining that a password can be set during Sync setup without the user fully noticing. Claude walked through several resolution steps: checking the encryption password settings within the Sync menu on the iPhone, attempting to connect with a blank password field on the desktop, and as a last resort, deleting the remote vault and recreating it without an encryption password. Claude also clarified an important limitation — the Obsidian Sync encryption password has no recovery mechanism, so if forgotten, recreating the remote vault is the only path forward. Claude noted that deleting the remote vault does not affect local files. The conversation ended with Claude asking a clarifying question to better tailor further assistance: whether the person was using Obsidian Sync (the paid service) or another synchronization method such as iCloud or a shared folder. No response to this follow-up was provided within the conversation.
 
 **Mensagens:** 2 · **Criada:** 2026-05-10 · **Atualizada:** 2026-05-10
 

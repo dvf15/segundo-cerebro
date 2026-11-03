@@ -36,6 +36,10 @@ const secoes = [
   { arq: 'Artifacts.md', titulo: 'Artifacts', filtro: n => n.fonte === 'claude-artifact', cols: [colData, colTitulo, { nome: 'Link', valor: n => n.url || '' }] },
   { arq: 'Skills.md', titulo: 'Skills (SKILL.md)', filtro: n => n.fonte === 'skill' && n.rel.endsWith('/SKILL.md'), cols: [colTitulo, { nome: 'Descrição', valor: n => (n.desc || '').slice(0, 160) }] },
   { arq: 'Codigo.md', titulo: 'Código e documentação dos repositórios', filtro: n => n.fonte === 'github', cols: [colData, colTitulo, { nome: 'URL', valor: n => n.url || '' }] },
+  { arq: 'Memoria.md', titulo: 'Memória do Claude', filtro: n => n.fonte === 'claude-memory', cols: [colData, colTitulo, { nome: 'Descrição', valor: n => (n.desc || '').slice(0, 120) }] },
+  { arq: 'Design-Chats.md', titulo: 'Design chats', filtro: n => n.fonte === 'claude-design-chat', cols: [colData, colTitulo, { nome: 'Projeto', valor: n => n.projeto || '' }] },
+  { arq: 'Reflexoes.md', titulo: 'Reflexões (Anthropic)', filtro: n => n.fonte === 'claude-reflection', cols: [colData, colTitulo] },
+  { arq: 'Rotinas.md', titulo: 'Tarefas agendadas e dados de artifacts', filtro: n => n.fonte === 'claude-routines' || n.fonte === 'claude-artifact-data', cols: [colData, colTitulo, { nome: 'Tipo', valor: n => n.fonte }] },
   { arq: 'Reunioes.md', titulo: 'Reuniões (Granola)', filtro: n => n.fonte === 'granola' && !n.rel.endsWith('_index.md'), cols: [colData, colTitulo] },
 ];
 

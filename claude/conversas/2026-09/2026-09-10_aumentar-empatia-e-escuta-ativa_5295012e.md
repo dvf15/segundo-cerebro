@@ -11,9 +11,7 @@ tags: ["claude", "conversa"]
 ---
 # Aumentar empatia e escuta ativa
 
-> **Resumo:** **Conversation Overview**
-
-The person asked a general question in Portuguese about how to increase empathy and active listening. Claude provided a structured response covering concrete behavioral practices for in-the-moment conversations, common patterns that undermine listening, and methods for deliberate practice and self-assessment. The response included specific techniques such as monitoring speaking ratios, pausing before responding, paraphrasing to confirm understanding, and asking deeper follow-up questions. Claude also referenced two verifiable sources: David Bohm's work on dialogue and Marshall Rosenberg's Nonviolent Communication framework. The response concluded with an honest caveat about the mixed evidence for lasting transfer from training programs, noting that deliberate repeated practice has stronger support than one-off workshops. Claude assigned a confidence rating of 8/10 to the overall response.
+> **Resumo:** **Conversation Overview** The person asked a general question in Portuguese about how to increase empathy and active listening. Claude provided a structured response covering concrete behavioral practices for in-the-moment conversations, common patterns that undermine listening, and methods for deliberate practice and self-assessment. The response included specific techniques such as monitoring speaking ratios, pausing before responding, paraphrasing to confirm understanding, and asking deeper follow-up questions. Claude also referenced two verifiable sources: David Bohm's work on dialogue and Marshall Rosenberg's Nonviolent Communication framework. The response concluded with an honest caveat about the mixed evidence for lasting transfer from training programs, noting that deliberate repeated practice has stronger support than one-off workshops. Claude assigned a confidence rating of 8/10 to the overall response.
 
 **Mensagens:** 2 · **Criada:** 2026-09-10 · **Atualizada:** 2026-09-10
 

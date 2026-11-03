@@ -111,7 +111,7 @@ Confiança: 9/10 sobre o código/variação; 7/10 sobre os nomes exatos dos camp
 
 ## 👤 Usuário · 2026-11-02 19:33
 
-_(sem texto)_
+> 📎 image
 
 - 📎 1793648027900_image.png
 
@@ -149,7 +149,7 @@ Confiança: 9/10.
 
 ## 👤 Usuário · 2026-11-02 19:39
 
-_(sem texto)_
+> 📎 image
 
 - 📎 1793648394198_image.png
 
