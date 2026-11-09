@@ -1,12 +1,12 @@
 ---
 title: "Design chats"
-generated: 2026-11-03
+generated: 2026-11-09
 count: 2
 tags: ["index"]
 ---
 # Design chats
 
-_2 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
+_2 notas · gerado em 2026-11-09 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Projeto |
 | --- | --- | --- |

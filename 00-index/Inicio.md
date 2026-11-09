@@ -1,12 +1,12 @@
 ---
 title: "Início"
-generated: 2026-11-03
+generated: 2026-11-09
 total: 565
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_565 notas indexadas · gerado em 2026-11-03_
+_565 notas indexadas · gerado em 2026-11-09_
 
 ## Mapas de conteúdo
 
@@ -27,7 +27,7 @@ _565 notas indexadas · gerado em 2026-11-03_
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
-| 2026-11-03 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
+| 2026-11-09 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-02 | [[claude/projetos/obra-casa-4/claude-prompt-modelo-3d-md_711c33d0\|claude/prompt-modelo-3d.md]] | claude-project-doc |
 | 2026-11-02 | [[claude/projetos/ir-pf-renata/_projeto\|IR PF Renata]] | claude-project |
 | 2026-11-02 | [[claude/conversas/2026-11/2026-11-02_retificadora-do-ir-da-renata_4934e1db\|Retificadora do IR da Renata]] | claude-chat |

@@ -1,12 +1,12 @@
 ---
 title: "Projetos do claude.ai"
-generated: 2026-11-03
+generated: 2026-11-09
 count: 103
 tags: ["index"]
 ---
 # Projetos do claude.ai
 
-_103 notas · gerado em 2026-11-03 por scripts/gerar-indices.mjs_
+_103 notas · gerado em 2026-11-09 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Tipo |
 | --- | --- | --- |
