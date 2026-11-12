@@ -7,6 +7,7 @@ source_id: "86e34fb6-7079-4948-8d7e-1f8b12e991b5"
 url: "https://claude.ai/chat/86e34fb6-7079-4948-8d7e-1f8b12e991b5"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -68,3 +69,10 @@ Resumo pronto seguindo o padrão Obsidian: YAML frontmatter, wikilinks nos conce
 **Confiança: 9/10**
 
 Justificativa: Fidelidade alta ao documento original. O ponto que tira de 10 é a leitura visual de alguns valores em gráficos e o fato de não ter verificado externamente nada (não foi solicitado, mas vale registrar).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_86e34fb6/home/claude/severstal-ventures-gcv-academy.md]] (17 KB)

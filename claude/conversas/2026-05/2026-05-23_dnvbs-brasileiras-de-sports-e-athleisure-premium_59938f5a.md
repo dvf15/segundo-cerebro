@@ -7,6 +7,7 @@ source_id: "59938f5a-6529-4710-a989-f45d7c6d52ec"
 url: "https://claude.ai/chat/59938f5a-6529-4710-a989-f45d7c6d52ec"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # DNVBs brasileiras de sports e athleisure premium

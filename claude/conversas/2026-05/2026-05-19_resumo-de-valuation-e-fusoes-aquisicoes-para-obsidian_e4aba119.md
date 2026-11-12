@@ -7,6 +7,7 @@ source_id: "e4aba119-e07a-4f39-b90f-3cdde5181a1a"
 url: "https://claude.ai/chat/e4aba119-e07a-4f39-b90f-3cdde5181a1a"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de valuation e fusões-aquisições para Obsidian

@@ -7,6 +7,7 @@ source_id: "f22b1a9a-5fec-46d3-886d-4ac514a8b6ff"
 url: "https://claude.ai/chat/f22b1a9a-5fec-46d3-886d-4ac514a8b6ff"
 project: null
 messages: 5
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Consumo calórico em sauna seca

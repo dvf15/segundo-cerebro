@@ -7,6 +7,7 @@ source_id: "846661dc-37fc-4541-b661-ab9b800442d8"
 url: "https://claude.ai/chat/846661dc-37fc-4541-b661-ab9b800442d8"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -44,3 +45,10 @@ Pronto. Arquivo `.md` gerado no padrão Obsidian que você usa: YAML frontmatter
 **Confidence rating: 9/10**
 
 Tirei 1 ponto porque o resumo é fiel ao PDF mas não puxa pontes externas (ex.: a base teórica em Coase/Williamson para a dicotomia organização-vs-mercado, que Sørensen não cita), o que mantém honestidade com a fonte mas pode deixar conexões teóricas relevantes de fora. Todas as citações, exemplos (Volvo, Toyota, Goldman, Morgan Stanley, Google) e a estrutura PARC vêm direto do documento que você anexou.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_846661dc/mnt/user-data/outputs/Strategy_and_Organizational_Design.md]] (10 KB)

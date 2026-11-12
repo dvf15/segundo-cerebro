@@ -7,6 +7,7 @@ source_id: "cb41619d-1f21-4830-baaf-19ad64400a4e"
 url: "https://claude.ai/chat/cb41619d-1f21-4830-baaf-19ad64400a4e"
 project: null
 messages: 20
+generated_files: 7
 tags: ["claude", "conversa"]
 ---
 # Plano de implantação regional com IA
@@ -888,3 +889,16 @@ Confiança: 7/10. O que vem do curso está nas suas próprias fontes; a posiçã
 - 📎 image-0-0.jpg
 - 📎 image-0-0.jpg
 - 📎 Regional_Inteligente_Plano_90_dias.pptx
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/build.js]] (43 KB)
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/patch.py]] (25 KB)
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/patch2.py]] (31 KB)
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/patch3.py]] (17 KB)
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/patch4.py]] (7 KB)
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/patch5.py]] (26 KB)
+- [[claude/arquivos-gerados/2026-10/plano-de-implantacao-regional-com-ia_cb41619d/tmp/claude-0/-home-claude/1d373f48-ea32-5217-acc9-66547f6844b2/scratchpad/patch6.py]] (20 KB)

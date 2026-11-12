@@ -7,6 +7,7 @@ source_id: "fdd6b894-41fc-43c6-b0b5-2e20d8256c44"
 url: "https://claude.ai/chat/fdd6b894-41fc-43c6-b0b5-2e20d8256c44"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Calendário de eventos para Mooca Plaza Shopping
@@ -102,3 +103,10 @@ Antes de montar a lista, me confirma duas coisas:
 Com isso eu monto uma sugestão estruturada de operadores por evento com os critérios certos de avaliação — sem te entregar uma lista de nomes que pode estar desatualizada e te fazer perder tempo.
 
 **Confiança: 6/10** ⚠️ — banco de dados de fornecedores de eventos SP muda rápido, prefiro não chegar com lista de empresas sem você confirmar o contexto primeiro.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/calendario-de-eventos-para-mooca-plaza-shopping_fdd6b894/mnt/user-data/outputs/entertainer-mooca-plaza-jul-nov.html]] (39 KB)

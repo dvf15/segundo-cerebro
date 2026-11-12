@@ -7,6 +7,7 @@ source_id: "f3e6215e-fec1-436a-b6c0-dae3785b555a"
 url: "https://claude.ai/chat/f3e6215e-fec1-436a-b6c0-dae3785b555a"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Jejum necessário para ressonância de ombro?

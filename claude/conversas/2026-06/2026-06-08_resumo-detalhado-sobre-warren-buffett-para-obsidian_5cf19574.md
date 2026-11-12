@@ -7,6 +7,7 @@ source_id: "5cf19574-3beb-48d5-af18-597c239900ec"
 url: "https://claude.ai/chat/5cf19574-3beb-48d5-af18-597c239900ec"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo detalhado sobre Warren Buffett para Obsidian
@@ -96,3 +97,10 @@ Não sou tributarista — para decisões concretas, vale confirmar com o seu con
 Quer que eu atualize a nota do Obsidian corrigindo o Princípio 10 com essas regras de 2026?
 
 **Confiança: 9/10.** A permanência dos R$ 20 mil está confirmada em múltiplas fontes de 2026 e a mudança de dividendos vem do texto da própria lei. Tiro 1 ponto porque regras tributárias podem ter atos infralegais/instruções normativas posteriores que detalham casos específicos (ex.: fundos, BDRs, FIIs têm regras próprias) que não cobri aqui.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/resumo-detalhado-sobre-warren-buffett-para-obsidia_5cf19574/mnt/user-data/outputs/12-Principios-Warren-Buffett-de-Investir.md]] (13 KB)

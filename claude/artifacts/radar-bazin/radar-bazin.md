@@ -1,21 +1,21 @@
 ---
 title: "Radar Bazin"
-date: 2026-10-30
+date: 2026-11-05
 source: "claude-artifact"
 source_id: "FdVKxBQsqC71pkbaZMXAvp"
 url: "https://claude.ai/artifact/FdVKxBQsqC71pkbaZMXAvp"
 kind: "html"
 owner: "mine"
 html_title: "Radar Bazin"
-size_kb: 184
+size_kb: 183
 tags: ["claude", "artifact", "artifact/html"]
 ---
 # Radar Bazin
 
 - **Link:** https://claude.ai/artifact/FdVKxBQsqC71pkbaZMXAvp
 - **Tipo:** html
-- **Última atualização conhecida:** 2026-10-30
-- **Arquivo:** [index.html](index.html) (184 KB)
+- **Última atualização conhecida:** 2026-11-05
+- **Arquivo:** [index.html](index.html) (183 KB)
 
 ## Texto extraído (para busca)
 

@@ -7,6 +7,7 @@ source_id: "fab401a2-b648-4188-944c-9a00a9aa4040"
 url: "https://claude.ai/chat/fab401a2-b648-4188-944c-9a00a9aa4040"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise de três empresas: avaliação de compra

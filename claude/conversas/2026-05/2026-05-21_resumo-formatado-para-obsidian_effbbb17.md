@@ -7,6 +7,7 @@ source_id: "effbbb17-ce2b-4419-8a54-4defb89e5256"
 url: "https://claude.ai/chat/effbbb17-ce2b-4419-8a54-4defb89e5256"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -59,3 +60,10 @@ Resumo pronto no padrão Obsidian que você usa. Estrutura entregue:
 
 > [!quote] Confiança: 9/10
 > Conteúdo extraído diretamente do PDF que você anexou — números, thresholds e categorias são fiéis ao documento. O ponto que tira 1 ponto: a menção à v3.0/2019 vem da minha memória, não verifiquei via web nesta resposta. Se isso for crítico, me avisa que eu pesquiso e confirmo.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_effbbb17/home/claude/ILPA-Private-Equity-Principles-v2.md]] (17 KB)

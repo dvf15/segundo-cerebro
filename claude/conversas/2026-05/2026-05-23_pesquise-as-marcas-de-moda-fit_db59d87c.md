@@ -7,6 +7,7 @@ source_id: "db59d87c-3247-477f-bc43-41904a87d117"
 url: "https://claude.ai/chat/db59d87c-3247-477f-bc43-41904a87d117"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # 💬 Pesquise as marcas de moda fit…
@@ -344,3 +345,10 @@ A planilha tem 2 abas: a lista com 10 colunas (incluindo confiança por marca e 
 2. Ampliar o escopo para **"athleisure inspirada em luta"** — entra marcas como Body for Sure, Live!, etc. que usam estética de combate sem ser fight-specific.
 
 **Confiança geral: 7/10**. Linhas com confiança 5–7 na coluna "Confiança dado" merecem dupla checagem antes de virar pipeline de prospecção.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/pesquise-as-marcas-de-moda-fit_db59d87c/home/claude/gerar_planilha.py]] (10 KB)

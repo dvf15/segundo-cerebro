@@ -7,6 +7,7 @@ source_id: "f998a643-fe3a-47cb-b7fa-b3cbb96bfd16"
 url: "https://claude.ai/chat/f998a643-fe3a-47cb-b7fa-b3cbb96bfd16"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de material para Obsidian

@@ -7,6 +7,7 @@ source_id: "0c0b5b6c-4923-47da-91d4-efb23c58f0fe"
 url: "https://claude.ai/chat/0c0b5b6c-4923-47da-91d4-efb23c58f0fe"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -61,3 +62,10 @@ Resumo pronto no formato Obsidian completo. Estrutura aplicada:
 - A fórmula de expropriação foi reproduzida do slide, mas não consegui identificar o autor/paper original com confiança.
 
 **Confiança geral: 7/10** — explicação detalhada no final do documento. Estrutura e fidelidade ao PDF: alta. Validação externa de dados: não feita.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_0c0b5b6c/home/claude/work/EPSO_Stanford_Resumo.md]] (26 KB)

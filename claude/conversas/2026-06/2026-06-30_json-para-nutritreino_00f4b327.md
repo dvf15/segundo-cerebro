@@ -7,6 +7,7 @@ source_id: "00f4b327-9fcc-46e7-b6e8-b54e83e289bd"
 url: "https://claude.ai/chat/00f4b327-9fcc-46e7-b6e8-b54e83e289bd"
 project: null
 messages: 20
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # JSON para NutriTreino

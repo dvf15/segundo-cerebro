@@ -7,6 +7,7 @@ source_id: "05cc8669-40fe-4263-b661-ce41cdfcffbd"
 url: "https://claude.ai/chat/05cc8669-40fe-4263-b661-ce41cdfcffbd"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Importar dados do ChatGPT para o Claude

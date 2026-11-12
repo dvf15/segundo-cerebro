@@ -7,6 +7,7 @@ source_id: "7270a35b-9cab-417a-a67f-9a30cd0b8ef8"
 url: "https://claude.ai/chat/7270a35b-9cab-417a-a67f-9a30cd0b8ef8"
 project: null
 messages: 6
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Análise de sinergia CSul e shoppings Allos
@@ -205,3 +206,10 @@ Nota gerada com estrutura completa para o vault Dvf15:
 - **Checkboxes** com ações concretas de follow-up
 - **Bloco Dataview** para conexão automática com outras notas do vault
 - **Rating de confiança** ao final, conforme sua regra
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/analise-de-sinergia-csul-e-shoppings-allos_7270a35b/mnt/user-data/outputs/CSul_Lagoa_dos_Ingleses_Analise.md]] (10 KB)

@@ -7,6 +7,7 @@ source_id: "26ea7281-aff7-436f-8c2f-d5ef56dc91b2"
 url: "https://claude.ai/chat/26ea7281-aff7-436f-8c2f-d5ef56dc91b2"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian sobre liderança

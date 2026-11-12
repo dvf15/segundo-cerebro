@@ -7,6 +7,7 @@ source_id: "84e17ac1-97a4-4b76-ba3b-31f535d02d4d"
 url: "https://claude.ai/chat/84e17ac1-97a4-4b76-ba3b-31f535d02d4d"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Ajuste de agenda

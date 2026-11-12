@@ -7,6 +7,7 @@ source_id: "576fc593-970e-4e42-a156-72bae93b724d"
 url: "https://claude.ai/chat/576fc593-970e-4e42-a156-72bae93b724d"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -62,3 +63,10 @@ Resumo pronto, seguindo seu padrão Obsidian (YAML frontmatter, wikilinks, callo
 **Confidence: 9/10**
 
 Tirei um ponto porque o material tem vários gráficos (slides 12, 41–42, 63, 64) cujos dados visuais não estão acessíveis na extração de texto — preservei o que aparece nas legendas, mas pode haver números nesses gráficos que ficaram de fora. Todas as fontes citadas (PwC, A.T. Kearney 2008, McKinsey, Business Week) foram mantidas com a atribuição que aparece **no próprio deck** — não validei contra as publicações originais.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_576fc593/mnt/user-data/outputs/PMI_Post_Merger_Integration_Resumo.md]] (19 KB)

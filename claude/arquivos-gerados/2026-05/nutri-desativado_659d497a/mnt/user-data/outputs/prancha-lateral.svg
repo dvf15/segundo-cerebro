@@ -1,0 +1,50 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="640" height="420" rx="14" fill="#FAFAF7"/>
+  <text x="32" y="42" font-size="22" font-weight="700" fill="#1F2937">2. Prancha lateral (side bridge)</text>
+  <text x="32" y="66" font-size="14" fill="#6B7280">A mais importante pro grappling — estabiliza a coluna na rotação.</text>
+
+  <!-- ===== BEGINNER ===== -->
+  <text x="60" y="110" font-size="14" font-weight="700" fill="#059669">INICIANTE — joelhos dobrados</text>
+  <line x1="60" y1="210" x2="320" y2="210" stroke="#C9C7BE" stroke-width="3"/>
+  <!-- forearm support -->
+  <line x1="95" y1="210" x2="130" y2="210" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>
+  <line x1="130" y1="210" x2="130" y2="165" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>
+  <!-- straight body line hip-to-knee -->
+  <line x1="130" y1="165" x2="245" y2="195" stroke="#2B2B2B" stroke-width="11" stroke-linecap="round"/>
+  <!-- head -->
+  <circle cx="118" cy="152" r="15" fill="#2B2B2B"/>
+  <!-- bent lower leg (knee on ground) -->
+  <line x1="245" y1="195" x2="255" y2="210" stroke="#4B5563" stroke-width="9" stroke-linecap="round"/>
+  <line x1="255" y1="210" x2="300" y2="205" stroke="#4B5563" stroke-width="9" stroke-linecap="round"/>
+  <!-- straight line indicator -->
+  <line x1="130" y1="165" x2="248" y2="196" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="150" y="150" font-size="12" fill="#2563EB" font-weight="600">linha reta ombro→joelho</text>
+
+  <!-- ===== ADVANCED ===== -->
+  <text x="360" y="110" font-size="14" font-weight="700" fill="#DC2626">AVANÇADO — pernas estendidas</text>
+  <line x1="360" y1="210" x2="615" y2="210" stroke="#C9C7BE" stroke-width="3"/>
+  <!-- forearm -->
+  <line x1="392" y1="210" x2="427" y2="210" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>
+  <line x1="427" y1="210" x2="427" y2="162" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>
+  <!-- full straight body -->
+  <line x1="427" y1="162" x2="588" y2="206" stroke="#2B2B2B" stroke-width="11" stroke-linecap="round"/>
+  <!-- head -->
+  <circle cx="415" cy="150" r="15" fill="#2B2B2B"/>
+  <!-- feet -->
+  <path d="M588 206 l16 -3 l1 11 z" fill="#2B2B2B"/>
+  <!-- straight line indicator -->
+  <line x1="427" y1="162" x2="588" y2="206" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="430" y="146" font-size="12" fill="#2563EB" font-weight="600">linha reta cabeça→pés</text>
+
+  <!-- hip drop warning -->
+  <path d="M500 250 q0 0 0 0" />
+  <line x1="505" y1="200" x2="505" y2="235" stroke="#DC2626" stroke-width="2.5"/>
+  <path d="M505 237 l-5 -9 l10 0 z" fill="#DC2626"/>
+  <text x="455" y="258" font-size="12" fill="#DC2626" font-weight="600">quadril NÃO cai</text>
+
+  <!-- notes -->
+  <text x="32" y="320" font-size="14" font-weight="700" fill="#374151">Execução</text>
+  <text x="32" y="344" font-size="13" fill="#374151">• Cotovelo de apoio alinhado SOB o ombro</text>
+  <text x="32" y="364" font-size="13" fill="#374151">• Sobe o quadril até o corpo formar uma linha; segura ~10 s</text>
+  <text x="32" y="384" font-size="13" fill="#374151">• Faz os dois lados (mesmo número de reps) — simetria protege a lombar</text>
+</svg>

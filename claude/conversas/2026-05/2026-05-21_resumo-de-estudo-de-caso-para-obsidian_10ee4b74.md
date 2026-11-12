@@ -7,6 +7,7 @@ source_id: "10ee4b74-26d1-4746-885c-69a28190b213"
 url: "https://claude.ai/chat/10ee4b74-26d1-4746-885c-69a28190b213"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de estudo de caso para Obsidian

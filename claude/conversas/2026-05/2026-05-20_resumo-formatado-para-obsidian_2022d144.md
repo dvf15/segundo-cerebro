@@ -7,6 +7,7 @@ source_id: "2022d144-723d-40d8-8a48-b2e2341ffebd"
 url: "https://claude.ai/chat/2022d144-723d-40d8-8a48-b2e2341ffebd"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -58,3 +59,10 @@ Resumo pronto, formatado no padrão Obsidian que você usa.
 - Nota de uso e rating de confiança ao final
 
 **Confiança: 8/10** — dados extraídos fielmente do PDF, mas algumas interpretações estruturais (como tratar o "Balanço da riqueza familiar" como equação) são minha leitura, e as fontes externas citadas pela Jera (SPIVA, McKinsey, StepStone, etc.) não foram verificadas independentemente. Material é de **Fev/2019**, então números de mercado estão defasados — útil como arcabouço conceitual, não como referência de mercado atual.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_2022d144/home/claude/asset-allocation-private-equity-jera.md]] (13 KB)

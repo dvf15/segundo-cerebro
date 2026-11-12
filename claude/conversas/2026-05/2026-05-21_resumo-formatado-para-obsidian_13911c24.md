@@ -7,6 +7,7 @@ source_id: "13911c24-f244-4b99-b0e8-b9622f0a0d7a"
 url: "https://claude.ai/chat/13911c24-f244-4b99-b0e8-b9622f0a0d7a"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -53,3 +54,10 @@ Pontos que vale chamar atenção:
 **Confiança: 9/10**
 
 Justificativa: o material-fonte estava completo no contexto, então a fidelidade é alta. O -1 é pelo fato de toda compressão envolver escolha — alguns trechos teóricos (relational contracts em detalhe, matemática do earnings smoothing) ficaram resumidos. Se quiser que eu expanda alguma seção específica ou crie notas-filhas para conceitos importantes (ex.: nota dedicada a `[[hold-up problem]]` ou `[[Corporate Social Responsibility]]`), é só pedir.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_13911c24/home/claude/risco-politico-hold-up-shotts-2015.md]] (12 KB)

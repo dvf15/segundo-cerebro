@@ -7,6 +7,7 @@ source_id: "73b3822c-0440-420f-8077-91bc0431a6d6"
 url: "https://claude.ai/chat/73b3822c-0440-420f-8077-91bc0431a6d6"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de private equity e venture capital para Obsidian

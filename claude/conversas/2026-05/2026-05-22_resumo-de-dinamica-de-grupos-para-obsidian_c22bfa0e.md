@@ -7,6 +7,7 @@ source_id: "c22bfa0e-38af-4fe1-8d90-a64dc04503fa"
 url: "https://claude.ai/chat/c22bfa0e-38af-4fe1-8d90-a64dc04503fa"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de dinâmica de grupos para Obsidian

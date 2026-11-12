@@ -7,6 +7,7 @@ source_id: "e89a3b81-2bd6-4976-8fe5-96524ac39077"
 url: "https://claude.ai/chat/e89a3b81-2bd6-4976-8fe5-96524ac39077"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -74,3 +75,10 @@ Pronto. O arquivo segue seu padrão Obsidian — frontmatter YAML, wikilinks nos
 9. Conexões na vault (Dataview)
 
 **Confiança: 9/10.** Tirei 1 ponto porque (a) slides têm narração que não está no PDF, (b) adicionei um dado externo sobre a aquisição/venda do DSC pela Unilever que **não está no material original** — está sinalizado na nota final, mas vale você verificar se quiser citá-lo. Fonte primária: o próprio PDF que você enviou.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_e89a3b81/home/claude/value-capture-advantages.md]] (14 KB)

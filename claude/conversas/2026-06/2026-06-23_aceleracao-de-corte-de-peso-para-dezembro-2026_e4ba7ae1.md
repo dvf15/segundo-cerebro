@@ -7,6 +7,7 @@ source_id: "e4ba7ae1-0143-45fb-b882-5a7507f22b73"
 url: "https://claude.ai/chat/e4ba7ae1-0143-45fb-b882-5a7507f22b73"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Aceleração de corte de peso para dezembro/2026

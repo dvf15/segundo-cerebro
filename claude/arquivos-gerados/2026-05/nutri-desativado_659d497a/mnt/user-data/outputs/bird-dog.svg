@@ -1,0 +1,48 @@
+<svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="640" height="380" rx="14" fill="#FAFAF7"/>
+  <text x="32" y="42" font-size="22" font-weight="700" fill="#1F2937">3. Bird-dog (cão de caça)</text>
+  <text x="32" y="66" font-size="14" fill="#6B7280">Vista lateral — braço e perna OPOSTOS, coluna neutra o tempo todo.</text>
+
+  <!-- ground -->
+  <line x1="60" y1="300" x2="600" y2="300" stroke="#C9C7BE" stroke-width="3"/>
+
+  <!-- support arm (front, vertical) -->
+  <line x1="250" y1="200" x2="250" y2="300" stroke="#9CA3AF" stroke-width="9" stroke-linecap="round"/>
+  <!-- support knee (back, vertical) -->
+  <line x1="400" y1="205" x2="400" y2="300" stroke="#9CA3AF" stroke-width="9" stroke-linecap="round"/>
+  <!-- shin on ground -->
+  <line x1="400" y1="300" x2="445" y2="300" stroke="#9CA3AF" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- torso (neutral spine) hip to shoulder -->
+  <line x1="400" y1="205" x2="250" y2="200" stroke="#2B2B2B" stroke-width="12" stroke-linecap="round"/>
+  <!-- neutral spine dashed overlay -->
+  <line x1="400" y1="203" x2="250" y2="198" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6 4"/>
+
+  <!-- head -->
+  <circle cx="225" cy="200" r="16" fill="#2B2B2B"/>
+
+  <!-- extended arm (forward, parallel to floor) -->
+  <line x1="250" y1="200" x2="135" y2="192" stroke="#2B2B2B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M135 192 l-16 -4 l0 11 z" fill="#2B2B2B"/>
+  <line x1="120" y1="180" x2="100" y2="180" stroke="#DC2626" stroke-width="2.5"/>
+  <path d="M98 180 l9 -5 l0 10 z" fill="#DC2626"/>
+  <text x="70" y="172" font-size="12" fill="#DC2626" font-weight="600">punho empurra</text>
+
+  <!-- extended leg (back, parallel to floor) -->
+  <line x1="400" y1="205" x2="520" y2="213" stroke="#2B2B2B" stroke-width="9" stroke-linecap="round"/>
+  <path d="M520 213 l16 -3 l1 11 z" fill="#2B2B2B"/>
+  <line x1="538" y1="200" x2="558" y2="200" stroke="#DC2626" stroke-width="2.5"/>
+  <path d="M560 200 l-9 -5 l0 10 z" fill="#DC2626"/>
+  <text x="500" y="190" font-size="12" fill="#DC2626" font-weight="600">calcanhar empurra</text>
+
+  <!-- parallel floor guide -->
+  <line x1="135" y1="225" x2="520" y2="235" stroke="#059669" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="270" y="252" font-size="12" fill="#059669" font-weight="600">braço e perna paralelos ao chão</text>
+
+  <!-- spine label -->
+  <text x="300" y="180" font-size="12" fill="#2563EB" font-weight="600">coluna NEUTRA</text>
+
+  <!-- notes -->
+  <text x="32" y="330" font-size="13" fill="#374151">• Não arqueia a lombar e não roda o quadril — imagine equilibrar um copo d'água nas costas</text>
+  <text x="32" y="350" font-size="13" fill="#374151">• Segura ~10 s, volta, troca o lado (braço D + perna E → braço E + perna D)</text>
+</svg>

@@ -7,6 +7,7 @@ source_id: "6d951632-4364-494e-9201-841cc5f363f9"
 url: "https://claude.ai/chat/6d951632-4364-494e-9201-841cc5f363f9"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # ESG geração de oportunidades
@@ -72,3 +73,10 @@ Corrigi "Chlli Beans" para "Chilli Beans" por ser quase certamente a grafia corr
 **Confiança: 9/10.** O conteúdo segue fielmente o texto original. O ponto de incerteza é só a grafia dos nomes citados.
 
 - 📎 ESG - Proposta Geração de Oportunidade.md
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/esg-geracao-de-oportunidades_6d951632/ESG - Proposta Geração de Oportunidade.md]] (6 KB)

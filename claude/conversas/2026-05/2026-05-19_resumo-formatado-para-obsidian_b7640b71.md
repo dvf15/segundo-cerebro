@@ -7,6 +7,7 @@ source_id: "b7640b71-23c6-4c77-bd84-6e49475348cf"
 url: "https://claude.ai/chat/b7640b71-23c6-4c77-bd84-6e49475348cf"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -64,3 +65,10 @@ Pontos a sinalizar:
 2. Os valores dos casos internacionais (Skype, Daimler, Countrywide) também vêm do próprio slide; em outras fontes os números podem variar levemente.
 3. As **conexões para outras notas** (seção 15) são sugestões minhas de estrutura para teu vault — não estão no material original, mas seguem o tema da aula.
 4. Não inventei nenhum dado fora do PDF; mantive tudo dentro do que o Prof. Vieira apresentou.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_b7640b71/home/claude/Aula_1M_Fusoes_Aquisicoes_Mercado_Resultados.md]] (20 KB)

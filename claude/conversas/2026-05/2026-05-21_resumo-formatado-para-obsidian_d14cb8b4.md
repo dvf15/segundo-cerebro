@@ -7,6 +7,7 @@ source_id: "d14cb8b4-135c-49d4-91d7-0ff9f86d36cf"
 url: "https://claude.ai/chat/d14cb8b4-135c-49d4-91d7-0ff9f86d36cf"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -55,3 +56,10 @@ Arquivo `.md` pronto para você arrastar direto para o vault do Obsidian. Estrut
 - **Seção final de confiança e fontes**
 
 **Confiança: 8/10.** O resumo é fiel ao PDF, mas é interpretativo — agrupei e reorganizei o conteúdo para fluir como nota de estudo, então a ênfase é minha em alguns pontos. Os números específicos (Fragile Families Challenge, estudo da empresa de tech) foram transcritos diretamente dos slides; não verifiquei contra as publicações originais de Goldberg/Salganik. A citação do slide 95 é uma tradução próxima, não literal.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_d14cb8b4/mnt/user-data/outputs/AI-Powered-Organization-Goldberg.md]] (13 KB)

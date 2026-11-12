@@ -7,6 +7,7 @@ source_id: "52750f1f-f57e-4454-8c41-79aac5fbd036"
 url: "https://claude.ai/chat/52750f1f-f57e-4454-8c41-79aac5fbd036"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Limite de tokens no Claude Code

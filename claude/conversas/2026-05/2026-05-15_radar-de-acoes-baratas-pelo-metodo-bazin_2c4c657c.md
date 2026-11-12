@@ -7,6 +7,7 @@ source_id: "2c4c657c-a134-4e58-a216-1a17bf8ef8c1"
 url: "https://claude.ai/chat/2c4c657c-a134-4e58-a216-1a17bf8ef8c1"
 project: null
 messages: 3
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Radar de ações baratas pelo método Bazin
@@ -328,3 +329,11 @@ Setores tipicamente classificados como perenes/baixo risco que faltam: **saneame
 **Fontes principais:** Investidor10, Status Invest, dividendos10, iAções, Brapi, A Revista, XP Conteúdos, Money Times, Suno. Todas linkadas via citações inline acima.
 
 **Não sou:** consultor de investimentos, analista certificado, nem profissional habilitado pela CVM. Os cálculos Bazin acima são heurísticos; **não use isoladamente para decisão de compra**.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/radar-de-acoes-baratas-pelo-metodo-bazin_2c4c657c/home/claude/radar-bazin.html]] (30 KB)
+- [[claude/arquivos-gerados/2026-05/radar-de-acoes-baratas-pelo-metodo-bazin_2c4c657c/home/claude/RadarBazin.jsx]] (12 KB)

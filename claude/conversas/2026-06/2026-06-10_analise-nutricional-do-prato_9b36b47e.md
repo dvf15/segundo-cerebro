@@ -7,6 +7,7 @@ source_id: "9b36b47e-a54a-484e-8198-e025a149734a"
 url: "https://claude.ai/chat/9b36b47e-a54a-484e-8198-e025a149734a"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise nutricional do prato

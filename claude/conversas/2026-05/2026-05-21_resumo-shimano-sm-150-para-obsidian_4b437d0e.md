@@ -7,6 +7,7 @@ source_id: "4b437d0e-6d01-43f1-ad36-c2b01e9b76af"
 url: "https://claude.ai/chat/4b437d0e-6d01-43f1-ad36-c2b01e9b76af"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo Shimano SM-150 para Obsidian
@@ -46,3 +47,10 @@ A estrutura cobre: tese central, estrutura do mercado global, cadeia de suprimen
 
 **Confiança: 9/10**
 - 9 (e não 10) porque sintetizei e reformulei em português um documento longo em inglês — em qualquer síntese há perda de nuance, e alguns números arredondados podem ter pequenas diferenças do original. Os dados em si vieram todos do PDF anexado, sem inferências externas. ⚠️ Lembrete: os dados do case são de **2005-2006** — válidos para entender a estratégia da época, mas desatualizados se forem usados como referência atual de mercado.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-shimano-sm-150-para-obsidian_4b437d0e/home/claude/Shimano-Case-SM-150.md]] (15 KB)

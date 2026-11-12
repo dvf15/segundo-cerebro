@@ -7,6 +7,7 @@ source_id: "e0838011-665e-4e24-a535-dbe8f7e9e25b"
 url: "https://claude.ai/chat/e0838011-665e-4e24-a535-dbe8f7e9e25b"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Mover projeto para Claude Cowork

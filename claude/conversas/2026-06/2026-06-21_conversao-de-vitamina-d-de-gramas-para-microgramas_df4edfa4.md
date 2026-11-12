@@ -7,6 +7,7 @@ source_id: "df4edfa4-5ce6-4739-8c74-e6bb6a9b5205"
 url: "https://claude.ai/chat/df4edfa4-5ce6-4739-8c74-e6bb6a9b5205"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Conversão de vitamina D de gramas para microgramas

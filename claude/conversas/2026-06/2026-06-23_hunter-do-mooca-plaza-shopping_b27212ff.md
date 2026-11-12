@@ -7,6 +7,7 @@ source_id: "b27212ff-aebe-4731-ba77-ad590b115d26"
 url: "https://claude.ai/chat/b27212ff-aebe-4731-ba77-ad590b115d26"
 project: null
 messages: 8
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Hunter do Mooca Plaza Shopping

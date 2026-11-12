@@ -7,6 +7,7 @@ source_id: "3b94b995-42d5-4325-9e4d-99bf095ee5ec"
 url: "https://claude.ai/chat/3b94b995-42d5-4325-9e4d-99bf095ee5ec"
 project: null
 messages: 8
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Palantir dispara 20% com resultados acima do esperado

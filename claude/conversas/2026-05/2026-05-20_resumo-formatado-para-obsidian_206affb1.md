@@ -7,6 +7,7 @@ source_id: "206affb1-e3b3-432a-8227-faab14400aa3"
 url: "https://claude.ai/chat/206affb1-e3b3-432a-8227-faab14400aa3"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -82,3 +83,10 @@ Nota pronta. Resumo do que está dentro:
 
 - 📎 slide-3.jpg
 - 📎 slide-5.jpg
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_206affb1/home/claude/PEVC14_Aula14_LBO_Bausch_Lomb_Warburg_Pincus.md]] (8 KB)

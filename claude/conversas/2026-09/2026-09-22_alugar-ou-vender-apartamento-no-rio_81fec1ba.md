@@ -7,6 +7,7 @@ source_id: "81fec1ba-8e17-41d6-9635-c60d7169196e"
 url: "https://claude.ai/chat/81fec1ba-8e17-41d6-9635-c60d7169196e"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Alugar ou vender apartamento no Rio

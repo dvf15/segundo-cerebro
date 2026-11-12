@@ -7,6 +7,7 @@ source_id: "13769406-89bd-4885-94c6-e34a60e67145"
 url: "https://claude.ai/chat/13769406-89bd-4885-94c6-e34a60e67145"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -59,3 +60,10 @@ Arquivo pronto para colar direto no seu vault do Obsidian.
 - Avaliação de confiança ao final
 
 **Confiança: 9/10** — todos os dados vieram diretamente do PDF do caso. O único motivo de não ser 10 é uma imprecisão no próprio documento original (o caso menciona o calote argentino de 2001 como "mais de US$ 100 milhões", quando o calote real foi da ordem de US$ 100 bilhões). Mantive o texto fiel ao caso, mas sinalizei isso na seção de confiança para você não citar o número errado em outro contexto.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_13769406/mnt/user-data/outputs/Repsol-YPF-A-Casamento-Perfeito.md]] (12 KB)

@@ -7,6 +7,7 @@ source_id: "c71a422b-9929-4889-b826-487535002221"
 url: "https://claude.ai/chat/c71a422b-9929-4889-b826-487535002221"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Transcrição de notas para Obsidian com avaliação de legibilidade
@@ -73,3 +74,10 @@ Pronto. O que precisa da sua atenção antes de confiar na nota:
 Se conseguir fotos com mais luz/contraste (ou me ditar os campos ilegíveis), eu atualizo o arquivo.
 
 **Confiança da resposta: 4/10** ⚠️ (abaixo de 7 — sinalizado). A estrutura geral está sólida (~8), mas o conteúdo detalhado das duas últimas imagens é incerto pela caligrafia a lápis apagada. Não há dados de terceiros aqui que exijam fonte externa — é manuscrito seu.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/transcricao-de-notas-para-obsidian-com-avaliacao-d_c71a422b/mnt/user-data/outputs/perspectivas-estrategicas-ciclo-vida-produto.md]] (5 KB)

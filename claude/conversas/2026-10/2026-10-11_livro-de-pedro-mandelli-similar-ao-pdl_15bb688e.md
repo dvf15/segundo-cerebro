@@ -7,6 +7,7 @@ source_id: "15bb688e-e666-4746-978a-5ea8480ca1ca"
 url: "https://claude.ai/chat/15bb688e-e666-4746-978a-5ea8480ca1ca"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Livro de Pedro Mandelli similar ao PDL

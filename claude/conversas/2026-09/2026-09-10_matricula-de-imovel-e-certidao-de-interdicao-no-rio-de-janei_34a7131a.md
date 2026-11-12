@@ -7,6 +7,7 @@ source_id: "34a7131a-11ad-4af3-bf4f-76139f83db6c"
 url: "https://claude.ai/chat/34a7131a-11ad-4af3-bf4f-76139f83db6c"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Matrícula de imóvel e certidão de interdição no Rio de Janeiro

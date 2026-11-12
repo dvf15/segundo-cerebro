@@ -7,6 +7,7 @@ source_id: "0418a8c4-6da6-4baa-b90e-32893e996bd1"
 url: "https://claude.ai/chat/0418a8c4-6da6-4baa-b90e-32893e996bd1"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -50,3 +51,10 @@ Estrutura do conteúdo:
 5. Pontos para aprofundamento como tarefas rastreáveis
 
 **Confiança: 9/10** — flag baixa apenas porque os dados do material são de agosto/2022 e o cenário do WFH evoluiu desde então. Se quiser, posso buscar dados mais recentes para complementar uma seção "atualização 2024-2026".
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_0418a8c4/home/claude/the-future-of-wfh-bloom.md]] (11 KB)

@@ -7,6 +7,7 @@ source_id: "0a5158de-4458-482e-bde4-b22ed13aec61"
 url: "https://claude.ai/chat/0a5158de-4458-482e-bde4-b22ed13aec61"
 project: null
 messages: 6
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Convertendo framework de vendas em instrução de agente
@@ -628,3 +629,10 @@ O que o documento entrega:
 **Integração com o OS existente:** mapeia cada variável da equação para os scores já existentes (SRIS, Cluster Fit, Conversion Score) e para os agentes responsáveis.
 
 Um ponto que marquei com flag: os benchmarks de conversão e ticket por cluster estão com **confiança 6/10** — são estimativas de mercado, não dados validados do seu portfólio. Recomendo substituir pelos dados reais do Sistema Bahia quando tiver acesso.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/convertendo-framework-de-vendas-em-instrucao-de-ag_0a5158de/mnt/user-data/outputs/11_MASTER_EQUATION_PERFORMANCE_v5.md]] (8 KB)

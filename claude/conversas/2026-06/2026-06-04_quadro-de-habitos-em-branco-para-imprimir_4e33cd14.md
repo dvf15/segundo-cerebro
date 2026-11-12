@@ -7,6 +7,7 @@ source_id: "4e33cd14-9fcd-41d8-9250-ca0cb8510291"
 url: "https://claude.ai/chat/4e33cd14-9fcd-41d8-9250-ca0cb8510291"
 project: null
 messages: 33
+generated_files: 8
 tags: ["claude", "conversa"]
 ---
 # Quadro de hábitos em branco para imprimir
@@ -1196,3 +1197,17 @@ Pendência de sempre: a citação "Discipline…" segue **sem autoria verificada
 **Confiança: 8/10** — atende os dois pedidos (maior e mais à esquerda) sem colisões nem cruzamentos. Desconto pelo trade-off do mapa hábito↔anel e pela citação não verificada.
 
 - 📎 monthly-planning.png
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/mnt/user-data/outputs/monthly-planning-blank.html]] (9 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board.py]] (5 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board2.py]] (5 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board3.py]] (5 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board4.py]] (5 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board5.py]] (5 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board7.py]] (5 KB)
+- [[claude/arquivos-gerados/2026-06/quadro-de-habitos-em-branco-para-imprimir_4e33cd14/home/claude/build_board8.py]] (5 KB)

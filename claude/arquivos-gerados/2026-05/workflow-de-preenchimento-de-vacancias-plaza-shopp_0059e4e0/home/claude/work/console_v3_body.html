@@ -1,0 +1,293 @@
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="mark">Shopping<span class="dot">.</span>OS</div>
+    <div class="sub">v3 · Console</div>
+  </div>
+
+  <div class="api-status" onclick="openApiModal()">
+    <span class="dot-led" id="apiLed"></span>
+    <span class="label" id="apiStatusLabel">API não configurada</span>
+    <span style="color:var(--steel);">⚙</span>
+  </div>
+
+  <div class="shopping-switcher">
+    <div class="label">Shopping ativo</div>
+    <select id="shoppingSelect" onchange="changeShopping(this.value)"></select>
+    <div class="meta" id="shoppingMeta"></div>
+    <button class="new" onclick="openShoppingModal()">+ Novo shopping</button>
+  </div>
+
+  <nav>
+    <div class="nav-group">
+      <div class="group-label">Início</div>
+      <div class="nav-item active" data-section="home" onclick="navigate('home')"><span class="num">⌂</span><span>Console</span></div>
+      <div class="nav-item" data-section="shopping" onclick="navigate('shopping')"><span class="num">⊕</span><span>Perfil</span></div>
+    </div>
+    <div class="nav-group">
+      <div class="group-label">Bases de Dados</div>
+      <div id="dbsNav"></div>
+    </div>
+    <div class="nav-group">
+      <div class="group-label">Workflows</div>
+      <div class="nav-item workflow" data-section="wf1" onclick="navigate('wf1')"><span class="num">W1</span><span>Vacancy-to-Contract</span></div>
+      <div class="nav-item workflow" data-section="wf2" onclick="navigate('wf2')"><span class="num">W2</span><span>Street-to-Shopping</span></div>
+      <div class="nav-item workflow" data-section="wf3" onclick="navigate('wf3')"><span class="num">W3</span><span>Cluster Experience</span></div>
+    </div>
+    <div class="nav-group" id="agentsByCategory"></div>
+    <div class="nav-group">
+      <div class="group-label">Sistema</div>
+      <div class="nav-item" data-section="history" onclick="navigate('history')"><span class="num">⌖</span><span>Histórico</span></div>
+      <div class="nav-item" data-section="data" onclick="navigate('data')"><span class="num">⇄</span><span>Import / Export</span></div>
+    </div>
+  </nav>
+</aside>
+
+<main>
+
+<section id="home" class="section active">
+  <div class="breadcrumb">SISTEMA <span class="sep">/</span> <span class="current">Console</span></div>
+  <div class="hero">
+    <h1>Onde<br>oportunidade <em>vira contrato.</em></h1>
+    <p>Sistema completo de gestão comercial multi-shopping. 7 bases de dados alimentam 16 agentes especializados que retornam análises acionáveis via API.</p>
+    <div class="meta-row">
+      <span>Execuções: <span class="v" id="cntExecutions">0</span></span>
+      <span>Tokens: <span class="v" id="cntTokens">0</span></span>
+      <span>Custo: <span class="v" id="cntCost">$0.00</span></span>
+    </div>
+  </div>
+  <div id="apiWarning" class="banner warn" style="display:none;">
+    <strong>API não configurada.</strong> Configure sua chave Anthropic no menu lateral.
+  </div>
+
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-mark" style="background:var(--moss);">▤</div>
+      <h2>Bases de Dados</h2>
+      <span class="count">7 bases estruturadas</span>
+    </div>
+    <div class="grid-4" id="homeDbsGrid"></div>
+  </div>
+
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-mark" style="background:var(--accent-2);">◐</div>
+      <h2>Workflows</h2>
+      <span class="count">3 sprints orquestrados</span>
+    </div>
+    <div class="grid-3">
+      <div class="item-card wf" onclick="navigate('wf1')"><div class="ic-num">WORKFLOW 01</div><h4>Vacancy-to-Contract Sprint</h4><p>Reduz vacância e encurta ciclo vaga → contrato.</p></div>
+      <div class="item-card wf" onclick="navigate('wf2')"><div class="ic-num">WORKFLOW 02</div><h4>Street-to-Shopping</h4><p>Converte operadores de rua em lojistas.</p></div>
+      <div class="item-card wf" onclick="navigate('wf3')"><div class="ic-num">WORKFLOW 03</div><h4>Cluster Experience Growth</h4><p>Frequência, ticket e experiência.</p></div>
+    </div>
+  </div>
+
+  <div id="homeAgentsByCategory"></div>
+</section>
+
+<section id="shopping" class="section">
+  <div class="breadcrumb">CADASTRO <span class="sep">/</span> <span class="current">Perfil</span></div>
+  <h1 class="page-title">Perfil do Shopping</h1>
+  <p class="page-desc">Define o contexto que <strong>todos os agentes e bases</strong> usam.</p>
+
+  <div class="card">
+    <h2>Identificação</h2>
+    <div class="form-grid">
+      <div class="full"><label>Nome <span class="required">*</span></label><input type="text" id="sh_nome"></div>
+      <div><label>Cidade <span class="required">*</span></label><input type="text" id="sh_cidade"></div>
+      <div><label>Estado</label><input type="text" id="sh_estado"></div>
+      <div class="full"><label>Endereço</label><input type="text" id="sh_endereco"></div>
+      <div>
+        <label>Cluster <span class="required">*</span></label>
+        <select id="sh_cluster">
+          <option value="">— selecione —</option>
+          <option>Sofisticados</option><option>Compactos de Alto Padrão</option>
+          <option>Entretenimento</option><option>Passeio Familiar</option>
+          <option>Imensos</option><option>Convenientes</option>
+        </select>
+      </div>
+      <div><label>Operador</label><input type="text" id="sh_operador"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Métricas físicas</h2>
+    <div class="form-grid">
+      <div><label>ABL total (m²)</label><input type="number" id="sh_abl"></div>
+      <div><label>Total de lojas</label><input type="number" id="sh_lojas"></div>
+      <div><label>Inauguração</label><input type="number" id="sh_ano"></div>
+      <div><label>Última reforma</label><input type="number" id="sh_reforma"></div>
+      <div><label>Vacância (%)</label><input type="number" id="sh_vacancia" min="0" max="100"></div>
+      <div><label>ABL vaga (m²)</label><input type="number" id="sh_abl_vaga"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Posicionamento e diagnóstico</h2>
+    <div class="form-grid">
+      <div class="full">
+        <label>Batalhas prioritárias <span class="hint">selecione 2-4</span></label>
+        <div class="pill-group" id="sh_batalhas_group">
+          <label class="pill-check"><input type="checkbox" value="Lojas"><span>Lojas</span></label>
+          <label class="pill-check"><input type="checkbox" value="Gastronomia"><span>Gastronomia</span></label>
+          <label class="pill-check"><input type="checkbox" value="Entretenimento"><span>Entretenimento</span></label>
+          <label class="pill-check"><input type="checkbox" value="Hospitality"><span>Hospitality</span></label>
+          <label class="pill-check"><input type="checkbox" value="Serviços"><span>Serviços</span></label>
+          <label class="pill-check"><input type="checkbox" value="Ambiência"><span>Ambiência</span></label>
+          <label class="pill-check"><input type="checkbox" value="Entorno"><span>Entorno</span></label>
+          <label class="pill-check"><input type="checkbox" value="Jornada sem fricção"><span>Jornada sem fricção</span></label>
+        </div>
+      </div>
+      <div class="full"><label>Target principal</label><textarea id="sh_target"></textarea></div>
+      <div class="full"><label>Concorrência direta</label><textarea id="sh_concorrencia"></textarea></div>
+      <div class="full"><label>Pontos fortes</label><textarea id="sh_fortes"></textarea></div>
+      <div class="full"><label>Lacunas de mix</label><textarea id="sh_lacunas"></textarea></div>
+      <div class="full"><label>Lojas em saída/risco</label><textarea id="sh_saidas"></textarea></div>
+      <div class="full"><label>Mix atual <span class="hint">filtro duplicidade</span></label><textarea id="sh_mix"></textarea></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="saveShopping()">Salvar</button>
+      <button class="btn btn-danger" onclick="confirmDeleteShopping()">Excluir shopping</button>
+      <span style="margin-left:auto;color:var(--steel);font-size:12px;" id="shoppingSaveStatus"></span>
+    </div>
+  </div>
+</section>
+
+<div id="dynamicSections"></div>
+
+<section id="history" class="section">
+  <div class="breadcrumb">SISTEMA <span class="sep">/</span> <span class="current">Histórico</span></div>
+  <h1 class="page-title">Histórico</h1>
+  <p class="page-desc">Últimas 50 execuções de todos os shoppings.</p>
+  <div class="card" style="padding:0;">
+    <div id="historyList" style="max-height:680px;overflow-y:auto;"></div>
+  </div>
+</section>
+
+<section id="data" class="section">
+  <div class="breadcrumb">SISTEMA <span class="sep">/</span> <span class="current">Import / Export</span></div>
+  <h1 class="page-title">Import / Export</h1>
+  <p class="page-desc">Backup, restauração e portabilidade dos dados.</p>
+
+  <div class="card">
+    <h2>Backup completo</h2>
+    <p class="card-desc">Todos os shoppings + bases + histórico em JSON.</p>
+    <div class="actions" style="margin-top:0;padding-top:0;border:none;">
+      <button class="btn btn-primary" onclick="exportAll()">↓ Exportar tudo (JSON)</button>
+      <button class="btn btn-success" onclick="importAll()">↑ Importar JSON completo</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Por shopping</h2>
+    <p class="card-desc">Exporta o shopping ativo com suas bases e histórico.</p>
+    <div class="actions" style="margin-top:0;padding-top:0;border:none;">
+      <button class="btn" onclick="exportCurrentShopping()">↓ Exportar shopping ativo</button>
+      <button class="btn" onclick="importShopping()">↑ Importar shopping</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Por base de dados</h2>
+    <p class="card-desc">Exporta/importa uma base em JSON ou CSV. CSV facilita edição em Excel.</p>
+    <div style="display:grid;grid-template-columns:1fr auto auto auto auto;gap:8px;align-items:end;">
+      <div><label>Base</label><select id="dbExportSelect"></select></div>
+      <button class="btn" onclick="exportSingleDB('json')">↓ JSON</button>
+      <button class="btn" onclick="exportSingleDB('csv')">↓ CSV</button>
+      <button class="btn btn-success" onclick="importSingleDB('json')">↑ JSON</button>
+      <button class="btn btn-success" onclick="importSingleDB('csv')">↑ CSV</button>
+    </div>
+    <p class="help-text" style="margin-top:10px;">CSV: separador ";", campos múltiplos separados por "/". Bases globais aplicam ao sistema; por-shopping aplicam ao shopping ativo.</p>
+  </div>
+
+  <div class="card">
+    <h2 style="color:var(--accent);">Zona de risco</h2>
+    <div class="actions" style="margin-top:0;padding-top:0;border:none;">
+      <button class="btn btn-danger" onclick="clearAllData()">Apagar tudo</button>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="modal-bg" id="modalApi">
+  <div class="modal">
+    <h2>Configurar API Anthropic</h2>
+    <p class="desc">Cole sua chave. Fica salva apenas no seu navegador.</p>
+    <div class="banner warn"><strong>Segurança:</strong> não use em máquinas compartilhadas.</div>
+    <div style="display:grid;gap:13px;">
+      <div>
+        <label>Chave de API <span class="required">*</span></label>
+        <input type="password" id="apiKeyInput" placeholder="sk-ant-...">
+        <div class="help-text">Crie em <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com/settings/keys</a></div>
+      </div>
+      <div>
+        <label>Modelo</label>
+        <select id="apiModel">
+          <option value="claude-sonnet-4-6-20250929" selected>Sonnet 4.6 (recomendado)</option>
+          <option value="claude-opus-4-7-20251201">Opus 4.7 (mais caro)</option>
+          <option value="claude-haiku-4-5-20251001">Haiku 4.5 (rápido/barato)</option>
+        </select>
+      </div>
+      <div>
+        <label>Web Search</label>
+        <select id="apiWebSearch">
+          <option value="true" selected>Habilitado</option>
+          <option value="false">Desabilitado</option>
+        </select>
+      </div>
+      <div>
+        <label>Max tokens resposta</label>
+        <input type="number" id="apiMaxTokens" value="6000" min="1000" max="16000">
+        <div class="help-text">Padrão otimizado: 6000.</div>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:20px;padding-top:14px;">
+      <button class="btn btn-primary" onclick="saveApiConfig()">Salvar e testar</button>
+      <button class="btn btn-danger" onclick="clearApiKey()">Remover</button>
+      <button class="btn btn-ghost" onclick="closeApiModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalShopping">
+  <div class="modal">
+    <h2>Novo shopping</h2>
+    <div style="display:grid;gap:12px;">
+      <div><label>Nome <span class="required">*</span></label><input type="text" id="newSh_nome"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><label>Cidade <span class="required">*</span></label><input type="text" id="newSh_cidade"></div>
+        <div><label>Estado</label><input type="text" id="newSh_estado"></div>
+      </div>
+      <div>
+        <label>Cluster <span class="required">*</span></label>
+        <select id="newSh_cluster">
+          <option value="">—</option><option>Sofisticados</option><option>Compactos de Alto Padrão</option>
+          <option>Entretenimento</option><option>Passeio Familiar</option>
+          <option>Imensos</option><option>Convenientes</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:20px;padding-top:14px;">
+      <button class="btn btn-primary" onclick="createShopping()">Criar</button>
+      <button class="btn btn-ghost" onclick="closeShoppingModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalRecord">
+  <div class="modal wide">
+    <h2 id="recordModalTitle">Novo registro</h2>
+    <p class="desc" id="recordModalDesc"></p>
+    <div id="recordModalForm"></div>
+    <div class="actions" style="margin-top:20px;padding-top:14px;">
+      <button class="btn btn-primary" onclick="saveRecord()">Salvar</button>
+      <button class="btn btn-danger" id="deleteRecordBtn" style="display:none;" onclick="deleteCurrentRecord()">Excluir</button>
+      <button class="btn btn-ghost" onclick="closeRecordModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>

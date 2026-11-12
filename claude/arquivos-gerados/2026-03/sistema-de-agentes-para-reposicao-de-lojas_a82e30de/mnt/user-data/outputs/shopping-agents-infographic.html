@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Agentes Inteligentes — Shopping</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111318;
+    --border: rgba(255,255,255,0.07);
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --teal: #2dd4bf;
+    --violet: #a78bfa;
+    --rose: #fb7185;
+    --sky: #38bdf8;
+    --text: #f0ece4;
+    --muted: #6b7280;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .eyebrow::before, .eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  h1 span { color: var(--gold-light); }
+  .subtitle {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── PROBLEM BANNER ── */
+  .problem-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+  .prob-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .prob-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--rose);
+    opacity: 0.7;
+  }
+  .prob-card .icon { font-size: 22px; margin-bottom: 10px; }
+  .prob-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 6px;
+  }
+  .prob-card p { color: var(--muted); font-size: 12.5px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ── ORCHESTRATOR ── */
+  .orchestrator-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .orchestrator {
+    background: linear-gradient(135deg, #1a1200 0%, #1e1608 100%);
+    border: 1.5px solid var(--gold);
+    border-radius: 16px;
+    padding: 24px 40px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 40px rgba(201,168,76,0.15), 0 0 80px rgba(201,168,76,0.05);
+    max-width: 520px;
+    width: 100%;
+  }
+  .orchestrator::after {
+    content: '';
+    position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%);
+    width: 1.5px; height: 24px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .orchestrator .badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    font-family: 'Syne', sans-serif;
+  }
+  .orchestrator h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+  .orchestrator p { color: var(--muted); font-size: 12.5px; }
+
+  /* ── AGENTS GRID ── */
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+
+  /* connector line top */
+  .agents-grid::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: calc(16.66% + 8px); right: calc(16.66% + 8px);
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+    opacity: 0.35;
+  }
+
+  .agent-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .agent-card:hover { border-color: rgba(255,255,255,0.14); }
+
+  .agent-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+  .agent-card.teal::before { background: var(--teal); }
+  .agent-card.violet::before { background: var(--violet); }
+  .agent-card.sky::before { background: var(--sky); }
+
+  .agent-card::after {
+    content: '';
+    position: absolute; top: -24px; left: 50%; transform: translateX(-50%);
+    width: 1.5px; height: 24px;
+  }
+  .agent-card.teal::after { background: linear-gradient(to bottom, transparent, var(--teal)); }
+  .agent-card.violet::after { background: linear-gradient(to bottom, transparent, var(--violet)); }
+  .agent-card.sky::after { background: linear-gradient(to bottom, transparent, var(--sky)); }
+
+  .agent-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .teal .agent-num { color: var(--teal); }
+  .violet .agent-num { color: var(--violet); }
+  .sky .agent-num { color: var(--sky); }
+
+  .agent-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .agent-card .agent-sub {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.5;
+  }
+  .agent-card p { color: var(--muted); font-size: 12.5px; margin-bottom: 16px; }
+
+  .feature-list { list-style: none; }
+  .feature-list li {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.5;
+  }
+  .feature-list li::before {
+    content: '→';
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .teal .feature-list li::before { color: var(--teal); }
+  .violet .feature-list li::before { color: var(--violet); }
+  .sky .feature-list li::before { color: var(--sky); }
+
+  /* ── DATA FLOWS ── */
+  .flows-section { margin-bottom: 56px; }
+  .flow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .flow-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .flow-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .flow-card h4 .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .flow-step {
+    display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;
+  }
+  .step-n {
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; flex-shrink: 0;
+    font-family: 'Syne', sans-serif;
+  }
+  .flow-step p { font-size: 12px; color: var(--muted); line-height: 1.5; padding-top: 2px; }
+
+  /* ── OUTCOMES ── */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+  .outcome-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .outcome-card .big {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .outcome-card p { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+  /* ── BENCHMARK ── */
+  .bench {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 56px;
+  }
+  .bench-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .bench-item { text-align: center; }
+  .bench-bar-wrap {
+    height: 80px;
+    display: flex; align-items: flex-end; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .bench-bar {
+    width: 40px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+  }
+  .bench-bar::after {
+    content: attr(data-val);
+    position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding-bottom: 4px;
+    white-space: nowrap;
+  }
+  .bench-item p { font-size: 11px; color: var(--muted); }
+  .target-line {
+    height: 1px;
+    background: repeating-linear-gradient(to right, var(--gold) 0, var(--gold) 6px, transparent 6px, transparent 12px);
+    opacity: 0.5;
+    margin: 12px 0 4px;
+    position: relative;
+  }
+  .target-line span {
+    position: absolute; right: 0; top: -16px;
+    font-size: 10px; color: var(--gold);
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── REFERENCES ── */
+  .refs {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .ref-pill {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .ref-pill span { color: var(--text); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  @media(max-width: 720px) {
+    .problem-row, .agents-grid, .outcomes-grid, .bench-grid { grid-template-columns: 1fr; }
+    .flow-grid { grid-template-columns: 1fr; }
+    .agents-grid::before { display: none; }
+    .agent-card::after { display: none; }
+    .orchestrator::after { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="eyebrow">Sistema Multi-Agente</div>
+    <h1>Aceleração Comercial<br><span>de Shoppings Centers</span></h1>
+    <p class="subtitle">Arquitetura de agentes inteligentes para resolver a ineficiência na reposição de lojas, captação de investidores e hunting de novas marcas.</p>
+  </header>
+
+  <!-- DORES ATUAIS -->
+  <div class="section-label">Dores identificadas</div>
+  <div class="problem-row">
+    <div class="prob-card">
+      <div class="icon">⏳</div>
+      <h4>Processo lento</h4>
+      <p>Alto atrito até o 1º contato com o executivo de vendas. Burocracia afasta o pequeno empreendedor.</p>
+    </div>
+    <div class="prob-card">
+      <div class="icon">🔀</div>
+      <h4>Triagem ineficiente</h4>
+      <p>EV gasta tempo em triagem manual de investidores, alimentando a concorrência inadvertidamente.</p>
+    </div>
+    <div class="prob-card">
+      <div class="icon">📉</div>
+      <h4>Baixo market share</h4>
+      <p>Média abaixo de 25–30% da demanda qualificada. México e Austrália superam 50% do varejo total.</p>
+    </div>
+  </div>
+
+  <!-- ORQUESTRADOR -->
+  <div class="section-label">Camada de orquestração</div>
+  <div class="orchestrator-wrap">
+    <div class="orchestrator">
+      <div class="badge">Central de Inteligência</div>
+      <h2>Agente Orquestrador</h2>
+      <p>Recebe todas as entradas (investidores, marcas, EVs) e roteia para o agente especialista correto. Mantém contexto, histórico e enriquece perfis continuamente.</p>
+    </div>
+  </div>
+
+  <!-- AGENTES -->
+  <div class="section-label">Agentes especialistas</div>
+  <div class="agents-grid">
+
+    <!-- AGENTE 1 -->
+    <div class="agent-card teal">
+      <div class="agent-num">Agente 01</div>
+      <h3>Consultor de Investimentos em Varejo</h3>
+      <div class="agent-sub">Triagem &amp; Match de Investidores</div>
+      <p>Atua como um assessor de investimentos: coleta perfil, experiência, disponibilidade e capital para fazer o match perfeito com as oportunidades do shopping.</p>
+      <ul class="feature-list">
+        <li>Onboarding guiado por perfil (similar à suitability bancária)</li>
+        <li>Match com franquias, operações próprias ou quiosques</li>
+        <li>Simulação de ROI e tempo de retorno por formato</li>
+        <li>Qualificação automática antes de acionar o EV</li>
+        <li>Elimina fiador com análise alternativa de risco</li>
+      </ul>
+    </div>
+
+    <!-- AGENTE 2 -->
+    <div class="agent-card violet">
+      <div class="agent-num">Agente 02</div>
+      <h3>Vitrine Digital de Pontos Comerciais</h3>
+      <div class="agent-sub">Intermediação com Grandes Marcas</div>
+      <p>Disponibiliza pontos vagos de forma automatizada num portal/app, com ficha técnica completa para que marcas se candidatem sem intermediário humano no primeiro contato.</p>
+      <ul class="feature-list">
+        <li>Ficha técnica: m², pé-direito, energia, água, esgoto, carga</li>
+        <li>Planta interativa e fotos 360° do ponto</li>
+        <li>Acesso a docas, vizinhança e fluxo de consumidores</li>
+        <li>Cadastro de marcas por perfil (rede, porte, categoria)</li>
+        <li>Preços e condições integrados ao sistema Bahia</li>
+      </ul>
+    </div>
+
+    <!-- AGENTE 3 -->
+    <div class="agent-card sky">
+      <div class="agent-num">Agente 03</div>
+      <h3>Hunter de Inovação no Varejo</h3>
+      <div class="agent-sub">Prospecção &amp; Curadoria de Mix</div>
+      <p>Auxilia o executivo de vendas na busca ativa de marcas, tendências e inovações que elevem a experiência e o mix do shopping, com inteligência de mercado em tempo real.</p>
+      <ul class="feature-list">
+        <li>Varredura de tendências nacionais e internacionais</li>
+        <li>Identificação de marcas ausentes no mercado local</li>
+        <li>Análise de gap de mix por categoria/segmento</li>
+        <li>Briefing automático de oportunidades para o EV</li>
+        <li>Benchmark contra concorrentes e shoppings referência</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FLUXOS -->
+  <div class="flows-section">
+    <div class="section-label">Fluxos de jornada</div>
+    <div class="flow-grid">
+
+      <div class="flow-card">
+        <h4>
+          <span class="dot" style="background:var(--teal)"></span>
+          Jornada do Investidor / Empreendedor
+        </h4>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(45,212,191,0.15);color:var(--teal)">1</div>
+          <p>Acessa o portal ou app com interesse em abrir um negócio (sem precisar saber o que perguntar)</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(45,212,191,0.15);color:var(--teal)">2</div>
+          <p><strong>Agente 01</strong> conduz onboarding: perfil, capital, experiência, tempo disponível</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(45,212,191,0.15);color:var(--teal)">3</div>
+          <p>Recebe recomendações de formato (loja, franquia, quiosque, pop-up) com simulação financeira</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(45,212,191,0.15);color:var(--teal)">4</div>
+          <p>Assina proposta digital, elimina fiador — EV recebe lead 100% qualificado para fechar</p>
+        </div>
+      </div>
+
+      <div class="flow-card">
+        <h4>
+          <span class="dot" style="background:var(--violet)"></span>
+          Jornada da Grande Marca / Rede
+        </h4>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(167,139,250,0.15);color:var(--violet)">1</div>
+          <p>Marca acessa o <strong>Agente 02</strong> e cadastra seu perfil: porte, categoria, requisitos técnicos</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(167,139,250,0.15);color:var(--violet)">2</div>
+          <p>Sistema filtra pontos compatíveis e apresenta vitrine de lojas vagas com ficha técnica completa</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(167,139,250,0.15);color:var(--violet)">3</div>
+          <p>Marca manifesta interesse; KA/EV é acionado apenas para negociação de alto valor e contratos</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(167,139,250,0.15);color:var(--violet)">4</div>
+          <p>KA foca em relação 360°, construção de valor e novas soluções — não mais em triagem operacional</p>
+        </div>
+      </div>
+
+      <div class="flow-card">
+        <h4>
+          <span class="dot" style="background:var(--sky)"></span>
+          Jornada do Executivo de Vendas (EV)
+        </h4>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(56,189,248,0.15);color:var(--sky)">1</div>
+          <p><strong>Agente 03</strong> entrega briefing diário: tendências, marcas ausentes, gaps de mix</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(56,189,248,0.15);color:var(--sky)">2</div>
+          <p>EV concentra esforço em prospecção ativa (hunting) com dados e conteúdo de alto valor</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(56,189,248,0.15);color:var(--sky)">3</div>
+          <p>Recebe leads pré-qualificados dos Agentes 01 e 02 para avançar direto à negociação</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(56,189,248,0.15);color:var(--sky)">4</div>
+          <p>Fecha mais negócios em menos tempo, sem alimentar a concorrência com prospectos não qualificados</p>
+        </div>
+      </div>
+
+      <div class="flow-card">
+        <h4>
+          <span class="dot" style="background:var(--gold)"></span>
+          Papel do KA (Key Account) redefinido
+        </h4>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(201,168,76,0.15);color:var(--gold)">1</div>
+          <p>Aprovação e curadoria de ativos estratégicos — quais marcas entram diretamente sem franquia</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(201,168,76,0.15);color:var(--gold)">2</div>
+          <p>Gestão de relação 360° com lojistas âncora e parceiros estratégicos</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(201,168,76,0.15);color:var(--gold)">3</div>
+          <p>Agenda positiva: co-criação de soluções inovadoras junto com lojistas e marcas</p>
+        </div>
+        <div class="flow-step">
+          <div class="step-n" style="background:rgba(201,168,76,0.15);color:var(--gold)">4</div>
+          <p>Alocação de tempo em geração de valor — não em triagem ou intermediação operacional</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BENCHMARK -->
+  <div class="bench">
+    <div class="section-label">Contexto de mercado — participação de shoppings no varejo total</div>
+    <p style="color:var(--muted);font-size:12.5px;max-width:600px">O Brasil tem espaço enorme de crescimento. Se o maior mercado de e-commerce pós-pandemia (EUA) opera a 27,5% online, a ameaça digital é do mesmo tamanho que a oportunidade offline não capturada.</p>
+    <div class="target-line"><span>META 25–30%</span></div>
+    <div class="bench-grid">
+      <div class="bench-item">
+        <div class="bench-bar-wrap">
+          <div class="bench-bar" data-val="53%" style="height:53%;background:linear-gradient(to top,#2dd4bf,#134e4a)"></div>
+        </div>
+        <p>México</p>
+      </div>
+      <div class="bench-item">
+        <div class="bench-bar-wrap">
+          <div class="bench-bar" data-val="51%" style="height:51%;background:linear-gradient(to top,#a78bfa,#3b0764)"></div>
+        </div>
+        <p>Austrália</p>
+      </div>
+      <div class="bench-item">
+        <div class="bench-bar-wrap">
+          <div class="bench-bar" data-val="35%" style="height:35%;background:linear-gradient(to top,#38bdf8,#0c4a6e)"></div>
+        </div>
+        <p>EUA</p>
+      </div>
+      <div class="bench-item">
+        <div class="bench-bar-wrap">
+          <div class="bench-bar" data-val="&lt;30%" style="height:28%;background:linear-gradient(to top,#c9a84c,#451a03)"></div>
+        </div>
+        <p>Brasil Atual</p>
+      </div>
+      <div class="bench-item">
+        <div class="bench-bar-wrap">
+          <div class="bench-bar" data-val="27.5%" style="height:27%;background:linear-gradient(to top,#fb7185,#4c0519);opacity:0.6"></div>
+        </div>
+        <p>E-commerce EUA (2023)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTCOMES -->
+  <div class="section-label">Impactos esperados</div>
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="big" style="color:var(--teal)">–70%</div>
+      <p>Tempo de triagem de investidores pelo EV</p>
+    </div>
+    <div class="outcome-card">
+      <div class="big" style="color:var(--violet)">0</div>
+      <p>Atrito no 1º contato para abertura de loja</p>
+    </div>
+    <div class="outcome-card">
+      <div class="big" style="color:var(--sky)">+3×</div>
+      <p>Capacidade de prospecção ativa (hunting) do EV</p>
+    </div>
+    <div class="outcome-card">
+      <div class="big" style="color:var(--gold-light)">≥25%</div>
+      <p>Market share sobre demanda qualificada (meta)</p>
+    </div>
+  </div>
+
+  <!-- REFERÊNCIAS -->
+  <div class="section-label">Benchmarks de produto</div>
+  <div class="refs">
+    <div class="ref-pill">🏠 <span>Quinto Andar</span> — onboarding sem fiador</div>
+    <div class="ref-pill">🏪 <span>Appearhere</span> — marketplace de espaços de varejo</div>
+    <div class="ref-pill">🎪 <span>Wearepopup</span> — pop-up commerce digital</div>
+    <div class="ref-pill">💼 <span>Suitability bancária</span> — perfil de investidor</div>
+    <div class="ref-pill">🔧 <span>Sistema Bahia</span> — precificação integrada</div>
+  </div>
+
+  <footer>
+    Sistema Multi-Agente — Aceleração Comercial de Shoppings &nbsp;·&nbsp; Arquitetura conceitual para discussão estratégica
+  </footer>
+
+</div>
+</body>
+</html>

@@ -7,6 +7,7 @@ source_id: "8c5e16b6-8ee1-421f-8d66-3d14fc3ec266"
 url: "https://claude.ai/chat/8c5e16b6-8ee1-421f-8d66-3d14fc3ec266"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Perguntas para avaliar superintendente de shopping

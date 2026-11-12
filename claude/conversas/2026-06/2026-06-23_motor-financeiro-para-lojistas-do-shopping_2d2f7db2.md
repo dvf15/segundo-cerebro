@@ -7,6 +7,7 @@ source_id: "2d2f7db2-dbe5-4a13-a560-4fca0e9970e0"
 url: "https://claude.ai/chat/2d2f7db2-dbe5-4a13-a560-4fca0e9970e0"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Motor financeiro para lojistas do shopping

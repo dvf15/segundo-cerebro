@@ -7,6 +7,7 @@ source_id: "d355ece5-c7b2-4395-901c-1c71dcae5371"
 url: "https://claude.ai/chat/d355ece5-c7b2-4395-901c-1c71dcae5371"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de curso

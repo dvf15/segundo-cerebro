@@ -7,6 +7,7 @@ source_id: "8bc38eff-bd2b-46c9-aa00-763a9fc0be06"
 url: "https://claude.ai/chat/8bc38eff-bd2b-46c9-aa00-763a9fc0be06"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de material para Obsidian
@@ -49,3 +50,10 @@ Resumo pronto no padrão Obsidian que você usa.
 - Cinco vetores sensoriais de expectativa: som, cor, forma, visão e tato/AR
 
 **Confiança: 9/10** — conteúdo extraído diretamente do deck. O único ponto fraco é que **o deck não cita as fontes acadêmicas originais** dos estudos (Bromley/Brimley, fMRI Coke/Pepsi, Lamuma/Takiti). Sinalizei isso na nota final do arquivo. Se for usar academicamente, vale rastrear McClure et al. (2004) para o fMRI e Klink (2000) para sound symbolism.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-material-para-obsidian_8bc38eff/home/claude/the-human-factor-resumo.md]] (9 KB)

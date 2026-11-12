@@ -7,6 +7,7 @@ source_id: "46bb3ab7-927b-437a-a283-3b2eb31c8a95"
 url: "https://claude.ai/chat/46bb3ab7-927b-437a-a283-3b2eb31c8a95"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Adaptando prompt Hunter para Carioca Shopping
@@ -69,3 +70,10 @@ As três mudanças que mais importam:
 Ressalva importante: ABL ~23.500 m² / 211 lojas / ocupação 97,2% vieram de fonte de mercado secundária (matéria sobre a aquisição de 20% pelo XPML11), não do relatório da Allos. Confirme internamente antes de usar.
 
 **Confiança: 7/10** — alta na estrutura e no alerta Tijuca, média nos números do ativo, baixa nos eixos de rua (inferência geográfica, não validada).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-08/adaptando-prompt-hunter-para-carioca-shopping_46bb3ab7/mnt/user-data/outputs/HUNTER_Carioca_Shopping_v2.md]] (10 KB)

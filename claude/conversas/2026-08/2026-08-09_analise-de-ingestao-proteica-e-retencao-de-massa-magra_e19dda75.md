@@ -7,6 +7,7 @@ source_id: "e19dda75-31a7-4ae9-9ad2-777ba36792e3"
 url: "https://claude.ai/chat/e19dda75-31a7-4ae9-9ad2-777ba36792e3"
 project: null
 messages: 7
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Análise de ingestão proteica e retenção de massa magra
@@ -264,3 +265,11 @@ Os **horários de gatilho não vêm dos seus dados** — o arquivo só tem totai
 E se as 9 correções virarem push, você recebe 7 alertas/dia e ignora todos. Teto de 2 por dia; o resto vive na tela, não na notificação. Também vale lembrar que a semana de 22–28.06 fechou com 249 g e BJJ 2× sem alerta nenhum. Alerta mantém um sistema que funciona — não constrói um que não existe.
 
 **Confiança: 7/10.** −2 pelos horários não derivados dos dados, −1 pela citação sobre fadiga de alerta ser de memória.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-08/analise-de-ingestao-proteica-e-retencao-de-massa-m_e19dda75/mnt/user-data/outputs/nutritreino-diario-jun-ago-2026.md]] (15 KB)
+- [[claude/arquivos-gerados/2026-08/analise-de-ingestao-proteica-e-retencao-de-massa-m_e19dda75/mnt/user-data/outputs/nutritreino-spec-alertas.md]] (12 KB)

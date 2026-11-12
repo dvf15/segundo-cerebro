@@ -7,6 +7,7 @@ source_id: "2a79e023-b995-44da-8a81-e8276943f9ec"
 url: "https://claude.ai/chat/2a79e023-b995-44da-8a81-e8276943f9ec"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -42,3 +43,10 @@ This block is not supported on your current device yet.
 Arquivo pronto no seu padrão Obsidian (frontmatter, wikilinks, callouts, checkboxes, bloco Dataview, divisores `---`, nota de uso e rating no final).
 
 **Confiança geral: 8/10** — sinalizei dentro do arquivo o que vem direto dos slides sem fonte primária verificável (as estatísticas de 40%/30%/70%/66%, os múltiplos 2x–8x da Bourke 2016, e o experimento dos bots sem autores citados). A estrutura conceitual e os 9 exercícios estão fiéis ao material.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_2a79e023/mnt/user-data/outputs/building-inclusive-teams-soule.md]] (13 KB)

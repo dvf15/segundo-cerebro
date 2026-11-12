@@ -1,0 +1,515 @@
+<title>Régua de Cobrança Allos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: barra de abas fixa no topo; carteira em tabela + painel do caso com a régua vertical e o "portão" de decisão da próxima etapa */
+:root{
+  --bg:#f3f4f2; --surface:#ffffff; --sunk:#e8eae6; --ink:#16201c; --muted:#5d6862; --line:#d3d8d2;
+  --accent:#1f5c4a; --accent-ink:#ffffff; --accent-soft:#dcebe4;
+  --ok:#2c7a4b; --ok-soft:#dff1e5; --warn:#a86a06; --warn-soft:#fbefd6; --bad:#b0352b; --bad-soft:#f8e0dc; --na:#7b837e; --na-soft:#eceeeb;
+  --s-in:#1a7aa8; --s-out:#d04a2a;
+  --f-display:"Archivo",system-ui,sans-serif; --f-body:"Source Sans 3",system-ui,sans-serif; --f-num:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201d; --sunk:#0d1210; --ink:#e4ebe7; --muted:#97a39c; --line:#2b3632;
+  --accent:#6fc2a2; --accent-ink:#0c1512; --accent-soft:#1d3a30;
+  --ok:#6cc98f; --ok-soft:#173225; --warn:#e5aa45; --warn-soft:#3a2c11; --bad:#ef8076; --bad-soft:#3d1c19; --na:#8d958f; --na-soft:#222a27; --s-in:#3f95cc; --s-out:#de5b34; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201d; --sunk:#0d1210; --ink:#e4ebe7; --muted:#97a39c; --line:#2b3632;
+  --accent:#6fc2a2; --accent-ink:#0c1512; --accent-soft:#1d3a30;
+  --ok:#6cc98f; --ok-soft:#173225; --warn:#e5aa45; --warn-soft:#3a2c11; --bad:#ef8076; --bad-soft:#3d1c19; --na:#8d958f; --na-soft:#222a27; --s-in:#3f95cc; --s-out:#de5b34; color-scheme:dark}
+*{box-sizing:border-box}
+.alert-banner{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 14px;border-radius:8px;background:var(--bad-soft);color:var(--bad);font-weight:600}
+.alert-banner.calm{background:var(--ok-soft);color:var(--ok)}
+.alert-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.alert-col{border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:8px;align-content:start;min-width:0}
+.alert-col h3{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.alert-col ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-height:300px;overflow:auto}
+.alert-col li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:6px 8px;border-radius:6px;background:var(--sunk);cursor:pointer}
+.alert-col li:hover{outline:1px solid var(--accent)}
+.chart{display:grid;gap:6px;position:relative}
+.crow{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr);gap:10px;align-items:center;font-size:13px}
+.crow .cl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
+.crow .cl b{font-family:var(--f-num);color:var(--muted);font-weight:600;margin-right:4px}
+.ctrack{display:flex;align-items:center;gap:6px;min-width:0;padding-block:4px}
+.cbar{display:flex;gap:2px;height:16px;min-width:0}
+.cbar span{height:100%;min-width:3px}
+.cbar span:last-child{border-radius:0 4px 4px 0}
+.cbar .in{background:var(--s-in)}.cbar .out{background:var(--s-out)}
+.cval{font-family:var(--f-num);font-size:12px;color:var(--muted);white-space:nowrap}
+.crow.zero .cl{color:var(--muted)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;line-height:1.4;padding:8px 10px;border-radius:6px;z-index:4;min-width:180px}
+.tip b{font-family:var(--f-display)}
+.charts2{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px}
+@media (max-width:480px){.charts2{grid-template-columns:1fr}.crow{grid-template-columns:110px minmax(0,1fr)}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-block:12px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:18px;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--f-body);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+nav.tabs button{border:0;background:transparent;color:var(--muted);font:600 14px var(--f-body);padding:8px 12px;border-radius:6px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--ink)}
+.status{margin-left:auto;font-size:12px;color:var(--muted)}
+main .wrap{padding-block:20px 48px;display:grid;gap:20px}
+h2{font-family:var(--f-display);font-weight:700;font-size:20px;margin:0;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:700;font-size:16px;margin:0}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:4px}
+.kpi .v{font-family:var(--f-num);font-size:20px;font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:14px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row.between{justify-content:space-between}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.r,th.r{text-align:right}
+tbody tr.click{cursor:pointer}
+tbody tr.click:hover{background:var(--sunk)}
+tbody tr.sel{background:var(--accent-soft)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.c-ok{background:var(--ok-soft);color:var(--ok)}.c-warn{background:var(--warn-soft);color:var(--warn)}.c-bad{background:var(--bad-soft);color:var(--bad)}.c-na{background:var(--na-soft);color:var(--na)}.c-cur{background:var(--accent);color:var(--accent-ink)}
+.ex{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--warn);border:1px solid var(--warn);border-radius:4px;padding:0 4px;margin-left:6px}
+.bar{display:flex;gap:2px;min-width:120px}
+.bar i{flex:1;height:8px;border-radius:2px;background:var(--sunk)}
+.bar i.ok{background:var(--ok)}.bar i.na{background:var(--na)}.bar i.cur{background:var(--accent)}
+button.btn,label.btn{font:600 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:7px;cursor:pointer}
+button.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.btn.danger{color:var(--bad);border-color:var(--bad)}
+button.btn:disabled{opacity:.45;cursor:not-allowed}
+button.btn.sm{padding:4px 8px;font-size:12px}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,select,textarea{font:400 14px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 9px;min-width:0}
+input.n{font-family:var(--f-num);text-align:right;width:100px}
+textarea{width:100%;min-height:70px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.form label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.case-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px}
+@media (max-width:900px){.case-grid{grid-template-columns:1fr}}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:0}
+ol.steps li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);align-items:start}
+ol.steps li .dot{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:600 11px var(--f-num);background:var(--sunk);color:var(--muted)}
+ol.steps li.ok .dot{background:var(--ok);color:#fff}
+ol.steps li.na .dot{background:var(--na);color:#fff}
+ol.steps li.cur .dot{background:var(--accent);color:var(--accent-ink)}
+ol.steps li.lock{opacity:.55}
+.meta{font-size:12px;color:var(--muted)}
+.gate{border:2px solid var(--accent);border-radius:10px;padding:16px;display:grid;gap:14px;background:var(--surface)}
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.vs div{background:var(--sunk);border-radius:8px;padding:10px 12px;display:grid;gap:2px}
+.vs .v{font-family:var(--f-num);font-weight:600;font-size:17px}
+.meter{height:12px;border-radius:6px;background:var(--sunk);position:relative;overflow:hidden}
+.meter span{position:absolute;inset:0 auto 0 0;background:var(--ok)}
+.meter span.warn{background:var(--warn)}.meter span.bad{background:var(--bad)}
+.meter b{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink)}
+ul.checks{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
+ul.checks li{display:flex;gap:8px;align-items:flex-start}
+.verdict{font-family:var(--f-display);font-weight:700;font-size:17px;padding:10px 12px;border-radius:8px}
+.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}
+.note{font-size:13px;color:var(--muted)}
+.confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bad-soft);color:var(--bad);padding:8px 10px;border-radius:7px;font-size:13px;font-weight:600}
+.toast{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:8px;font-weight:600;z-index:20}
+.regua-tbl input,.regua-tbl select{width:100%}
+.regua-tbl td{padding:5px 4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top"><div class="wrap">
+  <div class="brand">Régua de Cobrança<small>Inadimplência de lojistas · Shopping</small></div>
+  <nav class="tabs" role="tablist">
+    <button id="t-carteira" role="tab" aria-selected="true" data-tab="carteira">Carteira</button>
+    <button id="t-acomp" role="tab" aria-selected="false" data-tab="acomp">Acompanhamento</button>
+    <button id="t-regua" role="tab" aria-selected="false" data-tab="regua">Cadastro da régua</button>
+    <button id="t-import" role="tab" aria-selected="false" data-tab="import">Importar / exportar</button>
+  </nav>
+  <div class="status" id="status">Conectando à base…</div>
+</div></header>
+
+<main><div class="wrap">
+  <section id="v-carteira" class="view" style="display:grid;gap:20px">
+    <div id="banner"></div>
+    <div class="panel" id="alertas">
+      <div class="row between"><h2>Central de alertas</h2><span class="note" id="al-regra"></span></div>
+      <div class="alert-cols">
+        <div class="alert-col"><h3>Fora do prazo <span class="chip c-bad" id="al-n-out">0</span></h3><p class="note" style="margin:0">Etapa liberada e não executada dentro do prazo da régua.</p><ul id="al-out"></ul></div>
+        <div class="alert-col"><h3>Entrar na próxima etapa <span class="chip c-warn" id="al-n-go">0</span></h3><p class="note" style="margin:0">Prazo atingido: a etapa já pode ser executada.</p><ul id="al-go"></ul></div>
+        <div class="alert-col"><h3>Liberam em breve <span class="chip c-na" id="al-n-soon">0</span></h3><p class="note" style="margin:0" id="al-soon-txt">Próximos dias.</p><ul id="al-soon"></ul></div>
+      </div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="panel">
+      <div class="row between">
+        <h2>Carteira em cobrança</h2>
+        <div class="row">
+          <select id="f-shop" aria-label="Filtrar por shopping"><option value="">Todos os shoppings</option></select>
+          <select id="f-st" aria-label="Filtrar por situação"><option value="abertos">Em aberto</option><option value="todos">Todos</option><option value="encerrados">Encerrados</option></select>
+          <button class="btn pri" id="b-novo">Novo caso</button>
+        </div>
+      </div>
+      <form id="novo" class="panel" hidden style="background:var(--sunk)">
+        <h3>Novo caso de inadimplência</h3>
+        <div class="form">
+          <label>LUC / código<input id="n-luc" required></label>
+          <label>Loja (nome fantasia)<input id="n-loja" required></label>
+          <label>Shopping<input id="n-shop" required></label>
+          <label>Situação da loja<select id="n-sit"><option>ATIVA</option><option>INATIVA</option></select></label>
+          <label>Dívida em aberto (R$)<input id="n-div" type="number" step="0.01" min="0" required></label>
+          <label>Valor em PDD (R$)<input id="n-pdd" type="number" step="0.01" min="0" value="0"></label>
+          <label>Vencimento mais antigo<input id="n-venc" type="date" required></label>
+          <label>Garantia<select id="n-gar"><option value="N">Sem garantia</option><option value="S">Com garantia (fiança/seguro/caução)</option></select></label>
+        </div>
+        <label class="note" style="display:grid;gap:4px">Observação<textarea id="n-obs"></textarea></label>
+        <div class="row"><button class="btn pri" type="submit">Abrir caso na etapa 1</button><button class="btn" type="button" id="n-cancel">Cancelar</button></div>
+      </form>
+      <div class="scroll"><table>
+        <thead><tr><th>Loja</th><th>Shopping</th><th class="r">Dias atraso</th><th class="r">Dívida</th><th class="r">Custo acumulado</th><th>Etapa atual</th><th>Régua</th><th>Prazo</th></tr></thead>
+        <tbody id="lista"></tbody>
+      </table></div>
+      <div id="lista-vazia" class="empty" hidden>Nenhum caso cadastrado. Use <b>Novo caso</b> ou a aba <b>Importar</b> para trazer a carteira.</div>
+    </div>
+    <div id="caso"></div>
+  </section>
+
+  <section id="v-acomp" class="view" hidden style="display:grid;gap:20px">
+    <div class="panel">
+      <div class="row between"><h2>Acompanhamento por etapa</h2>
+        <div class="row"><select id="a-shop" aria-label="Filtrar por shopping"><option value="">Todos os shoppings</option></select><button class="btn sm" id="a-tbl-btn">Ver tabela</button></div></div>
+      <div class="kpis" id="a-kpis"></div>
+      <div class="legend"><span><i style="background:var(--s-in)"></i>Dentro do prazo</span><span><i style="background:var(--s-out)"></i>Fora do prazo</span><span class="note" id="a-asof"></span></div>
+      <div class="charts2">
+        <div style="display:grid;gap:8px;min-width:0"><h3>Número de lojas por etapa</h3><div class="chart" id="ch-n"></div></div>
+        <div style="display:grid;gap:8px;min-width:0"><h3>Dívida em aberto por etapa (R$)</h3><div class="chart" id="ch-v"></div></div>
+      </div>
+      <div class="scroll" id="a-tbl" hidden><table>
+        <thead><tr><th>Etapa</th><th class="r">Lojas dentro</th><th class="r">Lojas fora</th><th class="r">Valor dentro</th><th class="r">Valor fora</th><th class="r">% valor fora</th></tr></thead><tbody id="a-tbody"></tbody></table></div>
+      <p class="note" style="margin:0">A etapa de cada loja é a próxima a executar. <b>Fora do prazo</b>: hoje passou da data de liberação + prazo para executar (cadastrado por etapa ou o padrão das alçadas). Casos encerrados não entram.</p>
+    </div>
+  </section>
+
+  <section id="v-regua" class="view" hidden style="display:grid;gap:20px">
+    <div class="panel">
+      <div class="row between"><h2>Cadastro da régua</h2><div class="row"><button class="btn" id="r-add">Adicionar etapa</button><button class="btn pri" id="r-save">Salvar régua</button></div></div>
+      <p class="note" style="margin:0">A ordem define a sequência obrigatória. Uma etapa só libera quando a anterior está concluída ou marcada N.A. <b>Gatilho D+</b> conta dias desde o vencimento mais antigo; <b>Intervalo</b> conta dias desde a etapa anterior. Vale o que vencer por último. Custo estimado = fixo + % da dívida no momento da decisão.</p>
+      <p class="note" id="r-perm" hidden style="margin:0;color:var(--warn)">Você pode consultar, mas só editores do artefato salvam alterações na régua.</p>
+      <div class="scroll"><table class="regua-tbl">
+        <thead><tr><th>#</th><th style="min-width:220px">Etapa</th><th>Responsável</th><th class="r">Gatilho D+</th><th class="r">Intervalo (d)</th><th class="r">Custo fixo R$</th><th class="r">% dívida</th><th>Custo definido</th><th class="r">Dívida mín. R$</th><th class="r">Prazo p/ executar (d)</th><th>Aplica-se</th><th></th></tr></thead>
+        <tbody id="r-body"></tbody>
+      </table></div>
+      <div id="r-vazia" class="empty" hidden>Régua ainda não cadastrada. <button class="btn pri" id="r-default">Carregar régua padrão (planilha 2015)</button></div>
+    </div>
+    <div class="panel">
+      <h2>Alçadas e regras de decisão</h2>
+      <div class="form">
+        <label>Limite de custo acumulado / dívida (%)<input id="p-lim" class="n" type="number" step="0.5" min="0"></label>
+        <label>Zona de atenção a partir de (% do limite)<input id="p-att" class="n" type="number" step="5" min="0" max="100"></label>
+        <label>Aprovador de alçada (cargo)<input id="p-apr"></label>
+        <label>Prazo padrão para executar após liberar (dias)<input id="p-tol" class="n" type="number" step="1" min="0"></label>
+        <label>Avisar com antecedência de (dias)<input id="p-ant" class="n" type="number" step="1" min="0"></label>
+      </div>
+      <p class="note" style="margin:0">Acima do limite, a etapa só avança com nome do aprovador e justificativa registrados no histórico do caso.</p>
+    </div>
+  </section>
+
+  <section id="v-import" class="view" hidden style="display:grid;gap:20px">
+    <div class="panel">
+      <h2>Importar carteira</h2>
+      <p class="note" style="margin:0">Cole linhas separadas por <b>;</b> ou tabulação (copiadas do Excel), com cabeçalho nesta ordem: <span class="num">luc;loja;shopping;situacao;divida;pdd;vencimento;garantia</span>. Vencimento em dd/mm/aaaa ou aaaa-mm-dd. Valores com vírgula decimal são aceitos.</p>
+      <textarea id="imp-txt" style="min-height:160px" placeholder="luc;loja;shopping;situacao;divida;pdd;vencimento;garantia&#10;SNT00134;LOJA EXEMPLO;Shopping X;ATIVA;35.661,70;0;30/04/2026;N"></textarea>
+      <div class="row"><button class="btn" id="imp-prev">Pré-visualizar</button><button class="btn pri" id="imp-go" disabled>Importar</button><span class="note" id="imp-msg"></span></div>
+    </div>
+    <div class="panel">
+      <h2>Exportar</h2>
+      <p class="note" style="margin:0">Copia a carteira com etapa atual, custo acumulado e razão custo/dívida, pronta para colar no Excel ou numa nota do Obsidian.</p>
+      <div class="row"><button class="btn" id="exp-csv">Copiar CSV</button><button class="btn" id="exp-md">Copiar tabela Markdown</button></div>
+      <textarea id="exp-out" readonly hidden style="min-height:140px"></textarea>
+    </div>
+  </section>
+</div></main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const brl=v=>(Number(v)||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const pct=v=>isFinite(v)?(v*100).toLocaleString('pt-BR',{maximumFractionDigits:2})+'%':'—';
+const todayISO=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)};
+const dt=s=>s?new Date(s+'T12:00:00'):null;
+const days=(a,b)=>Math.round((dt(b)-dt(a))/864e5);
+const addDays=(s,n)=>{const d=dt(s);d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
+const fmtD=s=>s?s.split('-').reverse().join('/'):'—';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const toast=m=>{const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(t._h);t._h=setTimeout(()=>t.hidden=true,2600)};
+
+// Régua padrão extraída da aba "ESTÁGIOS COBRANÇA"/"AGENDA" da planilha de 2015 (custos em R$ de 2015 — atualizar)
+const REGUA_PADRAO={etapas:[
+ {id:'ligacao',nome:'Cobrança via ligação / e-mail',resp:'Shopping',gatilho:3,intervalo:0,fixo:0,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'carta1',nome:'Carta de notificação (1ª)',resp:'Shopping',gatilho:7,intervalo:3,fixo:0,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'carta2',nome:'Carta de notificação (2ª)',resp:'Shopping',gatilho:30,intervalo:15,fixo:0,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'negativacao',nome:'Negativação (birôs de crédito)',resp:'Shopping',gatilho:31,intervalo:0,fixo:2.53,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'notif_jur',nome:'Notificação via jurídico',resp:'Jurídico',gatilho:60,intervalo:15,fixo:0,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'protesto',nome:'Protesto em cartório',resp:'Shopping',gatilho:60,intervalo:0,fixo:1102.77,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'extrajud',nome:'Cobrança extrajudicial via jurídico',resp:'Jurídico',gatilho:90,intervalo:15,fixo:0,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'imoveis',nome:'Consulta de imóveis (cartório)',resp:'Shopping',gatilho:90,intervalo:0,fixo:96.58,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'detran',nome:'Consulta Detran',resp:'Jurídico',gatilho:90,intervalo:0,fixo:0,pct:0,definido:false,minDiv:0,aplica:'todas'},
+ {id:'bens',nome:'Pesquisa de bens (empresa terceira)',resp:'Shopping',gatilho:90,intervalo:0,fixo:1000,pct:0,definido:true,minDiv:0,aplica:'todas'},
+ {id:'despejo',nome:'Início da ação de despejo',resp:'Jurídico',gatilho:100,intervalo:0,fixo:0,pct:0,definido:false,minDiv:0,aplica:'ativa'},
+ {id:'execucao',nome:'Início da ação de execução',resp:'Jurídico',gatilho:100,intervalo:0,fixo:0,pct:0,definido:false,minDiv:0,aplica:'todas'},
+ {id:'averbacao',nome:'Averbação de bens',resp:'Jurídico',gatilho:120,intervalo:0,fixo:0,pct:0,definido:false,minDiv:0,aplica:'todas'},
+ {id:'penhora',nome:'Penhora online',resp:'Jurídico',gatilho:120,intervalo:0,fixo:0,pct:0,definido:false,minDiv:0,aplica:'todas'}
+],params:{limite:10,atencao:70,aprovador:'Gerente geral do shopping'}};
+
+let db=null,user=null,canEditRegua=false;
+let regua=null,casos=[],selId=null,drafts={},pendingImport=null,confirmDel=null,editRegua=null;
+
+// ---------- cálculo ----------
+function etapasAtivas(){return regua?regua.etapas:[]}
+function estadoCaso(c){
+  const et=etapasAtivas(),reg=c.etapas||{};
+  let idx=et.findIndex(e=>!reg[e.id]||!['ok','na'].includes(reg[e.id].status));
+  const custoReal=Object.values(reg).reduce((s,r)=>s+(r.status==='ok'?(Number(r.custoReal)||0):0),0);
+  const feitos=et.filter(e=>reg[e.id]&&['ok','na'].includes(reg[e.id].status)).length;
+  return {idx,atual:idx>=0?et[idx]:null,custoReal,feitos,total:et.length};
+}
+function ultimaData(c,idx){
+  const et=etapasAtivas();for(let i=idx-1;i>=0;i--){const r=(c.etapas||{})[et[i].id];if(r&&r.data)return r.data}return null;
+}
+function custoEst(e,div){return e.definido?(Number(e.fixo)||0)+(Number(e.pct)||0)/100*div:null}
+function gate(c,draftCusto){
+  const st=estadoCaso(c);if(!st.atual)return null;const e=st.atual;const hoje=todayISO();
+  const div=Number(c.divida)||0;
+  const elegVenc=c.vencimento?addDays(c.vencimento,Number(e.gatilho)||0):hoje;
+  const prev=ultimaData(c,st.idx);const elegPrev=prev?addDays(prev,Number(e.intervalo)||0):elegVenc;
+  const eleg=elegVenc>elegPrev?elegVenc:elegPrev;
+  const est=custoEst(e,div);const custo=draftCusto!=null&&draftCusto!==''?Number(draftCusto):est;
+  const acum=st.custoReal+(custo||0);
+  const lim=(Number(regua.params.limite)||0)/100;const att=(Number(regua.params.atencao)||0)/100;
+  const razao=div>0?acum/div:Infinity;const razaoEt=div>0&&custo!=null?custo/div:Infinity;
+  const checks=[];
+  checks.push({k:'seq',ok:true,t:`Sequência: ${st.idx===0?'primeira etapa da régua':'etapa '+st.idx+' concluída/N.A.'}`});
+  const noPrazo=hoje>=eleg;checks.push({k:'prazo',ok:noPrazo,w:!noPrazo,t:noPrazo?`Prazo atingido (liberada desde ${fmtD(eleg)})`:`Prazo não atingido: libera em ${fmtD(eleg)} (${days(hoje,eleg)} dias). Antecipar exige justificativa.`});
+  const aplica=e.aplica==='todas'||(e.aplica==='ativa'&&c.situacao==='ATIVA')||(e.aplica==='inativa'&&c.situacao==='INATIVA');
+  checks.push({k:'aplica',ok:aplica,w:!aplica,t:aplica?'Etapa aplicável à situação da loja':`Etapa prevista só para loja ${e.aplica.toUpperCase()} — avaliar N.A.`});
+  const minOk=div>=(Number(e.minDiv)||0);checks.push({k:'min',ok:minOk,w:!minOk,t:minOk?`Dívida acima do mínimo da etapa (${brl(e.minDiv)})`:`Dívida abaixo do mínimo da etapa (${brl(e.minDiv)})`});
+  const defOk=e.definido||(draftCusto!=null&&draftCusto!=='');checks.push({k:'custo',ok:defOk,w:!defOk,t:defOk?'Custo estimado conhecido':'Custo desta etapa não cadastrado — informe uma estimativa (orçamento do jurídico) antes de decidir'});
+  const alc=razao>lim;checks.push({k:'alcada',ok:!alc,bad:alc,t:alc?`Custo acumulado ${pct(razao)} da dívida, acima do limite de ${pct(lim)} — exige aprovação de alçada`:`Custo acumulado ${pct(razao)} da dívida, dentro do limite de ${pct(lim)}`});
+  let verdict,cls;
+  if(!defOk){verdict='Defina o custo antes de decidir';cls='c-warn'}
+  else if(alc){verdict='Avançar só com aprovação de alçada';cls='c-bad'}
+  else if(!aplica||!minOk){verdict='Avaliar marcar N.A. ou encerrar';cls='c-warn'}
+  else if(!noPrazo){verdict='Aguardar o prazo da régua';cls='c-na'}
+  else if(razao>lim*att){verdict='Seguir, na zona de atenção de custo';cls='c-warn'}
+  else {verdict='Seguir para esta etapa';cls='c-ok'}
+  return {e,st,div,est,custo,acum,razao,razaoEt,lim,att,eleg,noPrazo,aplica,minOk,defOk,alc,checks,verdict,cls,diasAtraso:c.vencimento?days(c.vencimento,hoje):0};
+}
+
+// ---------- render carteira ----------
+function render(){renderKpis();renderLista();renderCaso();if(!$('#v-regua').hidden)renderRegua()}
+function filtrados(){
+  const sh=$('#f-shop').value,st=$('#f-st').value;
+  return casos.filter(c=>(!sh||c.shopping===sh)&&(st==='todos'||(st==='abertos'?!c.encerrado:!!c.encerrado)))
+   .sort((a,b)=>(Number(b.divida)||0)-(Number(a.divida)||0));
+}
+function renderKpis(){
+  const ab=casos.filter(c=>!c.encerrado);
+  const div=ab.reduce((s,c)=>s+(Number(c.divida)||0),0),pdd=ab.reduce((s,c)=>s+(Number(c.pdd)||0),0);
+  const custo=ab.reduce((s,c)=>s+(regua?estadoCaso(c).custoReal:0),0);
+  const atras=regua?ab.filter(c=>{const g=gate(c);return g&&g.noPrazo}).length:0;
+  const alc=regua?ab.filter(c=>{const g=gate(c);return g&&g.alc}).length:0;
+  $('#kpis').innerHTML=[
+   ['Casos em aberto',ab.length.toLocaleString('pt-BR')],
+   ['Dívida em cobrança',brl(div)],
+   ['Valor em PDD',brl(pdd)],
+   ['Custo de cobrança realizado',brl(custo)+` <span class="meta">${div?pct(custo/div):''}</span>`],
+   ['Etapas liberadas para executar',atras.toLocaleString('pt-BR')],
+   ['Pendentes de alçada',alc.toLocaleString('pt-BR')]
+  ].map(([l,v])=>`<div class="kpi"><span class="lbl">${l}</span><span class="v">${v}</span></div>`).join('');
+  const shops=[...new Set(casos.map(c=>c.shopping).filter(Boolean))].sort();const cur=$('#f-shop').value;
+  $('#f-shop').innerHTML='<option value="">Todos os shoppings</option>'+shops.map(s=>`<option ${s===cur?'selected':''}>${esc(s)}</option>`).join('');
+}
+function barra(c){const et=etapasAtivas(),reg=c.etapas||{},st=estadoCaso(c);return '<div class="bar" aria-hidden="true">'+et.map((e,i)=>{const r=reg[e.id];const k=r&&r.status==='ok'?'ok':r&&r.status==='na'?'na':i===st.idx&&!c.encerrado?'cur':'';return `<i class="${k}" title="${esc(e.nome)}"></i>`}).join('')+'</div>'}
+function renderLista(){
+  const rows=filtrados();$('#lista-vazia').hidden=casos.length>0;
+  $('#lista').innerHTML=rows.map(c=>{
+    const st=regua?estadoCaso(c):null,g=regua&&!c.encerrado?gate(c):null;
+    let etapa=c.encerrado?`<span class="chip c-na">Encerrado · ${esc(c.encerrado.motivo)}</span>`:st&&st.atual?`<span class="chip c-cur">${st.idx+1}. ${esc(st.atual.nome)}</span>`:st?'<span class="chip c-ok">Régua concluída</span>':'—';
+    let prazo=g?(g.alc?'<span class="chip c-bad">Alçada</span>':g.noPrazo?'<span class="chip c-warn">Executar</span>':`<span class="chip c-na">${fmtD(g.eleg)}</span>`):'';
+    return `<tr class="click ${c.id===selId?'sel':''}" data-id="${esc(c.id)}"><td><b>${esc(c.loja)}</b>${c.exemplo?'<span class="ex">EXEMPLO</span>':''}<div class="meta">${esc(c.luc)} · ${esc(c.situacao)}</div></td><td>${esc(c.shopping)}</td><td class="r num">${c.vencimento?days(c.vencimento,todayISO()):'—'}</td><td class="r num">${brl(c.divida)}</td><td class="r num">${st?brl(st.custoReal):'—'}</td><td>${etapa}</td><td>${regua?barra(c):''}</td><td>${prazo}</td></tr>`}).join('');
+  document.querySelectorAll('#lista tr').forEach(tr=>tr.onclick=()=>{selId=tr.dataset.id;render();$('#caso').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})});
+}
+
+// ---------- caso ----------
+function renderCaso(){
+  const box=$('#caso');const c=casos.find(x=>x.id===selId);
+  if(!c||!regua){box.innerHTML='';return}
+  const et=etapasAtivas(),reg=c.etapas||{},st=estadoCaso(c);const d=drafts[c.id]||(drafts[c.id]={});
+  const g=!c.encerrado?gate(c,d.custo):null;
+  const steps=et.map((e,i)=>{const r=reg[e.id];const k=r&&r.status==='ok'?'ok':r&&r.status==='na'?'na':i===st.idx&&!c.encerrado?'cur':'lock';
+    const est=custoEst(e,Number(c.divida)||0);
+    let det=r?`${r.status==='ok'?'Concluída':'N.A.'} em ${fmtD(r.data)} · dívida no momento ${brl(r.dividaMomento)} · custo ${brl(r.custoReal)} · acumulado ${brl(r.custoAcum)} (${pct(r.razao)})${r.alcada?` · alçada: ${esc(r.alcada)}`:''}${r.just?`<br>“${esc(r.just)}”`:''}`:`${esc(e.resp)} · D+${e.gatilho}${e.intervalo?` / +${e.intervalo}d da anterior`:''} · custo est. ${est==null?'<b>não cadastrado</b>':brl(est)}`;
+    const chip=k==='ok'?'<span class="chip c-ok">OK</span>':k==='na'?'<span class="chip c-na">N.A.</span>':k==='cur'?'<span class="chip c-cur">Atual</span>':'<span class="chip c-na">Bloqueada</span>';
+    return `<li class="${k}"><span class="dot">${i+1}</span><div style="min-width:0"><b>${esc(e.nome)}</b><div class="meta">${det}</div></div>${chip}</li>`}).join('');
+  const lastDone=[...et].reverse().find(e=>reg[e.id]);
+  box.innerHTML=`<div class="panel">
+   <div class="row between"><div><span class="lbl">Caso selecionado</span><h2>${esc(c.loja)}${c.exemplo?'<span class="ex">EXEMPLO</span>':''}</h2><div class="meta">${esc(c.luc)} · ${esc(c.shopping)} · loja ${esc(c.situacao)} · ${c.garantia==='S'?'com garantia':'sem garantia'} · vencimento mais antigo ${fmtD(c.vencimento)} (${c.vencimento?days(c.vencimento,todayISO()):'—'} dias)</div></div>
+   <div class="row"><label class="note">Dívida atual R$ <input id="c-div" class="n" type="number" step="0.01" value="${Number(c.divida)||0}"></label><label class="note">PDD R$ <input id="c-pdd" class="n" type="number" step="0.01" value="${Number(c.pdd)||0}"></label><button class="btn sm" id="c-savediv">Atualizar valores</button></div></div>
+   <div class="case-grid">
+    <div style="min-width:0;display:grid;gap:10px"><h3>Régua do caso · ${st.feitos}/${st.total} etapas</h3><ol class="steps">${steps}</ol>
+     <div class="row">${lastDone&&!c.encerrado?`<button class="btn sm" id="c-undo">Desfazer “${esc(lastDone.nome)}”</button>`:''}${c.encerrado?`<button class="btn sm" id="c-reopen">Reabrir caso</button>`:''}<button class="btn sm danger" id="c-del">Excluir caso</button></div>
+     <div id="c-confirm"></div>
+     <label class="note" style="display:grid;gap:4px">Observações do caso<textarea id="c-obs">${esc(c.obs||'')}</textarea></label><div><button class="btn sm" id="c-saveobs">Salvar observação</button></div>
+    </div>
+    <div style="min-width:0">${c.encerrado?`<div class="gate"><h3>Caso encerrado</h3><p style="margin:0">${esc(c.encerrado.motivo)} em ${fmtD(c.encerrado.data)}. Valor ${brl(c.encerrado.valor)} · custo total de cobrança ${brl(st.custoReal)}.</p>${c.encerrado.just?`<p class="meta" style="margin:0">“${esc(c.encerrado.just)}”</p>`:''}</div>`:g?gateHTML(c,g,d):`<div class="gate"><h3>Régua concluída</h3><p style="margin:0">Todas as etapas foram executadas ou marcadas N.A. Encerre o caso abaixo.</p>${encerrarHTML(c)}</div>`}</div>
+   </div></div>`;
+  bindCaso(c,g);
+}
+function gateHTML(c,g,d){
+  const w=Math.min(1,g.lim>0?g.razao/(g.lim*1.5):1);const mark=g.lim>0?Math.min(100,100/1.5):100;
+  const mcls=g.alc?'bad':g.razao>g.lim*g.att?'warn':'';
+  return `<div class="gate" aria-live="polite">
+   <div class="row between"><div><span class="lbl">Decisão · próxima etapa ${g.st.idx+1} de ${g.st.total}</span><h3>${esc(g.e.nome)}</h3><div class="meta">${esc(g.e.resp)} · gatilho D+${g.e.gatilho} · ${g.diasAtraso} dias de atraso</div></div><span class="chip ${g.cls}">${g.verdict}</span></div>
+   <div class="vs">
+    <div><span class="lbl">Dívida no momento</span><span class="v">${brl(g.div)}</span></div>
+    <div><span class="lbl">Custo da etapa</span><span class="v">${g.custo==null?'?':brl(g.custo)}</span><span class="meta">${g.custo==null?'não cadastrado':pct(g.razaoEt)+' da dívida'}</span></div>
+    <div><span class="lbl">Já gasto no caso</span><span class="v">${brl(g.st.custoReal)}</span></div>
+    <div><span class="lbl">Acumulado se seguir</span><span class="v">${brl(g.acum)}</span><span class="meta">${pct(g.razao)} da dívida</span></div>
+   </div>
+   <div><div class="row between meta"><span>Custo acumulado ÷ dívida</span><span>limite ${pct(g.lim)}</span></div><div class="meter" role="img" aria-label="Custo acumulado ${pct(g.razao)} da dívida, limite ${pct(g.lim)}"><span class="${mcls}" style="width:${(w*100).toFixed(1)}%"></span><b style="left:${mark}%"></b></div></div>
+   <ul class="checks">${g.checks.map(k=>`<li><span class="chip ${k.bad?'c-bad':k.w?'c-warn':'c-ok'}">${k.bad?'!':k.w?'?':'✓'}</span><span>${k.t}</span></li>`).join('')}</ul>
+   <div class="form">
+    <label>Data de execução<input id="g-data" type="date" value="${d.data||todayISO()}"></label>
+    <label>Custo real/orçado R$<input id="g-custo" class="n" type="number" step="0.01" min="0" value="${d.custo!=null&&d.custo!==''?d.custo:(g.est??'')}" placeholder="informe"></label>
+    ${g.alc?`<label>Aprovado por (${esc(regua.params.aprovador||'alçada')})<input id="g-alc" value="${esc(d.alc||'')}" placeholder="nome do aprovador"></label>`:''}
+   </div>
+   <label class="note" style="display:grid;gap:4px">Justificativa ${(!g.noPrazo||g.alc)?'<b>(obrigatória)</b>':'(opcional)'}<textarea id="g-just">${esc(d.just||'')}</textarea></label>
+   <div class="row"><button class="btn pri" id="g-ok">Registrar etapa concluída</button><button class="btn" id="g-na">Marcar N.A. e liberar a próxima</button></div>
+   <p class="note" id="g-err" style="margin:0;color:var(--bad)"></p>
+   ${encerrarHTML(c)}
+  </div>`;
+}
+function encerrarHTML(c){return `<details><summary class="note" style="cursor:pointer">Encerrar o caso (acordo, quitação ou baixa)</summary><div class="form" style="margin-top:10px">
+  <label>Motivo<select id="e-mot"><option>Acordo / confissão de dívida</option><option>Quitado</option><option>Baixa para perda (PDD)</option></select></label>
+  <label>Valor recuperado/acordado R$<input id="e-val" class="n" type="number" step="0.01" min="0" value="0"></label>
+  <label>Data<input id="e-data" type="date" value="${todayISO()}"></label></div>
+  <label class="note" style="display:grid;gap:4px;margin-top:8px">Justificativa<textarea id="e-just"></textarea></label><div style="margin-top:8px"><button class="btn" id="e-go">Encerrar caso</button></div></details>`}
+
+async function salvarCaso(c){
+  if(!db){toast('Base indisponível nesta visualização');return false}
+  try{const body=JSON.parse(JSON.stringify(c));delete body.id;body.atualizado=new Date().toISOString();await db.collection('casos').doc(c.id).set(body);return true}
+  catch(e){toast(e.code==='invalid_argument'?'Sem permissão para gravar nesta base':'Não foi possível salvar: '+(e.message||e.code));return false}
+}
+function bindCaso(c,g){
+  const d=drafts[c.id];const on=(id,ev,fn)=>{const el=$(id);if(el)el[ev]=fn};
+  on('#g-data','oninput',e=>d.data=e.target.value);
+  on('#g-custo','oninput',e=>{d.custo=e.target.value;clearTimeout(d._t);d._t=setTimeout(()=>{const pos=e.target.selectionStart;renderCaso();const n=$('#g-custo');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}}},500)});
+  on('#g-alc','oninput',e=>d.alc=e.target.value);
+  on('#g-just','oninput',e=>d.just=e.target.value);
+  const registrar=async status=>{
+    const gg=gate(c,d.custo);const err=$('#g-err');const just=(d.just||'').trim();
+    if(status==='ok'){
+      if(!gg.defOk){err.textContent='Informe o custo real ou orçado da etapa.';return}
+      if(!gg.noPrazo&&!just){err.textContent='A etapa está sendo antecipada: escreva a justificativa.';return}
+      if(gg.alc&&(!(d.alc||'').trim()||!just)){err.textContent='Acima do limite de custo: informe o aprovador e a justificativa.';return}
+    } else if(!just){err.textContent='Para marcar N.A., escreva por que a etapa não se aplica.';return}
+    const nc=JSON.parse(JSON.stringify(c));nc.etapas=nc.etapas||{};
+    const custo=status==='ok'?Number(gg.custo)||0:0;const acum=gg.st.custoReal+custo;
+    nc.etapas[gg.e.id]={status,data:d.data||todayISO(),dividaMomento:gg.div,custoEstimado:gg.est,custoReal:custo,custoAcum:acum,razao:gg.div?acum/gg.div:null,limite:gg.lim,antecipada:!gg.noPrazo,alcada:status==='ok'&&gg.alc?(d.alc||'').trim():'',just,decididoEm:new Date().toISOString()};
+    if(await salvarCaso(nc)){drafts[c.id]={};toast(status==='ok'?'Etapa registrada':'Etapa marcada N.A.')}
+  };
+  on('#g-ok','onclick',()=>registrar('ok'));on('#g-na','onclick',()=>registrar('na'));
+  on('#c-savediv','onclick',async()=>{const nc={...c,divida:Number($('#c-div').value)||0,pdd:Number($('#c-pdd').value)||0};if(await salvarCaso(nc))toast('Valores atualizados')});
+  on('#c-saveobs','onclick',async()=>{if(await salvarCaso({...c,obs:$('#c-obs').value}))toast('Observação salva')});
+  on('#c-undo','onclick',async()=>{const et=etapasAtivas();const last=[...et].reverse().find(e=>(c.etapas||{})[e.id]);if(!last)return;const nc=JSON.parse(JSON.stringify(c));delete nc.etapas[last.id];if(await salvarCaso(nc))toast('Etapa desfeita')});
+  on('#c-reopen','onclick',async()=>{const nc={...c};delete nc.encerrado;if(await salvarCaso(nc))toast('Caso reaberto')});
+  on('#e-go','onclick',async()=>{const nc={...c,encerrado:{motivo:$('#e-mot').value,valor:Number($('#e-val').value)||0,data:$('#e-data').value||todayISO(),just:$('#e-just').value.trim()}};if(await salvarCaso(nc))toast('Caso encerrado')});
+  on('#c-del','onclick',()=>{confirmDel={id:c.id,step:1};drawConfirm(c)});
+}
+function drawConfirm(c){
+  const box=$('#c-confirm');if(!confirmDel||confirmDel.id!==c.id){box.innerHTML='';return}
+  box.innerHTML=`<div class="confirm">${confirmDel.step===1?'Excluir o caso e todo o histórico de decisões?':'Confirme de novo: a exclusão não pode ser desfeita.'}<button class="btn sm danger" id="cd-yes">${confirmDel.step===1?'Sim, excluir':'Excluir definitivamente'}</button><button class="btn sm" id="cd-no">Cancelar</button></div>`;
+  $('#cd-no').onclick=()=>{confirmDel=null;drawConfirm(c)};
+  $('#cd-yes').onclick=async()=>{if(confirmDel.step===1){confirmDel.step=2;drawConfirm(c);return}
+    try{await db.collection('casos').doc(c.id).delete();selId=null;confirmDel=null;toast('Caso excluído')}catch(e){toast('Não foi possível excluir')}};
+}
+
+// ---------- novo caso ----------
+$('#b-novo').onclick=()=>{$('#novo').hidden=!$('#novo').hidden};
+$('#n-cancel').onclick=()=>{$('#novo').hidden=true};
+$('#novo').addEventListener('submit',async ev=>{ev.preventDefault();
+  if(!db){toast('Base indisponível');return}
+  const c={luc:$('#n-luc').value.trim(),loja:$('#n-loja').value.trim().toUpperCase(),shopping:$('#n-shop').value.trim(),situacao:$('#n-sit').value,divida:Number($('#n-div').value)||0,pdd:Number($('#n-pdd').value)||0,vencimento:$('#n-venc').value,garantia:$('#n-gar').value,obs:$('#n-obs').value.trim(),etapas:{},criado:new Date().toISOString()};
+  try{const ref=await db.collection('casos').add(c);selId=ref.id;$('#novo').reset();$('#novo').hidden=true;toast('Caso aberto na etapa 1')}catch(e){toast(e.code==='quota_exceeded'?'Base cheia: exclua casos encerrados antigos':'Não foi possível salvar')}
+});
+['#f-shop','#f-st'].forEach(s=>$(s).onchange=()=>renderLista());
+
+// ---------- régua ----------
+function renderRegua(){
+  if(!editRegua&&regua)editRegua=JSON.parse(JSON.stringify(regua));
+  $('#r-vazia').hidden=!!editRegua;$('#r-perm').hidden=canEditRegua;
+  const R=editRegua||{etapas:[],params:{}};
+  $('#r-body').innerHTML=R.etapas.map((e,i)=>`<tr data-i="${i}">
+   <td class="num">${i+1}<div class="row" style="gap:2px;flex-wrap:nowrap"><button class="btn sm" data-mv="-1" aria-label="Subir" ${i===0?'disabled':''}>↑</button><button class="btn sm" data-mv="1" aria-label="Descer" ${i===R.etapas.length-1?'disabled':''}>↓</button></div></td>
+   <td><input data-f="nome" value="${esc(e.nome)}" aria-label="Nome da etapa"></td>
+   <td><select data-f="resp">${['Shopping','Jurídico','Terceiro'].map(o=>`<option ${o===e.resp?'selected':''}>${o}</option>`).join('')}</select></td>
+   <td><input class="n" style="width:70px" data-f="gatilho" type="number" value="${e.gatilho}"></td>
+   <td><input class="n" style="width:70px" data-f="intervalo" type="number" value="${e.intervalo}"></td>
+   <td><input class="n" data-f="fixo" type="number" step="0.01" value="${e.fixo}"></td>
+   <td><input class="n" style="width:70px" data-f="pct" type="number" step="0.1" value="${e.pct}"></td>
+   <td style="text-align:center"><input data-f="definido" type="checkbox" ${e.definido?'checked':''} aria-label="Custo definido" style="width:auto"></td>
+   <td><input class="n" data-f="minDiv" type="number" step="100" value="${e.minDiv}"></td>
+   <td><select data-f="aplica">${[['todas','Todas'],['ativa','Só ativa'],['inativa','Só inativa']].map(([v,l])=>`<option value="${v}" ${v===e.aplica?'selected':''}>${l}</option>`).join('')}</select></td>
+   <td><button class="btn sm danger" data-rm aria-label="Remover etapa">×</button></td></tr>`).join('');
+  $('#p-lim').value=R.params.limite??10;$('#p-att').value=R.params.atencao??70;$('#p-apr').value=R.params.aprovador??'';
+  document.querySelectorAll('#r-body tr').forEach(tr=>{const i=+tr.dataset.i;
+    tr.querySelectorAll('[data-f]').forEach(inp=>inp.onchange=()=>{const f=inp.dataset.f;const v=inp.type==='checkbox'?inp.checked:inp.type==='number'?Number(inp.value)||0:inp.value;editRegua.etapas[i][f]=v});
+    tr.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{const j=i+Number(b.dataset.mv);const a=editRegua.etapas;[a[i],a[j]]=[a[j],a[i]];renderRegua()});
+    tr.querySelector('[data-rm]').onclick=b=>{const btn=b.currentTarget;if(btn.dataset.armed){editRegua.etapas.splice(i,1);renderRegua()}else{btn.dataset.armed='1';btn.textContent='Remover?';btn.setAttribute('aria-label','Confirmar remoção')}};
+  });
+}
+['#p-lim','#p-att','#p-apr'].forEach(s=>$(s).onchange=()=>{if(!editRegua)return;editRegua.params={limite:Number($('#p-lim').value)||0,atencao:Number($('#p-att').value)||0,aprovador:$('#p-apr').value}});
+$('#r-add').onclick=()=>{if(!editRegua)editRegua={etapas:[],params:{limite:10,atencao:70,aprovador:''}};editRegua.etapas.push({id:'e'+Date.now().toString(36),nome:'Nova etapa',resp:'Shopping',gatilho:0,intervalo:0,fixo:0,pct:0,definido:true,minDiv:0,aplica:'todas'});renderRegua()};
+$('#r-default').onclick=()=>{editRegua=JSON.parse(JSON.stringify(REGUA_PADRAO));renderRegua();toast('Régua padrão carregada. Revise e salve.')};
+$('#r-save').onclick=async()=>{if(!db||!editRegua)return;
+  try{await db.doc('config/regua').set({...editRegua,atualizado:new Date().toISOString()});toast('Régua salva')}catch(e){toast(e.code==='invalid_argument'?'Só editores do artefato salvam a régua':'Não foi possível salvar')}};
+
+// ---------- importar / exportar ----------
+const numBR=s=>{s=String(s||'').trim();if(!s)return 0;if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');return Number(s)||0};
+const dataBR=s=>{s=String(s||'').trim();const m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);if(m)return `${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;return /^\d{4}-\d{2}-\d{2}$/.test(s)?s:''};
+$('#imp-prev').onclick=()=>{
+  const lines=$('#imp-txt').value.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);if(!lines.length){$('#imp-msg').textContent='Cole as linhas primeiro.';return}
+  const sep=lines[0].includes('\t')?'\t':';';const body=/luc/i.test(lines[0])?lines.slice(1):lines;
+  const bad=[];pendingImport=body.map((l,i)=>{const p=l.split(sep);const c={luc:(p[0]||'').trim(),loja:(p[1]||'').trim().toUpperCase(),shopping:(p[2]||'').trim(),situacao:/inat/i.test(p[3]||'')?'INATIVA':'ATIVA',divida:numBR(p[4]),pdd:numBR(p[5]),vencimento:dataBR(p[6]),garantia:/^s/i.test((p[7]||'').trim())?'S':'N',obs:'',etapas:{},criado:new Date().toISOString()};if(!c.loja||!c.vencimento)bad.push(i+1);return c}).filter(c=>c.loja&&c.vencimento);
+  $('#imp-msg').textContent=`${pendingImport.length} casos prontos · dívida total ${brl(pendingImport.reduce((s,c)=>s+c.divida,0))}${bad.length?` · ${bad.length} linha(s) ignorada(s) sem loja ou data: ${bad.slice(0,8).join(', ')}`:''}`;
+  $('#imp-go').disabled=!pendingImport.length;
+};
+$('#imp-go').onclick=async()=>{if(!db||!pendingImport)return;$('#imp-go').disabled=true;let n=0;
+  for(const c of pendingImport){try{await db.collection('casos').add(c);n++}catch(e){toast('Parou em '+n+': '+(e.code||''));break}}
+  pendingImport=null;$('#imp-msg').textContent=`${n} casos importados.`;$('#imp-txt').value='';};
+function exportRows(){return casos.map(c=>{const st=estadoCaso(c);return {luc:c.luc,loja:c.loja,shopping:c.shopping,situacao:c.situacao,divida:Number(c.divida)||0,pdd:Number(c.pdd)||0,vencimento:c.vencimento,etapa:c.encerrado?'Encerrado: '+c.encerrado.motivo:st.atual?(st.idx+1)+'. '+st.atual.nome:'Régua concluída',custo:st.custoReal,razao:c.divida?st.custoReal/c.divida:0}})}
+async function copiar(txt){const o=$('#exp-out');o.hidden=false;o.value=txt;try{await navigator.clipboard.writeText(txt);toast('Copiado')}catch(_){o.select();toast('Selecionado — copie com Ctrl/Cmd+C')}}
+$('#exp-csv').onclick=()=>copiar(['luc;loja;shopping;situacao;divida;pdd;vencimento;etapa_atual;custo_acumulado;custo_sobre_divida',...exportRows().map(r=>[r.luc,r.loja,r.shopping,r.situacao,r.divida.toFixed(2).replace('.',','),r.pdd.toFixed(2).replace('.',','),fmtD(r.vencimento),r.etapa,r.custo.toFixed(2).replace('.',','),(r.razao*100).toFixed(2).replace('.',',')+'%'].join(';'))].join('\n'));
+$('#exp-md').onclick=()=>copiar(['| Loja | Shopping | Dívida | Etapa atual | Custo acum. | Custo/Dívida |','|---|---|--:|---|--:|--:|',...exportRows().map(r=>`| [[${r.loja}]] | ${r.shopping} | ${brl(r.divida)} | ${r.etapa} | ${brl(r.custo)} | ${pct(r.razao)} |`)].join('\n'));
+
+// ---------- abas ----------
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!=='v-'+b.dataset.tab);if(b.dataset.tab==='regua')renderRegua();try{localStorage.setItem('aba',b.dataset.tab)}catch(_){}});
+try{const a=localStorage.getItem('aba');if(a){const b=document.querySelector(`[data-tab="${a}"]`);b&&b.click()}}catch(_){}
+render();
+
+// ---------- base ----------
+(async()=>{
+  db=await claude.use('db');user=await claude.use('user');
+  if(!db){$('#status').textContent='Base indisponível nesta visualização (entre na sua conta)';return}
+  try{canEditRegua=user?await user.canEdit():false}catch(_){canEditRegua=false}
+  $('#status').textContent='Base conectada';
+  db.doc('config/regua').onSnapshot(s=>{regua=s.exists?s.data():null;editRegua=null;if(!regua)$('#status').textContent='Cadastre a régua na aba “Cadastro da régua”';else $('#status').textContent='Base conectada · '+regua.etapas.length+' etapas na régua';render()},e=>{$('#status').textContent='Erro ao ler a régua: '+e.code});
+  db.collection('casos').onSnapshot(s=>{casos=s.docs.map(d=>({id:d.id,...d.data()}));render()},e=>{$('#status').textContent='Erro ao ler a carteira: '+e.code});
+})();
+})();
+</script>

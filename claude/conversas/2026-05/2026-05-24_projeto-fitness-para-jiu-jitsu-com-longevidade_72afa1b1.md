@@ -7,6 +7,7 @@ source_id: "72afa1b1-5381-411b-81b9-b970eab98a04"
 url: "https://claude.ai/chat/72afa1b1-5381-411b-81b9-b970eab98a04"
 project: null
 messages: 6
+generated_files: 7
 tags: ["claude", "conversa"]
 ---
 # Projeto fitness para jiu jitsu com longevidade
@@ -258,3 +259,16 @@ Arquivo único pronto, no padrão Obsidian que você usa.
 **Confiança: 9/10.** Conteúdo é o mesmo dos 6 arquivos validados (sem perda). Único ponto: as queries Dataview são genéricas — se você quiser algo mais específico (ex: listar só notas de treino da última semana, ou tarefas pendentes do projeto), me passa o critério e ajusto.
 
 Quer que eu crie o template em branco do diário de treino para integrar com este documento?
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/1-treino-bjj-periodizacao.md]] (4 KB)
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/2-forca-hipertrofia.md]] (6 KB)
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/3-cardio-longevidade.md]] (6 KB)
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/4-mobilidade-prehab-bjj.md]] (7 KB)
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/5-nutricao-recuperacao.md]] (8 KB)
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/6-sono-recuperacao.md]] (8 KB)
+- [[claude/arquivos-gerados/2026-05/projeto-fitness-para-jiu-jitsu-com-longevidade_72afa1b1/mnt/user-data/outputs/projeto-fitness-bjj-longevidade.md]] (26 KB)

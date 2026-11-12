@@ -7,6 +7,7 @@ source_id: "60411aa5-fe66-4d3f-90e4-92be4d286861"
 url: "https://claude.ai/chat/60411aa5-fe66-4d3f-90e4-92be4d286861"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Zonas de batimentos cardíacos do exame ergométrico

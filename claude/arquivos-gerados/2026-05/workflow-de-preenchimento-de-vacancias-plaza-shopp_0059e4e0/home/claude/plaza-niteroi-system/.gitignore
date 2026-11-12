@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Logs / temp
+*.log
+*.tmp
+~$*.xlsx
+~$*.docx
+
+# Backups locais do sistema web (não commitar dados operacionais)
+backups/
+*.backup.json
+plaza-niteroi-pipeline-*.csv
+plaza-niteroi-backup-*.json
+
+# Saídas geradas (descomente se quiser ignorar)
+# excel/Plaza_Niteroi_Sistema.xlsx

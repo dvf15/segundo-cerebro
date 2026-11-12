@@ -7,6 +7,7 @@ source_id: "ad94b6c6-01b5-4581-b5a9-b2bab66388ac"
 url: "https://claude.ai/chat/ad94b6c6-01b5-4581-b5a9-b2bab66388ac"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -47,3 +48,10 @@ Arquivo pronto para você colar direto no seu vault. Pontos importantes que quer
 - O artigo é de **janeiro de 2020**. Muita coisa do universo DTC mudou desde então (Casper teve IPO problemático, Allbirds idem, várias marcas encolheram). O texto retrata um momento específico do hype DTC, não o estado atual.
 
 **Confiança: 9/10** — alta na fidelidade ao material original; o ponto que tira de 10 é exatamente a falta de fonte primária para as estatísticas dentro do próprio artigo.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_ad94b6c6/mnt/user-data/outputs/Billion-Dollar-Brands-NYT-Resumo.md]] (9 KB)

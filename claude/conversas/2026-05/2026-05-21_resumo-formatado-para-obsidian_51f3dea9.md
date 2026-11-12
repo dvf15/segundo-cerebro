@@ -7,6 +7,7 @@ source_id: "51f3dea9-0e89-4b35-96ea-19e05186539d"
 url: "https://claude.ai/chat/51f3dea9-0e89-4b35-96ea-19e05186539d"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -55,3 +56,10 @@ Pronto. O resumo segue o seu padrão Obsidian: frontmatter YAML, `[[wikilinks]]`
 8. Confiança + fontes
 
 **Confiança: 9/10** — números, citações e nomes vêm direto do PDF. Único ponto a sinalizar: o documento é de 2021 (com dados até ~2018), então cifras como dívida estudantil dos EUA e volumes da Quicken/SoFi/Kabbage **estão desatualizadas em 2026**. Se for usar para argumentação atual, vale puxar fontes recentes.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_51f3dea9/home/claude/the-rise-of-fintech.md]] (10 KB)

@@ -10,9 +10,9 @@ _22 notas · gerado em 2026-11-12 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Link |
 | --- | --- | --- |
-| 2026-10-30 | [[claude/artifacts/radar-bazin/radar-bazin\|Radar Bazin]] | https://claude.ai/artifact/FdVKxBQsqC71pkbaZMXAvp |
+| 2026-11-08 | [[claude/artifacts/radar-de-renovacoes/radar-de-renovacoes\|Radar de Renovações]] | https://claude.ai/artifact/LRWuWeSVYUsk5TRpNn1GiF |
+| 2026-11-05 | [[claude/artifacts/radar-bazin/radar-bazin\|Radar Bazin]] | https://claude.ai/artifact/FdVKxBQsqC71pkbaZMXAvp |
 | 2026-10-27 | [[claude/artifacts/radar-de-auditoria/radar-de-auditoria\|Radar de Auditoria]] | https://claude.ai/artifact/48fdWBsfrUtjskRz54FP33 |
-| 2026-10-25 | [[claude/artifacts/radar-de-renovacoes/radar-de-renovacoes\|Radar de Renovações]] | https://claude.ai/artifact/LRWuWeSVYUsk5TRpNn1GiF |
 | 2026-10-18 | [[claude/artifacts/regua-de-cobranca-shopping-center/regua-de-cobranca-shopping-center\|Régua de Cobrança Shopping Center]] | https://claude.ai/artifact/6oYtazhbTfU8wRgkomwJwd |
 | 2026-10-15 | [[claude/artifacts/allos-2036-futurologia-ia/allos-2036-futurologia-ia\|Allos 2036 — Futurologia sob a lente da IA]] | https://claude.ai/artifact/3wX2kbcLdQ3mGcJRKUYjuW |
 | 2026-10-14 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas]] | https://claude.ai/artifact/CPsSPhCanFUYRWuGS3Er93 |

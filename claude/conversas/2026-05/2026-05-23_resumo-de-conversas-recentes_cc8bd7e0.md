@@ -7,6 +7,7 @@ source_id: "cc8bd7e0-291e-491e-810e-0fa6311bca76"
 url: "https://claude.ai/chat/cc8bd7e0-291e-491e-810e-0fa6311bca76"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de conversas recentes

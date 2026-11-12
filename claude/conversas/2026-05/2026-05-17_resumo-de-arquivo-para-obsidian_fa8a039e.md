@@ -7,6 +7,7 @@ source_id: "fa8a039e-e12f-46b3-80bc-78cecc9450b2"
 url: "https://claude.ai/chat/fa8a039e-e12f-46b3-80bc-78cecc9450b2"
 project: null
 messages: 4
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Resumo de arquivo para Obsidian
@@ -397,3 +398,11 @@ O PDF tinha um problema de encoding (fontes CID Identity-H com mapeamento ToUnic
 4. **Crítica honesta ao livro**: as soluções (Foundation Coins, Guardian Lattice, Sovereign AI Agents) são blueprint conceitual, não engenharia operacional. O autor admite isso.
 
 **Confiança: 9/10** — alta na estrutura e nos argumentos; média em cifras específicas que repassei como o livro apresenta.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-arquivo-para-obsidian_fa8a039e/mnt/user-data/outputs/the-last-economy-resumo.md]] (8 KB)
+- [[claude/arquivos-gerados/2026-05/resumo-de-arquivo-para-obsidian_fa8a039e/mnt/user-data/outputs/the-last-economy-resumo-completo.md]] (38 KB)

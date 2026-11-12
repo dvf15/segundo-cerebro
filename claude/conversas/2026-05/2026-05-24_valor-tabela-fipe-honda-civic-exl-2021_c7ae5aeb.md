@@ -7,6 +7,7 @@ source_id: "c7ae5aeb-653a-448d-92c8-0207af3eeba5"
 url: "https://claude.ai/chat/c7ae5aeb-653a-448d-92c8-0207af3eeba5"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Valor tabela FIPE Honda Civic EXL 2021

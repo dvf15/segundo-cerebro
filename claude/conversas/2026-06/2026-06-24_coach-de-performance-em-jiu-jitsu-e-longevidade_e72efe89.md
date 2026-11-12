@@ -7,6 +7,7 @@ source_id: "e72efe89-e721-43ff-980a-13e33627ad59"
 url: "https://claude.ai/chat/e72efe89-e721-43ff-980a-13e33627ad59"
 project: null
 messages: 8
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Coach de performance em jiu jitsu e longevidade
@@ -192,3 +193,10 @@ This block is not supported on your current device yet.
 ```
 
 Corrigido. Se souber o princípio ativo exato, me manda que atualizo — mas para o coaching não muda nada no protocolo atual.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/coach-de-performance-em-jiu-jitsu-e-longevidade_e72efe89/mnt/user-data/outputs/coach-instrucoes-daniel.md]] (10 KB)

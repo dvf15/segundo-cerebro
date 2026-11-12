@@ -7,6 +7,7 @@ source_id: "e6ea6544-fac0-476a-8674-4f92e508e750"
 url: "https://claude.ai/chat/e6ea6544-fac0-476a-8674-4f92e508e750"
 project: null
 messages: 6
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Apresentação executiva de seguro para lojas
@@ -621,3 +622,10 @@ Tiro pontos pelos seguintes motivos: (a) entreguei conteúdo sem dados verificá
 - 📎 slide-05.jpg
 - 📎 slide-14.jpg
 - 📎 slide-06.jpg
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-04/apresentacao-executiva-de-seguro-para-lojas_e6ea6544/home/claude/build_deck.js]] (31 KB)

@@ -7,6 +7,7 @@ source_id: "958f1113-5ea2-411e-96d0-0efdfae99225"
 url: "https://claude.ai/chat/958f1113-5ea2-411e-96d0-0efdfae99225"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise de laudo de ressonância do ombro

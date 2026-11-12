@@ -7,6 +7,7 @@ source_id: "5ca6e593-5d2d-4281-81bb-651385930dc6"
 url: "https://claude.ai/chat/5ca6e593-5d2d-4281-81bb-651385930dc6"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Vault do Obsidian não sincroniza no iPhone

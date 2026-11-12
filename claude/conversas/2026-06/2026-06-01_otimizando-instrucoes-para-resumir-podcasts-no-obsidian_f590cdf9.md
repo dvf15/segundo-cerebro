@@ -7,6 +7,7 @@ source_id: "f590cdf9-cfcd-490f-998d-83f77d753387"
 url: "https://claude.ai/chat/f590cdf9-cfcd-490f-998d-83f77d753387"
 project: null
 messages: 16
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Otimizando instruções para resumir podcasts no Obsidian

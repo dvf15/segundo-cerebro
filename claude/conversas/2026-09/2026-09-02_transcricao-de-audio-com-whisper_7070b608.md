@@ -7,6 +7,7 @@ source_id: "7070b608-07f1-40c5-a540-3aeb998c2ca7"
 url: "https://claude.ai/chat/7070b608-07f1-40c5-a540-3aeb998c2ca7"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Transcrição de áudio com Whisper
@@ -204,3 +205,10 @@ Resumo do áudio (recado para uma reunião da qual ele não vai participar):
 Ressalva: o resumo herda as incertezas da transcrição — em especial a sigla transcrita como "RDI" (04:00–04:26), que eu tratei genericamente como "área matricial/central". Se for outra coisa, esse bloco muda de sentido.
 
 **Confiança: 8/10** no conteúdo geral; 5/10 na identificação da sigla.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-09/transcricao-de-audio-com-whisper_7070b608/tmp/transcribe.py]] (2 KB)

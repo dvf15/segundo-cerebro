@@ -1,0 +1,49 @@
+<svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="640" height="380" rx="14" fill="#FAFAF7"/>
+  <text x="32" y="42" font-size="22" font-weight="700" fill="#1F2937">1. Curl-up modificado</text>
+  <text x="32" y="66" font-size="14" fill="#6B7280">Vista lateral — o movimento é mínimo. Vem da rigidez, não de "enrolar".</text>
+
+  <!-- mat / ground -->
+  <line x1="60" y1="312" x2="600" y2="312" stroke="#C9C7BE" stroke-width="3"/>
+
+  <!-- straight leg -->
+  <line x1="340" y1="290" x2="445" y2="298" stroke="#2B2B2B" stroke-width="9" stroke-linecap="round"/>
+  <line x1="445" y1="298" x2="540" y2="302" stroke="#2B2B2B" stroke-width="9" stroke-linecap="round"/>
+  <path d="M540 302 l18 -6 l2 12 z" fill="#2B2B2B"/>
+
+  <!-- bent leg -->
+  <line x1="340" y1="290" x2="392" y2="232" stroke="#4B5563" stroke-width="9" stroke-linecap="round"/>
+  <line x1="392" y1="232" x2="378" y2="300" stroke="#4B5563" stroke-width="9" stroke-linecap="round"/>
+  <path d="M378 300 l-14 -4 l0 10 z" fill="#4B5563"/>
+
+  <!-- torso -->
+  <line x1="340" y1="290" x2="205" y2="282" stroke="#2B2B2B" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- neck + head raised -->
+  <line x1="205" y1="282" x2="182" y2="270" stroke="#2B2B2B" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="162" cy="262" r="19" fill="#2B2B2B"/>
+
+  <!-- arm to hands under lumbar -->
+  <line x1="225" y1="284" x2="300" y2="294" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- neutral lumbar arch (dashed) -->
+  <path d="M300 296 q24 14 42 -2" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+  <!-- lift arrow -->
+  <line x1="162" y1="238" x2="162" y2="216" stroke="#DC2626" stroke-width="2.5"/>
+  <path d="M162 214 l-5 9 l10 0 z" fill="#DC2626"/>
+  <line x1="150" y1="280" x2="150" y2="290" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- labels -->
+  <text x="120" y="206" font-size="13" fill="#DC2626" font-weight="600">sobe só 2–3 cm</text>
+
+  <text x="300" y="350" font-size="13" fill="#2563EB" font-weight="600">Mãos sob a lombar</text>
+  <text x="300" y="366" font-size="12" fill="#2563EB">(preenchem o vão — coluna NÃO achata)</text>
+
+  <text x="404" y="222" font-size="13" fill="#4B5563" font-weight="600">Joelho dobrado</text>
+  <text x="470" y="288" font-size="13" fill="#2B2B2B" font-weight="600">Perna estendida</text>
+
+  <text x="32" y="110" font-size="13" fill="#374151">• Língua no céu da boca → ativa core profundo</text>
+  <text x="32" y="130" font-size="13" fill="#374151">• Respira normal durante o hold (~10 s)</text>
+  <text x="32" y="150" font-size="13" fill="#374151">• Troca a perna na metade das séries</text>
+</svg>

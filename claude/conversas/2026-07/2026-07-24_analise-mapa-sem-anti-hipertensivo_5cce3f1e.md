@@ -7,6 +7,7 @@ source_id: "5cce3f1e-0998-4db6-9fd2-a7f4fc192388"
 url: "https://claude.ai/chat/5cce3f1e-0998-4db6-9fd2-a7f4fc192388"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise MAPA sem anti-hipertensivo

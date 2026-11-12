@@ -7,6 +7,7 @@ source_id: "bbd9a708-dc1d-47a0-b6c2-e1d0aeb24175"
 url: "https://claude.ai/chat/bbd9a708-dc1d-47a0-b6c2-e1d0aeb24175"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise integrada de dados do Apple Watch e histórico clínico

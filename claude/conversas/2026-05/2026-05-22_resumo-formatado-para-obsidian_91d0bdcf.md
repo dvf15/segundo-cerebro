@@ -7,6 +7,7 @@ source_id: "91d0bdcf-5f77-4486-808c-7a2c771d17a9"
 url: "https://claude.ai/chat/91d0bdcf-5f77-4486-808c-7a2c771d17a9"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -59,3 +60,10 @@ Arquivo pronto, seguindo o padrão Obsidian que você usa: frontmatter YAML comp
 - Dataview para conexões automáticas
 
 **Confiança: 9/10** — os dados, tabelas e citações vêm direto do PDF que você enviou. O ponto que rebaixei: as conexões com conceitos fora do artigo (Pepsi Paradox, Plassmann et al., 2008 sobre marketing placebo) são sugestões de leitura comparativa baseadas em literatura conhecida — se for citar em algo formal, vale checar caso a caso.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_91d0bdcf/mnt/user-data/outputs/Allison-Uhl-1964-Influencia-Marca-Cerveja.md]] (12 KB)

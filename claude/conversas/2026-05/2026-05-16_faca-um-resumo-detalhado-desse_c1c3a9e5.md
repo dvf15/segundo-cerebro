@@ -7,6 +7,7 @@ source_id: "c1c3a9e5-79b5-4c9f-9a49-7d113e81d374"
 url: "https://claude.ai/chat/c1c3a9e5-79b5-4c9f-9a49-7d113e81d374"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # 💬 Faça um resumo detalhado desse…
@@ -375,3 +376,10 @@ Pronto. Arquivo gerado em formato `.md` otimizado para Obsidian, com:
 **Confiança: 9/10**
 
 Ponto a sinalizar: o resumo é fiel ao documento, mas a *forma* de organização (callouts, mermaid, wikilinks) é minha interpretação de como adaptar para Obsidian. Se você usa um vault com convenções específicas (ex.: nomes de pastas, padrão de tags, plugins como Dataview), me avisa que eu ajusto.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/faca-um-resumo-detalhado-desse_c1c3a9e5/mnt/user-data/outputs/Premium_Retail_Radar_PRR_Resumo.md]] (7 KB)

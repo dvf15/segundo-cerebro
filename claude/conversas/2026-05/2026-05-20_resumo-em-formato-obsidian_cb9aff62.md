@@ -7,6 +7,7 @@ source_id: "cb9aff62-5ad6-4326-8800-10dcb6923d43"
 url: "https://claude.ai/chat/cb9aff62-5ad6-4326-8800-10dcb6923d43"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -63,3 +64,10 @@ Resumo pronto no padrão Obsidian que você usa.
 - Encaminhamentos e nota de limitações
 
 **Confiança: 9/10** — desconto 1 ponto porque a "síntese cruzada" e os conceitos sugeridos são interpretação minha sobre o material, e não consegui confirmar a instituição (provavelmente Insper, dado o perfil acadêmico das autoras, mas não está no arquivo). Quer que eu confirme?
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_cb9aff62/home/claude/PEVC16_Aula16_Dinamica_PE_VC.md]] (7 KB)

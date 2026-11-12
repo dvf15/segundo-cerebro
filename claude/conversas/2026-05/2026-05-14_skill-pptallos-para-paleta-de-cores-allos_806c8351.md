@@ -7,6 +7,7 @@ source_id: "806c8351-2969-4e76-9a8e-52caf0505103"
 url: "https://claude.ai/chat/806c8351-2969-4e76-9a8e-52caf0505103"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Skill pptallos para paleta de cores Allos
@@ -83,3 +84,10 @@ Se quiser que algum papel mude (ex.: cor primária diferente, outra ordem de sé
 
 ---
 Confiança: 7/10. Os hex codes e nomes que você passou estão corretos. As **atribuições de papel** (qual cor é primária, ordem de séries, semântica positivo/negativo) são minha interpretação baseada em teoria de cor, não em um manual de marca Allos que eu tenha visto — se a Allos já tem um brand guide oficial, vale conferir.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/skill-pptallos-para-paleta-de-cores-allos_806c8351/home/claude/pptallos/SKILL.md]] (4 KB)

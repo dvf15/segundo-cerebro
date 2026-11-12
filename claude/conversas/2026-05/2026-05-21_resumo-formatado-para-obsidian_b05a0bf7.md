@@ -7,6 +7,7 @@ source_id: "b05a0bf7-a99b-4df3-a9b7-76104cbb9b0e"
 url: "https://claude.ai/chat/b05a0bf7-a99b-4df3-a9b7-76104cbb9b0e"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -62,3 +63,10 @@ Resumo pronto no formato Obsidian que você padronizou:
 - Há erro de digitação na tabela de ganho de capital no PDF original (duas linhas com mesma faixa) — reproduzi com aviso
 
 **Confiança: 8/10** — fidelidade alta ao PDF, mas o material original está desatualizado em pontos tributários e legais. Quer que eu busque na web se a Anjos do Brasil publicou versão atualizada do guia?
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_b05a0bf7/home/claude/output/Guia-Investimento-Anjo-Anjos-do-Brasil.md]] (14 KB)

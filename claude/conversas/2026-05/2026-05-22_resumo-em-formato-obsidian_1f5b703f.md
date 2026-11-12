@@ -7,6 +7,7 @@ source_id: "1f5b703f-6250-4605-9cdf-367e9afa8101"
 url: "https://claude.ai/chat/1f5b703f-6250-4605-9cdf-367e9afa8101"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -54,3 +55,10 @@ Resumo pronto no padrão Obsidian que você usa: YAML frontmatter, wikilinks nos
 Estrutura em 16 seções: ideia central, os 3 documentos (PR, FAQ, customer experience), funil de aprovação, conceitos de decisão (two-way doors, disagree and commit, institutional yes), critérios de greenlight, estratégia competency-building, single-threaded leadership, cultura de falhar bem (inputs vs outputs), lógica do "more at-bats", sustentação cultural, linha do tempo de produtos, conclusão dos autores, conexões para sua vault, ações sugeridas e citações para reuso.
 
 **Confiança: 9/10** — totalmente baseado no PDF anexado. O único ponto não verificado de forma independente são as métricas Forbes (ranking 2017/2016 e views), que vêm do próprio artigo. Se quiser, busco a versão online para confirmar.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_1f5b703f/home/claude/amazon-day-one-resumo.md]] (12 KB)

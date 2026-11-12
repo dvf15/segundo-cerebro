@@ -7,6 +7,7 @@ source_id: "725d2833-a7bd-45a5-84d1-941b3d956cf3"
 url: "https://claude.ai/chat/725d2833-a7bd-45a5-84d1-941b3d956cf3"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -53,3 +54,10 @@ Arquivo pronto pra colar direto no seu vault. Estrutura aplicada:
 Quer que eu confirme a referência Hansen via web search e atualize o arquivo?
 
 **Confiança: 8/10** — flagged pelos pontos acima, mas o conteúdo do resumo em si está fiel ao PDF.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_725d2833/mnt/user-data/outputs/Fostering-Collaboration-Flynn.md]] (9 KB)

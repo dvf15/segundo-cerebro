@@ -1,0 +1,68 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="640" height="420" rx="14" fill="#FAFAF7"/>
+  <text x="32" y="42" font-size="22" font-weight="700" fill="#1F2937">Pescoço — isometria nas 4 direções</text>
+  <text x="32" y="66" font-size="14" fill="#6B7280">A mão empurra; o pescoço resiste. A cabeça NÃO se move (isométrico).</text>
+
+  <!-- ===== 1 FLEXAO (front) ===== -->
+  <g>
+    <text x="95" y="110" font-size="13" font-weight="700" fill="#1F2937">1. Flexão (frente)</text>
+    <!-- head side view facing right -->
+    <circle cx="120" cy="170" r="30" fill="none" stroke="#2B2B2B" stroke-width="6"/>
+    <circle cx="133" cy="165" r="3" fill="#2B2B2B"/>
+    <!-- neck -->
+    <line x1="120" y1="200" x2="120" y2="230" stroke="#2B2B2B" stroke-width="9" stroke-linecap="round"/>
+    <!-- hand on forehead -->
+    <rect x="143" y="150" width="14" height="22" rx="5" fill="#9CA3AF"/>
+    <!-- push arrow (backward, toward head) -->
+    <line x1="185" y1="161" x2="160" y2="161" stroke="#DC2626" stroke-width="3"/>
+    <path d="M158 161 l11 -6 l0 12 z" fill="#DC2626"/>
+    <text x="150" y="205" font-size="11" fill="#DC2626" font-weight="600">empurra ←</text>
+  </g>
+
+  <!-- ===== 2 EXTENSAO (back) ===== -->
+  <g>
+    <text x="350" y="110" font-size="13" font-weight="700" fill="#1F2937">2. Extensão (trás)</text>
+    <circle cx="395" cy="170" r="30" fill="none" stroke="#2B2B2B" stroke-width="6"/>
+    <circle cx="408" cy="165" r="3" fill="#2B2B2B"/>
+    <line x1="395" y1="200" x2="395" y2="230" stroke="#2B2B2B" stroke-width="9" stroke-linecap="round"/>
+    <!-- hand on nape (behind = left) -->
+    <rect x="357" y="150" width="14" height="22" rx="5" fill="#9CA3AF"/>
+    <!-- push arrow forward (toward right) -->
+    <line x1="320" y1="161" x2="345" y2="161" stroke="#DC2626" stroke-width="3"/>
+    <path d="M347 161 l-11 -6 l0 12 z" fill="#DC2626"/>
+    <text x="330" y="205" font-size="11" fill="#DC2626" font-weight="600">→ empurra</text>
+  </g>
+
+  <!-- ===== 3 LATERAL DIR ===== -->
+  <g>
+    <text x="95" y="290" font-size="13" font-weight="700" fill="#1F2937">3. Lateral direita</text>
+    <!-- head front view -->
+    <circle cx="140" cy="345" r="30" fill="none" stroke="#2B2B2B" stroke-width="6"/>
+    <circle cx="130" cy="340" r="3" fill="#2B2B2B"/>
+    <circle cx="150" cy="340" r="3" fill="#2B2B2B"/>
+    <!-- hand on right temple (viewer left) -->
+    <rect x="100" y="332" width="14" height="22" rx="5" fill="#9CA3AF"/>
+    <line x1="68" y1="345" x2="92" y2="345" stroke="#DC2626" stroke-width="3"/>
+    <path d="M94 345 l-11 -6 l0 12 z" fill="#DC2626"/>
+    <text x="70" y="392" font-size="11" fill="#DC2626" font-weight="600">→ empurra</text>
+  </g>
+
+  <!-- ===== 4 LATERAL ESQ ===== -->
+  <g>
+    <text x="350" y="290" font-size="13" font-weight="700" fill="#1F2937">4. Lateral esquerda</text>
+    <circle cx="400" cy="345" r="30" fill="none" stroke="#2B2B2B" stroke-width="6"/>
+    <circle cx="390" cy="340" r="3" fill="#2B2B2B"/>
+    <circle cx="410" cy="340" r="3" fill="#2B2B2B"/>
+    <rect x="426" y="332" width="14" height="22" rx="5" fill="#9CA3AF"/>
+    <line x1="472" y1="345" x2="448" y2="345" stroke="#DC2626" stroke-width="3"/>
+    <path d="M446 345 l11 -6 l0 12 z" fill="#DC2626"/>
+    <text x="430" y="392" font-size="11" fill="#DC2626" font-weight="600">empurra ←</text>
+  </g>
+
+  <!-- dose box -->
+  <rect x="510" y="300" width="105" height="90" rx="10" fill="#EEF2FF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="562" y="326" font-size="13" font-weight="700" fill="#2563EB" text-anchor="middle">DOSE</text>
+  <text x="562" y="348" font-size="12" fill="#1F2937" text-anchor="middle">3 × 30 s</text>
+  <text x="562" y="366" font-size="12" fill="#1F2937" text-anchor="middle">cada direção</text>
+  <text x="562" y="383" font-size="11" fill="#6B7280" text-anchor="middle">força ~50–70%</text>
+</svg>

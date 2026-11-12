@@ -7,6 +7,7 @@ source_id: "8bb3ee0e-5841-49a5-8ac5-2635421b3b54"
 url: "https://claude.ai/chat/8bb3ee0e-5841-49a5-8ac5-2635421b3b54"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -119,3 +120,10 @@ Pronto. Resumo no padrão Obsidian que você costuma usar — frontmatter, wikil
 - Os wikilinks são inferências para o seu uso pessoal — não estão como links no PDF.
 
 **Confiança: 8/10** (mesma do documento). O que poderia subir para 9+ seria a confirmação da fonte original dos dois números percentuais.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_8bb3ee0e/mnt/user-data/outputs/strategic-leadership-sorensen.md]] (9 KB)

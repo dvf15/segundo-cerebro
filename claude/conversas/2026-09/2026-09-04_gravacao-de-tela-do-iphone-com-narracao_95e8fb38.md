@@ -7,6 +7,7 @@ source_id: "95e8fb38-59b7-4c6e-acaa-deca84651960"
 url: "https://claude.ai/chat/95e8fb38-59b7-4c6e-acaa-deca84651960"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Gravação de tela do iPhone com narração

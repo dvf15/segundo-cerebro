@@ -7,6 +7,7 @@ source_id: "639349cd-2cfd-4e41-ad19-08fa8b0d83d7"
 url: "https://claude.ai/chat/639349cd-2cfd-4e41-ad19-08fa8b0d83d7"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian sobre psicologia do consumidor

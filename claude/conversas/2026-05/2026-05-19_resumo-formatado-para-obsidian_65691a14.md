@@ -7,6 +7,7 @@ source_id: "65691a14-735c-44c0-92ea-c6eff24132d3"
 url: "https://claude.ai/chat/65691a14-735c-44c0-92ea-c6eff24132d3"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -49,3 +50,10 @@ Pontos a destacar sobre o conteúdo:
 - A frase-síntese mais forte do material, na minha leitura, é a do braço 8: o sucesso final de uma CVC é se tornar obsoleta. Vale como princípio de design da unidade.
 
 **Confiança: 9/10** — alta fidelidade ao PDF original, sem inferências externas. O ponto que tira 1: não há como recuperar o que Solibieda teria dito ao vivo sobre os 3 braços não desenvolvidos no slide.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_65691a14/mnt/user-data/outputs/BASF_Venture_Capital_8_Arms_CVC.md]] (13 KB)

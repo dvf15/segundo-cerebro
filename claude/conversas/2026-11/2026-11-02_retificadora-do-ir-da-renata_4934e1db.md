@@ -7,6 +7,7 @@ source_id: "4934e1db-f790-4843-b5a9-6845c93c86d7"
 url: "https://claude.ai/chat/4934e1db-f790-4843-b5a9-6845c93c86d7"
 project: null
 messages: 10
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Retificadora do IR da Renata

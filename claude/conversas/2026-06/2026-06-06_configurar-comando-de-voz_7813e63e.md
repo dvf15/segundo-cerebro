@@ -7,6 +7,7 @@ source_id: "7813e63e-b2a9-4d3f-bc89-3c6f4dcab4a7"
 url: "https://claude.ai/chat/7813e63e-b2a9-4d3f-bc89-3c6f4dcab4a7"
 project: null
 messages: 5
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Configurar comando de voz

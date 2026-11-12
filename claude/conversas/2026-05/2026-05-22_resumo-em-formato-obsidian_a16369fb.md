@@ -7,6 +7,7 @@ source_id: "a16369fb-97d5-493b-b232-b9abbef8d252"
 url: "https://claude.ai/chat/a16369fb-97d5-493b-b232-b9abbef8d252"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -70,3 +71,10 @@ Estrutura do resumo (7 seções):
 7. **Recursos adicionais** mencionados pela autora
 
 **Confiança: 8/10.** Detalhei no final do arquivo as 4 limitações que me impedem de subir para 9-10: não verifiquei as fontes primárias citadas (Phillips 2014, Page 2018, etc.), não acessei os links externos do PDF, a atribuição do estudo "Brian/Karen" a Moss-Racusin et al. 2012 é minha inferência (não está nos slides), e há margem pequena de leitura visual nos gráficos da p. 8. Antes de citar publicamente qualquer estatística, vale ir à fonte primária.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_a16369fb/mnt/user-data/outputs/Building-Diverse-Teams-Soule.md]] (14 KB)

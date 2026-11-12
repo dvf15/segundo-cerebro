@@ -7,6 +7,7 @@ source_id: "d42fb296-9cc5-4080-8f98-59f9866862b4"
 url: "https://claude.ai/chat/d42fb296-9cc5-4080-8f98-59f9866862b4"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Gerar arquivo Obsidian indexado com dados
@@ -106,3 +107,10 @@ Arquivo gerado. Aqui um resumo do que tem dentro e um ponto honesto:
 **Para usar no Obsidian:** basta mover para o vault `Dvf15`. Os wikilinks como `[[BJJ]]`, `[[Peter Attia]]`, `[[recuperação]]` vão se conectar automaticamente às notas existentes. O bloco Dataview vai funcionar com o plugin já instalado.
 
 Confiança: **9/10**
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/gerar-arquivo-obsidian-indexado-com-dados_d42fb296/mnt/user-data/outputs/saude-apple-health-2026.md]] (7 KB)

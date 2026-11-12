@@ -7,6 +7,7 @@ source_id: "102ab0a0-f372-4dc0-bd23-4b6323857cad"
 url: "https://claude.ai/chat/102ab0a0-f372-4dc0-bd23-4b6323857cad"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -55,3 +56,10 @@ Ponto de atenção honesto: **os dados do material são de 2018/2019** — sinal
 - Extração fiel do PDF, sem invenção de dados
 - Não verifiquei independentemente as fontes secundárias (Strebulaev/Stanford, Ritter/Florida, Lerner/HBR) — preservei as atribuições como aparecem no original
 - O -1 ponto é justamente esse: estou citando dados conforme Mawson os apresentou, sem ter checado as publicações primárias.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_102ab0a0/home/claude/work/GCV_Analytics_Resumo.md]] (15 KB)

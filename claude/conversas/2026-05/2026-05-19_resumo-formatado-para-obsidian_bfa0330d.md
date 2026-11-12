@@ -7,6 +7,7 @@ source_id: "bfa0330d-5957-4675-a456-91ede9e98a7f"
 url: "https://claude.ai/chat/bfa0330d-5957-4675-a456-91ede9e98a7f"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -59,3 +60,10 @@ Desconto por:
 1. Alguns números nos gráficos têm baixa legibilidade no PDF (slides 8, 17, 18, 19, 20) — verifique antes de citar formalmente
 2. Inconsistência de grafia entre "Vince" (slide 21) e "Vinci" (slide 7) — usei "Vinci" assumindo ser a Vinci Partners, mas não confirmei via fonte externa
 3. A questão 6 do Case DASA não aparece no slide 45 — pode ter sido cortada na captura
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_bfa0330d/home/claude/Fusoes_Aquisicoes_Aula_1T_PE_VC_Processos_MA.md]] (15 KB)

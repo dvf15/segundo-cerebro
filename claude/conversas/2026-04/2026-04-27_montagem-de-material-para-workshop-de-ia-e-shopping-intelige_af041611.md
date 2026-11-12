@@ -7,6 +7,7 @@ source_id: "af041611-6e3e-47a1-b974-1594f4ee3713"
 url: "https://claude.ai/chat/af041611-6e3e-47a1-b974-1594f4ee3713"
 project: null
 messages: 19
+generated_files: 5
 tags: ["claude", "conversa"]
 ---
 # Montagem de material para workshop de IA e shopping inteligente
@@ -709,3 +710,14 @@ Pronto. Roteiro de 90 segundos para NotebookLM.
 Confiança: 8/10
 
 (Não é 10 porque NotebookLM pode variar um pouco no timing final — mas o roteiro está estruturado pra absorver essas variações sem quebrar.)
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-04/montagem-de-material-para-workshop-de-ia-e-shoppin_af041611/mnt/user-data/outputs/workshop_ia_shopping.html]] (29 KB)
+- [[claude/arquivos-gerados/2026-04/montagem-de-material-para-workshop-de-ia-e-shoppin_af041611/mnt/user-data/outputs/agente_hunter_workshop.html]] (30 KB)
+- [[claude/arquivos-gerados/2026-04/montagem-de-material-para-workshop-de-ia-e-shoppin_af041611/home/claude/hunter/build.js]] (42 KB)
+- [[claude/arquivos-gerados/2026-04/montagem-de-material-para-workshop-de-ia-e-shoppin_af041611/home/claude/hunter/build_v2.js]] (52 KB)
+- [[claude/arquivos-gerados/2026-04/montagem-de-material-para-workshop-de-ia-e-shoppin_af041611/mnt/user-data/outputs/ROTEIRO_ABERTURA_ZEL.md]] (9 KB)

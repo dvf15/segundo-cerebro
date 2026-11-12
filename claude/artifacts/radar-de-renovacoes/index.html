@@ -44,7 +44,7 @@ section.painel{background:var(--painel);border:1px solid var(--borda);border-rad
 .kpi{background:var(--painel2);border:1px solid var(--borda);border-radius:10px;padding:12px 14px;min-width:0}
 .kpi .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fraco);font-weight:600}
 .kpi .v{font-family:var(--mono);font-size:24px;font-weight:500;line-height:1.2;margin-top:4px;font-variant-numeric:tabular-nums}
-.kpi .v.long{font-size:18px;overflow-wrap:anywhere}
+.kpi .v.long{font-size:16px;letter-spacing:-.3px;overflow-wrap:normal;word-break:keep-all}
 .kpi .d{font-size:12px;color:var(--fraco);margin-top:2px}
 .kpi.ok .v{color:var(--ok)} .kpi.aviso .v{color:var(--aviso)} .kpi.critico .v{color:var(--critico)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
@@ -119,8 +119,10 @@ details summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--acento
     <button role="tab" data-aba="auditoria">Auditoria <span class="cnt" id="cntAud">0</span></button>
     <button role="tab" data-aba="plano">Planejamento</button>
     <button role="tab" data-aba="comite">Comitê</button>
+    <button role="tab" data-aba="laudo">Laudo <span class="cnt" id="cntLaudo">0</span></button>
+    <button role="tab" data-aba="pericia">Perícia</button>
     <button role="tab" data-aba="params">Parâmetros</button>
-    <button role="tab" data-aba="ajuda">Ajuda</button>
+    <button role="tab" data-aba="ajuda">Como usar</button>
   </nav>
 
   <!-- ===================== RADAR ===================== -->
@@ -265,6 +267,9 @@ details summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--acento
             <label class="f">Tabela ABC (R$/m²)<input id="c_abc" type="number" step="0.01" inputmode="decimal"></label>
           </div>
         </div>
+        <div class="fase" style="margin-top:10px"><h3><span class="num">P</span> Perícia: racional comercial</h3>
+          <label class="f">Racional comercial de um valor fora da curva (por que esta loja paga acima ou abaixo das similares)<textarea id="c_racional" style="min-height:60px" placeholder="ex.: ponto de esquina na entrada principal; contrato de 2019 renegociado na pandemia; marca âncora de segmento…"></textarea></label>
+        </div>
         <div class="fase" style="margin-top:10px"><h3><span class="num">7</span> Realizado (quando renovado)</h3>
           <div class="grid g4">
             <label class="f">AMM novo (R$)<input id="c_ammNovo" type="number" step="0.01" inputmode="decimal"></label>
@@ -315,6 +320,56 @@ details summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--acento
     </section>
   </div>
 
+  <!-- ===================== LAUDO ===================== -->
+  <div id="aba-laudo" hidden>
+    <section class="painel">
+      <h2>Visão de laudo: risco de perda em ação renovatória</h2>
+      <p class="mudo" style="margin:-4px 0 10px">Para cada loja em negociação, a proposta do método é confrontada com o laudo prévio (o que uma perícia pelo método comparativo tende a encontrar). Quanto mais a proposta passa do que os comparáveis sustentam, maior a chance de sentença abaixo dela, com sucumbência e honorários para o shopping. <b>Baixo</b>: proposta até o 3º quartil dos comparáveis e até 10% acima do valor provável. <b>Moderado</b>: acima do 3º quartil, 10% a 25% acima do provável, amostra bimodal ou sem laudo com LSR agressivo. <b>Alto</b>: acima do maior comparável, mais de 25% acima do provável ou laudo abaixo do AMM atual (a renovatória pode reduzir o aluguel). O cálculo do LSR não muda; esta visão só mede o risco de defendê-lo.</p>
+      <div class="grid g4" id="kpiLaudo"></div>
+    </section>
+    <section class="painel">
+      <div class="linha" style="justify-content:space-between;margin-bottom:8px">
+        <h2 style="margin:0">Proposta × laudo, loja a loja</h2>
+        <div class="linha">
+          <select id="fPerda" style="width:auto"><option value="">Todos os níveis</option><option value="alto">Alto</option><option value="moderado">Moderado</option><option value="baixo">Baixo</option><option value="indefinido">Sem proposta</option></select>
+          <label class="f" style="flex-direction:row;align-items:center;gap:6px;font-weight:500"><input type="checkbox" id="fSoNegociacao" checked style="width:auto"> só em negociação / janela</label>
+          <button class="btn" id="btnLaudoCsv">Copiar (CSV)</button>
+        </div>
+      </div>
+      <div class="chart" id="laudoChart"></div>
+      <div class="tabela" style="margin-top:12px"><table id="tabLaudo"></table></div>
+      <p class="tiny" style="margin-top:8px">Faixa = 1º ao 3º quartil dos comparáveis × área · traço = valor provável (mediana) · ○ AMM atual · ◆ AMM proposto, na cor do risco · "defensável" = 3º quartil × área · "receita em risco" = (proposto − provável) × 60 meses, se a sentença vier no valor provável.</p>
+    </section>
+  </div>
+
+  <!-- ===================== PERÍCIA ===================== -->
+  <div id="aba-pericia" hidden>
+    <section class="painel">
+      <h2>Linearidade dos valores locativos</h2>
+      <p class="mudo" style="margin:-4px 0 10px">Quanto menor a linearidade do AMM/m² entre as satélites, mais a perícia depende de segmentar os comparáveis e menos a média representa o shopping. Duas médias iguais podem esconder realidades opostas: 20 lojas a R$ 100/m² e 10 a R$ 50 + 10 a R$ 150 têm a mesma média, mas no segundo caso nenhuma loja está dentro de ±30% dela. Objetivo de longo prazo: reduzir discrepâncias sem fundamento econômico e documentar as que têm.</p>
+      <div class="grid g4" id="kpiLin"></div>
+      <div class="chart" id="linChart" style="margin-top:12px"></div>
+    </section>
+    <section class="painel">
+      <h2>Por faixa de área e por piso</h2>
+      <p class="mudo" style="margin:-4px 0 10px">O valor unitário varia com a área: comparar uma loja pequena com uma grande sem ajuste distorce. Cada faixa tem a sua mediana e a sua dispersão.</p>
+      <div class="grid g2">
+        <div class="tabela"><table id="tabFaixa"></table></div>
+        <div class="tabela"><table id="tabPiso"></table></div>
+      </div>
+    </section>
+    <section class="painel">
+      <h2>Lojas fora da curva</h2>
+      <p class="mudo" style="margin:-4px 0 10px">Fora de 1,5 × intervalo interquartil da própria faixa de área. Documente o racional comercial de cada uma: é o que sustenta o valor diante do perito e o que separa discrepância justificada de distorção.</p>
+      <div class="tabela"><table id="tabFora"></table></div>
+    </section>
+    <section class="painel">
+      <h2>Contemporaneidade e eventos estruturais</h2>
+      <p class="mudo" style="margin:-4px 0 10px">Um contrato pode estar vigente e ainda assim ser mau comparável se foi firmado em outro contexto (reforma, expansão, sinistro, pandemia, choque inflacionário). Contratos com mais de <span id="linContemp"></span> meses ou anteriores ao último evento saem dos comparáveis do laudo prévio.</p>
+      <div id="linEventos"></div>
+    </section>
+  </div>
+
   <!-- ===================== PARÂMETROS ===================== -->
   <div id="aba-params" hidden>
     <section class="painel">
@@ -334,6 +389,16 @@ details summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--acento
           <label class="f">LSR muito agressivo % (risco)<input id="p_lsrMuito" type="number" step="0.1" inputmode="decimal"></label>
           <label class="f">Tolerância acima da Tabela ABC %<input id="p_tolAbc" type="number" step="0.1" inputmode="decimal"></label>
         </div>
+        <h3 style="margin:14px 0 8px">Perícia: comparáveis e linearidade</h3>
+        <div class="grid g4">
+          <label class="f">Contemporaneidade (meses)<input id="p_contemp" type="number" inputmode="numeric"></label>
+          <label class="f">Similaridade de área (± %)<input id="p_simArea" type="number" step="1" inputmode="numeric"></label>
+          <label class="f">Faixas de área m² (limites, vírgula)<input id="p_faixas" placeholder="50, 100, 200"></label>
+          <label class="f">Mínimo de comparáveis<input id="p_minComp" type="number" inputmode="numeric"></label>
+          <label class="f">Risco de perda moderado: gap vs laudo %<input id="p_gapMod" type="number" step="1" inputmode="numeric"></label>
+          <label class="f">Risco de perda alto: gap vs laudo %<input id="p_gapAlto" type="number" step="1" inputmode="numeric"></label>
+        </div>
+        <label class="f" style="margin-top:10px">Eventos estruturais do shopping (um por linha: AAAA-MM-DD;descrição). Contratos anteriores ao último evento saem dos comparáveis.<textarea id="p_eventos" style="min-height:70px" placeholder="2024-03-15;expansão da praça de alimentação&#10;2020-03-20;pandemia"></textarea></label>
         <div class="linha" style="margin-top:12px"><button type="submit" class="btn pri">Salvar parâmetros</button></div>
       </form>
       <div class="rodape">
@@ -341,44 +406,97 @@ details summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--acento
       </div>
     </section>
   </div>
-<!-- ===================== AJUDA ===================== -->
+<!-- ===================== COMO USAR ===================== -->
   <div id="aba-ajuda" hidden>
     <section class="painel" id="painel-video" style="position:absolute;left:-99999px;top:0">
       <h2>Vídeos: o passo a passo</h2>
-      <p class="mudo" style="margin:-4px 0 10px">Com dados fictícios, sem áudio e com legendas na tela. Um no computador, da fila do radar à importação da planilha e ao pacote do comitê; outro no celular, passando por todas as abas.</p>
+      <p class="mudo" style="margin:-4px 0 10px">Com dados fictícios, sem áudio e com legendas na tela. O primeiro, no computador, percorre o preenchimento (parâmetros, cadastro de uma loja campo a campo, Excel, histórico, auditoria) e as análises (radar, loja, laudo, perícia, planejamento, comitê). O segundo é o resumo no celular.</p>
       <div class="videos">
         <figure data-video>
           <video controls preload="metadata" playsinline>
-            <source src="radar-renovacoes-passo-a-passo.webm" type="video/webm">
-            <source src="radar-renovacoes-passo-a-passo.mp4" type="video/mp4">
+            <source src="radar-renovacoes-como-usar.webm" type="video/webm">
+            <source src="radar-renovacoes-como-usar.mp4" type="video/mp4">
           </video>
-          <figcaption>No computador · da fila do radar ao pacote do comitê</figcaption>
+          <figcaption>No computador · preenchimento e análises, passo a passo</figcaption>
         </figure>
         <figure data-video class="vertical">
           <video controls preload="metadata" playsinline>
             <source src="radar-renovacoes-celular.mp4" type="video/mp4">
           </video>
-          <figcaption>No celular · todas as abas</figcaption>
+          <figcaption>No celular · resumo de todas as abas</figcaption>
         </figure>
       </div>
     </section>
+
     <section class="painel">
-      <h2>O que este sistema faz</h2>
-      <p class="mudo">Maximiza a renovação contratual das <b>lojas-satélite</b> aplicando as regras do Book de Renovações a cada loja e dizendo o que fazer hoje: quem negociar, quem está bloqueado e por quê, quanto pedir, até onde cada alçada pode ceder e como fica o LSR do ano. Nenhum comparativo é estimado: o que falta aparece como <b>[FALTA]</b> e derruba a nota de confiança.</p>
-      <h3 style="margin-top:14px">As abas, na ordem do trabalho</h3>
+      <h2>Para que serve</h2>
+      <p class="mudo">Maximizar a renovação contratual das <b>lojas-satélite</b> aplicando as regras do Book de Renovações a cada loja e dizendo o que fazer hoje: quem negociar, quem está bloqueado e por quê, quanto pedir, até onde cada alçada pode ceder, o que uma perícia tende a sustentar e como fica o LSR do ano. Nenhum comparativo é estimado: o que falta aparece como <b>[FALTA]</b> e derruba a nota de confiança.</p>
+      <h3 style="margin-top:14px">Antes de começar, tenha em mãos</h3>
+      <div class="grid g3">
+        <div class="fase"><h3>Do shopping</h3><ul class="chk"><li>Média de AMM/m² e de Vendas/m² das lojas-satélite</li><li>Inflação acumulada do último aniversário até o início da nova vigência</li><li>Meta anual de LSR validada com o comitê</li><li>Eventos estruturais (reforma, expansão, sinistro, pandemia) com data</li></ul></div>
+        <div class="fase"><h3>De cada loja</h3><ul class="chk"><li>LUC, nome, CNPJ, segmento, piso, área</li><li>Contrato: início, fim (na minuta), último reajuste, índice, cláusulas especiais e subsídios</li><li>AMM do último mês, A% médio sem dezembro, vendas média 12 meses expurgadas, custo de ocupação</li><li>Última auditoria integral e dispersão (Radar de Auditoria)</li><li>Comparativos: CO/Vendas da rede, AMM/m² de entorno, piso, tamanho, concorrentes, Abrasce e Tabela ABC</li></ul></div>
+        <div class="fase"><h3>Do comitê e do jurídico</h3><ul class="chk"><li>Classificação de mix validada (Essencial · Relevante · Indiferente · Ofensora)</li><li>Inadimplência e ações judiciais contra o shopping</li><li>Renovatória ajuizada ou sinal de resistência do lojista</li><li>Histórico mensal desde a última renovação (vendas, AMM, A%, custo de ocupação)</li></ul></div>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Parte 1 · Preenchimento</h2>
+      <div class="grid g2">
+        <div class="fase"><h3><span class="num">1</span> Parâmetros</h3><p class="mudo">Nome do shopping, as duas médias das satélites (sem elas não há quadrante), inflação acumulada padrão, meta anual de LSR e ano do planejamento. Mantenha as tolerâncias do Book (janela de auditoria 6 meses, dispersão 15%, dezembro sazonal) a menos que a política vigente diga outra coisa. Os limiares de risco, perícia e perda são do sistema e podem ser calibrados com o histórico do grupo. Cadastre os eventos estruturais: contratos anteriores a eles saem dos comparáveis.</p></div>
+        <div class="fase"><h3><span class="num">2</span> Cadastro pelo Excel</h3><p class="mudo">O caminho normal para a base inteira. Use o modelo (abas <b>Lojas</b>, <b>Parametros</b>, <b>Historico</b>): uma linha por loja, cabeçalho na linha 1, colunas reconhecidas pelo nome. LUC repetido atualiza a loja e colunas ausentes preservam o que já está cadastrado. Comparativo que você não tem fica em branco, nunca chute. A lista completa de colunas está em Cadastro, em "Como montar a planilha".</p></div>
+        <div class="fase"><h3><span class="num">3</span> Cadastro loja a loja</h3><p class="mudo">Em <b>+ Nova loja</b>, os blocos seguem as fases do Book: identificação, classificação (com as 7 perguntas de apoio ao mix, que só sugerem), contrato, faturamento e desempenho, auditoria e jurídico, histórico mensal, comparativos, racional comercial e realizado. Campos obrigatórios: LUC, nome e fim da vigência. Marque <b>Mix validado</b> só depois do comitê; até lá a análise mostra "preliminar".</p></div>
+        <div class="fase"><h3><span class="num">4</span> Histórico mensal</h3><p class="mudo">Cole uma linha por mês (<span class="mono">AAAA-MM;vendas;AMM;A%;custo de ocupação</span>) desde a última renovação ou entrada, uns 5 anos, ou use a aba Historico do Excel. Ele alimenta o quadro por ano de contrato, o argumento 5 (queda do custo de ocupação) e preenche o que ficou em branco em AMM, A%, vendas e custo de ocupação.</p></div>
+        <div class="fase"><h3><span class="num">5</span> Auditoria</h3><p class="mudo">Copie a <b>agenda</b> e mande ao Radar de Auditoria: quem precisa de integral e em que janela (6 a 3 meses antes de negociar). Na volta, importe o CSV de dispersão; ele casa por CNPJ e atualiza a trava de cada loja. Auditoria fora da janela, em mês sazonal ou dispersão acima da tolerância bloqueia a negociação.</p></div>
+        <div class="fase"><h3><span class="num">6</span> Quando renovar</h3><p class="mudo">Volte ao cadastro da loja, mude o status para <b>Renovado</b> e preencha AMM novo, data e nova vigência. O planejamento passa a contar o realizado e a loja vira comparável contemporâneo para as próximas perícias.</p></div>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Parte 2 · Análises</h2>
+      <div class="grid g2">
+        <div class="fase"><h3><span class="num">A</span> Radar</h3><p class="mudo">Comece pelos KPIs e pela fila. O farol diz a ação: <span class="pill verde">Negociar</span> dentro da janela e sem bloqueio; <span class="pill amarelo">Preparar</span> ainda falta tempo ou dado; <span class="pill vermelho">Bloqueado</span> auditoria, inadimplência, ação judicial ou contrato vencido; <span class="pill cinza">Aguardar</span> ainda haverá reajuste. A ordem é ganho em 60 meses × urgência × peso do mix. O mapa de quadrantes mostra quem vende bem e paga pouco (Q1).</p></div>
+        <div class="fase"><h3><span class="num">B</span> Análise da loja</h3><p class="mudo">Leia de cima para baixo: ficha e bloqueios; as 7 fases; o histórico; os argumentos com memória de cálculo (em cada um vale o maior indicador; o A% só entra se a loja já paga variável); o LSR real pela matriz mix × quadrante mais inflação, contra a Tabela ABC e o teste do perito; o laudo prévio e o risco de perda; o risco renovatório com o checklist da perícia; as ações e os dados faltantes. <b>Copiar análise (Obsidian)</b> leva tudo para o vault.</p></div>
+        <div class="fase"><h3><span class="num">C</span> Laudo</h3><p class="mudo">Antes de levar a proposta ao comitê, veja o risco de perda em renovatória: <b>baixo</b> até o 3º quartil dos comparáveis; <b>moderado</b> acima dele ou 10% a 25% acima do valor provável; <b>alto</b> acima do maior comparável, mais de 25% acima do provável ou laudo abaixo do AMM atual. A coluna "defensável" diz até onde o laudo tende a sustentar; "receita em risco" é o que se perde em 60 meses se a sentença vier no valor provável.</p></div>
+        <div class="fase"><h3><span class="num">D</span> Perícia</h3><p class="mudo">A linearidade do shopping: quanto o AMM/m² das satélites se dispersa, no geral, por faixa de área e por piso. Lojas fora da curva precisam de <b>racional comercial</b> documentado; é o que separa discrepância justificada de distorção diante do perito. Contratos antigos e anteriores a eventos estruturais aparecem como não contemporâneos.</p></div>
+        <div class="fase"><h3><span class="num">E</span> Planejamento</h3><p class="mudo">Por ano: contratos que vencem, AMM base, LSR planejado × realizado, atingimento da meta, incremento mês a mês e contratos vencidos. Havendo gap contra a meta, o comitê decide a estratégia; a ferramenta não infla número para fechar conta.</p></div>
+        <div class="fase"><h3><span class="num">F</span> Comitê</h3><p class="mudo">O pacote em Markdown reúne as lojas em negociação com proposta, laudo, perito, risco renovatório e risco de perda, mais a nota completa de cada uma. A decisão de valor é do comitê; o negociador abre em 115% do aprovado e cada alçada tem a sua faixa.</p></div>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Rotina sugerida</h2>
+      <div class="grid g3">
+        <div class="fase"><h3>Toda semana</h3><ul class="chk"><li>Atualizar status e propostas das lojas em negociação</li><li>Conferir a fila do Radar e a aba Laudo</li><li>Levar o pacote ao comitê comercial</li></ul></div>
+        <div class="fase"><h3>Todo mês</h3><ul class="chk"><li>Importar o CSV de dispersão do Radar de Auditoria</li><li>Enviar a agenda de auditoria atualizada</li><li>Acrescentar o mês ao histórico das lojas</li><li>Registrar renovações concluídas (AMM novo, nova vigência)</li></ul></div>
+        <div class="fase"><h3>Todo ano (com o orçamento)</h3><ul class="chk"><li>Atualizar médias das satélites, inflação e meta de LSR</li><li>Revisar a classificação de mix com o comitê</li><li>Revisar comparativos e Tabela ABC</li><li>Fechar o planejamento antes de qualquer negociação do ano</li></ul></div>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Erros comuns</h2>
       <ul class="chk">
-        <li><b>Parâmetros</b> — uma vez: nome do shopping, médias de AMM/m² e Vendas/m² das satélites, inflação acumulada, meta anual de LSR e tolerâncias. Sem as médias não há quadrante.</li>
-        <li><b>Cadastro</b> — a carteira de satélites. Pelo Excel (modelo com as abas Lojas e Parametros), por JSON ou uma a uma. O mix fica <i>preliminar</i> até o comitê validar.</li>
-        <li><b>Auditoria</b> — a agenda que vai para o Radar de Auditoria (quem precisa de integral e quando) e a volta: o CSV de dispersão do Radar de Dispersão de Vendas, casado por CNPJ. Auditoria fora da janela, mês sazonal ou dispersão acima da tolerância bloqueiam a negociação.</li>
-        <li><b>Radar</b> — a fila priorizada com farol (Negociar · Preparar · Bloqueado · Aguardar · Renovado) e o mapa de quadrantes. Clique na linha para abrir a análise.</li>
-        <li><b>Análise da loja</b> — as 7 fases: classificação, janela, due diligence, os 4 argumentos com memória de cálculo, LSR real com inflação, Tabela ABC e teste do perito, alçadas, risco renovatório, ações e dados faltantes. <i>Copiar análise (Obsidian)</i> gera a nota no formato da skill.</li>
-        <li><b>Planejamento</b> — o ano: AMM base, LSR planejado × realizado, atingimento da meta, incremento mês a mês e contratos vencidos.</li>
-        <li><b>Comitê</b> — o pacote em Markdown com todas as lojas em negociação para a reunião semanal. A decisão de valor é do comitê.</li>
+        <li><b>Negociar antes do último reajuste.</b> O LSR estimado derrete; o farol "Aguardar reajuste" existe para isso.</li>
+        <li><b>Estimar comparativo que não se tem.</b> Deixe em branco: um LSR sobre dado inventado é pior que nenhum.</li>
+        <li><b>Tratar a classificação de mix como definitiva sem o comitê.</b> Até a validação ela é preliminar e aparece com asterisco.</li>
+        <li><b>Ignorar a trava de auditoria.</b> Fora da janela é bloqueio, não observação.</li>
+        <li><b>Esquecer que a base vive neste navegador.</b> Use Copiar base (JSON) para guardar ou levar a outro aparelho.</li>
+        <li><b>Carteira sem comparáveis contemporâneos.</b> Se tudo vence no mesmo ano, não há laudo prévio; registre as renovações concluídas para formar a base.</li>
       </ul>
-      <h3 style="margin-top:14px">O que fica guardado, e onde</h3>
+    </section>
+
+    <section class="painel">
+      <h2>Glossário</h2>
+      <div class="grid g3">
+        <div class="mudo"><b>AMM</b> aluguel mínimo mensal. <b>A%</b> aluguel percentual sobre vendas, pago quando supera o mínimo. <b>LSR</b> leasing spread: variação do AMM na renovação, além da inflação. <b>Degrau</b> aumento programado em meses do contrato (12º e 36º).</div>
+        <div class="mudo"><b>CO/Vendas</b> custo de ocupação sobre vendas. <b>Tabela ABC</b> valor de referência do espaço para locação nova. <b>Quadrante</b> posição da loja em AMM/m² × Vendas/m² contra a média das satélites. <b>CDU</b> cessão de direito de uso, em contrato não comercial.</div>
+        <div class="mudo"><b>Laudo prévio</b> estimativa do valor locativo que uma perícia pelo método comparativo tende a encontrar. <b>Comparável</b> satélite similar em área, mesmo shopping, contrato recente, sem subsídio. <b>Linearidade</b> quão pouco o AMM/m² se dispersa no shopping. <b>Renovatória</b> ação do lojista para renovar o contrato judicialmente; janela de 12 a 6 meses do fim.</div>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>O que fica guardado, e o que é do Book</h2>
       <p class="mudo">A base e os parâmetros ficam no <code>localStorage</code> <b>deste navegador</b>. Outro computador não vê o mesmo painel: use <i>Copiar base (JSON)</i> e <i>Importar JSON</i> no outro aparelho, ou combine um aparelho como o oficial. A planilha Excel importada não fica guardada; só o que foi lido dela.</p>
-      <h3 style="margin-top:14px">O que é do Book e o que é deste sistema</h3>
-      <p class="mudo">Do Book: AMM/m², Vendas/m², quadrantes, janelas 12–6 e menos de 6 meses, trava de auditoria (6 meses, sazonal, 15%), os 4 argumentos, a matriz mix × quadrante, soma da inflação, Tabela ABC, alçadas 115→110→105→100, degrau no 12º e 36º mês, bloqueios por inadimplência e ação judicial. Deste sistema: o teste do perito automatizado, a nota de risco renovatório, a ordem da fila, a nota de confiança e a sugestão de mix pelas 7 perguntas. O material-fonte é de 2011; valide nomenclatura e conteúdo jurídico com a política vigente. Não substitui parecer jurídico.</p>
+      <p class="mudo">Do Book: AMM/m², Vendas/m², quadrantes, janelas 12–6 e menos de 6 meses, trava de auditoria (6 meses, sazonal, 15%), os 4 argumentos, a matriz mix × quadrante, soma da inflação, Tabela ABC, alçadas 115→110→105→100, degrau no 12º e 36º mês, bloqueios por inadimplência e ação judicial. Do material de perícia: método comparativo, similaridade, contemporaneidade, linearidade, laudo prévio e checklist. Deste sistema: argumento 5 do histórico, risco renovatório, risco de perda, prioridade da fila, nota de confiança, sugestão de mix e os limiares editáveis. O Book é de 2011; valide nomenclatura e conteúdo jurídico com a política vigente. Não substitui parecer jurídico.</p>
     </section>
   </div>
 </div>
@@ -710,7 +828,7 @@ function farol(loja, jan, bloq) {
 }
 
 /* ------------------------------------------------------------ análise completa de uma loja */
-function analisarLoja(loja, params = PARAMS_PADRAO, hoje = new Date()) {
+function analisarLoja(loja, params = PARAMS_PADRAO, hoje = new Date(), todasLojas = null) {
   const p = { ...PARAMS_PADRAO, ...params }
   const lojaOriginal = loja
   const hist = historico(loja, p, hoje)
@@ -728,7 +846,13 @@ function analisarLoja(loja, params = PARAMS_PADRAO, hoje = new Date()) {
   const inflacao = loja.inflacaoAcumuladaPct ?? p.inflacaoAcumuladaPct
   const lsr = lsrReal(cls, args, inflacao)
   const prop = proposta(loja, cls, lsr, p, jan.meses)
+  // [PERÍCIA] laudo prévio pelo método comparativo intra-shopping; quando suficiente, substitui a heurística do perito
+  const comp = todasLojas ? comparaveis(lojaOriginal, todasLojas, p, hoje) : null
+  const laudo = comp ? laudoPrevio(lojaOriginal, comp, prop.ammAtual, prop.ammProposto) : { disponivel: false, veredito: 'insuficiente', motivo: 'sem base de comparáveis', n: 0 }
+  prop.peritoHeuristico = prop.perito; prop.peritoMotivoHeuristico = prop.peritoMotivo
+  if (laudo.disponivel && laudo.veredito !== 'indefinido') { prop.perito = laudo.veredito; prop.peritoMotivo = `Laudo prévio (${laudo.n} comparáveis): ${laudo.motivo}`; prop.peritoFonte = 'laudo-previo' } else prop.peritoFonte = 'heuristica'
   const risco = riscoRenovatorio(loja, cls, jan, lsr, prop, p)
+  const perda = riscoPerda(lojaOriginal, laudo, prop, jan, lsr, p)
   const prio = prioridade(loja, cls, jan, prop, bloq, p)
   const far = farol(loja, jan, bloq)
   const faltantes = [...new Set([...cls.faltantes, ...jan.faltantes, ...trava.faltantes, ...args.flatMap(a => a.faltantes), ...lsr.faltantes, ...prop.faltantes])]
@@ -739,13 +863,13 @@ function analisarLoja(loja, params = PARAMS_PADRAO, hoje = new Date()) {
   if ((loja.contrato?.clausulasEspeciais || []).length || (loja.contrato?.subsidios || []).length) avisos.push('Negociar a retirada de cláusulas especiais e subsídios; incluir reforma como obrigação no novo contrato')
   if (loja.contrato?.comercial === false) avisos.push('Contrato não comercial: haverá CDU')
   if (loja.keyAccount) avisos.push('Key Account: informar a Holding')
-  const ações = acoes(loja, cls, jan, trava, bloq, lsr, prop, risco)
+  const ações = acoes(loja, cls, jan, trava, bloq, lsr, prop, risco, perda)
   // [SISTEMA] confiança da análise: cai com cada dado faltante e com mix não validado
   const confianca = Math.max(1, Math.min(10, 10 - faltantes.length - (cls.mixValidado ? 0 : 1) - (lsr.tipo === 'indefinido' ? 2 : 0)))
-  return { loja: lojaOriginal, lojaCalculo: loja, hist, cls, jan, trava, bloq, args, lsr, prop, risco, prio, farol: far, faltantes, avisos, acoes: ações, confianca, hoje: iso(hoje) }
+  return { loja: lojaOriginal, lojaCalculo: loja, hist, comp, laudo, perda, cls, jan, trava, bloq, args, lsr, prop, risco, prio, farol: far, faltantes, avisos, acoes: ações, confianca, hoje: iso(hoje) }
 }
 
-function acoes(loja, cls, jan, trava, bloq, lsr, prop, risco) {
+function acoes(loja, cls, jan, trava, bloq, lsr, prop, risco, perda) {
   const a = []
   if (jan.fase === 'vencido' && loja.status !== 'renovado' && loja.status !== 'nao-renovado') a.push('Regularizar contrato vencido imediatamente (aditivo ou nova vigência)')
   if (trava.status === 'bloqueio') a.push(`Solicitar auditoria integral ao Radar de Auditoria (janela ideal ${trava.janelaIdeal})`)
@@ -755,8 +879,11 @@ function acoes(loja, cls, jan, trava, bloq, lsr, prop, risco) {
   if (lsr.tipo === 'avaliar') a.push(lsr.caso === 'posicionamento' ? 'Avaliar reposicionamento da operação (layout, estoque, equipe, produto) antes de precificar' : 'Avaliar permanência da operação; considerar troca do ponto')
   if (lsr.tipo === 'caso-a-caso') a.push('Essencial: montar cálculo caso a caso e explicar a tensão imagem × valor ao comitê')
   if (prop.ammProposto !== null) a.push(`Levar ao comitê semanal: AMM proposto ${brl(prop.ammProposto)} (LSR ${pct(lsr.lsrTotal)}); abertura do coordenador ${brl(prop.aberturaNegociador)}`)
-  if (prop.perito === 'fragil') a.push('Apertar menos: proposta não resiste ao teste do perito')
+  if (prop.perito === 'fragil') a.push('Apertar menos: proposta não resiste ao teste do perito' + (prop.peritoFonte === 'laudo-previo' ? ' (laudo prévio pelos comparáveis do shopping)' : ''))
+  if (prop.peritoFonte !== 'laudo-previo') a.push('Montar laudo prévio: faltam comparáveis similares e contemporâneos no cadastro (área ±50%, contrato recente, sem subsídio)')
   if (risco.nivel === 'alto') a.push('Preparar cenário de renovatória com o jurídico (contraproposta vincula)')
+  if (perda?.nivel === 'alto' && perda.disponivel && perda.ajuste > 0) a.push(`Risco de perda ALTO: trazer a proposta para até ${brl(perda.defensavel)} (3º quartil dos comparáveis) ou documentar o que justifica o excedente de ${brl(perda.ajuste)}`)
+  else if (perda?.nivel === 'alto' && perda.laudoAbaixoDoAtual) a.push('Laudo abaixo do AMM atual: evitar a renovatória; buscar acordo e reforçar comparáveis que sustentem o valor')
   if (jan.fase === 'ativa' && !bloq.length) a.push('1º contato: ouvir, apresentar o shopping e o que vem; sair com proposta do próprio lojista; decisão é do comitê')
   a.push('Degrau no 12º e 36º mês; retirar cláusulas especiais/subsídios; reforma obrigatória')
   return a
@@ -766,7 +893,7 @@ function acoes(loja, cls, jan, trava, bloq, lsr, prop, risco) {
 function planejamento(lojas, params = PARAMS_PADRAO, hoje = new Date()) {
   const p = { ...PARAMS_PADRAO, ...params }
   const ano = +p.anoPlanejamento || new Date(hoje).getFullYear()
-  const linhas = lojas.map(l => analisarLoja(l, p, hoje)).filter(a => { const f = data(a.loja.contrato?.fim); return f && f.getUTCFullYear() === ano })
+  const linhas = lojas.map(l => analisarLoja(l, p, hoje, lojas)).filter(a => { const f = data(a.loja.contrato?.fim); return f && f.getUTCFullYear() === ano })
   let ammBase = 0, ammPlanejado = 0, ammRealizado = 0, baseRealizado = 0, n = 0, nReal = 0
   const porMes = Array.from({ length: 12 }, (_, i) => ({ mes: i + 1, lojas: 0, planejado: 0, realizado: 0 }))
   for (const a of linhas) {
@@ -856,12 +983,17 @@ function analiseObsidian(a) {
     '## 5. Proposta',
     `Diretriz: ${s.regra}`,
     `LSR real ${pct(s.lsrBase)} + inflação ${pct(s.inflacao)} = **${pct(s.lsrTotal)}** → AMM proposto ${brl(p.ammProposto)} (atual ${brl(p.ammAtual)})`,
-    `Tabela ABC: ${brl(p.tabelaAbc)} (${p.vsAbc === null ? '[FALTA]' : pct(p.vsAbc)} vs proposta) · Teste do perito: ${p.perito} — ${p.peritoMotivo} · Degrau sugerido: ${p.degrau.join('º e ')}º mês`,
+    `Tabela ABC: ${brl(p.tabelaAbc)} (${p.vsAbc === null ? '[FALTA]' : pct(p.vsAbc)} vs proposta) · Teste do perito: ${p.perito} — ${p.peritoMotivo} · Degrau sugerido: ${p.degrau.join('º e ')}º mês`, '',
+    '## 5b. Laudo prévio (método comparativo intra-shopping)',
+    a.laudo?.disponivel ? `${a.laudo.n} comparáveis similares e contemporâneos · mediana ${brl(a.laudo.medianaM2)}/m² (Q1 ${brl(a.laudo.q1M2)} · Q3 ${brl(a.laudo.q3M2)} · máx ${brl(a.laudo.maxM2)}) · valor locativo provável **${brl(a.laudo.provavel)}** (faixa ${brl(a.laudo.faixa[0])} a ${brl(a.laudo.faixa[1])})${a.laudo.bimodal ? ' · amostra bimodal' : ''} · veredito **${a.laudo.veredito}**` : `[FALTA: comparáveis suficientes] ${a.laudo?.motivo || ''}`,
+    ...(a.comp ? ['| Comparável | Área | Piso | AMM/m² | Contrato | Situação |', '|---|---|---|---|---|---|', ...a.comp.amostra.filter(x => x.incluido).slice(0, 12).map(x => `| ${x.luc} ${x.nome} | ${x.area} m² | ${x.piso} | ${brl(x.ammM2)} | ${x.dataContrato} (${x.idadeMeses} m) | incluído${x.mesmoPiso ? ', mesmo piso' : ''} |`)] : []),
+    ...(a.risco.nivel !== 'baixo' || l.juridico?.renovatoriaAjuizada ? ['', '## Checklist da perícia', ...CHECKLIST_PERICIA.map(x => `- [ ] ${x}`)] : []),
     `Faixa de alçada: comitê ${brl(p.ammProposto)} · ${p.alcadas.map(x => `${x.cargo} ${brl(x.de)} → ${brl(x.ate)}`).join(' · ')}`,
     `Ganho em 60 meses: ${brl(p.ganho60m)}`, '',
     '## 6. Ações', ...a.acoes.map(x => `- [ ] ${x}`), '',
     '## 7. Riscos',
     `> [!danger] Risco renovatório ${a.risco.nivel.toUpperCase()} (${a.risco.score}/100): ${a.risco.fatores.join(' · ') || 'sem fatores agravantes'}`,
+    a.perda ? `> [!danger] Risco de perda em renovatória (visão de laudo): **${a.perda.nivel.toUpperCase()}** — ${a.perda.motivos.join(' · ')}${a.perda.disponivel ? ` · defensável até ${brl(a.perda.defensavel)} · receita em risco (60 m) ${brl(a.perda.receitaEmRisco)}` : ''}` : '',
     ...a.avisos.map(x => `> [!warning] ${x}`), '',
     '## Dados faltantes', ...(a.faltantes.length ? a.faltantes.map(x => `- [FALTA: ${x}]`) : ['- nenhum']), '',
     '```dataview', 'LIST FROM #renovacao WHERE contains(file.outlinks, this.file.link)', '```', '',
@@ -883,7 +1015,7 @@ const COLUNAS_LOJA = [
   ['amm', /^amm( ultimo| do ultimo| atual)?( mes)?$|^amm$/], ['aPctMedioSemDezembro', /^a ?%|a% medio|aluguel percentual/], ['vendas12mExpurgada', /^vendas/], ['custoOcupacao', /custo de ocupacao|custo ocupacao|^co$/], ['mesesInadimplente', /inadimpl/], ['saldoAberto', /saldo/],
   ['ultimaIntegral', /auditoria/], ['dispersaoPct', /dispers/], ['statusLivros', /livro/], ['acaoContraShopping', /acao contra|acao judicial/], ['renovatoriaAjuizada', /renovatoria/], ['resistencia', /resist/],
   ['coVendasRedePct', /co ?\/ ?vendas rede|co vendas rede|rede %?/], ['coVendasSegmentoShoppingPct', /co ?\/ ?vendas segmento|co vendas segmento|segmento shopping/], ['ammM2Entorno', /entorno/], ['ammM2Piso', /amm ?\/ ?m2 piso|amm m2 piso|m² piso|m2 piso/], ['ammM2Tamanho', /tamanho/], ['ammM2Concorrentes', /concorrente/], ['ammM2SegmentoAbrasce', /abrasce/], ['tabelaAbcM2', /abc/],
-  ['ammNovo', /amm novo|realizado/], ['dataRenovacao', /data renov|renovacao$/], ['novoFim', /nova vig|novo fim/],
+  ['ammNovo', /amm novo|realizado/], ['dataRenovacao', /data renov|renovacao$/], ['novoFim', /nova vig|novo fim/], ['racionalForaDaCurva', /racional/],
 ]
 function mapearCabecalho(cabecalhos) {
   const mapa = {}
@@ -927,6 +1059,7 @@ function importarLojasPlanilha(linhas, lojasAtuais = []) {
       comparativos: { coVendasRedePct: ou('coVendasRedePct', num(g.coVendasRedePct), exP.coVendasRedePct), coVendasSegmentoShoppingPct: ou('coVendasSegmentoShoppingPct', num(g.coVendasSegmentoShoppingPct), exP.coVendasSegmentoShoppingPct), ammM2Entorno: ou('ammM2Entorno', num(g.ammM2Entorno), exP.ammM2Entorno), ammM2Piso: ou('ammM2Piso', num(g.ammM2Piso), exP.ammM2Piso), ammM2Tamanho: ou('ammM2Tamanho', num(g.ammM2Tamanho), exP.ammM2Tamanho), ammM2Concorrentes: ou('ammM2Concorrentes', num(g.ammM2Concorrentes), exP.ammM2Concorrentes), ammM2SegmentoAbrasce: ou('ammM2SegmentoAbrasce', num(g.ammM2SegmentoAbrasce), exP.ammM2SegmentoAbrasce), tabelaAbcM2: ou('tabelaAbcM2', num(g.tabelaAbcM2), exP.tabelaAbcM2) },
       realizado: { ammNovo: ou('ammNovo', num(g.ammNovo), exR.ammNovo), data: ou('dataRenovacao', dataCel(g.dataRenovacao), exR.data), novoFim: ou('novoFim', dataCel(g.novoFim), exR.novoFim) },
       historico: ex.historico || [],
+      racionalForaDaCurva: ou('racionalForaDaCurva', String(g.racionalForaDaCurva ?? '').trim(), ex.racionalForaDaCurva),
     }
     if (existente) { Object.assign(existente, loja); atualizadas++ } else { lojas.push(loja); novas++ }
   }
@@ -1062,11 +1195,187 @@ function importarHistoricoPlanilha(linhas, lojas) {
   return { lojas, meses, lojasAtualizadas, semLoja }
 }
 
+/* ============================================================ PERÍCIA — método comparativo, laudo prévio e linearidade
+   Fonte: "Aspectos técnicos da perícia judicial em avaliações de lojas em shopping centers" (Rodrigo Salton Leites, 2025).
+   Comparáveis devem ser SIMILARES (área, localização, condições contratuais) e CONTEMPORÂNEOS (contrato recente, sem
+   evento estrutural no meio). A média do shopping pode esconder grupos: medir a LINEARIDADE. O LAUDO PRÉVIO estima o
+   provável resultado da perícia antes da renovatória. Tudo aqui é [PERÍCIA]: deriva da apresentação, não do Book. */
+const PARAMS_PERICIA = {
+  contemporaneidadeMeses: 36,     // contrato (início ou renovação) com mais que isso perde representatividade
+  similaridadeAreaPct: 50,        // comparável: área entre (1−x%) e (1+x%) da loja avaliada
+  faixasArea: [50, 100, 200],     // limites das faixas de área (m²) para linearidade: ≤50 · 50–100 · 100–200 · >200
+  eventosEstruturais: [],         // [{ data: 'AAAA-MM-DD', descricao }] — reforma, expansão, sinistro, pandemia
+  cvLinear: 0.15, cvDisperso: 0.30, // coeficiente de variação do AMM/m²: abaixo = linear; acima = disperso
+  minimoComparaveis: 3,
+}
+const CHECKLIST_PERICIA = [
+  'O método utilizado é o Método Comparativo Direto de Dados de Mercado?',
+  'Os elementos comparativos pertencem ao mesmo shopping ou a universo efetivamente comparável?',
+  'As áreas são suficientemente semelhantes?',
+  'A localização interna (piso, setor) foi considerada?',
+  'As estruturas contratuais são comparáveis (AMM, CTO, CMM, subsídios)?',
+  'Os contratos são contemporâneos à data-base da avaliação?',
+  'Houve mudança estrutural no shopping desde a assinatura dos comparáveis?',
+  'Houve evento extraordinário relevante (pandemia, reforma, acidente)?',
+  'O tratamento inflacionário é coerente com a realidade econômica do período?',
+  'Existem outliers ou grupos claramente diferentes dentro da amostra?',
+  'A média utilizada representa a distribuição ou esconde forte dispersão?',
+  'Os fatores de homogeneização têm justificativa econômica e técnica?',
+  'A tipologia da loja (satélite, megaloja, âncora) foi respeitada?',
+  'O perito justificou a seleção ou exclusão dos comparáveis?',
+  'Existe laudo prévio para confrontar o resultado da perícia?',
+]
+const quantil = (arr, q) => { if (!arr.length) return null; const s = [...arr].sort((a, b) => a - b); const pos = (s.length - 1) * q; const lo = Math.floor(pos), hi = Math.ceil(pos); return s[lo] + (s[hi] - s[lo]) * (pos - lo) }
+function estatisticas(vals) {
+  const v = vals.filter(x => x !== null && Number.isFinite(x))
+  if (!v.length) return { n: 0, media: null, mediana: null, q1: null, q3: null, min: null, max: null, desvio: null, cv: null }
+  const media = v.reduce((s, x) => s + x, 0) / v.length
+  const desvio = v.length > 1 ? Math.sqrt(v.reduce((s, x) => s + (x - media) ** 2, 0) / (v.length - 1)) : 0
+  return { n: v.length, media, mediana: quantil(v, 0.5), q1: quantil(v, 0.25), q3: quantil(v, 0.75), min: Math.min(...v), max: Math.max(...v), desvio, cv: media ? desvio / media : null }
+}
+function faixaArea(area, limites = PARAMS_PERICIA.faixasArea) {
+  const a = num(area); if (a === null) return null
+  const l = [...limites].sort((x, y) => x - y)
+  for (let i = 0; i < l.length; i++) if (a <= l[i]) return i === 0 ? `até ${l[0]} m²` : `${l[i - 1]}–${l[i]} m²`
+  return `acima de ${l[l.length - 1]} m²`
+}
+// data que vale como "data do contrato" para contemporaneidade: renovação registrada > início da vigência
+function dataContrato(loja) { return data(loja.realizado?.data) || data(loja.contrato?.inicio) }
+// Universo de comparáveis intra-shopping para uma loja: satélites ativas, com AMM/m² conhecido, sem subsídio
+function comparaveis(loja, lojas, params = {}, hoje = new Date()) {
+  const p = { ...PARAMS_PERICIA, ...params }
+  const area = num(loja.area)
+  const eventos = (p.eventosEstruturais || []).map(e => ({ ...e, d: data(e.data) })).filter(e => e.d)
+  const ultimoEvento = eventos.length ? eventos.reduce((m, e) => (e.d > m.d ? e : m)) : null
+  const amostra = []
+  for (const l of lojas) {
+    if (l === loja || l.id === loja.id) continue
+    const a = num(l.area), amm = num(l.realizado?.ammNovo) ?? num(l.faturamento?.amm)
+    const motivos = []
+    if ((l.formato || 'satelite') !== 'satelite') motivos.push('tipologia diferente')
+    if (l.status === 'nao-renovado') motivos.push('loja saiu')
+    if (!a || amm === null) motivos.push('sem área ou AMM')
+    if ((l.contrato?.subsidios || []).length) motivos.push('contrato com subsídio')
+    if (l.contrato?.comercial === false) motivos.push('contrato não comercial (CDU)')
+    const dc = dataContrato(l)
+    const idade = dc ? mesesEntre(dc, hoje) : null
+    const contemporaneo = idade !== null && idade <= p.contemporaneidadeMeses
+    const anteriorEvento = ultimoEvento && dc ? dc < ultimoEvento.d : false
+    if (idade === null) motivos.push('sem data de contrato')
+    else if (!contemporaneo) motivos.push(`contrato com ${Math.round(idade)} meses (> ${p.contemporaneidadeMeses})`)
+    if (anteriorEvento) motivos.push(`anterior a ${ultimoEvento.descricao || 'evento estrutural'} (${iso(ultimoEvento.d)})`)
+    const similarArea = area && a ? a >= area * (1 - p.similaridadeAreaPct / 100) && a <= area * (1 + p.similaridadeAreaPct / 100) : false
+    if (area && !similarArea) motivos.push(`área ${a} m² fora de ±${p.similaridadeAreaPct}% de ${area} m²`)
+    const mesmoPiso = !!loja.piso && String(l.piso || '') === String(loja.piso)
+    amostra.push({ luc: l.luc, nome: l.nome, area: a, piso: l.piso || '', segmento: l.segmento || '', ammM2: a && amm !== null ? amm / a : null, dataContrato: iso(dc), idadeMeses: idade === null ? null : Math.round(idade), contemporaneo, anteriorEvento, similarArea, mesmoPiso, renovado: l.status === 'renovado', incluido: motivos.length === 0, motivos })
+  }
+  const incluidos = amostra.filter(x => x.incluido)
+  // outliers pela regra de 1,5 × IQR dentro dos incluídos
+  const st0 = estatisticas(incluidos.map(x => x.ammM2))
+  let outliers = []
+  if (st0.n >= 4) { const iqr = st0.q3 - st0.q1; outliers = incluidos.filter(x => x.ammM2 < st0.q1 - 1.5 * iqr || x.ammM2 > st0.q3 + 1.5 * iqr); for (const o of outliers) { o.incluido = false; o.motivos.push('outlier (1,5 × IQR)') } }
+  const finais = amostra.filter(x => x.incluido)
+  const st = estatisticas(finais.map(x => x.ammM2))
+  // grupos: maior salto entre valores ordenados > 35% do valor indica dois agrupamentos (Shopping B do exemplo)
+  let grupos = null
+  if (st.n >= 4) { const s = finais.map(x => x.ammM2).sort((a, b) => a - b); let maior = 0, idx = -1; for (let i = 1; i < s.length; i++) { const salto = (s[i] - s[i - 1]) / s[i - 1]; if (salto > maior) { maior = salto; idx = i } } if (maior > 0.35 && idx >= 2 && s.length - idx >= 2) grupos = { salto: maior, inferior: estatisticas(s.slice(0, idx)), superior: estatisticas(s.slice(idx)) } }
+  const mesmoPisoSt = estatisticas(finais.filter(x => x.mesmoPiso).map(x => x.ammM2))
+  return { amostra: amostra.sort((x, y) => (y.incluido - x.incluido) || (x.ammM2 ?? 0) - (y.ammM2 ?? 0)), finais, n: st.n, stats: st, mesmoPiso: mesmoPisoSt, outliers, grupos, suficiente: st.n >= (p.minimoComparaveis || 3), eventoReferencia: ultimoEvento ? { data: iso(ultimoEvento.d), descricao: ultimoEvento.descricao } : null, params: { contemporaneidadeMeses: p.contemporaneidadeMeses, similaridadeAreaPct: p.similaridadeAreaPct } }
+}
+// Laudo prévio: provável valor locativo pela mediana dos comparáveis, faixa interquartil, posição do atual e do proposto
+function laudoPrevio(loja, comp, ammAtual, ammProposto) {
+  const area = num(loja.area)
+  if (!comp.suficiente || !area) return { disponivel: false, veredito: 'insuficiente', motivo: comp.n ? `${comp.n} comparável(is) após os filtros de similaridade e contemporaneidade; mínimo ${PARAMS_PERICIA.minimoComparaveis}. Buscar comparáveis externos (segmento Abrasce, Tabela ABC) ou revisar filtros.` : 'Nenhum comparável intra-shopping após os filtros.', n: comp.n }
+  const s = comp.stats
+  const provavel = s.mediana * area, faixa = [s.q1 * area, s.q3 * area], teto = s.max * area
+  const posicao = (v) => v === null ? null : comp.finais.filter(x => x.ammM2 <= v / area).length / comp.n
+  const pAtual = posicao(ammAtual), pProp = posicao(ammProposto)
+  let veredito = 'indefinido', motivo = ''
+  if (ammProposto !== null) {
+    const propM2 = ammProposto / area
+    if (propM2 <= s.q3) { veredito = 'forte'; motivo = `AMM/m² proposto ${brl(propM2)} até o 3º quartil dos comparáveis (${brl(s.q3)}): laudo tende a sustentar a proposta` }
+    else if (propM2 <= s.max) { veredito = 'atencao'; motivo = `AMM/m² proposto ${brl(propM2)} acima do 3º quartil (${brl(s.q3)}) mas dentro da amostra (máx. ${brl(s.max)}): defensável só com comparáveis do topo` }
+    else { veredito = 'fragil'; motivo = `AMM/m² proposto ${brl(propM2)} acima do maior comparável (${brl(s.max)}): o laudo tende a dar razão ao lojista, apertar menos` }
+    if (comp.grupos) motivo += ` · amostra bimodal (grupos em ~${brl(comp.grupos.inferior.mediana)} e ~${brl(comp.grupos.superior.mediana)}/m²): a média não representa; o perito pode escolher o grupo inferior`
+  }
+  return { disponivel: true, n: comp.n, provavel, faixa, teto, medianaM2: s.mediana, q1M2: s.q1, q3M2: s.q3, maxM2: s.max, cv: s.cv, posicaoAtual: pAtual, posicaoProposto: pProp, veredito, motivo, bimodal: !!comp.grupos, mesmoPiso: comp.mesmoPiso.n ? comp.mesmoPiso : null }
+}
+// Linearidade do shopping: dispersão do AMM/m² das satélites, por faixa de área e por piso, com lojas fora da curva
+function linearidade(lojas, params = {}, hoje = new Date()) {
+  const p = { ...PARAMS_PERICIA, ...params }
+  const base = lojas.filter(l => (l.formato || 'satelite') === 'satelite' && l.status !== 'nao-renovado' && num(l.area) && (num(l.realizado?.ammNovo) ?? num(l.faturamento?.amm)) !== null)
+    .map(l => { const amm = num(l.realizado?.ammNovo) ?? num(l.faturamento?.amm); const dc = dataContrato(l); const idade = dc ? Math.round(mesesEntre(dc, hoje)) : null; return { id: l.id, luc: l.luc, nome: l.nome, area: num(l.area), piso: String(l.piso || '—'), ammM2: amm / num(l.area), faixa: faixaArea(l.area, p.faixasArea), idadeMeses: idade, contemporaneo: idade !== null && idade <= p.contemporaneidadeMeses, subsidio: (l.contrato?.subsidios || []).length > 0, racional: l.racionalForaDaCurva || '' } })
+  const geral = estatisticas(base.map(x => x.ammM2))
+  const classif = (cv) => cv === null ? 'indefinida' : cv < p.cvLinear ? 'linear' : cv < p.cvDisperso ? 'moderada' : 'dispersa'
+  const porChave = (k) => { const m = new Map(); for (const x of base) { const key = x[k]; if (!m.has(key)) m.set(key, []); m.get(key).push(x) } return [...m.entries()].map(([chave, xs]) => ({ chave, lojas: xs, stats: estatisticas(xs.map(x => x.ammM2)), classif: classif(estatisticas(xs.map(x => x.ammM2)).cv) })) }
+  const ordemFaixa = (f) => { const l = [...p.faixasArea].sort((a, b) => a - b); const labels = [`até ${l[0]} m²`, ...l.slice(1).map((v, i) => `${l[i]}–${v} m²`), `acima de ${l[l.length - 1]} m²`]; return labels.indexOf(f) }
+  const porFaixa = porChave('faixa').sort((a, b) => ordemFaixa(a.chave) - ordemFaixa(b.chave))
+  const porPiso = porChave('piso').sort((a, b) => a.chave.localeCompare(b.chave))
+  // fora da curva: fora de 1,5 × IQR da própria faixa de área (ou do geral, se a faixa tiver menos de 4 lojas)
+  const fora = []
+  for (const x of base) {
+    const f = porFaixa.find(g => g.chave === x.faixa); const ref = f && f.stats.n >= 4 ? f.stats : geral
+    if (ref.n < 4) continue
+    const iqr = ref.q3 - ref.q1, lo = ref.q1 - 1.5 * iqr, hi = ref.q3 + 1.5 * iqr
+    if (x.ammM2 < lo || x.ammM2 > hi) fora.push({ ...x, referencia: f && f.stats.n >= 4 ? `faixa ${x.faixa}` : 'shopping', mediana: ref.mediana, desvioPct: x.ammM2 / ref.mediana - 1, lado: x.ammM2 > hi ? 'acima' : 'abaixo' })
+  }
+  // teste do exemplo Shopping A/B: faixa ±30% da média vs. distribuição real
+  const dentro30 = geral.n ? base.filter(x => Math.abs(x.ammM2 / geral.media - 1) <= 0.30).length / geral.n : null
+  return { base: base.sort((a, b) => a.ammM2 - b.ammM2), geral: { ...geral, classif: classif(geral.cv) }, porFaixa, porPiso, fora: fora.sort((a, b) => Math.abs(b.desvioPct) - Math.abs(a.desvioPct)), dentro30, naoContemporaneos: base.filter(x => !x.contemporaneo).length, params: p }
+}
+
+
+/* ------------------------------------------------------------ [PERÍCIA] risco de perda em ação renovatória (visão de laudo)
+   Confronta a proposta com o laudo prévio. Se a renovatória for ajuizada, o perito tende a chegar perto do valor provável;
+   quanto mais a proposta passa do que os comparáveis sustentam, maior a chance de sentença abaixo dela, com sucumbência e
+   honorários para o shopping. Classificação em alto / moderado / baixo conforme a saída do cálculo. */
+const PARAMS_PERDA = { perdaGapModeradoPct: 10, perdaGapAltoPct: 25, probabilidadePerda: { alto: 0.6, moderado: 0.3, baixo: 0.1 } }
+function riscoPerda(loja, laudo, prop, jan, lsr, params = {}) {
+  const p = { ...PARAMS_PERDA, ...params }
+  const area = num(loja.area)
+  const atual = prop.ammAtual, proposto = prop.ammProposto
+  const out = { nivel: 'indefinido', motivos: [], gapLaudo: null, gapAtual: null, defensavel: null, ajuste: null, receitaEmRisco: null, perdaEsperada: null, laudoAbaixoDoAtual: false, disponivel: false }
+  if (proposto === null) { out.motivos.push('sem proposta calculável'); return out }
+  if (!laudo?.disponivel) {
+    // sem laudo: classifica pelo que resta — LSR agressivo e renovatória ajuizada
+    out.motivos.push(`sem laudo prévio (${laudo?.motivo || 'comparáveis insuficientes'})`)
+    const lsrPct = lsr?.lsrTotal !== null && lsr?.lsrTotal !== undefined ? lsr.lsrTotal * 100 : null
+    if (loja.juridico?.renovatoriaAjuizada) { out.nivel = 'alto'; out.motivos.push('renovatória ajuizada sem laudo para confrontar o perito') }
+    else if (lsrPct !== null && lsrPct >= (params.lsrMuitoAgressivoPct || 40)) { out.nivel = 'alto'; out.motivos.push(`LSR total ${pct(lsr.lsrTotal)} muito agressivo sem base comparativa`) }
+    else if (lsrPct !== null && lsrPct >= (params.lsrAgressivoPct || 25)) { out.nivel = 'moderado'; out.motivos.push(`LSR total ${pct(lsr.lsrTotal)} agressivo sem base comparativa`) }
+    else { out.nivel = 'moderado'; out.motivos.push('proposta sem laudo: montar comparáveis antes de negociar abaixo de 12 meses') }
+    return out
+  }
+  out.disponivel = true
+  out.gapLaudo = proposto / laudo.provavel - 1
+  out.gapAtual = atual ? laudo.provavel / atual - 1 : null
+  out.defensavel = laudo.q3M2 * area                  // até onde o laudo tende a sustentar
+  out.ajuste = Math.max(0, proposto - out.defensavel)   // quanto a proposta excede o defensável
+  out.receitaEmRisco = Math.max(0, proposto - laudo.provavel) * 60   // se a sentença vier no valor provável, por 60 meses
+  out.laudoAbaixoDoAtual = atual !== null && laudo.provavel < atual
+  const propM2 = proposto / area
+  let nivel = 'baixo'
+  if (propM2 > laudo.maxM2) { nivel = 'alto'; out.motivos.push(`proposto ${brl(propM2)}/m² acima do maior comparável (${brl(laudo.maxM2)}/m²)`) }
+  if (out.gapLaudo * 100 > p.perdaGapAltoPct) { nivel = 'alto'; out.motivos.push(`proposta ${pct(out.gapLaudo)} acima do valor provável do laudo (${brl(laudo.provavel)})`) }
+  else if (out.gapLaudo * 100 > p.perdaGapModeradoPct && nivel !== 'alto') { nivel = 'moderado'; out.motivos.push(`proposta ${pct(out.gapLaudo)} acima do valor provável do laudo`) }
+  if (propM2 > laudo.q3M2 && nivel === 'baixo') { nivel = 'moderado'; out.motivos.push(`proposto acima do 3º quartil (${brl(laudo.q3M2)}/m²): só os comparáveis do topo sustentam`) }
+  if (out.laudoAbaixoDoAtual) { nivel = 'alto'; out.motivos.push(`laudo provável (${brl(laudo.provavel)}) ABAIXO do AMM atual (${brl(atual)}): a renovatória pode reduzir o aluguel`) }
+  if (laudo.bimodal && nivel !== 'alto') { nivel = 'moderado'; out.motivos.push('amostra bimodal: o perito pode escolher o grupo inferior') }
+  if (loja.juridico?.renovatoriaAjuizada && nivel === 'baixo') { nivel = 'moderado'; out.motivos.push('renovatória já ajuizada: contraproposta vincula') }
+  if (jan?.meses !== null && jan?.meses <= 12 && jan?.meses > 6 && nivel === 'alto') out.motivos.push('dentro da janela de ajuizamento (12 a 6 meses)')
+  if (!out.motivos.length) out.motivos.push(`proposto ${brl(propM2)}/m² até o 3º quartil dos comparáveis: o laudo tende a sustentar`)
+  out.nivel = nivel
+  out.perdaEsperada = out.receitaEmRisco * (p.probabilidadePerda[nivel] ?? 0)
+  return out
+}
+
+Object.assign(PARAMS_PADRAO, PARAMS_PERICIA, PARAMS_PERDA)
+
 </script>
 <script>
 /* ============================================================ estado */
 const CHAVE = 'radar-renovacoes-v1'
-const EXEMPLO = {"_aviso":"BASE DE EXEMPLO. Lojas fictícias e números ilustrativos, só para mostrar o funcionamento. Nenhum valor aqui é dado real de shopping.","params":{"shopping":"Shopping Exemplo","mediaAmmM2Satelites":95,"mediaVendasM2Satelites":1100,"inflacaoAcumuladaPct":4.5,"metaLsrAnualPct":18,"anoPlanejamento":2027,"janelaAuditoriaMeses":6,"mesesSazonais":[12],"toleranciaDispersaoPct":15},"lojas":[{"id":"ex1","luc":"L-118","nome":"Flor de Lis Moda","cnpj":"11.111.111/0001-11","segmento":"Vestuário feminino","piso":"1","area":100,"formato":"satelite","mix":"Relevante","mixValidado":true,"cluster":"moda feminina","status":"a-negociar","contrato":{"inicio":"2022-07-01","fim":"2027-06-30","ultimoReajuste":"2026-07-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":["limitante de reajuste"],"subsidios":[]},"faturamento":{"amm":10000,"aPctMedioSemDezembro":1000},"desempenho":{"vendas12mExpurgada":130000,"custoOcupacao":11960,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-15","dispersaoPct":4.1,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11.3,"ammM2Entorno":120,"ammM2Piso":96,"ammM2Tamanho":108,"ammM2Concorrentes":113,"ammM2SegmentoAbrasce":107,"tabelaAbcM2":135},"historico":[{"competencia":"2022-07","vendas":101000,"amm":8200,"aPct":385,"custoOcupacao":11785},{"competencia":"2022-08","vendas":101700,"amm":8200,"aPct":445,"custoOcupacao":11845},{"competencia":"2022-09","vendas":102400,"amm":8200,"aPct":504,"custoOcupacao":11904},{"competencia":"2022-10","vendas":103100,"amm":8200,"aPct":564,"custoOcupacao":11964},{"competencia":"2022-11","vendas":103800,"amm":8200,"aPct":623,"custoOcupacao":12023},{"competencia":"2022-12","vendas":167200,"amm":8200,"aPct":6012,"custoOcupacao":17412},{"competencia":"2023-01","vendas":105200,"amm":8200,"aPct":742,"custoOcupacao":12142},{"competencia":"2023-02","vendas":95300,"amm":8200,"aPct":0,"custoOcupacao":11400},{"competencia":"2023-03","vendas":106600,"amm":8200,"aPct":861,"custoOcupacao":12261},{"competencia":"2023-04","vendas":107400,"amm":8200,"aPct":929,"custoOcupacao":12329},{"competencia":"2023-05","vendas":118900,"amm":8200,"aPct":1907,"custoOcupacao":13307},{"competencia":"2023-06","vendas":119700,"amm":8200,"aPct":1975,"custoOcupacao":13375},{"competencia":"2023-07","vendas":109600,"amm":8610,"aPct":706,"custoOcupacao":12516},{"competencia":"2023-08","vendas":110300,"amm":8610,"aPct":766,"custoOcupacao":12576},{"competencia":"2023-09","vendas":111100,"amm":8610,"aPct":834,"custoOcupacao":12644},{"competencia":"2023-10","vendas":111800,"amm":8610,"aPct":893,"custoOcupacao":12703},{"competencia":"2023-11","vendas":112600,"amm":8610,"aPct":961,"custoOcupacao":12771},{"competencia":"2023-12","vendas":181400,"amm":8610,"aPct":6809,"custoOcupacao":18619},{"competencia":"2024-01","vendas":114100,"amm":8610,"aPct":1089,"custoOcupacao":12899},{"competencia":"2024-02","vendas":103400,"amm":8610,"aPct":179,"custoOcupacao":11989},{"competencia":"2024-03","vendas":115700,"amm":8610,"aPct":1225,"custoOcupacao":13035},{"competencia":"2024-04","vendas":116500,"amm":8610,"aPct":1293,"custoOcupacao":13103},{"competencia":"2024-05","vendas":129000,"amm":8610,"aPct":2355,"custoOcupacao":14165},{"competencia":"2024-06","vendas":129900,"amm":8610,"aPct":2432,"custoOcupacao":14242},{"competencia":"2024-07","vendas":118900,"amm":9041,"aPct":1066,"custoOcupacao":13307},{"competencia":"2024-08","vendas":119700,"amm":9041,"aPct":1134,"custoOcupacao":13375},{"competencia":"2024-09","vendas":120500,"amm":9041,"aPct":1202,"custoOcupacao":13443},{"competencia":"2024-10","vendas":121300,"amm":9041,"aPct":1270,"custoOcupacao":13511},{"competencia":"2024-11","vendas":122200,"amm":9041,"aPct":1346,"custoOcupacao":13587},{"competencia":"2024-12","vendas":196800,"amm":9041,"aPct":7687,"custoOcupacao":19928},{"competencia":"2025-01","vendas":123800,"amm":9041,"aPct":1482,"custoOcupacao":13723},{"competencia":"2025-02","vendas":112200,"amm":9041,"aPct":496,"custoOcupacao":12737},{"competencia":"2025-03","vendas":125500,"amm":9041,"aPct":1627,"custoOcupacao":13868},{"competencia":"2025-04","vendas":126400,"amm":9041,"aPct":1703,"custoOcupacao":13944},{"competencia":"2025-05","vendas":140000,"amm":9041,"aPct":2859,"custoOcupacao":15100},{"competencia":"2025-06","vendas":140900,"amm":9041,"aPct":2936,"custoOcupacao":15177},{"competencia":"2025-07","vendas":129000,"amm":9493,"aPct":1472,"custoOcupacao":14165},{"competencia":"2025-08","vendas":129900,"amm":9493,"aPct":1549,"custoOcupacao":14242},{"competencia":"2025-09","vendas":130800,"amm":9493,"aPct":1625,"custoOcupacao":14318},{"competencia":"2025-10","vendas":131700,"amm":9493,"aPct":1702,"custoOcupacao":14395},{"competencia":"2025-11","vendas":132600,"amm":9493,"aPct":1778,"custoOcupacao":14471},{"competencia":"2025-12","vendas":213500,"amm":9493,"aPct":8655,"custoOcupacao":21348},{"competencia":"2026-01","vendas":134400,"amm":9493,"aPct":1931,"custoOcupacao":14624},{"competencia":"2026-02","vendas":121800,"amm":9493,"aPct":860,"custoOcupacao":13553},{"competencia":"2026-03","vendas":136200,"amm":9493,"aPct":2084,"custoOcupacao":14777},{"competencia":"2026-04","vendas":137100,"amm":9493,"aPct":2161,"custoOcupacao":14854},{"competencia":"2026-05","vendas":151900,"amm":9493,"aPct":3419,"custoOcupacao":16112},{"competencia":"2026-06","vendas":152900,"amm":10000,"aPct":2997,"custoOcupacao":16197},{"competencia":"2026-07","vendas":140000,"amm":10000,"aPct":1900,"custoOcupacao":15100},{"competencia":"2026-08","vendas":140900,"amm":10000,"aPct":1977,"custoOcupacao":15177},{"competencia":"2026-09","vendas":141900,"amm":10000,"aPct":2062,"custoOcupacao":15262}]},{"id":"ex2","luc":"L-204","nome":"Café Alameda","cnpj":"22.222.222/0001-22","segmento":"Cafeteria","piso":"2","area":45,"formato":"satelite","mix":"Essencial","mixValidado":true,"cluster":"conveniência e permanência","status":"em-negociacao","contrato":{"inicio":"2022-05-01","fim":"2027-04-30","ultimoReajuste":"2026-05-01","indice":"IPCA","comercial":true,"clausulasEspeciais":[],"subsidios":["desconto de condomínio 20%"]},"faturamento":{"amm":6300,"aPctMedioSemDezembro":420},"desempenho":{"vendas12mExpurgada":78000,"custoOcupacao":8580,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-07-10","dispersaoPct":7.8,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":12.5,"ammM2Entorno":150,"ammM2Piso":142,"ammM2Tamanho":160,"ammM2Concorrentes":155,"ammM2SegmentoAbrasce":148,"tabelaAbcM2":165},"historico":[{"competencia":"2022-05","vendas":72600,"amm":5300,"aPct":1234,"custoOcupacao":8534},{"competencia":"2022-06","vendas":73000,"amm":5300,"aPct":1270,"custoOcupacao":8570},{"competencia":"2022-07","vendas":66600,"amm":5300,"aPct":694,"custoOcupacao":7994},{"competencia":"2022-08","vendas":67000,"amm":5300,"aPct":730,"custoOcupacao":8030},{"competencia":"2022-09","vendas":67300,"amm":5300,"aPct":757,"custoOcupacao":8057},{"competencia":"2022-10","vendas":67600,"amm":5300,"aPct":784,"custoOcupacao":8084},{"competencia":"2022-11","vendas":68000,"amm":5300,"aPct":820,"custoOcupacao":8120},{"competencia":"2022-12","vendas":109300,"amm":5300,"aPct":4537,"custoOcupacao":11837},{"competencia":"2023-01","vendas":68600,"amm":5300,"aPct":874,"custoOcupacao":8174},{"competencia":"2023-02","vendas":62100,"amm":5300,"aPct":289,"custoOcupacao":7589},{"competencia":"2023-03","vendas":69300,"amm":5300,"aPct":937,"custoOcupacao":8237},{"competencia":"2023-04","vendas":69600,"amm":5300,"aPct":964,"custoOcupacao":8264},{"competencia":"2023-05","vendas":77000,"amm":5539,"aPct":1391,"custoOcupacao":8930},{"competencia":"2023-06","vendas":77300,"amm":5539,"aPct":1418,"custoOcupacao":8957},{"competencia":"2023-07","vendas":70600,"amm":5539,"aPct":815,"custoOcupacao":8354},{"competencia":"2023-08","vendas":71000,"amm":5539,"aPct":851,"custoOcupacao":8390},{"competencia":"2023-09","vendas":71300,"amm":5539,"aPct":878,"custoOcupacao":8417},{"competencia":"2023-10","vendas":71700,"amm":5539,"aPct":914,"custoOcupacao":8453},{"competencia":"2023-11","vendas":72000,"amm":5539,"aPct":941,"custoOcupacao":8480},{"competencia":"2023-12","vendas":115800,"amm":5539,"aPct":4883,"custoOcupacao":12422},{"competencia":"2024-01","vendas":72700,"amm":5539,"aPct":1004,"custoOcupacao":8543},{"competencia":"2024-02","vendas":65800,"amm":5539,"aPct":383,"custoOcupacao":7922},{"competencia":"2024-03","vendas":73400,"amm":5539,"aPct":1067,"custoOcupacao":8606},{"competencia":"2024-04","vendas":73800,"amm":5539,"aPct":1103,"custoOcupacao":8642},{"competencia":"2024-05","vendas":81600,"amm":5788,"aPct":1556,"custoOcupacao":9344},{"competencia":"2024-06","vendas":82000,"amm":5788,"aPct":1592,"custoOcupacao":9380},{"competencia":"2024-07","vendas":74900,"amm":5788,"aPct":953,"custoOcupacao":8741},{"competencia":"2024-08","vendas":75200,"amm":5788,"aPct":980,"custoOcupacao":8768},{"competencia":"2024-09","vendas":75600,"amm":5788,"aPct":1016,"custoOcupacao":8804},{"competencia":"2024-10","vendas":76000,"amm":5788,"aPct":1052,"custoOcupacao":8840},{"competencia":"2024-11","vendas":76300,"amm":5788,"aPct":1079,"custoOcupacao":8867},{"competencia":"2024-12","vendas":122800,"amm":5788,"aPct":5264,"custoOcupacao":13052},{"competencia":"2025-01","vendas":77100,"amm":5788,"aPct":1151,"custoOcupacao":8939},{"competencia":"2025-02","vendas":69700,"amm":5788,"aPct":485,"custoOcupacao":8273},{"competencia":"2025-03","vendas":77800,"amm":5788,"aPct":1214,"custoOcupacao":9002},{"competencia":"2025-04","vendas":78200,"amm":5788,"aPct":1250,"custoOcupacao":9038},{"competencia":"2025-05","vendas":86500,"amm":6048,"aPct":1737,"custoOcupacao":9785},{"competencia":"2025-06","vendas":86900,"amm":6048,"aPct":1773,"custoOcupacao":9821},{"competencia":"2025-07","vendas":79400,"amm":6048,"aPct":1098,"custoOcupacao":9146},{"competencia":"2025-08","vendas":79800,"amm":6048,"aPct":1134,"custoOcupacao":9182},{"competencia":"2025-09","vendas":80100,"amm":6048,"aPct":1161,"custoOcupacao":9209},{"competencia":"2025-10","vendas":80500,"amm":6048,"aPct":1197,"custoOcupacao":9245},{"competencia":"2025-11","vendas":80900,"amm":6048,"aPct":1233,"custoOcupacao":9281},{"competencia":"2025-12","vendas":130100,"amm":6048,"aPct":5661,"custoOcupacao":13709},{"competencia":"2026-01","vendas":81700,"amm":6048,"aPct":1305,"custoOcupacao":9353},{"competencia":"2026-02","vendas":73900,"amm":6048,"aPct":603,"custoOcupacao":8651},{"competencia":"2026-03","vendas":82500,"amm":6048,"aPct":1377,"custoOcupacao":9425},{"competencia":"2026-04","vendas":82900,"amm":6048,"aPct":1413,"custoOcupacao":9461},{"competencia":"2026-05","vendas":91700,"amm":6320,"aPct":1933,"custoOcupacao":10253},{"competencia":"2026-06","vendas":92100,"amm":6300,"aPct":1989,"custoOcupacao":10289},{"competencia":"2026-07","vendas":84100,"amm":6300,"aPct":1269,"custoOcupacao":9569},{"competencia":"2026-08","vendas":84500,"amm":6300,"aPct":1305,"custoOcupacao":9605},{"competencia":"2026-09","vendas":85000,"amm":6300,"aPct":1350,"custoOcupacao":9650}]},{"id":"ex3","luc":"L-131","nome":"Casa & Cores","cnpj":"33.333.333/0001-33","segmento":"Casa e decoração","piso":"1","area":120,"formato":"satelite","mix":"Indiferente","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2022-09-01","fim":"2027-08-31","ultimoReajuste":"2026-09-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":14400,"aPctMedioSemDezembro":300},"desempenho":{"vendas12mExpurgada":98000,"custoOcupacao":19600,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-08-20","dispersaoPct":3.2,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasSegmentoShoppingPct":14,"ammM2Entorno":110,"ammM2Piso":96,"ammM2Tamanho":90,"ammM2Concorrentes":105,"ammM2SegmentoAbrasce":100,"tabelaAbcM2":115},"historico":[{"competencia":"2022-09","vendas":112000,"amm":12200,"aPct":3480,"custoOcupacao":19780},{"competencia":"2022-10","vendas":111600,"amm":12200,"aPct":3424,"custoOcupacao":19724},{"competencia":"2022-11","vendas":111100,"amm":12200,"aPct":3354,"custoOcupacao":19654},{"competencia":"2022-12","vendas":177100,"amm":12200,"aPct":12594,"custoOcupacao":28894},{"competencia":"2023-01","vendas":110300,"amm":12200,"aPct":3242,"custoOcupacao":19542},{"competencia":"2023-02","vendas":98900,"amm":12200,"aPct":1646,"custoOcupacao":17946},{"competencia":"2023-03","vendas":109500,"amm":12200,"aPct":3130,"custoOcupacao":19430},{"competencia":"2023-04","vendas":109000,"amm":12200,"aPct":3060,"custoOcupacao":19360},{"competencia":"2023-05","vendas":119500,"amm":12200,"aPct":4530,"custoOcupacao":20830},{"competencia":"2023-06","vendas":119000,"amm":12200,"aPct":4460,"custoOcupacao":20760},{"competencia":"2023-07","vendas":107800,"amm":12200,"aPct":2892,"custoOcupacao":19192},{"competencia":"2023-08","vendas":107400,"amm":12200,"aPct":2836,"custoOcupacao":19136},{"competencia":"2023-09","vendas":107000,"amm":12871,"aPct":2109,"custoOcupacao":19080},{"competencia":"2023-10","vendas":106600,"amm":12871,"aPct":2053,"custoOcupacao":19024},{"competencia":"2023-11","vendas":106100,"amm":12871,"aPct":1983,"custoOcupacao":18954},{"competencia":"2023-12","vendas":169200,"amm":12871,"aPct":10817,"custoOcupacao":27788},{"competencia":"2024-01","vendas":105300,"amm":12871,"aPct":1871,"custoOcupacao":18842},{"competencia":"2024-02","vendas":94400,"amm":12871,"aPct":345,"custoOcupacao":17316},{"competencia":"2024-03","vendas":104500,"amm":12871,"aPct":1759,"custoOcupacao":18730},{"competencia":"2024-04","vendas":104100,"amm":12871,"aPct":1703,"custoOcupacao":18674},{"competencia":"2024-05","vendas":114100,"amm":12871,"aPct":3103,"custoOcupacao":20074},{"competencia":"2024-06","vendas":113700,"amm":12871,"aPct":3047,"custoOcupacao":20018},{"competencia":"2024-07","vendas":102900,"amm":12871,"aPct":1535,"custoOcupacao":18506},{"competencia":"2024-08","vendas":102500,"amm":12871,"aPct":1479,"custoOcupacao":18450},{"competencia":"2024-09","vendas":102100,"amm":13579,"aPct":715,"custoOcupacao":18394},{"competencia":"2024-10","vendas":101800,"amm":13579,"aPct":673,"custoOcupacao":18352},{"competencia":"2024-11","vendas":101400,"amm":13579,"aPct":617,"custoOcupacao":18296},{"competencia":"2024-12","vendas":161600,"amm":13579,"aPct":9045,"custoOcupacao":26724},{"competencia":"2025-01","vendas":100600,"amm":13579,"aPct":505,"custoOcupacao":18184},{"competencia":"2025-02","vendas":90200,"amm":13579,"aPct":0,"custoOcupacao":17679},{"competencia":"2025-03","vendas":99800,"amm":13579,"aPct":393,"custoOcupacao":18072},{"competencia":"2025-04","vendas":99400,"amm":13579,"aPct":337,"custoOcupacao":18016},{"competencia":"2025-05","vendas":109000,"amm":13579,"aPct":1681,"custoOcupacao":19360},{"competencia":"2025-06","vendas":108500,"amm":13579,"aPct":1611,"custoOcupacao":19290},{"competencia":"2025-07","vendas":98300,"amm":13579,"aPct":183,"custoOcupacao":17862},{"competencia":"2025-08","vendas":97900,"amm":13579,"aPct":127,"custoOcupacao":17806},{"competencia":"2025-09","vendas":97600,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2025-10","vendas":97200,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2025-11","vendas":96800,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2025-12","vendas":154300,"amm":14326,"aPct":7276,"custoOcupacao":25702},{"competencia":"2026-01","vendas":96100,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-02","vendas":86100,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-03","vendas":95300,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-04","vendas":95000,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-05","vendas":104100,"amm":14326,"aPct":248,"custoOcupacao":18674},{"competencia":"2026-06","vendas":103700,"amm":14400,"aPct":118,"custoOcupacao":18618},{"competencia":"2026-07","vendas":93900,"amm":14400,"aPct":0,"custoOcupacao":18500},{"competencia":"2026-08","vendas":93500,"amm":14400,"aPct":0,"custoOcupacao":18500},{"competencia":"2026-09","vendas":93200,"amm":14400,"aPct":0,"custoOcupacao":18500}]},{"id":"ex4","luc":"L-309","nome":"Bazar Oferta","cnpj":"44.444.444/0001-44","segmento":"Variedades","piso":"3","area":80,"formato":"satelite","mix":"Ofensora","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2022-02-01","fim":"2027-01-31","ultimoReajuste":"2026-02-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":5600,"aPctMedioSemDezembro":150},"desempenho":{"vendas12mExpurgada":62000,"custoOcupacao":8060,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-05-05","dispersaoPct":11,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"negociacao":{"resistencia":true},"comparativos":{"coVendasSegmentoShoppingPct":15,"ammM2Entorno":92,"ammM2Piso":85,"ammM2Tamanho":98,"ammM2Concorrentes":100,"ammM2SegmentoAbrasce":88,"tabelaAbcM2":105}},{"id":"ex5","luc":"L-215","nome":"Ótica Horizonte","cnpj":"55.555.555/0001-55","segmento":"Óticas","piso":"2","area":50,"formato":"satelite","mix":"Relevante","mixValidado":false,"status":"a-negociar","contrato":{"inicio":"2022-08-01","fim":"2027-07-31","ultimoReajuste":"2026-08-01","indice":"IPCA","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":6000,"aPctMedioSemDezembro":500},"desempenho":{"vendas12mExpurgada":70000,"custoOcupacao":7700,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2025-11-12","dispersaoPct":6,"statusLivros":"pendente"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":13,"ammM2Entorno":140,"ammM2Piso":142,"ammM2Tamanho":150,"ammM2Concorrentes":138,"tabelaAbcM2":150}},{"id":"ex6","luc":"L-142","nome":"Sapataria Norte","cnpj":"66.666.666/0001-66","segmento":"Calçados","piso":"1","area":70,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2022-04-01","fim":"2027-03-31","ultimoReajuste":"2026-04-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":7700,"aPctMedioSemDezembro":600},"desempenho":{"vendas12mExpurgada":90000,"custoOcupacao":10800,"mesesInadimplente":2,"saldoAberto":21000},"auditoria":{"ultimaIntegral":"2026-07-22","dispersaoPct":5,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":12.8,"ammM2Entorno":125,"ammM2Piso":118,"ammM2Tamanho":122,"ammM2Concorrentes":130,"ammM2SegmentoAbrasce":112,"tabelaAbcM2":140}},{"id":"ex7","luc":"L-227","nome":"Tech Mais","cnpj":"77.777.777/0001-77","segmento":"Eletrônicos e acessórios","piso":"2","area":60,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2023-10-01","fim":"2028-09-30","ultimoReajuste":"2025-10-01","indice":"IPCA","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":8400,"aPctMedioSemDezembro":900},"desempenho":{"vendas12mExpurgada":120000,"custoOcupacao":11400,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-03-03","dispersaoPct":2.5,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11,"ammM2Entorno":150,"ammM2Piso":142,"ammM2Tamanho":155,"ammM2Concorrentes":160,"tabelaAbcM2":170},"historico":[{"competencia":"2023-10","vendas":108000,"amm":7600,"aPct":1040,"custoOcupacao":11440},{"competencia":"2023-11","vendas":108400,"amm":7600,"aPct":1072,"custoOcupacao":11472},{"competencia":"2023-12","vendas":173900,"amm":7600,"aPct":6312,"custoOcupacao":16712},{"competencia":"2024-01","vendas":109100,"amm":7600,"aPct":1128,"custoOcupacao":11528},{"competencia":"2024-02","vendas":98500,"amm":7600,"aPct":280,"custoOcupacao":10680},{"competencia":"2024-03","vendas":109800,"amm":7600,"aPct":1184,"custoOcupacao":11584},{"competencia":"2024-04","vendas":110100,"amm":7600,"aPct":1208,"custoOcupacao":11608},{"competencia":"2024-05","vendas":121500,"amm":7600,"aPct":2120,"custoOcupacao":12520},{"competencia":"2024-06","vendas":121900,"amm":7600,"aPct":2152,"custoOcupacao":12552},{"competencia":"2024-07","vendas":111200,"amm":7600,"aPct":1296,"custoOcupacao":11696},{"competencia":"2024-08","vendas":111600,"amm":7600,"aPct":1328,"custoOcupacao":11728},{"competencia":"2024-09","vendas":112000,"amm":7600,"aPct":1360,"custoOcupacao":11760},{"competencia":"2024-10","vendas":112300,"amm":7980,"aPct":1004,"custoOcupacao":11784},{"competencia":"2024-11","vendas":112700,"amm":7980,"aPct":1036,"custoOcupacao":11816},{"competencia":"2024-12","vendas":180900,"amm":7980,"aPct":6492,"custoOcupacao":17272},{"competencia":"2025-01","vendas":113400,"amm":7980,"aPct":1092,"custoOcupacao":11872},{"competencia":"2025-02","vendas":102400,"amm":7980,"aPct":212,"custoOcupacao":10992},{"competencia":"2025-03","vendas":114200,"amm":7980,"aPct":1156,"custoOcupacao":11936},{"competencia":"2025-04","vendas":114500,"amm":7980,"aPct":1180,"custoOcupacao":11960},{"competencia":"2025-05","vendas":126400,"amm":7980,"aPct":2132,"custoOcupacao":12912},{"competencia":"2025-06","vendas":126800,"amm":7980,"aPct":2164,"custoOcupacao":12944},{"competencia":"2025-07","vendas":115700,"amm":7980,"aPct":1276,"custoOcupacao":12056},{"competencia":"2025-08","vendas":116100,"amm":7980,"aPct":1308,"custoOcupacao":12088},{"competencia":"2025-09","vendas":116400,"amm":7980,"aPct":1332,"custoOcupacao":12112},{"competencia":"2025-10","vendas":116800,"amm":8379,"aPct":965,"custoOcupacao":12144},{"competencia":"2025-11","vendas":117200,"amm":8379,"aPct":997,"custoOcupacao":12176},{"competencia":"2025-12","vendas":188100,"amm":8379,"aPct":6669,"custoOcupacao":17848},{"competencia":"2026-01","vendas":118000,"amm":8379,"aPct":1061,"custoOcupacao":12240},{"competencia":"2026-02","vendas":106500,"amm":8379,"aPct":141,"custoOcupacao":11320},{"competencia":"2026-03","vendas":118700,"amm":8379,"aPct":1117,"custoOcupacao":12296},{"competencia":"2026-04","vendas":119100,"amm":8379,"aPct":1149,"custoOcupacao":12328},{"competencia":"2026-05","vendas":131500,"amm":8379,"aPct":2141,"custoOcupacao":13320},{"competencia":"2026-06","vendas":131900,"amm":8400,"aPct":2152,"custoOcupacao":13352},{"competencia":"2026-07","vendas":120300,"amm":8400,"aPct":1224,"custoOcupacao":12424},{"competencia":"2026-08","vendas":120700,"amm":8400,"aPct":1256,"custoOcupacao":12456},{"competencia":"2026-09","vendas":121100,"amm":8400,"aPct":1288,"custoOcupacao":12488}]},{"id":"ex8","luc":"L-105","nome":"Doce Momento","cnpj":"88.888.888/0001-88","segmento":"Chocolates e doces","piso":"1","area":40,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"renovado","contrato":{"inicio":"2022-01-01","fim":"2027-02-28","ultimoReajuste":"2026-01-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":5200,"aPctMedioSemDezembro":700},"desempenho":{"vendas12mExpurgada":64000,"custoOcupacao":7000,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-04-18","dispersaoPct":3,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":12,"ammM2Entorno":150,"ammM2Piso":142,"ammM2Tamanho":165,"ammM2Concorrentes":158,"tabelaAbcM2":170},"realizado":{"ammNovo":6300,"data":"2026-09-30","novoFim":"2032-02-28"}},{"id":"ex9","luc":"L-312","nome":"Papelaria Ideia","cnpj":"99.999.999/0001-99","segmento":"Papelaria","piso":"3","area":55,"formato":"satelite","mix":"Indiferente","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2021-09-01","fim":"2026-08-31","ultimoReajuste":"2025-09-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":4400,"aPctMedioSemDezembro":200},"desempenho":{"vendas12mExpurgada":48000,"custoOcupacao":6000,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-02","dispersaoPct":4,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasSegmentoShoppingPct":13.5,"ammM2Entorno":92,"ammM2Piso":85,"ammM2Tamanho":95,"ammM2Concorrentes":90,"tabelaAbcM2":100}}]}
+const EXEMPLO = {"_aviso":"BASE DE EXEMPLO. Lojas fictícias e números ilustrativos, só para mostrar o funcionamento. Nenhum valor aqui é dado real de shopping.","params":{"shopping":"Shopping Exemplo","mediaAmmM2Satelites":95,"mediaVendasM2Satelites":1100,"inflacaoAcumuladaPct":4.5,"metaLsrAnualPct":18,"anoPlanejamento":2027,"janelaAuditoriaMeses":6,"mesesSazonais":[12],"toleranciaDispersaoPct":15},"lojas":[{"id":"ex1","luc":"L-118","nome":"Flor de Lis Moda","cnpj":"11.111.111/0001-11","segmento":"Vestuário feminino","piso":"1","area":100,"formato":"satelite","mix":"Relevante","mixValidado":true,"cluster":"moda feminina","status":"a-negociar","contrato":{"inicio":"2022-07-01","fim":"2027-06-30","ultimoReajuste":"2026-07-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":["limitante de reajuste"],"subsidios":[]},"faturamento":{"amm":10000,"aPctMedioSemDezembro":1000},"desempenho":{"vendas12mExpurgada":130000,"custoOcupacao":11960,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-15","dispersaoPct":4.1,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11.3,"ammM2Entorno":120,"ammM2Piso":96,"ammM2Tamanho":108,"ammM2Concorrentes":113,"ammM2SegmentoAbrasce":107,"tabelaAbcM2":135},"historico":[{"competencia":"2022-07","vendas":101000,"amm":8200,"aPct":385,"custoOcupacao":11785},{"competencia":"2022-08","vendas":101700,"amm":8200,"aPct":445,"custoOcupacao":11845},{"competencia":"2022-09","vendas":102400,"amm":8200,"aPct":504,"custoOcupacao":11904},{"competencia":"2022-10","vendas":103100,"amm":8200,"aPct":564,"custoOcupacao":11964},{"competencia":"2022-11","vendas":103800,"amm":8200,"aPct":623,"custoOcupacao":12023},{"competencia":"2022-12","vendas":167200,"amm":8200,"aPct":6012,"custoOcupacao":17412},{"competencia":"2023-01","vendas":105200,"amm":8200,"aPct":742,"custoOcupacao":12142},{"competencia":"2023-02","vendas":95300,"amm":8200,"aPct":0,"custoOcupacao":11400},{"competencia":"2023-03","vendas":106600,"amm":8200,"aPct":861,"custoOcupacao":12261},{"competencia":"2023-04","vendas":107400,"amm":8200,"aPct":929,"custoOcupacao":12329},{"competencia":"2023-05","vendas":118900,"amm":8200,"aPct":1907,"custoOcupacao":13307},{"competencia":"2023-06","vendas":119700,"amm":8200,"aPct":1975,"custoOcupacao":13375},{"competencia":"2023-07","vendas":109600,"amm":8610,"aPct":706,"custoOcupacao":12516},{"competencia":"2023-08","vendas":110300,"amm":8610,"aPct":766,"custoOcupacao":12576},{"competencia":"2023-09","vendas":111100,"amm":8610,"aPct":834,"custoOcupacao":12644},{"competencia":"2023-10","vendas":111800,"amm":8610,"aPct":893,"custoOcupacao":12703},{"competencia":"2023-11","vendas":112600,"amm":8610,"aPct":961,"custoOcupacao":12771},{"competencia":"2023-12","vendas":181400,"amm":8610,"aPct":6809,"custoOcupacao":18619},{"competencia":"2024-01","vendas":114100,"amm":8610,"aPct":1089,"custoOcupacao":12899},{"competencia":"2024-02","vendas":103400,"amm":8610,"aPct":179,"custoOcupacao":11989},{"competencia":"2024-03","vendas":115700,"amm":8610,"aPct":1225,"custoOcupacao":13035},{"competencia":"2024-04","vendas":116500,"amm":8610,"aPct":1293,"custoOcupacao":13103},{"competencia":"2024-05","vendas":129000,"amm":8610,"aPct":2355,"custoOcupacao":14165},{"competencia":"2024-06","vendas":129900,"amm":8610,"aPct":2432,"custoOcupacao":14242},{"competencia":"2024-07","vendas":118900,"amm":9041,"aPct":1066,"custoOcupacao":13307},{"competencia":"2024-08","vendas":119700,"amm":9041,"aPct":1134,"custoOcupacao":13375},{"competencia":"2024-09","vendas":120500,"amm":9041,"aPct":1202,"custoOcupacao":13443},{"competencia":"2024-10","vendas":121300,"amm":9041,"aPct":1270,"custoOcupacao":13511},{"competencia":"2024-11","vendas":122200,"amm":9041,"aPct":1346,"custoOcupacao":13587},{"competencia":"2024-12","vendas":196800,"amm":9041,"aPct":7687,"custoOcupacao":19928},{"competencia":"2025-01","vendas":123800,"amm":9041,"aPct":1482,"custoOcupacao":13723},{"competencia":"2025-02","vendas":112200,"amm":9041,"aPct":496,"custoOcupacao":12737},{"competencia":"2025-03","vendas":125500,"amm":9041,"aPct":1627,"custoOcupacao":13868},{"competencia":"2025-04","vendas":126400,"amm":9041,"aPct":1703,"custoOcupacao":13944},{"competencia":"2025-05","vendas":140000,"amm":9041,"aPct":2859,"custoOcupacao":15100},{"competencia":"2025-06","vendas":140900,"amm":9041,"aPct":2936,"custoOcupacao":15177},{"competencia":"2025-07","vendas":129000,"amm":9493,"aPct":1472,"custoOcupacao":14165},{"competencia":"2025-08","vendas":129900,"amm":9493,"aPct":1549,"custoOcupacao":14242},{"competencia":"2025-09","vendas":130800,"amm":9493,"aPct":1625,"custoOcupacao":14318},{"competencia":"2025-10","vendas":131700,"amm":9493,"aPct":1702,"custoOcupacao":14395},{"competencia":"2025-11","vendas":132600,"amm":9493,"aPct":1778,"custoOcupacao":14471},{"competencia":"2025-12","vendas":213500,"amm":9493,"aPct":8655,"custoOcupacao":21348},{"competencia":"2026-01","vendas":134400,"amm":9493,"aPct":1931,"custoOcupacao":14624},{"competencia":"2026-02","vendas":121800,"amm":9493,"aPct":860,"custoOcupacao":13553},{"competencia":"2026-03","vendas":136200,"amm":9493,"aPct":2084,"custoOcupacao":14777},{"competencia":"2026-04","vendas":137100,"amm":9493,"aPct":2161,"custoOcupacao":14854},{"competencia":"2026-05","vendas":151900,"amm":9493,"aPct":3419,"custoOcupacao":16112},{"competencia":"2026-06","vendas":152900,"amm":10000,"aPct":2997,"custoOcupacao":16197},{"competencia":"2026-07","vendas":140000,"amm":10000,"aPct":1900,"custoOcupacao":15100},{"competencia":"2026-08","vendas":140900,"amm":10000,"aPct":1977,"custoOcupacao":15177},{"competencia":"2026-09","vendas":141900,"amm":10000,"aPct":2062,"custoOcupacao":15262}]},{"id":"ex2","luc":"L-204","nome":"Café Alameda","cnpj":"22.222.222/0001-22","segmento":"Cafeteria","piso":"2","area":45,"formato":"satelite","mix":"Essencial","mixValidado":true,"cluster":"conveniência e permanência","status":"em-negociacao","contrato":{"inicio":"2022-05-01","fim":"2027-04-30","ultimoReajuste":"2026-05-01","indice":"IPCA","comercial":true,"clausulasEspeciais":[],"subsidios":["desconto de condomínio 20%"]},"faturamento":{"amm":6300,"aPctMedioSemDezembro":420},"desempenho":{"vendas12mExpurgada":78000,"custoOcupacao":8580,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-07-10","dispersaoPct":7.8,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":12.5,"ammM2Entorno":150,"ammM2Piso":142,"ammM2Tamanho":160,"ammM2Concorrentes":155,"ammM2SegmentoAbrasce":148,"tabelaAbcM2":165},"historico":[{"competencia":"2022-05","vendas":72600,"amm":5300,"aPct":1234,"custoOcupacao":8534},{"competencia":"2022-06","vendas":73000,"amm":5300,"aPct":1270,"custoOcupacao":8570},{"competencia":"2022-07","vendas":66600,"amm":5300,"aPct":694,"custoOcupacao":7994},{"competencia":"2022-08","vendas":67000,"amm":5300,"aPct":730,"custoOcupacao":8030},{"competencia":"2022-09","vendas":67300,"amm":5300,"aPct":757,"custoOcupacao":8057},{"competencia":"2022-10","vendas":67600,"amm":5300,"aPct":784,"custoOcupacao":8084},{"competencia":"2022-11","vendas":68000,"amm":5300,"aPct":820,"custoOcupacao":8120},{"competencia":"2022-12","vendas":109300,"amm":5300,"aPct":4537,"custoOcupacao":11837},{"competencia":"2023-01","vendas":68600,"amm":5300,"aPct":874,"custoOcupacao":8174},{"competencia":"2023-02","vendas":62100,"amm":5300,"aPct":289,"custoOcupacao":7589},{"competencia":"2023-03","vendas":69300,"amm":5300,"aPct":937,"custoOcupacao":8237},{"competencia":"2023-04","vendas":69600,"amm":5300,"aPct":964,"custoOcupacao":8264},{"competencia":"2023-05","vendas":77000,"amm":5539,"aPct":1391,"custoOcupacao":8930},{"competencia":"2023-06","vendas":77300,"amm":5539,"aPct":1418,"custoOcupacao":8957},{"competencia":"2023-07","vendas":70600,"amm":5539,"aPct":815,"custoOcupacao":8354},{"competencia":"2023-08","vendas":71000,"amm":5539,"aPct":851,"custoOcupacao":8390},{"competencia":"2023-09","vendas":71300,"amm":5539,"aPct":878,"custoOcupacao":8417},{"competencia":"2023-10","vendas":71700,"amm":5539,"aPct":914,"custoOcupacao":8453},{"competencia":"2023-11","vendas":72000,"amm":5539,"aPct":941,"custoOcupacao":8480},{"competencia":"2023-12","vendas":115800,"amm":5539,"aPct":4883,"custoOcupacao":12422},{"competencia":"2024-01","vendas":72700,"amm":5539,"aPct":1004,"custoOcupacao":8543},{"competencia":"2024-02","vendas":65800,"amm":5539,"aPct":383,"custoOcupacao":7922},{"competencia":"2024-03","vendas":73400,"amm":5539,"aPct":1067,"custoOcupacao":8606},{"competencia":"2024-04","vendas":73800,"amm":5539,"aPct":1103,"custoOcupacao":8642},{"competencia":"2024-05","vendas":81600,"amm":5788,"aPct":1556,"custoOcupacao":9344},{"competencia":"2024-06","vendas":82000,"amm":5788,"aPct":1592,"custoOcupacao":9380},{"competencia":"2024-07","vendas":74900,"amm":5788,"aPct":953,"custoOcupacao":8741},{"competencia":"2024-08","vendas":75200,"amm":5788,"aPct":980,"custoOcupacao":8768},{"competencia":"2024-09","vendas":75600,"amm":5788,"aPct":1016,"custoOcupacao":8804},{"competencia":"2024-10","vendas":76000,"amm":5788,"aPct":1052,"custoOcupacao":8840},{"competencia":"2024-11","vendas":76300,"amm":5788,"aPct":1079,"custoOcupacao":8867},{"competencia":"2024-12","vendas":122800,"amm":5788,"aPct":5264,"custoOcupacao":13052},{"competencia":"2025-01","vendas":77100,"amm":5788,"aPct":1151,"custoOcupacao":8939},{"competencia":"2025-02","vendas":69700,"amm":5788,"aPct":485,"custoOcupacao":8273},{"competencia":"2025-03","vendas":77800,"amm":5788,"aPct":1214,"custoOcupacao":9002},{"competencia":"2025-04","vendas":78200,"amm":5788,"aPct":1250,"custoOcupacao":9038},{"competencia":"2025-05","vendas":86500,"amm":6048,"aPct":1737,"custoOcupacao":9785},{"competencia":"2025-06","vendas":86900,"amm":6048,"aPct":1773,"custoOcupacao":9821},{"competencia":"2025-07","vendas":79400,"amm":6048,"aPct":1098,"custoOcupacao":9146},{"competencia":"2025-08","vendas":79800,"amm":6048,"aPct":1134,"custoOcupacao":9182},{"competencia":"2025-09","vendas":80100,"amm":6048,"aPct":1161,"custoOcupacao":9209},{"competencia":"2025-10","vendas":80500,"amm":6048,"aPct":1197,"custoOcupacao":9245},{"competencia":"2025-11","vendas":80900,"amm":6048,"aPct":1233,"custoOcupacao":9281},{"competencia":"2025-12","vendas":130100,"amm":6048,"aPct":5661,"custoOcupacao":13709},{"competencia":"2026-01","vendas":81700,"amm":6048,"aPct":1305,"custoOcupacao":9353},{"competencia":"2026-02","vendas":73900,"amm":6048,"aPct":603,"custoOcupacao":8651},{"competencia":"2026-03","vendas":82500,"amm":6048,"aPct":1377,"custoOcupacao":9425},{"competencia":"2026-04","vendas":82900,"amm":6048,"aPct":1413,"custoOcupacao":9461},{"competencia":"2026-05","vendas":91700,"amm":6320,"aPct":1933,"custoOcupacao":10253},{"competencia":"2026-06","vendas":92100,"amm":6300,"aPct":1989,"custoOcupacao":10289},{"competencia":"2026-07","vendas":84100,"amm":6300,"aPct":1269,"custoOcupacao":9569},{"competencia":"2026-08","vendas":84500,"amm":6300,"aPct":1305,"custoOcupacao":9605},{"competencia":"2026-09","vendas":85000,"amm":6300,"aPct":1350,"custoOcupacao":9650}]},{"id":"ex3","luc":"L-131","nome":"Casa & Cores","cnpj":"33.333.333/0001-33","segmento":"Casa e decoração","piso":"1","area":120,"formato":"satelite","mix":"Indiferente","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2022-09-01","fim":"2027-08-31","ultimoReajuste":"2026-09-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":14400,"aPctMedioSemDezembro":300},"desempenho":{"vendas12mExpurgada":98000,"custoOcupacao":19600,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-08-20","dispersaoPct":3.2,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasSegmentoShoppingPct":14,"ammM2Entorno":110,"ammM2Piso":96,"ammM2Tamanho":90,"ammM2Concorrentes":105,"ammM2SegmentoAbrasce":100,"tabelaAbcM2":115},"historico":[{"competencia":"2022-09","vendas":112000,"amm":12200,"aPct":3480,"custoOcupacao":19780},{"competencia":"2022-10","vendas":111600,"amm":12200,"aPct":3424,"custoOcupacao":19724},{"competencia":"2022-11","vendas":111100,"amm":12200,"aPct":3354,"custoOcupacao":19654},{"competencia":"2022-12","vendas":177100,"amm":12200,"aPct":12594,"custoOcupacao":28894},{"competencia":"2023-01","vendas":110300,"amm":12200,"aPct":3242,"custoOcupacao":19542},{"competencia":"2023-02","vendas":98900,"amm":12200,"aPct":1646,"custoOcupacao":17946},{"competencia":"2023-03","vendas":109500,"amm":12200,"aPct":3130,"custoOcupacao":19430},{"competencia":"2023-04","vendas":109000,"amm":12200,"aPct":3060,"custoOcupacao":19360},{"competencia":"2023-05","vendas":119500,"amm":12200,"aPct":4530,"custoOcupacao":20830},{"competencia":"2023-06","vendas":119000,"amm":12200,"aPct":4460,"custoOcupacao":20760},{"competencia":"2023-07","vendas":107800,"amm":12200,"aPct":2892,"custoOcupacao":19192},{"competencia":"2023-08","vendas":107400,"amm":12200,"aPct":2836,"custoOcupacao":19136},{"competencia":"2023-09","vendas":107000,"amm":12871,"aPct":2109,"custoOcupacao":19080},{"competencia":"2023-10","vendas":106600,"amm":12871,"aPct":2053,"custoOcupacao":19024},{"competencia":"2023-11","vendas":106100,"amm":12871,"aPct":1983,"custoOcupacao":18954},{"competencia":"2023-12","vendas":169200,"amm":12871,"aPct":10817,"custoOcupacao":27788},{"competencia":"2024-01","vendas":105300,"amm":12871,"aPct":1871,"custoOcupacao":18842},{"competencia":"2024-02","vendas":94400,"amm":12871,"aPct":345,"custoOcupacao":17316},{"competencia":"2024-03","vendas":104500,"amm":12871,"aPct":1759,"custoOcupacao":18730},{"competencia":"2024-04","vendas":104100,"amm":12871,"aPct":1703,"custoOcupacao":18674},{"competencia":"2024-05","vendas":114100,"amm":12871,"aPct":3103,"custoOcupacao":20074},{"competencia":"2024-06","vendas":113700,"amm":12871,"aPct":3047,"custoOcupacao":20018},{"competencia":"2024-07","vendas":102900,"amm":12871,"aPct":1535,"custoOcupacao":18506},{"competencia":"2024-08","vendas":102500,"amm":12871,"aPct":1479,"custoOcupacao":18450},{"competencia":"2024-09","vendas":102100,"amm":13579,"aPct":715,"custoOcupacao":18394},{"competencia":"2024-10","vendas":101800,"amm":13579,"aPct":673,"custoOcupacao":18352},{"competencia":"2024-11","vendas":101400,"amm":13579,"aPct":617,"custoOcupacao":18296},{"competencia":"2024-12","vendas":161600,"amm":13579,"aPct":9045,"custoOcupacao":26724},{"competencia":"2025-01","vendas":100600,"amm":13579,"aPct":505,"custoOcupacao":18184},{"competencia":"2025-02","vendas":90200,"amm":13579,"aPct":0,"custoOcupacao":17679},{"competencia":"2025-03","vendas":99800,"amm":13579,"aPct":393,"custoOcupacao":18072},{"competencia":"2025-04","vendas":99400,"amm":13579,"aPct":337,"custoOcupacao":18016},{"competencia":"2025-05","vendas":109000,"amm":13579,"aPct":1681,"custoOcupacao":19360},{"competencia":"2025-06","vendas":108500,"amm":13579,"aPct":1611,"custoOcupacao":19290},{"competencia":"2025-07","vendas":98300,"amm":13579,"aPct":183,"custoOcupacao":17862},{"competencia":"2025-08","vendas":97900,"amm":13579,"aPct":127,"custoOcupacao":17806},{"competencia":"2025-09","vendas":97600,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2025-10","vendas":97200,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2025-11","vendas":96800,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2025-12","vendas":154300,"amm":14326,"aPct":7276,"custoOcupacao":25702},{"competencia":"2026-01","vendas":96100,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-02","vendas":86100,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-03","vendas":95300,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-04","vendas":95000,"amm":14326,"aPct":0,"custoOcupacao":18426},{"competencia":"2026-05","vendas":104100,"amm":14326,"aPct":248,"custoOcupacao":18674},{"competencia":"2026-06","vendas":103700,"amm":14400,"aPct":118,"custoOcupacao":18618},{"competencia":"2026-07","vendas":93900,"amm":14400,"aPct":0,"custoOcupacao":18500},{"competencia":"2026-08","vendas":93500,"amm":14400,"aPct":0,"custoOcupacao":18500},{"competencia":"2026-09","vendas":93200,"amm":14400,"aPct":0,"custoOcupacao":18500}]},{"id":"ex4","luc":"L-309","nome":"Bazar Oferta","cnpj":"44.444.444/0001-44","segmento":"Variedades","piso":"3","area":80,"formato":"satelite","mix":"Ofensora","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2022-02-01","fim":"2027-01-31","ultimoReajuste":"2026-02-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":5600,"aPctMedioSemDezembro":150},"desempenho":{"vendas12mExpurgada":62000,"custoOcupacao":8060,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-05-05","dispersaoPct":11,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"negociacao":{"resistencia":true},"comparativos":{"coVendasSegmentoShoppingPct":15,"ammM2Entorno":92,"ammM2Piso":85,"ammM2Tamanho":98,"ammM2Concorrentes":100,"ammM2SegmentoAbrasce":88,"tabelaAbcM2":105}},{"id":"ex5","luc":"L-215","nome":"Ótica Horizonte","cnpj":"55.555.555/0001-55","segmento":"Óticas","piso":"2","area":50,"formato":"satelite","mix":"Relevante","mixValidado":false,"status":"a-negociar","contrato":{"inicio":"2022-08-01","fim":"2027-07-31","ultimoReajuste":"2026-08-01","indice":"IPCA","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":6000,"aPctMedioSemDezembro":500},"desempenho":{"vendas12mExpurgada":70000,"custoOcupacao":7700,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2025-11-12","dispersaoPct":6,"statusLivros":"pendente"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":13,"ammM2Entorno":140,"ammM2Piso":142,"ammM2Tamanho":150,"ammM2Concorrentes":138,"tabelaAbcM2":150}},{"id":"ex6","luc":"L-142","nome":"Sapataria Norte","cnpj":"66.666.666/0001-66","segmento":"Calçados","piso":"1","area":70,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2022-04-01","fim":"2027-03-31","ultimoReajuste":"2026-04-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":7700,"aPctMedioSemDezembro":600},"desempenho":{"vendas12mExpurgada":90000,"custoOcupacao":10800,"mesesInadimplente":2,"saldoAberto":21000},"auditoria":{"ultimaIntegral":"2026-07-22","dispersaoPct":5,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":12.8,"ammM2Entorno":125,"ammM2Piso":118,"ammM2Tamanho":122,"ammM2Concorrentes":130,"ammM2SegmentoAbrasce":112,"tabelaAbcM2":140}},{"id":"ex7","luc":"L-227","nome":"Tech Mais","cnpj":"77.777.777/0001-77","segmento":"Eletrônicos e acessórios","piso":"2","area":60,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2023-10-01","fim":"2028-09-30","ultimoReajuste":"2025-10-01","indice":"IPCA","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":8400,"aPctMedioSemDezembro":900},"desempenho":{"vendas12mExpurgada":120000,"custoOcupacao":11400,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-03-03","dispersaoPct":2.5,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11,"ammM2Entorno":150,"ammM2Piso":142,"ammM2Tamanho":155,"ammM2Concorrentes":160,"tabelaAbcM2":170},"historico":[{"competencia":"2023-10","vendas":108000,"amm":7600,"aPct":1040,"custoOcupacao":11440},{"competencia":"2023-11","vendas":108400,"amm":7600,"aPct":1072,"custoOcupacao":11472},{"competencia":"2023-12","vendas":173900,"amm":7600,"aPct":6312,"custoOcupacao":16712},{"competencia":"2024-01","vendas":109100,"amm":7600,"aPct":1128,"custoOcupacao":11528},{"competencia":"2024-02","vendas":98500,"amm":7600,"aPct":280,"custoOcupacao":10680},{"competencia":"2024-03","vendas":109800,"amm":7600,"aPct":1184,"custoOcupacao":11584},{"competencia":"2024-04","vendas":110100,"amm":7600,"aPct":1208,"custoOcupacao":11608},{"competencia":"2024-05","vendas":121500,"amm":7600,"aPct":2120,"custoOcupacao":12520},{"competencia":"2024-06","vendas":121900,"amm":7600,"aPct":2152,"custoOcupacao":12552},{"competencia":"2024-07","vendas":111200,"amm":7600,"aPct":1296,"custoOcupacao":11696},{"competencia":"2024-08","vendas":111600,"amm":7600,"aPct":1328,"custoOcupacao":11728},{"competencia":"2024-09","vendas":112000,"amm":7600,"aPct":1360,"custoOcupacao":11760},{"competencia":"2024-10","vendas":112300,"amm":7980,"aPct":1004,"custoOcupacao":11784},{"competencia":"2024-11","vendas":112700,"amm":7980,"aPct":1036,"custoOcupacao":11816},{"competencia":"2024-12","vendas":180900,"amm":7980,"aPct":6492,"custoOcupacao":17272},{"competencia":"2025-01","vendas":113400,"amm":7980,"aPct":1092,"custoOcupacao":11872},{"competencia":"2025-02","vendas":102400,"amm":7980,"aPct":212,"custoOcupacao":10992},{"competencia":"2025-03","vendas":114200,"amm":7980,"aPct":1156,"custoOcupacao":11936},{"competencia":"2025-04","vendas":114500,"amm":7980,"aPct":1180,"custoOcupacao":11960},{"competencia":"2025-05","vendas":126400,"amm":7980,"aPct":2132,"custoOcupacao":12912},{"competencia":"2025-06","vendas":126800,"amm":7980,"aPct":2164,"custoOcupacao":12944},{"competencia":"2025-07","vendas":115700,"amm":7980,"aPct":1276,"custoOcupacao":12056},{"competencia":"2025-08","vendas":116100,"amm":7980,"aPct":1308,"custoOcupacao":12088},{"competencia":"2025-09","vendas":116400,"amm":7980,"aPct":1332,"custoOcupacao":12112},{"competencia":"2025-10","vendas":116800,"amm":8379,"aPct":965,"custoOcupacao":12144},{"competencia":"2025-11","vendas":117200,"amm":8379,"aPct":997,"custoOcupacao":12176},{"competencia":"2025-12","vendas":188100,"amm":8379,"aPct":6669,"custoOcupacao":17848},{"competencia":"2026-01","vendas":118000,"amm":8379,"aPct":1061,"custoOcupacao":12240},{"competencia":"2026-02","vendas":106500,"amm":8379,"aPct":141,"custoOcupacao":11320},{"competencia":"2026-03","vendas":118700,"amm":8379,"aPct":1117,"custoOcupacao":12296},{"competencia":"2026-04","vendas":119100,"amm":8379,"aPct":1149,"custoOcupacao":12328},{"competencia":"2026-05","vendas":131500,"amm":8379,"aPct":2141,"custoOcupacao":13320},{"competencia":"2026-06","vendas":131900,"amm":8400,"aPct":2152,"custoOcupacao":13352},{"competencia":"2026-07","vendas":120300,"amm":8400,"aPct":1224,"custoOcupacao":12424},{"competencia":"2026-08","vendas":120700,"amm":8400,"aPct":1256,"custoOcupacao":12456},{"competencia":"2026-09","vendas":121100,"amm":8400,"aPct":1288,"custoOcupacao":12488}]},{"id":"ex8","luc":"L-105","nome":"Doce Momento","cnpj":"88.888.888/0001-88","segmento":"Chocolates e doces","piso":"1","area":40,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"renovado","contrato":{"inicio":"2022-01-01","fim":"2027-02-28","ultimoReajuste":"2026-01-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":5200,"aPctMedioSemDezembro":700},"desempenho":{"vendas12mExpurgada":64000,"custoOcupacao":7000,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-04-18","dispersaoPct":3,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":12,"ammM2Entorno":150,"ammM2Piso":142,"ammM2Tamanho":165,"ammM2Concorrentes":158,"tabelaAbcM2":170},"realizado":{"ammNovo":6300,"data":"2026-09-30","novoFim":"2032-02-28"}},{"id":"ex9","luc":"L-312","nome":"Papelaria Ideia","cnpj":"99.999.999/0001-99","segmento":"Papelaria","piso":"3","area":55,"formato":"satelite","mix":"Indiferente","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2021-09-01","fim":"2026-08-31","ultimoReajuste":"2025-09-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":4400,"aPctMedioSemDezembro":200},"desempenho":{"vendas12mExpurgada":48000,"custoOcupacao":6000,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-02","dispersaoPct":4,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasSegmentoShoppingPct":13.5,"ammM2Entorno":92,"ammM2Piso":85,"ammM2Tamanho":95,"ammM2Concorrentes":90,"tabelaAbcM2":100}},{"id":"ex10","luc":"L-140","nome":"Bella Calçados","cnpj":"1010.101010.101010/0001-1010","segmento":"Calçados","piso":"1","area":90,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2025-03-01","fim":"2030-03-01","ultimoReajuste":"2026-03-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":10080,"aPctMedioSemDezembro":605},"desempenho":{"vendas12mExpurgada":126000,"custoOcupacao":13608,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-15","dispersaoPct":3,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11,"ammM2Entorno":120,"ammM2Piso":114,"ammM2Tamanho":117,"ammM2Concorrentes":122,"tabelaAbcM2":132}},{"id":"ex11","luc":"L-221","nome":"Aroma Perfumaria","cnpj":"1111.111111.111111/0001-1111","segmento":"Cosméticos","piso":"2","area":55,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2024-09-01","fim":"2029-09-01","ultimoReajuste":"2026-09-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":6820,"aPctMedioSemDezembro":409},"desempenho":{"vendas12mExpurgada":85250,"custoOcupacao":9207,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-15","dispersaoPct":3,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11,"ammM2Entorno":132,"ammM2Piso":126,"ammM2Tamanho":129,"ammM2Concorrentes":134,"tabelaAbcM2":144}},{"id":"ex12","luc":"L-233","nome":"Studio Óptica","cnpj":"1212.121212.121212/0001-1212","segmento":"Óticas","piso":"2","area":48,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2025-06-01","fim":"2030-06-01","ultimoReajuste":"2026-06-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":6240,"aPctMedioSemDezembro":374},"desempenho":{"vendas12mExpurgada":78000,"custoOcupacao":8424,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-15","dispersaoPct":3,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11,"ammM2Entorno":138,"ammM2Piso":132,"ammM2Tamanho":135,"ammM2Concorrentes":140,"tabelaAbcM2":150}},{"id":"ex13","luc":"L-150","nome":"Lar Doce Lar","cnpj":"1313.131313.131313/0001-1313","segmento":"Casa e decoração","piso":"1","area":110,"formato":"satelite","mix":"Relevante","mixValidado":true,"status":"a-negociar","contrato":{"inicio":"2024-05-01","fim":"2029-05-01","ultimoReajuste":"2026-05-01","indice":"IGP-M","comercial":true,"clausulasEspeciais":[],"subsidios":[]},"faturamento":{"amm":10780,"aPctMedioSemDezembro":647},"desempenho":{"vendas12mExpurgada":134750,"custoOcupacao":14553,"mesesInadimplente":0,"saldoAberto":0},"auditoria":{"ultimaIntegral":"2026-06-15","dispersaoPct":3,"statusLivros":"auditado"},"juridico":{"acaoContraShopping":false,"renovatoriaAjuizada":false},"comparativos":{"coVendasRedePct":11,"ammM2Entorno":106,"ammM2Piso":100,"ammM2Tamanho":103,"ammM2Concorrentes":108,"tabelaAbcM2":118}}]}
 let estado = { lojas: [], params: { ...PARAMS_PADRAO }, exemplo: false }
 let lojaAtual = null, editandoId = null
 const $ = (s) => document.querySelector(s)
@@ -1083,13 +1392,13 @@ async function copiar(txt, msg) {
   catch (e) { const ta = el('textarea', { style: 'position:fixed;left:-9999px' }); ta.value = txt; document.body.append(ta); ta.select(); try { document.execCommand('copy'); toast(msg || 'Copiado') } catch (e2) { toast('Não foi possível copiar; selecione o texto manualmente') } ta.remove() }
 }
 const hoje = () => $('#hoje').value || new Date().toISOString().slice(0, 10)
-const analises = () => estado.lojas.map(l => ({ ...analisarLoja(l, estado.params, hoje()), shopping: estado.params.shopping }))
+const analises = () => estado.lojas.map(l => ({ ...analisarLoja(l, estado.params, hoje(), estado.lojas), shopping: estado.params.shopping }))
 
 /* ============================================================ abas */
 document.querySelectorAll('nav.abas button').forEach(b => b.addEventListener('click', () => mostrarAba(b.dataset.aba)))
 function mostrarAba(n) {
   document.querySelectorAll('nav.abas button').forEach(b => b.setAttribute('aria-selected', b.dataset.aba === n ? 'true' : 'false'))
-  for (const a of ['radar', 'loja', 'cadastro', 'auditoria', 'plano', 'comite', 'params', 'ajuda']) $('#aba-' + a).hidden = a !== n
+  for (const a of ['radar', 'loja', 'cadastro', 'auditoria', 'plano', 'comite', 'laudo', 'pericia', 'params', 'ajuda']) $('#aba-' + a).hidden = a !== n
   try { localStorage.setItem(CHAVE + ':aba', n) } catch (e) {}
   render()
 }
@@ -1110,6 +1419,9 @@ function render() {
   if (!$('#aba-comite').hidden) renderComite(as)
   if (!$('#aba-params').hidden) renderParams()
   if (!$('#aba-ajuda').hidden) renderAjuda()
+  if (!$('#aba-pericia').hidden) renderPericia(as)
+  if (!$('#aba-laudo').hidden) renderLaudo(as)
+  $('#cntLaudo').textContent = as.filter(a => a.perda?.nivel === 'alto' && a.loja.status !== 'renovado' && a.loja.status !== 'nao-renovado' && (a.farol.cor === 'verde' || a.loja.status === 'em-negociacao' || (a.jan.meses !== null && a.jan.meses <= 12))).length
 }
 
 /* ============================================================ RADAR */
@@ -1132,9 +1444,9 @@ function renderRadar(as) {
   const lista = as.filter(a => (!ff || a.farol.cor === ff) && (!fm || a.cls.mix === fm) && (!fb || [a.loja.luc, a.loja.nome, a.loja.segmento].join(' ').toLowerCase().includes(fb)))
     .sort((x, y) => ordemFarol(x) - ordemFarol(y) || y.prio.score - x.prio.score)
   const t = $('#fila'); t.innerHTML = ''
-  t.append(el('thead', {}, el('tr', { html: '<th>Farol</th><th>Loja</th><th>Mix</th><th class="n">Q</th><th class="n">Meses</th><th class="n">AMM atual</th><th class="n">LSR total</th><th class="n">AMM proposto</th><th class="n">Ganho 60m</th><th>Auditoria</th><th>Perito</th><th>Ação</th>' })))
+  t.append(el('thead', {}, el('tr', { html: '<th>Farol</th><th>Loja</th><th>Mix</th><th class="n">Q</th><th class="n">Meses</th><th class="n">AMM atual</th><th class="n">LSR total</th><th class="n">AMM proposto</th><th class="n">Ganho 60m</th><th>Auditoria</th><th>Perito</th><th>Perda</th><th>Ação</th>' })))
   const tb = el('tbody')
-  if (!lista.length) tb.append(el('tr', {}, el('td', { colspan: '12', class: 'mudo' }, 'Nenhuma loja neste filtro.')))
+  if (!lista.length) tb.append(el('tr', {}, el('td', { colspan: '13', class: 'mudo' }, 'Nenhuma loja neste filtro.')))
   for (const a of lista) {
     const tr = el('tr', { class: 'clk', onclick: () => { lojaAtual = a.loja.id; mostrarAba('loja') } })
     tr.append(el('td', {}, el('span', { class: 'pill ' + a.farol.cor }, a.farol.rotulo)))
@@ -1148,12 +1460,15 @@ function renderRadar(as) {
     tr.append(el('td', { class: 'n' }, a.prop.ganho60m === null ? '—' : brl(a.prop.ganho60m)))
     tr.append(el('td', {}, el('span', { class: 'pill ' + ({ ok: 'verde', programar: 'amarelo' }[a.trava.status] || 'vermelho') }, { ok: 'OK', programar: 'Programar' }[a.trava.status] || 'Reauditar')))
     tr.append(el('td', {}, el('span', { class: 'pill ' + ({ forte: 'verde', atencao: 'amarelo', fragil: 'vermelho' }[a.prop.perito] || 'cinza') }, { forte: 'Forte', atencao: 'Atenção', fragil: 'Frágil' }[a.prop.perito] || '—')))
+    tr.append(el('td', {}, el('span', { class: 'pill ' + pillPerda(a.perda?.nivel), title: (a.perda?.motivos || []).join(' · ') }, rotuloPerda(a.perda?.nivel))))
     tr.append(el('td', { class: 'mudo', style: 'min-width:220px' }, a.jan.acao))
     tb.append(tr)
   }
   t.append(tb)
   renderQuadrantes(as)
 }
+const pillPerda = (n) => ({ alto: 'vermelho', moderado: 'amarelo', baixo: 'verde' })[n] || 'cinza'
+const rotuloPerda = (n) => ({ alto: 'Alto', moderado: 'Moderado', baixo: 'Baixo' })[n] || '—'
 const ordemFarol = (a) => ({ vermelho: 0, verde: 1, amarelo: 2, cinza: 3, azul: 4 }[a.farol.cor] ?? 5);
 ['fFarol', 'fMix', 'fBusca'].forEach(id => $('#' + id).addEventListener('input', render))
 
@@ -1272,10 +1587,39 @@ function renderLoja(as) {
   chk.append(el('div', { class: 'kpi' }, el('div', { class: 'k' }, '2 · Tabela ABC'), el('div', { class: 'v', style: 'font-size:18px' }, p.tabelaAbc === null ? '[FALTA]' : brl(p.tabelaAbc)), el('div', { class: 'd' }, p.vsAbc === null ? 'quanto valeria para loja nova?' : `proposta ${pct(p.vsAbc)} vs ABC`)))
   chk.append(el('div', { class: 'kpi ' + ({ forte: 'ok', atencao: 'aviso', fragil: 'critico' }[p.perito] || '') }, el('div', { class: 'k' }, '3 · Teste do perito'), el('div', { class: 'v', style: 'font-size:18px' }, { forte: 'Forte', atencao: 'Atenção', fragil: 'Frágil' }[p.perito] || '—'), el('div', { class: 'd' }, p.peritoMotivo)))
   sl.append(chk)
+  // laudo prévio (perícia)
+  const slp = sec('5b · Laudo prévio: o que a perícia tende a encontrar')
+  const lp = a.laudo, cp = a.comp
+  if (!lp.disponivel) slp.append(el('div', { class: 'aviso-box' }, `[FALTA: comparáveis suficientes] ${lp.motivo}`))
+  else {
+    slp.append(el('div', { class: { forte: 'ok-box', atencao: 'aviso-box', fragil: 'crit-box' }[lp.veredito] || 'info-box' }, `Veredito ${({ forte: 'FORTE', atencao: 'ATENÇÃO', fragil: 'FRÁGIL' })[lp.veredito] || lp.veredito.toUpperCase()} — ${lp.motivo}`))
+    const g2 = el('div', { class: 'grid g4' })
+    const kp2 = (t, v, d) => g2.append(el('div', { class: 'kpi' }, el('div', { class: 'k' }, t), el('div', { class: 'v long' }, v), el('div', { class: 'd' }, d)))
+    kp2('Comparáveis', String(lp.n), `similares (±${cp.params.similaridadeAreaPct}% de área) e contemporâneos (≤ ${cp.params.contemporaneidadeMeses} m)`)
+    kp2('Valor locativo provável', brl(lp.provavel), `mediana ${brl(lp.medianaM2)}/m² × ${l.area} m²`)
+    kp2('Faixa provável', `${brl(lp.faixa[0])} a ${brl(lp.faixa[1])}`, 'Q1 a Q3 dos comparáveis')
+    kp2('Posição do proposto', lp.posicaoProposto === null ? '—' : `${Math.round(lp.posicaoProposto * 100)}º percentil`, lp.posicaoAtual === null ? '' : `atual no ${Math.round(lp.posicaoAtual * 100)}º`)
+    slp.append(g2)
+  }
+  if (a.perda) {
+    const pd = a.perda
+    slp.append(el('div', { class: { alto: 'crit-box', moderado: 'aviso-box', baixo: 'ok-box' }[pd.nivel] || 'info-box', html: `<b>Risco de perda em renovatória: ${rotuloPerda(pd.nivel).toUpperCase()}</b> — ${esc(pd.motivos.join(' · '))}${pd.disponivel ? `<br><span class="mono">defensável até ${brl(pd.defensavel)} · excedente ${brl(pd.ajuste)} · receita em risco (60 m) ${brl(pd.receitaEmRisco)} · gap vs provável ${pd.gapLaudo === null ? '—' : pct(pd.gapLaudo)}</span>` : ''}` }))
+  }
+  if (cp) {
+    slp.append(renderLaudoChart(a))
+    const det = el('details', { style: 'margin-top:8px' }); det.append(el('summary', {}, `Amostra: ${cp.finais.length} incluída(s), ${cp.amostra.length - cp.finais.length} excluída(s) e por quê`))
+    const tc = el('table', { html: '<thead><tr><th>Loja</th><th class="n">Área</th><th>Piso</th><th class="n">AMM/m²</th><th>Contrato</th><th>Situação</th></tr></thead>' })
+    const tbc = el('tbody')
+    for (const x of cp.amostra) tbc.append(el('tr', { style: x.incluido ? '' : 'color:var(--mudo)', html: `<td><b>${esc(x.luc)}</b> ${esc(x.nome)}</td><td class="n">${x.area ?? '—'}</td><td>${esc(x.piso)}${x.mesmoPiso ? ' ●' : ''}</td><td class="n">${x.ammM2 === null ? '—' : brl(x.ammM2)}</td><td class="mono">${x.dataContrato || '—'}${x.idadeMeses !== null ? ` (${x.idadeMeses} m)` : ''}</td><td>${x.incluido ? '<span class="pill verde">incluído</span>' : esc(x.motivos.join('; '))}</td>` }))
+    tc.append(tbc); det.append(el('div', { class: 'tabela' }, tc)); slp.append(det)
+    if (cp.eventoReferencia) slp.append(el('p', { class: 'tiny', style: 'margin:6px 0 0' }, `Evento estrutural de referência: ${cp.eventoReferencia.data} — ${cp.eventoReferencia.descricao || ''}. Contratos anteriores excluídos.`))
+    slp.append(el('p', { class: 'tiny', style: 'margin:6px 0 0' }, `Heurística anterior (comparativos externos e Tabela ABC): ${a.prop.peritoHeuristico} — ${a.prop.peritoMotivoHeuristico}`))
+  }
   // risco
   const sr = sec('Risco renovatório')
   sr.append(el('div', { class: { alto: 'crit-box', medio: 'aviso-box', baixo: 'ok-box' }[a.risco.nivel] }, `Nível ${a.risco.nivel.toUpperCase()} (${a.risco.score}/100) — ${a.risco.fatores.join(' · ') || 'sem fatores agravantes'}`))
   sr.append(el('p', { class: 'mudo', html: a.risco.lembretes.map(esc).join(' · ') }))
+  if (a.risco.nivel !== 'baixo' || l.juridico?.renovatoriaAjuizada) { const dc = el('details', { open: '' }); dc.append(el('summary', {}, 'Checklist técnico para analisar a perícia (15 pontos)')); const uc = el('ul', { class: 'chk', style: 'margin-top:8px' }); for (const x of CHECKLIST_PERICIA) uc.append(el('li', {}, x)); dc.append(uc); sr.append(dc) }
   // ações
   const sc = sec('Ações')
   const ul = el('ul', { class: 'chk' }); for (const x of a.acoes) ul.append(el('li', {}, x)); sc.append(ul)
@@ -1317,7 +1661,7 @@ function abrirForm(l) {
   v('c_auditoria', au.ultimaIntegral); v('c_dispersao', au.dispersaoPct); v('c_livros', au.statusLivros); v('c_acao', ju.acaoContraShopping ? '1' : ''); v('c_renovatoria', ju.renovatoriaAjuizada ? '1' : ''); v('c_resist', l?.negociacao?.resistencia ? '1' : '')
   v('c_coRede', cp.coVendasRedePct); v('c_coSeg', cp.coVendasSegmentoShoppingPct); v('c_entorno', cp.ammM2Entorno); v('c_pisoM2', cp.ammM2Piso); v('c_tamanho', cp.ammM2Tamanho); v('c_conc', cp.ammM2Concorrentes); v('c_abrasce', cp.ammM2SegmentoAbrasce); v('c_abc', cp.tabelaAbcM2)
   v('c_ammNovo', re.ammNovo); v('c_dataRenov', re.data); v('c_novoFim', re.novoFim)
-  v('c_historico', historicoTexto(l?.historico || [])); infoHistorico()
+  v('c_historico', historicoTexto(l?.historico || [])); infoHistorico(); v('c_racional', l?.racionalForaDaCurva)
   PERGUNTAS.forEach((_, i) => { const q = $('#q' + i); if (q) q.checked = false }); $('#sugestaoMix').textContent = ''
   $('#formBox').scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
@@ -1343,12 +1687,13 @@ $('#form').addEventListener('submit', (e) => {
     comparativos: { coVendasRedePct: n('c_coRede'), coVendasSegmentoShoppingPct: n('c_coSeg'), ammM2Entorno: n('c_entorno'), ammM2Piso: n('c_pisoM2'), ammM2Tamanho: n('c_tamanho'), ammM2Concorrentes: n('c_conc'), ammM2SegmentoAbrasce: n('c_abrasce'), tabelaAbcM2: n('c_abc') },
     realizado: { ammNovo: n('c_ammNovo'), data: g('c_dataRenov'), novoFim: g('c_novoFim') },
     historico: parseHistoricoTexto(g('c_historico')),
+    racionalForaDaCurva: g('c_racional'),
   }
   const i = estado.lojas.findIndex(x => x.id === loja.id)
   if (i >= 0) estado.lojas[i] = loja; else estado.lojas.push(loja)
   estado.exemplo = false; salvar(); $('#formBox').hidden = true; lojaAtual = loja.id; toast('Loja salva'); render()
 })
-const COLUNAS_MODELO = [['LUC', 'obrigatório; chave de atualização'], ['Nome fantasia', ''], ['CNPJ', 'casa com o Radar de Dispersão'], ['Segmento', ''], ['Piso', ''], ['Área m²', 'm²'], ['Formato', 'satelite · ancora · megaloja · quiosque · atipico'], ['Key Account', 'sim/não'], ['Mix', 'Essencial · Relevante · Indiferente · Ofensora'], ['Mix validado pelo comitê', 'sim/não'], ['Cluster', 'opcional'], ['Status', 'a-negociar · em-negociacao · renovado · nao-renovado'], ['Início vigência', 'data'], ['Fim vigência', 'data (validar na minuta)'], ['Último reajuste', 'data'], ['Índice', ''], ['Degrau', ''], ['Fator aluguel %', ''], ['Contrato comercial', 'sim/não'], ['Inflação acumulada %', 'vazio = usa a do shopping'], ['Cláusulas especiais', 'separadas por vírgula'], ['Subsídios', 'separados por vírgula'], ['AMM último mês', 'R$'], ['A% médio sem dezembro', 'R$'], ['Vendas média 12m expurgada', 'R$'], ['Custo de ocupação', 'R$/mês'], ['Meses inadimplente', ''], ['Saldo em aberto', 'R$'], ['Última auditoria integral', 'data'], ['Dispersão %', 'do Radar de Auditoria'], ['Livros fiscais', 'pendente · notificado · recebido · auditado · negociado · cobrado'], ['Ação contra o shopping', 'sim/não'], ['Renovatória ajuizada', 'sim/não'], ['Lojista resistente', 'sim/não'], ['CO/Vendas rede %', ''], ['CO/Vendas segmento shopping %', ''], ['AMM/m² entorno', 'R$'], ['AMM/m² piso', 'R$'], ['AMM/m² tamanho', 'R$'], ['AMM/m² concorrentes', 'R$'], ['AMM/m² segmento Abrasce', 'R$'], ['Tabela ABC R$/m²', 'R$'], ['AMM novo (realizado)', 'R$'], ['Data renovação', 'data'], ['Nova vigência até', 'data']]
+const COLUNAS_MODELO = [['LUC', 'obrigatório; chave de atualização'], ['Nome fantasia', ''], ['CNPJ', 'casa com o Radar de Dispersão'], ['Segmento', ''], ['Piso', ''], ['Área m²', 'm²'], ['Formato', 'satelite · ancora · megaloja · quiosque · atipico'], ['Key Account', 'sim/não'], ['Mix', 'Essencial · Relevante · Indiferente · Ofensora'], ['Mix validado pelo comitê', 'sim/não'], ['Cluster', 'opcional'], ['Status', 'a-negociar · em-negociacao · renovado · nao-renovado'], ['Início vigência', 'data'], ['Fim vigência', 'data (validar na minuta)'], ['Último reajuste', 'data'], ['Índice', ''], ['Degrau', ''], ['Fator aluguel %', ''], ['Contrato comercial', 'sim/não'], ['Inflação acumulada %', 'vazio = usa a do shopping'], ['Cláusulas especiais', 'separadas por vírgula'], ['Subsídios', 'separados por vírgula'], ['AMM último mês', 'R$'], ['A% médio sem dezembro', 'R$'], ['Vendas média 12m expurgada', 'R$'], ['Custo de ocupação', 'R$/mês'], ['Meses inadimplente', ''], ['Saldo em aberto', 'R$'], ['Última auditoria integral', 'data'], ['Dispersão %', 'do Radar de Auditoria'], ['Livros fiscais', 'pendente · notificado · recebido · auditado · negociado · cobrado'], ['Ação contra o shopping', 'sim/não'], ['Renovatória ajuizada', 'sim/não'], ['Lojista resistente', 'sim/não'], ['CO/Vendas rede %', ''], ['CO/Vendas segmento shopping %', ''], ['AMM/m² entorno', 'R$'], ['AMM/m² piso', 'R$'], ['AMM/m² tamanho', 'R$'], ['AMM/m² concorrentes', 'R$'], ['AMM/m² segmento Abrasce', 'R$'], ['Tabela ABC R$/m²', 'R$'], ['AMM novo (realizado)', 'R$'], ['Data renovação', 'data'], ['Nova vigência até', 'data'], ['Racional comercial', 'por que o valor está fora da curva (perícia)']]
 function renderColunas() { const t = $('#tabColunas'); if (t.children.length) return; t.append(el('thead', { html: '<tr><th>Coluna</th><th>Observação</th></tr>' })); const tb = el('tbody'); for (const [c, o] of COLUNAS_MODELO) tb.append(el('tr', { html: `<td class="mono">${esc(c)}</td><td class="mudo">${esc(o)}</td>` })); t.append(tb) }
 $('#btnExcel').addEventListener('click', () => $('#xlsxFile').click())
 $('#xlsxFile').addEventListener('change', (e) => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => importarExcel(rd.result, f.name); rd.readAsArrayBuffer(f); e.target.value = '' })
@@ -1470,19 +1815,143 @@ $('#anoPlano').addEventListener('change', render)
 /* ============================================================ COMITÊ */
 function renderComite(as) {
   const sel = as.filter(a => a.farol.cor === 'verde' || a.loja.status === 'em-negociacao')
-  const cab = `# Pacote do comitê comercial — ${estado.params.shopping || 'shopping'} — ${hoje()}\n\n${sel.length} loja(s) em negociação ou dentro da janela. A decisão final é do comitê.\n\n| Loja | Mix | Q | Meses | AMM atual | LSR total | AMM proposto | Perito | Risco |\n|---|---|---|---|---|---|---|---|---|\n${sel.map(a => `| ${a.loja.luc} ${a.loja.nome} | ${a.cls.mix || '?'} | ${a.cls.quadrante ?? '?'} | ${a.jan.meses ?? '?'} | ${brl(a.prop.ammAtual)} | ${pct(a.lsr.lsrTotal)} | ${brl(a.prop.ammProposto)} | ${a.prop.perito} | ${a.risco.nivel} |`).join('\n')}\n\n---\n\n`
+  const cab = `# Pacote do comitê comercial — ${estado.params.shopping || 'shopping'} — ${hoje()}\n\n${sel.length} loja(s) em negociação ou dentro da janela. A decisão final é do comitê.\n\n| Loja | Mix | Q | Meses | AMM atual | LSR total | AMM proposto | Laudo provável | Perito | Risco renov. | Risco de perda |\n|---|---|---|---|---|---|---|---|---|---|---|\n${sel.map(a => `| ${a.loja.luc} ${a.loja.nome} | ${a.cls.mix || '?'} | ${a.cls.quadrante ?? '?'} | ${a.jan.meses ?? '?'} | ${brl(a.prop.ammAtual)} | ${pct(a.lsr.lsrTotal)} | ${brl(a.prop.ammProposto)} | ${a.laudo?.disponivel ? brl(a.laudo.provavel) : '—'} | ${a.prop.perito} | ${a.risco.nivel} | ${a.perda?.nivel || '—'} |`).join('\n')}\n\n---\n\n`
   $('#comiteTxt').value = cab + sel.map(analiseObsidian).join('\n\n---\n\n')
 }
 $('#btnCopiarComite').addEventListener('click', () => copiar($('#comiteTxt').value, 'Pacote copiado'))
+
+/* ============================================================ LAUDO (visão de laudo) */
+function selecaoLaudo(as) {
+  const so = $('#fSoNegociacao').checked, fn = $('#fPerda').value
+  return as.filter(a => a.loja.status !== 'renovado' && a.loja.status !== 'nao-renovado' && (!so || a.farol.cor === 'verde' || a.loja.status === 'em-negociacao' || (a.jan.meses !== null && a.jan.meses <= 12)) && (!fn || (a.perda?.nivel || 'indefinido') === fn))
+    .sort((x, y) => ({ alto: 0, moderado: 1, baixo: 2 }[x.perda?.nivel] ?? 3) - ({ alto: 0, moderado: 1, baixo: 2 }[y.perda?.nivel] ?? 3) || (y.perda?.receitaEmRisco || 0) - (x.perda?.receitaEmRisco || 0))
+}
+function renderLaudo(as) {
+  const sel = selecaoLaudo(as)
+  const k = $('#kpiLaudo'); k.innerHTML = ''
+  const kpi = (t, v, d, c = '') => k.append(el('div', { class: 'kpi ' + c }, el('div', { class: 'k' }, t), el('div', { class: 'v' + (String(v).length > 9 ? ' long' : '') }, v), el('div', { class: 'd' }, d)))
+  const n = (lv) => sel.filter(a => a.perda?.nivel === lv).length
+  kpi('Lojas avaliadas', String(sel.length), `${sel.filter(a => a.laudo?.disponivel).length} com laudo prévio`)
+  kpi('Risco alto', String(n('alto')), 'proposta acima do que os comparáveis sustentam', n('alto') ? 'critico' : 'ok')
+  kpi('Risco moderado', String(n('moderado')), 'defensável só com o topo da amostra', n('moderado') ? 'aviso' : '')
+  kpi('Risco baixo', String(n('baixo')), 'laudo tende a sustentar a proposta', 'ok')
+  kpi('Receita em risco (60 m)', brl(sel.reduce((s, a) => s + (a.perda?.receitaEmRisco || 0), 0)), 'se as sentenças vierem no valor provável')
+  kpi('Perda esperada', brl(sel.reduce((s, a) => s + (a.perda?.perdaEsperada || 0), 0)), 'ponderada pela probabilidade de cada nível')
+  kpi('Laudo abaixo do atual', String(sel.filter(a => a.perda?.laudoAbaixoDoAtual).length), 'renovatória poderia reduzir o aluguel', sel.some(a => a.perda?.laudoAbaixoDoAtual) ? 'critico' : 'ok')
+  kpi('Sem laudo', String(sel.filter(a => a.perda && !a.perda.disponivel && a.perda.nivel !== 'indefinido').length), 'faltam comparáveis similares e contemporâneos', sel.some(a => a.perda && !a.perda.disponivel) ? 'aviso' : 'ok')
+  renderLaudoRangeChart(sel)
+  const t = $('#tabLaudo'); t.innerHTML = ''
+  t.append(el('thead', { html: '<tr><th>Risco de perda</th><th>Loja</th><th class="n">Meses</th><th class="n">AMM atual</th><th class="n">AMM proposto</th><th class="n">Laudo provável</th><th class="n">Faixa Q1–Q3</th><th class="n">Gap</th><th class="n">Defensável</th><th class="n">Receita em risco</th><th>Por quê</th></tr>' }))
+  const tb = el('tbody')
+  if (!sel.length) tb.append(el('tr', {}, el('td', { colspan: '11', class: 'mudo' }, 'Nenhuma loja neste filtro.')))
+  for (const a of sel) {
+    const pd = a.perda || {}, lp = a.laudo || {}
+    tb.append(el('tr', { class: 'clk', onclick: () => { lojaAtual = a.loja.id; mostrarAba('loja') }, html: `<td><span class="pill ${pillPerda(pd.nivel)}">${rotuloPerda(pd.nivel)}</span></td><td><b>${esc(a.loja.luc)}</b> ${esc(a.loja.nome)}<div class="tiny">${esc(a.cls.mix || '')} · ${a.loja.area || '?'} m² · ${lp.disponivel ? lp.n + ' comparáveis' : 'sem laudo'}</div></td><td class="n">${a.jan.meses ?? '—'}</td><td class="n">${brl(a.prop.ammAtual)}</td><td class="n">${a.prop.ammProposto === null ? '—' : brl(a.prop.ammProposto)}</td><td class="n">${lp.disponivel ? brl(lp.provavel) : '—'}</td><td class="n">${lp.disponivel ? `${brl(lp.faixa[0])} a ${brl(lp.faixa[1])}` : '—'}</td><td class="n" style="color:${pd.gapLaudo > 0.25 ? 'var(--critico)' : pd.gapLaudo > 0.10 ? 'var(--aviso)' : 'inherit'}">${pd.gapLaudo === null || pd.gapLaudo === undefined ? '—' : (pd.gapLaudo > 0 ? '+' : '') + pct(pd.gapLaudo)}</td><td class="n">${pd.defensavel === null || pd.defensavel === undefined ? '—' : brl(pd.defensavel)}</td><td class="n">${pd.receitaEmRisco ? brl(pd.receitaEmRisco) : '—'}</td><td class="mudo" style="min-width:260px">${esc((pd.motivos || []).join(' · '))}</td>` }))
+  }
+  t.append(tb)
+  $('#btnLaudoCsv').onclick = () => copiar(['LUC;Loja;Risco de perda;Meses;AMM atual;AMM proposto;Laudo provável;Q1;Q3;Gap %;Defensável;Receita em risco 60m;Motivos', ...sel.map(a => { const pd = a.perda || {}, lp = a.laudo || {}; return [a.loja.luc, a.loja.nome, pd.nivel || '', a.jan.meses ?? '', a.prop.ammAtual ?? '', a.prop.ammProposto ?? '', lp.disponivel ? Math.round(lp.provavel) : '', lp.disponivel ? Math.round(lp.faixa[0]) : '', lp.disponivel ? Math.round(lp.faixa[1]) : '', pd.gapLaudo == null ? '' : Math.round(pd.gapLaudo * 1000) / 10, pd.defensavel == null ? '' : Math.round(pd.defensavel), pd.receitaEmRisco == null ? '' : Math.round(pd.receitaEmRisco), (pd.motivos || []).join(' | ')].map(v => String(v).replace(/;/g, ',')).join(';') })].join('\n'), 'Visão de laudo copiada (CSV)')
+}
+function renderLaudoRangeChart(sel) {
+  const box = $('#laudoChart'); box.innerHTML = ''
+  const rows = sel.filter(a => a.laudo?.disponivel && a.prop.ammProposto !== null)
+  if (!rows.length) { box.append(el('p', { class: 'mudo' }, 'Nenhuma loja com laudo prévio e proposta neste filtro.')); return }
+  const W = 760, rowH = 30, m = { t: 26, r: 24, b: 30, l: 150 }, H = m.t + m.b + rowH * rows.length
+  const vals = rows.flatMap(a => [a.laudo.faixa[0] / a.loja.area, a.laudo.faixa[1] / a.loja.area, a.prop.ammAtual / a.loja.area, a.prop.ammProposto / a.loja.area]).filter(v => v)
+  const x0 = Math.min(...vals) * 0.9, x1 = Math.max(...vals) * 1.06, X = v => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r)
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Proposta e AMM atual contra a faixa do laudo prévio, por loja, em reais por metro quadrado">`
+  const step = niceStep((x1 - x0) / 6); for (let v = Math.ceil(x0 / step) * step; v <= x1; v += step) svg += `<line x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${H - m.b}" stroke="var(--borda)"/><text x="${X(v)}" y="${H - m.b + 16}" font-size="11" text-anchor="middle" fill="var(--fraco)" font-family="var(--mono)">${fmtK(v)}</text>`
+  svg += `<text x="${m.l}" y="${m.t - 10}" font-size="11" fill="var(--fraco)">AMM/m² (R$) · faixa Q1–Q3 do laudo · traço = provável · ○ atual · ◆ proposto</text>`
+  rows.forEach((a, i) => {
+    const y = m.t + rowH * i + rowH / 2, ar = a.loja.area, cor = { alto: 'var(--critico)', moderado: 'var(--aviso)', baixo: 'var(--ok)' }[a.perda.nivel] || 'var(--mudo)'
+    svg += `<text x="${m.l - 10}" y="${y + 4}" font-size="11.5" text-anchor="end" fill="var(--texto)" font-family="var(--mono)">${esc(a.loja.luc)} <tspan fill="var(--fraco)">${esc(String(a.loja.nome).slice(0, 14))}</tspan></text>`
+    svg += `<rect x="${X(a.laudo.faixa[0] / ar)}" y="${y - 8}" width="${Math.max(2, X(a.laudo.faixa[1] / ar) - X(a.laudo.faixa[0] / ar))}" height="16" rx="3" fill="var(--acento)" opacity=".14"/><line x1="${X(a.laudo.provavel / ar)}" x2="${X(a.laudo.provavel / ar)}" y1="${y - 10}" y2="${y + 10}" stroke="var(--acento)" stroke-width="2"/>`
+    svg += `<circle cx="${X(a.prop.ammAtual / ar)}" cy="${y}" r="5" fill="none" stroke="var(--texto)" stroke-width="1.8"><title>${esc(a.loja.luc)} atual ${brl(a.prop.ammAtual / ar)}/m²</title></circle>`
+    const xp = X(a.prop.ammProposto / ar); svg += `<rect x="${xp - 6}" y="${y - 6}" width="12" height="12" transform="rotate(45 ${xp} ${y})" fill="${cor}" stroke="var(--painel)" stroke-width="1.5"><title>${esc(a.loja.luc)} proposto ${brl(a.prop.ammProposto / ar)}/m² · risco ${a.perda.nivel}</title></rect>`
+  })
+  svg += '</svg>'
+  box.innerHTML = svg
+}
+['fPerda', 'fSoNegociacao'].forEach(id => $('#' + id).addEventListener('change', render));
+
+/* ============================================================ PERÍCIA */
+function renderPericia(as) {
+  const lin = linearidade(estado.lojas, estado.params, hoje())
+  const k = $('#kpiLin'); k.innerHTML = ''
+  const kpi = (t, v, d, c = '') => k.append(el('div', { class: 'kpi ' + c }, el('div', { class: 'k' }, t), el('div', { class: 'v' + (String(v).length > 9 ? ' long' : '') }, v), el('div', { class: 'd' }, d)))
+  const cls = { linear: 'ok', moderada: 'aviso', dispersa: 'critico' }[lin.geral.classif] || ''
+  kpi('Satélites na base', String(lin.geral.n), 'com área e AMM')
+  kpi('Mediana AMM/m²', lin.geral.mediana === null ? '—' : brl(lin.geral.mediana), lin.geral.media === null ? '' : `média ${brl(lin.geral.media)}`)
+  kpi('Linearidade', lin.geral.cv === null ? '—' : pct(lin.geral.cv), `coef. de variação · ${lin.geral.classif}`, cls)
+  kpi('Dentro de ±30% da média', lin.dentro30 === null ? '—' : pct(lin.dentro30), 'quanto a média representa', lin.dentro30 !== null && lin.dentro30 < 0.6 ? 'aviso' : '')
+  kpi('Fora da curva', String(lin.fora.length), `${lin.fora.filter(x => !x.racional).length} sem racional documentado`, lin.fora.some(x => !x.racional) ? 'aviso' : 'ok')
+  kpi('Contratos não contemporâneos', String(lin.naoContemporaneos), `com mais de ${lin.params.contemporaneidadeMeses} meses`)
+  renderLinChart(lin)
+  const tabela = (id, grupos, rotulo) => { const t = $(id); t.innerHTML = ''; t.append(el('thead', { html: `<tr><th>${rotulo}</th><th class="n">Lojas</th><th class="n">Mediana</th><th class="n">Mín.</th><th class="n">Máx.</th><th class="n">CV</th><th>Leitura</th></tr>` })); const tb = el('tbody'); for (const g of grupos) tb.append(el('tr', { html: `<td>${esc(g.chave)}</td><td class="n">${g.stats.n}</td><td class="n">${brl(g.stats.mediana)}</td><td class="n">${brl(g.stats.min)}</td><td class="n">${brl(g.stats.max)}</td><td class="n">${g.stats.cv === null ? '—' : pct(g.stats.cv)}</td><td><span class="pill ${({ linear: 'verde', moderada: 'amarelo', dispersa: 'vermelho' })[g.classif] || 'cinza'}">${g.classif}</span></td>` })); t.append(tb) }
+  tabela('#tabFaixa', lin.porFaixa, 'Faixa de área'); tabela('#tabPiso', lin.porPiso, 'Piso')
+  const tf = $('#tabFora'); tf.innerHTML = ''
+  tf.append(el('thead', { html: '<tr><th>Loja</th><th class="n">Área</th><th class="n">AMM/m²</th><th>Referência</th><th class="n">Desvio</th><th style="min-width:260px">Racional comercial</th></tr>' }))
+  const tb = el('tbody')
+  if (!lin.fora.length) tb.append(el('tr', {}, el('td', { colspan: '6', class: 'mudo' }, 'Nenhuma loja fora da curva com a base atual.')))
+  for (const x of lin.fora) {
+    const tr = el('tr', { html: `<td><b>${esc(x.luc)}</b> ${esc(x.nome)}<div class="tiny">${esc(x.faixa)} · piso ${esc(x.piso)}${x.contemporaneo ? '' : ' · contrato antigo'}${x.subsidio ? ' · com subsídio' : ''}</div></td><td class="n">${x.area} m²</td><td class="n">${brl(x.ammM2)}</td><td>${esc(x.referencia)} (mediana ${brl(x.mediana)})</td><td class="n" style="color:${x.lado === 'acima' ? 'var(--ok)' : 'var(--critico)'}">${x.desvioPct > 0 ? '+' : ''}${pct(x.desvioPct)}</td>` })
+    const ta = el('textarea', { style: 'min-height:48px;font-family:var(--corpo)', placeholder: 'Por que este valor é defensável?' }); ta.value = x.racional
+    ta.addEventListener('change', () => { const l = estado.lojas.find(l => l.id === x.id); if (l) { l.racionalForaDaCurva = ta.value.trim(); estado.exemplo = false; salvar(); toast('Racional salvo') } })
+    tr.append(el('td', {}, ta)); tb.append(tr)
+  }
+  tf.append(tb)
+  $('#linContemp').textContent = lin.params.contemporaneidadeMeses
+  const ev = $('#linEventos'); ev.innerHTML = ''
+  const evs = estado.params.eventosEstruturais || []
+  if (!evs.length) ev.append(el('p', { class: 'mudo' }, 'Nenhum evento estrutural cadastrado. Registre em Parâmetros (reforma, expansão, sinistro, pandemia) para que os contratos anteriores saiam dos comparáveis.'))
+  else for (const e of evs) ev.append(el('div', { class: 'info-box' }, `${e.data} — ${e.descricao || 'evento estrutural'}`))
+}
+function renderLinChart(lin) {
+  const box = $('#linChart'); box.innerHTML = ''
+  if (lin.geral.n < 3) { box.append(el('p', { class: 'mudo' }, 'Cadastre ao menos 3 satélites com área e AMM para medir a linearidade.')); return }
+  const linhas = lin.porFaixa.filter(g => g.stats.n)
+  const W = 760, rowH = 54, m = { t: 14, r: 20, b: 34, l: 150 }, H = m.t + m.b + rowH * linhas.length
+  const x1 = lin.geral.max * 1.08, X = v => m.l + v / x1 * (W - m.l - m.r)
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="AMM por metro quadrado das satélites, por faixa de área">`
+  const step = niceStep(x1 / 6); for (let v = 0; v <= x1; v += step) svg += `<line x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${H - m.b}" stroke="var(--borda)"/><text x="${X(v)}" y="${H - m.b + 16}" font-size="11" text-anchor="middle" fill="var(--fraco)" font-family="var(--mono)">${fmtK(v)}</text>`
+  svg += `<line x1="${X(lin.geral.mediana)}" x2="${X(lin.geral.mediana)}" y1="${m.t}" y2="${H - m.b}" stroke="var(--fraco)" stroke-width="1.5" stroke-dasharray="5 4"/>`
+  const foraIds = new Set(lin.fora.map(x => x.id))
+  linhas.forEach((g, i) => {
+    const y = m.t + rowH * i + rowH / 2
+    svg += `<text x="${m.l - 10}" y="${y - 4}" font-size="12" font-weight="600" text-anchor="end" fill="var(--texto)">${esc(g.chave)}</text><text x="${m.l - 10}" y="${y + 11}" font-size="10.5" text-anchor="end" fill="var(--fraco)" font-family="var(--mono)">${g.stats.n} lojas · CV ${g.stats.cv === null ? '—' : pct(g.stats.cv)}</text>`
+    if (g.stats.n >= 2) svg += `<rect x="${X(g.stats.q1)}" y="${y - 14}" width="${Math.max(2, X(g.stats.q3) - X(g.stats.q1))}" height="28" rx="4" fill="var(--acento)" opacity=".10"/><line x1="${X(g.stats.mediana)}" x2="${X(g.stats.mediana)}" y1="${y - 16}" y2="${y + 16}" stroke="var(--acento)" stroke-width="2"/>`
+    for (const l of g.lojas) { const fora = foraIds.has(l.id); svg += `<circle cx="${X(l.ammM2)}" cy="${y}" r="${fora ? 6 : 5}" fill="${fora ? 'var(--critico)' : 'var(--acento)'}" stroke="var(--painel)" stroke-width="1.5"><title>${esc(l.luc)} ${esc(l.nome)} · ${brl(l.ammM2)}/m² · ${l.area} m²</title></circle>`; if (fora) svg += `<text x="${X(l.ammM2)}" y="${y - 10}" font-size="10" text-anchor="middle" fill="var(--texto)" font-family="var(--mono)">${esc(l.luc)}</text>` }
+  })
+  svg += `<text x="${(m.l + W - m.r) / 2}" y="${H - 4}" font-size="11" text-anchor="middle" fill="var(--fraco)">AMM/m² (R$) · faixa clara = Q1 a Q3 · traço = mediana da faixa · tracejado = mediana do shopping · vermelho = fora da curva</text></svg>`
+  box.innerHTML = svg
+}
+function renderLaudoChart(a) {
+  const box = el('div', { class: 'chart', style: 'margin-top:10px' })
+  const c = a.comp, lp = a.laudo, area = num(a.loja.area)
+  if (!c || !c.finais.length || !area) return box
+  const W = 760, H = 120, m = { t: 30, r: 20, b: 30, l: 20 }
+  const vals = c.finais.map(x => x.ammM2).concat([a.prop.ammAtual / area, a.prop.ammProposto !== null ? a.prop.ammProposto / area : 0]).filter(v => v)
+  const x0 = Math.min(...vals) * 0.9, x1 = Math.max(...vals) * 1.08, X = v => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r), y = m.t + 30
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Comparáveis do laudo prévio com AMM atual e proposto">`
+  const step = niceStep((x1 - x0) / 6); for (let v = Math.ceil(x0 / step) * step; v <= x1; v += step) svg += `<line x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${H - m.b}" stroke="var(--borda)"/><text x="${X(v)}" y="${H - m.b + 16}" font-size="11" text-anchor="middle" fill="var(--fraco)" font-family="var(--mono)">${fmtK(v)}</text>`
+  if (lp.disponivel) svg += `<rect x="${X(lp.q1M2)}" y="${y - 16}" width="${Math.max(2, X(lp.q3M2) - X(lp.q1M2))}" height="32" rx="4" fill="var(--acento)" opacity=".12"/><line x1="${X(lp.medianaM2)}" x2="${X(lp.medianaM2)}" y1="${y - 20}" y2="${y + 20}" stroke="var(--acento)" stroke-width="2"/><text x="${X(lp.medianaM2)}" y="${m.t - 8}" font-size="11" text-anchor="middle" fill="var(--acento)" font-weight="600">mediana ${brl(lp.medianaM2)}</text>`
+  for (const x of c.finais) svg += `<circle cx="${X(x.ammM2)}" cy="${y}" r="5" fill="var(--acento)" stroke="var(--painel)" stroke-width="1.5"><title>${esc(x.luc)} ${esc(x.nome)} · ${brl(x.ammM2)}/m² · ${x.area} m² · ${x.dataContrato}</title></circle>`
+  if (a.prop.ammAtual) { const xa = X(a.prop.ammAtual / area); svg += `<circle cx="${xa}" cy="${y}" r="8" fill="none" stroke="var(--texto)" stroke-width="2"/><text x="${xa}" y="${y + 34}" font-size="11" text-anchor="middle" fill="var(--texto)">atual ${brl(a.prop.ammAtual / area)}</text>` }
+  if (a.prop.ammProposto !== null) { const xp = X(a.prop.ammProposto / area); const cor = { forte: 'var(--ok)', atencao: 'var(--aviso)', fragil: 'var(--critico)' }[a.prop.perito] || 'var(--texto)'; svg += `<rect x="${xp - 7}" y="${y - 7}" width="14" height="14" transform="rotate(45 ${xp} ${y})" fill="${cor}" stroke="var(--painel)" stroke-width="2"/><text x="${xp}" y="${m.t - 8}" font-size="11" text-anchor="middle" fill="${cor}" font-weight="600">proposto ${brl(a.prop.ammProposto / area)}</text>` }
+  svg += '</svg>'
+  box.innerHTML = svg
+  return box
+}
 
 /* ============================================================ PARÂMETROS */
 function renderParams() {
   const p = estado.params, v = (id, x) => { $('#' + id).value = x ?? '' }
   v('p_shopping', p.shopping); v('p_mediaAmm', p.mediaAmmM2Satelites); v('p_mediaVendas', p.mediaVendasM2Satelites); v('p_inflacao', p.inflacaoAcumuladaPct); v('p_meta', p.metaLsrAnualPct); v('p_ano', p.anoPlanejamento); v('p_janelaAud', p.janelaAuditoriaMeses); v('p_tolDisp', p.toleranciaDispersaoPct); v('p_sazonais', (p.mesesSazonais || []).join(', ')); v('p_lsrAgr', p.lsrAgressivoPct); v('p_lsrMuito', p.lsrMuitoAgressivoPct); v('p_tolAbc', p.tolerAcimaAbcPct)
+  v('p_contemp', p.contemporaneidadeMeses); v('p_simArea', p.similaridadeAreaPct); v('p_faixas', (p.faixasArea || []).join(', ')); v('p_minComp', p.minimoComparaveis); v('p_gapMod', p.perdaGapModeradoPct); v('p_gapAlto', p.perdaGapAltoPct); v('p_eventos', (p.eventosEstruturais || []).map(e => `${e.data};${e.descricao || ''}`).join('\n'))
 }
 $('#formParams').addEventListener('submit', (e) => {
   e.preventDefault(); const g = (id) => $('#' + id).value.trim()
-  estado.params = { ...estado.params, shopping: g('p_shopping'), mediaAmmM2Satelites: num(g('p_mediaAmm')), mediaVendasM2Satelites: num(g('p_mediaVendas')), inflacaoAcumuladaPct: num(g('p_inflacao')), metaLsrAnualPct: num(g('p_meta')), anoPlanejamento: num(g('p_ano')) || new Date().getFullYear(), janelaAuditoriaMeses: num(g('p_janelaAud')) || 6, toleranciaDispersaoPct: num(g('p_tolDisp')) ?? 15, mesesSazonais: g('p_sazonais').split(',').map(s => +s.trim()).filter(n => n >= 1 && n <= 12), lsrAgressivoPct: num(g('p_lsrAgr')) ?? 25, lsrMuitoAgressivoPct: num(g('p_lsrMuito')) ?? 40, tolerAcimaAbcPct: num(g('p_tolAbc')) ?? 10 }
+  const faixasOk = g('p_faixas').split(',').map(x => num(x.trim())).filter(x => x > 0).length > 0
+  estado.params = { ...estado.params, shopping: g('p_shopping'), mediaAmmM2Satelites: num(g('p_mediaAmm')), mediaVendasM2Satelites: num(g('p_mediaVendas')), inflacaoAcumuladaPct: num(g('p_inflacao')), metaLsrAnualPct: num(g('p_meta')), anoPlanejamento: num(g('p_ano')) || new Date().getFullYear(), janelaAuditoriaMeses: num(g('p_janelaAud')) || 6, toleranciaDispersaoPct: num(g('p_tolDisp')) ?? 15, mesesSazonais: g('p_sazonais').split(',').map(s => +s.trim()).filter(n => n >= 1 && n <= 12), lsrAgressivoPct: num(g('p_lsrAgr')) ?? 25, lsrMuitoAgressivoPct: num(g('p_lsrMuito')) ?? 40, tolerAcimaAbcPct: num(g('p_tolAbc')) ?? 10, contemporaneidadeMeses: num(g('p_contemp')) || 36, similaridadeAreaPct: num(g('p_simArea')) || 50, faixasArea: faixasOk ? g('p_faixas').split(',').map(x => num(x.trim())).filter(x => x > 0).sort((a, b) => a - b) : [50, 100, 200], minimoComparaveis: num(g('p_minComp')) || 3, perdaGapModeradoPct: num(g('p_gapMod')) ?? 10, perdaGapAltoPct: num(g('p_gapAlto')) ?? 25, eventosEstruturais: g('p_eventos').split(/\r?\n/).map(l => l.split(';')).filter(c => data(c[0]?.trim())).map(c => ({ data: iso(data(c[0].trim())), descricao: (c[1] || '').trim() })) }
   salvar(); toast('Parâmetros salvos'); render()
 })
 
@@ -1491,7 +1960,7 @@ carregar()
 $('#hoje').value = new Date().toISOString().slice(0, 10)
 $('#hoje').addEventListener('change', render)
 let abaInicial = 'radar'; try { abaInicial = localStorage.getItem(CHAVE + ':aba') || 'radar' } catch (e) {}
-if (/^#(radar|loja|cadastro|auditoria|plano|comite|params|ajuda)$/.test(location.hash)) abaInicial = location.hash.slice(1)
+if (/^#(radar|loja|cadastro|auditoria|plano|comite|laudo|pericia|params|ajuda)$/.test(location.hash)) abaInicial = location.hash.slice(1)
 mostrarAba(abaInicial)
 </script>
 

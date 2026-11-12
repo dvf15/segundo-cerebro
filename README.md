@@ -12,7 +12,8 @@ Vault do Obsidian e backup indexado, em Markdown, de tudo que foi feito no Claud
 | `claude/sessoes-code/AAAA-MM/` | Uma nota por sessão do Claude Code (local ou nuvem) | `.jsonl` + `npm run converter:sessao` |
 | `claude/artifacts/<slug>/` | `index.html` original + nota `.md` com texto extraído | `npm run importar:artifacts` |
 | `claude/skills/` | Pastas completas das skills (SKILL.md + referências) | copiadas de uma sessão do Claude Code |
-| `codigo/<repo>/` | `_repo.md` + **código-fonte completo** em `src/` (arquivos versionados do branch padrão; acima de 20 MB ficam só no GitHub) | `npm run importar:repos` |
+| `codigo/<repo>/` | `_repo.md` + `src/` (código do branch padrão) + `branches/<branch>/` (arquivos novos ou alterados em cada outro branch, ou seja, trabalho ainda não mesclado). Vídeos e arquivos acima de 20 MB ficam só no GitHub | `npm run importar:repos` |
+| `claude/arquivos-gerados/AAAA-MM/<conversa>/` | Arquivos que o Claude criou dentro das conversas (código, HTML, planilhas-script), com as edições aplicadas; cada nota de conversa lista os seus | `npm run converter:export` |
 | `reunioes/` | Notas de reunião (Granola) | conector Granola |
 | `_raw/` | Fontes brutas e sem perdas: JSON do export, `.jsonl` das sessões, manifestos | você / scripts |
 

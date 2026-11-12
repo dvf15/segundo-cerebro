@@ -7,6 +7,7 @@ source_id: "52a9faf2-5be5-4bb0-8e99-0682e9e1841e"
 url: "https://claude.ai/chat/52a9faf2-5be5-4bb0-8e99-0682e9e1841e"
 project: null
 messages: 12
+generated_files: 3
 tags: ["claude", "conversa"]
 ---
 # Diferenças entre gerente e diretor em shopping
@@ -285,3 +286,12 @@ Incluí também quatro contrapontos, porque uma resposta só com benefícios de 
 Não coloquei nenhum percentual de economia ou de redução de vacância porque não tenho fonte verificada para o mercado brasileiro. Se quiser levar números, posso pesquisar casos reais do setor.
 
 **Confiança: 8/10**
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-08/diferencas-entre-gerente-e-diretor-em-shopping_52a9faf2/mnt/user-data/outputs/Respostas-Entrevista-Diretoria-Shopping.md]] (5 KB)
+- [[claude/arquivos-gerados/2026-08/diferencas-entre-gerente-e-diretor-em-shopping_52a9faf2/mnt/user-data/outputs/Complemento-Respostas-Diretoria-Shopping.md]] (13 KB)
+- [[claude/arquivos-gerados/2026-08/diferencas-entre-gerente-e-diretor-em-shopping_52a9faf2/mnt/user-data/outputs/Respostas-Diretoria-Shopping-COMPLETA.md]] (26 KB)

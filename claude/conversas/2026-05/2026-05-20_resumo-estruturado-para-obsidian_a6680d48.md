@@ -7,6 +7,7 @@ source_id: "a6680d48-56ac-4164-b566-1c4fe7a1c67e"
 url: "https://claude.ai/chat/a6680d48-56ac-4164-b566-1c4fe7a1c67e"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo estruturado para Obsidian
@@ -82,3 +83,10 @@ Arquivo pronto. Resumo do que estruturei:
 **Cobertura do conteúdo:** mecanismos de saída, dados Insper Spectra (242 deals), holding period brasileiro (4,4 anos), conflitos de interesse, estudo Artica/Insper/Endeavor 2017, processo de IPO, underwriting, underpricing (EUA 15,8% vs Brasil 78,5% em 1979-90 e 4,34% em 2004-12), efeito de PE em IPOs, liquidação caixa vs distribuição de ações.
 
 **Confiança: 9/10** — Conteúdo textual extraído diretamente do `.pptx`. A nota onde perdi alguma fidelidade está marcada na própria seção de rating: os slides com gráficos (4, 5, 7, 10, 11, 12, 17, 18, 19) têm dados visuais que não consegui ler — registrei apenas o texto deles. Se você quiser que eu extraia também os números desses gráficos, posso renderizar os slides como imagens e analisar visualmente.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-estruturado-para-obsidian_a6680d48/home/claude/PEVC18_Saida_de_Investimentos.md]] (12 KB)

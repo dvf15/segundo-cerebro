@@ -7,6 +7,7 @@ source_id: "feac7d48-2160-4b22-b912-693464793449"
 url: "https://claude.ai/chat/feac7d48-2160-4b22-b912-693464793449"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Arquivo .md indexado para Obsidian
@@ -150,3 +151,10 @@ Não acrescentei nenhum número ou dado externo. Tudo vem do seu texto.
 **Confiança: 9/10**
 
 - 📎 O que eu mudaria na Cia.md
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/arquivo-md-indexado-para-obsidian_feac7d48/O que eu mudaria na Cia.md]] (13 KB)

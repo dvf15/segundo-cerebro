@@ -7,6 +7,7 @@ source_id: "0f9379ac-3922-425a-a3de-07c3b40a1c15"
 url: "https://claude.ai/chat/0f9379ac-3922-425a-a3de-07c3b40a1c15"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -76,3 +77,10 @@ Arquivo `.md` pronto pra jogar direto no seu vault.
 A citação sobre liderança ("*embedding the capacity for greatness…*") está apresentada no slide como citação, ao lado da capa do livro **Turn the Ship Around!** de L. David Marquet — mas a formulação exata soa mais como uma **síntese do próprio Sørensen** sobre o pensamento de Marquet do que uma frase literal do livro. O conceito central de Marquet é o modelo **leader-leader** vs. leader-follower. Deixei isso sinalizado dentro da nota como `>[!warning]` pra você não citar como literal sem checar a fonte primária.
 
 **Confiança: 8/10** — o conteúdo dos slides foi extraído diretamente do PDF (alta confiança); o desconto vem só da incerteza sobre a atribuição literal daquela citação específica a Marquet.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_0f9379ac/mnt/user-data/outputs/program-close-epso-sorensen.md]] (6 KB)

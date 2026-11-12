@@ -7,6 +7,7 @@ source_id: "64f0ee05-5a9f-437d-866b-e0d8e51b99e6"
 url: "https://claude.ai/chat/64f0ee05-5a9f-437d-866b-e0d8e51b99e6"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # 💬 Quanto vale para o banco um cl…

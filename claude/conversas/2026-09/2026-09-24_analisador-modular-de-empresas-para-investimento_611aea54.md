@@ -7,6 +7,7 @@ source_id: "611aea54-e044-4eeb-97d7-158d32f9c593"
 url: "https://claude.ai/chat/611aea54-e044-4eeb-97d7-158d32f9c593"
 project: null
 messages: 10
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Analisador modular de empresas para investimento

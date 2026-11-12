@@ -1,0 +1,20 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-09-18T16:20:00Z" },
+  "title": "Plano Comercial 2026 — Exemplo Template Allos",
+  "cover": "capa",
+  "order": ["capa", "agenda", "contexto", "numeros", "frentes", "vacancia", "statement", "proximos"],
+  "sections": {
+    "abertura": { "description": "Capa e agenda do plano comercial da carteira", "start": "capa" },
+    "diagnostico": { "description": "Leitura de contexto e números de partida da carteira", "start": "contexto" },
+    "plano": { "description": "As três frentes de trabalho e as metas de vacância por ativo", "start": "frentes" },
+    "fechamento": { "description": "Mensagem de marca e próximos passos com responsáveis", "start": "statement" }
+  },
+  "faces": {
+    "gantari": {
+      "family": "Gantari",
+      "href": "https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    }
+  },
+  "designSystems": []
+}

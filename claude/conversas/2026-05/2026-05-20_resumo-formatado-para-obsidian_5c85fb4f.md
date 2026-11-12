@@ -7,6 +7,7 @@ source_id: "5c85fb4f-2f0d-4037-aff0-1dbaa1701a95"
 url: "https://claude.ai/chat/5c85fb4f-2f0d-4037-aff0-1dbaa1701a95"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -53,3 +54,10 @@ Pronto. Algumas observações sobre o que foi feito:
 - **Rating de confiança** ao final
 
 **Confiança: 9/10** — todos os números, percentuais, fontes citadas e definições foram extraídos diretamente do PDF sem invenção. Reduzi de 10 para 9 porque alguns valores intermediários de gráficos (ex.: TIRs por quartil em vintages específicas) podem ter leves imprecisões de leitura visual, mas os valores destacados explicitamente nos slides estão exatos.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_5c85fb4f/mnt/user-data/outputs/PEVC_Aula1_Introducao_Fundos.md]] (17 KB)

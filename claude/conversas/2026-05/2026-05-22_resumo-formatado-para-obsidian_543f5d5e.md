@@ -7,6 +7,7 @@ source_id: "543f5d5e-4426-4faa-bbef-47361dce27f2"
 url: "https://claude.ai/chat/543f5d5e-4426-4faa-bbef-47361dce27f2"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -56,3 +57,10 @@ Resumo pronto no padrão Obsidian que você definiu (frontmatter YAML, wikilinks
 - O bloco Dataview no final filtra por tags `inovação`, `empreendedorismo`, `variação-seleção` — ajuste se sua taxonomia for outra.
 
 **Confiança: 9/10** — cobre todas as seções, exemplos centrais (HP, Google, Airbnb, NetApp, Apple) e as duas referências acadêmicas. O -1 é que o tom irônico do Barnett (a cena no Rosewood, o colega "napoleônico") ficou sintético no formato resumo.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_543f5d5e/mnt/user-data/outputs/Capitulo-6-A-Fonte-do-Genio.md]] (11 KB)

@@ -7,6 +7,7 @@ source_id: "4a81a135-9cec-491f-9a57-10efb700d0a2"
 url: "https://claude.ai/chat/4a81a135-9cec-491f-9a57-10efb700d0a2"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Configuração de estilo de interação

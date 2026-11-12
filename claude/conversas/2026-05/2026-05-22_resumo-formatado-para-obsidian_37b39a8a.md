@@ -7,6 +7,7 @@ source_id: "37b39a8a-668f-43e2-8eed-94a2c7e968dc"
 url: "https://claude.ai/chat/37b39a8a-668f-43e2-8eed-94a2c7e968dc"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -124,3 +125,10 @@ Pronto. Arquivo no padrão Obsidian que você usa: frontmatter completo, wikilin
 A nota cobre os 9 blocos do material: o problema dos gaps organizacionais, os 4 tipos de distância, a definição formal de distância psicológica, a discussão sobre hierarquia (incluindo Power without Status), as duas famílias de ferramentas de comunicação (construal fit + changing distances), wise contracting, negociação cross-cultural, o Appropriateness Framework de March, e a síntese "Mind the Gap / Manage the Gap".
 
 **Confiança: 8/10** — extração dos slides está fiel; o que tirei pontos é (1) expandi conexões e implicações práticas onde o slide era minimalista, e (2) não verifiquei volumes/páginas dos papers citados (Boehm 2012, Fast/Halevy/Galinsky 2012, Berson & Halevy 2014, Kluger 2020 etc.) — estão como aparecem no material do Halevy, não numa base externa. Se quiser que eu verifique alguma referência específica antes de você usar como citação acadêmica, é só pedir.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_37b39a8a/home/claude/halevy-leading-from-different-psychological-distances.md]] (16 KB)

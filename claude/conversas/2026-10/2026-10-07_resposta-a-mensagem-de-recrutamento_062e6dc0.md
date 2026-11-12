@@ -7,6 +7,7 @@ source_id: "062e6dc0-1022-4e5f-9fcd-269a3cc693a5"
 url: "https://claude.ai/chat/062e6dc0-1022-4e5f-9fcd-269a3cc693a5"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resposta a mensagem de recrutamento

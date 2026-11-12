@@ -7,6 +7,7 @@ source_id: "8035dce6-a870-4436-80cd-df39caa20516"
 url: "https://claude.ai/chat/8035dce6-a870-4436-80cd-df39caa20516"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # 💬 Como faço para conectar o obsi…

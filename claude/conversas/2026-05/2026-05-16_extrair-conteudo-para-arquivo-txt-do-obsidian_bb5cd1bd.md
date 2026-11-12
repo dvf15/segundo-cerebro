@@ -7,6 +7,7 @@ source_id: "bb5cd1bd-5f06-4a6c-9d62-5e911a32b66d"
 url: "https://claude.ai/chat/bb5cd1bd-5f06-4a6c-9d62-5e911a32b66d"
 project: null
 messages: 4
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Extrair conteúdo para arquivo txt do Obsidian
@@ -111,3 +112,11 @@ Reformatado nativamente para Obsidian. O que mudou:
 3. As tags do frontmatter já aparecem no grafo.
 
 **Confiança: 9/10.** Conteúdo idêntico ao extraído do `.pptx`; o que reduz a 9 é uma escolha editorial minha (consolidei slides repetidos por tema em vez de listar todos os 69 em sequência). Se você quer a estrutura slide-a-slide preservada, me avise que regenero mantendo a numeração — o trade-off é legibilidade vs. fidelidade à ordem do deck.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/extrair-conteudo-para-arquivo-txt-do-obsidian_bb5cd1bd/home/claude/Disney_Approach_to_Quality_Service.txt]] (19 KB)
+- [[claude/arquivos-gerados/2026-05/extrair-conteudo-para-arquivo-txt-do-obsidian_bb5cd1bd/home/claude/Disney_Approach_to_Quality_Service.md]] (13 KB)

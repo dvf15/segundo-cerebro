@@ -7,6 +7,7 @@ source_id: "b3e0fbbd-1d4a-4fe1-93ab-670a09922a3c"
 url: "https://claude.ai/chat/b3e0fbbd-1d4a-4fe1-93ab-670a09922a3c"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -52,3 +53,10 @@ Resumo pronto no formato Obsidian. Estrutura aplicada conforme seu padrão:
 - **Avaliação de confiança** ao final
 
 **Confiança: 9/10** — todos os dados, citações e números vêm diretamente do caso Stanford GSB SM-321 que você forneceu. O ponto que tira o 10 é que as seções "Lições-chave" e "Ações para Aplicar" contêm interpretação minha (não estão literais no caso) e que o próprio caso foi revisado pela SIA antes da publicação, então tem viés positivo embutido sobre o sucesso de Scoot.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_b3e0fbbd/mnt/user-data/outputs/Scoot - Estratégia de Low-Cost Carrier da Singapore Airlines.md]] (15 KB)

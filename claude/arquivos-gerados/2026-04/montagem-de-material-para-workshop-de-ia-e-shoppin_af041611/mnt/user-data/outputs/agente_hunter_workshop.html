@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agente Hunter · Workshop</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0c0c;
+    --paper: #f2ede4;
+    --red: #d93a1f;
+    --amber: #e8a020;
+    --green: #2a7a3b;
+    --dim: #5a5a52;
+    --line: #1e1e1e;
+    --white: #f0ece3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .hero-left {
+    background: var(--red);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: 'HUNTER';
+    position: absolute;
+    top: -30px; left: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    color: rgba(0,0,0,0.12);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 8vw, 110px);
+    line-height: 0.95;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+  .hero-mission {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    max-width: 380px;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 24px;
+  }
+  .hero-right {
+    background: var(--bg);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  .stat-block {
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--amber);
+  }
+  .stat-label { font-size: 13px; color: #666; margin-top: 4px; }
+  .stat-desc { font-size: 14px; color: #aaa; margin-top: 6px; }
+
+  /* ─── SECTION BASE ─── */
+  .s {
+    padding: 80px 80px;
+    border-top: 1px solid var(--line);
+  }
+  .s.light {
+    background: var(--paper);
+    color: var(--bg);
+  }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .s.light .eyebrow { color: var(--red); }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 60px);
+    line-height: 1;
+    margin-bottom: 48px;
+    letter-spacing: 1px;
+  }
+  .s.light h2 { color: var(--bg); }
+
+  /* ─── CONTEXT BLOCK ─── */
+  .context-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+  }
+  .prompt-box {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-top: 3px solid var(--amber);
+    border-radius: 2px;
+    padding: 36px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 2;
+    color: #ccc;
+    position: relative;
+  }
+  .prompt-box::before {
+    content: 'SYSTEM PROMPT · AGENTE HUNTER';
+    position: absolute;
+    top: -12px; left: 24px;
+    background: var(--bg);
+    padding: 0 10px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+  .kw { color: var(--amber); font-weight: 600; }
+  .ph { color: var(--red); }
+  .cm { color: #444; font-style: italic; }
+
+  .zell-pills { display: flex; flex-direction: column; gap: 12px; }
+  .zell-pill {
+    background: #111;
+    border: 1px solid #222;
+    border-left: 3px solid var(--amber);
+    padding: 16px 20px;
+    border-radius: 2px;
+  }
+  .zell-pill strong { display: block; font-size: 13px; color: var(--amber); margin-bottom: 4px; }
+  .zell-pill p { font-size: 12px; color: #777; line-height: 1.5; }
+
+  /* ─── SKILLS ─── */
+  .skills-container { display: flex; flex-direction: column; gap: 0; }
+  .skill-row {
+    display: grid;
+    grid-template-columns: 48px 220px 1fr 1fr 120px;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    align-items: stretch;
+  }
+  .skill-row.header {
+    border-bottom: 2px solid var(--red);
+  }
+  .skill-row.header .sc {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    padding: 12px 16px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+  }
+  .sc {
+    padding: 20px 16px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+  }
+  .sc:last-child { border-right: none; }
+  .skill-id {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--red);
+  }
+  .skill-name { font-weight: 600; font-size: 14px; line-height: 1.3; }
+  .skill-name span { display: block; font-size: 12px; color: #555; font-weight: 400; margin-top: 4px; }
+  .skill-input { font-size: 13px; color: #aaa; line-height: 1.5; }
+  .skill-output { font-size: 13px; color: #ccc; line-height: 1.5; }
+  .freq-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .freq-s { background: #1a2e1a; color: #5fc45f; }
+  .freq-d { background: #2e1a1a; color: #c45f5f; }
+  .freq-d2 { background: #1a1a2e; color: #5f8fc4; }
+  .freq-sob { background: #2e2a1a; color: #c4b45f; }
+
+  /* ─── FLUXO ─── */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 140px;
+    padding: 28px 20px;
+    background: #111;
+    border: 1px solid #1e1e1e;
+    position: relative;
+    text-align: center;
+  }
+  .flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--red);
+    z-index: 2;
+    background: var(--bg);
+    padding: 0 4px;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-step.highlight { background: var(--red); border-color: var(--red); }
+  .flow-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--amber);
+    display: block;
+    line-height: 1;
+  }
+  .flow-step.highlight .flow-num { color: #fff; }
+  .flow-name { font-size: 13px; font-weight: 600; margin-top: 6px; display: block; }
+  .flow-desc { font-size: 11px; color: #666; margin-top: 4px; }
+  .flow-step.highlight .flow-desc { color: rgba(255,255,255,0.6); }
+
+  /* ─── SCORE RUBRIC ─── */
+  .rubric-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .rubric-table th {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid #222;
+    background: #0a0a0a;
+  }
+  .rubric-table td {
+    padding: 16px;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .rubric-table tr:hover td { background: #111; }
+  .score-chip {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    min-width: 40px;
+    text-align: center;
+  }
+  .score-hi { color: #4caf50; }
+  .score-mid { color: var(--amber); }
+  .score-lo { color: var(--red); }
+  .criteria-label { font-weight: 600; font-size: 14px; }
+  .criteria-sub { font-size: 12px; color: #666; margin-top: 2px; }
+
+  /* ─── D0 LISTA ─── */
+  .d0-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+  }
+  .d0-card {
+    background: #0f0f0f;
+    padding: 32px 28px;
+  }
+  .d0-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .d0-title { font-weight: 600; font-size: 15px; margin-bottom: 16px; color: var(--white); }
+  .d0-list { list-style: none; }
+  .d0-item {
+    font-size: 13px;
+    color: #aaa;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .d0-item::before {
+    content: '□';
+    color: var(--red);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── SCRIPT ABORDAGEM ─── */
+  .script-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .script-card {
+    background: #0a0a0a;
+    border: 1px solid #1e1e1e;
+    border-radius: 2px;
+    padding: 28px;
+  }
+  .script-channel {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .script-channel::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+  }
+  .script-text {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.8;
+    white-space: pre-line;
+  }
+  .script-text .highlight-name { color: var(--amber); }
+  .script-note {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #1e1e1e;
+    font-size: 12px;
+    color: #555;
+  }
+
+  /* ─── INTEGRAÇÃO ─── */
+  .integ-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 32px;
+  }
+  .integ-hunter {
+    background: var(--red);
+    padding: 32px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .integ-hunter h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #fff;
+  }
+  .integ-hunter p { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .integ-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 28px;
+    color: var(--red);
+  }
+  .integ-targets {
+    display: flex;
+    flex: 1;
+    gap: 2px;
+  }
+  .integ-target {
+    flex: 1;
+    background: #111;
+    border: 1px solid #1e1e1e;
+    padding: 24px 20px;
+  }
+  .integ-target h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .integ-target p { font-size: 12px; color: #666; line-height: 1.5; }
+  .integ-target .what { font-size: 11px; color: var(--amber); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ─── QUOTE ─── */
+  .quote-s {
+    background: var(--red);
+    padding: 80px;
+    text-align: center;
+  }
+  .quote-s blockquote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    line-height: 1.2;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    letter-spacing: 1px;
+  }
+  .quote-s cite { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; }
+
+  /* ─── FOOTER ─── */
+  .foot {
+    background: #080808;
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+  }
+  .foot span { font-size: 12px; color: #333; }
+  .foot strong { color: #555; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .s { padding: 48px 24px; }
+    .context-grid { grid-template-columns: 1fr; }
+    .skill-row { grid-template-columns: 40px 1fr; }
+    .skill-row .sc:nth-child(3),
+    .skill-row .sc:nth-child(4),
+    .skill-row .sc:nth-child(5) { display: none; }
+    .skill-row.header .sc:nth-child(3),
+    .skill-row.header .sc:nth-child(4),
+    .skill-row.header .sc:nth-child(5) { display: none; }
+    .d0-grid { grid-template-columns: 1fr; }
+    .script-grid { grid-template-columns: 1fr; }
+    .integ-row { flex-direction: column; }
+    .foot { flex-direction: column; gap: 8px; text-align: center; }
+    .quote-s { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Workshop IA · Agente em foco</div>
+    <h1 class="hero-title">AGENTE<br>HUNTER</h1>
+    <p class="hero-mission">Prospectar, qualificar e iniciar o contato com lojistas — dentro e fora de shoppings — num raio definido. Transformar dados em pipeline real.</p>
+  </div>
+  <div class="hero-right">
+    <div class="stat-block">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Skills operacionais</div>
+      <div class="stat-desc">Do mapeamento de raio até o relatório semanal de pipeline</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">2–50km</div>
+      <div class="stat-label">Raio de prospecção</div>
+      <div class="stat-desc">Parametrizável por perfil de categoria e tamanho de praça</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">D0</div>
+      <div class="stat-label">Output utilizável</div>
+      <div class="stat-desc">Lista objetiva pronta para uso pela equipe do shopping na semana seguinte ao workshop</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTEXTO + PROMPT -->
+<div class="s">
+  <span class="eyebrow">Bloco 1 · Contexto do Agente</span>
+  <h2>O PROMPT<br>QUE DEFINE TUDO.</h2>
+  <div class="context-grid">
+    <div class="prompt-box">
+<span class="kw">Você é</span> Zél, agente Hunter de prospecção comercial do shopping [NOME].
+
+<span class="kw">Missão:</span> Identificar, qualificar e iniciar o contato com lojistas com
+potencial de ocupação — em operação em outros shoppings ou fora
+deles — num raio de 2 a 50km da unidade.
+
+<span class="kw">Você conhece:</span>
+- O mix atual do shopping: categorias presentes, ausentes e
+  saturadas
+- A área de influência: perfil de renda, densidade, concorrentes
+- Os critérios de seleção: fit de mix, saúde financeira estimada,
+  capacidade operacional e sinal de expansão
+
+<span class="kw">Sua lógica de análise</span> (baseada em Sam Zell):
+- Comece sempre pelo downside: o que pode dar errado?
+- Busque o desequilíbrio oferta × demanda: onde falta o que
+  o cliente quer?
+- Onde há escassez, preço não é problema
+- Replacement cost: é mais barato atrair ou desenvolver?
+- Não faça suposições — busque dado antes de recomendar
+
+<span class="kw">Formato de resposta padrão:</span>
+1. <span class="ph">Análise objetiva</span> (máx. 3 linhas)
+2. <span class="ph">Dado ou evidência</span> que suporta
+3. <span class="ph">Recomendação clara</span> com próximo passo
+
+<span class="cm">// Nunca responda "depende" sem especificar de quê.</span>
+<span class="cm">// Se faltar dado, diga o que precisa antes de concluir.</span>
+    </div>
+
+    <div class="zell-pills">
+      <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #444; margin-bottom: 8px;">Princípios Zell aplicados</div>
+      <div class="zell-pill">
+        <strong>Oferta × Demanda</strong>
+        <p>A oportunidade está no desequilíbrio. O Hunter busca categorias com demanda crescente e oferta parada — ali é onde o shopping ganha.</p>
+      </div>
+      <div class="zell-pill">
+        <strong>Downside First</strong>
+        <p>"A calculation of a deal starts with the downside." Antes de qualificar um prospect, o Hunter mapeia o que pode dar errado com aquele lojista.</p>
+      </div>
+      <div class="zell-pill">
+        <strong>Replacement Cost</strong>
+        <p>Sempre comparar: custa mais trazer um lojista existente ou desenvolver um novo? Em geral, quem já opera elimina boa parte do risco de execução.</p>
+      </div>
+      <div class="zell-pill">
+        <strong>Competição Limitada</strong>
+        <p>"Não há substituto para competição limitada." O Hunter prioriza categorias onde o shopping pode ter posição dominante ou única.</p>
+      </div>
+      <div class="zell-pill">
+        <strong>Look for micro in macro</strong>
+        <p>Mudanças de legislação, novos bairros, fechamento de concorrentes — o Hunter monitora eventos macro para achar oportunidade pontual.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="s light">
+  <span class="eyebrow">Bloco 2 · Skills Detalhadas</span>
+  <h2>6 SKILLS,<br>1 PIPELINE.</h2>
+
+  <div class="skills-container">
+    <div class="skill-row header">
+      <div class="sc">#</div>
+      <div class="sc">Skill</div>
+      <div class="sc">Input necessário</div>
+      <div class="sc">Output entregue</div>
+      <div class="sc">Frequência</div>
+    </div>
+
+    <div class="skill-row">
+      <div class="sc"><span class="skill-id" style="color:#d93a1f;">S1</span></div>
+      <div class="sc">
+        <div class="skill-name">Mapeamento de Raio
+          <span>Varredura de negócios por categoria e distância</span>
+        </div>
+      </div>
+      <div class="sc skill-input">Endereço do shopping + raio desejado (2 / 10 / 50km) + categorias-alvo</div>
+      <div class="sc skill-output">Lista de negócios com nome, endereço, categoria, avaliação pública e presença digital. Exportável.</div>
+      <div class="sc"><span class="freq-badge freq-s">Semanal</span></div>
+    </div>
+
+    <div class="skill-row">
+      <div class="sc"><span class="skill-id" style="color:#d93a1f;">S2</span></div>
+      <div class="sc">
+        <div class="skill-name">Score de Fit com o Mix
+          <span>Nota de aderência ao posicionamento do shopping</span>
+        </div>
+      </div>
+      <div class="sc skill-input">Dados do prospect (categoria, ticket estimado, perfil) + mix atual do shopping</div>
+      <div class="sc skill-output">Nota de 1–10 com justificativa: gaps de mix cobertos, risco de canibalização, posição competitiva.</div>
+      <div class="sc"><span class="freq-badge freq-sob">Sob demanda</span></div>
+    </div>
+
+    <div class="skill-row">
+      <div class="sc"><span class="skill-id" style="color:#d93a1f;">S3</span></div>
+      <div class="sc">
+        <div class="skill-name">Qualificação de Lojista
+          <span>Perfil operacional e financeiro do prospect</span>
+        </div>
+      </div>
+      <div class="sc skill-input">Nome do negócio, CNPJ ou endereço</div>
+      <div class="sc skill-output">Resumo: tempo de mercado, presença digital, avaliações, estimativa de faturamento, sinais de expansão ou dificuldade.</div>
+      <div class="sc"><span class="freq-badge freq-sob">Sob demanda</span></div>
+    </div>
+
+    <div class="skill-row">
+      <div class="sc"><span class="skill-id" style="color:#d93a1f;">S4</span></div>
+      <div class="sc">
+        <div class="skill-name">Script de Primeira Abordagem
+          <span>Mensagem ou roteiro de contato personalizado</span>
+        </div>
+      </div>
+      <div class="sc skill-input">Perfil qualificado do prospect + canal escolhido (WhatsApp / ligação / e-mail)</div>
+      <div class="sc skill-output">Script adaptado ao perfil: direto, sem jargão de shopping. Tom de parceria, não de vendedor. Variação por canal.</div>
+      <div class="sc"><span class="freq-badge freq-sob">Sob demanda</span></div>
+    </div>
+
+    <div class="skill-row">
+      <div class="sc"><span class="skill-id" style="color:#d93a1f;">S5</span></div>
+      <div class="sc">
+        <div class="skill-name">Análise Replacement Cost
+          <span>Comparativo atrair vs desenvolver lojista</span>
+        </div>
+      </div>
+      <div class="sc skill-input">Categoria + espaço disponível + histórico de lojas similares</div>
+      <div class="sc skill-output">Comparativo custo/risco entre trazer lojista existente x desenvolver novo. Recomendação com dados.</div>
+      <div class="sc"><span class="freq-badge freq-d2">Mensal</span></div>
+    </div>
+
+    <div class="skill-row">
+      <div class="sc"><span class="skill-id" style="color:#d93a1f;">S6</span></div>
+      <div class="sc">
+        <div class="skill-name">Relatório de Pipeline
+          <span>Consolidado semanal de todos os prospects</span>
+        </div>
+      </div>
+      <div class="sc skill-input">Base atualizada de contatos e interações da semana</div>
+      <div class="sc skill-output">Lista por estágio: Identificado / Contatado / Em negociação / Descartado. Com nota de próximo passo por item.</div>
+      <div class="sc"><span class="freq-badge freq-s">Semanal</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FLUXO OPERACIONAL -->
+<div class="s">
+  <span class="eyebrow">Bloco 3 · Como opera na prática</span>
+  <h2>FLUXO<br>DO HUNTER.</h2>
+  <div class="flow">
+    <div class="flow-step">
+      <span class="flow-num">01</span>
+      <span class="flow-name">Mapear</span>
+      <p class="flow-desc">S1 — Varredura de raio por categoria</p>
+    </div>
+    <div class="flow-step highlight">
+      <span class="flow-num">02</span>
+      <span class="flow-name">Pontuar</span>
+      <p class="flow-desc">S2 — Score de fit com o mix</p>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">03</span>
+      <span class="flow-name">Qualificar</span>
+      <p class="flow-desc">S3 — Perfil do lojista</p>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">04</span>
+      <span class="flow-name">Abordar</span>
+      <p class="flow-desc">S4 — Script de primeiro contato</p>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">05</span>
+      <span class="flow-name">Decidir</span>
+      <p class="flow-desc">S5 — Replacement cost</p>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">06</span>
+      <span class="flow-name">Reportar</span>
+      <p class="flow-desc">S6 — Pipeline semanal</p>
+    </div>
+  </div>
+</div>
+
+<!-- RUBRICA DE SCORE -->
+<div class="s light">
+  <span class="eyebrow">Critérios de Qualificação</span>
+  <h2>COMO O HUNTER<br>AVALIA UM PROSPECT.</h2>
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Critério</th>
+        <th>Peso</th>
+        <th style="color:#4caf50;">Sinal positivo</th>
+        <th style="color:#e8a020;">Atenção</th>
+        <th style="color:#d93a1f;">Descarta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="criteria-label">Fit de Mix</div><div class="criteria-sub">Complementa ou preenche gap?</div></td>
+        <td><span class="score-chip score-hi">Alto</span></td>
+        <td style="font-size:13px; color:#4caf50;">Categoria ausente ou sub-representada no shopping</td>
+        <td style="font-size:13px; color:#e8a020;">Categoria existente, mas com espaço de mercado</td>
+        <td style="font-size:13px; color:#d93a1f;">Canibaliza lojista estratégico existente</td>
+      </tr>
+      <tr>
+        <td><div class="criteria-label">Saúde Operacional</div><div class="criteria-sub">O lojista consegue abrir e manter?</div></td>
+        <td><span class="score-chip score-hi">Alto</span></td>
+        <td style="font-size:13px; color:#4caf50;">+2 anos de operação, avaliação ≥4.0, presença digital ativa</td>
+        <td style="font-size:13px; color:#e8a020;">Operação recente (&lt;2 anos) mas crescendo</td>
+        <td style="font-size:13px; color:#d93a1f;">Reclamações recorrentes, processos, endividamento visível</td>
+      </tr>
+      <tr>
+        <td><div class="criteria-label">Sinal de Expansão</div><div class="criteria-sub">Tem apetite para crescer?</div></td>
+        <td><span class="score-chip score-mid">Médio</span></td>
+        <td style="font-size:13px; color:#4caf50;">Ativa nas redes, crescimento visível, já tem mais de 1 unidade</td>
+        <td style="font-size:13px; color:#e8a020;">Operação única mas estruturada, sinaliza interesse</td>
+        <td style="font-size:13px; color:#d93a1f;">Sem presença digital, sem foco em expansão</td>
+      </tr>
+      <tr>
+        <td><div class="criteria-label">Fit de Ticket/Perfil</div><div class="criteria-sub">Alinha com o público do shopping?</div></td>
+        <td><span class="score-chip score-mid">Médio</span></td>
+        <td style="font-size:13px; color:#4caf50;">Ticket médio e posicionamento alinhados com o IPC da área</td>
+        <td style="font-size:13px; color:#e8a020;">Ticket ligeiramente fora mas com potencial de adaptação</td>
+        <td style="font-size:13px; color:#d93a1f;">Posicionamento incompatível sem possibilidade de ajuste</td>
+      </tr>
+      <tr>
+        <td><div class="criteria-label">Replacement Cost</div><div class="criteria-sub">Vale mais que desenvolver um novo?</div></td>
+        <td><span class="score-chip score-lo">Situacional</span></td>
+        <td style="font-size:13px; color:#4caf50;">Traz operação provada — custo de desenvolvimento seria maior</td>
+        <td style="font-size:13px; color:#e8a020;">Custos equiparados — decisão depende de outros critérios</td>
+        <td style="font-size:13px; color:#d93a1f;">Desenvolver do zero seria mais barato e menos arriscado</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SCRIPTS -->
+<div class="s">
+  <span class="eyebrow">Skill S4 · Em detalhe</span>
+  <h2>SCRIPT DE<br>PRIMEIRA ABORDAGEM.</h2>
+  <div class="script-grid">
+    <div class="script-card">
+      <div class="script-channel">WhatsApp · Lojista de rua</div>
+      <div class="script-text">Olá, <span class="highlight-name">[Nome]</span>! Aqui é [Seu nome], do shopping [Nome].
+
+Acompanho a operação de vocês há um tempo e fiquei curioso — vocês têm pensado em levar a marca para dentro de shopping?
+
+Tenho uma oportunidade que faz sentido com o que vocês fazem. Posso te contar em 10 minutos?</div>
+      <div class="script-note">Tom: direto e pessoal. Não mencionar aluguel nem taxas no primeiro contato. O objetivo é a reunião, não o fechamento.</div>
+    </div>
+    <div class="script-card">
+      <div class="script-channel">WhatsApp · Lojista em outro shopping</div>
+      <div class="script-text">Olá, <span class="highlight-name">[Nome]</span>! Tudo bem?
+
+Vi que vocês operam no <span class="highlight-name">[shopping concorrente]</span> e o resultado de vocês lá é forte.
+
+Tenho um espaço aqui no <span class="highlight-name">[Shopping]</span> que atende um perfil de cliente muito parecido com o de vocês — e hoje não temos ninguém fazendo o que vocês fazem.
+
+Vale uma conversa rápida essa semana?</div>
+      <div class="script-note">Diferencial: mencionar o gap no mix (ninguém faz o que eles fazem). Isso posiciona o contato como oportunidade, não como venda.</div>
+    </div>
+  </div>
+</div>
+
+<!-- INTEGRAÇÃO -->
+<div class="s light">
+  <span class="eyebrow">Ecossistema · Posição do Hunter</span>
+  <h2>HUNTER ALIMENTA<br>O SISTEMA INTEIRO.</h2>
+  <p style="color:#5a5a52; max-width:620px; margin-bottom: 8px;">O Hunter não opera sozinho. Cada prospect qualificado é input para outros agentes do ecossistema.</p>
+  <div class="integ-row">
+    <div class="integ-hunter">
+      <h3>HUNTER</h3>
+      <p>Identifica e qualifica o prospect</p>
+    </div>
+    <div class="integ-arrow">→</div>
+    <div class="integ-targets">
+      <div class="integ-target">
+        <h4>Agente Farmer</h4>
+        <p>Recebe prospects qualificados e faz o match com investidores locais disponíveis.</p>
+        <div class="what">Recebe: perfil do lojista + score de fit</div>
+      </div>
+      <div class="integ-target">
+        <h4>Agente KA</h4>
+        <p>Conecta se o prospect for uma marca em expansão nacional ou regional.</p>
+        <div class="what">Recebe: marcas com +1 unidade e sinal de expansão</div>
+      </div>
+      <div class="integ-target">
+        <h4>Plataforma Alavancador</h4>
+        <p>Acionada quando o lojista é qualificado mas precisa de suporte financeiro para a abertura.</p>
+        <div class="what">Recebe: lojista qualificado + gap financeiro identificado</div>
+      </div>
+      <div class="integ-target">
+        <h4>Plataforma Builder</h4>
+        <p>Acionada quando o lojista precisa de suporte de obra, projeto ou legalização.</p>
+        <div class="what">Recebe: lojista qualificado + necessidade de estrutura</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D0 LISTA -->
+<div class="s">
+  <span class="eyebrow">Output D0 · Para a equipe do shopping</span>
+  <h2>O QUE FAZER<br>NA SEGUNDA-FEIRA.</h2>
+  <div class="d0-grid">
+    <div class="d0-card">
+      <div class="d0-day">DIA 1</div>
+      <div class="d0-title">Preparar o contexto</div>
+      <ul class="d0-list">
+        <li class="d0-item">Criar conta no Claude.ai (free)</li>
+        <li class="d0-item">Abrir novo Projeto e colar o system prompt do Hunter</li>
+        <li class="d0-item">Preencher: nome do shopping, mix atual, raios de prospecção</li>
+        <li class="d0-item">Testar com uma categoria: pedir mapeamento de raio de 2km</li>
+        <li class="d0-item">Validar se o output faz sentido com o que você já sabe</li>
+      </ul>
+    </div>
+    <div class="d0-card">
+      <div class="d0-day">DIA 2</div>
+      <div class="d0-title">Primeiro pipeline</div>
+      <ul class="d0-list">
+        <li class="d0-item">Rodar S1: mapear 3 categorias prioritárias no raio de 10km</li>
+        <li class="d0-item">Rodar S2: pedir score de fit para os 10 melhores resultados</li>
+        <li class="d0-item">Rodar S3: qualificar os 5 com maior score</li>
+        <li class="d0-item">Exportar lista com nome, endereço, score e próximo passo</li>
+        <li class="d0-item">Compartilhar com gestor para validação antes do contato</li>
+      </ul>
+    </div>
+    <div class="d0-card">
+      <div class="d0-day">DIA 3</div>
+      <div class="d0-title">Primeiro contato real</div>
+      <ul class="d0-list">
+        <li class="d0-item">Rodar S4: gerar script para os 3 prospects validados</li>
+        <li class="d0-item">Fazer contato via WhatsApp (não e-mail neste primeiro momento)</li>
+        <li class="d0-item">Registrar resposta no pipeline (sim / não / sem resposta)</li>
+        <li class="d0-item">Alimentar o Hunter com o resultado para refinar critérios</li>
+        <li class="d0-item">Agendar reunião se houver interesse — passar para o Farmer</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-s">
+  <blockquote>"LOOK FOR MICRO OPPORTUNITIES IN MACRO EVENTS. IF EVERYONE IS GOING LEFT, LOOK RIGHT."</blockquote>
+  <cite>Sam Zell · Princípio aplicado ao Agente Hunter</cite>
+</div>
+
+<!-- FOOTER -->
+<div class="foot">
+  <span>Workshop IA · Agente Hunter · Uso interno</span>
+  <span><strong>Zél, agente IA comercial</strong> · Referência de design</span>
+  <span>Construído com Claude.ai · Anthropic</span>
+</div>
+
+</body>
+</html>

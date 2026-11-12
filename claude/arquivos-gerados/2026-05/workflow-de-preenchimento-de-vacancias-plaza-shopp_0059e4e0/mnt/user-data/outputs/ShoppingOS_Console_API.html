@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopping Inteligente OS · Console de Comando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0d1117;
+    --ink-soft:   #1c2128;
+    --paper:      #f5f1e8;
+    --paper-soft: #ede6d5;
+    --rule:       #2a313a;
+    --rule-soft:  #d4cdba;
+    --accent:     #c8553d;
+    --accent-2:   #d99857;
+    --gold:       #c9a55c;
+    --moss:       #4a5d3a;
+    --steel:      #5c6878;
+    --shadow:     0 1px 0 rgba(13,17,23,0.06), 0 12px 24px -8px rgba(13,17,23,0.18);
+    --display:    "Fraunces", Georgia, serif;
+    --body:       "Inter Tight", -apple-system, sans-serif;
+    --mono:       "JetBrains Mono", "Courier New", monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 14px; line-height: 1.5; }
+  body { min-height: 100vh; background-image: radial-gradient(at top right, rgba(217,152,87,0.08), transparent 50%), radial-gradient(at bottom left, rgba(74,93,58,0.06), transparent 50%); }
+
+  .app { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--ink); color: var(--paper); padding: 28px 22px;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto; border-right: 1px solid var(--rule);
+  }
+  .brand { margin-bottom: 22px; }
+  .brand .mark { font-family: var(--display); font-weight: 900; font-size: 22px; letter-spacing: -0.02em; line-height: 1; }
+  .brand .mark .dot { color: var(--accent); }
+  .brand .sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); margin-top: 6px; }
+
+  .api-status {
+    background: var(--ink-soft); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 10px 12px; margin-bottom: 18px; font-size: 11px; font-family: var(--mono);
+    display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.15s;
+  }
+  .api-status:hover { border-color: var(--accent-2); }
+  .api-status .dot-led { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .api-status .dot-led.on { background: var(--moss); box-shadow: 0 0 8px var(--moss); }
+  .api-status .label { flex: 1; color: var(--paper-soft); }
+
+  .shopping-switcher { background: var(--ink-soft); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; margin-bottom: 24px; }
+  .shopping-switcher .label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); margin-bottom: 6px; }
+  .shopping-switcher select { width: 100%; background: var(--ink); color: var(--paper); border: 1px solid var(--rule); padding: 8px 10px; border-radius: 4px; font-family: var(--body); font-size: 13px; cursor: pointer; }
+  .shopping-switcher .meta { font-family: var(--mono); font-size: 10px; color: var(--gold); margin-top: 8px; line-height: 1.4; }
+  .shopping-switcher button.new { width: 100%; background: transparent; color: var(--accent-2); border: 1px dashed var(--rule); padding: 6px; margin-top: 8px; border-radius: 4px; cursor: pointer; font-size: 11px; font-family: var(--mono); }
+  .shopping-switcher button.new:hover { background: var(--ink); border-color: var(--accent-2); }
+
+  .nav-group { margin-bottom: 22px; }
+  .nav-group .group-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); padding: 0 4px 8px 4px; border-bottom: 1px solid var(--rule); margin-bottom: 6px; }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; color: var(--paper); text-decoration: none; font-size: 13px; border-radius: 4px; cursor: pointer; transition: all 0.15s; border-left: 2px solid transparent; }
+  .nav-item:hover { background: var(--ink-soft); border-left-color: var(--steel); }
+  .nav-item.active { background: var(--ink-soft); border-left-color: var(--accent); }
+  .nav-item .num { font-family: var(--mono); font-size: 10px; color: var(--gold); min-width: 22px; }
+  .nav-item.workflow .num { color: var(--accent-2); }
+
+  main { padding: 40px 56px; max-width: 1280px; }
+  .breadcrumb { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); margin-bottom: 10px; }
+  .breadcrumb .sep { color: var(--rule-soft); margin: 0 6px; }
+  .breadcrumb .current { color: var(--accent); }
+  h1.page-title { font-family: var(--display); font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -0.025em; margin-bottom: 8px; }
+  .page-desc { color: var(--steel); font-size: 15px; max-width: 720px; margin-bottom: 32px; }
+  .page-desc strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: white; border: 1px solid var(--rule-soft); border-radius: 8px; padding: 28px; margin-bottom: 20px; box-shadow: var(--shadow); }
+  .card h2 { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .card .card-desc { color: var(--steel); font-size: 13px; margin-bottom: 22px; max-width: 640px; }
+
+  .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 20px; }
+  .form-grid .full { grid-column: 1 / -1; }
+
+  label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); font-weight: 700; margin-bottom: 6px; }
+  label .hint { color: var(--steel); text-transform: none; letter-spacing: 0; font-weight: 400; font-family: var(--body); font-size: 11px; margin-left: 6px; }
+  label .required { color: var(--accent); }
+
+  input[type=text], input[type=number], input[type=date], input[type=password], select, textarea {
+    width: 100%; background: var(--paper); border: 1px solid var(--rule-soft); padding: 10px 12px;
+    border-radius: 4px; font-family: var(--body); font-size: 13px; color: var(--ink); transition: all 0.15s;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); background: white; box-shadow: 0 0 0 3px rgba(200,85,61,0.1); }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .pill-group { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill-check { display: inline-flex; align-items: center; background: var(--paper); border: 1px solid var(--rule-soft); padding: 6px 12px; border-radius: 999px; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.15s; }
+  .pill-check:hover { border-color: var(--ink); }
+  .pill-check input { display: none; }
+  .pill-check.checked { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .actions { display: flex; gap: 10px; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule-soft); flex-wrap: wrap; align-items: center; }
+  .btn { padding: 11px 20px; border: 1px solid var(--rule-soft); background: white; border-radius: 4px; font-family: var(--body); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink); transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--paper); border-color: var(--ink); }
+  .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: white; }
+  .btn-primary:disabled { background: var(--steel); cursor: not-allowed; opacity: 0.6; }
+  .btn-ghost { background: transparent; border-color: transparent; }
+  .btn-ghost:hover { background: var(--paper-soft); border-color: var(--rule-soft); }
+  .btn .shortcut { font-family: var(--mono); font-size: 10px; background: rgba(255,255,255,0.15); padding: 2px 5px; border-radius: 3px; margin-left: 6px; }
+
+  /* OUTPUT */
+  .output-block { background: white; border: 1px solid var(--rule-soft); border-radius: 8px; padding: 0; overflow: hidden; margin-top: 20px; }
+  .output-bar { background: var(--ink); color: var(--paper); padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; }
+  .output-bar .label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
+  .output-bar .actions-mini { display: flex; gap: 6px; }
+  .output-bar button { background: var(--ink-soft); color: var(--paper); border: 1px solid var(--rule); padding: 5px 10px; border-radius: 3px; font-size: 11px; font-family: var(--mono); cursor: pointer; }
+  .output-bar button:hover { background: var(--rule); }
+  .output-bar button.primary { background: var(--accent); border-color: var(--accent); }
+
+  .output-content { padding: 28px 32px; font-family: var(--body); font-size: 14px; line-height: 1.7; color: var(--ink); max-height: 700px; overflow-y: auto; }
+  .output-content h1, .output-content h2, .output-content h3 { font-family: var(--display); font-weight: 700; margin: 18px 0 8px; line-height: 1.2; }
+  .output-content h1 { font-size: 24px; }
+  .output-content h2 { font-size: 19px; color: var(--accent); border-bottom: 1px solid var(--rule-soft); padding-bottom: 6px; }
+  .output-content h3 { font-size: 16px; }
+  .output-content p { margin-bottom: 10px; }
+  .output-content ul, .output-content ol { margin: 8px 0 12px 24px; }
+  .output-content li { margin-bottom: 4px; }
+  .output-content table { border-collapse: collapse; margin: 12px 0; font-size: 12px; width: 100%; }
+  .output-content th, .output-content td { border: 1px solid var(--rule-soft); padding: 8px 10px; text-align: left; vertical-align: top; }
+  .output-content th { background: var(--paper); font-weight: 600; }
+  .output-content code { background: var(--paper); padding: 2px 6px; border-radius: 3px; font-family: var(--mono); font-size: 12px; }
+  .output-content strong { color: var(--ink); font-weight: 700; }
+  .output-content em { color: var(--accent); font-style: italic; }
+
+  /* Loading / Streaming */
+  .streaming-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-family: var(--mono); font-size: 11px; }
+  .streaming-indicator .pulse { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 1.4s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .cost-estimate {
+    background: var(--paper-soft); border-left: 3px solid var(--gold);
+    padding: 10px 14px; border-radius: 0 4px 4px 0; font-size: 12px;
+    margin-top: 12px; font-family: var(--mono); color: var(--ink-soft);
+  }
+
+  .stats-bar {
+    display: flex; gap: 16px; padding: 10px 18px; background: var(--paper-soft);
+    border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 11px; color: var(--steel);
+  }
+  .stats-bar .stat { display: flex; gap: 4px; }
+  .stats-bar .stat .v { color: var(--ink); font-weight: 700; }
+
+  /* HOME hero */
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 32px; }
+  .hero-main { background: var(--ink); color: var(--paper); border-radius: 8px; padding: 36px 32px; position: relative; overflow: hidden; }
+  .hero-main::before { content: ""; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.3; }
+  .hero-main h1 { font-family: var(--display); font-weight: 900; font-size: 38px; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 16px; position: relative; }
+  .hero-main h1 em { font-style: italic; font-weight: 500; color: var(--accent-2); }
+  .hero-main p { font-size: 15px; color: var(--paper-soft); max-width: 480px; line-height: 1.6; position: relative; }
+  .hero-side { background: var(--paper-soft); border-radius: 8px; padding: 24px; border: 1px solid var(--rule-soft); }
+  .hero-side h3 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); margin-bottom: 14px; }
+  .hero-side ul { list-style: none; }
+  .hero-side li { padding: 10px 0; border-top: 1px solid var(--rule-soft); font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .hero-side li:first-child { border-top: none; }
+  .hero-side li .num { font-family: var(--mono); font-weight: 700; font-size: 16px; color: var(--accent); }
+
+  .workflow-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+  .wf-card { background: white; border: 1px solid var(--rule-soft); border-radius: 8px; padding: 24px; cursor: pointer; transition: all 0.2s; position: relative; }
+  .wf-card:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px -4px rgba(13,17,23,0.15); }
+  .wf-card .wf-num { font-family: var(--mono); font-size: 36px; font-weight: 700; color: var(--rule-soft); line-height: 1; margin-bottom: 8px; }
+  .wf-card:hover .wf-num { color: var(--accent); }
+  .wf-card h4 { font-family: var(--display); font-weight: 700; font-size: 19px; line-height: 1.15; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .wf-card p { font-size: 12px; color: var(--steel); line-height: 1.5; }
+  .wf-card .kpi { margin-top: 14px; font-family: var(--mono); font-size: 10px; color: var(--moss); letter-spacing: 0.05em; }
+
+  .agents-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .agent-mini { background: white; border: 1px solid var(--rule-soft); border-radius: 6px; padding: 14px; cursor: pointer; transition: all 0.15s; }
+  .agent-mini:hover { border-color: var(--accent); background: var(--paper); }
+  .agent-mini .num { font-family: var(--mono); font-size: 10px; color: var(--gold); margin-bottom: 4px; }
+  .agent-mini .name { font-weight: 600; font-size: 13px; line-height: 1.2; margin-bottom: 4px; }
+  .agent-mini .desc { font-size: 11px; color: var(--steel); line-height: 1.4; }
+
+  /* MODAL */
+  .modal-bg { display: none; position: fixed; inset: 0; background: rgba(13,17,23,0.7); z-index: 200; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
+  .modal-bg.active { display: flex; }
+  .modal { background: var(--paper); border-radius: 12px; padding: 32px; width: 90%; max-width: 580px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); max-height: 90vh; overflow-y: auto; }
+  .modal h2 { font-family: var(--display); font-size: 26px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .modal .desc { color: var(--steel); font-size: 13px; margin-bottom: 22px; }
+
+  .toast { position: fixed; bottom: 28px; right: 28px; background: var(--ink); color: var(--paper); padding: 14px 22px; border-radius: 6px; font-size: 13px; opacity: 0; transform: translateY(20px); transition: all 0.25s; z-index: 300; box-shadow: 0 12px 32px rgba(0,0,0,0.25); border-left: 3px solid var(--accent); font-family: var(--mono); letter-spacing: 0.02em; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.error { border-left-color: var(--accent); background: #4a1a14; }
+
+  .ornament { text-align: center; margin: 24px 0; color: var(--rule-soft); font-family: var(--display); font-size: 18px; letter-spacing: 0.5em; }
+  .banner { background: var(--paper-soft); border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 13px; margin-bottom: 20px; }
+  .banner.warn { border-left-color: var(--accent); background: #fdf0ec; }
+  .banner strong { color: var(--accent); }
+
+  .section { display: none; animation: fadeIn 0.3s; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .help-text { font-size: 11px; color: var(--steel); margin-top: 6px; font-family: var(--mono); line-height: 1.5; }
+  .help-text a { color: var(--accent); }
+
+  @media (max-width: 1024px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { position: relative; height: auto; }
+    main { padding: 24px; }
+    .hero-grid, .workflow-cards, .agents-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    h1.page-title { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="mark">Shopping<span class="dot">.</span>OS</div>
+    <div class="sub">v5 · Console de Comando</div>
+  </div>
+
+  <div class="api-status" id="apiStatusBox" onclick="openApiModal()">
+    <span class="dot-led" id="apiLed"></span>
+    <span class="label" id="apiStatusLabel">API não configurada</span>
+    <span style="color:var(--steel);">⚙</span>
+  </div>
+
+  <div class="shopping-switcher">
+    <div class="label">Shopping ativo</div>
+    <select id="shoppingSelect" onchange="changeShopping(this.value)"></select>
+    <div class="meta" id="shoppingMeta"></div>
+    <button class="new" onclick="openShoppingModal()">+ Novo shopping</button>
+  </div>
+
+  <nav>
+    <div class="nav-group">
+      <div class="group-label">Início</div>
+      <div class="nav-item active" data-section="home" onclick="navigate('home')"><span class="num">⌂</span><span>Console</span></div>
+      <div class="nav-item" data-section="shopping" onclick="navigate('shopping')"><span class="num">⊕</span><span>Perfil do Shopping</span></div>
+    </div>
+    <div class="nav-group">
+      <div class="group-label">Workflows Prioritários</div>
+      <div class="nav-item workflow" data-section="wf1" onclick="navigate('wf1')"><span class="num">W1</span><span>Vacancy-to-Contract</span></div>
+      <div class="nav-item workflow" data-section="wf2" onclick="navigate('wf2')"><span class="num">W2</span><span>Street-to-Shopping</span></div>
+      <div class="nav-item workflow" data-section="wf3" onclick="navigate('wf3')"><span class="num">W3</span><span>Cluster Experience</span></div>
+    </div>
+    <div class="nav-group">
+      <div class="group-label">Agentes Individuais</div>
+      <div id="agentsNav"></div>
+    </div>
+    <div class="nav-group">
+      <div class="group-label">Dados</div>
+      <div class="nav-item" data-section="history" onclick="navigate('history')"><span class="num">⌖</span><span>Histórico</span></div>
+      <div class="nav-item" data-section="data" onclick="navigate('data')"><span class="num">⇄</span><span>Export / Import</span></div>
+    </div>
+  </nav>
+</aside>
+
+
+<!-- MAIN -->
+<main>
+
+<section id="home" class="section active">
+  <div class="breadcrumb">SISTEMA <span class="sep">/</span> <span class="current">Console</span></div>
+  <div class="hero-grid">
+    <div class="hero-main">
+      <h1>Onde<br>oportunidade<br><em>vira contrato.</em></h1>
+      <p>Console de comando para o Shopping Inteligente OS v5. Selecione um workflow ou agente, preencha o briefing, e o sistema executa via API Anthropic e retorna a análise completa.</p>
+    </div>
+    <div class="hero-side">
+      <h3>Atividade do shopping ativo</h3>
+      <ul>
+        <li>Execuções <span class="num" id="cntExecutions">0</span></li>
+        <li>Workflows <span class="num" id="cntWorkflows">0</span></li>
+        <li>Agentes <span class="num" id="cntAgents">0</span></li>
+        <li>Tokens usados <span class="num" id="cntTokens" style="font-family:var(--mono);font-size:13px;">0</span></li>
+        <li>Custo estimado total <span class="num" id="cntCost" style="font-family:var(--mono);font-size:13px;">$0.00</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="apiWarning" class="banner warn" style="display:none;">
+    <strong>API não configurada.</strong> Antes de executar qualquer agente, configure sua chave da API Anthropic (clique em "API não configurada" no menu lateral). Sem chave, o sistema gera apenas o prompt para você colar no Claude.ai manualmente.
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <h2 style="font-family:var(--display);font-size:28px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em;">Workflows Prioritários</h2>
+  <p style="color:var(--steel);font-size:13px;margin-bottom:20px;">Os 3 caminhos críticos do v5. Cada workflow orquestra múltiplos agentes em uma única execução.</p>
+
+  <div class="workflow-cards">
+    <div class="wf-card" onclick="navigate('wf1')">
+      <div class="wf-num">01</div><h4>Vacancy-to-Contract Sprint</h4>
+      <p>Reduz vacância monetizada. Encurta o ciclo entre loja vaga e contrato assinado.</p>
+      <div class="kpi">KPI · dias até contrato assinado</div>
+    </div>
+    <div class="wf-card" onclick="navigate('wf2')">
+      <div class="wf-num">02</div><h4>Street-to-Shopping Conversion</h4>
+      <p>Captura varejo qualificado de rua. Transforma operadores autorais em lojistas.</p>
+      <div class="kpi">KPI · conversão street → LOI</div>
+    </div>
+    <div class="wf-card" onclick="navigate('wf3')">
+      <div class="wf-num">03</div><h4>Cluster Experience Growth</h4>
+      <p>Aumenta frequência, ticket, experiência e aderência ao posicionamento.</p>
+      <div class="kpi">KPI · fluxo e vendas incrementais</div>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <h2 style="font-family:var(--display);font-size:28px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em;">Agentes Individuais</h2>
+  <p style="color:var(--steel);font-size:13px;margin-bottom:20px;">Acione um agente isolado quando o problema é específico.</p>
+  <div class="agents-grid" id="homeAgentsGrid"></div>
+</section>
+
+
+<!-- PERFIL DO SHOPPING -->
+<section id="shopping" class="section">
+  <div class="breadcrumb">CADASTRO <span class="sep">/</span> <span class="current">Perfil do Shopping</span></div>
+  <h1 class="page-title">Perfil do Shopping</h1>
+  <p class="page-desc">Define o contexto que <strong>todos os agentes</strong> usam. Preencha uma vez; cada workflow herda automaticamente. Mude o shopping ativo no menu lateral.</p>
+
+  <div class="card">
+    <h2>Identificação</h2>
+    <p class="card-desc">Dados básicos e cluster.</p>
+    <div class="form-grid">
+      <div class="full"><label>Nome do shopping <span class="required">*</span></label><input type="text" id="sh_nome"></div>
+      <div><label>Cidade <span class="required">*</span></label><input type="text" id="sh_cidade"></div>
+      <div><label>Estado</label><input type="text" id="sh_estado"></div>
+      <div class="full"><label>Endereço completo</label><input type="text" id="sh_endereco"></div>
+      <div>
+        <label>Cluster <span class="required">*</span></label>
+        <select id="sh_cluster">
+          <option value="">— selecione —</option>
+          <option>Sofisticados</option><option>Compactos de Alto Padrão</option>
+          <option>Entretenimento</option><option>Passeio Familiar</option>
+          <option>Imensos</option><option>Convenientes</option>
+        </select>
+      </div>
+      <div><label>Operador</label><input type="text" id="sh_operador"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Métricas físicas</h2>
+    <div class="form-grid">
+      <div><label>ABL total (m²)</label><input type="number" id="sh_abl"></div>
+      <div><label>Total de lojas</label><input type="number" id="sh_lojas"></div>
+      <div><label>Ano de inauguração</label><input type="number" id="sh_ano"></div>
+      <div><label>Última grande reforma</label><input type="number" id="sh_reforma"></div>
+      <div><label>Vacância atual (%)</label><input type="number" id="sh_vacancia" min="0" max="100"></div>
+      <div><label>ABL vaga (m²)</label><input type="number" id="sh_abl_vaga"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Posicionamento</h2>
+    <div class="form-grid">
+      <div class="full">
+        <label>Batalhas prioritárias <span class="hint">selecione 2-4</span></label>
+        <div class="pill-group" id="sh_batalhas_group">
+          <label class="pill-check"><input type="checkbox" value="Lojas"><span>Lojas</span></label>
+          <label class="pill-check"><input type="checkbox" value="Gastronomia"><span>Gastronomia</span></label>
+          <label class="pill-check"><input type="checkbox" value="Entretenimento"><span>Entretenimento</span></label>
+          <label class="pill-check"><input type="checkbox" value="Hospitality"><span>Hospitality</span></label>
+          <label class="pill-check"><input type="checkbox" value="Serviços"><span>Serviços</span></label>
+          <label class="pill-check"><input type="checkbox" value="Ambiência"><span>Ambiência</span></label>
+          <label class="pill-check"><input type="checkbox" value="Relacionamento com o entorno"><span>Entorno</span></label>
+          <label class="pill-check"><input type="checkbox" value="Jornada sem fricção"><span>Jornada sem fricção</span></label>
+        </div>
+      </div>
+      <div class="full"><label>Target principal</label><textarea id="sh_target"></textarea></div>
+      <div class="full"><label>Concorrência direta</label><textarea id="sh_concorrencia"></textarea></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Diagnóstico atual</h2>
+    <div class="form-grid">
+      <div class="full"><label>Pontos fortes</label><textarea id="sh_fortes"></textarea></div>
+      <div class="full"><label>Lacunas de mix</label><textarea id="sh_lacunas"></textarea></div>
+      <div class="full"><label>Lojas em saída ou risco</label><textarea id="sh_saidas"></textarea></div>
+      <div class="full"><label>Mix atual (marcas presentes) <span class="hint">para filtro de duplicidade</span></label><textarea id="sh_mix"></textarea></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="saveShopping()">Salvar perfil</button>
+      <button class="btn" onclick="confirmDeleteShopping()">Excluir shopping</button>
+      <span style="margin-left:auto;color:var(--steel);font-size:12px;" id="shoppingSaveStatus"></span>
+    </div>
+  </div>
+</section>
+
+
+<!-- WORKFLOWS -->
+<section id="wf1" class="section">
+  <div class="breadcrumb">WORKFLOW <span class="sep">/</span> <span class="current">W1 · Vacancy-to-Contract</span></div>
+  <h1 class="page-title">Vacancy-to-Contract<br><em style="font-style:italic;font-weight:500;color:var(--accent);">Sprint</em></h1>
+  <p class="page-desc">Reduz vacância monetizada e encurta o ciclo loja vaga → contrato assinado.</p>
+  <div class="banner">O perfil do shopping ativo é injetado automaticamente. Confirme que está atualizado antes de executar.</div>
+  <div class="card">
+    <h2>Parâmetros do Sprint</h2>
+    <div class="form-grid">
+      <div class="full"><label>Lojas vagas / a vagar <span class="required">*</span></label><textarea id="wf1_vagas" placeholder="Ex: Cinemark foyer (5.097m²), Americanas (2.724m²)..."></textarea></div>
+      <div><label>Raio de hunting (km)</label><input type="text" id="wf1_raio" value="2-50"></div>
+      <div><label>Meta principal</label><input type="text" id="wf1_meta" placeholder="Ex: 50% recolocação em 90 dias"></div>
+      <div class="full"><label>Lacunas específicas de mix</label><textarea id="wf1_lacunas" placeholder="categorias desejadas"></textarea></div>
+      <div class="full"><label>Restrições e blockers conhecidos</label><textarea id="wf1_blockers"></textarea></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-wf1" onclick="executeBriefing('wf1')">▸ Executar via API <span class="shortcut">⌘↵</span></button>
+      <button class="btn" onclick="downloadPrompt('wf1')">Baixar prompt</button>
+      <button class="btn btn-ghost" onclick="clearForm('wf1')">Limpar</button>
+    </div>
+    <div class="cost-estimate" id="cost-wf1">Custo estimado: $0.15-0.40 por execução (Sonnet 4.6 + web search habilitado)</div>
+  </div>
+</section>
+
+<section id="wf2" class="section">
+  <div class="breadcrumb">WORKFLOW <span class="sep">/</span> <span class="current">W2 · Street-to-Shopping</span></div>
+  <h1 class="page-title">Street-to-Shopping<br><em style="font-style:italic;font-weight:500;color:var(--accent);">Conversion Sprint</em></h1>
+  <p class="page-desc">Captura operadores de rua qualificados e os transforma em lojistas.</p>
+  <div class="card">
+    <h2>Parâmetros do Sprint</h2>
+    <div class="form-grid">
+      <div><label>Raio</label><input type="text" id="wf2_raio" value="0-50km"></div>
+      <div>
+        <label>Foco</label>
+        <select id="wf2_foco">
+          <option>Gastronomia autoral</option><option>Moda multimarca</option>
+          <option>Serviços</option><option>Beleza e bem-estar</option>
+          <option>Cafés e padarias</option><option>Tudo — varejo qualificado</option>
+        </select>
+      </div>
+      <div class="full"><label>Bairros e polos prioritários</label><textarea id="wf2_bairros" placeholder="Ex: Icaraí, São Francisco, Tijuca, Zona Sul Rio"></textarea></div>
+      <div class="full"><label>Espaços disponíveis no shopping</label><textarea id="wf2_espacos"></textarea></div>
+      <div class="full"><label>Pacote Alavancador disponível</label><textarea id="wf2_alavancador" placeholder="garantia, obra, seguro, plano saúde"></textarea></div>
+      <div><label>Meta de conversão</label><input type="text" id="wf2_meta"></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-wf2" onclick="executeBriefing('wf2')">▸ Executar via API</button>
+      <button class="btn" onclick="downloadPrompt('wf2')">Baixar prompt</button>
+      <button class="btn btn-ghost" onclick="clearForm('wf2')">Limpar</button>
+    </div>
+    <div class="cost-estimate">Custo estimado: $0.15-0.40 por execução</div>
+  </div>
+</section>
+
+<section id="wf3" class="section">
+  <div class="breadcrumb">WORKFLOW <span class="sep">/</span> <span class="current">W3 · Cluster Experience Growth</span></div>
+  <h1 class="page-title">Cluster Experience<br><em style="font-style:italic;font-weight:500;color:var(--accent);">Growth Sprint</em></h1>
+  <p class="page-desc">Aumenta frequência, ticket, experiência e aderência ao posicionamento.</p>
+  <div class="card">
+    <h2>Parâmetros do Sprint</h2>
+    <div class="form-grid">
+      <div class="full">
+        <label>Objetivo principal</label>
+        <select id="wf3_obj">
+          <option>Aumentar frequência</option><option>Aumentar ticket médio</option>
+          <option>Aumentar vendas dos lojistas</option><option>Reposicionar no cluster</option>
+          <option>Elevar NPS</option><option>Aumentar receita de mídia/patrocínio</option>
+        </select>
+      </div>
+      <div class="full"><label>Espaços de eventos</label><textarea id="wf3_espacos"></textarea></div>
+      <div class="full">
+        <label>Canais ativos</label>
+        <div class="pill-group" id="wf3_canais_group">
+          <label class="pill-check"><input type="checkbox" value="PB"><span>PB</span></label>
+          <label class="pill-check"><input type="checkbox" value="CRM"><span>CRM</span></label>
+          <label class="pill-check"><input type="checkbox" value="Helloo"><span>Helloo</span></label>
+          <label class="pill-check"><input type="checkbox" value="Mall Media"><span>Mall Media</span></label>
+          <label class="pill-check"><input type="checkbox" value="App"><span>App</span></label>
+          <label class="pill-check"><input type="checkbox" value="Telas"><span>Telas</span></label>
+          <label class="pill-check"><input type="checkbox" value="Eventos"><span>Eventos</span></label>
+        </div>
+      </div>
+      <div class="full"><label>Datas/sazonalidades prioritárias</label><textarea id="wf3_datas"></textarea></div>
+      <div class="full"><label>Lacunas de experiência</label><textarea id="wf3_gaps"></textarea></div>
+      <div><label>Orçamento estimado</label><input type="text" id="wf3_orcamento"></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-wf3" onclick="executeBriefing('wf3')">▸ Executar via API</button>
+      <button class="btn" onclick="downloadPrompt('wf3')">Baixar prompt</button>
+      <button class="btn btn-ghost" onclick="clearForm('wf3')">Limpar</button>
+    </div>
+    <div class="cost-estimate">Custo estimado: $0.15-0.40 por execução</div>
+  </div>
+</section>
+
+
+<div id="agentSections"></div>
+
+
+<!-- HISTÓRICO -->
+<section id="history" class="section">
+  <div class="breadcrumb">DADOS <span class="sep">/</span> <span class="current">Histórico</span></div>
+  <h1 class="page-title">Histórico de Execuções</h1>
+  <p class="page-desc">Últimas 50 execuções de todos os shoppings. Clique em "Ver" para abrir o output completo.</p>
+  <div class="card" style="padding:0;">
+    <div id="historyList" style="max-height:700px;overflow-y:auto;"></div>
+  </div>
+</section>
+
+
+<!-- DADOS -->
+<section id="data" class="section">
+  <div class="breadcrumb">DADOS <span class="sep">/</span> <span class="current">Export / Import</span></div>
+  <h1 class="page-title">Dados</h1>
+  <p class="page-desc">Backup e portabilidade. Tudo fica no seu navegador.</p>
+  <div class="card">
+    <h2>Exportar</h2>
+    <div class="actions" style="margin-top:0;padding-top:0;border:none;">
+      <button class="btn btn-primary" onclick="exportAll()">Exportar tudo (JSON)</button>
+      <button class="btn" onclick="exportCurrentShopping()">Exportar shopping ativo</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Importar</h2>
+    <div class="actions" style="margin-top:0;padding-top:0;border:none;">
+      <button class="btn btn-primary" onclick="importAll()">Importar JSON</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="color:var(--accent);">Zona de risco</h2>
+    <div class="actions" style="margin-top:0;padding-top:0;border:none;">
+      <button class="btn" style="border-color:var(--accent);color:var(--accent);" onclick="clearAllData()">Apagar tudo</button>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+
+<!-- MODAL: API KEY -->
+<div class="modal-bg" id="modalApi">
+  <div class="modal">
+    <h2>Configurar API Anthropic</h2>
+    <p class="desc">Cole sua chave de API. Ela fica salva no seu navegador (não é enviada a nenhum servidor além do <code>api.anthropic.com</code>).</p>
+
+    <div class="banner warn">
+      <strong>Segurança:</strong> chave fica no localStorage do navegador. Não use este sistema em máquinas compartilhadas. Em produção/escala, use proxy backend.
+    </div>
+
+    <div style="display:grid;gap:14px;">
+      <div>
+        <label>Chave de API <span class="required">*</span></label>
+        <input type="password" id="apiKeyInput" placeholder="sk-ant-...">
+        <div class="help-text">Crie em <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com/settings/keys</a></div>
+      </div>
+      <div>
+        <label>Modelo</label>
+        <select id="apiModel">
+          <option value="claude-sonnet-4-6-20250929" selected>Claude Sonnet 4.6 (recomendado · melhor custo/qualidade)</option>
+          <option value="claude-opus-4-7-20251201">Claude Opus 4.7 (mais caro · melhor para análises complexas)</option>
+          <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (mais rápido e barato · menor qualidade)</option>
+        </select>
+      </div>
+      <div>
+        <label>Web Search</label>
+        <select id="apiWebSearch">
+          <option value="true" selected>Habilitado (recomendado · permite verificar mix atual)</option>
+          <option value="false">Desabilitado (mais barato · só conhecimento do modelo)</option>
+        </select>
+        <div class="help-text">Web search adiciona ~$0.01 por tool call. Workflows com filtro de duplicidade precisam.</div>
+      </div>
+      <div>
+        <label>Max tokens por execução</label>
+        <input type="number" id="apiMaxTokens" value="8000" min="1000" max="16000">
+        <div class="help-text">Limite de tokens da resposta. Workflows complexos podem precisar 8000+.</div>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:24px;padding-top:18px;">
+      <button class="btn btn-primary" onclick="saveApiConfig()">Salvar e testar</button>
+      <button class="btn" onclick="clearApiKey()">Remover chave</button>
+      <button class="btn btn-ghost" onclick="closeApiModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: NOVO SHOPPING -->
+<div class="modal-bg" id="modalShopping">
+  <div class="modal">
+    <h2>Novo shopping</h2>
+    <p class="desc">Cadastre um novo shopping. Você poderá completar o perfil depois.</p>
+    <div style="display:grid;gap:14px;">
+      <div><label>Nome <span class="required">*</span></label><input type="text" id="newSh_nome"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><label>Cidade <span class="required">*</span></label><input type="text" id="newSh_cidade"></div>
+        <div><label>Estado</label><input type="text" id="newSh_estado"></div>
+      </div>
+      <div>
+        <label>Cluster <span class="required">*</span></label>
+        <select id="newSh_cluster">
+          <option value="">— selecione —</option>
+          <option>Sofisticados</option><option>Compactos de Alto Padrão</option>
+          <option>Entretenimento</option><option>Passeio Familiar</option>
+          <option>Imensos</option><option>Convenientes</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:24px;padding-top:18px;">
+      <button class="btn btn-primary" onclick="createShopping()">Criar</button>
+      <button class="btn btn-ghost" onclick="closeShoppingModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// =================== AGENT DEFINITIONS ===================
+const AGENTS = [
+  {id:1, name:"Cluster Positioning Engine", desc:"Confirma cluster, batalhas e pesos. Traduz posicionamento em underwriting.",
+   fields:[
+     {key:"foco", label:"Foco da análise", type:"select", options:["Validar classificação de cluster","Sugerir reposicionamento","Definir pesos de underwriting","Ajustar batalhas"]},
+     {key:"hipotese", label:"Sua hipótese de cluster", type:"text"},
+     {key:"sinais", label:"Sinais que motivaram a análise", type:"textarea"}
+   ]},
+  {id:2, name:"Deal Conversion Layer", desc:"Estágio, dono, próxima ação. Cockpit de oportunidades.",
+   fields:[
+     {key:"foco", label:"Foco", type:"select", options:["Higienizar pipeline","Definir critérios de kill","Estabelecer cadência","Plano para estágio travado"]},
+     {key:"pipeline", label:"Pipeline atual (resumo)", type:"textarea"},
+     {key:"meta", label:"Meta de conversão", type:"text"}
+   ]},
+  {id:3, name:"Hunter / Retail Innovation", desc:"Mapeia marcas, gastronomia, entretenimento.",
+   fields:[
+     {key:"raio", label:"Raio (km)", type:"text", defaultValue:"2-50"},
+     {key:"categorias", label:"Categorias-foco", type:"textarea"},
+     {key:"shoppings_cluster", label:"Shoppings do mesmo cluster (benchmark)", type:"textarea"}
+   ]},
+  {id:4, name:"Street Converter", desc:"Converte operadores de rua. Tese de valor + pacote.",
+   fields:[
+     {key:"bairros", label:"Bairros/polos prioritários", type:"textarea"},
+     {key:"categoria", label:"Categoria-alvo", type:"text"},
+     {key:"espacos", label:"Espaços disponíveis", type:"textarea"},
+     {key:"pacote", label:"Pacote de conversão", type:"textarea"}
+   ]},
+  {id:5, name:"Regional Hunter", desc:"Capitais e cidades vizinhas. Marcas locais antes de virarem shopping.",
+   fields:[
+     {key:"cidades", label:"Cidades-alvo", type:"textarea"},
+     {key:"raio", label:"Raio (km)", type:"text", defaultValue:"15-150"},
+     {key:"tese", label:"Tese de entrada", type:"textarea"}
+   ]},
+  {id:6, name:"Premium Hunter", desc:"Sofisticados e Compactos Alto Padrão. Eleva desejo e ticket.",
+   fields:[
+     {key:"foco", label:"Foco", type:"select", options:["Moda/beleza renome","Native digitals aspiracionais","Fine dining","Cafés/pâtisseries","Wellness premium","Arte/cultura"]},
+     {key:"benchmark", label:"Benchmark de referência", type:"textarea"},
+     {key:"posicionamento", label:"Posicionamento desejado", type:"textarea"}
+   ]},
+  {id:7, name:"Farmer / Investor Matchmaker", desc:"Capta e qualifica investidores locais.",
+   fields:[
+     {key:"foco", label:"Foco", type:"select", options:["Estruturar CRM","Suitability","Match marca x investidor x ponto","Lote multifranqueado"]},
+     {key:"perfis", label:"Perfis-alvo", type:"textarea"},
+     {key:"marcas", label:"Marcas que precisam de investidor", type:"textarea"}
+   ]},
+  {id:8, name:"KA / Brand Expansion", desc:"Marcas em expansão. Match técnico e financeiro.",
+   fields:[
+     {key:"marcas_alvo", label:"Marcas-alvo conhecidas", type:"textarea"},
+     {key:"categorias", label:"Categorias prioritárias", type:"textarea"},
+     {key:"espacos", label:"Espaços disponíveis", type:"textarea"},
+     {key:"requisitos", label:"Requisitos técnicos não-negociáveis", type:"textarea"}
+   ]},
+  {id:9, name:"Plataforma de Espaços", desc:"Loja vaga em produto comercial digital.",
+   fields:[
+     {key:"lojas", label:"Lojas a digitalizar", type:"textarea"},
+     {key:"campos_faltantes", label:"Campos faltantes", type:"textarea"}
+   ]},
+  {id:10, name:"Alavancador / Retail Financial", desc:"Reduz barreiras financeiras.",
+   fields:[
+     {key:"perfil_loja", label:"Perfil do operador-alvo", type:"textarea"},
+     {key:"capex", label:"CAPEX estimado", type:"text"},
+     {key:"necessidades", label:"Necessidades financeiras", type:"textarea"}
+   ]},
+  {id:11, name:"Builder / Store Builder OS", desc:"Acelera obra e abertura.",
+   fields:[
+     {key:"loja", label:"Loja-alvo", type:"text"},
+     {key:"prazo", label:"Prazo de abertura", type:"text"},
+     {key:"complexidade", label:"Complexidade técnica", type:"textarea"}
+   ]},
+  {id:12, name:"Seller / Sales Performance", desc:"Maximiza venda do lojista.",
+   fields:[
+     {key:"lojistas", label:"Lojistas-foco", type:"textarea"},
+     {key:"objetivo", label:"Objetivo", type:"select", options:["Aumentar ticket","Aumentar frequência","Recuperar lojistas em queda","Campanha data comemorativa"]},
+     {key:"datas", label:"Datas/sazonalidades", type:"text"}
+   ]},
+  {id:13, name:"Entertainer / Experience & Events", desc:"Ocupação de praças, calendário, eventos.",
+   fields:[
+     {key:"espacos", label:"Espaços de evento", type:"textarea"},
+     {key:"periodo", label:"Período", type:"text"},
+     {key:"perfil_publico", label:"Perfil de público", type:"textarea"}
+   ]},
+  {id:14, name:"Opportunity Channel", desc:"Canal Instagram/TikTok para captar investidores e marcas.",
+   fields:[
+     {key:"foco", label:"Foco", type:"select", options:["Investidores","Marcas em expansão","Lojistas de rua","Tendências","Mix completo"]},
+     {key:"audiencia", label:"Audiência-alvo", type:"textarea"},
+     {key:"cadencia", label:"Cadência desejada", type:"text"}
+   ]},
+  {id:15, name:"Governance & KPI Monitor", desc:"Cadência, accountability, aprendizado.",
+   fields:[
+     {key:"rito", label:"Rito a estruturar", type:"select", options:["Comitê semanal Deal Conversion","Fórum vacância","Fórum cluster experience","Revisão trimestral KPIs","Revisão estratégica"]},
+     {key:"kpis_atuais", label:"KPIs já medidos", type:"textarea"},
+     {key:"problemas", label:"Problemas de governança", type:"textarea"}
+   ]},
+  {id:16, name:"Multi-Brand Vector Hunter", desc:"Mandamento 7 do Levy: multimarcas como vetor de monomarcas ainda não na praça.",
+   fields:[
+     {key:"multimarcas_alvo", label:"Multimarcas já mapeadas", type:"textarea"},
+     {key:"monomarcas_desejadas", label:"Monomarcas que queremos atrair", type:"textarea"},
+     {key:"raio", label:"Raio de busca", type:"text", defaultValue:"0-50km"}
+   ]}
+];
+
+// =================== PRICING (tokens) ===================
+const PRICING = {
+  "claude-sonnet-4-6-20250929": {input: 3.00, output: 15.00},
+  "claude-opus-4-7-20251201":   {input: 15.00, output: 75.00},
+  "claude-haiku-4-5-20251001":  {input: 1.00, output: 5.00}
+};
+
+// =================== STATE ===================
+let state = {
+  shoppings: {},
+  activeShoppingId: null,
+  history: [],
+  drafts: {},
+  totals: {tokens_input: 0, tokens_output: 0, cost: 0}
+};
+let apiConfig = {
+  key: "",
+  model: "claude-sonnet-4-6-20250929",
+  webSearch: true,
+  maxTokens: 8000
+};
+
+// =================== STORAGE ===================
+async function loadState() {
+  try {
+    const r = await window.storage.get("sios-state-v2");
+    if (r && r.value) state = JSON.parse(r.value);
+  } catch(e) {}
+  if (!state.shoppings || Object.keys(state.shoppings).length === 0) {
+    const id = "plaza-niteroi-" + Date.now();
+    state.shoppings = {
+      [id]: {
+        id, nome: "Plaza Shopping Niterói", cidade: "Niterói", estado: "RJ",
+        endereco: "Rua XV de Novembro, 8, Centro", cluster: "Entretenimento",
+        operador: "Allos", abl: 43000, lojas: 300, ano: 1986, abl_vaga: 6028,
+        batalhas: ["Entretenimento","Gastronomia","Lojas"],
+        target: "Famílias do Centro de Niterói + público regional. Anchor cinema preservada.",
+        concorrencia: "Bay Market, Icaraí Shopping, Niterói Shopping. Polos: Gavião Peixoto (Icaraí), Conde de Bonfim (Tijuca).",
+        fortes: "Cinemark mantido, ABL 43.000m², 300+ lojas, Espaço Gourmet consolidado.",
+        lacunas: "Entretenimento adulto (boliche/escape/VR), gastronomia autoral, cafés especiais nicho.",
+        saidas: "39 saídas Ano 1 (~6.028m²) + foyer Cinemark em redev (5.097m²).",
+        mix: "Cinemark, Coco Bambu, Outback, Madero, Abbraccio, NOI, Cabana Burger, Balada Mix, L'Entrecôte, Benihana, Renner, Riachuelo, C&A, Marisa, Forever 21, Calvin Klein, Lacoste, GAP, Levi's, Reserva, Decathlon, Nike, Centauro, Trackfield, Authentic Feet, LEGO, Ri Happy, Bacio di Latte, Oakberry, Yogoberry, Bibi Sucos, Habib's, Light Café, Beluga, Hocus Pocus (quiosque)..."
+      }
+    };
+    state.activeShoppingId = id;
+    await saveState();
+  }
+  // API config separado (localStorage)
+  try {
+    const a = localStorage.getItem("sios-api-config");
+    if (a) apiConfig = {...apiConfig, ...JSON.parse(a)};
+  } catch(e) {}
+}
+async function saveState() {
+  try { await window.storage.set("sios-state-v2", JSON.stringify(state)); } catch(e) {}
+}
+function saveApiConfigToStorage() {
+  try { localStorage.setItem("sios-api-config", JSON.stringify(apiConfig)); } catch(e) {}
+}
+
+// =================== API MODAL ===================
+function openApiModal() {
+  document.getElementById("apiKeyInput").value = apiConfig.key || "";
+  document.getElementById("apiModel").value = apiConfig.model;
+  document.getElementById("apiWebSearch").value = String(apiConfig.webSearch);
+  document.getElementById("apiMaxTokens").value = apiConfig.maxTokens;
+  document.getElementById("modalApi").classList.add("active");
+}
+function closeApiModal() { document.getElementById("modalApi").classList.remove("active"); }
+
+async function saveApiConfig() {
+  const key = document.getElementById("apiKeyInput").value.trim();
+  apiConfig.key = key;
+  apiConfig.model = document.getElementById("apiModel").value;
+  apiConfig.webSearch = document.getElementById("apiWebSearch").value === "true";
+  apiConfig.maxTokens = parseInt(document.getElementById("apiMaxTokens").value) || 8000;
+  saveApiConfigToStorage();
+
+  if (!key) {
+    toast("Chave removida. Sistema vai gerar prompts manualmente.");
+    updateApiStatus(false);
+    closeApiModal();
+    return;
+  }
+  // Teste rápido
+  toast("Testando chave...");
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": key,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: apiConfig.model,
+        max_tokens: 50,
+        messages: [{role:"user", content:"Diga apenas 'ok' para confirmar conexão."}]
+      })
+    });
+    const data = await res.json();
+    if (data.error) {
+      throw new Error(data.error.message || "erro desconhecido");
+    }
+    updateApiStatus(true);
+    toast("✓ Conexão OK · modelo " + apiConfig.model.split("-")[1]);
+    closeApiModal();
+  } catch(e) {
+    toast("Erro: " + e.message, "error");
+    updateApiStatus(false);
+  }
+}
+function clearApiKey() {
+  apiConfig.key = "";
+  saveApiConfigToStorage();
+  updateApiStatus(false);
+  toast("Chave removida");
+  closeApiModal();
+}
+function updateApiStatus(connected) {
+  document.getElementById("apiLed").classList.toggle("on", connected);
+  document.getElementById("apiStatusLabel").textContent = connected
+    ? `API · ${apiConfig.model.split("-")[1]} ${apiConfig.model.split("-")[2]}`
+    : "API não configurada";
+  document.getElementById("apiWarning").style.display = connected ? "none" : "block";
+}
+
+// =================== NAVIGATION ===================
+function navigate(sectionId) {
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  const sect = document.getElementById(sectionId);
+  if (sect) sect.classList.add("active");
+  document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+  const nav = document.querySelector(`.nav-item[data-section="${sectionId}"]`);
+  if (nav) nav.classList.add("active");
+  window.scrollTo({top:0, behavior:"smooth"});
+  if (sectionId === "home") renderHome();
+  if (sectionId === "shopping") loadShoppingProfile();
+  if (sectionId === "history") renderHistory();
+  if (sectionId.startsWith("wf") || sectionId.startsWith("agent-")) loadDraft(sectionId);
+}
+
+// =================== SHOPPINGS ===================
+function renderShoppingSwitcher() {
+  const sel = document.getElementById("shoppingSelect");
+  const ids = Object.keys(state.shoppings);
+  if (ids.length === 0) {
+    sel.innerHTML = `<option value="">— nenhum —</option>`;
+    document.getElementById("shoppingMeta").textContent = "Crie um shopping";
+    return;
+  }
+  sel.innerHTML = ids.map(id => {
+    const s = state.shoppings[id];
+    return `<option value="${id}" ${id===state.activeShoppingId?"selected":""}>${escapeHtml(s.nome)}</option>`;
+  }).join("");
+  const cur = state.shoppings[state.activeShoppingId];
+  if (cur) {
+    document.getElementById("shoppingMeta").innerHTML = `${cur.cidade || "—"} · ${cur.cluster || "sem cluster"}<br>${cur.abl ? Number(cur.abl).toLocaleString("pt-BR")+" m²" : ""}`;
+  }
+}
+function changeShopping(id) {
+  state.activeShoppingId = id;
+  saveState();
+  renderShoppingSwitcher();
+  renderHome();
+  if (document.getElementById("shopping").classList.contains("active")) loadShoppingProfile();
+  toast("Ativo: " + state.shoppings[id].nome);
+}
+function openShoppingModal() { document.getElementById("modalShopping").classList.add("active"); }
+function closeShoppingModal() {
+  document.getElementById("modalShopping").classList.remove("active");
+  ["newSh_nome","newSh_cidade","newSh_estado"].forEach(id => document.getElementById(id).value = "");
+  document.getElementById("newSh_cluster").value = "";
+}
+async function createShopping() {
+  const nome = document.getElementById("newSh_nome").value.trim();
+  const cidade = document.getElementById("newSh_cidade").value.trim();
+  const cluster = document.getElementById("newSh_cluster").value;
+  if (!nome || !cidade || !cluster) { toast("Preencha nome, cidade, cluster"); return; }
+  const id = nome.toLowerCase().replace(/[^a-z0-9]/g,"-") + "-" + Date.now().toString(36);
+  state.shoppings[id] = {
+    id, nome, cidade, estado: document.getElementById("newSh_estado").value.trim(),
+    cluster, batalhas:[], operador:"", endereco:"", abl:"", lojas:"", ano:"", reforma:"",
+    vacancia:"", abl_vaga:"", target:"", concorrencia:"", fortes:"", lacunas:"", saidas:"", mix:""
+  };
+  state.activeShoppingId = id;
+  await saveState();
+  renderShoppingSwitcher();
+  renderHome();
+  closeShoppingModal();
+  toast("Shopping criado: " + nome);
+  navigate("shopping");
+}
+async function confirmDeleteShopping() {
+  const cur = state.shoppings[state.activeShoppingId];
+  if (!cur) return;
+  if (!confirm(`Excluir "${cur.nome}"?`)) return;
+  delete state.shoppings[state.activeShoppingId];
+  state.activeShoppingId = Object.keys(state.shoppings)[0] || null;
+  await saveState();
+  renderShoppingSwitcher();
+  renderHome();
+  navigate("home");
+  toast("Excluído");
+}
+
+function loadShoppingProfile() {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return;
+  ["nome","cidade","estado","endereco","cluster","operador","abl","lojas","ano","reforma","vacancia","abl_vaga","target","concorrencia","fortes","lacunas","saidas","mix"].forEach(k => {
+    const el = document.getElementById("sh_" + k);
+    if (el) el.value = s[k] || "";
+  });
+  document.querySelectorAll("#sh_batalhas_group .pill-check").forEach(p => {
+    const cb = p.querySelector("input");
+    cb.checked = (s.batalhas||[]).includes(cb.value);
+    p.classList.toggle("checked", cb.checked);
+  });
+}
+async function saveShopping() {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return;
+  ["nome","cidade","estado","endereco","cluster","operador","abl","lojas","ano","reforma","vacancia","abl_vaga","target","concorrencia","fortes","lacunas","saidas","mix"].forEach(k => {
+    const el = document.getElementById("sh_" + k);
+    if (el) s[k] = el.value;
+  });
+  s.batalhas = Array.from(document.querySelectorAll("#sh_batalhas_group input:checked")).map(i => i.value);
+  await saveState();
+  renderShoppingSwitcher();
+  document.getElementById("shoppingSaveStatus").textContent = "Salvo · " + new Date().toLocaleTimeString("pt-BR");
+  toast("Perfil salvo");
+}
+
+// =================== AGENT SECTIONS ===================
+function renderAgentSections() {
+  document.getElementById("agentSections").innerHTML = AGENTS.map(a => {
+    const fields = a.fields.map(f => {
+      const id = `agent${a.id}_${f.key}`;
+      if (f.type === "textarea") return `<div class="full"><label>${f.label}</label><textarea id="${id}" placeholder="${escapeHtml(f.placeholder||"")}"></textarea></div>`;
+      if (f.type === "select") return `<div class="full"><label>${f.label}</label><select id="${id}">${(f.options||[]).map(o=>`<option>${o}</option>`).join("")}</select></div>`;
+      return `<div class="full"><label>${f.label}</label><input type="text" id="${id}" value="${escapeHtml(f.defaultValue||"")}" placeholder="${escapeHtml(f.placeholder||"")}"></div>`;
+    }).join("");
+    return `<section id="agent-${a.id}" class="section">
+      <div class="breadcrumb">AGENTE <span class="sep">/</span> <span class="current">${String(a.id).padStart(2,"0")} · ${escapeHtml(a.name)}</span></div>
+      <h1 class="page-title">${escapeHtml(a.name)}</h1>
+      <p class="page-desc">${escapeHtml(a.desc)}</p>
+      <div class="card">
+        <h2>Parâmetros do agente</h2>
+        <div class="form-grid">${fields}</div>
+        <div class="actions">
+          <button class="btn btn-primary" id="btn-agent-${a.id}" onclick="executeBriefing('agent-${a.id}')">▸ Executar via API</button>
+          <button class="btn" onclick="downloadPrompt('agent-${a.id}')">Baixar prompt</button>
+          <button class="btn btn-ghost" onclick="clearForm('agent-${a.id}')">Limpar</button>
+        </div>
+        <div class="cost-estimate">Custo estimado: $0.05-0.20 por execução</div>
+      </div>
+    </section>`;
+  }).join("");
+}
+function renderAgentsNav() {
+  document.getElementById("agentsNav").innerHTML = AGENTS.map(a =>
+    `<div class="nav-item" data-section="agent-${a.id}" onclick="navigate('agent-${a.id}')">
+      <span class="num">${String(a.id).padStart(2,"0")}</span><span>${escapeHtml(a.name.split(" / ")[0])}</span>
+    </div>`).join("");
+}
+function renderHomeAgentsGrid() {
+  document.getElementById("homeAgentsGrid").innerHTML = AGENTS.map(a =>
+    `<div class="agent-mini" onclick="navigate('agent-${a.id}')">
+      <div class="num">AGENTE ${String(a.id).padStart(2,"0")}</div>
+      <div class="name">${escapeHtml(a.name)}</div>
+      <div class="desc">${escapeHtml(a.desc.slice(0,80))}${a.desc.length>80?"...":""}</div>
+    </div>`).join("");
+}
+
+// =================== HOME ===================
+function renderHome() {
+  const cur = state.shoppings[state.activeShoppingId];
+  const my = cur ? state.history.filter(h => h.shoppingId === cur.id) : [];
+  document.getElementById("cntExecutions").textContent = my.length;
+  document.getElementById("cntWorkflows").textContent = my.filter(h => h.type === "workflow").length;
+  document.getElementById("cntAgents").textContent = my.filter(h => h.type === "agent").length;
+  const tokens = my.reduce((s,h) => s + (h.usage?.input_tokens||0) + (h.usage?.output_tokens||0), 0);
+  document.getElementById("cntTokens").textContent = tokens.toLocaleString("pt-BR");
+  const cost = my.reduce((s,h) => s + (h.cost||0), 0);
+  document.getElementById("cntCost").textContent = "$" + cost.toFixed(2);
+}
+
+// =================== PROMPT BUILDING ===================
+function buildShoppingHeader() {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return "[SEM SHOPPING SELECIONADO]";
+  return `==================================================
+PERFIL DO SHOPPING (contexto)
+==================================================
+Nome: ${s.nome}
+Cidade: ${s.cidade}${s.estado?" / "+s.estado:""}
+Endereço: ${s.endereco || "n.v."}
+Cluster: ${s.cluster}
+Operador: ${s.operador || "n.v."}
+ABL total: ${s.abl ? Number(s.abl).toLocaleString("pt-BR")+" m²" : "n.v."}
+Total de lojas: ${s.lojas || "n.v."}
+Inauguração: ${s.ano || "n.v."} | Reforma: ${s.reforma || "n.v."}
+Vacância atual: ${s.vacancia ? s.vacancia+"%" : "n.v."} | ABL vaga: ${s.abl_vaga ? Number(s.abl_vaga).toLocaleString("pt-BR")+" m²" : "n.v."}
+
+Batalhas prioritárias: ${(s.batalhas||[]).join(", ") || "n.v."}
+Target principal: ${s.target || "n.v."}
+Concorrência: ${s.concorrencia || "n.v."}
+
+Pontos fortes: ${s.fortes || "n.v."}
+Lacunas de mix: ${s.lacunas || "n.v."}
+Lojas em saída/risco: ${s.saidas || "n.v."}
+
+Mix atual conhecido (filtro de duplicidade — NÃO SUGERIR ESSAS):
+${s.mix || "n.v."}
+==================================================`;
+}
+
+function buildPromptForSection(sectionId) {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return null;
+
+  let executionBlock, label, type;
+  if (sectionId === "wf1") {
+    type = "workflow"; label = "Vacancy-to-Contract Sprint (W1)";
+    executionBlock = `Workflow: ${label}
+Lojas vagas/a vagar:
+${getVal("wf1_vagas") || "(usar 'Lojas em saída' do perfil)"}
+Raio de hunting: ${getVal("wf1_raio")}
+Meta: ${getVal("wf1_meta") || "n.v."}
+Lacunas específicas: ${getVal("wf1_lacunas") || "(usar 'Lacunas de mix' do perfil)"}
+Restrições/blockers: ${getVal("wf1_blockers") || "n.v."}`;
+  } else if (sectionId === "wf2") {
+    type = "workflow"; label = "Street-to-Shopping Conversion Sprint (W2)";
+    executionBlock = `Workflow: ${label}
+Raio: ${getVal("wf2_raio")}
+Foco: ${getVal("wf2_foco")}
+Bairros/polos: ${getVal("wf2_bairros") || "n.v."}
+Espaços disponíveis: ${getVal("wf2_espacos") || "n.v."}
+Pacote Alavancador: ${getVal("wf2_alavancador") || "n.v."}
+Meta: ${getVal("wf2_meta") || "n.v."}`;
+  } else if (sectionId === "wf3") {
+    type = "workflow"; label = "Cluster Experience Growth Sprint (W3)";
+    const canais = Array.from(document.querySelectorAll("#wf3_canais_group input:checked")).map(i=>i.value).join(", ") || "n.v.";
+    executionBlock = `Workflow: ${label}
+Objetivo: ${getVal("wf3_obj")}
+Espaços de eventos: ${getVal("wf3_espacos") || "n.v."}
+Canais ativos: ${canais}
+Datas/sazonalidades: ${getVal("wf3_datas") || "n.v."}
+Lacunas de experiência: ${getVal("wf3_gaps") || "n.v."}
+Orçamento: ${getVal("wf3_orcamento") || "n.v."}`;
+  } else if (sectionId.startsWith("agent-")) {
+    const id = parseInt(sectionId.replace("agent-",""));
+    const agent = AGENTS.find(a => a.id === id);
+    type = "agent"; label = agent.name;
+    const params = agent.fields.map(f => {
+      const v = getVal(`agent${agent.id}_${f.key}`);
+      return `${f.label}: ${v || "n.v."}`;
+    }).join("\n");
+    executionBlock = `Agente: ${String(agent.id).padStart(2,"0")} · ${agent.name}
+Descrição: ${agent.desc}
+
+Parâmetros:
+${params}`;
+  } else return null;
+
+  const prompt = `${buildShoppingHeader()}
+
+==================================================
+EXECUÇÃO SOLICITADA
+==================================================
+${executionBlock}
+
+==================================================
+REGRAS DE EXECUÇÃO (Shopping Inteligente OS v5)
+==================================================
+1. Cluster First: use o cluster e batalhas como filtro de underwriting.
+2. Filtro de duplicidade OBRIGATÓRIO: NÃO sugerir marcas presentes no "Mix atual conhecido". Se em dúvida, marcar como n.v. e pedir validação.
+3. Cluster Fit financeiramente vinculante (0-40 não priorizar, 41-70 aceitável, 71-85 forte, 86-100 estratégico).
+4. Para cada marca-alvo: tese, status no shopping (AUSENTE/n.v./JÁ EXISTE), canal de contato comercial verificável (site, IG, telefone, LinkedIn).
+5. Priorize operações em raio 2-50km do shopping.
+6. Use web search para validar status atual de marcas em expansão e identificar operadores de rua quando relevante.
+7. Marcar dados não verificáveis como "n.v." — não inventar.
+8. Para cada recomendação, responder: problema econômico, batalha de cluster atendida, dono da próxima ação, prazo, impacto financeiro, KPI.
+9. Saída obrigatória: resumo executivo, diagnóstico, oportunidades (tabela), Deal Conversion Table, plano 30/60/90, KPIs, riscos, próxima ação por dono.
+10. Confiança da análise (1-10) ao final + ressalvas explícitas.
+
+Use markdown para formatação (headings, tabelas, listas).`;
+
+  return {prompt, label, type};
+}
+
+function getVal(id) { const el = document.getElementById(id); return el ? el.value.trim() : ""; }
+
+// =================== EXECUTION ===================
+async function executeBriefing(sectionId) {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) { toast("Selecione um shopping"); return; }
+  if (!s.cluster) { toast("Defina o cluster antes"); navigate("shopping"); return; }
+
+  const built = buildPromptForSection(sectionId);
+  if (!built) return;
+
+  if (!apiConfig.key) {
+    // Sem chave: oferecer download do prompt
+    if (confirm("API não configurada. Quer baixar o prompt para colar manualmente no Claude.ai?")) {
+      downloadPromptText(built.prompt, built.label);
+    } else {
+      openApiModal();
+    }
+    return;
+  }
+
+  const btn = document.getElementById("btn-" + sectionId);
+  const origText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="streaming-indicator"><span class="pulse"></span>Executando...</span>`;
+
+  // Limpa output anterior
+  const section = document.getElementById(sectionId);
+  let outputBlock = section.querySelector(".output-block");
+  if (outputBlock) outputBlock.remove();
+
+  // Cria placeholder
+  outputBlock = document.createElement("div");
+  outputBlock.className = "output-block";
+  outputBlock.innerHTML = `
+    <div class="output-bar">
+      <span class="label">▸ ${escapeHtml(built.label)} · ${escapeHtml(s.nome)}</span>
+      <div class="actions-mini">
+        <button onclick="copyOutput(this)">Copiar</button>
+        <button onclick="downloadOutput(this)">Baixar .md</button>
+      </div>
+    </div>
+    <div class="output-content" id="output-content-active">
+      <div class="streaming-indicator"><span class="pulse"></span>Aguardando resposta da API...</div>
+    </div>
+  `;
+  section.querySelector(".card").appendChild(outputBlock);
+  outputBlock.scrollIntoView({behavior:"smooth", block:"center"});
+
+  const startTime = Date.now();
+  try {
+    const payload = {
+      model: apiConfig.model,
+      max_tokens: apiConfig.maxTokens,
+      messages: [{role:"user", content: built.prompt}]
+    };
+    if (apiConfig.webSearch) {
+      payload.tools = [{type:"web_search_20250305", name:"web_search"}];
+    }
+
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiConfig.key,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message || "Erro API");
+
+    // Extrai texto de todos os blocos
+    const text = (data.content || [])
+      .filter(b => b.type === "text")
+      .map(b => b.text)
+      .join("\n\n");
+
+    const elapsed = ((Date.now() - startTime)/1000).toFixed(1);
+    const usage = data.usage || {};
+    const cost = calculateCost(usage, apiConfig.model);
+
+    // Salva no histórico
+    state.history.push({
+      ts: Date.now(),
+      shoppingId: s.id,
+      shoppingNome: s.nome,
+      type: built.type,
+      sectionId,
+      label: built.label,
+      prompt: built.prompt,
+      output: text,
+      usage,
+      cost,
+      elapsed,
+      model: apiConfig.model,
+      webSearchUsed: apiConfig.webSearch
+    });
+    if (state.history.length > 50) state.history = state.history.slice(-50);
+    await saveState();
+
+    // Renderiza output
+    const contentDiv = outputBlock.querySelector(".output-content");
+    contentDiv.innerHTML = renderMarkdown(text);
+
+    // Stats bar
+    const stats = document.createElement("div");
+    stats.className = "stats-bar";
+    stats.innerHTML = `
+      <span class="stat">Modelo: <span class="v">${apiConfig.model.split("-").slice(1,3).join(" ")}</span></span>
+      <span class="stat">Tokens entrada: <span class="v">${(usage.input_tokens||0).toLocaleString("pt-BR")}</span></span>
+      <span class="stat">Tokens saída: <span class="v">${(usage.output_tokens||0).toLocaleString("pt-BR")}</span></span>
+      <span class="stat">Tempo: <span class="v">${elapsed}s</span></span>
+      <span class="stat">Custo: <span class="v">$${cost.toFixed(3)}</span></span>
+    `;
+    outputBlock.appendChild(stats);
+
+    toast("✓ Análise concluída · " + elapsed + "s");
+    renderHome();
+  } catch(e) {
+    outputBlock.querySelector(".output-content").innerHTML =
+      `<div style="color:var(--accent);padding:20px;"><strong>Erro:</strong> ${escapeHtml(e.message)}<br><br>Possíveis causas:<ul style="margin-top:8px;"><li>Chave inválida ou expirada</li><li>Sem créditos na conta</li><li>Modelo não disponível para sua conta</li><li>Rate limit atingido</li><li>Problema de rede</li></ul></div>`;
+    toast("Erro: " + e.message, "error");
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = origText;
+  }
+}
+
+function calculateCost(usage, model) {
+  const p = PRICING[model] || PRICING["claude-sonnet-4-6-20250929"];
+  const inputCost = (usage.input_tokens || 0) / 1_000_000 * p.input;
+  const outputCost = (usage.output_tokens || 0) / 1_000_000 * p.output;
+  return inputCost + outputCost;
+}
+
+// =================== MARKDOWN RENDER (lightweight) ===================
+function renderMarkdown(text) {
+  if (!text) return "";
+  let html = escapeHtml(text);
+  // Headings
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // Bold + italic
+  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/(^|[^*])\*([^*\n]+)\*([^*]|$)/g, '$1<em>$2</em>$3');
+  // Inline code
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Tables
+  html = html.replace(/(\|.+\|\n\|[\s\-:|]+\|\n(?:\|.+\|\n?)+)/g, (m) => {
+    const lines = m.trim().split("\n");
+    const head = lines[0].split("|").slice(1,-1).map(c => `<th>${c.trim()}</th>`).join("");
+    const rows = lines.slice(2).map(l => "<tr>" + l.split("|").slice(1,-1).map(c => `<td>${c.trim()}</td>`).join("") + "</tr>").join("");
+    return `<table><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
+  });
+  // Lists
+  html = html.replace(/^(\s*)([-*+]) (.+)$/gm, '$1<li>$3</li>');
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`);
+  html = html.replace(/^(\s*)\d+\. (.+)$/gm, '$1<oli>$2</oli>');
+  html = html.replace(/(<oli>.*<\/oli>\n?)+/g, m => `<ol>${m.replace(/oli/g,"li")}</ol>`);
+  // Paragraphs
+  html = html.split(/\n\n+/).map(p => {
+    if (p.match(/^<(h\d|ul|ol|table|li)/)) return p;
+    return `<p>${p.replace(/\n/g,"<br>")}</p>`;
+  }).join("\n");
+  return html;
+}
+
+// =================== DRAFTS / FORM ACTIONS ===================
+async function saveDraft(sectionId) {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return;
+  const key = `${s.id}::${sectionId}`;
+  const draft = {};
+  document.querySelectorAll(`#${sectionId} input, #${sectionId} textarea, #${sectionId} select`).forEach(inp => {
+    if (inp.type === "checkbox") {
+      const groupId = inp.closest(".pill-group")?.id;
+      if (groupId) {
+        if (!draft[groupId]) draft[groupId] = [];
+        if (inp.checked) draft[groupId].push(inp.value);
+      }
+    } else if (inp.id) {
+      draft[inp.id] = inp.value;
+    }
+  });
+  state.drafts[key] = draft;
+  await saveState();
+}
+function loadDraft(sectionId) {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return;
+  const draft = state.drafts[`${s.id}::${sectionId}`];
+  if (!draft) return;
+  Object.keys(draft).forEach(k => {
+    const el = document.getElementById(k);
+    if (el && el.tagName) el.value = draft[k];
+  });
+}
+function clearForm(sectionId) {
+  if (!confirm("Limpar todos os campos?")) return;
+  document.querySelectorAll(`#${sectionId} input, #${sectionId} textarea, #${sectionId} select`).forEach(inp => {
+    if (inp.type === "checkbox") { inp.checked = false; inp.parentNode.classList.remove("checked"); }
+    else if (inp.tagName === "SELECT") inp.selectedIndex = 0;
+    else inp.value = "";
+  });
+}
+
+function downloadPrompt(sectionId) {
+  const built = buildPromptForSection(sectionId);
+  if (!built) return;
+  downloadPromptText(built.prompt, built.label);
+}
+function downloadPromptText(text, label) {
+  const cur = state.shoppings[state.activeShoppingId];
+  const blob = new Blob([text], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `prompt-${(cur?cur.nome:"shopping").toLowerCase().replace(/[^a-z0-9]/g,"-")}-${label.toLowerCase().replace(/[^a-z0-9]/g,"-")}-${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();
+  toast("Prompt baixado");
+}
+
+function copyOutput(btn) {
+  const text = btn.closest(".output-block").querySelector(".output-content").innerText;
+  navigator.clipboard.writeText(text);
+  toast("Copiado");
+}
+function downloadOutput(btn) {
+  const text = btn.closest(".output-block").querySelector(".output-content").innerText;
+  const blob = new Blob([text], {type:"text/markdown;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `analise-${new Date().toISOString().slice(0,10)}.md`;
+  a.click();
+}
+
+// =================== HISTORY ===================
+function renderHistory() {
+  const wrap = document.getElementById("historyList");
+  if (state.history.length === 0) {
+    wrap.innerHTML = '<div style="padding:40px;text-align:center;color:var(--steel);font-style:italic;">Nenhuma execução ainda.</div>';
+    return;
+  }
+  wrap.innerHTML = state.history.slice().reverse().map((h,i) => `
+    <div style="padding:16px 20px;border-bottom:1px solid var(--rule-soft);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+      <div style="flex:1;">
+        <div style="font-weight:600;font-size:14px;margin-bottom:2px;">${escapeHtml(h.label)}</div>
+        <div style="color:var(--steel);font-size:11px;font-family:var(--mono);">${escapeHtml(h.shoppingNome)} · ${new Date(h.ts).toLocaleString("pt-BR")} · $${(h.cost||0).toFixed(3)} · ${h.elapsed||"—"}s</div>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn" style="padding:6px 12px;font-size:11px;" onclick="showHistoryItem(${state.history.length-1-i})">Ver</button>
+        <button class="btn" style="padding:6px 12px;font-size:11px;color:var(--accent);" onclick="reExecute(${state.history.length-1-i})">Re-executar</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function showHistoryItem(idx) {
+  const h = state.history[idx];
+  if (!h) return;
+  const wrap = document.getElementById("historyList").parentElement;
+  let exist = wrap.querySelector(".output-block.hist");
+  if (exist) exist.remove();
+  const ob = document.createElement("div");
+  ob.className = "output-block hist";
+  ob.style.marginTop = "16px";
+  ob.innerHTML = `
+    <div class="output-bar">
+      <span class="label">▸ ${escapeHtml(h.label)} · ${escapeHtml(h.shoppingNome)} · ${new Date(h.ts).toLocaleString("pt-BR")}</span>
+      <div class="actions-mini">
+        <button onclick="copyOutput(this)">Copiar</button>
+        <button onclick="this.closest('.output-block').remove()">Fechar</button>
+      </div>
+    </div>
+    <div class="output-content">${renderMarkdown(h.output || "(sem output)")}</div>
+    <div class="stats-bar">
+      <span class="stat">Modelo: <span class="v">${escapeHtml((h.model||"").split("-").slice(1,3).join(" "))}</span></span>
+      <span class="stat">Tokens: <span class="v">${((h.usage?.input_tokens||0)+(h.usage?.output_tokens||0)).toLocaleString("pt-BR")}</span></span>
+      <span class="stat">Custo: <span class="v">$${(h.cost||0).toFixed(3)}</span></span>
+    </div>
+  `;
+  wrap.appendChild(ob);
+  ob.scrollIntoView({behavior:"smooth"});
+}
+
+async function reExecute(idx) {
+  const h = state.history[idx];
+  if (!h) return;
+  if (!confirm("Re-executar com os mesmos parâmetros? Isso vai consumir tokens novamente.")) return;
+  changeShopping(h.shoppingId);
+  setTimeout(() => navigate(h.sectionId), 200);
+  setTimeout(() => executeBriefing(h.sectionId), 500);
+}
+
+// =================== EXPORT/IMPORT ===================
+function exportAll() {
+  const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `shopping-os-backup-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  toast("Backup exportado");
+}
+function exportCurrentShopping() {
+  const s = state.shoppings[state.activeShoppingId];
+  if (!s) return;
+  const data = {shopping: s, history: state.history.filter(h => h.shoppingId === s.id)};
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${s.nome.toLowerCase().replace(/[^a-z0-9]/g,"-")}-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+function importAll() {
+  const input = document.createElement("input");
+  input.type = "file"; input.accept = "application/json";
+  input.onchange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      const data = JSON.parse(await file.text());
+      if (!data.shoppings && !data.shopping) throw new Error("Formato inválido");
+      if (!confirm("Importar substitui o estado atual. Continuar?")) return;
+      if (data.shoppings) state = data;
+      else {
+        state.shoppings[data.shopping.id] = data.shopping;
+        if (data.history) state.history = state.history.concat(data.history);
+      }
+      await saveState();
+      renderShoppingSwitcher();
+      renderHome();
+      toast("Importado");
+    } catch(e) { toast("Erro: " + e.message, "error"); }
+  };
+  input.click();
+}
+async function clearAllData() {
+  if (!confirm("APAGAR TODOS OS DADOS?")) return;
+  if (!confirm("Confirma?")) return;
+  state = {shoppings:{}, activeShoppingId:null, history:[], drafts:{}, totals:{tokens_input:0,tokens_output:0,cost:0}};
+  await saveState();
+  await loadState();
+  renderShoppingSwitcher();
+  renderHome();
+  navigate("home");
+  toast("Limpo");
+}
+
+// =================== UTILS ===================
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+function toast(msg, type) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast show" + (type === "error" ? " error" : "");
+  setTimeout(() => t.className = "toast", 3000);
+}
+
+document.addEventListener("click", e => {
+  const pill = e.target.closest(".pill-check");
+  if (pill) {
+    const cb = pill.querySelector("input");
+    setTimeout(() => pill.classList.toggle("checked", cb.checked), 0);
+  }
+});
+document.addEventListener("keydown", e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+    const active = document.querySelector(".section.active");
+    if (active && (active.id.startsWith("wf") || active.id.startsWith("agent-"))) {
+      executeBriefing(active.id);
+    }
+  }
+});
+
+// =================== INIT ===================
+(async () => {
+  await loadState();
+  renderAgentSections();
+  renderAgentsNav();
+  renderHomeAgentsGrid();
+  renderShoppingSwitcher();
+  renderHome();
+  loadShoppingProfile();
+  updateApiStatus(!!apiConfig.key);
+})();
+</script>
+</body>
+</html>

@@ -7,6 +7,7 @@ source_id: "23c52c05-fd2c-4b35-a4bc-b758fa197790"
 url: "https://claude.ai/chat/23c52c05-fd2c-4b35-a4bc-b758fa197790"
 project: null
 messages: 12
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Claude terminal não reconhecido no PowerShell

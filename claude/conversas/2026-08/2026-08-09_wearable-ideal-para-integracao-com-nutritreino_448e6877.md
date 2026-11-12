@@ -7,6 +7,7 @@ source_id: "448e6877-af58-4eee-a34b-66f69b4aa02e"
 url: "https://claude.ai/chat/448e6877-af58-4eee-a34b-66f69b4aa02e"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Wearable ideal para integração com NutriTreino

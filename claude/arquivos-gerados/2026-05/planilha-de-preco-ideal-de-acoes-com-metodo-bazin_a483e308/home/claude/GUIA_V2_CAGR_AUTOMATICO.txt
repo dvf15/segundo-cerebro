@@ -1,0 +1,276 @@
+🚀 NOVA VERSÃO: CAGR AUTOMÁTICO COM HISTÓRICO 5 ANOS
+====================================================
+
+✅ ARQUIVOS:
+- Analise_Bazin_Puts_V2.xlsx ← USE ESSA (nova e melhorada!)
+- Analise_Bazin_Puts.xlsx ← Versão anterior
+
+════════════════════════════════════════════════════════════
+
+📊 O QUE MUDOU NA V2:
+
+ANTES (V1):
+- Você preenchia manualmente: DPA, Crescimento %, P/L
+- Crescimento era um palpite (subjetivo)
+- Difícil validar se a taxa estava correta
+
+AGORA (V2):
+✅ Você preenche: DPA dos últimos 5 anos (T-4, T-3, T-2, T-1, Atual)
+✅ CAGR calcula automaticamente
+✅ Crescimento vem de dados históricos reais
+✅ Mais preciso, menos subjetivo
+
+════════════════════════════════════════════════════════════
+
+🔧 COMO FUNCIONA:
+
+FÓRMULA DO CAGR (Compound Annual Growth Rate):
+──────────────────────────────────────────────
+CAGR = ((DPA_Atual / DPA_T-4)^(1/5) - 1) × 100
+
+Exemplo prático:
+- DPA Ano 1: 2.50
+- DPA Ano 2: 2.80
+- DPA Ano 3: 3.00
+- DPA Ano 4: 3.20
+- DPA Ano 5: 3.50
+
+CAGR = ((3.50 / 2.50)^(1/5) - 1) × 100
+     = (1.4^0.2 - 1) × 100
+     = (1.0697 - 1) × 100
+     = 6.97% ao ano
+
+✨ A PLANILHA CALCULA ISSO AUTOMATICAMENTE!
+
+════════════════════════════════════════════════════════════
+
+📋 ESTRUTURA DA ABA "AÇÕES" (V2):
+
+Coluna A: TICKER
+   → AAPL3, KLBN4, ITSA4, BBDC4, AXIA3
+
+Coluna B: DPA T-4 (4 anos atrás)
+   → Valor histórico (você preenche)
+
+Coluna C: DPA T-3 (3 anos atrás)
+   → Valor histórico (você preenche)
+
+Coluna D: DPA T-2 (2 anos atrás)
+   → Valor histórico (você preenche)
+
+Coluna E: DPA T-1 (1 ano atrás)
+   → Valor histórico (você preenche)
+
+Coluna F: DPA ATUAL (este ano)
+   → Valor atual (você preenche)
+
+Coluna G: CAGR 5 ANOS % ⭐ AUTOMÁTICO!
+   → Fórmula: =((F/B)^(1/5)-1)*100
+   → Você NÃO preenche, calcula sozinho
+
+Coluna H: PREÇO ATUAL
+   → Preço da ação hoje (você preenche)
+
+Coluna I: DIV YIELD ATUAL %
+   → Fórmula: =F/H*100 (DPA÷Preço)
+
+Coluna J: PREÇO JUSTO
+   → Fórmula Bazin usando CAGR automático
+   → =((F*(1+G/100)^5)*(15+(I/100)))/0.11
+
+Coluna K: MARGEM SEG. %
+   → Fórmula: =(J-H)/J*100
+
+Coluna L: STATUS
+   → Cores automáticas (Verde/Amarelo/Vermelho)
+
+════════════════════════════════════════════════════════════
+
+📖 PASSO A PASSO PARA USAR:
+
+1️⃣ BAIXE: Analise_Bazin_Puts_V2.xlsx
+
+2️⃣ ABRA no Google Sheets, Excel ou LibreOffice
+
+3️⃣ Vá para a aba "Ações"
+
+4️⃣ PREENCHA APENAS ESTES DADOS:
+   - Coluna B (DPA T-4): Digite o DPA de 4 anos atrás
+   - Coluna C (DPA T-3): Digite o DPA de 3 anos atrás
+   - Coluna D (DPA T-2): Digite o DPA de 2 anos atrás
+   - Coluna E (DPA T-1): Digite o DPA de 1 ano atrás
+   - Coluna F (DPA ATUAL): Digite o DPA atual
+   - Coluna H (PREÇO ATUAL): Digite o preço de hoje
+
+5️⃣ TUDO O MAIS CALCULA SOZINHO! ✨
+
+════════════════════════════════════════════════════════════
+
+💡 EXEMPLO COMPLETO (AAPL3):
+
+Você preenche:
+┌────────────────────────────┐
+│ DPA T-4: 2.50             │
+│ DPA T-3: 2.80             │
+│ DPA T-2: 3.00             │
+│ DPA T-1: 3.20             │
+│ DPA ATU: 3.50             │
+│ PREÇO:   120.00           │
+└────────────────────────────┘
+
+CALCULA AUTOMATICAMENTE:
+┌────────────────────────────┐
+│ CAGR 5 ANOS:  6.97%        │
+│ DIV YIELD:    2.92%        │
+│ PREÇO JUSTO:  ~834         │
+│ MARGEM SEG:   85.6%        │
+│ STATUS:       ✅ MUITO BARATA│
+└────────────────────────────┘
+
+════════════════════════════════════════════════════════════
+
+🔍 ABA "HISTÓRICO DETALHADO":
+
+Mostra o passo a passo do cálculo:
+- DPA de cada ano
+- CAGR (crescimento anualizado)
+- Crescimento real (simples)
+
+Útil para validar e entender os números!
+
+════════════════════════════════════════════════════════════
+
+🎯 ONDE BUSCAR OS DADOS HISTÓRICOS:
+
+1️⃣ FUNDAMENTUS (Melhor opção! 🏆)
+   → https://www.fundamentus.com.br
+   → Procure a ação
+   → Vá em "Histórico de Dividendos"
+   → Copie os últimos 5 anos de DPA
+   ⏱️ Tempo: 2 minutos por ação
+
+2️⃣ RELÁTORIO ANUAL DA EMPRESA
+   → Site de RI (Relações com Investidor)
+   → Procure "DPA Distribuído" ou "Dividendos Pagos"
+   → Últimos 5 anos
+
+3️⃣ CALCULADORA ONLINE
+   → https://www.b3.com.br (dados da bolsa)
+   → Acesso à empresa ou seu site
+
+════════════════════════════════════════════════════════════
+
+⚠️ DICAS IMPORTANTES:
+
+1. FREQUÊNCIA:
+   - Atualizar CAGR: 1x ao ano (quando divulgar resultado)
+   - Atualizar Preço: Diário ou semanal
+   - Atualizar Puts: Quando vencer ou semanal
+
+2. VALIDAÇÃO:
+   - O CAGR deve estar entre -5% e +30% (normal)
+   - Se der maior que isso, cheque os dados
+   - Compare com crescimento real (coluna "Crescimento Real")
+
+3. DIFERENÇA ENTRE CAGR E CRESCIMENTO SIMPLES:
+   - Crescimento Simples: (Atual - Inicial) / Inicial
+   - CAGR: Crescimento anualizado composto (mais preciso!)
+   - CAGR é melhor para prever o futuro
+
+4. P/L ALVO:
+   - Está hardcoded em 15 na fórmula
+   - Se quiser mudar, edite a fórmula
+   - Exemplo: Mudar para 12: =((F*(1+G/100)^5)*(12+(I/100)))/0.11
+
+════════════════════════════════════════════════════════════
+
+📊 EXEMPLO REAL (Dados de 2021-2025):
+
+AAPL3 - Histórico Hipotético:
+┌──────┬──────────┐
+│ Ano  │ DPA      │
+├──────┼──────────┤
+│ 2021 │ 2.50     │
+│ 2022 │ 2.80     │
+│ 2023 │ 3.00     │
+│ 2024 │ 3.20     │
+│ 2025 │ 3.50     │
+└──────┴──────────┘
+
+CAGR = 6.97% ao ano
+
+Significado: O dividendo cresceu, em média, 6.97% ao ano
+Durante os últimos 5 anos.
+
+════════════════════════════════════════════════════════════
+
+🔄 COMPARAÇÃO V1 vs V2:
+
+┌─────────────────────┬──────────────────┬──────────────────┐
+│ Métrica             │ V1 (Anterior)    │ V2 (Nova)        │
+├─────────────────────┼──────────────────┼──────────────────┤
+│ Entrada: DPA        │ Manual (um valor)│ Histórico 5 anos │
+│ Crescimento         │ Manual (palpite) │ Automático (CAGR)│
+│ Precisão            │ Média ⚠️         │ Alta ✅          │
+│ Subjetividade       │ Alta             │ Baixa            │
+│ Facilidade uso      │ Alta             │ Alta             │
+│ Validação           │ Difícil          │ Fácil            │
+└─────────────────────┴──────────────────┴──────────────────┘
+
+════════════════════════════════════════════════════════════
+
+❓ DÚVIDAS FREQUENTES:
+
+P: E se o CAGR der negativo?
+R: Significa que o dividendo diminuiu nos últimos 5 anos.
+   Ação pode estar em dificuldade. Cuidado!
+
+P: Posso usar CAGR de 3 anos ao invés de 5?
+R: Sim, mas mude a fórmula:
+   Novo: =((F/D)^(1/3)-1)*100
+   (Seria DPA T-2 dividido por 2 anos)
+
+P: O que é "T-4", "T-3", etc?
+R: T = Período de hoje
+   T-1 = Há 1 ano
+   T-4 = Há 4 anos
+   Exemplo: Se estamos em maio/2025:
+   T-4 = maio/2021
+   T = maio/2025
+
+P: E se a empresa não pagar dividendo um ano?
+R: Use 0 naquele ano. O CAGR vai considerar.
+
+P: Posso atualizar só parte dos dados?
+R: Sim! Mas o CAGR vai recalcular. Se quiser comparar,
+   copie a aba e mantenha ambas.
+
+════════════════════════════════════════════════════════════
+
+✅ CHECKLIST ANTES DE USAR:
+
+□ Baixei Analise_Bazin_Puts_V2.xlsx
+□ Abri no Google Sheets / Excel / LibreOffice
+□ Li os dados de DPA dos últimos 5 anos em Fundamentus
+□ Preenchi os 5 valores de DPA (colunas B até F)
+□ Preenchi o preço atual (coluna H)
+□ Validei os números antes de tomar decisões
+□ Fiz um teste (comparei CAGR com Crescimento Real)
+□ Pronto para usar! 🚀
+
+════════════════════════════════════════════════════════════
+
+🎯 PRÓXIMOS PASSOS:
+
+1. Baixe a V2
+2. Preencha com dados de hoje
+3. Compare com Preço Justo
+4. Use a Margem de Segurança para decidir
+5. Para puts, use a aba correspondente
+6. Atualize 1x ao ano com novos dados
+
+════════════════════════════════════════════════════════════
+
+Está pronto! Planilha muito mais inteligente e automática! 🚀
+
+Qualquer dúvida, me chama! 📱

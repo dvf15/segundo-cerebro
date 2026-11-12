@@ -7,6 +7,7 @@ source_id: "a56f5c16-4156-4ca7-b728-8ea68b965420"
 url: "https://claude.ai/chat/a56f5c16-4156-4ca7-b728-8ea68b965420"
 project: null
 messages: 6
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Curso AI orchestrator para shopping inteligente
@@ -497,3 +498,11 @@ Dois arquivos prontos pra arrastar no teu vault do Obsidian:
 Antes de começar o Dia 1, te recomendo fortemente fazer o **"teste do limiar"** que está na Parte 5: cola o doc `01_SYSTEM_PROMPT_MASTER_SHOPPING_INTELIGENTE_OS_v5.txt` no Claude e pede pra ele explicar como se você fosse leigo. Se a resposta fizer sentido, você está pronto. Se não, pergunta de novo até fazer.
 
 Quer que eu já prepare a **Semana 2 — Modelagem do Banco** com o SQL pronto das 4 tabelas críticas?
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/curso-ai-orchestrator-para-shopping-inteligente_a56f5c16/home/claude/curso/Curso_AI_Orchestrator_Shopping_Inteligente.md]] (11 KB)
+- [[claude/arquivos-gerados/2026-05/curso-ai-orchestrator-para-shopping-inteligente_a56f5c16/home/claude/curso/Setup Semana 1 - Passo a Passo.md]] (12 KB)

@@ -7,6 +7,7 @@ source_id: "59f212bc-9bc3-476c-9597-29d1615bd9e0"
 url: "https://claude.ai/chat/59f212bc-9bc3-476c-9597-29d1615bd9e0"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Migração para Claude Enterprise

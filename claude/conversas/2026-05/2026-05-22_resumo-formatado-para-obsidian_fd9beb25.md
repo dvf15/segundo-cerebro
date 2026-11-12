@@ -7,6 +7,7 @@ source_id: "fd9beb25-c555-45bc-9975-a9baa18e7631"
 url: "https://claude.ai/chat/fd9beb25-c555-45bc-9975-a9baa18e7631"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian

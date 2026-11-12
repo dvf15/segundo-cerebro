@@ -7,6 +7,7 @@ source_id: "f590ddee-9fdc-4126-a91d-8703af663b17"
 url: "https://claude.ai/chat/f590ddee-9fdc-4126-a91d-8703af663b17"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Preço Fipe Triumph Bobber Black 2020

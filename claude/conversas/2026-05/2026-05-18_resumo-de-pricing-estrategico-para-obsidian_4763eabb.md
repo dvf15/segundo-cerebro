@@ -7,6 +7,7 @@ source_id: "4763eabb-7dce-47b7-a4c0-fc0589c658ab"
 url: "https://claude.ai/chat/4763eabb-7dce-47b7-a4c0-fc0589c658ab"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de pricing estratégico para Obsidian
@@ -70,3 +71,10 @@ Por quê não 10:
 - Atribuições (Bonoma HBR 1982, McKinsey 2002, casos WaMu/Apollo/JetBlue) são as do próprio material — não validei contra fontes externas, conforme você pediu um resumo e não verificação.
 
 Se quiser que eu verifique algum dado específico (estudo McKinsey, números do WaMu, qualquer caso), me diga qual.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-pricing-estrategico-para-obsidian_4763eabb/mnt/user-data/outputs/columbia-strategic-pricing.md]] (35 KB)

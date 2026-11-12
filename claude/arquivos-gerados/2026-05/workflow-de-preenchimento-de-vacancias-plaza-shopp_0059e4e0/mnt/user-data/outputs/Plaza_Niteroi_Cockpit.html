@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Plaza Niterói - Vacancy-to-Contract Cockpit</title>
+<style>
+  :root {
+    --bg: #f4f6fa;
+    --card: #ffffff;
+    --primary: #1F4E78;
+    --primary-light: #2E75B6;
+    --green: #2e7d32;
+    --green-bg: #c6efce;
+    --yellow: #f9a825;
+    --yellow-bg: #fff2cc;
+    --red: #c62828;
+    --red-bg: #f8cbad;
+    --blue-bg: #d9e1f2;
+    --gray: #555;
+    --border: #d0d7de;
+    --text: #1f2328;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 { font-size: 18px; font-weight: 600; }
+  header .subtitle { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+  header .user-tag {
+    background: rgba(255,255,255,0.15);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  header .user-tag:hover { background: rgba(255,255,255,0.25); }
+
+  nav {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  nav button {
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    color: var(--gray);
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  nav button:hover { color: var(--primary); }
+  nav button.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+
+  main { padding: 20px 24px; max-width: 1600px; margin: 0 auto; }
+  section { display: none; }
+  section.active { display: block; }
+
+  .card {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  .card h2 { font-size: 16px; margin-bottom: 12px; color: var(--primary); }
+  .card h3 { font-size: 14px; margin-bottom: 8px; color: var(--gray); }
+
+  /* KPI cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .kpi {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary-light);
+  }
+  .kpi.green { border-left-color: var(--green); }
+  .kpi.yellow { border-left-color: var(--yellow); }
+  .kpi.red { border-left-color: var(--red); }
+  .kpi .label { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi .value { font-size: 26px; font-weight: 700; margin-top: 4px; color: var(--primary); }
+  .kpi .delta { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+  /* Tabela */
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    background: #f6f8fa;
+    font-weight: 600;
+    color: var(--gray);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    position: sticky;
+    top: 0;
+  }
+  tbody tr:hover { background: #fafbfc; }
+  td.editable { cursor: pointer; position: relative; }
+  td.editable:hover { background: #fff7e6; }
+  td.editable:hover::after {
+    content: "✎";
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    color: var(--yellow);
+    font-size: 12px;
+  }
+
+  /* Status pills */
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .pill-lead { background: var(--blue-bg); color: #1565c0; }
+  .pill-contacted { background: #e0e7ff; color: #4338ca; }
+  .pill-meeting { background: #ddd6fe; color: #5b21b6; }
+  .pill-proposal { background: var(--yellow-bg); color: #92400e; }
+  .pill-loi { background: #fce7f3; color: #9f1239; }
+  .pill-contract { background: var(--green-bg); color: #14532d; }
+  .pill-lost { background: var(--red-bg); color: #7f1d1d; }
+  .pill-prio-alta { background: var(--red-bg); color: #7f1d1d; }
+  .pill-prio-media { background: var(--yellow-bg); color: #78350f; }
+  .pill-prio-baixa { background: #f3f4f6; color: var(--gray); }
+
+  /* Filtros */
+  .filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .filters label { font-size: 12px; color: var(--gray); }
+  .filters select, .filters input[type=text] {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 13px;
+    background: white;
+  }
+  .filters input[type=text] { min-width: 200px; }
+
+  /* Botões */
+  .btn {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+  .btn:hover { background: #f6f8fa; }
+  .btn-primary { background: var(--primary); color: white; border-color: var(--primary); }
+  .btn-primary:hover { background: #163e5e; }
+  .btn-success { background: var(--green); color: white; border-color: var(--green); }
+  .btn-danger { background: var(--red); color: white; border-color: var(--red); }
+
+  .actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .actions-bar .right { display: flex; gap: 8px; }
+
+  /* Modal */
+  .modal-bg {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-bg.active { display: flex; }
+  .modal {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    width: 90%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+  .modal h2 { margin-bottom: 16px; color: var(--primary); }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+  }
+  .form-grid .full { grid-column: 1 / -1; }
+  .form-grid label {
+    display: block;
+    font-size: 11px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .form-grid input, .form-grid select, .form-grid textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+  }
+  .form-grid textarea { resize: vertical; min-height: 60px; }
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  /* Charts simulados (barras simples em CSS) */
+  .bar-chart { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+  .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .bar-label { width: 160px; color: var(--gray); }
+  .bar-track { flex: 1; height: 22px; background: #f0f0f0; border-radius: 4px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--primary-light); display: flex; align-items: center; padding-left: 8px; color: white; font-weight: 600; font-size: 11px; }
+  .bar-fill.green { background: var(--green); }
+  .bar-fill.yellow { background: var(--yellow); }
+  .bar-fill.red { background: var(--red); }
+
+  /* Toast notif */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1f2328;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    z-index: 300;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.success { background: var(--green); }
+  .toast.error { background: var(--red); }
+
+  /* Histórico */
+  .timeline { padding-left: 12px; border-left: 2px solid var(--border); }
+  .timeline-item { padding: 6px 0 6px 12px; position: relative; font-size: 12px; }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-light);
+    border-radius: 50%;
+  }
+  .timeline-date { color: var(--gray); font-size: 11px; }
+
+  /* Loading state */
+  .loading { color: var(--gray); padding: 20px; text-align: center; font-style: italic; }
+
+  /* Alertas */
+  .alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    border-left: 4px solid;
+  }
+  .alert-info { background: #e7f3fb; border-left-color: var(--primary-light); color: #0c5d8f; }
+  .alert-warning { background: var(--yellow-bg); border-left-color: var(--yellow); color: #78350f; }
+
+  .small-text { font-size: 11px; color: var(--gray); }
+  .text-right { text-align: right; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Plaza Niterói — Vacancy-to-Contract Cockpit</h1>
+    <div class="subtitle">Workflow 1 v5 · Cluster Entretenimento · ABL 43.000 m² · Allos</div>
+  </div>
+  <div class="user-tag" id="userTag" title="Clique para alterar">Carregando...</div>
+</header>
+
+<nav>
+  <button class="active" data-section="dashboard">📊 Dashboard</button>
+  <button data-section="pipeline">📋 Pipeline de Oportunidades</button>
+  <button data-section="reports">📑 Relatórios</button>
+  <button data-section="settings">⚙️ Configurações</button>
+</nav>
+
+<main>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="active">
+  <div class="alert alert-info">
+    <strong>Diretoria:</strong> visão consolidada do pipeline. Para editar oportunidades, vá para a aba Pipeline.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="label">Total Oportunidades</div><div class="value" id="kpiTotal">-</div><div class="delta" id="kpiTotalDelta">-</div></div>
+    <div class="kpi green"><div class="label">Contratos Assinados</div><div class="value" id="kpiSigned">-</div><div class="delta">Meta 90d: 1</div></div>
+    <div class="kpi yellow"><div class="label">Em Negociação Avançada</div><div class="value" id="kpiAdv">-</div><div class="delta">LOI + Proposta + Contract Neg.</div></div>
+    <div class="kpi"><div class="label">ABL Tratada</div><div class="value" id="kpiAbl">-</div><div class="delta" id="kpiAblPct">-</div></div>
+    <div class="kpi red"><div class="label">Sem Próxima Ação (atrasados)</div><div class="value" id="kpiOverdue">-</div><div class="delta">Prazo vencido</div></div>
+    <div class="kpi"><div class="label">Cluster Fit médio</div><div class="value" id="kpiFit">-</div><div class="delta">Meta 90d: ≥ 78</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Pipeline por Estágio</h2>
+    <div id="stageChart" class="bar-chart"></div>
+  </div>
+
+  <div class="card">
+    <h2>Top 5 Oportunidades por Impacto Financeiro</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Marca alvo</th><th>Espaço</th><th>ABL</th><th>Estágio</th><th>Próxima ação</th><th>Prazo</th><th>Dono</th></tr></thead>
+        <tbody id="topOpps"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Ações Atrasadas (prazo vencido sem update)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Marca alvo</th><th>Próxima ação</th><th>Prazo (atrasado em)</th><th>Dono</th></tr></thead>
+        <tbody id="overdueList"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section id="pipeline">
+  <div class="card">
+    <div class="actions-bar">
+      <h2>Pipeline de Oportunidades</h2>
+      <div class="right">
+        <button class="btn btn-primary" onclick="openModal()">+ Nova Oportunidade</button>
+        <button class="btn" onclick="exportCSV()">📥 Exportar CSV</button>
+        <button class="btn" onclick="exportJSON()">💾 Backup JSON</button>
+        <button class="btn" onclick="importJSON()">📤 Restaurar JSON</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <label>Buscar: <input type="text" id="filterText" placeholder="Marca, contato, observação..." oninput="renderPipeline()"></label>
+      <label>Estágio: <select id="filterStage" onchange="renderPipeline()"><option value="">Todos</option></select></label>
+      <label>Dono: <select id="filterOwner" onchange="renderPipeline()"><option value="">Todos</option></select></label>
+      <label>Prioridade: <select id="filterPrio" onchange="renderPipeline()"><option value="">Todas</option><option>ALTA</option><option>MÉDIA</option><option>BAIXA</option></select></label>
+      <label>Saída: <select id="filterSaida" onchange="renderPipeline()"><option value="">Todas</option></select></label>
+      <button class="btn" onclick="clearFilters()">Limpar</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Saída/Espaço</th>
+            <th>Marca alvo</th>
+            <th>ABL m²</th>
+            <th>Estágio</th>
+            <th>Dono</th>
+            <th>Próxima ação</th>
+            <th>Prazo</th>
+            <th>Prob.</th>
+            <th>Fit</th>
+            <th>Prio</th>
+            <th>Contato</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="pipelineBody"></tbody>
+      </table>
+    </div>
+    <div class="small-text" id="pipelineCount" style="margin-top:10px;"></div>
+  </div>
+</section>
+
+<!-- RELATÓRIOS -->
+<section id="reports">
+  <div class="card">
+    <h2>Relatório Executivo (Diretoria)</h2>
+    <p class="small-text">Snapshot do pipeline para apresentação executiva. Use o botão "Exportar texto" para copiar.</p>
+    <div class="actions-bar" style="margin-top:12px;">
+      <div></div>
+      <button class="btn btn-primary" onclick="copyReport()">📋 Copiar relatório</button>
+    </div>
+    <pre id="execReport" style="background:#f6f8fa; padding:16px; border-radius:4px; font-size:12px; line-height:1.6; white-space:pre-wrap; font-family:Consolas,monospace; max-height:600px; overflow:auto; border:1px solid var(--border); margin-top:8px;"></pre>
+  </div>
+
+  <div class="card">
+    <h2>Pipeline Detalhado por Marca</h2>
+    <p class="small-text">Tabela detalhada com canal de contato, próxima ação e histórico recente para uso operacional.</p>
+    <div class="table-wrap" style="margin-top:12px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th>Saída</th>
+            <th>Estágio</th>
+            <th>Próxima ação</th>
+            <th>Prazo</th>
+            <th>Canal de contato</th>
+            <th>Última atualização</th>
+          </tr>
+        </thead>
+        <tbody id="detailedReport"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings">
+  <div class="card">
+    <h2>Configurações</h2>
+    <div class="form-grid" style="max-width:480px;">
+      <div class="full">
+        <label>Seu nome (aparece em "atualizado por")</label>
+        <input type="text" id="userName" placeholder="Ex: João Silva (EV Plaza)">
+      </div>
+      <div class="full">
+        <label>Seu papel</label>
+        <select id="userRole">
+          <option value="EV">EV (Executivo Comercial)</option>
+          <option value="KA">KA Expansion</option>
+          <option value="Street Converter">Street Converter</option>
+          <option value="Hunter">Hunter</option>
+          <option value="Farmer">Farmer</option>
+          <option value="Diretoria">Diretoria Allos</option>
+          <option value="Cluster Engine">Cluster Engine</option>
+          <option value="Builder">Builder</option>
+        </select>
+      </div>
+      <div class="full">
+        <button class="btn btn-primary" onclick="saveUser()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Dados</h2>
+    <p class="small-text">Os dados são salvos no seu navegador (armazenamento local). Para compartilhar com o time, exporte CSV ou JSON.</p>
+    <div style="margin-top:12px; display:flex; gap:8px;">
+      <button class="btn" onclick="resetSeed()">🔄 Resetar para dados iniciais (Plaza Niterói v5)</button>
+      <button class="btn btn-danger" onclick="clearAll()">🗑️ Apagar tudo</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sobre</h2>
+    <p class="small-text">
+      Sistema de acompanhamento de pipeline para Workflow 1 (Vacancy-to-Contract) — Plaza Shopping Niterói.<br>
+      Versão: v5 · Pipeline pré-carregado com 25 marcas-alvo + canais de contato.<br>
+      Para uso colaborativo formal, exportar CSV e consolidar na planilha Excel (anexa).
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- Modal de edição -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <h2 id="modalTitle">Nova Oportunidade</h2>
+    <div class="form-grid">
+      <div>
+        <label>ID</label>
+        <input type="text" id="f_id" readonly style="background:#f6f8fa;">
+      </div>
+      <div>
+        <label>Prioridade</label>
+        <select id="f_prio"><option>ALTA</option><option>MÉDIA</option><option>BAIXA</option></select>
+      </div>
+      <div class="full">
+        <label>Saída / Espaço</label>
+        <input type="text" id="f_saida" placeholder="Ex: Foyer Cinemark / Americanas / Adidas">
+      </div>
+      <div>
+        <label>ABL (m²)</label>
+        <input type="number" id="f_abl">
+      </div>
+      <div>
+        <label>Cluster Fit (0–100)</label>
+        <input type="number" id="f_fit" min="0" max="100">
+      </div>
+      <div class="full">
+        <label>Marca-alvo</label>
+        <input type="text" id="f_marca" placeholder="Ex: H&M, Bullguer, Ferro e Farinha">
+      </div>
+      <div class="full">
+        <label>Tese (por que essa marca?)</label>
+        <textarea id="f_tese"></textarea>
+      </div>
+      <div>
+        <label>Status no Plaza</label>
+        <select id="f_status_plaza">
+          <option>AUSENTE</option>
+          <option>n.v. - verificar duplicidade</option>
+          <option>JÁ EXISTE - descartar</option>
+        </select>
+      </div>
+      <div>
+        <label>Estágio</label>
+        <select id="f_estagio">
+          <option>Lead</option>
+          <option>Qualified Lead</option>
+          <option>Contacted</option>
+          <option>Meeting Scheduled</option>
+          <option>Meeting Done</option>
+          <option>Proposal</option>
+          <option>Technical Feasibility</option>
+          <option>Investor Match</option>
+          <option>Contract Negotiation</option>
+          <option>Contract Signed</option>
+          <option>Construction / Obra</option>
+          <option>Opening</option>
+          <option>Ramp-up</option>
+          <option>Performance Review</option>
+          <option>Lost / Parked</option>
+        </select>
+      </div>
+      <div>
+        <label>Dono</label>
+        <select id="f_dono">
+          <option>EV</option>
+          <option>KA</option>
+          <option>Street Converter</option>
+          <option>Hunter</option>
+          <option>Farmer</option>
+          <option>Diretoria + KA</option>
+          <option>Allos Desenv. + EV</option>
+          <option>Builder</option>
+          <option>Cluster Engine</option>
+        </select>
+      </div>
+      <div>
+        <label>Probabilidade %</label>
+        <input type="number" id="f_prob" min="0" max="100">
+      </div>
+      <div class="full">
+        <label>Canal de contato comercial</label>
+        <textarea id="f_canal" placeholder="Ex: bullguer.com.br + IG @bullguerrio + LinkedIn fundadores"></textarea>
+      </div>
+      <div class="full">
+        <label>Próxima ação</label>
+        <input type="text" id="f_acao" placeholder="Ex: Reunião com fundador via LinkedIn">
+      </div>
+      <div>
+        <label>Prazo (data)</label>
+        <input type="date" id="f_prazo">
+      </div>
+      <div>
+        <label>Blocker</label>
+        <input type="text" id="f_blocker" placeholder="O que está travando?">
+      </div>
+      <div class="full">
+        <label>Observação / Histórico (nova entrada)</label>
+        <textarea id="f_obs" placeholder="Anote o que mudou desde a última atualização"></textarea>
+      </div>
+    </div>
+
+    <div id="historicoSection" style="margin-top:16px; display:none;">
+      <h3>Histórico de atualizações</h3>
+      <div class="timeline" id="historicoTimeline"></div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-danger" onclick="deleteOpp()" id="btnDelete" style="display:none;">🗑️ Excluir</button>
+      <div style="display:flex; gap:8px;">
+        <button class="btn" onclick="closeModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="saveOpp()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// =====================================
+// DADOS INICIAIS (Plaza Niterói v5)
+// =====================================
+const SEED_DATA = [
+  // FOYER CINEMARK
+  {id:"OPP-F1", saida:"Foyer Cinemark (Master Plan)", abl:5097, marca:"Master Plan INDOOR (Allos Desenv.)", tese:"Conceito INDOOR (NÃO Taste Lab): entret. adulto + cafés nicho + autoral + pop-up", status_plaza:"AUSENTE", estagio:"Lead", dono:"Allos Desenv. + EV", prob:70, fit:92, prio:"ALTA", canal:"Aprovação interna Allos - reunião diretoria", acao:"Apresentar conceito + CAPEX preliminar à diretoria", prazo:nextDate(15), blocker:"Aprovação CAPEX"},
+  {id:"OPP-F2", saida:"Foyer 1500m² - Entret. Adulto", abl:1500, marca:"Bossa Nova Bowl", tese:"Boliche compacto - categoria 100% ausente no Plaza", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:45, fit:90, prio:"ALTA", canal:"bossanovabowl.com.br - SAC/Expansão site", acao:"Contato inicial via site + LinkedIn diretoria", prazo:nextDate(30), blocker:"Disponibilidade marca Rio"},
+  {id:"OPP-F2b", saida:"Foyer 1500m² - Entret. Adulto", abl:1500, marca:"Lock Quest", tese:"Escape rooms premium - inexistente no Plaza", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:40, fit:88, prio:"ALTA", canal:"lockquest.com.br - contato site", acao:"Sondar expansão Rio", prazo:nextDate(30), blocker:""},
+  {id:"OPP-F2c", saida:"Foyer 1500m² - Entret. Adulto", abl:1500, marca:"EnigMa Escape", tese:"Escape rooms - alternativa Lock Quest", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:35, fit:85, prio:"MÉDIA", canal:"enigmaescape.com.br", acao:"Sondar interesse RJ", prazo:nextDate(30), blocker:""},
+  {id:"OPP-F2d", saida:"Foyer 1500m² - Entret. Adulto", abl:1500, marca:"Sandbox VR", tese:"VR multiplayer - tendência confirmada", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:30, fit:85, prio:"MÉDIA", canal:"sandboxvr.com (matriz int.) - franquia BR a prospectar", acao:"Identificar representante BR", prazo:nextDate(45), blocker:"Sem rep BR confirmado"},
+  {id:"OPP-F2e", saida:"Foyer 1500m² - Entret. Adulto", abl:1500, marca:"Topgolf Brasil", tese:"Entret esportivo experiencial em expansão BR", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:25, fit:80, prio:"MÉDIA", canal:"topgolf.com.br (Allianz Parque SP)", acao:"Validar interesse RJ", prazo:nextDate(45), blocker:""},
+  {id:"OPP-F3a", saida:"Foyer 600m² - Cafés especiais", abl:600, marca:"Suplicy Cafés Especiais", tese:"Cafés autorais - Starbucks é mainstream, falta nicho", status_plaza:"AUSENTE", estagio:"Lead", dono:"Hunter", prob:55, fit:88, prio:"ALTA", canal:"suplicycafes.com.br | LinkedIn Diretoria Expansão", acao:"Reunião comercial", prazo:nextDate(30), blocker:""},
+  {id:"OPP-F3b", saida:"Foyer 600m² - Cafés especiais", abl:600, marca:"The Coffee", tese:"Café especial expansão agressiva BR", status_plaza:"AUSENTE", estagio:"Lead", dono:"Hunter", prob:55, fit:85, prio:"MÉDIA", canal:"thecoffee.jp | franquia@thecoffee.jp", acao:"Email franquia + LinkedIn", prazo:nextDate(30), blocker:""},
+  {id:"OPP-F3c", saida:"Foyer 600m² - Cafés especiais", abl:600, marca:"Octavio Café", tese:"Café especial premium SP", status_plaza:"AUSENTE", estagio:"Lead", dono:"Hunter", prob:40, fit:82, prio:"MÉDIA", canal:"octaviocafe.com.br", acao:"Sondar", prazo:nextDate(30), blocker:""},
+  {id:"OPP-F3d", saida:"Foyer 600m² - Cafés especiais", abl:600, marca:"Coffee Lab", tese:"Café premiado microlotes", status_plaza:"AUSENTE", estagio:"Lead", dono:"Hunter", prob:35, fit:80, prio:"MÉDIA", canal:"coffeelab.com.br", acao:"Sondar", prazo:nextDate(30), blocker:""},
+  {id:"OPP-F4a", saida:"Foyer 800m² - Gastrobar autoral", abl:800, marca:"Bullguer", tese:"Hambúrguer autoral premium - várias unidades ZS Rio", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:50, fit:90, prio:"ALTA", canal:"bullguer.com.br + IG @bullguerrio | LinkedIn fundadores", acao:"Reunião fundador via LinkedIn", prazo:nextDate(21), blocker:"Convencimento rua → mall"},
+  {id:"OPP-F4b", saida:"Foyer 800m² - Gastrobar autoral", abl:800, marca:"Ferro e Farinha", tese:"4 unidades RJ. 1º forno duplex BR. Pizza autoral", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:50, fit:90, prio:"ALTA", canal:"ferroefarinha.com.br | (21) 3495-1552 (Catete) | IG @ferroefarinha", acao:"Contato direto unidade Catete", prazo:nextDate(21), blocker:""},
+  {id:"OPP-F4c", saida:"Foyer 800m² - Gastrobar autoral", abl:800, marca:"Tenore Churrascaria", tese:"Vista praia Icaraí - substituir Mania Churrasco com qualidade", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:45, fit:78, prio:"MÉDIA", canal:"tenore.com.br | (21) 2610-1893 | Av. Jorn. Alberto F. Torres 521, Icaraí", acao:"Visita presencial", prazo:nextDate(21), blocker:""},
+  {id:"OPP-F4d", saida:"Foyer 800m² - Gastrobar autoral", abl:800, marca:"Cantón Peruvian & Chinese", tese:"Chifa autoral - 3 unidades SP/RJ. Conceito único", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:45, fit:85, prio:"MÉDIA", canal:"canton.com.br | IG @cantonbrasil | São Francisco beira-mar Niterói", acao:"Visita + reunião", prazo:nextDate(21), blocker:""},
+  {id:"OPP-F4e", saida:"Foyer 800m² - Gastrobar autoral", abl:800, marca:"TT Burguer (Troisgros)", tese:"Hambúrguer Troisgros - várias unidades RJ", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:40, fit:82, prio:"MÉDIA", canal:"ttburger.com.br - Grupo Thomas Troisgros", acao:"Aproximação institucional Troisgros", prazo:nextDate(21), blocker:""},
+  // AMERICANAS
+  {id:"OPP-B-HM", saida:"Lojas Americanas (2.724m²)", abl:2724, marca:"H&M", tese:"Em expansão Rio 2026 (RioSul + NorteShopping). Plaza fora do plano - pitch ativo", status_plaza:"AUSENTE", estagio:"Lead", dono:"Diretoria + KA", prob:40, fit:90, prio:"ALTA", canal:"Grupo Dorben (JV oficial H&M Brasil) - via LinkedIn / Diretoria Allos", acao:"Reunião institucional Diretoria Allos → Dorben → H&M", prazo:nextDate(15), blocker:"CEO Daniel Ervér mencionou BH/Brasília, não Niterói"},
+  {id:"OPP-B-Out", saida:"Lojas Americanas (2.724m²)", abl:2724, marca:"Outlet Híbrido Nike + Adidas Outlet", tese:"Outlets crescem 25%/ano (Abrasce). Formato diferente do full-price já existente", status_plaza:"AUSENTE (Nike/Adidas full existem, outlet é categoria diferente)", estagio:"Lead", dono:"KA", prob:35, fit:75, prio:"ALTA", canal:"nike.com.br/contato (RE) | adidasrealestate@adidas.com", acao:"Contato Real Estate Nike + Adidas", prazo:nextDate(30), blocker:""},
+  {id:"OPP-B-Cob", saida:"Lojas Americanas (parte) ou caixa média", abl:800, marca:"Cobasi (formato compacto)", tese:"Pet shop full c/ banho-tosa - gap real. 1 unidade Niterói mas não Plaza", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:40, fit:78, prio:"ALTA", canal:"cobasi.com.br/parceria-expansao | LinkedIn Diretoria Expansão", acao:"Sondar formato compacto shopping", prazo:nextDate(30), blocker:""},
+  {id:"OPP-B-Petz", saida:"Lojas Americanas (parte) ou caixa média", abl:800, marca:"Petz (formato compacto)", tese:"Concorrente Cobasi também em expansão", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:35, fit:75, prio:"MÉDIA", canal:"petz.com.br/expansao | LinkedIn Diretoria Expansão", acao:"Sondar formato compacto shopping", prazo:nextDate(30), blocker:""},
+  // ADIDAS saída
+  {id:"OPP-M-ALO", saida:"Adidas saída (205m²)", abl:205, marca:"ALO Yoga", tese:"1ª loja Rio aberta abr/26 (VillageMall). Activewear premium não saturado", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:40, fit:75, prio:"MÉDIA", canal:"aloyoga.com.br/institucional/lojas | Iguatemi/I-Retail (rep BR)", acao:"Sondar interesse Niterói", prazo:nextDate(30), blocker:""},
+  {id:"OPP-M-SF", saida:"Adidas saída ou Físico Forma", abl:205, marca:"Smart Fit (Studio)", tese:"2 unidades Niterói mas não Plaza. Validar formato shopping", status_plaza:"AUSENTE NO PLAZA", estagio:"Lead", dono:"KA", prob:40, fit:75, prio:"MÉDIA", canal:"smartfit.com.br/contato | LinkedIn Diretoria Expansão", acao:"Sondar formato shopping", prazo:nextDate(30), blocker:""},
+  // VIENA + MANIA
+  {id:"OPP-M-Res1", saida:"Viena + Mania Churr. (330m²)", abl:330, marca:"Bullguer", tese:"Alternativa para reposição - hambúrguer autoral premium", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:50, fit:88, prio:"MÉDIA", canal:"bullguer.com.br + IG @bullguerrio | LinkedIn fundadores", acao:"Reunião fundadores", prazo:nextDate(21), blocker:""},
+  // WALTER COIFFEUR
+  {id:"OPP-M-Bel", saida:"Walter Coiffeur (141m²)", abl:141, marca:"Le Beauté Salon Bar", tese:"Conceito híbrido salão+bar/bistrô exclusivo Niterói (Icaraí)", status_plaza:"AUSENTE", estagio:"Lead", dono:"Street Converter", prob:55, fit:78, prio:"MÉDIA", canal:"Cidade de Niterói (matéria abr/2024) - prospectar Icaraí", acao:"Identificar proprietário e visitar", prazo:nextDate(21), blocker:""},
+  // ESPAÇO CRESCER
+  {id:"OPP-M-DC", saida:"Espaço Crescer (165m²)", abl:165, marca:"Dr. Consulta", tese:"Clínica multi-especialidade - gap real no Plaza", status_plaza:"AUSENTE", estagio:"Lead", dono:"KA", prob:45, fit:80, prio:"MÉDIA", canal:"drconsulta.com.br/expansao | LinkedIn Diretoria Expansão", acao:"Sondar interesse RJ", prazo:nextDate(30), blocker:""},
+  // B&B
+  {id:"OPP-M-Sup", saida:"B&B Cafeteria (33m²) ou Foyer", abl:33, marca:"Suplicy Cafés Especiais", tese:"Quick-win - quiosque cafés autorais", status_plaza:"AUSENTE", estagio:"Lead", dono:"Hunter", prob:55, fit:85, prio:"MÉDIA", canal:"suplicycafes.com.br | LinkedIn Diretoria Expansão", acao:"Reunião comercial", prazo:nextDate(30), blocker:""},
+  // CACAU NOIR
+  {id:"OPP-M-MB", saida:"Cacau Noir (26m²) - quiosque", abl:26, marca:"Maria Brigadeiro", tese:"Brigaderia autoral - expansão", status_plaza:"AUSENTE", estagio:"Lead", dono:"Hunter", prob:60, fit:75, prio:"BAIXA", canal:"mariabrigadeiro.com.br | franquia@mariabrigadeiro.com.br", acao:"Email franquia", prazo:nextDate(30), blocker:""},
+  // LOTE
+  {id:"OPP-P", saida:"Lote 28 caixas pequenas (1.485m²)", abl:1485, marca:"Multifranqueado RJ #1", tese:"Operador único 10-15 caixas - Mand. 8 Levy", status_plaza:"n.v. - verificar duplicidade", estagio:"Lead", dono:"Farmer", prob:30, fit:55, prio:"MÉDIA", canal:"Sindilojas RJ | sindilojas-rio.com.br | (21) 2272-1300", acao:"Reunião Sindilojas para mapear operadores", prazo:nextDate(30), blocker:"Identificar operador único"},
+];
+
+function nextDate(days) {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+// =====================================
+// ESTADO
+// =====================================
+let state = {
+  opportunities: [],
+  user: { name: "", role: "EV" },
+  currentEdit: null,
+};
+
+// =====================================
+// PERSISTÊNCIA (window.storage)
+// =====================================
+async function loadData() {
+  try {
+    const oppsRes = await window.storage.get("plaza-opportunities");
+    if (oppsRes && oppsRes.value) {
+      state.opportunities = JSON.parse(oppsRes.value);
+    } else {
+      state.opportunities = JSON.parse(JSON.stringify(SEED_DATA));
+      await saveOpportunities();
+    }
+  } catch (e) {
+    state.opportunities = JSON.parse(JSON.stringify(SEED_DATA));
+    await saveOpportunities();
+  }
+
+  try {
+    const userRes = await window.storage.get("plaza-user");
+    if (userRes && userRes.value) {
+      state.user = JSON.parse(userRes.value);
+    }
+  } catch (e) {}
+
+  updateUserTag();
+  populateFilters();
+  renderAll();
+}
+
+async function saveOpportunities() {
+  try {
+    await window.storage.set("plaza-opportunities", JSON.stringify(state.opportunities));
+  } catch (e) {
+    showToast("Erro ao salvar: " + e.message, "error");
+  }
+}
+
+async function saveUserData() {
+  try {
+    await window.storage.set("plaza-user", JSON.stringify(state.user));
+  } catch (e) {}
+}
+
+// =====================================
+// NAVEGAÇÃO
+// =====================================
+document.querySelectorAll("nav button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(btn.dataset.section).classList.add("active");
+    renderAll();
+  });
+});
+
+// =====================================
+// FILTROS
+// =====================================
+function populateFilters() {
+  const stages = [...new Set(state.opportunities.map(o => o.estagio))];
+  const owners = [...new Set(state.opportunities.map(o => o.dono))];
+  const saidas = [...new Set(state.opportunities.map(o => o.saida))];
+
+  const stageSel = document.getElementById("filterStage");
+  const ownerSel = document.getElementById("filterOwner");
+  const saidaSel = document.getElementById("filterSaida");
+
+  stageSel.innerHTML = '<option value="">Todos</option>' + stages.map(s => `<option>${s}</option>`).join("");
+  ownerSel.innerHTML = '<option value="">Todos</option>' + owners.map(s => `<option>${s}</option>`).join("");
+  saidaSel.innerHTML = '<option value="">Todas</option>' + saidas.map(s => `<option>${s}</option>`).join("");
+}
+
+function clearFilters() {
+  document.getElementById("filterText").value = "";
+  document.getElementById("filterStage").value = "";
+  document.getElementById("filterOwner").value = "";
+  document.getElementById("filterPrio").value = "";
+  document.getElementById("filterSaida").value = "";
+  renderPipeline();
+}
+
+function getFiltered() {
+  const text = document.getElementById("filterText").value.toLowerCase();
+  const stage = document.getElementById("filterStage").value;
+  const owner = document.getElementById("filterOwner").value;
+  const prio = document.getElementById("filterPrio").value;
+  const saida = document.getElementById("filterSaida").value;
+
+  return state.opportunities.filter(o => {
+    if (stage && o.estagio !== stage) return false;
+    if (owner && o.dono !== owner) return false;
+    if (prio && o.prio !== prio) return false;
+    if (saida && o.saida !== saida) return false;
+    if (text) {
+      const blob = `${o.id} ${o.marca} ${o.saida} ${o.tese} ${o.canal} ${o.acao} ${o.dono} ${o.obs || ""}`.toLowerCase();
+      if (!blob.includes(text)) return false;
+    }
+    return true;
+  });
+}
+
+// =====================================
+// RENDER PIPELINE
+// =====================================
+function stageClass(stage) {
+  const map = {
+    "Lead": "pill-lead",
+    "Qualified Lead": "pill-lead",
+    "Contacted": "pill-contacted",
+    "Meeting Scheduled": "pill-meeting",
+    "Meeting Done": "pill-meeting",
+    "Proposal": "pill-proposal",
+    "Technical Feasibility": "pill-proposal",
+    "Investor Match": "pill-proposal",
+    "Contract Negotiation": "pill-loi",
+    "Contract Signed": "pill-contract",
+    "Construction / Obra": "pill-contract",
+    "Opening": "pill-contract",
+    "Ramp-up": "pill-contract",
+    "Performance Review": "pill-contract",
+    "Lost / Parked": "pill-lost",
+  };
+  return map[stage] || "pill-lead";
+}
+
+function prioClass(prio) {
+  return prio === "ALTA" ? "pill-prio-alta" : prio === "MÉDIA" ? "pill-prio-media" : "pill-prio-baixa";
+}
+
+function isOverdue(opp) {
+  if (!opp.prazo) return false;
+  if (["Contract Signed", "Opening", "Ramp-up", "Performance Review", "Lost / Parked"].includes(opp.estagio)) return false;
+  return opp.prazo < new Date().toISOString().slice(0, 10);
+}
+
+function renderPipeline() {
+  const data = getFiltered();
+  const tbody = document.getElementById("pipelineBody");
+
+  if (data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="13" class="loading">Nenhuma oportunidade corresponde aos filtros.</td></tr>';
+    document.getElementById("pipelineCount").textContent = "";
+    return;
+  }
+
+  tbody.innerHTML = data.map(o => {
+    const overdue = isOverdue(o);
+    const prazoCell = overdue
+      ? `<span style="color:var(--red);font-weight:600;">${o.prazo} ⚠️</span>`
+      : (o.prazo || "-");
+    return `
+      <tr>
+        <td><strong>${o.id}</strong></td>
+        <td>${escape(o.saida)}</td>
+        <td><strong>${escape(o.marca)}</strong></td>
+        <td class="text-right">${o.abl ? Number(o.abl).toLocaleString("pt-BR") : "-"}</td>
+        <td><span class="pill ${stageClass(o.estagio)}">${o.estagio}</span></td>
+        <td>${o.dono}</td>
+        <td>${escape(o.acao || "-")}</td>
+        <td>${prazoCell}</td>
+        <td class="text-right">${o.prob || 0}%</td>
+        <td class="text-right">${o.fit || "-"}</td>
+        <td><span class="pill ${prioClass(o.prio)}">${o.prio}</span></td>
+        <td><span class="small-text">${escape((o.canal || "").slice(0, 60))}${(o.canal || "").length > 60 ? "..." : ""}</span></td>
+        <td><button class="btn" onclick="editOpp('${o.id}')">Editar</button></td>
+      </tr>
+    `;
+  }).join("");
+
+  document.getElementById("pipelineCount").textContent = `${data.length} oportunidade(s) exibida(s) de ${state.opportunities.length} total.`;
+}
+
+function escape(s) {
+  if (s == null) return "";
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// =====================================
+// MODAL
+// =====================================
+function openModal() {
+  state.currentEdit = null;
+  document.getElementById("modalTitle").textContent = "Nova Oportunidade";
+  document.getElementById("btnDelete").style.display = "none";
+  document.getElementById("historicoSection").style.display = "none";
+  document.getElementById("f_id").value = "OPP-" + Date.now().toString().slice(-6);
+  document.getElementById("f_saida").value = "";
+  document.getElementById("f_abl").value = "";
+  document.getElementById("f_marca").value = "";
+  document.getElementById("f_tese").value = "";
+  document.getElementById("f_status_plaza").value = "AUSENTE";
+  document.getElementById("f_estagio").value = "Lead";
+  document.getElementById("f_dono").value = state.user.role || "EV";
+  document.getElementById("f_prob").value = 30;
+  document.getElementById("f_fit").value = 75;
+  document.getElementById("f_prio").value = "MÉDIA";
+  document.getElementById("f_canal").value = "";
+  document.getElementById("f_acao").value = "";
+  document.getElementById("f_prazo").value = nextDate(30);
+  document.getElementById("f_blocker").value = "";
+  document.getElementById("f_obs").value = "";
+  document.getElementById("modal").classList.add("active");
+}
+
+function editOpp(id) {
+  const o = state.opportunities.find(x => x.id === id);
+  if (!o) return;
+  state.currentEdit = id;
+  document.getElementById("modalTitle").textContent = `Editar ${o.id} — ${o.marca}`;
+  document.getElementById("btnDelete").style.display = "inline-block";
+  document.getElementById("f_id").value = o.id;
+  document.getElementById("f_saida").value = o.saida || "";
+  document.getElementById("f_abl").value = o.abl || "";
+  document.getElementById("f_marca").value = o.marca || "";
+  document.getElementById("f_tese").value = o.tese || "";
+  document.getElementById("f_status_plaza").value = o.status_plaza || "AUSENTE";
+  document.getElementById("f_estagio").value = o.estagio || "Lead";
+  document.getElementById("f_dono").value = o.dono || "EV";
+  document.getElementById("f_prob").value = o.prob ?? 30;
+  document.getElementById("f_fit").value = o.fit ?? 75;
+  document.getElementById("f_prio").value = o.prio || "MÉDIA";
+  document.getElementById("f_canal").value = o.canal || "";
+  document.getElementById("f_acao").value = o.acao || "";
+  document.getElementById("f_prazo").value = o.prazo || "";
+  document.getElementById("f_blocker").value = o.blocker || "";
+  document.getElementById("f_obs").value = "";
+
+  // Histórico
+  const hist = o.historico || [];
+  if (hist.length > 0) {
+    document.getElementById("historicoSection").style.display = "block";
+    document.getElementById("historicoTimeline").innerHTML = hist.slice().reverse().map(h =>
+      `<div class="timeline-item">
+        <div class="timeline-date">${h.data} · ${escape(h.user)} (${h.role})</div>
+        <div>${escape(h.texto)}</div>
+        ${h.estagioAnterior ? `<div class="small-text">Estágio: ${h.estagioAnterior} → ${h.estagioNovo}</div>` : ""}
+      </div>`
+    ).join("");
+  } else {
+    document.getElementById("historicoSection").style.display = "none";
+  }
+
+  document.getElementById("modal").classList.add("active");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("active");
+}
+
+async function saveOpp() {
+  const id = document.getElementById("f_id").value;
+  const obs = document.getElementById("f_obs").value.trim();
+  const novoEstagio = document.getElementById("f_estagio").value;
+
+  const opp = {
+    id,
+    saida: document.getElementById("f_saida").value,
+    abl: parseInt(document.getElementById("f_abl").value) || 0,
+    marca: document.getElementById("f_marca").value,
+    tese: document.getElementById("f_tese").value,
+    status_plaza: document.getElementById("f_status_plaza").value,
+    estagio: novoEstagio,
+    dono: document.getElementById("f_dono").value,
+    prob: parseInt(document.getElementById("f_prob").value) || 0,
+    fit: parseInt(document.getElementById("f_fit").value) || 0,
+    prio: document.getElementById("f_prio").value,
+    canal: document.getElementById("f_canal").value,
+    acao: document.getElementById("f_acao").value,
+    prazo: document.getElementById("f_prazo").value,
+    blocker: document.getElementById("f_blocker").value,
+  };
+
+  if (!opp.marca) {
+    showToast("Marca-alvo é obrigatória", "error");
+    return;
+  }
+
+  if (state.currentEdit) {
+    const idx = state.opportunities.findIndex(x => x.id === state.currentEdit);
+    const oldOpp = state.opportunities[idx];
+    const historico = oldOpp.historico || [];
+
+    if (obs || novoEstagio !== oldOpp.estagio) {
+      historico.push({
+        data: new Date().toISOString().slice(0, 16).replace("T", " "),
+        user: state.user.name || "(sem nome)",
+        role: state.user.role || "EV",
+        texto: obs || "(sem comentário)",
+        estagioAnterior: oldOpp.estagio !== novoEstagio ? oldOpp.estagio : "",
+        estagioNovo: oldOpp.estagio !== novoEstagio ? novoEstagio : "",
+      });
+    }
+    opp.historico = historico;
+    opp.ultimaAtualizacao = new Date().toISOString().slice(0, 10);
+    state.opportunities[idx] = opp;
+    showToast("Oportunidade atualizada", "success");
+  } else {
+    opp.historico = obs ? [{
+      data: new Date().toISOString().slice(0, 16).replace("T", " "),
+      user: state.user.name || "(sem nome)",
+      role: state.user.role || "EV",
+      texto: obs || "Criada",
+    }] : [];
+    opp.criadaEm = new Date().toISOString().slice(0, 10);
+    opp.ultimaAtualizacao = new Date().toISOString().slice(0, 10);
+    state.opportunities.push(opp);
+    showToast("Oportunidade criada", "success");
+  }
+
+  await saveOpportunities();
+  closeModal();
+  populateFilters();
+  renderAll();
+}
+
+async function deleteOpp() {
+  if (!state.currentEdit) return;
+  if (!confirm("Excluir esta oportunidade? Esta ação não pode ser desfeita.")) return;
+  state.opportunities = state.opportunities.filter(x => x.id !== state.currentEdit);
+  await saveOpportunities();
+  closeModal();
+  populateFilters();
+  renderAll();
+  showToast("Oportunidade excluída", "success");
+}
+
+// =====================================
+// DASHBOARD
+// =====================================
+function renderDashboard() {
+  const opps = state.opportunities;
+  const total = opps.length;
+  const signed = opps.filter(o => o.estagio === "Contract Signed" || o.estagio === "Opening" || o.estagio === "Ramp-up").length;
+  const advancedStages = ["Proposal", "Investor Match", "Contract Negotiation"];
+  const adv = opps.filter(o => advancedStages.includes(o.estagio)).length;
+  const overdue = opps.filter(isOverdue).length;
+  const totalAbl = opps.reduce((s, o) => s + (o.abl || 0), 0);
+  const ablTreated = opps.filter(o => o.estagio !== "Lost / Parked").reduce((s, o) => s + (o.abl || 0), 0);
+  const avgFit = opps.length ? Math.round(opps.reduce((s, o) => s + (o.fit || 0), 0) / opps.length) : 0;
+
+  document.getElementById("kpiTotal").textContent = total;
+  document.getElementById("kpiTotalDelta").textContent = `ABL: ${totalAbl.toLocaleString("pt-BR")} m²`;
+  document.getElementById("kpiSigned").textContent = signed;
+  document.getElementById("kpiAdv").textContent = adv;
+  document.getElementById("kpiAbl").textContent = `${ablTreated.toLocaleString("pt-BR")} m²`;
+  document.getElementById("kpiAblPct").textContent = `${total ? Math.round(ablTreated/totalAbl*100) : 0}% do total`;
+  document.getElementById("kpiOverdue").textContent = overdue;
+  document.getElementById("kpiFit").textContent = avgFit;
+
+  // Stage chart
+  const stages = ["Lead", "Qualified Lead", "Contacted", "Meeting Scheduled", "Meeting Done", "Proposal", "Contract Negotiation", "Contract Signed", "Lost / Parked"];
+  const counts = stages.map(s => ({ stage: s, n: opps.filter(o => o.estagio === s).length }));
+  const max = Math.max(1, ...counts.map(c => c.n));
+  const chart = document.getElementById("stageChart");
+  chart.innerHTML = counts.filter(c => c.n > 0).map(c => {
+    const pct = (c.n / max * 100);
+    let cls = "";
+    if (c.stage === "Contract Signed") cls = "green";
+    else if (c.stage === "Lost / Parked") cls = "red";
+    else if (c.stage === "Lead") cls = "yellow";
+    return `<div class="bar-row">
+      <div class="bar-label">${c.stage}</div>
+      <div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%">${c.n}</div></div>
+    </div>`;
+  }).join("");
+
+  // Top 5
+  const top = [...opps]
+    .sort((a, b) => (b.fit || 0) * (b.prob || 0) * (b.abl || 0) - (a.fit || 0) * (a.prob || 0) * (a.abl || 0))
+    .slice(0, 5);
+  document.getElementById("topOpps").innerHTML = top.map(o => `
+    <tr>
+      <td><strong>${o.id}</strong></td>
+      <td>${escape(o.marca)}</td>
+      <td>${escape(o.saida)}</td>
+      <td class="text-right">${o.abl?.toLocaleString("pt-BR") || "-"}</td>
+      <td><span class="pill ${stageClass(o.estagio)}">${o.estagio}</span></td>
+      <td>${escape(o.acao || "-")}</td>
+      <td>${o.prazo || "-"}</td>
+      <td>${o.dono}</td>
+    </tr>
+  `).join("");
+
+  // Overdue
+  const ov = opps.filter(isOverdue);
+  if (ov.length === 0) {
+    document.getElementById("overdueList").innerHTML = '<tr><td colspan="5" class="loading">Nenhuma ação atrasada. 🎉</td></tr>';
+  } else {
+    document.getElementById("overdueList").innerHTML = ov.map(o => {
+      const dias = Math.floor((new Date() - new Date(o.prazo)) / (1000 * 60 * 60 * 24));
+      return `<tr>
+        <td><strong>${o.id}</strong></td>
+        <td>${escape(o.marca)}</td>
+        <td>${escape(o.acao || "-")}</td>
+        <td style="color:var(--red);"><strong>${dias} dia(s) atrasado</strong></td>
+        <td>${o.dono}</td>
+      </tr>`;
+    }).join("");
+  }
+}
+
+// =====================================
+// RELATÓRIOS
+// =====================================
+function renderReports() {
+  const opps = state.opportunities;
+  const total = opps.length;
+  const totalAbl = opps.reduce((s, o) => s + (o.abl || 0), 0);
+  const signed = opps.filter(o => o.estagio === "Contract Signed").length;
+  const overdue = opps.filter(isOverdue).length;
+
+  const byStage = {};
+  opps.forEach(o => { byStage[o.estagio] = (byStage[o.estagio] || 0) + 1; });
+
+  const byOwner = {};
+  opps.forEach(o => { byOwner[o.dono] = (byOwner[o.dono] || 0) + 1; });
+
+  const altaPrio = opps.filter(o => o.prio === "ALTA").length;
+
+  const r = [];
+  r.push("PLAZA NITERÓI — RELATÓRIO EXECUTIVO");
+  r.push("Workflow 1 — Vacancy-to-Contract");
+  r.push("Gerado em " + new Date().toLocaleString("pt-BR"));
+  r.push("Por: " + (state.user.name || "(sem nome)") + " (" + state.user.role + ")");
+  r.push("=".repeat(60));
+  r.push("");
+  r.push("RESUMO");
+  r.push("- Total de oportunidades no pipeline: " + total);
+  r.push("- ABL total em pipeline: " + totalAbl.toLocaleString("pt-BR") + " m²");
+  r.push("- Contratos assinados: " + signed);
+  r.push("- Oportunidades ALTA prioridade: " + altaPrio);
+  r.push("- Ações atrasadas: " + overdue);
+  r.push("");
+  r.push("PIPELINE POR ESTÁGIO");
+  Object.entries(byStage).forEach(([k, v]) => r.push("  " + k.padEnd(25) + ": " + v));
+  r.push("");
+  r.push("PIPELINE POR DONO");
+  Object.entries(byOwner).forEach(([k, v]) => r.push("  " + k.padEnd(25) + ": " + v));
+  r.push("");
+  r.push("OPORTUNIDADES ALTA PRIORIDADE");
+  opps.filter(o => o.prio === "ALTA").forEach(o => {
+    r.push("");
+    r.push("  [" + o.id + "] " + o.marca);
+    r.push("    Saída: " + o.saida);
+    r.push("    ABL: " + (o.abl?.toLocaleString("pt-BR") || "-") + " m² | Fit: " + o.fit + " | Prob: " + o.prob + "%");
+    r.push("    Estágio: " + o.estagio + " | Dono: " + o.dono);
+    r.push("    Próxima ação: " + (o.acao || "-"));
+    r.push("    Prazo: " + (o.prazo || "-"));
+    if (o.blocker) r.push("    Blocker: " + o.blocker);
+    r.push("    Contato: " + (o.canal || "-"));
+  });
+  r.push("");
+  r.push("AÇÕES ATRASADAS");
+  if (overdue === 0) {
+    r.push("  Nenhuma ação atrasada.");
+  } else {
+    opps.filter(isOverdue).forEach(o => {
+      const dias = Math.floor((new Date() - new Date(o.prazo)) / (1000 * 60 * 60 * 24));
+      r.push("  [" + o.id + "] " + o.marca + " — " + dias + " dia(s) atrasado — Dono: " + o.dono);
+    });
+  }
+
+  document.getElementById("execReport").textContent = r.join("\n");
+
+  // Detalhado
+  document.getElementById("detailedReport").innerHTML = opps.map(o => `
+    <tr>
+      <td><strong>${escape(o.marca)}</strong></td>
+      <td>${escape(o.saida)}</td>
+      <td><span class="pill ${stageClass(o.estagio)}">${o.estagio}</span></td>
+      <td>${escape(o.acao || "-")}</td>
+      <td>${o.prazo || "-"}</td>
+      <td class="small-text">${escape(o.canal || "-")}</td>
+      <td>${o.ultimaAtualizacao || o.criadaEm || "-"}</td>
+    </tr>
+  `).join("");
+}
+
+function copyReport() {
+  navigator.clipboard.writeText(document.getElementById("execReport").textContent);
+  showToast("Relatório copiado para a área de transferência", "success");
+}
+
+// =====================================
+// EXPORT / IMPORT
+// =====================================
+function exportCSV() {
+  const headers = ["ID", "Saída", "ABL m²", "Marca", "Tese", "Status Plaza", "Estágio", "Dono", "Prob %", "Fit", "Prio", "Canal contato", "Próxima ação", "Prazo", "Blocker", "Última atualização"];
+  const rows = state.opportunities.map(o => [
+    o.id, o.saida, o.abl, o.marca, o.tese, o.status_plaza, o.estagio, o.dono, o.prob, o.fit, o.prio, o.canal, o.acao, o.prazo, o.blocker || "", o.ultimaAtualizacao || o.criadaEm || ""
+  ]);
+
+  const csv = [headers, ...rows].map(r => r.map(c => {
+    const s = String(c == null ? "" : c).replace(/"/g, '""');
+    return /[",\n;]/.test(s) ? `"${s}"` : s;
+  }).join(";")).join("\n");
+
+  const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `plaza-niteroi-pipeline-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast("CSV exportado", "success");
+}
+
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(state.opportunities, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `plaza-niteroi-backup-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast("Backup JSON exportado", "success");
+}
+
+function importJSON() {
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = "application/json";
+  input.onchange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const text = await file.text();
+    try {
+      const data = JSON.parse(text);
+      if (!Array.isArray(data)) throw new Error("Formato inválido");
+      if (!confirm(`Restaurar ${data.length} oportunidade(s)? Isso vai substituir os dados atuais.`)) return;
+      state.opportunities = data;
+      await saveOpportunities();
+      populateFilters();
+      renderAll();
+      showToast("Backup restaurado", "success");
+    } catch (e) {
+      showToast("Erro ao importar: " + e.message, "error");
+    }
+  };
+  input.click();
+}
+
+// =====================================
+// USER
+// =====================================
+function updateUserTag() {
+  const tag = document.getElementById("userTag");
+  if (state.user.name) {
+    tag.textContent = state.user.name + " (" + state.user.role + ")";
+  } else {
+    tag.textContent = "Configurar usuário";
+  }
+  document.getElementById("userName").value = state.user.name || "";
+  document.getElementById("userRole").value = state.user.role || "EV";
+}
+
+document.getElementById("userTag").addEventListener("click", () => {
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  document.querySelector('nav button[data-section="settings"]').classList.add("active");
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById("settings").classList.add("active");
+});
+
+async function saveUser() {
+  state.user.name = document.getElementById("userName").value.trim();
+  state.user.role = document.getElementById("userRole").value;
+  await saveUserData();
+  updateUserTag();
+  showToast("Usuário salvo", "success");
+}
+
+async function resetSeed() {
+  if (!confirm("Resetar pipeline para os dados iniciais (Plaza Niterói v5)? Isso vai substituir TODOS os dados atuais.")) return;
+  state.opportunities = JSON.parse(JSON.stringify(SEED_DATA));
+  await saveOpportunities();
+  populateFilters();
+  renderAll();
+  showToast("Pipeline resetado para dados iniciais", "success");
+}
+
+async function clearAll() {
+  if (!confirm("APAGAR TUDO? Esta ação não pode ser desfeita.")) return;
+  if (!confirm("Confirma novamente — todos os dados serão apagados.")) return;
+  state.opportunities = [];
+  await saveOpportunities();
+  populateFilters();
+  renderAll();
+  showToast("Todos os dados foram apagados", "success");
+}
+
+// =====================================
+// TOAST
+// =====================================
+function showToast(msg, type = "") {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast " + type + " show";
+  setTimeout(() => { t.classList.remove("show"); }, 3000);
+}
+
+// =====================================
+// RENDER ALL
+// =====================================
+function renderAll() {
+  renderDashboard();
+  renderPipeline();
+  renderReports();
+}
+
+// =====================================
+// INIT
+// =====================================
+loadData();
+</script>
+</body>
+</html>

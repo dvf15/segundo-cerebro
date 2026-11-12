@@ -7,6 +7,7 @@ source_id: "fd4eaeba-fc16-4d5a-b3f6-cfe68b5755c1"
 url: "https://claude.ai/chat/fd4eaeba-fc16-4d5a-b3f6-cfe68b5755c1"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # 💬 Faça um resumo detalhado desse…

@@ -7,6 +7,7 @@ source_id: "f528f2da-b0cc-4bb1-a3c0-41f29e0f2621"
 url: "https://claude.ai/chat/f528f2da-b0cc-4bb1-a3c0-41f29e0f2621"
 project: null
 messages: 116
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Integrar notas do Claude com Obsidian no celular

@@ -7,6 +7,7 @@ source_id: "0e44b88d-95c8-44b0-acde-f941f17db472"
 url: "https://claude.ai/chat/0e44b88d-95c8-44b0-acde-f941f17db472"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Organização de conceitos em arquivo texto
@@ -58,3 +59,10 @@ Dois pontos honestos sobre os limites do trabalho:
 2. **Os números e citações de terceiros** que aparecem no deck (52,7% da Agco no Brasil, 30–40% de receita não-lucrativa de Byrnes, percentuais do margin pool AmBev 2000–2004, falas atribuídas a Richenhagen, Holden, Hurwich etc.) foram preservados **conforme estavam no deck**. Não validei nenhum em fonte primária. Se for usar publicamente, vale checar.
 
 **Confiança: 9/10** na fidelidade ao conteúdo do deck. **6/10** na veracidade externa dos dados citados — não verifiquei as fontes originais, apenas reproduzi o que estava lá.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/organizacao-de-conceitos-em-arquivo-texto_0e44b88d/mnt/user-data/outputs/Precificacao_Estrategica_Conceitos.md]] (29 KB)

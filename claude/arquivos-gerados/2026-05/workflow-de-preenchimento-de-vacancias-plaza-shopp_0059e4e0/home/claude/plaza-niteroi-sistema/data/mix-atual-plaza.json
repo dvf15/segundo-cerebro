@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "shopping": "Plaza Shopping Niteroi",
+  "ultima_atualizacao": "2026-05",
+  "fonte_principal": "brasil-shoppings.com.br (288 marcas) + plazaniteroi.com.br + Foursquare + iFood + Reclame Aqui",
+  "regra": "NAO sugerir como pipeline novo nenhuma marca presente nesta lista",
+  "marcas_confirmadas": [
+    {
+      "categoria": "Cinema",
+      "marca": "Cinemark",
+      "fonte": "plazaniteroi.com.br + Ingresso.com",
+      "obs": "MANTIDA - foyer 5097m2 em redev"
+    },
+    {
+      "categoria": "Sorveteria/Acai",
+      "marca": "Bacio di Latte",
+      "fonte": "iFood + Facebook + Cidade Niteroi",
+      "obs": "JA EXISTE - shop plaza niteroi"
+    },
+    {
+      "categoria": "Sorveteria/Acai",
+      "marca": "Oakberry",
+      "fonte": "Reclame Aqui",
+      "obs": "JA EXISTE"
+    },
+    {
+      "categoria": "Sorveteria/Acai",
+      "marca": "Yogoberry",
+      "fonte": "Foursquare 2o Piso",
+      "obs": "JA EXISTE"
+    },
+    {
+      "categoria": "Sucos",
+      "marca": "Bibi Sucos",
+      "fonte": "Foursquare Piso L2 Loja 232",
+      "obs": "JA EXISTE"
+    },
+    {
+      "categoria": "Cafe",
+      "marca": "Light Cafe",
+      "fonte": "Wanderlog stand Plaza",
+      "obs": "JA EXISTE - stand pre cinema"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Coco Bambu",
+      "fonte": "plazaniteroi.com.br/sobre",
+      "obs": "Espaco Gourmet 2200m2"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Outback Steakhouse",
+      "fonte": "plazaniteroi",
+      "obs": "Espaco Gourmet"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Madero",
+      "fonte": "plazaniteroi + reserva.grupomadero",
+      "obs": "Espaco Gourmet"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Abbraccio",
+      "fonte": "plazaniteroi",
+      "obs": "Espaco Gourmet"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "NOI",
+      "fonte": "plazaniteroi",
+      "obs": "Espaco Gourmet"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Cabana Burger",
+      "fonte": "plazaniteroi",
+      "obs": "Espaco Gourmet"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Balada Mix",
+      "fonte": "plazaniteroi",
+      "obs": "Espaco Gourmet"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "L'Entrecote de Paris",
+      "fonte": "brasil-shoppings",
+      "obs": "Steakhouse frances"
+    },
+    {
+      "categoria": "Gastronomia Premium",
+      "marca": "Benihana",
+      "fonte": "brasil-shoppings",
+      "obs": "Japones"
+    },
+    {
+      "categoria": "Fast Food",
+      "marca": "Habib's",
+      "fonte": "Foursquare Piso L1",
+      "obs": "JA EXISTE"
+    },
+    {
+      "categoria": "Cafe/Doceria",
+      "marca": "Starbucks",
+      "fonte": "brasil-shoppings",
+      "obs": ""
+    }
+  ],
+  "categorias_saturadas": [
+    "Moda Feminina (Renner/Riachuelo/C&A/Marisa/Forever 21/Cantao/Maria Filo/Animale/Le Lis Blanc/Dress To/Mercatto/+15)",
+    "Moda Masculina (Calvin Klein/Lacoste/Levi's/GAP/Brooksfield/Reserva/Richard's/Osklen/John John/Camisaria Colombo/+10)",
+    "Moda Infantil (Lilica Tigor/Milon/Alphabeto/Tip Top/Carter's/Mini Einstein/Puket)",
+    "Calcados (Arezzo/Schutz/Santa Lolla/Carmen Steffens/Dumond/Di Santinni/Mr Cat/Crocs/Melissa/Bibi/Jelly/Havaianas/+15)",
+    "Esporte (Nike Store/Centauro/DECATHLON/Trackfield/World Tennis/Authentic Feet/Atlhetic Way)",
+    "Beleza (Sephora/MAC/L'Occitane x2/Granado x2/Dermage/Contem 1G/Boticario/Quem Disse Berenice/+5)",
+    "Joia (Vivara/Pandora/Swarovski/H. Stern/Rommanel/Monte Carlo/+5)",
+    "Otica (Otica Raysol/Carol/Maxvision/Hospital Olhos/Fast Frame)",
+    "Casa (Tok&Stok/Camicado/Oppa/MMartan/First Class/Zelo/Imaginarium/+5)",
+    "Eletro/Tech (Casas Bahia/Ponto Frio/Fast Shop/Polishop/Americanas/iPlace/Samsung/Microsoft/Sony/+5)",
+    "Telefonia (Vivo/TIM/Claro/Oi/Nextel)",
+    "Lazer infantil (LEGO/Ri Happy/Bay Games/World Games/Resident Games/Tempo Recreio/Toy Place/XDome/Plaza Play/Bolinha Parque/Youplay/Ilha Aventura)"
+  ],
+  "gaps_reais": [
+    "Pet shop completo com banho/tosa (so tem Zee.Dog acessorios)",
+    "Clinica multi-especialidade",
+    "Boliche/Escape Room/VR (categoria adulto ausente)",
+    "Cafe especial autoral nicho (Suplicy/The Coffee/Octavio)",
+    "Fast fashion internacional (H&M)",
+    "Activewear premium (ALO Yoga)",
+    "Gastronomia autoral local (Bullguer/Ferro e Farinha/Canton)",
+    "Wellness studio (yoga/pilates)"
+  ],
+  "observacao": "Lista parcial. Para validacao completa, cruzar com sistema interno Allos. Cobertura atual estimada 100+ marcas das ~288 listadas em brasil-shoppings."
+}

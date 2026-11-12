@@ -7,6 +7,7 @@ source_id: "f4472013-f3a8-42d3-85e6-20e16a03ba8f"
 url: "https://claude.ai/chat/f4472013-f3a8-42d3-85e6-20e16a03ba8f"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -118,3 +119,10 @@ Pronto. O resumo está estruturado nas 10 seções principais do material, com a
 **Confiança geral: 7/10** (detalhes por item na tabela no final do documento).
 
 Quer que eu ajuste algo — por exemplo, aprofundar a conexão com o Blueprint da Performance no Varejo, ou criar uma nota separada só para o conceito `[[Hidden Profile]]`?
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_f4472013/mnt/user-data/outputs/flynn-collective-wisdom-resumo.md]] (10 KB)

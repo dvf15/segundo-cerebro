@@ -7,6 +7,7 @@ source_id: "e3fc4014-5738-456b-9f67-0f4213f21241"
 url: "https://claude.ai/chat/e3fc4014-5738-456b-9f67-0f4213f21241"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Cálculo de imposto na venda de ações

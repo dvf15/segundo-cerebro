@@ -7,6 +7,7 @@ source_id: "412ebf17-3b69-4ec7-8513-e273fce19415"
 url: "https://claude.ai/chat/412ebf17-3b69-4ec7-8513-e273fce19415"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -72,3 +73,10 @@ Algumas escolhas que fiz e quero deixar transparentes:
 **Confiança: 9/10.** O conteúdo é fiel ao material original (estava todo no contexto). O ponto que tira 1 ponto é exatamente o que sinalizei: as conexões aplicadas ao varejo são minhas, não dos autores.
 
 Quer que eu refaça os diagramas em Mermaid?
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_412ebf17/home/claude/Strategy Mapping - Stanford GSB.md]] (10 KB)

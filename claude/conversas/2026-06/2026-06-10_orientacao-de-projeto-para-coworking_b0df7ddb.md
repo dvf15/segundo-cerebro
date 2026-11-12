@@ -7,6 +7,7 @@ source_id: "b0df7ddb-7cb8-4da2-8ac0-e4ef9570a518"
 url: "https://claude.ai/chat/b0df7ddb-7cb8-4da2-8ac0-e4ef9570a518"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Orientação de projeto para coworking

@@ -7,6 +7,7 @@ source_id: "d3742544-3c51-4fa3-889d-f18c4414f4aa"
 url: "https://claude.ai/chat/d3742544-3c51-4fa3-889d-f18c4414f4aa"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de livro para Obsidian
@@ -65,3 +66,10 @@ Arquivo pronto. Estrutura do resumo para Obsidian:
 Todas as afirmações têm referência de página do PDF. Quando há síntese minha (não citação direta), está sinalizado.
 
 **Confiança: 9/10** — fidelidade ao texto original é alta. Desconto vem dos "Insights-chave" e "Limitações" serem interpretação minha, não conteúdo do livro.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-livro-para-obsidian_d3742544/home/claude/Governanca-Startups-Scale-ups-IBGC.md]] (20 KB)

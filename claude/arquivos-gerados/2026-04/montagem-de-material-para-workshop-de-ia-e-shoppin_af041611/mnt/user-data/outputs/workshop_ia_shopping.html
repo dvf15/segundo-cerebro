@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop IA + Shopping</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --paper: #f5f0e8;
+    --accent: #e84c2b;
+    --gold: #c9a84c;
+    --mid: #5a5a4a;
+    --light: #e8e3d8;
+    --green: #2d6a4f;
+    --blue: #1a3a5c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    opacity: 0.15;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 200px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    opacity: 0.2;
+  }
+  .cover-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+  .cover h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .cover h1 span { color: var(--gold); }
+  .cover-sub {
+    font-size: 18px;
+    color: #aaa;
+    max-width: 520px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .cover-meta {
+    display: flex; gap: 40px;
+    border-top: 1px solid #333;
+    padding-top: 32px;
+  }
+  .cover-meta div { font-size: 13px; color: #777; }
+  .cover-meta strong { display: block; color: var(--paper); font-size: 15px; }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 80px 80px;
+    border-bottom: 1px solid var(--light);
+  }
+  .section.dark {
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 1px solid #222;
+  }
+  .section.accent-bg {
+    background: var(--accent);
+    color: #fff;
+  }
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section.dark .section-label { color: var(--gold); }
+  .section.accent-bg .section-label { color: rgba(255,255,255,0.7); }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 40px;
+  }
+  h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  /* ── OBJECTIVES GRID ── */
+  .obj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .obj-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 32px;
+    border-left: 4px solid var(--accent);
+  }
+  .obj-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  /* ── AGENDA ── */
+  .agenda-list { list-style: none; max-width: 700px; }
+  .agenda-item {
+    display: flex;
+    gap: 32px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--light);
+    align-items: flex-start;
+  }
+  .agenda-time {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    color: var(--accent);
+    min-width: 60px;
+    padding-top: 2px;
+  }
+  .agenda-title { font-weight: 500; }
+  .agenda-desc { font-size: 13px; color: var(--mid); margin-top: 4px; }
+
+  /* ── AI PRIMER ── */
+  .primer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .primer-card {
+    background: #1a1a1a;
+    border-radius: 4px;
+    padding: 28px;
+    border-top: 3px solid var(--gold);
+  }
+  .primer-card h3 { color: var(--paper); font-size: 16px; }
+  .primer-card p { color: #999; font-size: 14px; margin-top: 8px; line-height: 1.5; }
+  .primer-card .tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* ── ECOSYSTEM ── */
+  .eco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .eco-col-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+  }
+  .eco-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #222;
+  }
+  .eco-item h3 { color: var(--paper); font-size: 17px; }
+  .eco-item p { color: #888; font-size: 14px; margin-top: 6px; }
+  .eco-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .badge-hunter { background: #2d3f2d; color: #7bc47b; }
+  .badge-farmer { background: #2d2d3f; color: #7b7bc4; }
+  .badge-ka { background: #3f2d2d; color: #c47b7b; }
+  .badge-platform { background: #3f3d2d; color: #c4bf7b; }
+
+  /* ── GROUPS ── */
+  .groups-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .group-card {
+    border-radius: 4px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .group-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px; right: 10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    opacity: 0.07;
+    line-height: 1;
+  }
+  .g1 { background: #1a2d1a; border-top: 3px solid #4caf50; }
+  .g2 { background: #1a1a2d; border-top: 3px solid #5c8dd6; }
+  .g3 { background: #2d1a1a; border-top: 3px solid #e84c2b; }
+  .g4 { background: #2d2a1a; border-top: 3px solid #c9a84c; }
+  .g5 { background: #1a2a2d; border-top: 3px solid #4cbfbf; }
+  .group-card h3 { color: #fff; font-size: 14px; line-height: 1.3; }
+  .group-card p { color: #999; font-size: 12px; margin-top: 8px; }
+  .group-card .agent-tag {
+    font-size: 10px; letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* ── HUNTER AGENT ── */
+  .hunter-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .hunter-context {
+    background: #fff;
+    border-radius: 4px;
+    padding: 32px;
+    border: 1px solid var(--light);
+  }
+  .hunter-context h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .hunter-context p {
+    font-size: 14px;
+    color: var(--mid);
+    margin-bottom: 12px;
+  }
+  .skills-list { list-style: none; }
+  .skill-item {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--light);
+    align-items: flex-start;
+  }
+  .skill-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    color: var(--accent);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+  .skill-item strong { display: block; font-size: 14px; margin-bottom: 3px; }
+  .skill-item span { font-size: 13px; color: var(--mid); }
+
+  /* ── DELIVERABLES ── */
+  .deliv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .deliv-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .deliv-card h3 { color: #fff; font-size: 16px; margin-bottom: 12px; }
+  .deliv-card ul { list-style: none; }
+  .deliv-card li {
+    font-size: 13px;
+    color: #aaa;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-left: 16px;
+    position: relative;
+  }
+  .deliv-card li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--gold);
+  }
+
+  /* ── ZELL QUOTE ── */
+  .quote-block {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quote-block blockquote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .quote-attr {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── PROMPT TEMPLATE ── */
+  .prompt-box {
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 32px;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.8;
+    position: relative;
+  }
+  .prompt-box .ph { color: var(--gold); }
+  .prompt-box .kw { color: var(--accent); }
+  .prompt-box::before {
+    content: 'TEMPLATE DE PROMPT';
+    position: absolute;
+    top: -10px; left: 20px;
+    background: var(--paper);
+    padding: 0 8px;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--mid);
+  }
+
+  /* ── RULES ── */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 800px;
+  }
+  .rule-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 16px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+  }
+  .rule-icon {
+    font-size: 20px;
+    min-width: 32px;
+  }
+  .rule-item strong { display: block; color: #fff; margin-bottom: 4px; }
+  .rule-item span { font-size: 13px; color: #888; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink);
+    padding: 40px 80px;
+    color: #444;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer strong { color: var(--paper); }
+
+  @media (max-width: 900px) {
+    .cover, .section { padding: 40px 24px; }
+    .obj-grid, .eco-grid, .deliv-grid, .hunter-layout { grid-template-columns: 1fr; }
+    .primer-grid, .groups-grid { grid-template-columns: 1fr 1fr; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Workshop Interno · Superintendentes</div>
+  <h1>IA no<br><span>Shopping.</span><br>Do zero ao agente.</h1>
+  <p class="cover-sub">Nivelar conhecimento, construir a plataforma inteligente de varejo e colocar os primeiros agentes para trabalhar.</p>
+  <div class="cover-meta">
+    <div><strong>Duração</strong>Meio período</div>
+    <div><strong>Grupos</strong>5 equipes</div>
+    <div><strong>Entregável</strong>Agente operacional</div>
+    <div><strong>Referência</strong>Sam Zell + Ecossistema IA</div>
+  </div>
+</div>
+
+<!-- OBJETIVOS -->
+<div class="section">
+  <div class="section-label">Por que estamos aqui</div>
+  <h2>Dois objetivos,<br>um workshop.</h2>
+  <div class="obj-grid">
+    <div class="obj-card">
+      <div class="obj-num">01</div>
+      <h3>Nivelar IA na prática</h3>
+      <p>Sair do workshop sabendo usar uma ferramenta de IA para criar contextos, escrever prompts e entender o que um agente pode (e não pode) fazer.</p>
+    </div>
+    <div class="obj-card">
+      <div class="obj-card" style="border-left-color: var(--gold); padding:0;">
+        <div class="obj-num" style="padding: 0 32px; padding-top:32px;">02</div>
+        <div style="padding: 0 32px 32px;">
+          <h3>Iniciar a plataforma inteligente</h3>
+          <p>Cada grupo sai com um agente desenhado, com contexto real e skills detalhadas — prontos para uso no D0 com a equipe do shopping.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AGENDA -->
+<div class="section" style="background:#faf8f4;">
+  <div class="section-label">Estrutura do dia</div>
+  <h2>Agenda</h2>
+  <ul class="agenda-list">
+    <li class="agenda-item">
+      <span class="agenda-time">BLOCO 1</span>
+      <div>
+        <div class="agenda-title">Nivelamento: O que é IA, o que é um agente, o que é um prompt</div>
+        <div class="agenda-desc">Conceitos básicos sem jargão. Ferramenta escolhida: Claude.ai. Todos abrem uma conta e testam ao vivo.</div>
+      </div>
+    </li>
+    <li class="agenda-item">
+      <span class="agenda-time">BLOCO 2</span>
+      <div>
+        <div class="agenda-title">O Ecossistema: mapa dos 5 agentes / plataformas</div>
+        <div class="agenda-desc">Apresentação do infográfico. Cada grupo recebe seu agente (sorteio ou definição). Discussão rápida de 10 min.</div>
+      </div>
+    </li>
+    <li class="agenda-item">
+      <span class="agenda-time">BLOCO 3</span>
+      <div>
+        <div class="agenda-title">Construção em grupo — Contexto + Skills</div>
+        <div class="agenda-desc">Cada grupo usa IA para construir o contexto do agente (referência Zell) e lista de skills detalhadas. WhatsApp do grupo aberto. Sem bom dia.</div>
+      </div>
+    </li>
+    <li class="agenda-item">
+      <span class="agenda-time">BLOCO 4</span>
+      <div>
+        <div class="agenda-title">Apresentação e integração dos agentes</div>
+        <div class="agenda-desc">Cada grupo apresenta (5 min). Discussão de como os agentes se conectam na plataforma. Output: documento unificado.</div>
+      </div>
+    </li>
+    <li class="agenda-item">
+      <span class="agenda-time">FECHAMENTO</span>
+      <div>
+        <div class="agenda-title">NotebookLM: jogar o modelo e gerar o vídeo final</div>
+        <div class="agenda-desc">Todos os grupos alimentam o NotebookLM com os outputs. Geração do podcast/vídeo de síntese. Próximos passos.</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- AI PRIMER -->
+<div class="section dark">
+  <div class="section-label">Bloco 1 · Nivelamento</div>
+  <h2>IA em 3 conceitos.</h2>
+  <div class="primer-grid">
+    <div class="primer-card">
+      <span class="tag">Conceito 1</span>
+      <h3>LLM — O Modelo</h3>
+      <p>Um modelo de linguagem treinado em bilhões de textos. Ele não pensa — ele prediz o próximo token com base no contexto. A qualidade do output depende da qualidade do input.</p>
+    </div>
+    <div class="primer-card">
+      <span class="tag">Conceito 2</span>
+      <h3>Prompt — A Instrução</h3>
+      <p>Tudo começa aqui. Um prompt bem escrito define: quem é o agente, o que ele sabe, o que ele deve fazer e como deve responder. Lixo entra, lixo sai.</p>
+    </div>
+    <div class="primer-card">
+      <span class="tag">Conceito 3</span>
+      <h3>Agente — A Automação</h3>
+      <p>Um agente combina um modelo + contexto + ferramentas + memória. Ele pode executar tarefas repetitivas, tomar decisões simples e integrar com outros sistemas.</p>
+    </div>
+  </div>
+  <div style="margin-top: 40px; padding: 28px; background: #1a1a1a; border-radius: 4px; border-left: 3px solid var(--gold); max-width: 700px;">
+    <p style="color: #bbb; font-size: 15px;"><strong style="color: var(--gold);">Ferramenta do workshop:</strong> Claude.ai (Anthropic). Todos criam conta free. Para construção dos agentes usaremos o modo de projeto com contexto persistente.</p>
+  </div>
+</div>
+
+<!-- ECOSSISTEMA -->
+<div class="section dark">
+  <div class="section-label">Bloco 2 · O Mapa</div>
+  <h2>Os 5 agentes<br>do ecossistema.</h2>
+  <div class="eco-grid">
+    <div>
+      <div class="eco-col-label">Agentes de Inteligência e Triagem</div>
+      <div class="eco-item">
+        <span class="eco-badge badge-hunter">Hunter</span>
+        <h3>Hunting de Inovação Local</h3>
+        <p>Prospecta lojas e negócios num raio de 2km a 50km do shopping. Foco em identificar operações com potencial e fit com o mix atual.</p>
+      </div>
+      <div class="eco-item">
+        <span class="eco-badge badge-farmer">Farmer</span>
+        <h3>Agente Farmer (Investidores)</h3>
+        <p>Tria investidores locais por capital, experiência e disponibilidade. Garante o match ideal entre investidor e tipo de loja.</p>
+      </div>
+      <div class="eco-item">
+        <span class="eco-badge badge-ka">KA</span>
+        <h3>KA e Expansão</h3>
+        <p>Organiza marcas em expansão no Brasil e as conecta ao Farmer para ocupação de espaços estratégicos.</p>
+      </div>
+    </div>
+    <div>
+      <div class="eco-col-label">Plataformas de Suporte</div>
+      <div class="eco-item">
+        <span class="eco-badge badge-platform">Plataforma</span>
+        <h3>Alavancador</h3>
+        <p>Soluções financeiras: crédito para obra, capital de giro e sistemas de pagamentos para lojistas.</p>
+      </div>
+      <div class="eco-item">
+        <span class="eco-badge badge-platform">Plataforma</span>
+        <h3>Builder</h3>
+        <p>Centraliza fornecedores de engenharia, arquitetura, tecnologia e suporte legal para montagem da loja.</p>
+      </div>
+      <div class="eco-item">
+        <span class="eco-badge badge-platform">Plataforma</span>
+        <h3>Seller</h3>
+        <p>Maximiza vendas via mídia no mall, app do shopping e anúncios em prédios residenciais (Helloo).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GRUPOS -->
+<div class="section">
+  <div class="section-label">Bloco 3 · Dinâmica</div>
+  <h2>5 grupos,<br>5 agentes.</h2>
+  <p style="max-width: 600px; color: var(--mid); margin-bottom: 36px;">Cada grupo recebe um agente ou plataforma. Podem ser definidos ou sorteados. A missão é a mesma para todos.</p>
+  <div class="groups-grid">
+    <div class="group-card g1" data-num="1">
+      <span class="agent-tag">Grupo 1</span>
+      <h3>Agente Hunter</h3>
+      <p>Prospecção de lojas existentes em shoppings ou fora deles</p>
+    </div>
+    <div class="group-card g2" data-num="2">
+      <span class="agent-tag">Grupo 2</span>
+      <h3>Agente Farmer</h3>
+      <p>Triagem e match de investidores locais</p>
+    </div>
+    <div class="group-card g3" data-num="3">
+      <span class="agent-tag">Grupo 3</span>
+      <h3>Agente KA</h3>
+      <p>Marcas em expansão + conexão com ocupação</p>
+    </div>
+    <div class="group-card g4" data-num="4">
+      <span class="agent-tag">Grupo 4</span>
+      <h3>Plataforma Alavancador + Builder</h3>
+      <p>Financeiro e estrutura para montagem de loja</p>
+    </div>
+    <div class="group-card g5" data-num="5">
+      <span class="agent-tag">Grupo 5</span>
+      <h3>Plataforma Seller</h3>
+      <p>Mídia, app e maximização de vendas do lojista</p>
+    </div>
+  </div>
+</div>
+
+<!-- MISSÃO DOS GRUPOS -->
+<div class="section" style="background: #faf8f4;">
+  <div class="section-label">Missão de cada grupo</div>
+  <h2>O que construir<br>no Bloco 3.</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+    <div>
+      <h3 style="margin-bottom: 20px; color: var(--accent);">Parte 1 — Contexto do Agente</h3>
+      <p style="color: var(--mid); margin-bottom: 16px;">Usando Claude.ai, escreva o "system prompt" do agente. Ele deve conter:</p>
+      <div class="prompt-box" style="margin-top: 0;">
+<span class="kw">Você é</span> [nome do agente], um agente especializado em [função] para o shopping [nome].
+
+<span class="kw">Seu objetivo principal é</span> [objetivo em 1 frase].
+
+<span class="kw">Você conhece</span>:
+- O mix atual do shopping
+- <span class="ph">[dados de oferta e demanda locais]</span>
+- Os critérios de seleção: <span class="ph">[critérios]</span>
+
+<span class="kw">Sua mentalidade</span> (baseada em Sam Zell):
+- Foque no downside antes do upside
+- Onde há escassez, preço não é problema
+- <span class="ph">[outros princípios relevantes]</span>
+
+<span class="kw">Você responde sempre com</span>:
+1. Análise objetiva
+2. Dado ou evidência
+3. Recomendação clara
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom: 20px; color: var(--accent);">Parte 2 — Skills Detalhadas</h3>
+      <p style="color: var(--mid); margin-bottom: 16px;">Liste as tarefas repetitivas que o agente executa. Para cada skill:</p>
+      <ul class="skills-list">
+        <li class="skill-item">
+          <span class="skill-num">S1</span>
+          <div><strong>Nome da skill</strong><span>Gatilho: quando ela é acionada? Input: o que precisa? Output: o que entrega?</span></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S2</span>
+          <div><strong>Frequência</strong><span>Diária / semanal / sob demanda. Quem aciona?</span></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S3</span>
+          <div><strong>Critérios de qualidade</strong><span>Como sabemos que o output está bom? Qual o padrão mínimo aceitável?</span></div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S4</span>
+          <div><strong>Integração</strong><span>O output alimenta qual outro agente ou plataforma do ecossistema?</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- HUNTER DETALHADO -->
+<div class="section">
+  <div class="section-label">Referência · Agente em destaque</div>
+  <h2>Hunter — detalhado.</h2>
+  <p style="color: var(--mid); max-width: 600px; margin-bottom: 40px;">O grupo 1 tem foco especial neste agente. Mas todos devem entender sua lógica como referência para construir os próprios.</p>
+  <div class="hunter-layout">
+    <div class="hunter-context">
+      <h3>Contexto base</h3>
+      <p><strong>Missão:</strong> Identificar e qualificar negócios com potencial de ocupação no shopping — dentro ou fora de outros malls, num raio definido.</p>
+      <p><strong>Princípio Zell aplicado:</strong> "Look for micro opportunities in macro events." O Hunter busca no desbalanceamento oferta/demanda local a oportunidade de mix.</p>
+      <p><strong>Saída esperada:</strong> Lista ranqueada de prospects com score de fit, dados de contato e próximo passo recomendado.</p>
+      <p><strong>Integração:</strong> Alimenta diretamente o Farmer (para match com investidor) e o KA (para marcas em expansão).</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom: 20px;">Skills do Agente Hunter</h3>
+      <ul class="skills-list">
+        <li class="skill-item">
+          <span class="skill-num">S1</span>
+          <div>
+            <strong>Mapeamento de Raio</strong>
+            <span>Input: endereço do shopping + raio (2km / 10km / 50km). Output: lista de negócios por categoria com endereço e avaliação pública. Frequência: semanal.</span>
+          </div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S2</span>
+          <div>
+            <strong>Score de Fit com o Mix</strong>
+            <span>Input: dados do prospect + mix atual do shopping. Output: nota de 1-10 com justificativa baseada em oferta/demanda e barreiras de entrada.</span>
+          </div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S3</span>
+          <div>
+            <strong>Qualificação de Lojista</strong>
+            <span>Input: nome do negócio ou CNPJ. Output: perfil resumido — faturamento estimado, presença digital, tempo de mercado, avaliações, sinal de expansão.</span>
+          </div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S4</span>
+          <div>
+            <strong>Primeira Abordagem</strong>
+            <span>Input: perfil qualificado. Output: script de primeiro contato (WhatsApp ou ligação) adaptado ao perfil do lojista. Tom: direto, sem jargão de shopping.</span>
+          </div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S5</span>
+          <div>
+            <strong>Análise de Replacement Cost</strong>
+            <span>Input: categoria + espaço disponível. Output: comparativo entre custo de atrair lojista existente vs desenvolver novo. Recomendação objetiva.</span>
+          </div>
+        </li>
+        <li class="skill-item">
+          <span class="skill-num">S6</span>
+          <div>
+            <strong>Relatório Semanal de Pipeline</strong>
+            <span>Output: lista atualizada de prospects por estágio (identificado / contatado / em negociação / descartado), com notas e próximo passo.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- REGRAS DO WORKSHOP -->
+<div class="section dark">
+  <div class="section-label">Combinados</div>
+  <h2>Regras do jogo.</h2>
+  <div class="rules-grid">
+    <div class="rule-item">
+      <span class="rule-icon">📱</span>
+      <div>
+        <strong>WhatsApp por grupo</strong>
+        <span>Criar grupo exclusivo. Zero bom dia / boa tarde. Só trabalho e outputs.</span>
+      </div>
+    </div>
+    <div class="rule-item">
+      <span class="rule-icon">🤖</span>
+      <div>
+        <strong>Ferramenta: Claude.ai</strong>
+        <span>Todos usam a mesma ferramenta. Criar conta free antes do workshop.</span>
+      </div>
+    </div>
+    <div class="rule-item">
+      <span class="rule-icon">⏱️</span>
+      <div>
+        <strong>Tempo no bloco 3: 45 min</strong>
+        <span>Sem apresentação elaborada. O entregável é o documento, não o slide.</span>
+      </div>
+    </div>
+    <div class="rule-item">
+      <span class="rule-icon">📄</span>
+      <div>
+        <strong>Output utilizável no D0</strong>
+        <span>O agente criado precisa poder ser usado pela equipe do shopping na semana seguinte.</span>
+      </div>
+    </div>
+    <div class="rule-item">
+      <span class="rule-icon">🎙️</span>
+      <div>
+        <strong>NotebookLM no fechamento</strong>
+        <span>Todos os outputs vão para o NotebookLM. Geração de vídeo/podcast de síntese.</span>
+      </div>
+    </div>
+    <div class="rule-item">
+      <span class="rule-icon">🔗</span>
+      <div>
+        <strong>Integração entre grupos</strong>
+        <span>No bloco 4, mapear como cada agente alimenta o próximo. O valor está na conexão.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENTREGÁVEIS -->
+<div class="section dark">
+  <div class="section-label">Output esperado</div>
+  <h2>Entregável de cada grupo.</h2>
+  <div class="deliv-grid">
+    <div class="deliv-card">
+      <h3>📋 Documento do Agente</h3>
+      <ul>
+        <li>Nome e missão em 1 frase</li>
+        <li>System prompt completo</li>
+        <li>Princípios Zell aplicados</li>
+        <li>Integração com outros agentes</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <h3>⚙️ Skills Detalhadas</h3>
+      <ul>
+        <li>Mínimo 5 skills listadas</li>
+        <li>Para cada: input / output / frequência</li>
+        <li>Critério de qualidade por skill</li>
+        <li>Quem na equipe aciona</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <h3>✅ Lista D0</h3>
+      <ul>
+        <li>O que a equipe do shopping faz na segunda</li>
+        <li>Qual ferramenta usar</li>
+        <li>Qual prompt usar primeiro</li>
+        <li>Como medir se funcionou</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ZELL QUOTE -->
+<div class="section accent-bg">
+  <div class="quote-block">
+    <div class="section-label" style="text-align:center; margin-bottom: 24px;">Referência · Sam Zell</div>
+    <blockquote>"Risk is by omission as well as by commission. Não fazer o investimento — temos uma opção melhor?"</blockquote>
+    <p class="quote-attr">Sam Zell — Am I Being Too Subtle</p>
+  </div>
+</div>
+
+<!-- CONEXÃO ZELL -->
+<div class="section">
+  <div class="section-label">Por que Zell como referência</div>
+  <h2>Os princípios que guiam<br>o design dos agentes.</h2>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px;">
+    <div style="padding: 24px; background: var(--light); border-radius: 4px;">
+      <div style="font-size: 12px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">Oferta × Demanda</div>
+      <p style="font-size: 14px; color: var(--mid);">O Hunter é guiado por desequilíbrio de mix. Onde falta algo que o mercado quer — ali está a oportunidade.</p>
+    </div>
+    <div style="padding: 24px; background: var(--light); border-radius: 4px;">
+      <div style="font-size: 12px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">Downside First</div>
+      <p style="font-size: 14px; color: var(--mid);">Todo agente avalia o pior cenário antes do melhor. O score de fit sempre inclui barreiras e riscos.</p>
+    </div>
+    <div style="padding: 24px; background: var(--light); border-radius: 4px;">
+      <div style="font-size: 12px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">Liquidez = Valor</div>
+      <p style="font-size: 14px; color: var(--mid);">O Alavancador existe porque remover fricção financeira é o que transforma um prospect qualificado em lojista.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>Workshop IA + Shopping · Superintendentes</div>
+  <div><strong>Zél, agente IA comercial</strong> · Referência interna</div>
+  <div>Material confidencial · uso interno</div>
+</div>
+
+</body>
+</html>

@@ -7,6 +7,7 @@ source_id: "a3588878-3cc0-4e1e-ae7e-dbf1ddb91784"
 url: "https://claude.ai/chat/a3588878-3cc0-4e1e-ae7e-dbf1ddb91784"
 project: null
 messages: 12
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Ajuste de rotina de treinos personalizada
@@ -269,3 +270,11 @@ Se houver 3 h ou mais entre ferro e tatame, coma carboidrato no intervalo; se fo
 Uma ressalva: o primer de potência antes do rola se apoia na lógica de taper e potencialização pós-ativação, que tem evidência em esportes de potência, mas não foi testado em BJJ recreativo. Se você sentir a perna ou o ombro "gastos" no rola, corte o primer e fique só na ativação.
 
 **Confiança: 8/10** no encaixe. Evidência fraca especificamente para o primer (por isso ele é o primeiro item a cortar).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-09/ajuste-de-rotina-de-treinos-personalizada_a3588878/mnt/user-data/outputs/plano-treino-base-lucas-castro.html]] (22 KB)
+- [[claude/arquivos-gerados/2026-09/ajuste-de-rotina-de-treinos-personalizada_a3588878/mnt/user-data/outputs/8-bloco-retorno-8-semanas.md]] (12 KB)

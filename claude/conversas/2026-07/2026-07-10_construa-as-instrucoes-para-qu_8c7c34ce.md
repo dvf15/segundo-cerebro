@@ -7,6 +7,7 @@ source_id: "8c7c34ce-30d3-43b4-90c9-14ad9a721201"
 url: "https://claude.ai/chat/8c7c34ce-30d3-43b4-90c9-14ad9a721201"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # 💬 Construa as instruções para qu…

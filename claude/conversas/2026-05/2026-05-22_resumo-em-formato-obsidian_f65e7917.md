@@ -7,6 +7,7 @@ source_id: "f65e7917-adb0-42a4-8e63-b8a3f48d89e9"
 url: "https://claude.ai/chat/f65e7917-adb0-42a4-8e63-b8a3f48d89e9"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -59,3 +60,10 @@ Resumo pronto no padrão Obsidian que você usa. Estrutura aplicada:
 Organizei o conteúdo em 10 seções, da tensão central de Coase (interno vs. mercado), passando pelos casos Rachio/Tesla/Amazon e o framework Stigler-Coase, até a aplicação prática ao seu contexto de varejo/shoppings (seção 9, claramente marcada como extrapolação minha).
 
 **Confiança: 8/10** — citações e datas vêm direto do PDF; a seção de aplicação ao varejo é minha extrapolação a partir das suas memórias de trabalho, não está no material original.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_f65e7917/home/claude/using-strategic-relationships-to-create-value.md]] (13 KB)

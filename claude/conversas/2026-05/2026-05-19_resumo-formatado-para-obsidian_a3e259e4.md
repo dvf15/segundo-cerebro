@@ -7,6 +7,7 @@ source_id: "a3e259e4-cd6b-4ff7-90fb-9aa6d027796b"
 url: "https://claude.ai/chat/a3e259e4-cd6b-4ff7-90fb-9aa6d027796b"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -49,3 +50,10 @@ Dois pontos que vale checar antes de usar fora do contexto da aula:
 - O Case Lispector é didático da aula, não um caso público.
 
 **Confiança: 8/10** — fiel ao material, mas como qualquer resumo perde nuances visuais dos diagramas originais.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_a3e259e4/mnt/user-data/outputs/Aula-4M-Estrategia-MA-Visao-Empresa.md]] (20 KB)

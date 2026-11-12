@@ -7,6 +7,7 @@ source_id: "aae4c546-f604-4b1c-b270-031167c4f80d"
 url: "https://claude.ai/chat/aae4c546-f604-4b1c-b270-031167c4f80d"
 project: null
 messages: 4
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Extrair conteúdo para arquivo txt do Obsidian
@@ -108,3 +109,11 @@ Pronto. Versão **Obsidian-native** com os seguintes recursos adicionados:
 **Confiança: 9/10**
 
 Sobre o "10/10" que falta: depende do tema visual e plugins do seu vault. Se você usa um tema que não suporta bem callouts ou se o Mermaid estiver desabilitado nas configurações de visualização, a renderização pode variar. Mas a versão "stock" do Obsidian renderiza tudo nativamente.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/extrair-conteudo-para-arquivo-txt-do-obsidian_aae4c546/home/claude/CAP1_Integracao_Ferramentas_Qualidade.md]] (9 KB)
+- [[claude/arquivos-gerados/2026-05/extrair-conteudo-para-arquivo-txt-do-obsidian_aae4c546/mnt/user-data/outputs/CAP1_Integracao_Ferramentas_Qualidade.md]] (9 KB)

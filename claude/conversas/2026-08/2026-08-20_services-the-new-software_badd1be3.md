@@ -7,6 +7,7 @@ source_id: "badd1be3-8545-4145-9f8d-3d44e3637e1f"
 url: "https://claude.ai/chat/badd1be3-8545-4145-9f8d-3d44e3637e1f"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Services: The New Software

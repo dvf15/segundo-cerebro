@@ -1,0 +1,234 @@
+📊 GUIA: COMO IMPORTAR A PLANILHA NO GOOGLE SHEETS
+==================================================
+
+✅ ARQUIVOS RECEBIDOS:
+1. Analise_Bazin_Puts.xlsx ← Download e use este!
+2. guia_bazin.html ← Referência completa
+3. bazin_script.gs ← Apps Script para automação
+4. template_bazin.csv ← Backup em texto
+
+════════════════════════════════════════════════════════════
+
+🚀 PASSO 1: IMPORTAR A PLANILHA NO GOOGLE SHEETS (Recomendado)
+
+Opção A - Importar do Excel:
+1. Acesse sheets.google.com
+2. Clique em "+ Novo" → Arquivo em branco
+3. Arquivo → Importar planilha
+4. Selecione: Analise_Bazin_Puts.xlsx
+5. Clique em "Importar"
+6. Pronto! Todas as abas estão lá com fórmulas
+
+Opção B - Usar no Excel/Calc:
+1. Baixe o arquivo
+2. Abra no Excel, Google Sheets ou LibreOffice
+3. Preencha os dados conforme instrução abaixo
+
+════════════════════════════════════════════════════════════
+
+📋 O QUE ESTÁ DENTRO DA PLANILHA:
+
+ABA 1: "Ações"
+─────────────
+Coluna A: TICKER (AAPL3, KLBN4, ITSA4, BBDC4, AXIA3)
+Coluna B: PREÇO ATUAL (exemplo: 120) 
+Coluna C: DPA (exemplo: 3.50) ← VOCÊ PREENCHE
+Coluna D: CRESC. % (exemplo: 8) ← VOCÊ PREENCHE
+Coluna E: P/L (exemplo: 15) ← VOCÊ PREENCHE
+Coluna F: DIV. YIELD % (calcula sozinho: DPA/Preço×100)
+Coluna G: PREÇO JUSTO (calcula via fórmula Bazin)
+Coluna H: MARGEM SEG. % (calcula: (PJ-PA)/PJ×100)
+Coluna I: STATUS (cores: Verde=Barata, Vermelho=Cara)
+
+ABA 2: "Puts"
+─────────────
+Coluna A: AÇÃO (qual ação é a put)
+Coluna B: CONTRATO (nome do contrato, ex: AAPL3D100)
+Coluna C: STRIKE (preço de exercício)
+Coluna D: PRÊMIO (quanto você recebe por vender a put)
+Coluna E: PREÇO AÇÃO (preço atual da ação)
+Coluna F: RETORNO % (calcula: Prêmio/Strike×100)
+Coluna G: DIAS ATÉ VENC. (quantos dias faltam)
+Coluna H: RET. ANUAL % (calcula retorno anualizado)
+Coluna I: STATUS (cores: Verde=Lançar, Amarelo=Considerar, Vermelho=Aguarde)
+
+ABA 3: "Instruções"
+───────────────────
+Guia rápido sobre como interpretar os dados
+
+════════════════════════════════════════════════════════════
+
+✏️ COMO PREENCHER MANUALMENTE:
+
+Dados Fundamentais (ABA "Ações"):
+─────────────────────────────────
+1. DPA (Dividendo Por Ação):
+   Onde buscar: 
+   • https://www.fundamentus.com.br (melhor)
+   • Site da empresa/Relatorio de Sustentabilidade
+   • XP Investimentos / Bloomberg
+   Frequência: Atualizar 1x ao ano ou quando mudar
+
+2. CRESC. % (Crescimento):
+   O que é: Crescimento médio do DPA nos últimos 5 anos
+   Cálculo: ((DPA_Ano5 / DPA_Ano0)^(1/5)) - 1) × 100
+   Exemplo: Se cresceu de 2.0 para 4.0 em 5 anos, = 16% ao ano
+   Frequência: Atualizar 1x ao ano
+
+3. P/L (Preço/Lucro):
+   Onde buscar: Fundamentus, Investidor.gov.br
+   O que é: Preço ÷ Lucro por ação
+   Frequência: Atualiza diariamente com o preço
+
+Dados de Puts (ABA "Puts"):
+──────────────────────────
+1. CONTRATO: Nome da put que você quer lançar
+   Exemplo: AAPL3D100 (put da AAPL3 com strike 100)
+   Onde buscar: Site do seu broker
+
+2. STRIKE: Preço de exercício (quanto você vende se exercerem)
+   Exemplo: 100 reais
+
+3. PRÊMIO: Quanto você recebe por vender a put
+   Exemplo: 5 reais por ação
+
+4. DIAS ATÉ VENCIMENTO: Quantos dias faltam
+   Atualizar: Toda semana (ou quando vencer)
+
+════════════════════════════════════════════════════════════
+
+🔄 COMO ATUALIZAR AUTOMATICAMENTE OS PREÇOS (Google Sheets):
+
+Se você importou para Google Sheets:
+
+1. Extensões → Apps Script
+2. Apague o código padrão
+3. Cole o código de: bazin_script.gs
+4. Salve (Ctrl+S)
+5. Execute (clique "Executar")
+6. Autorize o acesso
+7. Acionadores (ícone de relógio) → "Criar acionador"
+8. Configure:
+   - Executar: atualizarPrecos
+   - Tipo de evento: No prazo
+   - Intervalo: A cada 1 hora
+9. Salvar
+
+✅ Pronto! Agora preços atualizam sozinhos!
+
+════════════════════════════════════════════════════════════
+
+📊 EXEMPLO PRÁTICO:
+
+ABA AÇÕES - Linha da AAPL3:
+──────────────────────────
+Coluna   | Você Digita | Calcula Sozinho | Resultado
+─────────┼─────────────┼─────────────────┼───────────
+TICKER   | AAPL3       | -               | -
+PREÇO AT | 120         | -               | -
+DPA      | 3.50        | -               | -
+CRESC%   | 8           | -               | -
+P/L      | 15          | -               | -
+DIV YIELD| -           | 3.50÷120×100    | 2.92%
+PÇO JUST | -           | ((3.5×1.08^5)×(15+2.92))/0.11 | ~834 (exemplo)
+MARG SEG | -           | (834-120)÷834×100 | 85.6%
+STATUS   | -           | Automático      | ✅ MUITO BARATA
+
+ABA PUTS - Linha de uma Put da AAPL3:
+─────────────────────────────────────
+Coluna   | Você Digita | Calcula Sozinho | Resultado
+─────────┼─────────────┼─────────────────┼───────────
+AÇÃO     | AAPL3       | -               | -
+CONTRATO | AAPL3D100   | -               | -
+STRIKE   | 100         | -               | -
+PRÊMIO   | 5           | -               | -
+PREÇO A  | 120         | -               | -
+RETORNO% | -           | 5÷100×100       | 5%
+DIAS V   | 30          | -               | -
+RET ANUA | -           | 5×(365÷30)      | 60.8%
+STATUS   | -           | Automático      | ✅ LANÇAR PUT
+
+════════════════════════════════════════════════════════════
+
+🎨 INTERPRETANDO AS CORES:
+
+STATUS DAS AÇÕES (Coluna I - Margem de Segurança):
+──────────────────────────────────────────────────
+✅ MUITO BARATA → Verde     | Margem ≥ 20% | Compre agora!
+🟢 BARATA       → Amarelo   | Margem 10-19%| Considere
+🟡 NEUTRA       → Cinza     | Margem 0-9%  | Espere
+❌ CARA         → Vermelho  | Margem < 0%  | Evite
+
+STATUS DAS PUTS (Coluna I):
+──────────────────────────
+✅ LANÇAR PUT   → Verde     | Ret.Anual≥30% E Retorno≥3% | Ótimo momento
+🟡 CONSIDERAR   → Amarelo   | Ret.Anual≥20%  | Talvez
+❌ AGUARDE      → Vermelho  | Ret.Anual<20%  | Espere melhor
+
+════════════════════════════════════════════════════════════
+
+🔐 DÚVIDAS FREQUENTES:
+
+P: Os preços atualizam sozinhos?
+R: No Google Sheets sim! Com o Apps Script, atualizam 1x/hora.
+   No Excel/Calc, você atualiza manualmente ou usa F9.
+
+P: Quanto tempo demora para recalcular?
+R: Instantâneo! Quando você muda um valor, as fórmulas recalculam imediatamente.
+
+P: Preciso atualizar DPA todo dia?
+R: Não! DPA muda 1x ao ano. P/L muda diariamente (mas a fórmula pega do site).
+
+P: Posso modificar a Taxa de Desconto (0.11)?
+R: Sim! Altere na fórmula de Preço Justo. Use SELIC atual ou sua taxa mínima desejada.
+
+P: Como calcula Margem de Segurança?
+R: É quanto % o preço justo está acima do preço atual.
+   Exemplo: PJ=100, PA=80, MS=(100-80)/100×100 = 20% de margem
+
+P: E se a put não der lucro?
+R: O Status vai indicar "❌ AGUARDE". Não lance nessa situação.
+
+════════════════════════════════════════════════════════════
+
+⚠️ AVISOS IMPORTANTES:
+
+1. Esta é uma ferramenta de ANÁLISE - sempre confirme antes de operar
+2. Não é recomendação de investimento
+3. Método Bazin é para análise fundamentalista, não técnica
+4. SEMPRE revise os dados fundamentais antes de decisões
+5. Puts têm risco - entenda bem antes de vender
+
+════════════════════════════════════════════════════════════
+
+🆘 SE DER ERRO:
+
+Erro: #REF! ou #NAME?
+→ Fórmula com referência incorreta. Verifique se copiou corretamente.
+
+Erro: #DIV/0!
+→ Divisão por zero. Verifique se todos os dados estão preenchidos.
+
+Erro: #VALUE!
+→ Tipo de dado errado. Coloque números, não texto com símbolos.
+
+Apps Script não atualiza preços:
+→ Verifique se a aba se chama exatamente "Ações"
+→ Verifique se autorizou o acesso
+→ Tente executar manualmente: Extensions → Apps Script → Executar
+
+════════════════════════════════════════════════════════════
+
+💡 DICAS PRO:
+
+1. Crie uma cópia mensal antes de atualizar dados importantes
+2. Mantenha histórico de preços em abas separadas (AAPL3_Histórico)
+3. Compare Preço Justo com Preço Histórico para validar
+4. Use o método Bazin junto com análise técnica (não apenas um)
+5. Revise a Taxa de Desconto anualmente (SELIC muda)
+
+════════════════════════════════════════════════════════════
+
+Está tudo pronto! Baixe o arquivo e comece a usar! 🚀
+
+Qualquer dúvida, me chama! 📱

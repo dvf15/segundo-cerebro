@@ -7,6 +7,7 @@ source_id: "e2fe6d4d-2a71-4b8d-9a12-03e4b51b3654"
 url: "https://claude.ai/chat/e2fe6d4d-2a71-4b8d-9a12-03e4b51b3654"
 project: null
 messages: 6
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Skill Obsidian junta comercial
@@ -138,3 +139,10 @@ Uma ressalva: os passos 3 a 17 seguem o menu da JUCEMG. Em outras juntas, os nom
 **Confiança: 8/10.** Não tenho certeza de que "TT" significa *taxa de transferência*. Foi o que deduzi pelo contexto, e deixei essa suposição marcada num callout de aviso para você confirmar ou corrigir.
 
 - 📎 skill-levantamento-tt-junta-comercial.md
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/skill-obsidian-junta-comercial_e2fe6d4d/skill-levantamento-tt-junta-comercial.md]] (4 KB)

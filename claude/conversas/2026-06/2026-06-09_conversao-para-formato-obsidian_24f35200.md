@@ -7,6 +7,7 @@ source_id: "24f35200-7a39-45e1-a3c1-de8af627fd6a"
 url: "https://claude.ai/chat/24f35200-7a39-45e1-a3c1-de8af627fd6a"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Conversão para formato Obsidian
@@ -70,3 +71,10 @@ Pronto. O que foi feito na conversão:
 ---
 
 Confiança: 9/10
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/conversao-para-formato-obsidian_24f35200/mnt/user-data/outputs/Roteiro-Tatico-Cowork-2026.md]] (17 KB)

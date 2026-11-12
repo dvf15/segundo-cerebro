@@ -7,6 +7,7 @@ source_id: "42d995d8-aa0e-49b5-9a56-5559e76178fd"
 url: "https://claude.ai/chat/42d995d8-aa0e-49b5-9a56-5559e76178fd"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -52,3 +53,10 @@ A nota está organizada em 10 seções principais: Curva J e estágios de financ
 Incluí também a nota de uso (wikilinks, dependência do Dataview, sugestão de templates por sessão) e o rating de confiança ao final.
 
 **Rating de confiança: 9/10** — conteúdo extraído fielmente do PDF, com pequenos refinamentos editoriais para o formato Obsidian (tabelas e callouts). Mantive inconsistências do material original como estavam (ex.: "Dez 2917" no caso Movile) sem inventar dados, e não fiz validação externa dos números.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_42d995d8/home/claude/PEVC_Aula7_Ecossistema_Capital_Empreendedor.md]] (18 KB)

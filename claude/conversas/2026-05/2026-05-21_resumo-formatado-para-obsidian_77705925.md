@@ -7,6 +7,7 @@ source_id: "77705925-59a1-4fa9-9340-23ad0b6d6543"
 url: "https://claude.ai/chat/77705925-59a1-4fa9-9340-23ad0b6d6543"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian

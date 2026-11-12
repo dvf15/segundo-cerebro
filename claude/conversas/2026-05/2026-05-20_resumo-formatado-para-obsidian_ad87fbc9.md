@@ -7,6 +7,7 @@ source_id: "ad87fbc9-6be4-4d7b-ad6e-e068cf1f4c9a"
 url: "https://claude.ai/chat/ad87fbc9-6be4-4d7b-ad6e-e068cf1f4c9a"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -50,3 +51,10 @@ Flags importantes:
 - ⚠️ Material é de **outubro de 2019**, então números sobre a Spectra (4º fundo, 173 empresas, 27 gestores) muito provavelmente estão defasados — a gestora deve estar no 5º ou 6º fundo em 2026
 - ⚠️ Não cruzei os retornos consolidados da Spectra com fontes externas (seria útil validar com ABVCAP ou Cambridge Associates atuais se for usar para decisão real)
 - ⚠️ Pontos individuais dos gráficos de dispersão foram lidos por aproximação visual — médias e linhas estão precisas, mas pontos individuais não
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_ad87fbc9/home/claude/Spectra-Insper-PEVC-Aula4.md]] (12 KB)

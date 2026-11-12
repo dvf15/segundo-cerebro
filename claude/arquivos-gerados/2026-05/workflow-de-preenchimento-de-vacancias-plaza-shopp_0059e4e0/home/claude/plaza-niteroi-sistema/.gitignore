@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Backups locais (não versionar dados sensíveis)
+data/backups/
+*.backup.json
+*-backup-*.json
+*-backup-*.csv
+
+# Excel temp files
+~$*.xlsx
+~$*.xlsm
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+
+# Node (caso evolua para app real)
+node_modules/
+package-lock.json
+yarn.lock

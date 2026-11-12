@@ -7,6 +7,7 @@ source_id: "7078dab8-977a-4ee3-be42-e3d7b269edbf"
 url: "https://claude.ai/chat/7078dab8-977a-4ee3-be42-e3d7b269edbf"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo do caso CarMax para Obsidian
@@ -288,3 +289,10 @@ This block is not supported on your current device yet.
 Arquivo pronto. Basta arrastar para o seu vault e o Obsidian já renderiza frontmatter, callouts, wikilinks e o bloco Dataview.
 
 **Confiança: 9/10.** Mesmas ressalvas do resumo anterior (já anotadas no callout final do arquivo): o share de novos da CarMax (~0,1%) e o volume de ~14,5M novos em 2012 são inferências minhas, não números literais do caso.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-do-caso-carmax-para-obsidian_7078dab8/mnt/user-data/outputs/CarMax - Disrupting the Used-Car Market.md]] (13 KB)

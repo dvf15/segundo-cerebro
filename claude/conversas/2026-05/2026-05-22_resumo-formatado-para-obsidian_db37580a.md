@@ -7,6 +7,7 @@ source_id: "db37580a-ce75-4040-bee0-49879f3b85a7"
 url: "https://claude.ai/chat/db37580a-ce75-4040-bee0-49879f3b85a7"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -68,3 +69,10 @@ A nota cobre os 11 blocos da aula: tópicos de ética empresarial → caso Healt
 - A citação de Aaron Beam e a citação de Monin & Miller (*Stanford Business*, May 2010) reproduzem o que está nas slides — não fui à fonte primária.
 
 Se quiser, posso (a) buscar fontes primárias para qualquer um desses pontos antes de você consolidar como nota definitiva, ou (b) gerar notas-stub separadas para os conceitos `[[entre colchetes]]` para já popular a rede no vault.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_db37580a/home/claude/Etica_e_Lideranca_Shotts.md]] (15 KB)

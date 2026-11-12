@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Bazin + Puts - Google Sheets</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+        h1 { color: #1f77b4; border-bottom: 3px solid #1f77b4; padding-bottom: 10px; }
+        h2 { color: #2ca02c; margin-top: 30px; }
+        h3 { color: #d62728; }
+        .step { background: white; padding: 15px; margin: 15px 0; border-left: 4px solid #ff7f0e; border-radius: 5px; }
+        .code { background: #f8f8f8; border: 1px solid #ddd; padding: 10px; border-radius: 3px; font-family: monospace; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #1f77b4; color: white; }
+        .formula { color: #c41e3a; font-weight: bold; }
+        .important { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 10px 0; }
+        .success { background: #d4edda; border-left: 4px solid #28a745; padding: 10px; margin: 10px 0; }
+        .warning { background: #f8d7da; border-left: 4px solid #dc3545; padding: 10px; margin: 10px 0; }
+        ul { line-height: 1.8; }
+        strong { color: #1f77b4; }
+    </style>
+</head>
+<body>
+
+<h1>📊 Guia Completo: Planilha Bazin + Puts</h1>
+
+<div class="success">
+    <strong>✅ O que você vai conseguir:</strong>
+    <ul>
+        <li>Atualização automática de preços (1x por hora)</li>
+        <li>Cálculo automático do Preço Justo (método Bazin)</li>
+        <li>Formatação condicional (cores indicando barato/caro)</li>
+        <li>Seção de puts com análise de retorno</li>
+    </ul>
+</div>
+
+<h2>🚀 Passo 1: Criar a Planilha Base</h2>
+
+<div class="step">
+    <h3>1.1 - Acesse Google Sheets</h3>
+    <ul>
+        <li>Vá para <strong>sheets.google.com</strong></li>
+        <li>Crie uma nova planilha em branco</li>
+        <li>Nomeie como: <strong>"Análise Bazin - Ações + Puts"</strong></li>
+    </ul>
+</div>
+
+<div class="step">
+    <h3>1.2 - Estruture as Abas</h3>
+    <p>Crie 2 abas (clique no + no canto inferior esquerdo):</p>
+    <ul>
+        <li><strong>Aba 1:</strong> "Ações" → para análise Bazin</li>
+        <li><strong>Aba 2:</strong> "Puts" → para opções de venda</li>
+    </ul>
+</div>
+
+<h2>📋 Passo 2: Montar a Aba "Ações"</h2>
+
+<div class="step">
+    <h3>2.1 - Cabeçalho (Linha 1)</h3>
+    <p>Copie e cole na linha 1:</p>
+    <table>
+        <tr>
+            <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th>
+        </tr>
+        <tr>
+            <td>TICKER</td><td>PREÇO ATUAL</td><td>DPA</td><td>CRESC. %</td><td>P/L</td><td>DIV. YIELD %</td><td>PREÇO JUSTO</td><td>MARGEM SEG. %</td><td>STATUS</td>
+        </tr>
+    </table>
+</div>
+
+<div class="step">
+    <h3>2.2 - Dados das Ações (Linhas 3-7)</h3>
+    <table>
+        <tr>
+            <th>Linha</th><th>Coluna A (TICKER)</th><th>O que preencher</th>
+        </tr>
+        <tr>
+            <td>3</td><td>AAPL3</td><td>Manual + Automático</td>
+        </tr>
+        <tr>
+            <td>4</td><td>KLBN4</td><td>Manual + Automático</td>
+        </tr>
+        <tr>
+            <td>5</td><td>ITSA4</td><td>Manual + Automático</td>
+        </tr>
+        <tr>
+            <td>6</td><td>BBDC4</td><td>Manual + Automático</td>
+        </tr>
+        <tr>
+            <td>7</td><td>AXIA3</td><td>Manual + Automático</td>
+        </tr>
+    </table>
+</div>
+
+<div class="step">
+    <h3>2.3 - Coluna B: Preço Atual (Automático)</h3>
+    <p>Deixe em branco! O Apps Script vai preencher automaticamente.</p>
+    <p>Ou use a fórmula manual (se preferir):</p>
+    <div class="code">=GOOGLEFINANCE("AAPL3.SA","price")</div>
+</div>
+
+<div class="step">
+    <h3>2.4 - Colunas C, D, E, F: Dados Fundamentais (Manual)</h3>
+    
+    <p><strong>Para cada ação, você precisa buscar:</strong></p>
+    
+    <table>
+        <tr>
+            <th>Coluna</th><th>Significado</th><th>Onde buscar</th><th>Frequência</th>
+        </tr>
+        <tr>
+            <td><strong>C - DPA</strong></td><td>Dividendo Por Ação</td><td><a href="https://www.fundamentus.com.br" target="_blank">Fundamentus</a> ou site da empresa</td><td>Anual</td>
+        </tr>
+        <tr>
+            <td><strong>D - Cresc %</strong></td><td>Crescimento do DPA (%)</td><td>Média dos últimos 5 anos</td><td>Anual</td>
+        </tr>
+        <tr>
+            <td><strong>E - P/L</strong></td><td>Preço / Lucro</td><td>Fundamentus</td><td>Diário</td>
+        </tr>
+        <tr>
+            <td><strong>F - Div. Yield %</strong></td><td>Dividendo / Preço</td><td>Fundamentus ou (DPA/Preço)×100</td><td>Diário</td>
+        </tr>
+    </table>
+    
+    <div class="important">
+        <strong>💡 Dica:</strong> Para DIV. YIELD, você pode usar a fórmula:
+        <div class="code">=C3/B3*100</div>
+        (Que quer dizer: DPA ÷ Preço Atual × 100)
+    </div>
+</div>
+
+<div class="step">
+    <h3>2.5 - Coluna G: Preço Justo (Fórmula Bazin)</h3>
+    
+    <p>Copie esta fórmula na célula <strong>G3</strong> e repita para G4:G7:</p>
+    
+    <div class="code">=((C3*(1+D3/100)^5)*(E3+(F3/100)))/0.11</div>
+    
+    <p><strong>O que significa:</strong></p>
+    <ul>
+        <li><code>C3*(1+D3/100)^5</code> → DPA projetado em 5 anos</li>
+        <li><code>E3+(F3/100)</code> → P/L alvo + Dividend Yield</li>
+        <li><code>/0.11</code> → Taxa de desconto (11% = SELIC)</li>
+    </ul>
+    
+    <div class="important">
+        <strong>⚠️ Importante:</strong> Altere 0.11 para outra taxa se quiser (ex: 0.09 para 9%)
+    </div>
+</div>
+
+<div class="step">
+    <h3>2.6 - Coluna H: Margem de Segurança</h3>
+    
+    <p>Copie na célula <strong>H3</strong>:</p>
+    
+    <div class="code">=(G3-B3)/G3*100</div>
+    
+    <p>Repita para H4:H7</p>
+    
+    <p><strong>Interpretação:</strong></p>
+    <ul>
+        <li><strong>≥ 20%:</strong> Muito barata (compre!)</li>
+        <li><strong>10-19%:</strong> Barata (considere)</li>
+        <li><strong>0-9%:</strong> Neutra (espere)</li>
+        <li><strong>&lt; 0%:</strong> Cara (evite)</li>
+    </ul>
+</div>
+
+<div class="step">
+    <h3>2.7 - Coluna I: Status (Fórmula IF)</h3>
+    
+    <p>Copie na célula <strong>I3</strong>:</p>
+    
+    <div class="code">=IF(H3>=0.20,"✅ MUITO BARATA",IF(H3>=0.10,"🟢 BARATA",IF(H3>=0,"🟡 NEUTRA","❌ CARA")))</div>
+    
+    <p>Repita para I4:I7</p>
+</div>
+
+<h2>🎨 Passo 3: Formatação Condicional</h2>
+
+<div class="step">
+    <h3>3.1 - Colorir Status (Coluna I)</h3>
+    <ol>
+        <li>Selecione <strong>I3:I7</strong></li>
+        <li>Vá em <strong>Formato → Formatação condicional</strong></li>
+        <li>Crie 4 regras:
+            <ul>
+                <li>Se <code>=REGEXMATCH(I3,"MUITO BARATA")</code> → Fundo verde</li>
+                <li>Se <code>=REGEXMATCH(I3,"BARATA")</code> → Fundo amarelo claro</li>
+                <li>Se <code>=REGEXMATCH(I3,"NEUTRA")</code> → Fundo cinza</li>
+                <li>Se <code>=REGEXMATCH(I3,"CARA")</code> → Fundo vermelho</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="step">
+    <h3>3.2 - Colorir Margem de Segurança (Coluna H)</h3>
+    <ol>
+        <li>Selecione <strong>H3:H7</strong></li>
+        <li><strong>Formato → Formatação condicional</strong></li>
+        <li>Escala de cores: Verde (&gt;20%) → Amarelo (10%) → Vermelho (&lt;0%)</li>
+    </ol>
+</div>
+
+<h2>💾 Passo 4: Adicionar Apps Script (Automação)</h2>
+
+<div class="step">
+    <h3>4.1 - Abrir Editor de Scripts</h3>
+    <ol>
+        <li>Na sua planilha, vá em <strong>Extensões → Apps Script</strong></li>
+        <li>Será aberta uma nova aba</li>
+    </ol>
+</div>
+
+<div class="step">
+    <h3>4.2 - Copiar e Colar o Script</h3>
+    <ol>
+        <li>Apague todo o código que está lá (função vazia)</li>
+        <li>Cole o código que foi enviado (bazin_script.gs)</li>
+        <li>Clique em <strong>Salvar</strong> (Ctrl+S)</li>
+    </ol>
+</div>
+
+<div class="step">
+    <h3>4.3 - Autorizar o Script</h3>
+    <ol>
+        <li>Clique em <strong>Executar</strong></li>
+        <li>Vai pedir permissão → clique em <strong>Autorizar</strong></li>
+        <li>Selecione sua conta Google</li>
+        <li>Conceda as permissões</li>
+    </ol>
+</div>
+
+<div class="step">
+    <h3>4.4 - Criar Triggers (Automação Horária)</h3>
+    <ol>
+        <li>Volta para o Apps Script</li>
+        <li>À esquerda, clique em <strong>Acionadores</strong> (relógio)</li>
+        <li>Clique em <strong>+ Criar acionador</strong></li>
+        <li>Configure:
+            <ul>
+                <li><strong>Executar:</strong> atualizarPrecos</li>
+                <li><strong>Tipo de evento:</strong> No prazo</li>
+                <li><strong>Intervalo de tempo:</strong> A cada 1 hora</li>
+                <li><strong>Hora do dia:</strong> Qualquer hora</li>
+            </ul>
+        </li>
+        <li>Clique em <strong>Salvar</strong></li>
+    </ol>
+</div>
+
+<div class="success">
+    <strong>✅ Pronto!</strong> Agora a cada 1 hora, os preços vão ser atualizados automaticamente!
+</div>
+
+<h2>📊 Passo 5: Montar a Aba "Puts"</h2>
+
+<div class="step">
+    <h3>5.1 - Cabeçalho (Linha 1)</h3>
+    <table>
+        <tr>
+            <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th>
+        </tr>
+        <tr>
+            <td>AÇÃO</td><td>CONTRATO</td><td>STRIKE</td><td>PRÊMIO</td><td>PREÇO AÇÃO</td><td>RETORNO %</td><td>DIAS VENC</td><td>RET. ANUAL %</td><td>STATUS</td>
+        </tr>
+    </table>
+</div>
+
+<div class="step">
+    <h3>5.2 - Preenchimento Manual (Linhas 3+)</h3>
+    
+    <p>Você alimenta com os contratos de puts disponíveis no seu broker. Exemplo:</p>
+    
+    <table>
+        <tr>
+            <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+        </tr>
+        <tr>
+            <td>AAPL3</td><td>AAPL3D100</td><td>100</td><td>5</td><td>120</td>
+        </tr>
+        <tr>
+            <td>KLBN4</td><td>KLBN4D45</td><td>45</td><td>2</td><td>50</td>
+        </tr>
+    </table>
+</div>
+
+<div class="step">
+    <h3>5.3 - Coluna F: Retorno % do Put</h3>
+    
+    <p>Copie na célula <strong>F3</strong>:</p>
+    
+    <div class="code">=D3/C3*100</div>
+    
+    <p><strong>Significado:</strong> Quanto % você ganha se a ação for exercida</p>
+</div>
+
+<div class="step">
+    <h3>5.4 - Coluna G: Dias até Vencimento</h3>
+    
+    <p>Você atualiza manualmente conforme o tempo passa:</p>
+    
+    <div class="code">=HOJE()-DATA_VENCIMENTO</div>
+    
+    <p>Ou simplesmente coloque manualmente e atualize quando precisar</p>
+</div>
+
+<div class="step">
+    <h3>5.5 - Coluna H: Retorno Anualizado</h3>
+    
+    <p>Copie na célula <strong>H3</strong>:</p>
+    
+    <div class="code">=F3*(365/G3)</div>
+    
+    <p><strong>O que significa:</strong> Se a put vencer em 30 dias com 4% de retorno, anualizado fica ~48%</p>
+</div>
+
+<div class="step">
+    <h3>5.6 - Coluna I: Status Propício</h3>
+    
+    <div class="code">=IF(AND(H3>=30,F3>=3),"✅ LANÇAR PUT",IF(H3>=20,"🟡 CONSIDERAR","❌ AGUARDE"))</div>
+    
+    <p><strong>Critério:</strong> Lança put se:</p>
+    <ul>
+        <li>Retorno anualizado ≥ 30% E</li>
+        <li>Retorno do contrato ≥ 3%</li>
+    </ul>
+    
+    <p>(Você pode ajustar esses valores conforme sua estratégia)</p>
+</div>
+
+<div class="step">
+    <h3>5.7 - Formatação Condicional (Puts)</h3>
+    
+    <ol>
+        <li>Selecione coluna I (Status)</li>
+        <li><strong>Formato → Formatação condicional</strong></li>
+        <li>Crie 3 regras:
+            <ul>
+                <li>✅ LANÇAR → Verde</li>
+                <li>🟡 CONSIDERAR → Amarelo</li>
+                <li>❌ AGUARDE → Vermelho</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<h2>🔄 Passo 6: Atualizar Automaticamente Quando Put Vencer</h2>
+
+<div class="important">
+    <strong>⚠️ Para puts, é semi-automático:</strong>
+    <ul>
+        <li>Você muda o contrato quando vence (B3, B4, etc)</li>
+        <li>Você muda o strike e prêmio (C3, D3, etc)</li>
+        <li>Você atualiza os dias até vencimento (G3, G4, etc)</li>
+        <li>Tudo o mais recalcula automaticamente!</li>
+    </ul>
+</div>
+
+<div class="step">
+    <h3>6.1 - Exemplo: Quando Put Vence</h3>
+    
+    <p>Sua put AAPL3D100 vence em 30 dias:</p>
+    
+    <table>
+        <tr>
+            <td><strong>Hoje:</strong> Contrato AAPL3D100 | Prêmio 5 | Dias: 30</td>
+        </tr>
+        <tr>
+            <td><strong>Em 30 dias:</strong> Mude para AAPL3E95 | Prêmio 4.5 | Dias: 30 (novo vencimento)</td>
+        </tr>
+    </table>
+    
+    <p>Tudo o mais atualiza sozinho! ✨</p>
+</div>
+
+<h2>📱 Dicas Finais</h2>
+
+<div class="success">
+    <strong>💡 Boas práticas:</strong>
+    <ul>
+        <li><strong>Atualizar DPA/Crescimento:</strong> 1x ao mês (ou anual)</li>
+        <li><strong>Atualizar Puts:</strong> Quando o contrato vencer ou a cada semana</li>
+        <li><strong>Revisar Preço Justo:</strong> Mensal (conforme dados fundamentais)</li>
+        <li><strong>Preços:</strong> Atualizam sozinhos a cada 1 hora ✅</li>
+    </ul>
+</div>
+
+<div class="warning">
+    <strong>⚠️ Atenção:</strong>
+    <ul>
+        <li>O GOOGLEFINANCE pode ter pequeno delay (5-15 min)</li>
+        <li>Se der erro no Apps Script, verifique se os nomes das abas estão corretos</li>
+        <li>Este é um sistema indicativo - sempre confirme antes de operar!</li>
+    </ul>
+</div>
+
+<h2>🆘 Troubleshooting</h2>
+
+<table>
+    <tr>
+        <th>Problema</th><th>Solução</th>
+    </tr>
+    <tr>
+        <td>Apps Script não atualiza preços</td><td>Verifique se "Ações" é o nome exato da aba</td>
+    </tr>
+    <tr>
+        <td>Fórmula Bazin dá erro</td><td>Verifique se DPA e crescimento estão preenchidos</td>
+    </tr>
+    <tr>
+        <td>Formatação condicional não funciona</td><td>Verifique se as células têm os dados certos</td>
+    </tr>
+    <tr>
+        <td>Preço não atualiza</td><td>Clique em Extensions → Apps Script → Execute manualmente</td>
+    </tr>
+</table>
+
+<hr>
+<p style="text-align: center; color: #666; margin-top: 40px;">
+    <strong>Feito com ❤️ para sua análise de investimentos</strong><br>
+    Última atualização: 2025 | Baseado em método Bazin | Ações da B3
+</p>
+
+</body>
+</html>

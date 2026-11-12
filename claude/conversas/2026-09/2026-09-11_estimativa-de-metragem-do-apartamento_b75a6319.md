@@ -7,6 +7,7 @@ source_id: "b75a6319-528f-4b8f-9204-d4f4d9ec0eaf"
 url: "https://claude.ai/chat/b75a6319-528f-4b8f-9204-d4f4d9ec0eaf"
 project: null
 messages: 10
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Estimativa de metragem do apartamento

@@ -7,6 +7,7 @@ source_id: "ffe62bf5-038c-40a4-a8be-ddeda9736b3f"
 url: "https://claude.ai/chat/ffe62bf5-038c-40a4-a8be-ddeda9736b3f"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -64,3 +65,10 @@ Resumo pronto no padrão Obsidian que você costuma usar. Estrutura entregue:
 **Confiança: 8/10**
 
 Por quê 8: o resumo é fiel ao que está no PDF, mas o próprio deck usa estatísticas e citações (0% do pudim de baunilha, odds da loteria, citação do Jobs no Businessweek) **sem referências completas**, e eu não validei essas fontes primárias por fora. Se for usar esses números em material seu, vale conferir antes.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_ffe62bf5/home/claude/the-human-factor-huang.md]] (11 KB)

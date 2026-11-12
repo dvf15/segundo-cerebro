@@ -7,6 +7,7 @@ source_id: "66326aac-03d1-4619-98c7-435c753d5bb1"
 url: "https://claude.ai/chat/66326aac-03d1-4619-98c7-435c753d5bb1"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Localizando "Organizational Evolution by Design" de Barnett

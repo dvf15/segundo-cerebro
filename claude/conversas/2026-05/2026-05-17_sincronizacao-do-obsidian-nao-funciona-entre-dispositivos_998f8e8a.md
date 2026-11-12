@@ -7,6 +7,7 @@ source_id: "998f8e8a-df49-4dfa-ac33-2a5da1a75110"
 url: "https://claude.ai/chat/998f8e8a-df49-4dfa-ac33-2a5da1a75110"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Sincronização do Obsidian não funciona entre dispositivos

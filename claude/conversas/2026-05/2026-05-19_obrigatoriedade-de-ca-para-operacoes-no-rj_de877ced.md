@@ -7,6 +7,7 @@ source_id: "de877ced-53d6-4ea5-a20c-1538a20dc139"
 url: "https://claude.ai/chat/de877ced-53d6-4ea5-a20c-1538a20dc139"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Obrigatoriedade de CA para operações no RJ

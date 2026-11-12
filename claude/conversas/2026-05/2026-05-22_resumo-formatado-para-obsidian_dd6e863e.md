@@ -7,6 +7,7 @@ source_id: "dd6e863e-5ba5-47ce-947d-784f4b01d86b"
 url: "https://claude.ai/chat/dd6e863e-5ba5-47ce-947d-784f4b01d86b"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -51,3 +52,10 @@ Resumo pronto no padrão Obsidian. Estrutura aplicada:
 **Confiança: 9/10**
 
 Justificativa: todo conteúdo factual veio diretamente do PDF da WSJ que você anexou (Brat, 17 fev. 2010, p. B.6). Mantive nomes, cargos, números e citações fiéis ao original. O ponto que retiro: não verifiquei externamente se a Campbell de fato atingiu os +2% prometidos ou se as mudanças se mantiveram — a nota retrata o que o artigo afirma na época, não o desfecho histórico. Se isso importar para o seu uso, recomendo busca complementar.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_dd6e863e/mnt/user-data/outputs/Neuromarketing-Campbell-Soup.md]] (9 KB)

@@ -7,6 +7,7 @@ source_id: "cfd71a62-c01f-4e1e-865d-015448bc53d3"
 url: "https://claude.ai/chat/cfd71a62-c01f-4e1e-865d-015448bc53d3"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo detalhado para Obsidian
@@ -138,3 +139,10 @@ Tira pontos: não validei independentemente os dados de Bain e Spectra, e a dive
 - 📎 slide-16.jpg
 - 📎 slide-10.jpg
 - 📎 slide-21.jpg
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-detalhado-para-obsidian_cfd71a62/home/claude/Resumo_PEVC_Curso.md]] (16 KB)

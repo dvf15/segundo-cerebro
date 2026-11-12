@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Bazin — Carteira Previdenciária</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0e10;
+    --bg-2: #14161a;
+    --bg-3: #1c1f24;
+    --line: #2a2e36;
+    --cream: #efe9d8;
+    --cream-dim: #c4bca6;
+    --muted: #6b6857;
+    --gold: #c5a572;
+    --gold-dim: #8a7a5a;
+    --green: #6fae5e;
+    --amber: #d4a23a;
+    --red: #c25b4e;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  body {
+    background:
+      radial-gradient(ellipse at top, rgba(197, 165, 114, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(111, 174, 94, 0.04) 0%, transparent 60%),
+      var(--bg);
+    padding: 24px 16px 60px;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 18px;
+    height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(28px, 7vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: var(--cream-dim);
+    max-width: 540px;
+  }
+  .timestamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .config-bar {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    align-items: center;
+  }
+  .config-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .config-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .config-value {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .config-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    width: 50px;
+    padding: 2px 0;
+    text-align: right;
+  }
+  .config-input:focus {
+    outline: none;
+    border-bottom-color: var(--gold);
+  }
+  .config-unit {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cream-dim);
+  }
+
+  .stock-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .stock-card.cheap { border-left: 3px solid var(--green); }
+  .stock-card.fair { border-left: 3px solid var(--amber); }
+  .stock-card.expensive { border-left: 3px solid var(--red); }
+
+  .stock-header {
+    padding: 18px 18px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .ticker-block {
+    flex: 1;
+    min-width: 0;
+  }
+  .ticker {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    line-height: 1;
+  }
+  .company {
+    font-size: 11px;
+    color: var(--cream-dim);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .sector {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+  }
+  .verdict-block {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .verdict {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border: 1px solid;
+    display: inline-block;
+  }
+  .verdict.cheap { color: var(--green); border-color: var(--green); }
+  .verdict.fair { color: var(--amber); border-color: var(--amber); }
+  .verdict.expensive { color: var(--red); border-color: var(--red); }
+  .margin {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 8px;
+    line-height: 1;
+  }
+  .margin.cheap { color: var(--green); }
+  .margin.fair { color: var(--amber); }
+  .margin.expensive { color: var(--red); }
+  .margin-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .stock-body {
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+  }
+  .data-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .data-row.full { grid-column: 1 / -1; }
+  .data-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .data-value {
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--cream);
+    font-weight: 400;
+  }
+  .data-value.highlight { color: var(--gold); font-weight: 500; }
+  .price-input {
+    background: var(--bg-3);
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px 10px;
+    width: 100%;
+    max-width: 130px;
+  }
+  .price-input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .dividend-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--line);
+    color: var(--cream);
+    font-family: var(--mono);
+    font-size: 15px;
+    padding: 2px 0;
+    width: 80px;
+  }
+  .dividend-input:focus {
+    outline: none;
+    border-bottom-color: var(--gold);
+  }
+
+  .footnote {
+    font-size: 11px;
+    color: var(--muted);
+    padding: 10px 18px;
+    border-top: 1px solid var(--line);
+    background: rgba(0,0,0,0.2);
+    line-height: 1.45;
+  }
+  .footnote strong { color: var(--cream-dim); font-weight: 500; }
+
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold);
+    margin: 40px 0 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .put-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .put-card .ticker {
+    font-size: 18px;
+  }
+  .put-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    margin-top: 10px;
+  }
+  .put-warning {
+    background: rgba(212, 162, 58, 0.06);
+    border-left: 2px solid var(--amber);
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--cream-dim);
+  }
+
+  .disclaimer-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 20px;
+    margin-bottom: 28px;
+  }
+  .disclaimer-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .disclaimer-card p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .disclaimer-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+  }
+  .disclaimer-card li {
+    font-size: 12px;
+    color: var(--cream-dim);
+    padding: 4px 0 4px 14px;
+    position: relative;
+  }
+  .disclaimer-card li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .source-list {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .source-list h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .source-list a {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cream-dim);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s;
+  }
+  .source-list a:hover {
+    color: var(--gold);
+  }
+
+  .confidence-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(212, 162, 58, 0.1);
+    border: 1px solid var(--amber);
+    color: var(--amber);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+  .confidence-pill::before {
+    content: '⚠';
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    .stock-body { grid-template-columns: 1fr; }
+    .put-grid { grid-template-columns: 1fr; }
+    .stock-header { flex-direction: column; }
+    .verdict-block { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">Radar Bazin · Renda Passiva</div>
+    <h1>Carteira <em>Previdenciária</em></h1>
+    <p class="subtitle">Análise de preço justo pelo método de Décio Bazin para KLBN4, ITSA4, BBDC4 e AXIA3. Atualize o preço atual de cada ativo no campo correspondente — o radar recalcula em tempo real.</p>
+    <div class="timestamp">SNAPSHOT INICIAL · 15.MAI.2026 · ATUALIZE OS PREÇOS DIARIAMENTE</div>
+  </header>
+
+  <div class="confidence-pill">Confiança nos dados pré-preenchidos: 6/10 — verifique antes de operar</div>
+
+  <div class="config-bar">
+    <div class="config-item">
+      <div class="config-label">DY mínimo (Bazin)</div>
+      <div class="config-value">
+        <input type="number" class="config-input" id="dyTarget" value="6" min="3" max="15" step="0.5">
+        <span class="config-unit">% a.a.</span>
+      </div>
+    </div>
+    <div class="config-item">
+      <div class="config-label">Margem segurança</div>
+      <div class="config-value">
+        <input type="number" class="config-input" id="margemSeguranca" value="20" min="0" max="50" step="5">
+        <span class="config-unit">%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KLBN4 -->
+  <div class="stock-card" id="card-KLBN4">
+    <div class="stock-header">
+      <div class="ticker-block">
+        <div class="ticker">KLBN4</div>
+        <div class="company">Klabin · Preferencial</div>
+        <div class="sector">PAPEL & CELULOSE · CÍCLICO</div>
+      </div>
+      <div class="verdict-block">
+        <span class="verdict" id="verdict-KLBN4">—</span>
+        <div class="margin" id="margin-KLBN4">—</div>
+        <div class="margin-label">vs. preço justo</div>
+      </div>
+    </div>
+    <div class="stock-body">
+      <div class="data-row">
+        <div class="data-label">Preço atual (R$)</div>
+        <input type="number" class="price-input" id="price-KLBN4" value="3.39" step="0.01">
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. 12m por ação</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div12-KLBN4" value="0.21" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. médio 5a (estimado)</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div5y-KLBN4" value="0.22" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">DY atual</div>
+        <div class="data-value highlight" id="dy-KLBN4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (12m)</div>
+        <div class="data-value" id="justo12-KLBN4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (5a)</div>
+        <div class="data-value" id="justo5y-KLBN4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço teto c/ margem</div>
+        <div class="data-value highlight" id="teto-KLBN4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Possui opções líquidas?</div>
+        <div class="data-value" style="color: var(--red);">Não · Use KLBN11</div>
+      </div>
+    </div>
+    <div class="footnote">
+      <strong>Atenção setor cíclico.</strong> Klabin opera em commodity (celulose) sensível a câmbio e ciclo China. Bazin funciona melhor em pagadoras estáveis — aqui o resultado pode oscilar muito entre anos. KLBN4 não tem grade líquida de opções; venda de PUT, faça em KLBN11 (units).
+    </div>
+  </div>
+
+  <!-- ITSA4 -->
+  <div class="stock-card" id="card-ITSA4">
+    <div class="stock-header">
+      <div class="ticker-block">
+        <div class="ticker">ITSA4</div>
+        <div class="company">Itaúsa · Preferencial</div>
+        <div class="sector">HOLDING FINANCEIRA · PERENE</div>
+      </div>
+      <div class="verdict-block">
+        <span class="verdict" id="verdict-ITSA4">—</span>
+        <div class="margin" id="margin-ITSA4">—</div>
+        <div class="margin-label">vs. preço justo</div>
+      </div>
+    </div>
+    <div class="stock-body">
+      <div class="data-row">
+        <div class="data-label">Preço atual (R$)</div>
+        <input type="number" class="price-input" id="price-ITSA4" value="13.17" step="0.01">
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. 12m por ação</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div12-ITSA4" value="1.15" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. recorrente 5a</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div5y-ITSA4" value="0.95" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">DY atual</div>
+        <div class="data-value highlight" id="dy-ITSA4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (12m)</div>
+        <div class="data-value" id="justo12-ITSA4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (5a)</div>
+        <div class="data-value" id="justo5y-ITSA4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço teto c/ margem</div>
+        <div class="data-value highlight" id="teto-ITSA4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Opções para PUT</div>
+        <div class="data-value" style="color: var(--green);">Sim · alta liquidez</div>
+      </div>
+    </div>
+    <div class="footnote">
+      <strong>Cuidado com o extraordinário.</strong> Os R$1,15 dos últimos 12m incluem o dividendo extraordinário de Dez/25 (R$0,775). Sem isso o recorrente fica mais perto de R$0,40–0,50/ação. Os R$0,95 estimados na média 5a já normalizam parcialmente esse efeito.
+    </div>
+  </div>
+
+  <!-- BBDC4 -->
+  <div class="stock-card" id="card-BBDC4">
+    <div class="stock-header">
+      <div class="ticker-block">
+        <div class="ticker">BBDC4</div>
+        <div class="company">Bradesco · Preferencial</div>
+        <div class="sector">BANCOS · PERENE</div>
+      </div>
+      <div class="verdict-block">
+        <span class="verdict" id="verdict-BBDC4">—</span>
+        <div class="margin" id="margin-BBDC4">—</div>
+        <div class="margin-label">vs. preço justo</div>
+      </div>
+    </div>
+    <div class="stock-body">
+      <div class="data-row">
+        <div class="data-label">Preço atual (R$)</div>
+        <input type="number" class="price-input" id="price-BBDC4" value="17.58" step="0.01">
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. 12m por ação</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div12-BBDC4" value="1.34" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. médio 5a</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div5y-BBDC4" value="1.10" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">DY atual</div>
+        <div class="data-value highlight" id="dy-BBDC4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (12m)</div>
+        <div class="data-value" id="justo12-BBDC4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (5a)</div>
+        <div class="data-value" id="justo5y-BBDC4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço teto c/ margem</div>
+        <div class="data-value highlight" id="teto-BBDC4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Opções para PUT</div>
+        <div class="data-value" style="color: var(--green);">Sim · alta liquidez</div>
+      </div>
+    </div>
+    <div class="footnote">
+      <strong>Banco em transição.</strong> Bradesco passou anos de inadimplência elevada e está em plano de recuperação operacional. Distribuição mensal recorrente. XP elevou preço-alvo para R$24 (24.abr.2026) mas mantém recomendação neutra.
+    </div>
+  </div>
+
+  <!-- AXIA3 -->
+  <div class="stock-card" id="card-AXIA3">
+    <div class="stock-header">
+      <div class="ticker-block">
+        <div class="ticker">AXIA3</div>
+        <div class="company">Axia Energia · Ordinária (ex-Eletrobras)</div>
+        <div class="sector">ENERGIA · PERENE C/ RESSALVAS</div>
+      </div>
+      <div class="verdict-block">
+        <span class="verdict" id="verdict-AXIA3">—</span>
+        <div class="margin" id="margin-AXIA3">—</div>
+        <div class="margin-label">vs. preço justo</div>
+      </div>
+    </div>
+    <div class="stock-body">
+      <div class="data-row">
+        <div class="data-label">Preço atual (R$)</div>
+        <input type="number" class="price-input" id="price-AXIA3" value="55.35" step="0.01">
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. 12m por ação</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div12-AXIA3" value="5.67" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Div. recorrente est.</div>
+        <div class="data-value">R$ <input type="number" class="dividend-input" id="div5y-AXIA3" value="3.50" step="0.01">​</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">DY atual</div>
+        <div class="data-value highlight" id="dy-AXIA3">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (12m)</div>
+        <div class="data-value" id="justo12-AXIA3">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço justo (recorrente)</div>
+        <div class="data-value" id="justo5y-AXIA3">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço teto c/ margem</div>
+        <div class="data-value highlight" id="teto-AXIA3">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Opções para PUT</div>
+        <div class="data-value" style="color: var(--green);">Sim · liquidez crescente</div>
+      </div>
+    </div>
+    <div class="footnote">
+      <strong>Histórico curto pós-privatização.</strong> Eletrobras foi privatizada em 2022 e mudou de nome em 2025. Não há 5 anos de histórico de dividendos no formato atual. Os R$5,67 dos últimos 12m têm parcela extraordinária. Bazin neste ativo é exercício especulativo. Preço-alvo XP: R$63,30 (fev.2026).
+    </div>
+  </div>
+
+  <h2 class="section-title">Venda de PUT — dividendo sintético</h2>
+
+  <div class="disclaimer-card">
+    <h3>Como funciona</h3>
+    <p>Ao vender uma PUT, você recebe um prêmio hoje e se compromete a comprar a ação no strike caso ela caia abaixo dele no vencimento. Se a ação não cair, o prêmio é seu — é o "dividendo sintético". Se cair, você compra a ação pelo strike (custo efetivo = strike − prêmio recebido), o que só faz sentido se você queria mesmo ter o ativo naquele preço.</p>
+    <p style="margin-top: 10px;"><strong style="color: var(--cream);">Regra prática:</strong> só venda PUT em ações que você compraria à vista no strike escolhido. Use strike igual ou abaixo do <em>preço teto Bazin com margem</em> mostrado acima. Mantenha em conta o valor do strike × 100 (ou múltiplo do lote) como garantia mental, mesmo que sua corretora exija menos.</p>
+  </div>
+
+  <div class="put-card">
+    <div class="ticker">ITSA4 — sugestão de estrutura</div>
+    <div class="put-grid">
+      <div class="data-row">
+        <div class="data-label">Strike alvo</div>
+        <div class="data-value highlight" id="put-strike-ITSA4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Vencimento ideal</div>
+        <div class="data-value">30–60 dias</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Lote mínimo</div>
+        <div class="data-value">100 ações</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Onde ver prêmios</div>
+        <div class="data-value" style="font-size: 12px;">opcoes.net.br</div>
+      </div>
+    </div>
+    <div class="put-warning">Liquidez de ITSA4 é alta — bom para começar. Procure prêmios que rendam ≥ 1% a.m. sobre o strike.</div>
+  </div>
+
+  <div class="put-card">
+    <div class="ticker">BBDC4 — sugestão de estrutura</div>
+    <div class="put-grid">
+      <div class="data-row">
+        <div class="data-label">Strike alvo</div>
+        <div class="data-value highlight" id="put-strike-BBDC4">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Vencimento ideal</div>
+        <div class="data-value">30–60 dias</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Lote mínimo</div>
+        <div class="data-value">100 ações</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Onde ver prêmios</div>
+        <div class="data-value" style="font-size: 12px;">opcoes.net.br</div>
+      </div>
+    </div>
+    <div class="put-warning">Liquidez alta. Atenção: BBDC4 pagou JCP intermediário de R$0,245 líquido por ação em abr.2026 — verifique data-com antes de vender PUT (queda técnica pós data-com).</div>
+  </div>
+
+  <div class="put-card">
+    <div class="ticker">AXIA3 — sugestão de estrutura</div>
+    <div class="put-grid">
+      <div class="data-row">
+        <div class="data-label">Strike alvo</div>
+        <div class="data-value highlight" id="put-strike-AXIA3">—</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Vencimento ideal</div>
+        <div class="data-value">30–45 dias</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Lote mínimo</div>
+        <div class="data-value">100 ações</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Onde ver prêmios</div>
+        <div class="data-value" style="font-size: 12px;">opcoes.net.br</div>
+      </div>
+    </div>
+    <div class="put-warning">Volatilidade implícita alta (~28%) gera prêmios atrativos, mas também risco maior de exercício. Boa para quem aceita virar acionista de longo prazo.</div>
+  </div>
+
+  <div class="put-card">
+    <div class="ticker">KLBN11 — alternativa para Klabin</div>
+    <div class="put-grid">
+      <div class="data-row">
+        <div class="data-label">Strike alvo</div>
+        <div class="data-value highlight" id="put-strike-KLBN11">≤ R$ 17,00</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Preço ref. KLBN11</div>
+        <div class="data-value">~R$ 16,91</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Volatilidade impl.</div>
+        <div class="data-value">~21%</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Onde ver prêmios</div>
+        <div class="data-value" style="font-size: 12px;">opcoes.net.br</div>
+      </div>
+    </div>
+    <div class="put-warning">KLBN4 não tem opções líquidas. KLBN11 = 1 ON + 4 PN. Estrutura equivalente para captar prêmio em papel/celulose.</div>
+  </div>
+
+  <h2 class="section-title">Outros setores perenes para considerar</h2>
+  <div class="disclaimer-card">
+    <p>A carteira que você desenhou tem KLBN4 (cíclica) e AXIA3 (privatização recente). Para uma carteira <em style="color: var(--gold);">verdadeiramente previdenciária</em>, vale olhar setores regulados e contratos de longo prazo:</p>
+    <ul>
+      <li><strong>Transmissão de energia:</strong> TAEE11 (Taesa), ISAE4 (ISA Energia, ex-CTEEP) — receita contratada, baixíssima sensibilidade ao ciclo</li>
+      <li><strong>Saneamento regulado:</strong> SAPR11 (Sanepar), CSMG3 (Copasa)</li>
+      <li><strong>Seguros:</strong> BBSE3 (BB Seguridade), CXSE3 (Caixa Seguridade), PSSA3 (Porto)</li>
+      <li><strong>Telecom:</strong> VIVT3 (Vivo) — defensiva, regulada</li>
+      <li><strong>Bancos perenes:</strong> ITUB4 (Itaú), BBAS3 (BB) — alternativas mais sólidas a BBDC4 atualmente</li>
+    </ul>
+  </div>
+
+  <div class="source-list">
+    <h4>Fontes consultadas · 15.mai.2026</h4>
+    <a href="https://statusinvest.com.br/acoes/klbn4" target="_blank">statusinvest.com.br/acoes/klbn4</a>
+    <a href="https://investidor10.com.br/acoes/klbn4/" target="_blank">investidor10.com.br/acoes/klbn4</a>
+    <a href="https://statusinvest.com.br/acoes/itsa4" target="_blank">statusinvest.com.br/acoes/itsa4</a>
+    <a href="https://investidor10.com.br/acoes/itsa4/" target="_blank">investidor10.com.br/acoes/itsa4</a>
+    <a href="https://ri.itausa.com.br/en/financial-information/shareholders-remuneration/" target="_blank">ri.itausa.com.br · Shareholders' Remuneration</a>
+    <a href="https://statusinvest.com.br/acoes/bbdc4" target="_blank">statusinvest.com.br/acoes/bbdc4</a>
+    <a href="https://investidor10.com.br/acoes/bbdc4/" target="_blank">investidor10.com.br/acoes/bbdc4</a>
+    <a href="https://statusinvest.com.br/acoes/axia3" target="_blank">statusinvest.com.br/acoes/axia3</a>
+    <a href="https://investidor10.com.br/acoes/axia3/" target="_blank">investidor10.com.br/acoes/axia3</a>
+    <a href="https://conteudos.xpi.com.br/acoes/axia3/" target="_blank">conteudos.xpi.com.br/acoes/axia3</a>
+    <a href="https://opcoes.net.br/opcoes/bovespa/ITSA4" target="_blank">opcoes.net.br · ITSA4 puts</a>
+    <a href="https://opcoes.net.br/opcoes/bovespa/BBDC4" target="_blank">opcoes.net.br · BBDC4 puts</a>
+    <a href="https://opcoes.net.br/opcoes/bovespa/AXIA3" target="_blank">opcoes.net.br · AXIA3 puts</a>
+    <a href="https://opcoes.net.br/opcoes/bovespa/KLBN11" target="_blank">opcoes.net.br · KLBN11 puts</a>
+  </div>
+
+  <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); line-height: 1.6;">
+    <strong style="color: var(--cream-dim);">Aviso.</strong> Este radar é uma ferramenta de cálculo, não recomendação. O método Bazin (Décio Bazin, "Faça Fortuna com Ações", 1992) usa preço justo = dividendo médio ÷ DY mínimo desejado. Funciona bem para empresas com fluxo estável e mal para cíclicas. Dividendos passados não garantem futuros. Verifique fato relevante na CVM antes de operar.
+  </div>
+
+</div>
+
+<script>
+  const tickers = ['KLBN4', 'ITSA4', 'BBDC4', 'AXIA3'];
+
+  function fmt(n) {
+    if (!isFinite(n) || isNaN(n)) return '—';
+    return 'R$ ' + n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function fmtPct(n) {
+    if (!isFinite(n) || isNaN(n)) return '—';
+    return n.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+  }
+
+  function recalc() {
+    const dyTarget = parseFloat(document.getElementById('dyTarget').value) / 100;
+    const margem = parseFloat(document.getElementById('margemSeguranca').value) / 100;
+
+    tickers.forEach(t => {
+      const price = parseFloat(document.getElementById('price-' + t).value);
+      const div12 = parseFloat(document.getElementById('div12-' + t).value);
+      const div5y = parseFloat(document.getElementById('div5y-' + t).value);
+
+      const justo12 = div12 / dyTarget;
+      const justo5y = div5y / dyTarget;
+      // Para classificação, usa o mais conservador (média 5a, normalmente menor)
+      const justoConservador = Math.min(justo12, justo5y);
+      const teto = justoConservador * (1 - margem);
+      const dyAtual = (div12 / price) * 100;
+      const margemAtual = ((justoConservador - price) / justoConservador) * 100;
+
+      document.getElementById('dy-' + t).textContent = fmtPct(dyAtual);
+      document.getElementById('justo12-' + t).textContent = fmt(justo12);
+      document.getElementById('justo5y-' + t).textContent = fmt(justo5y);
+      document.getElementById('teto-' + t).textContent = fmt(teto);
+
+      // Verdict
+      const verdictEl = document.getElementById('verdict-' + t);
+      const marginEl = document.getElementById('margin-' + t);
+      const cardEl = document.getElementById('card-' + t);
+
+      cardEl.classList.remove('cheap', 'fair', 'expensive');
+      verdictEl.classList.remove('cheap', 'fair', 'expensive');
+      marginEl.classList.remove('cheap', 'fair', 'expensive');
+
+      let cls, text;
+      if (price <= teto) {
+        cls = 'cheap'; text = 'Barata';
+      } else if (price <= justoConservador) {
+        cls = 'fair'; text = 'Próxima do justo';
+      } else {
+        cls = 'expensive'; text = 'Cara';
+      }
+      cardEl.classList.add(cls);
+      verdictEl.classList.add(cls);
+      marginEl.classList.add(cls);
+      verdictEl.textContent = text;
+      marginEl.textContent = (margemAtual >= 0 ? '+' : '') + margemAtual.toFixed(1) + '%';
+    });
+
+    // Sugestões de strike PUT = preço teto Bazin
+    const stocksComPut = ['ITSA4', 'BBDC4', 'AXIA3'];
+    stocksComPut.forEach(t => {
+      const div5y = parseFloat(document.getElementById('div5y-' + t).value);
+      const teto = (div5y / dyTarget) * (1 - margem);
+      const el = document.getElementById('put-strike-' + t);
+      if (el) el.textContent = '≤ ' + fmt(teto);
+    });
+  }
+
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>

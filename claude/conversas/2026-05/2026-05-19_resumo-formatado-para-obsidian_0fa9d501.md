@@ -7,6 +7,7 @@ source_id: "0fa9d501-0d8e-4079-8e23-e94f534d87b8"
 url: "https://claude.ai/chat/0fa9d501-0d8e-4079-8e23-e94f534d87b8"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -69,3 +70,10 @@ Pontos de menor confiança (sinalizados):
 - A "M&A Zone" do gráfico é qualitativa no PDF; não há números, então descrevi conceitualmente.
 
 Não inseri estatísticas externas, nem citações atribuídas a pessoas além do que está no PDF (Guilherme Potenza como autor). Tudo o que está no resumo está no material-fonte.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_0fa9d501/home/claude/cvc-veirano-resumo.md]] (14 KB)

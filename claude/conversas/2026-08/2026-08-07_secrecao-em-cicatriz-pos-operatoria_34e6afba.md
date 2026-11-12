@@ -7,6 +7,7 @@ source_id: "34e6afba-699c-4da2-b355-308c5531f15c"
 url: "https://claude.ai/chat/34e6afba-699c-4da2-b355-308c5531f15c"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Secreção em cicatriz pós-operatória

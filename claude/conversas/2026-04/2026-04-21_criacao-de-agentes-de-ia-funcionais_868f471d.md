@@ -7,6 +7,7 @@ source_id: "868f471d-03a2-4a27-aa67-216749859156"
 url: "https://claude.ai/chat/868f471d-03a2-4a27-aa67-216749859156"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Criação de agentes de IA funcionais
@@ -541,3 +542,10 @@ Os 3 agentes estão funcionais. Cada um tem um painel esquerdo de configuração
 **🏢 Agente KA/Expansão** — informe os dados da marca/franquia (categoria, área, investimento, modelo) → gera ficha KA completa com pontuação de atratividade, perfil de parceiro ideal e estratégia de abordagem
 
 Após o primeiro disparo, o chat fica habilitado para perguntas de follow-up com histórico de conversa mantido por agente.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-04/criacao-de-agentes-de-ia-funcionais_868f471d/mnt/user-data/outputs/shopping-agentes.html]] (44 KB)

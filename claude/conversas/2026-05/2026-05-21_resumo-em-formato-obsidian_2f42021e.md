@@ -7,6 +7,7 @@ source_id: "2f42021e-e137-4991-85b5-cc857f33a569"
 url: "https://claude.ai/chat/2f42021e-e137-4991-85b5-cc857f33a569"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -66,3 +67,10 @@ Arquivo `.md` pronto para arrastar direto para o seu vault do Obsidian.
 - Avaliação de confiança
 
 **Confiança: 9/10** — todas as citações, datas e exemplos vieram diretamente do PDF que você enviou (Tilles 1963, Brandenburger & Nalebuff 1996, IBM Values Jam 2003 com ~320.000 funcionários, Apple market share ~3% em 1997, drop de "Computer" em janeiro 2007, Gerstner 1993, O'Leary CEO desde 1994, Browne saindo da BP em 2007). 1 ponto retido porque qualquer síntese envolve escolhas de corte e ênfase — me avise se quiser algum trecho expandido ou recortado diferente.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_2f42021e/home/claude/Putting Leadership Back into Strategy - Resumo.md]] (12 KB)

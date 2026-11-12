@@ -7,6 +7,7 @@ source_id: "3453517f-88dc-4646-92f3-ffabd9ae527b"
 url: "https://claude.ai/chat/3453517f-88dc-4646-92f3-ffabd9ae527b"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Formatando arquivo para Obsidian
@@ -84,3 +85,10 @@ Como usar: jogue o arquivo dentro do seu vault. Os wikilinks vão aparecer como 
 ---
 
 **Confiança: 9/10.** Formatação Obsidian é bem documentada e testei mentalmente cada elemento contra a sintaxe oficial (callouts, frontmatter, wikilinks com âncora). O ponto que tiro é que a renderização exata de alguns callouts pode variar conforme tema/plugins do seu vault — se algum não renderizar bem, me avise qual.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/formatando-arquivo-para-obsidian_3453517f/mnt/user-data/outputs/Precificacao_Estrategica_Conceitos.md]] (36 KB)

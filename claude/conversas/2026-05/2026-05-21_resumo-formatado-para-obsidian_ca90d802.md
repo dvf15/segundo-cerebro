@@ -7,6 +7,7 @@ source_id: "ca90d802-fcd4-43fc-b831-20b6271f3b9c"
 url: "https://claude.ai/chat/ca90d802-fcd4-43fc-b831-20b6271f3b9c"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -63,3 +64,10 @@ Estrutura em 6 grandes seções espelhando o original (Contexto → 12 Passos �
 **Confiança: 8/10**
 
 Justificativa: o resumo segue fielmente o PDF, mas perdeu 2 pontos por (a) defasagem temporal do material-fonte, (b) simplificações inevitáveis em resumo, e (c) não-verificação externa de cada citação legal específica. Para operação real, recomendo cruzar com advogado de VC/PE atualizado.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_ca90d802/mnt/user-data/outputs/Guia-Term-Sheets-VC-PE-Brasil.md]] (20 KB)

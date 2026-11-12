@@ -7,6 +7,7 @@ source_id: "379cb9e7-ec12-4b7d-b04e-711cc2552466"
 url: "https://claude.ai/chat/379cb9e7-ec12-4b7d-b04e-711cc2552466"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Campo "bem com usufruto" na declaração de IR

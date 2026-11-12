@@ -1,0 +1,16 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-12T12:00:00Z"},
+  "lists": "css",
+  "title": "Guarda Alta — Resumo",
+  "order": ["cover", "riscos", "infra", "incendio", "ocupacao", "seguranca", "prontidao", "comunicacao", "lideranca"],
+  "sections": {
+    "abertura": {"description": "Abertura e os três fatores que elevam o risco ao mesmo tempo", "start": "cover"},
+    "sistemas": {"description": "Infraestrutura, incêndio, ocupação e segurança patrimonial", "start": "infra"},
+    "resposta": {"description": "Prontidão, comunicação e o papel da liderança", "start": "prontidao"}
+  },
+  "faces": {
+    "gantari": {"family": "Gantari", "href": "https://fonts.googleapis.com/css2?family=Gantari:wght@300..800&display=swap"}
+  },
+  "designSystems": []
+}

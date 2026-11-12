@@ -7,6 +7,7 @@ source_id: "c8fa1f35-9f43-4df6-9add-8172689065f5"
 url: "https://claude.ai/chat/c8fa1f35-9f43-4df6-9add-8172689065f5"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -61,3 +62,10 @@ Resumo pronto, formatado no seu padrão Obsidian (frontmatter YAML, wikilinks, c
 **Confiança: 9/10** — flag que tirei 1 ponto porque alguns números citados (US$ 200 bi de showrooming, 1/3 de devoluções online, +15% UPS) são estimativas industriais que o próprio artigo cita de terceiros sem fonte primária forte. Detalhes na seção final da nota.
 
 Posso atualizar com a evolução pós-2014 desses casos (Bonobos/Walmart, IPO Warby Parker) se for útil para uma sessão de mentoria.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_c8fa1f35/mnt/user-data/outputs/How-to-Win-in-an-Omnichannel-World.md]] (13 KB)

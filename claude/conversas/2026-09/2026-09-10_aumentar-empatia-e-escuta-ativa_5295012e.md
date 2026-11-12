@@ -7,6 +7,7 @@ source_id: "5295012e-7e82-4b97-aa22-2e3de06b82fd"
 url: "https://claude.ai/chat/5295012e-7e82-4b97-aa22-2e3de06b82fd"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Aumentar empatia e escuta ativa

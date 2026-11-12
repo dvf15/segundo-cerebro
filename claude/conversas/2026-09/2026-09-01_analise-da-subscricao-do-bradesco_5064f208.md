@@ -7,6 +7,7 @@ source_id: "5064f208-dc07-4c15-adeb-0a30c2c070fa"
 url: "https://claude.ai/chat/5064f208-dc07-4c15-adeb-0a30c2c070fa"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise da subscrição do Bradesco

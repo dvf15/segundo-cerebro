@@ -7,6 +7,7 @@ source_id: "1cda0779-981e-41cc-baec-6ae7f04280d4"
 url: "https://claude.ai/chat/1cda0779-981e-41cc-baec-6ae7f04280d4"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -68,3 +69,10 @@ Resumo pronto, no formato Obsidian que você padronizou — frontmatter YAML, wi
 ### Confiança: 8/10
 
 Reduzi 2 pontos: 1 pela inconsistência numérica do slide 3 que não consegui resolver sem fonte primária (LAVCA/Distrito), e 1 porque algumas afirmações da apresentação são datadas de 2020 e não as cruzei com dados atuais do mercado.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_1cda0779/home/claude/work/PEVC8_SP_Ventures_Selecao_Monitoramento_Criacao_Valor_VC.md]] (15 KB)

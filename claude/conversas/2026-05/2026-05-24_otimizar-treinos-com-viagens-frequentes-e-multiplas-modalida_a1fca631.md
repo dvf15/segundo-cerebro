@@ -7,6 +7,7 @@ source_id: "a1fca631-0d89-40db-afd8-94070a9a472b"
 url: "https://claude.ai/chat/a1fca631-0d89-40db-afd8-94070a9a472b"
 project: null
 messages: 12
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Otimizar treinos com viagens frequentes e múltiplas modalidades
@@ -544,3 +545,11 @@ Pronto. Versão 2 do plano, com o que mudou:
 **Confiança: 8/10** (mesma do conteúdo técnico — a estrutura Obsidian em si está sólida, callouts e frontmatter testados).
 
 Dois achados merecem palavra honesta: **esteatose e próstata aumentada não são detalhes**. O treino ajuda na esteatose, mas ambos pedem acompanhamento médico ativo — não deixa só comigo aqui.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/otimizar-treinos-com-viagens-frequentes-e-multipla_a1fca631/home/claude/plano-performance-daniel.md]] (7 KB)
+- [[claude/arquivos-gerados/2026-05/otimizar-treinos-com-viagens-frequentes-e-multipla_a1fca631/home/claude/plano-performance-daniel-v2.md]] (7 KB)

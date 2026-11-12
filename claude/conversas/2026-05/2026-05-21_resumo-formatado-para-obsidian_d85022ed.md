@@ -7,6 +7,7 @@ source_id: "d85022ed-9884-447d-bf12-6e2af0ac7f9f"
 url: "https://claude.ai/chat/d85022ed-9884-447d-bf12-6e2af0ac7f9f"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -68,3 +69,10 @@ Pronto. Resumo completo do material do Prof. Amit Seru no padrão Obsidian que v
 **Confiança: 9/10** (flagada conforme regra 2 — abaixo de 10).
 
 Os números de infográfico do bloco "4 V's do Big Data" (40 zettabytes, 150 exabytes em saúde, $3.1 trillion de custo) aparecem como o slide os exibe, mas são estatísticas visuais não-verificadas em fonte primária. Se você for usar em apresentação pública, vale validar — a maioria parece datar de 2014–2016.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_d85022ed/home/claude/Banking-and-the-Fintech-Revolution.md]] (17 KB)

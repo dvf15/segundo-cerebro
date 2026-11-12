@@ -7,6 +7,7 @@ source_id: "9776d07b-c959-4a65-956f-88b46823f41e"
 url: "https://claude.ai/chat/9776d07b-c959-4a65-956f-88b46823f41e"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo do caso Tesla para Obsidian

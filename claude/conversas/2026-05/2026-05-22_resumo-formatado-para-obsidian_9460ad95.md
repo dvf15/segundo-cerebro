@@ -7,6 +7,7 @@ source_id: "9460ad95-ec81-484a-8e7c-71aa44b38c50"
 url: "https://claude.ai/chat/9460ad95-ec81-484a-8e7c-71aa44b38c50"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -51,3 +52,10 @@ Resumo pronto no padrão Obsidian que você usa: YAML frontmatter completo, wiki
 **Confiança: 7/10**
 
 O conteúdo do framework e a estrutura do resumo estão sólidos. A reserva é só sobre verificação independente dos números específicos citados.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_9460ad95/mnt/user-data/outputs/Tight-Loose - Michele Gelfand.md]] (14 KB)

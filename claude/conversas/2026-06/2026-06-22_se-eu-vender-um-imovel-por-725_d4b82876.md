@@ -7,6 +7,7 @@ source_id: "d4b82876-1065-4698-82d8-f246a395060d"
 url: "https://claude.ai/chat/d4b82876-1065-4698-82d8-f246a395060d"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # 💬 Se eu vender um imovel por 725…

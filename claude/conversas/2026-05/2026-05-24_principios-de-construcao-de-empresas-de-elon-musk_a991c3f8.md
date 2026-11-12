@@ -7,6 +7,7 @@ source_id: "a991c3f8-a976-4f32-91df-438bce35e4b3"
 url: "https://claude.ai/chat/a991c3f8-a976-4f32-91df-438bce35e4b3"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Princípios de construção de empresas de Elon Musk
@@ -64,3 +65,10 @@ Pronto. Nota formatada no padrão Obsidian que você estabeleceu: YAML frontmatt
 **Confiança: 6/10** 🚩
 
 Sinalizei abaixo de 7 não pela formatação (essa está sólida), mas pelo conteúdo original: não consegui verificar contra fonte primária que esta lista exata de 11 princípios nessa ordem seja uma declaração direta do Musk. Conceitos como *The Algorithm* e *Idiot Index* aparecem documentados na biografia do Walter Isaacson (2023), mas a estrutura de lista numerada como apresentada parece ser uma síntese de terceiros, não uma citação textual. Se for usar em mentoria ou contexto profissional, vale checar a fonte do material que você recebeu antes de atribuir como palavras do próprio Musk.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/principios-de-construcao-de-empresas-de-elon-musk_a991c3f8/home/claude/elon-musk-principios.md]] (6 KB)

@@ -7,6 +7,7 @@ source_id: "505feab5-c140-4d77-8327-b2bef261284a"
 url: "https://claude.ai/chat/505feab5-c140-4d77-8327-b2bef261284a"
 project: null
 messages: 24
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Evolução econômica e populacional da região

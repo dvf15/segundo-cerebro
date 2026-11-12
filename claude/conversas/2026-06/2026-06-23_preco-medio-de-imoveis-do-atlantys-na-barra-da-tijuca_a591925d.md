@@ -7,6 +7,7 @@ source_id: "a591925d-b5a8-4457-b572-e56c9d8135d8"
 url: "https://claude.ai/chat/a591925d-b5a8-4457-b572-e56c9d8135d8"
 project: null
 messages: 6
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Preço médio de imóveis do Atlantys na Barra da Tijuca

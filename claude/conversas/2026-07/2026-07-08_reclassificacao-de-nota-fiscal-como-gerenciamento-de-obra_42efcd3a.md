@@ -7,6 +7,7 @@ source_id: "42efcd3a-bba0-4e6c-b47e-616977673670"
 url: "https://claude.ai/chat/42efcd3a-bba0-4e6c-b47e-616977673670"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Reclassificação de nota fiscal como gerenciamento de obra

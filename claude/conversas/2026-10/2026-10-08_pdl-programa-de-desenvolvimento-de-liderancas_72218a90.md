@@ -7,6 +7,7 @@ source_id: "72218a90-95dc-4625-a523-c2b4433aa577"
 url: "https://claude.ai/chat/72218a90-95dc-4625-a523-c2b4433aa577"
 project: null
 messages: 20
+generated_files: 3
 tags: ["claude", "conversa"]
 ---
 # PDL - Programa de desenvolvimento de lideranças
@@ -1038,3 +1039,12 @@ Confiança: 8,5/10. Revisei todos os slides visualmente e o conteúdo segue as d
 - 📎 image-0-0.png
 - 📎 image-0-0.png
 - 📎 PDL - Apresentação.pdf
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/pdl-programa-de-desenvolvimento-de-liderancas_72218a90/home/claude/PDL - Liderança.md]] (26 KB)
+- [[claude/arquivos-gerados/2026-10/pdl-programa-de-desenvolvimento-de-liderancas_72218a90/home/claude/PDL - Programa de Desenvolvimento das Lideranças.md]] (37 KB)
+- [[claude/arquivos-gerados/2026-10/pdl-programa-de-desenvolvimento-de-liderancas_72218a90/home/claude/pdl-slides/slides.html]] (47 KB)

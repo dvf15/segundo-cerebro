@@ -7,6 +7,7 @@ source_id: "96ec0164-7fd8-4b41-814b-2203feb75d50"
 url: "https://claude.ai/chat/96ec0164-7fd8-4b41-814b-2203feb75d50"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -83,3 +84,10 @@ Resumo pronto no formato Obsidian, estruturado em 5 seções (Visão Geral → F
 
 - Por que 8 e não 10: a sumarização do PDF é fiel (números, percentuais, prazos vieram todos do documento), mas a fonte está parcialmente desatualizada. Não cruzei item a item o que mudou com a CVM 175.
 - Se quiser, posso fazer um segundo passe identificando os pontos específicos onde a CVM 175 alterou o que está aqui, mas isso exigiria pesquisa web na regulamentação atual.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_96ec0164/mnt/user-data/outputs/Estrutura_Legal_PE_VC_Resumo.md]] (15 KB)

@@ -7,6 +7,7 @@ source_id: "97c14dda-1ec0-4b0d-a898-8a8b55be6190"
 url: "https://claude.ai/chat/97c14dda-1ec0-4b0d-a898-8a8b55be6190"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Viagens de praia no Brasil em outubro

@@ -7,6 +7,7 @@ source_id: "50ed264d-d363-432e-976b-c95a898987f3"
 url: "https://claude.ai/chat/50ed264d-d363-432e-976b-c95a898987f3"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Instalação de plugins de análise financeira

@@ -7,6 +7,7 @@ source_id: "013f472c-009b-4638-ab0e-f767c4c9065c"
 url: "https://claude.ai/chat/013f472c-009b-4638-ab0e-f767c4c9065c"
 project: null
 messages: 8
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Criar PDF com sequência de fotos

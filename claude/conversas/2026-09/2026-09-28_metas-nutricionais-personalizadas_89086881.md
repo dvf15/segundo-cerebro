@@ -7,6 +7,7 @@ source_id: "89086881-db87-48af-b173-59c4dc73f4b8"
 url: "https://claude.ai/chat/89086881-db87-48af-b173-59c4dc73f4b8"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Metas nutricionais personalizadas

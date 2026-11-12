@@ -7,6 +7,7 @@ source_id: "ff05c852-f967-477f-8d96-383002963984"
 url: "https://claude.ai/chat/ff05c852-f967-477f-8d96-383002963984"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em Markdown para Obsidian
@@ -105,3 +106,10 @@ Pontos onde sinalizei incerteza dentro do próprio doc (callouts de warning), co
 - Os números de Kotter & Heskett foram reproduzidos como estão na fonte do O'Reilly, não reverificados na obra original
 
 **Confiança: 8/10** — O conteúdo dos slides está bem mapeado (extração integral das 179 páginas), mas o material é uma apresentação, então pedaços que dependiam da narração ao vivo (vídeos, matrizes preenchidas no momento) não estão no PDF. Os callouts de warning sobre fontes secundárias também me impedem de cravar 10.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-markdown-para-obsidian_ff05c852/mnt/user-data/outputs/OReilly_Challenge_of_Change_Resumo.md]] (17 KB)

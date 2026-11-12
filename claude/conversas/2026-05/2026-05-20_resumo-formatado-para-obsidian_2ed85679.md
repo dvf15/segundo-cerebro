@@ -7,6 +7,7 @@ source_id: "2ed85679-e5e6-4b96-91f1-c40b20e40017"
 url: "https://claude.ai/chat/2ed85679-e5e6-4b96-91f1-c40b20e40017"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -50,3 +51,10 @@ Pontos que vale você revisar antes de usar:
 **Rating de confiança: 8/10**
 
 Resumo fiel ao conteúdo do PDF. Tirei pontos porque (1) adicionei o comentário sobre EIRELI/SLU que extrapola o slide, (2) o material original é de 2020 e há detalhes regulatórios que podem ter mudado, e (3) não verifiquei na web a versão atual das ICVM 578/579 — se quiser que eu cheque, posso pesquisar.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_2ed85679/mnt/user-data/outputs/PEVC_Aula9_Insper_Resumo.md]] (11 KB)

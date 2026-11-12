@@ -7,6 +7,7 @@ source_id: "16a14163-02e5-480d-9864-595b71bc812a"
 url: "https://claude.ai/chat/16a14163-02e5-480d-9864-595b71bc812a"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -73,3 +74,10 @@ Flagueio três pontos que tirou pontos:
 - Os dados são de outubro/2019; não validei via web se os números/portfólio mudaram (algumas investidas já tiveram desfechos públicos relevantes desde então, como a Xnor.ai). Se quiser, posso buscar atualizações.
 
 **Fonte:** PDF anexado `GCV_AcademyBrazil_Embraer_PeterSeiffert1019.pdf`, slides 1-13. Todos os números, nomes e percentuais foram extraídos diretamente do documento, sem fontes externas.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_16a14163/mnt/user-data/outputs/embraer-venture-capital-funds-2019.md]] (11 KB)

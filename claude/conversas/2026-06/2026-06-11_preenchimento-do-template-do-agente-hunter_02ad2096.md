@@ -7,6 +7,7 @@ source_id: "02ad2096-ea30-4973-901a-75f97c8946db"
 url: "https://claude.ai/chat/02ad2096-ea30-4973-901a-75f97c8946db"
 project: null
 messages: 10
+generated_files: 4
 tags: ["claude", "conversa"]
 ---
 # Preenchimento do template do agente Hunter
@@ -463,3 +464,13 @@ This block is not supported on your current device yet.
 Só arrastar para o vault. Os wikilinks vão ativar conforme você for criando as notas correspondentes (Cluster Positioning Engine, Checklist Go-Live, etc.).
 
 **Confiança: 9/10**
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-06/preenchimento-do-template-do-agente-hunter_02ad2096/mnt/user-data/outputs/agente-hunter-retail-innovation-hunter.md]] (4 KB)
+- [[claude/arquivos-gerados/2026-06/preenchimento-do-template-do-agente-hunter_02ad2096/mnt/user-data/outputs/agente-farmer-investor-matchmaker.md]] (4 KB)
+- [[claude/arquivos-gerados/2026-06/preenchimento-do-template-do-agente-hunter_02ad2096/mnt/user-data/outputs/agente-builder-store-builder-os.md]] (4 KB)
+- [[claude/arquivos-gerados/2026-06/preenchimento-do-template-do-agente-hunter_02ad2096/mnt/user-data/outputs/agente-entertainer-experience-events-architect.md]] (5 KB)

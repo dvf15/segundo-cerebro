@@ -7,6 +7,7 @@ source_id: "66292ba5-7b87-441c-9eab-9577391e8631"
 url: "https://claude.ai/chat/66292ba5-7b87-441c-9eab-9577391e8631"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de projeto formatado para Obsidian
@@ -89,3 +90,10 @@ Arquivo pronto. Estruturei o resumo no formato Obsidian com:
 - O "Projeto Bahia" no mandamento 5 aparece sem detalhamento no original — sinalizei isso na seção de observações.
 
 **Confiança: 9/10** — é reorganização do seu próprio arquivo, sem dados externos. O ponto que tira 1 é a interpretação editorial de trechos com typos no original.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-projeto-formatado-para-obsidian_66292ba5/home/claude/Mandamentos_Comercializacao_ZeRobertoLevy.md]] (7 KB)

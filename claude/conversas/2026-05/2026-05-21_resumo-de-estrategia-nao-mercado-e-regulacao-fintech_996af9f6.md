@@ -7,6 +7,7 @@ source_id: "996af9f6-c6d8-498a-a1ca-7211a2f32024"
 url: "https://claude.ai/chat/996af9f6-c6d8-498a-a1ca-7211a2f32024"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo de estratégia não-mercado e regulação fintech

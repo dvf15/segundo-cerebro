@@ -7,6 +7,7 @@ source_id: "44f71658-ddbe-454d-9289-688304d61a82"
 url: "https://claude.ai/chat/44f71658-ddbe-454d-9289-688304d61a82"
 project: null
 messages: 8
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Clarificando minhas habilidades

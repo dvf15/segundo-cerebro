@@ -7,6 +7,7 @@ source_id: "e0aa1c61-00da-476f-8299-bca16293f13f"
 url: "https://claude.ai/chat/e0aa1c61-00da-476f-8299-bca16293f13f"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # 💬 Faça um resumo detalhado desse…
@@ -61,3 +62,10 @@ Nota pronta. Estrutura aplicada:
 
 - Os números financeiros (US$ 170M, US$ 480M, US$ 4B → US$ 400B em 1990–2014, 13,9%, 4,5–6%) e datas (1973 PE / 1976 VC / 2014 Brasil) **estão literalmente nos slides** e foram preservados como tal — atribuídos ao caso HBS 9-815-124 de Lerner (2015). Não fiz verificação independente contra o caso original nem contra os Annual Reports do Yale Investments Office.
 - O slide 16 saiu vazio na extração de texto e o slide 12 faz referência interna a uma "folha 26" — pode haver material complementar fora deste deck que eu não tenha visto.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/faca-um-resumo-detalhado-desse_e0aa1c61/mnt/user-data/outputs/PEVC3_Aula3_Yale_Endowment.md]] (10 KB)

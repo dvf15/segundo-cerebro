@@ -7,6 +7,7 @@ source_id: "2b0d7645-4a61-4b3e-81f4-8f44de33605a"
 url: "https://claude.ai/chat/2b0d7645-4a61-4b3e-81f4-8f44de33605a"
 project: null
 messages: 8
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Equivalência salarial entre PJ e CLT

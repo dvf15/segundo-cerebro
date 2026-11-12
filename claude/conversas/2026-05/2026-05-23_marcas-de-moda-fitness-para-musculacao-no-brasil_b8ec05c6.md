@@ -7,6 +7,7 @@ source_id: "b8ec05c6-ca9e-4513-925d-4eeb7a140856"
 url: "https://claude.ai/chat/b8ec05c6-ca9e-4513-925d-4eeb7a140856"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Marcas de moda fitness para musculação no Brasil
@@ -274,3 +275,10 @@ A planilha tem código de cores: verde = 4/4, amarelo = 3/4 com ressalva, vermel
 **Recomendação:** se o objetivo for prospecção real, sugiro flexibilizar o corte para "fundada ≥2015" — aí o pipeline triplica (Bulking, Alpha Co, Mith entram). Se mantiver ≥2018 estrito, o universo é basicamente Berzerk + 4 marcas menores.
 
 Confiança geral da pesquisa: **7/10**. Forte em dados de Instagram e CNPJ verificáveis; fraca onde precisaria base paga (faturamento, rodadas).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/marcas-de-moda-fitness-para-musculacao-no-brasil_b8ec05c6/home/claude/build_xlsx.py]] (19 KB)

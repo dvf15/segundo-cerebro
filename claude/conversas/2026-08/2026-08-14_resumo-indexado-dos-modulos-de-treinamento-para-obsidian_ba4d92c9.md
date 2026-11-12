@@ -7,6 +7,7 @@ source_id: "ba4d92c9-65fe-4f71-bab2-6344ef085eae"
 url: "https://claude.ai/chat/ba4d92c9-65fe-4f71-bab2-6344ef085eae"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo indexado dos módulos de treinamento para Obsidian
@@ -52,3 +53,10 @@ Três pontos que valem sua atenção antes de circular o material internamente:
 **3. Padrão que os dados sugerem e o material não nomeia:** comprometimento 3,7 (maior score) somado a desenvolvimento de pessoas 2,9 (menor) é a assinatura do quadrante **Herói** da própria matriz do M01 — muita ação, pouco desenvolvimento do outro. Marquei como inferência minha na nota, não como conclusão do consultor.
 
 **Confiança: 8/10** — 9–10 na transcrição do material e na checagem da Gallup; 6–7 nas leituras interpretativas que acrescentei (sinalizadas no texto).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-08/resumo-indexado-dos-modulos-de-treinamento-para-ob_ba4d92c9/mnt/user-data/outputs/Jornada-Accountability-Lideranca-Allos-M01-M02.md]] (30 KB)

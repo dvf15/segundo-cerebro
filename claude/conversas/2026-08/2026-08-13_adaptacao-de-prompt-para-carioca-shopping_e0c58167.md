@@ -7,6 +7,7 @@ source_id: "e0c58167-e648-4a79-ab86-eafbc81e29e2"
 url: "https://claude.ai/chat/e0c58167-e648-4a79-ab86-eafbc81e29e2"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Adaptação de prompt para Carioca shopping
@@ -57,3 +58,10 @@ This block is not supported on your current device yet.
 Os campos `[PREENCHER]` mais críticos são o inventário de espaços (m², capacidade, carga de piso, energia) e o baseline de fluxo — sem eles o agente vai gerar calendário plausível, mas com números inventados.
 
 **Confiança: 7/10.** Puxa para baixo: (a) não tenho o inventário real de praças do Carioca, então o comando ficou parametrizado em vez de específico como estava no Mooca; (b) a expansão do Taste Lab tinha início previsto para 2025 segundo material de jan/2025 — não confirmei se foi entregue, e isso muda a leitura da praça de alimentação; (c) o calendário exato da Festa da Penha 2026 no Rio não foi localizado, confirmei apenas que a celebração ocorre em outubro.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-08/adaptacao-de-prompt-para-carioca-shopping_e0c58167/mnt/user-data/outputs/entertainer-carioca-shopping-prompt.md]] (16 KB)

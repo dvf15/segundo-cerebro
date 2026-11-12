@@ -7,6 +7,7 @@ source_id: "e0eb0eb8-5a15-47f3-a15b-97a07b4c340a"
 url: "https://claude.ai/chat/e0eb0eb8-5a15-47f3-a15b-97a07b4c340a"
 project: null
 messages: 2
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -85,3 +86,11 @@ Prontos. Duas notas separadas, cada uma com o padrão Obsidian completo: frontma
 
 - Alta confiança em: estrutura Obsidian, formatação seguindo seu padrão, fidelidade às perguntas dos guias.
 - Confiança média em: o contexto histórico dos casos (não verifiquei fontes nesta sessão — está sinalizado nas notas).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_e0eb0eb8/home/claude/Caso Repsol YPF - Risco de Expropriacao.md]] (6 KB)
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_e0eb0eb8/home/claude/Caso Prosper SEC - Inovacao e Regulacao.md]] (8 KB)

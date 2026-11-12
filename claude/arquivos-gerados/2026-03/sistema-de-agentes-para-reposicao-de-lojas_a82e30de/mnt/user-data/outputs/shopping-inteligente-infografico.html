@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Inteligente — Infográfico Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#06070a;
+  --s1:#0e1018;
+  --s2:#141720;
+  --border:rgba(255,255,255,0.07);
+  --b2:rgba(255,255,255,0.12);
+  --text:#eee9e0;
+  --muted:#5c6478;
+  --muted2:#8b95a8;
+  --gold:#d4a843; --gold2:#f0cc72;
+  --teal:#22d9b5; --teal2:#6efade;
+  --violet:#a07df8; --violet2:#c8b0ff;
+  --sky:#3dbff5; --sky2:#8addff;
+  --amber:#f5a623; --amber2:#ffc96a;
+  --coral:#ff7a5c; --coral2:#ffaa90;
+  --mint:#52e89c; --mint2:#9affc8;
+  --rose:#f56060; --rose2:#ff9090;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.65;overflow-x:hidden}
+
+/* noise */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+/* ── COVER ── */
+.cover{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:60px 20px;position:relative;
+}
+.cover-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(212,168,67,0.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(212,168,67,0.05) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+}
+.cover-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:32px;
+}
+.cover-tag::before,.cover-tag::after{content:'';width:40px;height:1px;background:var(--gold);opacity:0.5}
+.cover h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(56px,12vw,120px);
+  letter-spacing:0.04em;line-height:0.95;
+  margin-bottom:8px;
+}
+.cover h1 span{
+  display:block;
+  background:linear-gradient(135deg,var(--gold2),var(--gold),var(--amber));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cover-sub{font-size:clamp(14px,2vw,18px);color:var(--muted2);max-width:600px;margin:24px auto 48px;line-height:1.7}
+.cover-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.cstat{text-align:center}
+.cstat .n{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1}
+.cstat p{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--muted),transparent)}
+
+/* ── SECTIONS ── */
+.section{padding:80px 0}
+.section-eyebrow{
+  font-size:10px;letter-spacing:0.3em;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.section-eyebrow::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,64px);letter-spacing:0.03em;line-height:1;margin-bottom:12px}
+.section-desc{color:var(--muted2);font-size:14px;max-width:640px;line-height:1.7;margin-bottom:48px}
+
+/* ── ARCH MEGA ── */
+.arch-wrap{position:relative}
+
+.orch-node{
+  background:linear-gradient(135deg,#1a1200,#1c1400,#0e0900);
+  border:1.5px solid var(--gold);
+  border-radius:20px;padding:28px 36px;text-align:center;
+  margin:0 auto 0;max-width:560px;
+  box-shadow:0 0 60px rgba(212,168,67,0.15),0 0 120px rgba(212,168,67,0.05);
+  position:relative;z-index:2;
+}
+.orch-badge{
+  display:inline-block;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;
+  background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);
+  color:var(--gold2);padding:4px 14px;border-radius:100px;margin-bottom:12px;
+}
+.orch-node h2{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.06em;color:var(--gold2);margin-bottom:6px}
+.orch-node p{font-size:12px;color:var(--muted2)}
+
+/* connector trunk */
+.trunk{
+  width:1.5px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);
+  margin:0 auto;opacity:0.5;
+}
+.branch-bar{
+  height:1.5px;background:linear-gradient(to right,transparent,var(--border),transparent);
+  margin-bottom:0;position:relative;
+}
+
+/* ── AGENTS ROW ── */
+.agents-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.agent-card{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:16px;padding:24px 20px;
+  position:relative;overflow:hidden;
+  transition:transform 0.2s,border-color 0.2s;
+}
+.agent-card:hover{transform:translateY(-3px)}
+.agent-card .ac-stripe{position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+.agent-card .ac-num{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:8px}
+.agent-card h3{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;margin-bottom:4px}
+.agent-card .ac-sub{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.agent-card p{font-size:12px;color:var(--muted2);line-height:1.6;margin-bottom:14px}
+.feat-tag{display:inline-block;font-size:10px;padding:3px 8px;border-radius:5px;border:1px solid;margin:2px;line-height:1.4}
+
+/* ── PLATFORMS ── */
+.platforms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px}
+.plat-card{background:var(--s1);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.plat-head{padding:20px 20px 16px;border-bottom:1px solid var(--border)}
+.plat-head .pl-badge{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 10px;border-radius:100px;border:1px solid;margin-bottom:10px;display:inline-block}
+.plat-head h3{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.05em;margin-bottom:4px}
+.plat-head p{font-size:11.5px;color:var(--muted2)}
+.plat-body{padding:16px 20px}
+.sol-list{list-style:none}
+.sol-list li{font-size:11.5px;color:var(--muted2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.sol-list li:last-child{border-bottom:none}
+.sol-list li .ico{flex-shrink:0;font-size:13px;width:18px}
+
+/* ── FILTERS SECTION ── */
+.filters-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.filter-block{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:22px}
+.filter-block h4{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.05em;margin-bottom:4px}
+.filter-block .fb-sub{font-size:11px;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em}
+.filter-item{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;padding:10px 12px;margin-bottom:8px;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.filter-item .fi-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.filter-item .fi-label{font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:2px}
+.filter-item .fi-val{font-size:11px;color:var(--muted2)}
+
+/* ── BASES ── */
+.bases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.base-item{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:18px}
+.base-item .bi-status{
+  display:inline-block;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;margin-bottom:10px;
+}
+.bi-exists{background:rgba(82,232,156,0.1);border:1px solid rgba(82,232,156,0.3);color:var(--mint)}
+.bi-partial{background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:var(--amber)}
+.bi-create{background:rgba(245,96,96,0.1);border:1px solid rgba(245,96,96,0.3);color:var(--rose)}
+.base-item h4{font-size:13px;font-weight:600;margin-bottom:5px}
+.base-item p{font-size:11px;color:var(--muted2);line-height:1.6}
+.base-item .bi-fields{margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.bi-tag{display:inline-block;font-size:9px;background:var(--s2);border:1px solid var(--border);padding:2px 7px;border-radius:4px;color:var(--muted2);margin:2px}
+
+/* ── JOURNEY ── */
+.journey{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:0;position:relative;
+}
+.journey::before{
+  content:'';position:absolute;top:36px;left:10%;right:10%;
+  height:2px;
+  background:linear-gradient(to right,var(--teal),var(--violet),var(--sky),var(--amber),var(--mint));
+  opacity:0.3;z-index:0;
+}
+.j-step{text-align:center;padding:0 8px;position:relative;z-index:1}
+.j-icon{
+  width:72px;height:72px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin:0 auto 14px;border:1px solid;
+}
+.j-step h4{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;margin-bottom:6px}
+.j-step p{font-size:11px;color:var(--muted2);line-height:1.5}
+
+/* ── BENCHMARK ── */
+.bench-wrap{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:32px}
+.bench-chart{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:flex-end;margin-top:24px;position:relative}
+.bench-col{text-align:center;display:flex;flex-direction:column;align-items:center}
+.bench-bar-outer{height:160px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:10px;position:relative;width:100%}
+.bench-bar-inner{width:52px;border-radius:6px 6px 0 0;position:relative;transition:height 0.5s}
+.bar-val{
+  position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.05em;white-space:nowrap;
+}
+.bench-col p{font-size:11px;color:var(--muted2);line-height:1.4}
+.bench-target{
+  position:absolute;top:0;left:0;right:0;
+  border-top:2px dashed rgba(212,168,67,0.5);
+}
+.bench-target span{
+  position:absolute;right:0;top:-18px;
+  font-size:10px;color:var(--gold);letter-spacing:0.1em;
+  font-family:'Bebas Neue',sans-serif;
+}
+
+/* ── IMPACT ── */
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.impact-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:center}
+.impact-card .big{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:0.02em;line-height:1;margin-bottom:6px}
+.impact-card p{font-size:11px;color:var(--muted2);line-height:1.5}
+
+/* ── REFS ── */
+.refs-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.ref-chip{
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:100px;padding:7px 16px;font-size:12px;color:var(--muted2);
+  display:flex;align-items:center;gap:6px;
+}
+.ref-chip strong{color:var(--text)}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);padding:32px 0;text-align:center;
+  color:var(--muted);font-size:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .agents-row,.platforms-grid,.bases-grid,.impact-grid{grid-template-columns:1fr}
+  .filters-grid{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr 1fr}
+  .bench-chart{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-tag">Arquitetura Completa 2025</div>
+  <h1>SHOPPING<span>INTELIGENTE</span></h1>
+  <p class="cover-sub">Sistema integrado de agentes de IA para acelerar a reposição de lojas, captar investidores, expandir marcas e alavancar o ecossistema completo do shopping.</p>
+  <div class="cover-stats">
+    <div class="cstat"><div class="n" style="color:var(--teal)">3</div><p>Agentes<br>Especialistas</p></div>
+    <div class="cstat"><div class="n" style="color:var(--violet)">3</div><p>Plataformas<br>de Suporte</p></div>
+    <div class="cstat"><div class="n" style="color:var(--gold)">7</div><p>Bases de<br>Dados</p></div>
+    <div class="cstat"><div class="n" style="color:var(--mint)">6</div><p>Formulários<br>de Input</p></div>
+  </div>
+  <div class="scroll-hint">Rolar para explorar</div>
+</section>
+
+<!-- ══ ARQUITETURA ══════════════════════════════════════════ -->
+<section class="section">
+<div class="wrap">
+  <div class="section-eyebrow" style="color:var(--gold)">Visão Geral</div>
+  <h2 class="section-title" style="color:var(--gold2)">ECOSSISTEMA DE AGENTES</h2>
+  <p class="section-desc">Um orquestrador central conecta todos os fluxos entre investidores, marcas, lojistas e as oportunidades do shopping — reduzindo o tempo de triagem e acelerando o fechamento de negócios.</p>
+
+  <!-- ORQUESTRADOR -->
+  <div class="orch-node">
+    <div class="orch-badge">Central de Inteligência</div>
+    <h2>AGENTE ORQUESTRADOR</h2>
+    <p>Roteia todos os fluxos, mantém contexto e histórico, enriquece perfis continuamente e faz o match inteligente entre investidores, marcas, pontos vagos e o planejamento do shopping.</p>
+  </div>
+
+  <div class="trunk"></div>
+  <div class="branch-bar"></div>
+
+  <!-- AGENTES ESPECIALISTAS -->
+  <div class="agents-row">
+
+    <div class="agent-card">
+      <div class="ac-stripe" style="background:var(--teal)"></div>
+      <div class="ac-num" style="color:var(--teal)">Agente 01</div>
+      <h3 style="color:var(--teal)">HUNTER</h3>
+      <div class="ac-sub">Prospecção ativa de inovação</div>
+      <p>Mapeia negócios e marcas num raio de 2–50km, identifica oportunidades de mix e entrega briefings priorizados para o EV.</p>
+      <div>
+        <span class="feat-tag" style="border-color:var(--teal);color:var(--teal)">2–50km de raio</span>
+        <span class="feat-tag" style="border-color:var(--teal);color:var(--teal)">Score de fit 0-100</span>
+        <span class="feat-tag" style="border-color:var(--teal);color:var(--teal)">Gap de mix</span>
+        <span class="feat-tag" style="border-color:var(--teal);color:var(--teal)">Mapa de rotas</span>
+        <span class="feat-tag" style="border-color:var(--teal);color:var(--teal)">Script de abordagem</span>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="ac-stripe" style="background:var(--violet)"></div>
+      <div class="ac-num" style="color:var(--violet)">Agente 02</div>
+      <h3 style="color:var(--violet)">FARMER</h3>
+      <div class="ac-sub">Captação de investidores locais</div>
+      <p>Modelo suitability (tipo XP Investimentos) para triagem de investidores — faz o match perfeito entre perfil financeiro e oportunidades do shopping.</p>
+      <div>
+        <span class="feat-tag" style="border-color:var(--violet);color:var(--violet)">Capital disponível</span>
+        <span class="feat-tag" style="border-color:var(--violet);color:var(--violet)">Disponibilidade</span>
+        <span class="feat-tag" style="border-color:var(--violet);color:var(--violet)">Experiência</span>
+        <span class="feat-tag" style="border-color:var(--violet);color:var(--violet)">Tolerância a risco</span>
+        <span class="feat-tag" style="border-color:var(--violet);color:var(--violet)">Payback esperado</span>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="ac-stripe" style="background:var(--sky)"></div>
+      <div class="ac-num" style="color:var(--sky)">Agente 03</div>
+      <h3 style="color:var(--sky)">KA / EXPANSÃO</h3>
+      <div class="ac-sub">Curadoria de marcas nacionais</div>
+      <p>Organiza marcas e franquias em expansão com interesse na praça e faz o match automático com investidores qualificados do Farmer.</p>
+      <div>
+        <span class="feat-tag" style="border-color:var(--sky);color:var(--sky)">Requisitos técnicos</span>
+        <span class="feat-tag" style="border-color:var(--sky);color:var(--sky)">Praças de interesse</span>
+        <span class="feat-tag" style="border-color:var(--sky);color:var(--sky)">Perfil do parceiro</span>
+        <span class="feat-tag" style="border-color:var(--sky);color:var(--sky)">Match Farmer ↔ KA</span>
+        <span class="feat-tag" style="border-color:var(--sky);color:var(--sky)">Vitrine Digital</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PLATAFORMAS -->
+  <div style="margin-top:48px">
+    <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px">Plataformas de suporte ao lojista <span style="flex:1;height:1px;background:var(--border);display:block"></span></div>
+    <div class="platforms-grid">
+
+      <div class="plat-card">
+        <div class="plat-head">
+          <div class="pl-badge" style="color:var(--amber);border-color:rgba(245,166,35,0.3)">Plataforma A</div>
+          <h3 style="color:var(--amber)">ALAVANCADOR</h3>
+          <p>Soluções financeiras para abertura e operação do ponto de venda</p>
+        </div>
+        <div class="plat-body">
+          <ul class="sol-list">
+            <li><span class="ico">🏦</span>Financiamento de obra + capital de giro</li>
+            <li><span class="ico">🛡</span>Seguros: obra, operação, terceiros, vida</li>
+            <li><span class="ico">❤️</span>Plano de saúde coletivo para equipe</li>
+            <li><span class="ico">🍽</span>Vale alimentação / refeição</li>
+            <li><span class="ico">💳</span>Pagamentos online e offline (maquininha, PIX, gateway)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-head">
+          <div class="pl-badge" style="color:var(--coral);border-color:rgba(255,122,92,0.3)">Plataforma B</div>
+          <h3 style="color:var(--coral)">BUILDER</h3>
+          <p>Do projeto arquitetônico à contratação do primeiro funcionário</p>
+        </div>
+        <div class="plat-body">
+          <ul class="sol-list">
+            <li><span class="ico">📐</span>Arquitetura, engenharia e aprovação de obra</li>
+            <li><span class="ico">🪵</span>Materiais, acabamentos e mobiliário</li>
+            <li><span class="ico">💻</span>Tecnologia: PDV, ERP, CFTV, Wi-Fi</li>
+            <li><span class="ico">📱</span>Site, redes sociais e e-commerce</li>
+            <li><span class="ico">👥</span>RH, folha, sindicato e suporte jurídico</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plat-card">
+        <div class="plat-head">
+          <div class="pl-badge" style="color:var(--mint);border-color:rgba(82,232,156,0.3)">Plataforma C</div>
+          <h3 style="color:var(--mint)">SELLER</h3>
+          <p>Amplificação de vendas, mídia, eventos e expansão de espaços</p>
+        </div>
+        <div class="plat-body">
+          <ul class="sol-list">
+            <li><span class="ico">📺</span>Mídia no mall, app, telas icônicas e Helloo</li>
+            <li><span class="ico">🎁</span>Programa de relacionamento e cashback</li>
+            <li><span class="ico">🎪</span>Patrocínio: Mães, Namorados, BF, Natal</li>
+            <li><span class="ico">🐾</span>Pet Park, Taste Lab, Parquinho, Eletroposto</li>
+            <li><span class="ico">🚕</span>Valet, Praça de Eventos, Área Esportiva</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ JORNADA ══════════════════════════════════════════ -->
+<section class="section" style="background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="wrap">
+  <div class="section-eyebrow" style="color:var(--violet)">Fluxo de Valor</div>
+  <h2 class="section-title">JORNADA END-TO-END</h2>
+  <p class="section-desc">Do primeiro interesse até a loja vendendo mais — sem atrito, sem triagem manual, sem alimentar a concorrência.</p>
+
+  <div class="journey">
+    <div class="j-step">
+      <div class="j-icon" style="background:rgba(34,217,181,0.08);border-color:rgba(34,217,181,0.3);color:var(--teal)">🔍</div>
+      <h4 style="color:var(--teal)">DESCOBERTA</h4>
+      <p>Hunter mapeia negócios locais. Farmer atrai investidores. KA organiza marcas em expansão.</p>
+    </div>
+    <div class="j-step">
+      <div class="j-icon" style="background:rgba(160,125,248,0.08);border-color:rgba(160,125,248,0.3);color:var(--violet)">🎯</div>
+      <h4 style="color:var(--violet)">TRIAGEM</h4>
+      <p>Orquestrador qualifica e pontua leads. EV recebe apenas oportunidades pré-filtradas.</p>
+    </div>
+    <div class="j-step">
+      <div class="j-icon" style="background:rgba(61,191,245,0.08);border-color:rgba(61,191,245,0.3);color:var(--sky)">🤝</div>
+      <h4 style="color:var(--sky)">MATCH</h4>
+      <p>KA conecta investidor ↔ marca ↔ ponto físico disponível com máxima compatibilidade.</p>
+    </div>
+    <div class="j-step">
+      <div class="j-icon" style="background:rgba(245,166,35,0.08);border-color:rgba(245,166,35,0.3);color:var(--amber)">🏗</div>
+      <h4 style="color:var(--amber)">ABERTURA</h4>
+      <p>Alavancador financia. Builder entrega obra e operação. Sem burocracia, sem fiador manual.</p>
+    </div>
+    <div class="j-step">
+      <div class="j-icon" style="background:rgba(82,232,156,0.08);border-color:rgba(82,232,156,0.3);color:var(--mint)">📈</div>
+      <h4 style="color:var(--mint)">CRESCIMENTO</h4>
+      <p>Seller amplifica vendas via mídia, eventos e benefícios. Lojista se torna âncora do ecossistema.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ FILTROS ══════════════════════════════════════════ -->
+<section class="section">
+<div class="wrap">
+  <div class="section-eyebrow" style="color:var(--teal)">Motor de Inteligência</div>
+  <h2 class="section-title">FILTROS DOS AGENTES</h2>
+  <p class="section-desc">Cada agente opera sobre dimensões de dados específicas para gerar o match ideal. Esses são os critérios de qualificação de cada um.</p>
+
+  <div class="filters-grid">
+
+    <div class="filter-block">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);border-radius:14px 14px 0 0"></div>
+      <div style="position:relative">
+      <h4 style="color:var(--teal)">AGENTE HUNTER</h4>
+      <div class="fb-sub">Prospecção ativa — raio 2–50km</div>
+      <div class="filter-item"><div class="fi-icon">📍</div><div><div class="fi-label">Raio geográfico</div><div class="fi-val">2km (min) a 50km (max), configurável por EV</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🏷</div><div><div class="fi-label">Categoria de varejo</div><div class="fi-val">Moda / Food / Serviços / Saúde-Beleza / Tech / Pet / Esporte / Casa</div></div></div>
+      <div class="filter-item"><div class="fi-icon">📊</div><div><div class="fi-label">Presença no shopping</div><div class="fi-val">Ausente / Com gap de qualidade / Concorrente direto</div></div></div>
+      <div class="filter-item"><div class="fi-icon">⭐</div><div><div class="fi-label">Maturidade do negócio</div><div class="fi-val">Tempo de abertura + avaliações no Google + presença digital</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🗺</div><div><div class="fi-label">Alinhamento ao Plano de Mix</div><div class="fi-val">Score de fit calculado vs. necessidades declaradas pelo shopping</div></div></div>
+      </div>
+    </div>
+
+    <div class="filter-block" style="position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--violet);border-radius:14px 14px 0 0"></div>
+      <h4 style="color:var(--violet)">AGENTE FARMER</h4>
+      <div class="fb-sub">Triagem de investidores — modelo suitability</div>
+      <div class="filter-item"><div class="fi-icon">💰</div><div><div class="fi-label">Capital inicial</div><div class="fi-val">Faixas: até 50k / 50-100k / 100-200k / 200-500k / 500k+</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🕐</div><div><div class="fi-label">Disponibilidade de tempo</div><div class="fi-val">Integral (40h+) / Parcial (20h) / Sócio passivo (só capital)</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🧠</div><div><div class="fi-label">Experiência prévia</div><div class="fi-val">Nenhuma / Funcionário / Gerente / Dono de loja / Franqueado</div></div></div>
+      <div class="filter-item"><div class="fi-icon">📉</div><div><div class="fi-label">Tolerância a risco</div><div class="fi-val">Conservador / Moderado / Arrojado + payback esperado</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🎯</div><div><div class="fi-label">Categoria de interesse</div><div class="fi-val">Multi-seleção + tamanho preferido do ponto</div></div></div>
+    </div>
+
+    <div class="filter-block" style="position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sky);border-radius:14px 14px 0 0"></div>
+      <h4 style="color:var(--sky)">AGENTE KA / EXPANSÃO</h4>
+      <div class="fb-sub">Curadoria de marcas e match com Farmer</div>
+      <div class="filter-item"><div class="fi-icon">🏙</div><div><div class="fi-label">Praças de interesse</div><div class="fi-val">Estado / cidade / interesse confirmado nesta praça específica</div></div></div>
+      <div class="filter-item"><div class="fi-icon">📐</div><div><div class="fi-label">Requisitos técnicos</div><div class="fi-val">m² min/max, pé-direito, vitrine (ml), energia (kVA), água, esgoto, docas</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🤝</div><div><div class="fi-label">Perfil do parceiro</div><div class="fi-val">Operador ativo / Sócio parcial / Apenas capital (passivo)</div></div></div>
+      <div class="filter-item"><div class="fi-icon">💵</div><div><div class="fi-label">Investimento exigido</div><div class="fi-val">Capital inicial + royalties + taxa de publicidade</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🏪</div><div><div class="fi-label">Vizinhança e posicionamento</div><div class="fi-val">Âncoras de referência + categorias a evitar</div></div></div>
+    </div>
+
+    <div class="filter-block" style="position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);border-radius:14px 14px 0 0"></div>
+      <h4 style="color:var(--gold)">VITRINE DIGITAL DE PONTOS</h4>
+      <div class="fb-sub">Ficha técnica automatizada do ponto vago</div>
+      <div class="filter-item"><div class="fi-icon">📏</div><div><div class="fi-label">Dimensões</div><div class="fi-val">m² total / vendas / depósito + metros lineares de vitrine + pé-direito</div></div></div>
+      <div class="filter-item"><div class="fi-icon">⚡</div><div><div class="fi-label">Infraestrutura técnica</div><div class="fi-val">Energia (kVA) / água / esgoto / docas / ar-condicionado / sprinkler</div></div></div>
+      <div class="filter-item"><div class="fi-icon">📍</div><div><div class="fi-label">Localização interna</div><div class="fi-val">Piso / corredor / fluxo / âncora mais próxima / vizinhança</div></div></div>
+      <div class="filter-item"><div class="fi-icon">💰</div><div><div class="fi-label">Condições comerciais</div><div class="fi-val">Preço m² + luvas + carência ← integração Sistema Bahia</div></div></div>
+      <div class="filter-item"><div class="fi-icon">🖼</div><div><div class="fi-label">Mídia do ponto</div><div class="fi-val">Fotos (mín. 5) + planta baixa + tour 360°</div></div></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══ BASES ══════════════════════════════════════════ -->
+<section class="section" style="background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="wrap">
+  <div class="section-eyebrow" style="color:var(--amber)">Infraestrutura de Dados</div>
+  <h2 class="section-title">BASES DE DADOS</h2>
+  <p class="section-desc">O que já existe, o que precisa ser contratado e o que precisamos construir do zero. As 6 planilhas de formulário entregues cobrem tudo que precisa ser criado.</p>
+
+  <div class="bases-grid">
+    <div class="base-item"><div class="bi-status bi-exists">✅ Existe — API</div><h4>CNPJ / Receita Federal</h4><p>Dados cadastrais, CNAE, endereço, sócios e situação fiscal. Base do Hunter para mapear negócios na região.</p><div class="bi-fields"><span class="bi-tag">cnae</span><span class="bi-tag">endereco</span><span class="bi-tag">capital_social</span><span class="bi-tag">data_abertura</span></div></div>
+    <div class="base-item"><div class="bi-status bi-exists">✅ Existe — API</div><h4>Google Maps / Places API</h4><p>Geolocalização, raio de busca, avaliações e fotos de estabelecimentos. Base principal de mapeamento do Hunter.</p><div class="bi-fields"><span class="bi-tag">place_id</span><span class="bi-tag">lat_lng</span><span class="bi-tag">rating</span><span class="bi-tag">horarios</span></div></div>
+    <div class="base-item"><div class="bi-status bi-exists">✅ Existe — Interno</div><h4>Sistema Bahia</h4><p>Preços, luvas e condições comerciais dos pontos. Precisar expor via API interna para os agentes consultarem em tempo real.</p><div class="bi-fields"><span class="bi-tag">preco_m2</span><span class="bi-tag">luvas</span><span class="bi-tag">carencia</span><span class="bi-tag">condicoes</span></div></div>
+    <div class="base-item"><div class="bi-status bi-partial">⚠️ Parcial — Contratar</div><h4>SERASA Experian</h4><p>Score de crédito PF/PJ, histórico de inadimplência. Requer contrato B2B para triagem financeira do Farmer.</p><div class="bi-fields"><span class="bi-tag">score_credito</span><span class="bi-tag">pendencias</span><span class="bi-tag">limite_estimado</span></div></div>
+    <div class="base-item"><div class="bi-status bi-partial">⚠️ Parcial — Enriquecer</div><h4>ABF Franchising</h4><p>Redes em expansão no Brasil. Complementa o CRM de Marcas do KA. Curadoria manual periódica necessária.</p><div class="bi-fields"><span class="bi-tag">rede</span><span class="bi-tag">num_unidades</span><span class="bi-tag">investimento</span><span class="bi-tag">estados</span></div></div>
+    <div class="base-item"><div class="bi-status bi-partial">⚠️ Parcial — Enriquecer</div><h4>Dados de Fluxo Interno</h4><p>Fluxo por piso, ticket médio por categoria e perfil do consumidor. Essencial para calibrar Hunter e Seller.</p><div class="bi-fields"><span class="bi-tag">fluxo_piso</span><span class="bi-tag">ticket_medio</span><span class="bi-tag">perfil_consumidor</span></div></div>
+    <div class="base-item"><div class="bi-status bi-create">🔴 Criar — Form 01</div><h4>Banco de Pontos Vagos</h4><p>Ficha técnica completa: dimensões, infraestrutura, vizinhança, fotos, planta e condições comerciais de cada ponto.</p><div class="bi-fields"><span class="bi-tag">m2</span><span class="bi-tag">energia_kva</span><span class="bi-tag">vitrine_ml</span><span class="bi-tag">status</span><span class="bi-tag">fotos</span></div></div>
+    <div class="base-item"><div class="bi-status bi-create">🔴 Criar — Form 02</div><h4>CRM de Investidores</h4><p>Perfil suitability completo: capital, experiência, disponibilidade, expectativas e score automático de qualificação.</p><div class="bi-fields"><span class="bi-tag">capital_inicial</span><span class="bi-tag">experiencia</span><span class="bi-tag">score_fit</span><span class="bi-tag">status_lead</span></div></div>
+    <div class="base-item"><div class="bi-status bi-create">🔴 Criar — Form 03</div><h4>CRM de Marcas e Franquias</h4><p>Marcas em expansão com requisitos técnicos, perfil de parceiro e praças de interesse para match com KA.</p><div class="bi-fields"><span class="bi-tag">m2_min_max</span><span class="bi-tag">pracas</span><span class="bi-tag">investimento</span><span class="bi-tag">parceiro</span></div></div>
+    <div class="base-item"><div class="bi-status bi-create">🔴 Criar — Form 04</div><h4>Plano de Mix do Shopping</h4><p>Necessidades estratégicas por ponto: categorias desejadas, excluídas, marcas-alvo e prioridades de preenchimento.</p><div class="bi-fields"><span class="bi-tag">categoria_alvo</span><span class="bi-tag">prioridade</span><span class="bi-tag">marcas_alvo</span><span class="bi-tag">inovacoes</span></div></div>
+    <div class="base-item"><div class="bi-status bi-create">🔴 Criar — Form 05</div><h4>Base de Fornecedores</h4><p>Diretório homologado: arquitetos, empreiteiras, tech, RH e jurídico especializados em shoppings.</p><div class="bi-fields"><span class="bi-tag">categoria</span><span class="bi-tag">especialidade</span><span class="bi-tag">avaliacao</span><span class="bi-tag">homologado</span></div></div>
+    <div class="base-item"><div class="bi-status bi-create">🔴 Criar — Form 07</div><h4>Produtos Financeiros</h4><p>Catálogo de soluções do Alavancador: crédito, seguros, benefícios e pagamentos com condições e elegibilidade.</p><div class="bi-fields"><span class="bi-tag">tipo</span><span class="bi-tag">taxa</span><span class="bi-tag">elegibilidade</span><span class="bi-tag">link_contratacao</span></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ BENCHMARK ══════════════════════════════════════════ -->
+<section class="section">
+<div class="wrap">
+  <div class="section-eyebrow" style="color:var(--rose)">Contexto de Mercado</div>
+  <h2 class="section-title">A OPORTUNIDADE É ENORME</h2>
+  <p class="section-desc">O Brasil tem o menor market share de shoppings no varejo total entre os países comparáveis. Se resolvermos os problemas de processo, a ameaça do e-commerce é do mesmo tamanho da oportunidade que ainda não está em shoppings.</p>
+
+  <div class="bench-wrap">
+    <div style="font-size:12px;color:var(--muted2)">Participação de shoppings no varejo total — comparativo internacional</div>
+    <div class="bench-chart">
+      <div style="position:relative;width:1.5px;height:160px;grid-column:1;grid-row:1">
+        <div class="bench-target" style="top:calc(100% - 42%)"><span>META BR 25–30%</span></div>
+      </div>
+
+      <div class="bench-col" style="grid-column:1">
+        <div class="bench-bar-outer">
+          <div class="bench-bar-inner" style="height:53%;background:linear-gradient(to top,var(--teal),var(--teal2));"><div class="bar-val" style="color:var(--teal)">53%</div></div>
+        </div>
+        <p><strong>México</strong></p>
+      </div>
+      <div class="bench-col">
+        <div class="bench-bar-outer">
+          <div class="bench-bar-inner" style="height:51%;background:linear-gradient(to top,var(--violet),var(--violet2))"><div class="bar-val" style="color:var(--violet)">51%</div></div>
+        </div>
+        <p><strong>Austrália</strong></p>
+      </div>
+      <div class="bench-col">
+        <div class="bench-bar-outer">
+          <div class="bench-bar-inner" style="height:35%;background:linear-gradient(to top,var(--sky),var(--sky2))"><div class="bar-val" style="color:var(--sky)">35%</div></div>
+        </div>
+        <p><strong>EUA</strong></p>
+      </div>
+      <div class="bench-col">
+        <div class="bench-bar-outer">
+          <div class="bench-bar-inner" style="height:28%;background:linear-gradient(to top,var(--gold),var(--gold2))"><div class="bar-val" style="color:var(--gold)">~28%</div></div>
+        </div>
+        <p style="color:var(--gold)"><strong>Brasil</strong><br>(atual)</p>
+      </div>
+      <div class="bench-col">
+        <div class="bench-bar-outer">
+          <div class="bench-bar-inner" style="height:27.5%;background:linear-gradient(to top,var(--rose),var(--rose2));opacity:0.6"><div class="bar-val" style="color:var(--rose)">27.5%</div></div>
+        </div>
+        <p><strong>E-comm EUA</strong><br>pós-pandemia 2023</p>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--muted2);max-width:640px">
+      💡 <strong style="color:var(--text)">Insight chave:</strong> O e-commerce líder mundial (EUA) opera a 27,5%. Ou seja, mesmo no pior cenário digital, a oportunidade offline é maior do que a ameaça online — se resolvermos os problemas de processo.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ IMPACTO ══════════════════════════════════════════ -->
+<section class="section" style="background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="wrap">
+  <div class="section-eyebrow" style="color:var(--mint)">Resultados Esperados</div>
+  <h2 class="section-title">IMPACTOS DO SISTEMA</h2>
+  <div class="impact-grid">
+    <div class="impact-card"><div class="big" style="color:var(--teal)">–70%</div><p>Tempo do EV em triagem manual de investidores e intermediação operacional</p></div>
+    <div class="impact-card"><div class="big" style="color:var(--violet)">0</div><p>Atrito no primeiro contato para abrir uma loja no shopping</p></div>
+    <div class="impact-card"><div class="big" style="color:var(--sky)">+3×</div><p>Capacidade de prospecção ativa (hunting) do executivo de vendas</p></div>
+    <div class="impact-card"><div class="big" style="color:var(--gold2)">≥25%</div><p>Market share sobre demanda qualificada — meta de médio prazo</p></div>
+  </div>
+
+  <div class="refs-row">
+    <div class="ref-chip">🏠 <strong>Quinto Andar</strong> — onboarding sem fiador</div>
+    <div class="ref-chip">🏪 <strong>Appearhere</strong> — marketplace de espaços de varejo</div>
+    <div class="ref-chip">🎪 <strong>Wearepopup</strong> — pop-up commerce digital</div>
+    <div class="ref-chip">💼 <strong>XP Investimentos</strong> — modelo suitability</div>
+    <div class="ref-chip">🔧 <strong>Sistema Bahia</strong> — precificação integrada</div>
+    <div class="ref-chip">🏦 <strong>ABF</strong> — franchising Brasil</div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong>Shopping Inteligente</strong> — Sistema Multi-Agente de Aceleração Comercial &nbsp;·&nbsp; Documento estratégico para discussão interna
+  </div>
+</footer>
+
+</body>
+</html>

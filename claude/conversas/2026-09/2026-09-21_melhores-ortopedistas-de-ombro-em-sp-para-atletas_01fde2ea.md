@@ -7,6 +7,7 @@ source_id: "01fde2ea-ade1-4b08-b7a7-be2e3d57f61a"
 url: "https://claude.ai/chat/01fde2ea-ade1-4b08-b7a7-be2e3d57f61a"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Melhores ortopedistas de ombro em SP para atletas

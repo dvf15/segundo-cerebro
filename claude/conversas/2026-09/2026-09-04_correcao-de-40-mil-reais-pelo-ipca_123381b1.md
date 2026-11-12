@@ -7,6 +7,7 @@ source_id: "123381b1-871f-4a28-b782-33e6ee503937"
 url: "https://claude.ai/chat/123381b1-871f-4a28-b782-33e6ee503937"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Correção de 40 mil reais pelo IPCA

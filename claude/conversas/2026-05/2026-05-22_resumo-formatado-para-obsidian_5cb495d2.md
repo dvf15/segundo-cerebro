@@ -7,6 +7,7 @@ source_id: "5cb495d2-e419-463c-8e9c-f1ff860bc628"
 url: "https://claude.ai/chat/5cb495d2-e419-463c-8e9c-f1ff860bc628"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -50,3 +51,10 @@ Pontos que vale destacar do material:
 - **Slides 19–20 têm placeholders ("X")** nos blocos Key Activities e Customer Relationship — o Zenios provavelmente preenche isso ao vivo. Sinalizei isso na nota de confiabilidade.
 
 **Confiança: 9/10** — detalhei o motivo no final do arquivo (placeholders nos slides + não validei externamente cada fato histórico citado pelo Zenios).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_5cb495d2/mnt/user-data/outputs/Innovations_for_a_Sustainable_Future_Zenios.md]] (11 KB)

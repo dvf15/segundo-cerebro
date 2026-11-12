@@ -7,6 +7,7 @@ source_id: "a0823132-69cb-480e-bfb4-4c5fda5b08f6"
 url: "https://claude.ai/chat/a0823132-69cb-480e-bfb4-4c5fda5b08f6"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -43,3 +44,10 @@ Arquivo pronto. Estruturei a aula em 12 seções principais seguindo a ordem dos
 - Os links externos (NVCA, LAVCA, ABVCAP, Endeavor) foram preservados — vale conferir se ainda estão ativos antes de usar (não validei)
 
 **Confiança: 9/10** — fiel ao PDF, sem invenção de conteúdo. -1 porque a hierarquia de callouts e wikilinks é decisão editorial minha sobre material que veio em bullets esquemáticos.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_a0823132/mnt/user-data/outputs/Aula-10-Desafios-do-modelo-de-VC.md]] (12 KB)

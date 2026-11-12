@@ -7,6 +7,7 @@ source_id: "d09f81b6-cd39-4e09-8f10-054269c2461a"
 url: "https://claude.ai/chat/d09f81b6-cd39-4e09-8f10-054269c2461a"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -64,3 +65,10 @@ Resumo pronto, com o padrão completo de Obsidian que você usa: frontmatter YAM
 7. **Bibliografia** do capítulo (em callout colapsável)
 
 **Confidence: 9/10** — conteúdo baseado integralmente no PDF fornecido. A única ressalva é que todo resumo envolve seleção: priorizei a tese e os pilares centrais, condensando o debate secundário sobre generalismo de conhecimento (patentes/hedge). Se quiser que eu expanda algum sub-tópico (ex.: o caso eBay/TaoBao em mais detalhe, ou a discussão Porter/forças), me avisa.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_d09f81b6/home/claude/Building_Advantage_Barnett.md]] (13 KB)

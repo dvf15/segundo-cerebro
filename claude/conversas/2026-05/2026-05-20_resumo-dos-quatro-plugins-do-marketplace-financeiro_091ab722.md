@@ -7,6 +7,7 @@ source_id: "091ab722-dfac-4f29-9829-2c9843a017b6"
 url: "https://claude.ai/chat/091ab722-dfac-4f29-9829-2c9843a017b6"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo dos quatro plugins do marketplace financeiro
@@ -584,3 +585,10 @@ O material que você compartilhou é de um criador de conteúdo, não documenta�
 
 **Confiança: 8/10**
 Tirei 2 pontos porque não validei externamente se os comandos listados (`/earnings-analysis`, `/dcf`, `/thesis-tracker` etc.) existem exatamente assim no marketplace atual. A estrutura Obsidian em si está sólida.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-dos-quatro-plugins-do-marketplace-financeir_091ab722/mnt/user-data/outputs/Plugins Financeiros Claude - 4 Essenciais para Investidores.md]] (9 KB)

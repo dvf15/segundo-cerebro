@@ -7,6 +7,7 @@ source_id: "fcd06186-1551-428b-946c-5f3c51e461fc"
 url: "https://claude.ai/chat/fcd06186-1551-428b-946c-5f3c51e461fc"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -63,3 +64,10 @@ Pronto. A nota cobre as 28 telas do material com:
 4. Não fiz web search para verificar datas/números — tudo veio do PDF.
 
 **Confiança: 7/10** — flagged conforme sua Rule 2. A nota acima de 7 seria possível se eu tivesse cruzado os números com fontes primárias (FT, NYT, relatórios Repsol). Se quiser, posso fazer essa verificação em uma segunda passada.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_fcd06186/home/claude/work/Risco-Politico-Repsol-Argentina.md]] (14 KB)

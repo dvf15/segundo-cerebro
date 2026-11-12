@@ -7,6 +7,7 @@ source_id: "c25b6de4-81b5-4280-9cac-287b5ec836a7"
 url: "https://claude.ai/chat/c25b6de4-81b5-4280-9cac-287b5ec836a7"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -65,3 +66,10 @@ Resumo pronto, formatado para Obsidian.
 
 > [!success] Rating de confiança: **8/10**
 > Conteúdo textual integralmente extraído do .pptx. Lacuna nos slides 26-30 sinalizada explicitamente. Cálculos transcritos conforme apresentados nos slides — não recalculei independentemente cada potência composta.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_c25b6de4/home/claude/PEVC_Aula2_Estruturacao_Governanca.md]] (14 KB)

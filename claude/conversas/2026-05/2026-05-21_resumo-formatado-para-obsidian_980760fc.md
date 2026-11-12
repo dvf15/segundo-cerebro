@@ -7,6 +7,7 @@ source_id: "980760fc-d470-4d84-9055-33fb4e19646b"
 url: "https://claude.ai/chat/980760fc-d470-4d84-9055-33fb4e19646b"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -54,3 +55,10 @@ Estrutura do resumo:
 6. Matriz comparativa, atores-chave e ações de estudo
 
 **Confiança: 9/10** — texto fiel ao PDF nos números e citações; o -1 é só pela matriz comparativa final, que é síntese minha para fins de estudo (não está literal no caso).
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_980760fc/mnt/user-data/outputs/Repsol-YPF-B-Considering-Options.md]] (9 KB)

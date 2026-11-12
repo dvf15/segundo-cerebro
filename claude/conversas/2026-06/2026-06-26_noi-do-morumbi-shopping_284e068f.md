@@ -7,6 +7,7 @@ source_id: "284e068f-a9c2-4847-8328-6c927dd47bb3"
 url: "https://claude.ai/chat/284e068f-a9c2-4847-8328-6c927dd47bb3"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # NOI do Morumbi Shopping

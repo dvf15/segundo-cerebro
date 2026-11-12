@@ -7,6 +7,7 @@ source_id: "9da9174d-3e3f-4ba1-9988-af2657f83088"
 url: "https://claude.ai/chat/9da9174d-3e3f-4ba1-9988-af2657f83088"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Valor de 14 mil reais em 2005 corrigido pela inflação

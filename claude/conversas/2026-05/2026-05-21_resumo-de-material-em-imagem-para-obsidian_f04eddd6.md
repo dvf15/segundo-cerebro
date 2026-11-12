@@ -7,6 +7,7 @@ source_id: "f04eddd6-97b0-4270-83da-0cf3eadfe269"
 url: "https://claude.ai/chat/f04eddd6-97b0-4270-83da-0cf3eadfe269"
 project: null
 messages: 4
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de material em imagem para Obsidian
@@ -456,3 +457,10 @@ Três pontos que merecem sua atenção:
 - 📎 page-094.jpg
 - 📎 page-096.jpg
 - 📎 page-095.jpg
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-material-em-imagem-para-obsidian_f04eddd6/home/claude/Corporate-Venturing-Brasil-Anprotec-Sebrae.md]] (21 KB)

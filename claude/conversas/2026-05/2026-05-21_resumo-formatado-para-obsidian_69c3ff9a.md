@@ -7,6 +7,7 @@ source_id: "69c3ff9a-4307-40c1-9380-98d654ac4368"
 url: "https://claude.ai/chat/69c3ff9a-4307-40c1-9380-98d654ac4368"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -82,3 +83,10 @@ Arquivo pronto. Estrutura entregue:
 **Confiança: 8/10**
 
 Todos os dados vêm exclusivamente do PDF que você enviou. Sinalizei na nota de confiança um ponto que me incomodou: o caso diz "US$ 200 milhões" para desenvolver Vaca Muerta — valor baixo demais para o porte do campo, provavelmente typo no original (deveria ser bilhões). Mantive como está no documento mas deixei o alerta.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_69c3ff9a/mnt/user-data/outputs/Repsol-YPF-C-Recuperando-Valor.md]] (9 KB)

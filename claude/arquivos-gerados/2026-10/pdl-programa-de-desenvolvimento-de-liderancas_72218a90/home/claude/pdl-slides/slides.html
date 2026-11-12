@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PDL — Programa de Desenvolvimento das Lideranças</title>
+<style>
+@page { size: 1280px 720px; margin: 0; }
+:root{
+  --ink:#16213A; --ink2:#2C3A5A; --muted:#667085; --line:#D9DDE5;
+  --bg:#FAF8F4; --card:#FFFFFF; --acc:#D9692B; --acc-t:#FBE9DD;
+  --blue-t:#E6EBF4; --green:#2F7D6B; --green-t:#E2F0EC; --red:#B4433A; --red-t:#F6E3E1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#ccc}
+body{font-family:"Inter",sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slide{width:1280px;height:720px;background:var(--bg);position:relative;overflow:hidden;page-break-after:always;padding:56px 72px 60px}
+.slide:last-child{page-break-after:auto}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:600;margin-bottom:10px}
+h1{font-family:"Inter Display","Inter";font-size:40px;line-height:1.12;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+h2{font-size:20px;font-weight:600;margin-bottom:6px}
+.lead{font-size:18px;color:var(--ink2);line-height:1.45;max-width:1000px}
+p,li{font-size:16px;line-height:1.45}
+.muted{color:var(--muted)}
+.foot{position:absolute;left:72px;right:72px;bottom:22px;display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.card p,.card li{font-size:14.5px;color:var(--ink2)}
+.card ul{padding-left:18px}
+.num{font-family:"Inter Display";font-size:34px;font-weight:700;color:var(--acc);line-height:1;margin-bottom:8px}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--blue-t);color:var(--ink2);margin-bottom:8px}
+.callout{background:var(--acc-t);border-left:4px solid var(--acc);border-radius:8px;padding:14px 18px;font-size:16px;line-height:1.45}
+.callout b{color:#9B4316}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;font-size:14px;line-height:1.38;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:transparent}
+td:first-child{font-weight:600}
+.m2{display:grid;grid-template-columns:28px 1fr 1fr;grid-template-rows:1fr 1fr 28px;gap:8px}
+.m2 .cell{border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.38}
+.m2 .cell b{display:block;font-size:16px;margin-bottom:4px}
+.m2 .ylab{grid-row:1/3;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.m2 .xlab{grid-column:2/4;text-align:center;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.c-ideal{background:var(--green-t);border:1.5px solid var(--green)}
+.c-bad{background:var(--red-t)}
+.c-mid{background:var(--blue-t)}
+.c-warn{background:#F3EEE3}
+.pill-ideal{font-size:11px;font-weight:700;color:var(--green);letter-spacing:.08em;text-transform:uppercase}
+/* cover */
+.cover{background:var(--ink);color:#fff;padding:0}
+.cover .inner{position:absolute;left:96px;top:150px;right:96px}
+.cover .k{color:#F2A26F;font-size:15px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:22px}
+.cover h1{font-size:64px;color:#fff;line-height:1.05;margin-bottom:22px}
+.cover .sub{font-size:21px;color:#C9D1E3;line-height:1.5;max-width:820px}
+.cover .meta{position:absolute;left:96px;bottom:56px;font-size:14px;color:#9AA6C2}
+.cover .arc{position:absolute;right:-180px;top:-120px;width:620px;height:620px;border-radius:50%;border:56px solid rgba(217,105,43,.9)}
+.cover .arc2{position:absolute;right:-60px;top:330px;width:330px;height:330px;border-radius:50%;border:2px solid rgba(255,255,255,.18)}
+.section{background:var(--ink);color:#fff}
+.section .foot{color:#9AA6C2;border-color:#2E3B5C}
+.flow{display:flex;align-items:stretch;gap:0}
+.flow .step{flex:1;background:var(--card);border:1px solid var(--line);padding:18px;border-radius:12px;position:relative}
+.flow .arrow{width:34px;display:flex;align-items:center;justify-content:center;color:var(--acc);font-size:26px;font-weight:700}
+.chk li{list-style:none;padding-left:30px;position:relative;margin-bottom:9px;font-size:16px}
+.chk li:before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border:2px solid var(--acc);border-radius:4px}
+.src{font-size:11.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- 1 CAPA -->
+<section class="slide cover">
+  <div class="arc"></div><div class="arc2"></div>
+  <div class="inner">
+    <div class="k">Programa de Desenvolvimento das Lideranças</div>
+    <h1>PDL<br>Liderar é fazer o<br>caminho acontecer</h1>
+    <div class="sub">Síntese do programa: papel do líder, confiança, inteligência emocional, liderança situacional e desenvolvimento de equipes.</div>
+  </div>
+  <div class="meta">Fontes: deck PDL (102 p.) e resumo da apresentação da Mandelli Consultores Associados</div>
+</section>
+
+<!-- 2 LIDERAR É -->
+<section class="slide">
+  <div class="kicker">Ponto de partida</div>
+  <h1>Liderar é…</h1>
+  <div class="grid g3" style="margin-top:34px">
+    <div class="card" style="padding:28px"><div class="num">01</div><h3 style="font-size:22px">Garantir a entrega de resultados</h3><p>Não há liderança bem-sucedida sem resultado.</p></div>
+    <div class="card" style="padding:28px"><div class="num">02</div><h3 style="font-size:22px">Vestir e propagar os valores da Cia.</h3><p>O líder é o primeiro exemplo dos valores organizacionais.</p></div>
+    <div class="card" style="padding:28px"><div class="num">03</div><h3 style="font-size:22px">Compor, desenvolver e reter seu time</h3><p>O time reflete a atenção que o líder dá ao grupo.</p></div>
+  </div>
+  <div class="callout" style="margin-top:34px;font-size:20px"><b>Liderar é fazer o caminho acontecer.</b> O programa articula sete blocos que se sustentam mutuamente: papel do líder, confiança, arenas de luta, colaboração, gestão emocional, estilos gerenciais e equipe.</div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.2 · 2</span></div>
+</section>
+
+<!-- 3 AGENDA -->
+<section class="slide">
+  <div class="kicker">Agenda</div>
+  <h1>O que vamos percorrer</h1>
+  <div class="grid g3" style="margin-top:26px;gap:14px">
+    <div class="card"><span class="tag">01</span><h3>O papel da liderança</h3><p>Duas camadas e quatro clusters</p></div>
+    <div class="card"><span class="tag">02</span><h3>Confiança como fundamento</h3><p>Resultado, preocupação, integridade</p></div>
+    <div class="card"><span class="tag">03</span><h3>Arenas de luta e capacidades</h3><p>Onde o líder ganha o jogo</p></div>
+    <div class="card"><span class="tag">04</span><h3>Perfil de colaboração</h3><p>Dinossauro, Camaleão, Alpinista</p></div>
+    <div class="card"><span class="tag">05</span><h3>Gestão emocional</h3><p>Os 4 quadrantes do equilíbrio</p></div>
+    <div class="card"><span class="tag">06</span><h3>Estilos gerenciais</h3><p>Liderança situacional, Q1 a Q4</p></div>
+    <div class="card"><span class="tag">07</span><h3>Liderando a equipe</h3><p>Maturidade e 4 perspectivas</p></div>
+    <div class="card"><span class="tag">08</span><h3>Táticas de liderança</h3><p>Inspirar, modelar, desafiar, encorajar, confrontar</p></div>
+    <div class="card"><span class="tag">09</span><h3>Síntese e plano de ação</h3><p>O modelo em uma página</p></div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>3</span></div>
+</section>
+
+<!-- 4 PAPEL DA LIDERANÇA: 2 CAMADAS -->
+<section class="slide">
+  <div class="kicker">01 · O papel da liderança</div>
+  <h1>Estratégia no centro, liderança na execução</h1>
+  <p class="lead">Visão e Estratégia são o centro gravitacional da empresa e garantem sua perenidade. A liderança é o que traduz a estratégia em resultado, por meio das pessoas.</p>
+  <svg width="1136" height="400" viewBox="0 0 1136 400" style="margin-top:14px">
+    <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#D9692B"/></marker></defs>
+    <!-- camada estratégica -->
+    <rect x="40" y="10" width="1056" height="170" rx="16" fill="#E6EBF4"/>
+    <text x="64" y="40" font-size="13" font-weight="700" fill="#667085" letter-spacing="1.5">CAMADA ESTRATÉGICA</text>
+    <rect x="458" y="62" width="220" height="72" rx="12" fill="#16213A"/>
+    <text x="568" y="105" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">Visão e Estratégia</text>
+    <g font-size="17" font-weight="600" fill="#16213A" text-anchor="middle">
+      <rect x="150" y="74" width="200" height="48" rx="10" fill="#fff" stroke="#D9DDE5"/><text x="250" y="104">Clientes</text>
+      <rect x="786" y="74" width="200" height="48" rx="10" fill="#fff" stroke="#D9DDE5"/><text x="886" y="104">Processos</text>
+    </g>
+    <line x1="458" y1="98" x2="358" y2="98" stroke="#D9692B" stroke-width="2.5" marker-end="url(#ar)"/>
+    <line x1="678" y1="98" x2="778" y2="98" stroke="#D9692B" stroke-width="2.5" marker-end="url(#ar)"/>
+    <rect x="890" y="18" width="190" height="36" rx="8" fill="#fff" stroke="#D9DDE5"/><text x="985" y="42" font-size="15" font-weight="600" text-anchor="middle" fill="#16213A">Resultados</text>
+    <line x1="678" y1="72" x2="884" y2="40" stroke="#D9692B" stroke-width="2.5" marker-end="url(#ar)"/>
+    <!-- conexão -->
+    <line x1="568" y1="134" x2="568" y2="236" stroke="#D9692B" stroke-width="2.5" marker-end="url(#ar)"/>
+    <text x="584" y="206" font-size="13" fill="#667085">desdobra em Pessoas</text>
+    <!-- camada execução -->
+    <rect x="40" y="220" width="1056" height="170" rx="16" fill="#fff" stroke="#D9DDE5"/>
+    <text x="64" y="250" font-size="13" font-weight="700" fill="#667085" letter-spacing="1.5">CAMADA DE EXECUÇÃO</text>
+    <rect x="458" y="270" width="220" height="72" rx="12" fill="#D9692B"/>
+    <text x="568" y="313" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">Liderança</text>
+    <g font-size="17" font-weight="600" fill="#16213A" text-anchor="middle">
+      <rect x="110" y="270" width="200" height="34" rx="9" fill="#E6EBF4"/><text x="210" y="293">Pessoas</text>
+      <rect x="110" y="314" width="200" height="34" rx="9" fill="#E6EBF4"/><text x="210" y="337">Rituais</text>
+      <rect x="826" y="270" width="200" height="34" rx="9" fill="#E6EBF4"/><text x="926" y="293">Papéis</text>
+      <rect x="826" y="314" width="200" height="34" rx="9" fill="#E6EBF4"/><text x="926" y="337">Práticas</text>
+    </g>
+    <line x1="458" y1="292" x2="318" y2="287" stroke="#16213A" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="458" y1="320" x2="318" y2="331" stroke="#16213A" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="678" y1="292" x2="818" y2="287" stroke="#16213A" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="678" y1="320" x2="818" y2="331" stroke="#16213A" stroke-width="2" marker-end="url(#ar)"/>
+  </svg>
+  <div class="foot"><span>Adaptado de Balanced Scorecard (Kaplan &amp; Norton) e Beatty, Huselid &amp; Schneier</span><span>Fonte: deck PDL, p.4–6 · 4</span></div>
+</section>
+
+<!-- 5 OS 4 CLUSTERS -->
+<section class="slide">
+  <div class="kicker">01 · O papel da liderança</div>
+  <h1>Os quatro clusters do líder</h1>
+  <div class="grid g4" style="margin-top:26px">
+    <div class="card"><span class="tag">Pessoas</span><h3>Modelo mental certo</h3><ul><li><b>Mindset:</b> alinhado no dia a dia. "Não existe transmissão via wireless."</li><li><b>Competências:</b> vontade sem preparo não entrega.</li><li><b>Comportamento:</b> perfis podem variar; a atitude não.</li></ul></div>
+    <div class="card"><span class="tag">Rituais</span><h3>Liturgias repetidas</h3><ul><li>Alinhamento</li><li>Feedback</li><li>Reconhecimento</li><li>Gestão de consequências</li></ul><p style="margin-top:8px">Mostram o que o líder considera importante.</p></div>
+    <div class="card"><span class="tag">Práticas</span><h3>Liderança percebida</h3><ul><li>Comunicação</li><li>Negociação</li><li>Decisão</li><li>Desenvolvimento</li><li>Medidas de performance</li></ul></div>
+    <div class="card"><span class="tag">Papéis</span><h3>Frentes simultâneas</h3><ul><li>Resultado</li><li>Mudanças</li><li>Estratégia</li><li>Desenvolver o time</li></ul><p style="margin-top:8px">O desafio é exercer os quatro <b>ao mesmo tempo</b>.</p></div>
+  </div>
+  <div class="callout" style="margin-top:26px">Reflexão: minha equipe está <b>alinhada</b> (mindset), <b>preparada</b> (competências) e com os <b>comportamentos</b> esperados? Quais papéis estão mais ofuscados?</div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.5–22 · 5</span></div>
+</section>
+
+<!-- 6 RITUAIS -->
+<section class="slide">
+  <div class="kicker">01 · O papel da liderança</div>
+  <h1>Rituais: o que o líder repete, o time entende como prioridade</h1>
+  <table style="margin-top:22px">
+    <tr><th style="width:22%">Ritual</th><th style="width:20%">Tipos</th><th>Como praticar</th></tr>
+    <tr><td>Alinhamento</td><td>Coletivo / Individual</td><td>Coletivos curtos, ligados a fatores comuns a todos. Individuais podem ser mais longos.</td></tr>
+    <tr><td>Feedback</td><td>Formal / Informal</td><td>Formal segue a agenda da Cia. Informal é "tomar um café": valorizar os gols e pontuar os erros.</td></tr>
+    <tr><td>Reconhecimento</td><td>Público / Particular</td><td>"A conta-gotas", mas precisa acontecer: <i>catch them doing something right</i>. Público para extrovertidos; particular para os mais reservados.</td></tr>
+    <tr><td>Gestão de consequências</td><td>—</td><td>Todo poder vem com responsabilidade. Aplicar sem raiva, com calma. Autonomia proporcional à senioridade. É erro o líder proteger o liderado.</td></tr>
+  </table>
+  <div class="callout" style="margin-top:22px">Pergunta-chave: pratico todos os rituais, meus liderados percebem isso e eles são <b>diferenciados por indivíduo</b>?</div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.10–13 · 6</span></div>
+</section>
+
+<!-- 7 PRÁTICAS -->
+<section class="slide">
+  <div class="kicker">01 · O papel da liderança</div>
+  <h1>Práticas que consolidam a liderança</h1>
+  <div class="grid g5" style="margin-top:24px;gap:14px">
+    <div class="card"><h3>Comunicação</h3><p>A maior habilidade do líder. Almoçar com o time, ouvir. Ganhar da "rádio peão". Engajar até 3 ou 4 níveis abaixo.</p></div>
+    <div class="card"><h3>Negociação</h3><p>Colocar-se no lugar do liderado sem esquecer que o líder é a personificação da empresa.</p></div>
+    <div class="card"><h3>Decisão</h3><p>Se o time não está pronto, o líder decide e depois passa a decidir com ele.</p></div>
+    <div class="card"><h3>Desenvolvimento</h3><p>Mais senioridade, mais autonomia. Desafios que criem "músculos" no liderado.</p></div>
+    <div class="card"><h3>Medidas de performance</h3><p>O líder garante performance com metas afinadas, sem cobrar acima da capacidade.</p></div>
+  </div>
+  <div class="callout" style="margin-top:28px;font-size:22px;text-align:center"><b>"Delega-se autonomia, não se delega responsabilidade."</b></div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.14–19 · 7</span></div>
+</section>
+
+<!-- 8 CONFIANÇA -->
+<section class="slide">
+  <div class="kicker">02 · Fundamento</div>
+  <h1>Confiança: o que leva o time de 70% a 100%</h1>
+  <svg width="1136" height="150" viewBox="0 0 1136 150" style="margin-top:12px">
+    <g font-size="13" fill="#667085" text-anchor="middle"><text x="20" y="20">0%</text><text x="560" y="20">50%</text><text x="784" y="20">70%</text><text x="1116" y="20">100%</text></g>
+    <rect x="20" y="32" width="540" height="44" fill="#C9D1E3"/>
+    <rect x="560" y="32" width="224" height="44" fill="#8A97B5"/>
+    <rect x="784" y="32" width="332" height="44" fill="#D9692B"/>
+    <text x="290" y="60" font-size="15" font-weight="600" fill="#16213A" text-anchor="middle">Desempenho mediano</text>
+    <text x="672" y="60" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">Chefe · bônus · meta</text>
+    <text x="950" y="60" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">QUERER (confiança)</text>
+    <g font-size="13.5" fill="#2C3A5A" text-anchor="middle"><text x="290" y="102">Qualquer profissional atua aqui</text><text x="672" y="102">Mecanismos formais</text><text x="950" y="102">Só se conquista com confiança</text></g>
+  </svg>
+  <div class="grid g2" style="grid-template-columns:1fr 1.25fr;gap:24px">
+    <div>
+      <div class="callout"><b>Confiança é acreditar que aqueles de quem dependemos irão cumprir com nossas expectativas.</b></div>
+      <ul style="margin-top:14px;padding-left:20px">
+        <li><b>Crença:</b> "crer para ver".</li>
+        <li><b>Risco:</b> confiar implica se expor; mais risco exige mais preparo.</li>
+        <li><b>Expectativas</b> nunca são óbvias: explicite.</li>
+        <li><b>Controle × empowerment:</b> mais confiança, mais poder, menos controle.</li>
+      </ul>
+    </div>
+    <div class="grid g3" style="gap:12px">
+      <div class="card"><div class="num">R</div><h3>Resultado</h3><p>Corresponde à confiança depositada. Sem tolerância para baixo desempenho.</p></div>
+      <div class="card"><div class="num">P</div><h3>Preocupação</h3><p>Interesse genuíno pelo outro e tempo para quem precisa.</p></div>
+      <div class="card"><div class="num">I</div><h3>Integridade</h3><p>Conduta ética, honestidade e responsabilidade.</p></div>
+      <p class="muted" style="grid-column:1/4;font-size:14px">A falta de qualquer um dos três fragiliza a relação e produz desconfiança.</p>
+    </div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.24–27 · 8</span></div>
+</section>
+
+<!-- 9 ARENAS -->
+<section class="slide">
+  <div class="kicker">03 · Arenas de luta</div>
+  <h1>Onde o líder ganha o jogo</h1>
+  <div class="grid g5" style="margin-top:26px;gap:14px">
+    <div class="card"><div class="num">1</div><h3>Construir reconhecimento</h3><p>"Necessário, mas a conta-gotas." Desempenho superior reconhecido de forma diferenciada cria padrão claro.</p></div>
+    <div class="card"><div class="num">2</div><h3>Elevar e sustentar o humor</h3><p>Quebra tensão e eleva o moral. O líder contagia e não é visto sangrando.</p></div>
+    <div class="card"><div class="num">3</div><h3>Valorizar o relacionamento</h3><p>Líder lidera gente; gerente lidera coisas. É preciso gostar de gente.</p></div>
+    <div class="card"><div class="num">4</div><h3>Construir significado</h3><p>Trabalhar por trabalhar é vazio. O líder cria algo que valha a pena fazer parte.</p></div>
+    <div class="card"><div class="num">5</div><h3>Trabalhar com valores</h3><p>Ninguém segue alguém sem valores. O líder é o primeiro exemplo.</p></div>
+  </div>
+  <h2 style="margin-top:26px">As três moedas de troca do significado</h2>
+  <div class="grid g3" style="gap:14px;margin-top:8px">
+    <div class="card c-bad" style="border:0"><h3>Dinheiro</h3><p>Como foco predominante, gera competição predatória.</p></div>
+    <div class="card c-warn" style="border:0"><h3>Conforto</h3><p>Em excesso, torna a empresa indolente e passiva.</p></div>
+    <div class="card c-ideal"><h3>Aprendizado</h3><p>Com as outras medianas, é a grande fonte de significado: reforça a carreira.</p></div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.28–35 · 9</span></div>
+</section>
+
+<!-- 10 CAPACIDADES + HEROICO -->
+<section class="slide">
+  <div class="kicker">03 · Capacidades</div>
+  <h1>Cinco capacidades e um risco: o estilo heróico</h1>
+  <div class="grid" style="grid-template-columns:1.35fr 1fr;gap:26px;margin-top:22px">
+    <table>
+      <tr><th style="width:38%">Capacidade</th><th>Essência</th></tr>
+      <tr><td>Diagnosticar</td><td>Ver o todo e as causas profundas, não só reagir ao dia a dia.</td></tr>
+      <tr><td>Sustentar relacionamentos</td><td>Rede interna e externa de parceiros; cooperação.</td></tr>
+      <tr><td>Sustentar uma causa</td><td>Influenciar e mobilizar seguidores. Distingue líderes de chefes.</td></tr>
+      <tr><td>Articulação</td><td>Negociar e transitar entre líderes, chefes e subordinados.</td></tr>
+      <tr><td>Focar</td><td>"Tudo é importante e urgente!" Priorizar o que gera mais impacto.</td></tr>
+    </table>
+    <div class="card" style="background:var(--ink);color:#fff;border:0;padding:24px">
+      <div class="kicker" style="color:#F2A26F">O lado escuro</div>
+      <h3 style="font-size:22px;color:#fff;margin-bottom:12px">Estilo heróico</h3>
+      <p style="color:#C9D1E3;font-size:14.5px"><b style="color:#fff">Como é:</b> alta competência, gosta de ser o centro; todas as respostas passam por ele.</p>
+      <p style="color:#C9D1E3;font-size:14.5px;margin-top:10px"><b style="color:#fff">Consequência:</b> líder sobrecarregado, equipe dependente, potencial desperdiçado.</p>
+      <p style="color:#C9D1E3;font-size:14.5px;margin-top:10px"><b style="color:#fff">Solução:</b> não resolver tudo. Calcular riscos e deixar a equipe agir. Usar problemas como alavanca de desenvolvimento.</p>
+      <p style="margin-top:16px;font-size:19px;font-weight:700;color:#F2A26F">Lidere perguntando, nunca respondendo.</p>
+    </div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.36–39 · 10</span></div>
+</section>
+
+<!-- 11 OBRA -->
+<section class="slide">
+  <div class="kicker">03 · Construindo a obra</div>
+  <h1>A obra: um projeto seu para elevar o patamar da área</h1>
+  <p class="lead">Nasce da proatividade do líder, não das metas que vêm de cima. Deve ser nobre, de futuro e desafiadora, e servir de motivação, significado e mobilização da equipe e dos pares.</p>
+  <div class="flow" style="margin-top:40px">
+    <div class="step"><div class="num">1</div><h3>Entender o seu processo</h3><p class="muted" style="font-size:14px">Onde está o valor e o gargalo.</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="num">2</div><h3>Estabelecer indicadores</h3><p class="muted" style="font-size:14px">Como medir a evolução.</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="num">3</div><h3>Estabelecer a sua causa</h3><p class="muted" style="font-size:14px">O porquê que mobiliza.</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="num">4</div><h3>Definir o plano de ação</h3><p class="muted" style="font-size:14px">Quem, o quê, quando.</p></div>
+  </div>
+  <p class="src" style="margin-top:18px">As descrições curtas sob cada passo são apoio de leitura; o deck lista apenas os quatro passos.</p>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.40 · 11</span></div>
+</section>
+
+<!-- 12 PERFIL DE COLABORAÇÃO -->
+<section class="slide">
+  <div class="kicker">04 · Perfil de colaboração do grupo</div>
+  <h1>Três perfis, nove comportamentos</h1>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card c-bad" style="border:0"><span class="tag" style="background:#fff">Extinção · curto prazo</span><h3 style="font-size:22px">Dinossauro</h3><p class="muted" style="font-size:13px;margin-bottom:8px">Não reagente · não adaptativo · não colaborativo</p>
+      <ul><li><b>Ignorar:</b> orgulhoso, indiferente, autossuficiente.</li><li><b>Isolar:</b> cria um mundo próprio para evitar contato.</li><li><b>Recolher:</b> afasta-se com desculpas.</li></ul></div>
+    <div class="card c-warn" style="border:0"><span class="tag" style="background:#fff">Alta performance · longo prazo</span><h3 style="font-size:22px">Camaleão</h3><p class="muted" style="font-size:13px;margin-bottom:8px">Reagente · adaptativo · não colaborativo</p>
+      <ul><li><b>Resistir:</b> proximidade só com alguns.</li><li><b>Ajustar:</b> acompanha tendências; apoia só se acionado.</li><li><b>Explorar:</b> sempre busca algo em troca.</li></ul></div>
+    <div class="card c-ideal"><span class="tag" style="background:#fff">Desenvolvimento · longo prazo</span><h3 style="font-size:22px">Alpinista</h3><p class="muted" style="font-size:13px;margin-bottom:8px">Reagente · adaptativo · colaborativo</p>
+      <ul><li><b>Apoiar:</b> disponível, busca soluções conjuntas.</li><li><b>Colaborar:</b> ajuda mútua, usa o melhor de cada um.</li><li><b>Confiar:</b> alta ajuda, baixa complacência, coragem para conflitos.</li></ul></div>
+  </div>
+  <div class="callout" style="margin-top:22px">Dinâmica: cada participante é avaliado pelo grupo em 3 dos 9 itens. A avaliação é confidencial, e o valor está no <b>gap entre autopercepção e a imagem que os colegas têm</b>.</div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.41–49 · 12</span></div>
+</section>
+
+<!-- 13 CORAGEM x CONSIDERAÇÃO -->
+<section class="slide">
+  <div class="kicker">04 · Construção do comportamento</div>
+  <h1>Coragem × Consideração</h1>
+  <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:40px;margin-top:20px">
+    <div class="m2" style="height:440px">
+      <div class="ylab">CORAGEM  (−  →  +)</div>
+      <div class="cell c-bad"><b>Desqualificado</b>"Grosso". Diz o que pensa, sem cuidado com as pessoas.</div>
+      <div class="cell c-ideal"><span class="pill-ideal">Meta</span><b>Coragem + consideração</b>Enfrenta conflitos e cuida das relações.</div>
+      <div class="cell c-mid"><b>ESADOF</b>Baixa coragem e baixa consideração.</div>
+      <div class="cell c-warn"><b>Brejo</b>"Engulo sapos". Cuida das pessoas, mas evita o conflito.</div>
+      <div class="xlab">CONSIDERAÇÃO  (−  →  +)</div>
+    </div>
+    <div>
+      <h2>Como evoluir em proatividade e colaboração</h2>
+      <ul class="chk" style="margin-top:14px">
+        <li>Não insista na fraqueza dos outros.</li>
+        <li>Não desculpe suas fraquezas; trabalhe com o que está ao seu alcance.</li>
+        <li>Admita o erro, corrija e aprenda com ele, mais que todo mundo.</li>
+        <li>Estude algo a fundo e seja referência.</li>
+        <li>Saia do dia a dia pelo menos um pouco todos os dias.</li>
+      </ul>
+      <p class="src" style="margin-top:14px">O deck não explica a sigla "ESADOF". As descrições dos quadrantes são leitura dos eixos.</p>
+    </div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.48–50 · 13</span></div>
+</section>
+
+<!-- 14 GESTÃO EMOCIONAL -->
+<section class="slide">
+  <div class="kicker">05 · Gestão emocional</div>
+  <h1>Equilíbrio emocional é o fator que se desenvolve</h1>
+  <div class="callout" style="margin-top:16px;font-size:18px"><b>Capacidade de lidar com as emoções, próprias e alheias, de maneira a favorecer o atingimento dos objetivos.</b> A emoção não pode ficar entre a pessoa e o objetivo.</div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><span class="tag">Não desenvolvível</span><h3>Inteligência (QI)</h3><p>Raciocinar, planejar, resolver problemas e aprender. Definida geneticamente.</p></div>
+    <div class="card"><span class="tag">Praticamente fixa</span><h3>Personalidade</h3><p>Padrões de pensar, sentir e agir (ex.: introversão × extroversão). Cristaliza na adolescência.</p></div>
+    <div class="card c-ideal"><span class="tag" style="background:#fff">Desenvolvível</span><h3>Equilíbrio emocional</h3><p>Cresce com habilidade para tratar emoções e com objetividade. Pesa mais à medida que se chega à posição de liderança.</p></div>
+  </div>
+  <h2 style="margin-top:22px">Disfunções emocionais para autoavaliar</h2>
+  <p class="muted" style="font-size:15px;margin-top:4px">Arrogante · Perfeccionista · Chato · Síndrome de Urtigão · Indeciso/medroso · Prolixo · Monossilábico · Mal-humorado/negativo · Quer aparecer · Indiferente · Exagerado · Agressivo · Bonzinho</p>
+  <div class="foot"><span>Base: Daniel Goleman, Trabalhando com Inteligência Emocional</span><span>Fonte: deck PDL, p.53–56 · 14</span></div>
+</section>
+
+<!-- 15 4 QUADRANTES EE -->
+<section class="slide">
+  <div class="kicker">05 · Gestão emocional</div>
+  <h1>Os quatro quadrantes do equilíbrio emocional</h1>
+  <div style="display:grid;grid-template-columns:110px 1fr 1fr;grid-template-rows:30px 1fr 1fr;gap:10px;margin-top:16px;height:470px">
+    <div></div><div style="text-align:center;font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.08em">EU FAÇO</div><div style="text-align:center;font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.08em">EU VEJO</div>
+    <div style="display:flex;align-items:center;font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.08em">COM OUTROS</div>
+    <div class="card"><h3>Articulação</h3><p>Seguidores voluntários, influência, comunicação clara, leitura de contexto e relacionamento.</p><p style="margin-top:6px"><b>Evoluir:</b> ampliar a rede, ocupar seu espaço, abrir mão do orgulho de autoria, liderar mudanças.</p></div>
+    <div class="card"><h3>Empatia</h3><p>Detectar emoções nos outros. Não é simpatia nem apatia.</p><p style="margin-top:6px"><b>Evoluir:</b> atenção a palavras, tom e corpo; tratar pessoas como pessoas; trocar "eu discordo" por "tenho uma opinião diferente".</p></div>
+    <div style="display:flex;align-items:center;font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.08em">COMIGO</div>
+    <div class="card"><h3>Autocontrole</h3><p>Canalizar impulsos emocionais na direção dos objetivos.</p><p style="margin-top:6px"><b>Evoluir:</b> perceber o "sequestro da amígdala", contar até 10, adiar, sair de cena, não apertar o <i>send</i>.</p></div>
+    <div class="card"><h3>Autopercepção</h3><p>Entendimento de si: emoções e capacidade de resposta.</p><p style="margin-top:6px"><b>Evoluir:</b> observar-se, monitorar sinais físicos, buscar feedback. Admitir o problema é o 1º passo.</p></div>
+  </div>
+  <div class="foot"><span>Questionário de autoavaliação com 28 itens no anexo do deck (p.102)</span><span>Fonte: deck PDL, p.57–66 · 15</span></div>
+</section>
+
+<!-- 16 LIDERANÇA SITUACIONAL: CURVA -->
+<section class="slide">
+  <div class="kicker">06 · Estilos gerenciais</div>
+  <h1>O liderado evolui: competência sobe, atitude oscila</h1>
+  <div class="grid" style="grid-template-columns:1.5fr 1fr;gap:28px;margin-top:12px">
+    <svg width="660" height="440" viewBox="0 0 660 440">
+      <line x1="50" y1="380" x2="640" y2="380" stroke="#16213A" stroke-width="2"/>
+      <line x1="50" y1="380" x2="50" y2="20" stroke="#16213A" stroke-width="2"/>
+      <text x="640" y="404" font-size="13" fill="#667085" text-anchor="end">tempo →</text>
+      <text x="20" y="200" font-size="13" fill="#667085" transform="rotate(-90 20 200)" text-anchor="middle">competência · atitude</text>
+      <g stroke="#B8C0D0" stroke-dasharray="5 5"><line x1="130" y1="30" x2="130" y2="380"/><line x1="230" y1="30" x2="230" y2="380"/><line x1="500" y1="30" x2="500" y2="380"/></g>
+      <g font-size="14" font-weight="700" fill="#2C3A5A" text-anchor="middle"><text x="90" y="40">Q1</text><text x="180" y="40">Q2</text><text x="365" y="40">Q3</text><text x="570" y="40">Q4</text></g>
+      <!-- competência -->
+      <path d="M60,370 C160,300 260,220 380,170 S560,120 630,110" fill="none" stroke="#16213A" stroke-width="4"/>
+      <!-- atitude -->
+      <path d="M60,90 C110,60 150,200 190,290 C210,330 225,300 260,215 C285,160 300,260 330,280 C360,300 380,160 410,150 C440,145 450,250 480,240 C510,230 520,130 560,118 C590,110 610,108 630,104" fill="none" stroke="#D9692B" stroke-width="4"/>
+      <circle cx="198" cy="292" r="12" fill="none" stroke="#B4433A" stroke-width="2"/>
+      <text x="198" y="330" font-size="12.5" fill="#B4433A" text-anchor="middle">a dura</text><text x="198" y="345" font-size="12.5" fill="#B4433A" text-anchor="middle">realidade</text>
+      <text x="380" y="330" font-size="12.5" fill="#667085" text-anchor="middle">insegurança</text>
+      <g font-size="12.5" fill="#2C3A5A" text-anchor="middle"><text x="90" y="400">Incauto</text><text x="90" y="415">motivado</text><text x="180" y="400">Limitado</text><text x="180" y="415">frustrado</text><text x="365" y="400">Capaz</text><text x="365" y="415">inseguro</text><text x="570" y="400">Realizador</text><text x="570" y="415">independente</text></g>
+      <rect x="440" y="300" width="14" height="4" fill="#16213A"/><text x="460" y="306" font-size="13" fill="#16213A">Competência</text>
+      <rect x="440" y="320" width="14" height="4" fill="#D9692B"/><text x="460" y="326" font-size="13" fill="#16213A">Atitude</text>
+    </svg>
+    <div>
+      <p style="font-size:16px">O liderado precisa estar <b>preparado</b> (conhecimento técnico e de gestão) e <b>disposto</b> (motivação, autoconfiança, engajamento).</p>
+      <table style="margin-top:14px">
+        <tr><th>Q</th><th>Atitude</th><th>Preparo</th></tr>
+        <tr><td>Q1</td><td>Alta</td><td>Baixo</td></tr>
+        <tr><td>Q2</td><td>Baixa</td><td>Algum</td></tr>
+        <tr><td>Q3</td><td>Variável</td><td>Médio-alto</td></tr>
+        <tr><td>Q4</td><td>Alta</td><td>Alto</td></tr>
+      </table>
+      <div class="callout" style="margin-top:16px"><b>Maturidade</b> é quando competência e atitude se alinham (Q4).</div>
+    </div>
+  </div>
+  <div class="foot"><span>Base: Ken Blanchard, Liderança de Alto Nível</span><span>Fonte: deck PDL, p.69–72 · 16</span></div>
+</section>
+
+<!-- 17 MATRIZ ESTILOS -->
+<section class="slide">
+  <div class="kicker">06 · Estilos gerenciais</div>
+  <h1>Um estilo para cada quadrante</h1>
+  <div class="grid" style="grid-template-columns:1.15fr 1fr;gap:34px;margin-top:16px">
+    <div class="m2" style="height:460px">
+      <div class="ylab">APOIO / ORIENTAÇÃO  (−  →  +)</div>
+      <div class="cell c-mid"><span class="tag" style="background:#fff">Q3 · Capaz inseguro</span><b>Orientador</b>"Pode ir que estou aqui." Decisão em conjunto.</div>
+      <div class="cell c-warn"><span class="tag" style="background:#fff">Q2 · Limitado frustrado</span><b>Treinador</b>"Vamos juntos." Pergunta, ouve e decide, ensinando a decidir.</div>
+      <div class="cell c-ideal"><span class="tag" style="background:#fff">Q4 · Realizador independente</span><b>Desafiador</b>"Vai sozinho." Decisão mais do colaborador.</div>
+      <div class="cell c-bad"><span class="tag" style="background:#fff">Q1 · Incauto motivado</span><b>Comandante</b>"Faça assim." O líder decide.</div>
+      <div class="xlab">DIRETIVIDADE / TREINAMENTO  (−  →  +)</div>
+    </div>
+    <div>
+      <div class="card"><h3>Diretividade / Treinamento (Q1, Q2)</h3><p>Definir objetivos e metas · tomar decisões · acompanhar e controlar · desafiar · definir prioridades e prazos · ensinar.</p></div>
+      <div class="card" style="margin-top:12px"><h3>Apoio / Orientação (Q2, Q3)</h3><p>Escutar · elogiar e reconhecer · dar feedback · compartilhar responsabilidades · buscar envolvimento · resgatar confiança · entender problemas de atitude.</p></div>
+      <div class="callout" style="margin-top:14px"><b>Estilos diferentes para situações diferentes.</b> O estilo é definido por liderado e por tarefa.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Matriz conforme deck p.73 (apoio alto em Q2 e Q3)</span><span>Fonte: deck PDL, p.71–74 · 17</span></div>
+</section>
+
+<!-- 18 COMO CADA ESTILO OPERA -->
+<section class="slide">
+  <div class="kicker">06 · Estilos gerenciais</div>
+  <h1>Como cada estilo opera e os três erros clássicos</h1>
+  <table style="margin-top:16px">
+    <tr><th style="width:15%"></th><th>Comandante · Q1</th><th>Treinador · Q2</th><th>Orientador · Q3</th><th>Desafiador · Q4</th></tr>
+    <tr><td>Objetivos</td><td>O líder estabelece e dirige</td><td>O líder ouve e estabelece, ensinando o porquê</td><td>Mais consensuais</td><td>Mais pelo colaborador</td></tr>
+    <tr><td>Acompanhamento</td><td>Próximo e justo</td><td>Um pouco de espaço, mas próximo</td><td>Definido em conjunto</td><td>Eventual</td></tr>
+    <tr><td>Treinamento</td><td>Intenso, passo a passo, on the job</td><td>Ainda intenso, exige respostas</td><td>Não necessário</td><td>Treina outros</td></tr>
+    <tr><td>Coach</td><td>Feedback frequente</td><td>Atua no desânimo, encoraja</td><td>Resolve problemas emocionais</td><td>É coach de outros</td></tr>
+    <tr><td>Decisão</td><td>O líder decide</td><td>Pergunta, ouve e decide</td><td>Em conjunto</td><td>Mais pelo colaborador</td></tr>
+  </table>
+  <div class="grid g3" style="margin-top:20px;gap:14px">
+    <div class="card c-bad" style="border:0"><h3>Microgestão</h3><p>Excesso de diretividade.</p></div>
+    <div class="card c-bad" style="border:0"><h3>Distanciamento</h3><p>Falta de diretividade ou de apoio.</p></div>
+    <div class="card c-bad" style="border:0"><h3>Superproteção</h3><p>Excesso de apoio.</p></div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.74–76 · 18</span></div>
+</section>
+
+<!-- 19 MATURIDADE DA EQUIPE -->
+<section class="slide">
+  <div class="kicker">07 · Liderando a equipe</div>
+  <h1>A queda acontece sozinha; a subida exige liderança</h1>
+  <div class="grid" style="grid-template-columns:1.45fr 1fr;gap:28px;margin-top:10px">
+    <svg width="640" height="440" viewBox="0 0 640 440">
+      <line x1="40" y1="360" x2="630" y2="360" stroke="#16213A" stroke-width="2"/>
+      <line x1="40" y1="360" x2="40" y2="20" stroke="#16213A" stroke-width="2"/>
+      <text x="630" y="384" font-size="13" fill="#667085" text-anchor="end">tempo →</text>
+      <text x="16" y="190" font-size="13" fill="#667085" transform="rotate(-90 16 190)" text-anchor="middle">desempenho</text>
+      <path d="M60,150 C130,152 160,200 200,230 C240,262 270,300 320,302 C370,304 390,250 430,200 C470,150 520,80 610,50" fill="none" stroke="#D9692B" stroke-width="4"/>
+      <g fill="#16213A"><circle cx="70" cy="150" r="7"/><circle cx="205" cy="234" r="7"/><circle cx="320" cy="302" r="7"/><circle cx="440" cy="188" r="7"/><circle cx="600" cy="54" r="7"/></g>
+      <g font-size="13.5" font-weight="600" fill="#16213A">
+        <text x="70" y="134" text-anchor="middle">Participação</text>
+        <text x="215" y="262">Subagrupamento</text>
+        <text x="320" y="330" text-anchor="middle">Confrontação</text>
+        <text x="452" y="204">Diferenciação</text>
+        <text x="600" y="38" text-anchor="end">Responsabilidade compartilhada</text>
+      </g>
+      <text x="170" y="320" font-size="13" fill="#B4433A">caos: acontece sozinho</text>
+      <text x="400" y="290" font-size="13" fill="#2F7D6B">esforço deliberado de liderança</text>
+    </svg>
+    <div>
+      <h2>A equipe madura</h2>
+      <ul style="padding-left:20px;margin-top:8px">
+        <li>Alta confiança mútua e compromisso com os objetivos</li>
+        <li>Baixa dependência do líder</li>
+        <li>Destaque natural: quem sabe mais tem mais autonomia</li>
+        <li>Usa dois chapéus: o próprio papel e o todo</li>
+        <li>Discorda sem pessoalidade</li>
+        <li>Tem mecanismos de autocorreção</li>
+        <li>Resultados reconhecidos pela organização</li>
+      </ul>
+      <div class="callout" style="margin-top:14px">Exercício: escolher <b>4 variáveis</b> (confiança, autonomia, comunicação, decisão, visão, clima, autogerenciamento, resultado) e definir o que líder e time fazem para evoluir.</div>
+    </div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.79–84 · 19</span></div>
+</section>
+
+<!-- 20 3 MATRIZES -->
+<section class="slide">
+  <div class="kicker">07 · Liderando a equipe</div>
+  <h1>Três lentes para diagnosticar o time</h1>
+  <div class="grid g3" style="margin-top:18px;gap:22px">
+    <div><h2 style="font-size:16px">Trabalho × Aprendizagem</h2>
+      <div class="m2" style="height:340px;margin-top:8px">
+        <div class="ylab">TRABALHO</div>
+        <div class="cell c-warn"><b>Acomodados reivindicadores</b>"Reclamões"</div>
+        <div class="cell c-ideal"><b>Comunidade</b><span class="pill-ideal">Meta de todo gestor</span></div>
+        <div class="cell c-bad"><b>Habitantes</b>Desligar</div>
+        <div class="cell c-mid"><b>Debatedores conceituais</b>Dê metas de curto prazo</div>
+        <div class="xlab">APRENDIZAGEM</div>
+      </div></div>
+    <div><h2 style="font-size:16px">Relacionamento × Ajuda mútua</h2>
+      <div class="m2" style="height:340px;margin-top:8px">
+        <div class="ylab">RELACIONAMENTO</div>
+        <div class="cell c-warn"><b>Soc. Amigos do Bairro</b>Obrigue a resolver problemas juntos</div>
+        <div class="cell c-ideal"><b>Competitivos competentes</b><span class="pill-ideal">Meta de todo gestor</span></div>
+        <div class="cell c-bad"><b>Independentes</b>"Cada um para si". Desligar</div>
+        <div class="cell c-mid"><b>Mercenários</b>Promova happy hour, almoços</div>
+        <div class="xlab">AJUDA MÚTUA</div>
+      </div></div>
+    <div><h2 style="font-size:16px">Desempenho atual × futuro</h2>
+      <div class="m2" style="height:340px;margin-top:8px">
+        <div class="ylab">ATUAL</div>
+        <div class="cell c-warn"><b>Carregadores de piano</b>Ficarão obsoletos</div>
+        <div class="cell c-ideal"><b>Estrelas</b><span class="pill-ideal">Meta de todo gestor</span></div>
+        <div class="cell c-bad"><b>Nós cegos</b>Nem hoje, nem amanhã</div>
+        <div class="cell c-mid"><b>Talentos</b>Prontos para o futuro, vacilam no presente</div>
+        <div class="xlab">FUTURO</div>
+      </div></div>
+  </div>
+  <p class="muted" style="margin-top:16px;font-size:14.5px">Exercício: marque <b>A</b> no quadrante da sua área e <b>L</b> nos liderados que se destacam dela.</p>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.85–90 · 20</span></div>
+</section>
+
+<!-- 21 TÁTICAS -->
+<section class="slide">
+  <div class="kicker">08 · Táticas e truques de liderança</div>
+  <h1>Cinco táticas para o dia a dia</h1>
+  <div class="grid g5" style="margin-top:24px;gap:14px">
+    <div class="card"><div class="num">1</div><h3>Inspirar</h3><p>Desenhe o futuro ideal. Encontre aspirações comuns. Use coração, razão e bolso. Vá ao front e repita.</p></div>
+    <div class="card"><div class="num">2</div><h3>Apontar o caminho</h3><p>Sirva de modelo. "Sinergia é energia; ninguém segue morto." Use suas histórias e pratique o que fala.</p></div>
+    <div class="card"><div class="num">3</div><h3>Desafiar e capacitar</h3><p>Desafie metas, experimente, crie ambiente de aprendizado e erro. Ciclos curtos de performance, capacitação e motivação.</p></div>
+    <div class="card"><div class="num">4</div><h3>Encorajar</h3><p>Compartilhe o risco, prestigie o desempenho, aumente a sociabilidade.</p></div>
+    <div class="card"><div class="num">5</div><h3>Confrontar a performance</h3><p>Entenda as razões sem julgar, retire rótulos, explicite comportamento e impacto, dê apoio.</p></div>
+  </div>
+  <div class="callout" style="margin-top:24px">Autoavaliação: que nota (0–10) você se dá em <b>"pratico o que falo"</b>? Que nota seus liderados dariam?</div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>Fonte: deck PDL, p.91–101 · 21</span></div>
+</section>
+
+<!-- 22 SÍNTESE -->
+<section class="slide section">
+  <div class="kicker" style="color:#F2A26F">Síntese</div>
+  <h1 style="color:#fff">O modelo PDL em uma página</h1>
+  <div class="grid g2" style="margin-top:22px;gap:14px 40px">
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">1 · Papel do líder:</b> rituais, práticas e papéis conectam estratégia a pessoas.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">2 · Confiança:</b> sem ela, controle vira microgestão e empowerment vira abandono.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">3 · Arenas e capacidades:</b> onde e com que habilidades o líder ganha o jogo, longe do estilo heróico.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">4 · Colaboração:</b> o objetivo é o Alpinista: coragem com consideração.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">5 · Inteligência emocional:</b> autopercepção, autocontrole, empatia e articulação sustentam a liderança.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">6 · Liderança situacional:</b> o estilo certo para cada liderado, em cada tarefa.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">7 · Equipe:</b> a maturidade passa pelo caos e só evolui com esforço deliberado do líder.</p>
+    <p style="color:#E3E8F2"><b style="color:#F2A26F">8 · Táticas:</b> inspirar, dar exemplo, desafiar, encorajar e confrontar transformam o modelo em prática.</p>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>22</span></div>
+</section>
+
+<!-- 23 PLANO DE AÇÃO -->
+<section class="slide">
+  <div class="kicker">09 · Plano de ação</div>
+  <h1>Próximos passos para cada líder</h1>
+  <div class="grid g2" style="margin-top:22px;gap:10px 48px">
+    <ul class="chk">
+      <li>Alinhar mindset, competências e comportamentos da equipe</li>
+      <li>Revisar rituais: alinhamento, feedback, reconhecimento e consequências</li>
+      <li>Mapear o nível de confiança e a clareza das expectativas</li>
+      <li>Definir a minha <b>obra</b>: processo, indicadores, causa e plano</li>
+    </ul>
+    <ul class="chk">
+      <li>Classificar cada liderado (Q1–Q4) e escolher o estilo por tarefa</li>
+      <li>Mapear o estágio de maturidade do time e 4 variáveis a evoluir</li>
+      <li>Aplicar o questionário de equilíbrio emocional (28 itens)</li>
+      <li>Comparar minha nota em "pratico o que falo" com a dos liderados</li>
+    </ul>
+  </div>
+  <div class="card" style="margin-top:22px">
+    <h3>Template de preparação (1:1)</h3>
+    <p style="font-family:'DejaVu Sans Mono',monospace;font-size:13.5px;color:var(--ink2);margin-top:6px">Liderado · Situação/Tarefa · Competência percebida · Evidências · Quadrante · Estilo a adotar · Atividades de diretividade, treinamento, apoio e orientação → realizações e resultados</p>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>23</span></div>
+</section>
+
+<!-- 24 REFERÊNCIAS -->
+<section class="slide">
+  <div class="kicker">Referências</div>
+  <h1>Fontes e referenciais</h1>
+  <div class="grid g2" style="margin-top:22px;gap:36px">
+    <div>
+      <h2>Material-base</h2>
+      <ul style="padding-left:20px;margin-top:8px">
+        <li>Deck <b>PDL</b> (102 páginas), com exercícios e anexo de avaliação.</li>
+        <li>Resumo da apresentação <b>PDL</b> da Mandelli Consultores Associados.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Referenciais citados no material</h2>
+      <ul style="padding-left:20px;margin-top:8px">
+        <li>Kaplan, R. S. &amp; Norton, D. P. <i>A Estratégia em Ação: Balanced Scorecard</i>. Campus, 1997.</li>
+        <li>Beatty, R. W.; Huselid, M.; Schneier, C. <i>The New HR Metrics</i>. Elsevier, 2003.</li>
+        <li>Goleman, D. <i>Trabalhando com Inteligência Emocional</i>.</li>
+        <li>Blanchard, K. <i>Liderança de Alto Nível</i>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>PDL — Programa de Desenvolvimento das Lideranças</span><span>24</span></div>
+</section>
+
+</body>
+</html>

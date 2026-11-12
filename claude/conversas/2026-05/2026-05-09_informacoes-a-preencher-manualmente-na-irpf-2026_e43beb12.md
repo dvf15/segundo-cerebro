@@ -7,6 +7,7 @@ source_id: "e43beb12-e921-4829-ad09-6a8a4633500d"
 url: "https://claude.ai/chat/e43beb12-e921-4829-ad09-6a8a4633500d"
 project: null
 messages: 22
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Informações a preencher manualmente na IRPF 2026

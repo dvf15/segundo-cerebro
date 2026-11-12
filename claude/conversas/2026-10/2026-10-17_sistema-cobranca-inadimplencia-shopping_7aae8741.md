@@ -7,6 +7,7 @@ source_id: "7aae8741-bab5-429a-b8bf-ff2a65ee9b32"
 url: "https://claude.ai/chat/7aae8741-bab5-429a-b8bf-ff2a65ee9b32"
 project: null
 messages: 14
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Sistema cobrança inadimplência shopping
@@ -476,3 +477,10 @@ Testei com os exemplos e os números bateram: são 3 casos estourados, somando R
 **Confiança: 9/10.** Confirmei a lógica e a tela renderizando com os dados de exemplo.
 
 - 📎 image-0-0.png
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/sistema-cobranca-inadimplencia-shopping_7aae8741/home/claude/regua-cobranca/index.html]] (48 KB)

@@ -7,6 +7,7 @@ source_id: "ed901c01-d28e-40d0-a059-aa611a96b587"
 url: "https://claude.ai/chat/ed901c01-d28e-40d0-a059-aa611a96b587"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo da SEC para Obsidian

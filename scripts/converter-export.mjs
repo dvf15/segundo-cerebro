@@ -45,6 +45,24 @@ function textoDaMensagem(msg) {
   }
   return '';
 }
+// Reconstrói os arquivos que o Claude criou/editou DENTRO da conversa (create_file, str_replace, Write, Edit):
+// versão final de cada caminho, aplicando as edições em ordem. Salvos em claude/arquivos-gerados/.
+function coletarArquivos(msgs) {
+  const arq = new Map();
+  for (const m of msgs) for (const b of (m.content || [])) {
+    if (b.type !== 'tool_use') continue;
+    const i = b.input || {}, n = b.name, p = i.path || i.file_path;
+    if (!p || typeof p !== 'string') continue;
+    if (n === 'create_file' && typeof i.file_text === 'string') arq.set(p, i.file_text);
+    else if (n === 'Write' && typeof i.content === 'string') arq.set(p, i.content);
+    else if ((n === 'str_replace' || n === 'Edit') && arq.has(p)) {
+      const antigo = i.old_str ?? i.old_string, novo = i.new_str ?? i.new_string;
+      if (typeof antigo === 'string' && antigo && arq.get(p).includes(antigo)) arq.set(p, arq.get(p).replace(antigo, typeof novo === 'string' ? novo : ''));
+    }
+  }
+  return arq;
+}
+
 function converterConversas(conversas, projetoDaConversa) {
   for (const c of conversas) {
     const msgs = c.chat_messages || c.messages || [];
@@ -52,6 +70,7 @@ function converterConversas(conversas, projetoDaConversa) {
     const data = dataISO(c.created_at) || dataISO(msgs[0]?.created_at) || '0000-00-00';
     const titulo = (c.name || '').trim() || (textoDaMensagem(msgs.find(m => m.sender === 'human') || {}) || 'Conversa sem título').replace(/\s+/g, ' ').slice(0, 80);
     const projeto = projetoDaConversa.get(c.uuid) || c.project?.name || null;
+    const arquivos = coletarArquivos(msgs);
     const corpo = [`# ${titulo}`, ''];
     if (c.summary) corpo.push(`> **Resumo:** ${String(c.summary).replace(/\n+/g, ' ')}`, '');
     corpo.push(`**Mensagens:** ${msgs.length} · **Criada:** ${data} · **Atualizada:** ${dataISO(c.updated_at) || '?'}`, '', '---', '');
@@ -66,9 +85,21 @@ function converterConversas(conversas, projetoDaConversa) {
       }
       if (anexos.length) corpo.push('');
     }
+    if (arquivos.size) {
+      const base = ['arquivos-gerados', data.slice(0, 7), `${slugify(titulo, 50)}_${String(c.uuid).slice(0, 8)}`];
+      corpo.push('', '---', '', '## Arquivos gerados nesta conversa', '');
+      for (const [p, conteudo] of arquivos) {
+        const limpo = p.replace(/^[\\/]+/, '').split(/[\\/]+/).filter(x => x && x !== '..' && x !== '.').join('/');
+        if (!limpo || Buffer.byteLength(conteudo) > 8 * 1024 * 1024) continue;
+        escrever(C(...base, limpo), conteudo);
+        corpo.push(`- [[${['claude', ...base, limpo].join('/')}]] (${Math.round(Buffer.byteLength(conteudo) / 1024) || '<1'} KB)`);
+        conta('arquivos-gerados');
+      }
+      corpo.push('');
+    }
     escrever(C('conversas', data.slice(0, 7), `${data}_${slugify(titulo, 60)}_${String(c.uuid).slice(0, 8)}.md`), frontmatter({
       title: titulo, date: data, updated: dataISO(c.updated_at), source: 'claude-chat', source_id: c.uuid,
-      url: `https://claude.ai/chat/${c.uuid}`, project: projeto, messages: msgs.length,
+      url: `https://claude.ai/chat/${c.uuid}`, project: projeto, messages: msgs.length, generated_files: arquivos.size,
       tags: ['claude', 'conversa', ...(projeto ? ['projeto/' + slugify(projeto, 40)] : [])],
     }) + corpo.join('\n'));
     conta('conversas');

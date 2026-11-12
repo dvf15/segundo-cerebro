@@ -7,6 +7,7 @@ source_id: "84998eb2-4811-4eda-80c8-fa1ea761c646"
 url: "https://claude.ai/chat/84998eb2-4811-4eda-80c8-fa1ea761c646"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # 💬 Faça um resumo detalhado desse…
@@ -45,3 +46,10 @@ Pronto. A nota está formatada no seu padrão Obsidian — frontmatter YAML com 
 Estrutura do resumo: tese central → as três disciplinas em detalhe (cada uma com abordagens consagradas + como elevá-las ao nível disruptivo) → casos (Amazon, IBM, Cisco como contraexemplo) → tabela-síntese → uma seção de aplicações práticas conectando com seus mandamentos e governance (essa parte é minha hipótese, não está no artigo — sinalizei isso na avaliação de confiança).
 
 **Confiança: 9/10** — fiel ao PDF nos fatos, números e citações; o único trecho inferido (aplicações práticas para seu contexto de varejo) está marcado como hipótese a validar.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/faca-um-resumo-detalhado-desse_84998eb2/mnt/user-data/outputs/Os Três Estágios da Inovação Disruptiva.md]] (12 KB)

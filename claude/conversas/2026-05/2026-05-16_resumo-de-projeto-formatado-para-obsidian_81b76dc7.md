@@ -7,6 +7,7 @@ source_id: "81b76dc7-ca8e-42ef-ae62-81be429d5760"
 url: "https://claude.ai/chat/81b76dc7-ca8e-42ef-ae62-81be429d5760"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de projeto formatado para Obsidian
@@ -125,3 +126,10 @@ Duas observações honestas:
 2. Não consegui inferir seu **nome** no documento, então o título ficou genérico ("Pitch Pessoal"). Se quiser, me passe o nome que eu ajusto o `title` no frontmatter e o H1.
 
 **Confiança: 9/10.** Tarefa de reorganização de conteúdo fornecido — baixo risco de erro factual. Único ponto de atenção é se a estrutura de wiki-links combina com a organização de cofre (vault) que você já usa — se você prefere `[[FGV]]` ou `[[Fundação Getulio Vargas|FGV]]`, ou outro padrão, me avise que eu padronizo.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-projeto-formatado-para-obsidian_81b76dc7/mnt/user-data/outputs/Pitch_Pessoal_Resumo.md]] (6 KB)

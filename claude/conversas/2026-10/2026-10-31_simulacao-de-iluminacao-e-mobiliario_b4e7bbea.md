@@ -7,6 +7,7 @@ source_id: "b4e7bbea-2bef-4346-aded-278c43622c64"
 url: "https://claude.ai/chat/b4e7bbea-2bef-4346-aded-278c43622c64"
 project: null
 messages: 8
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Simulação de iluminação e mobiliário

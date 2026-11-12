@@ -7,6 +7,7 @@ source_id: "5bfbaa5f-d0e7-4224-9b36-8eed433608bf"
 url: "https://claude.ai/chat/5bfbaa5f-d0e7-4224-9b36-8eed433608bf"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -72,3 +73,10 @@ Material reformatado em 17 seções hierárquicas, seguindo seu padrão Obsidian
 - Conteúdo extraído integralmente do `.pptx`; citações em inglês e jurisprudência preservadas literalmente.
 - Ressalva (-1): o Slide 37 não tinha texto extraível (provavelmente slide final em branco). Se esperava algo lá, vale conferir no original.
 - A hierarquização em 17 seções é minha organização editorial — os slides originais eram mais lineares. Se preferir manter a ordem 1:1 dos slides, me avisa que reformato.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_5bfbaa5f/mnt/user-data/outputs/Estruturacao_Operacao_MA_Daniel_Kalansky.md]] (19 KB)

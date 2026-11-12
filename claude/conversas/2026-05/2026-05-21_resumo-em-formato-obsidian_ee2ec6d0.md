@@ -7,6 +7,7 @@ source_id: "ee2ec6d0-b22b-4120-91a8-a6b1c4c9851e"
 url: "https://claude.ai/chat/ee2ec6d0-b22b-4120-91a8-a6b1c4c9851e"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em formato Obsidian
@@ -66,3 +67,10 @@ Destaque rápido do que está dentro:
 - **Avaliação de confiança** no final
 
 **Confiança: 9/10** — o conteúdo conceitual vem direto dos slides; só sinalizo que a seção de aplicação ao varejo é minha leitura, não da aula, e que as comparações WTP/OC dos hotéis são qualitativas porque o slide original não traz números.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-formato-obsidian_ee2ec6d0/home/claude/Sources_of_Advantage_I_Value_Creation.md]] (10 KB)

@@ -7,6 +7,7 @@ source_id: "6c173332-6b4b-428b-95ff-fa0f5c00f03c"
 url: "https://claude.ai/chat/6c173332-6b4b-428b-95ff-fa0f5c00f03c"
 project: null
 messages: 48
+generated_files: 12
 tags: ["claude", "conversa"]
 ---
 # Preenchimento de planilha com notas fiscais
@@ -1601,3 +1602,21 @@ This block is not supported on your current device yet.
 ```
 
 
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/preencher.py]] (6 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/criar_abas.py]] (28 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/refazer.py]] (28 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/criar_evolucao.py]] (23 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/refazer_evolucao.py]] (31 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/refazer_completo.py]] (37 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/refazer_evolucao2.py]] (26 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/refazer_evolucao_v3.py]] (24 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/inserir_lancamentos.py]] (7 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/limpar_para_novo_imovel.py]] (10 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/preencher_avport.py]] (13 KB)
+- [[claude/arquivos-gerados/2026-04/preenchimento-de-planilha-com-notas-fiscais_6c173332/home/claude/preencher_av_portugal.py]] (15 KB)

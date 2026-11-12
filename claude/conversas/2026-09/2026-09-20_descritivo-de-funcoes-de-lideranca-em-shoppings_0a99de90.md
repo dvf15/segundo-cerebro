@@ -7,6 +7,7 @@ source_id: "0a99de90-ea95-4efb-bca0-930ae229c692"
 url: "https://claude.ai/chat/0a99de90-ea95-4efb-bca0-930ae229c692"
 project: null
 messages: 8
+generated_files: 11
 tags: ["claude", "conversa"]
 ---
 # Descritivo de funções de liderança em shoppings
@@ -835,3 +836,20 @@ Copie/cole para seu editor
 **Total disponível:** 9 arquivos Markdown | ~97KB | Confiança: 9/10 ⭐
 
 Qualquer dúvida → consulte `00-INSTRUCOES-INTEGRACAO.md` (guia completo)
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/gerente-negocios.md]] (10 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/gerente-marketing.md]] (12 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/gerente-operacoes.md]] (13 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/coordenador-negocios.md]] (10 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/coordenador-marketing.md]] (11 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/coordenador-operacoes.md]] (11 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/coordenador-mall.md]] (12 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/coordenador-ambiencia.md]] (11 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/home/claude/INDICE-FUNCOES-LIDERANCA.md]] (10 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/mnt/user-data/outputs/00-INSTRUCOES-INTEGRACAO.md]] (8 KB)
+- [[claude/arquivos-gerados/2026-09/descritivo-de-funcoes-de-lideranca-em-shoppings_0a99de90/mnt/user-data/outputs/01-MAPA-INTEGRACAO-VISUAL.md]] (12 KB)

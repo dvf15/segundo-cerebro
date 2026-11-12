@@ -7,6 +7,7 @@ source_id: "8923d817-d91d-448a-9249-72cb2a7151d8"
 url: "https://claude.ai/chat/8923d817-d91d-448a-9249-72cb2a7151d8"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -110,3 +111,10 @@ Pronto. Arquivo `.md` criado com seu padrão Obsidian completo:
 - **Confidence rating** ao final
 
 **Confiança: 9/10** — todo o conteúdo factual vem direto das páginas 1-30 do PDF. O ponto que não chega a 10 é interpretativo: a granularidade dos `[[wikilinks]]` é uma escolha que você pode preferir ajustar para seu vault.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_8923d817/mnt/user-data/outputs/prediction-machines-cap-1-3.md]] (12 KB)

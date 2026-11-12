@@ -7,6 +7,7 @@ source_id: "a69c514d-d31c-4c50-a1ad-58b453fe5ce5"
 url: "https://claude.ai/chat/a69c514d-d31c-4c50-a1ad-58b453fe5ce5"
 project: null
 messages: 5
+generated_files: 11
 tags: ["claude", "conversa"]
 ---
 # Resumo de material e checklist
@@ -417,3 +418,20 @@ Os dois arquivos estão enviados:
 - 📎 image-0-0.jpg
 - 📎 Guarda_Alta_Checklist.pdf
 - 📎 Guarda_Alta_Resumo.pptx
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/deck.json]] (1 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/cover.html]] (1 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/riscos.html]] (3 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/infra.html]] (3 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/incendio.html]] (4 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/ocupacao.html]] (3 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/seguranca.html]] (3 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/prontidao.html]] (4 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/comunicacao.html]] (4 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/guarda-alta/project/slides/lideranca.html]] (3 KB)
+- [[claude/arquivos-gerados/2026-10/resumo-de-material-e-checklist_a69c514d/tmp/claude-0/-home-claude/2a960566-bbdd-596d-93dc-4b589428c6ab/scratchpad/build/build.js]] (22 KB)

@@ -7,6 +7,7 @@ source_id: "252d58ae-62bf-4441-b53b-d04e3c63dd44"
 url: "https://claude.ai/chat/252d58ae-62bf-4441-b53b-d04e3c63dd44"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -47,3 +48,10 @@ Pronto. Resumo formatado no padrão Obsidian que você usa (frontmatter, wikilin
 Pontos centrais do material, em uma frase: **Google ganha porque empurra mais resultados pagos para o topo da SERP de viagem; Expedia e TripAdvisor perdem porque migram tráfego de SEO para Google Ads e queimam margem; Booking sofre menos porque depende mais de tráfego direto e tem ROI de mídia maior.**
 
 **Confiança: 8/10** — todos os números vieram só do PDF; não cruzei com 10-Q ou releases oficiais. Se for usar em apresentação/decisão, vale conferir nos comunicados ao mercado do 3T19 de cada empresa.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_252d58ae/mnt/user-data/outputs/google-search-vs-expedia-q3-2019.md]] (7 KB)

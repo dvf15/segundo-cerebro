@@ -7,6 +7,7 @@ source_id: "f17a2994-1484-480c-8877-dbe4da2028f7"
 url: "https://claude.ai/chat/f17a2994-1484-480c-8877-dbe4da2028f7"
 project: null
 messages: 4
+generated_files: 9
 tags: ["claude", "conversa"]
 ---
 # Template Allos para apresentações
@@ -191,3 +192,18 @@ Quer que eu ajuste tema, número de slides ou densidade?
 
 ---
 Confiança: 7/10. Alta na aplicação dos tokens (li direto dos arquivos). Mais baixa porque não vi o deck renderizado e o julgamento de "isso parece Allos" depende de um padrão interno que eu não tenho como verificar.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/capa.html]] (2 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/agenda.html]] (2 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/contexto.html]] (1 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/numeros.html]] (2 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/frentes.html]] (2 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/vacancia.html]] (3 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/statement.html]] (2 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/slides/proximos.html]] (2 KB)
+- [[claude/arquivos-gerados/2026-09/template-allos-para-apresentacoes_f17a2994/mnt/user-data/outputs/artifacts/4679d4f2-e137-4ade-9530-0612b8d12e84/project/deck.json]] (1 KB)

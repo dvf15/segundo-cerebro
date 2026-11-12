@@ -7,6 +7,7 @@ source_id: "a3af41b2-6df1-48fe-93d2-34620732841c"
 url: "https://claude.ai/chat/a3af41b2-6df1-48fe-93d2-34620732841c"
 project: null
 messages: 4
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Framework de mentoria em formato Obsidian

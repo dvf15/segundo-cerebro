@@ -7,6 +7,7 @@ source_id: "22e0624c-d512-4541-bbf9-c91cd926d55d"
 url: "https://claude.ai/chat/22e0624c-d512-4541-bbf9-c91cd926d55d"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo de livro para Obsidian
@@ -100,3 +101,10 @@ Arquivo pronto. O que está dentro:
 **Confiança: 8/10.** Alta no conteúdo extraído dos slides (é transcrição direta) e na formatação Obsidian. O ponto que tira do 10 é não ter como verificar a origem/autoria do SAG fora do arquivo enviado — se for material proprietário de alguma consultoria específica, eu não saberia citar.
 
 - 📎 thumbnails.jpg
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-de-livro-para-obsidian_22e0624c/home/claude/SAG - Sistema de Acompanhamento Gerencial.md]] (7 KB)

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Inteligente — Sistema Completo de Agentes</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#07080a;
+  --s1:#0d0f14;
+  --s2:#13161d;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.1);
+  --text:#edeae3;
+  --muted:#5a6070;
+  --muted2:#8892a0;
+
+  /* accent palette */
+  --gold:#d4a843;
+  --gold-d:#8a6a1f;
+  --teal:#1fd4b0;
+  --teal-d:#0d5c4a;
+  --violet:#9d7dfa;
+  --violet-d:#3d2a7a;
+  --sky:#3ab6f5;
+  --sky-d:#103e5a;
+  --rose:#f56b6b;
+  --rose-d:#5c1c1c;
+  --amber:#f5a623;
+  --amber-d:#5c3a00;
+  --mint:#5de8a0;
+  --mint-d:#1a4a32;
+  --coral:#ff7c5c;
+  --coral-d:#5c2010;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:13.5px;
+  line-height:1.65;
+}
+
+/* ─── NAV TABS ─── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,8,10,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;gap:2px;padding:8px 24px;
+  overflow-x:auto;
+}
+.nav button{
+  background:none;border:none;color:var(--muted);
+  font-family:'Instrument Sans',sans-serif;font-size:12px;
+  padding:6px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;
+  transition:all 0.18s;
+}
+.nav button:hover{color:var(--text);background:var(--s2)}
+.nav button.active{color:var(--text);background:var(--s2);border:1px solid var(--border2)}
+
+/* ─── WRAP ─── */
+.page{display:none;padding:40px 24px 80px;max-width:1100px;margin:0 auto}
+.page.active{display:block}
+
+/* ─── HERO ─── */
+.hero{text-align:center;padding:40px 0 56px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.eyebrow::before,.eyebrow::after{content:'';width:32px;height:1px;background:var(--gold);opacity:0.5}
+h1{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(32px,6vw,60px);font-weight:800;line-height:1.08;
+  letter-spacing:-0.03em;margin-bottom:20px;
+}
+h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:var(--muted2);font-size:15px;max-width:580px;margin:0 auto 36px}
+
+/* ─── ARCH DIAGRAM ─── */
+.arch{
+  display:grid;
+  grid-template-rows:auto auto auto auto;
+  gap:0;
+  margin-bottom:56px;
+}
+.arch-row{display:flex;justify-content:center;position:relative;padding:16px 0}
+.arch-row + .arch-row::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:1px;height:16px;background:linear-gradient(to bottom,var(--border2),transparent);
+}
+
+.arch-node{
+  background:var(--s1);border:1px solid var(--border2);
+  border-radius:14px;padding:18px 28px;text-align:center;
+  position:relative;min-width:240px;
+}
+.arch-node.core{
+  background:linear-gradient(135deg,#1a1300,#150f00);
+  border-color:var(--gold);
+  box-shadow:0 0 40px rgba(212,168,67,0.12);
+}
+.arch-node h3{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;
+  margin-bottom:4px;
+}
+.arch-node p{font-size:11.5px;color:var(--muted2)}
+.arch-node .badge{
+  display:inline-block;
+  font-size:9px;letter-spacing:0.2em;text-transform:uppercase;
+  background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.25);
+  color:var(--gold);padding:3px 10px;border-radius:100px;margin-bottom:10px;
+}
+
+.arch-agents{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+}
+.arch-agents .arch-node{min-width:160px;max-width:200px;flex:1}
+.arch-platforms{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+}
+.arch-platforms .arch-node{min-width:200px;flex:1;max-width:260px}
+
+/* ─── SECTION HEADER ─── */
+.sec-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:24px;
+}
+.sec-head .pill{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  padding:4px 12px;border-radius:100px;border:1px solid;flex-shrink:0;
+}
+.sec-head h2{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:22px;font-weight:800;letter-spacing:-0.02em;
+}
+.sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ─── AGENT DETAIL CARD ─── */
+.agent-detail{
+  background:var(--s1);border:1px solid var(--border);border-radius:16px;
+  padding:28px;margin-bottom:20px;position:relative;overflow:hidden;
+}
+.agent-detail::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0;
+}
+.agent-detail .ad-head{
+  display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;
+}
+.agent-detail .ad-icon{
+  width:44px;height:44px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:20px;flex-shrink:0;
+}
+.agent-detail .ad-title h3{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:700;
+}
+.agent-detail .ad-title p{font-size:12px;color:var(--muted2);margin-top:3px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+
+.block-label{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  font-size:11px;padding:4px 10px;border-radius:6px;
+  background:rgba(255,255,255,0.05);border:1px solid var(--border);
+  color:var(--muted2);
+}
+
+.filter-list{list-style:none}
+.filter-list li{
+  font-size:12.5px;color:var(--muted2);
+  padding:7px 0;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:8px;line-height:1.5;
+}
+.filter-list li::before{content:'◈';font-size:9px;flex-shrink:0;margin-top:3px}
+
+/* ─── BASE CARDS ─── */
+.base-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
+.base-card{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:12px;padding:18px;
+}
+.base-card .base-status{
+  display:inline-block;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;
+  padding:3px 9px;border-radius:100px;margin-bottom:10px;
+}
+.base-card .base-status.exists{background:rgba(93,232,160,0.1);border:1px solid rgba(93,232,160,0.3);color:var(--mint)}
+.base-card .base-status.create{background:rgba(245,107,107,0.1);border:1px solid rgba(245,107,107,0.3);color:var(--rose)}
+.base-card .base-status.partial{background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:var(--amber)}
+.base-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px}
+.base-card p{font-size:11.5px;color:var(--muted2);line-height:1.6}
+.base-card .fields{margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.base-card .fields span{
+  display:inline-block;font-size:10px;
+  background:var(--s2);border:1px solid var(--border);
+  padding:2px 8px;border-radius:4px;color:var(--muted2);
+  margin:2px;
+}
+
+/* ─── FORM TEMPLATE ─── */
+.form-template{
+  background:var(--s2);border:1px solid var(--border2);
+  border-radius:12px;padding:24px;margin-bottom:20px;
+}
+.form-template h4{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;
+  margin-bottom:16px;display:flex;align-items:center;gap:8px;
+}
+.form-section{margin-bottom:20px}
+.form-section h5{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);
+}
+.form-field{
+  background:var(--s1);border:1px solid var(--border);border-radius:8px;
+  padding:10px 14px;margin-bottom:8px;
+}
+.form-field .ff-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px}
+.form-field .ff-type{font-size:10px;color:var(--muted);margin-bottom:3px}
+.form-field .ff-options{font-size:11px;color:var(--muted2)}
+.form-field .ff-why{font-size:11px;color:var(--violet);margin-top:4px}
+
+/* ─── PLATFORM CARDS ─── */
+.platform-card{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:16px;padding:28px;margin-bottom:20px;
+}
+.platform-card h3{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;
+  margin-bottom:6px;letter-spacing:-0.02em;
+}
+.platform-card .plat-sub{font-size:12px;color:var(--muted2);margin-bottom:20px}
+
+.solution-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sol-item{
+  background:var(--s2);border:1px solid var(--border);
+  border-radius:8px;padding:12px;
+}
+.sol-item .sol-icon{font-size:18px;margin-bottom:6px}
+.sol-item p{font-size:11px;color:var(--muted2);line-height:1.5}
+
+/* ─── FLOW TIMELINE ─── */
+.timeline{position:relative;padding-left:28px;margin:16px 0}
+.timeline::before{
+  content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;background:var(--border2);
+}
+.tl-step{position:relative;margin-bottom:16px}
+.tl-step::before{
+  content:'';position:absolute;left:-24px;top:5px;
+  width:8px;height:8px;border-radius:50%;border:1px solid;
+}
+.tl-step h5{font-size:12.5px;font-weight:600;margin-bottom:3px}
+.tl-step p{font-size:11.5px;color:var(--muted2)}
+
+/* ─── COLOR UTILS ─── */
+.c-gold{color:var(--gold)}.c-teal{color:var(--teal)}.c-violet{color:var(--violet)}
+.c-sky{color:var(--sky)}.c-rose{color:var(--rose)}.c-amber{color:var(--amber)}
+.c-mint{color:var(--mint)}.c-coral{color:var(--coral)}
+
+.bg-gold{background:rgba(212,168,67,0.08);border-color:rgba(212,168,67,0.2)!important}
+.bg-teal{background:rgba(31,212,176,0.06);border-color:rgba(31,212,176,0.2)!important}
+.bg-violet{background:rgba(157,125,250,0.06);border-color:rgba(157,125,250,0.2)!important}
+.bg-sky{background:rgba(58,182,245,0.06);border-color:rgba(58,182,245,0.2)!important}
+.bg-rose{background:rgba(245,107,107,0.06);border-color:rgba(245,107,107,0.2)!important}
+.bg-amber{background:rgba(245,166,35,0.06);border-color:rgba(245,166,35,0.2)!important}
+.bg-mint{background:rgba(93,232,160,0.06);border-color:rgba(93,232,160,0.2)!important}
+.bg-coral{background:rgba(255,124,92,0.06);border-color:rgba(255,124,92,0.2)!important}
+
+/* ─── MATCH DIAGRAM ─── */
+.match-diagram{
+  display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:center;
+  background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:20px;
+  margin:16px 0;
+}
+.match-side{display:flex;flex-direction:column;gap:6px}
+.match-item{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:7px;padding:8px 12px;font-size:12px;color:var(--muted2);
+  text-align:center;
+}
+.match-center{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
+.match-center .arrow{font-size:18px;color:var(--gold)}
+.match-center p{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);text-align:center}
+
+/* ─── STATS ROW ─── */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+.stat-box{
+  background:var(--s2);border:1px solid var(--border);border-radius:10px;
+  padding:14px 12px;text-align:center;
+}
+.stat-box .big{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;
+  line-height:1;margin-bottom:5px;
+}
+.stat-box p{font-size:10.5px;color:var(--muted2);line-height:1.4}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:700px){
+  .two-col,.three-col,.base-grid,.solution-grid,.stats-row{grid-template-columns:1fr}
+  .arch-agents,.arch-platforms{flex-direction:column;align-items:center}
+  .match-diagram{grid-template-columns:1fr;text-align:center}
+  .match-center{flex-direction:row;padding:8px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="active" onclick="show('visao')">🗺 Visão Geral</button>
+  <button onclick="show('agentes')">🤖 Agentes (1-3)</button>
+  <button onclick="show('plataformas')">🏗 Plataformas (A-C)</button>
+  <button onclick="show('bases')">🗄 Bases de Dados</button>
+  <button onclick="show('formularios')">📋 Formulários</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — VISÃO GERAL
+═══════════════════════════════════════════════ -->
+<div id="visao" class="page active">
+  <div class="hero">
+    <div class="eyebrow">Arquitetura Completa</div>
+    <h1>Shopping <em>Inteligente</em></h1>
+    <p class="hero-sub">Sistema integrado de agentes para crescimento comercial, reposição de lojas e alavancagem do ecossistema do shopping.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-box"><div class="big c-rose">&lt;30%</div><p>MktShare shoppings no varejo BR</p></div>
+    <div class="stat-box"><div class="big c-teal">50%+</div><p>México e Austrália (benchmark)</p></div>
+    <div class="stat-box"><div class="big c-gold">27.5%</div><p>E-commerce EUA pós-pandemia (2023)</p></div>
+    <div class="stat-box"><div class="big c-violet">3</div><p>Agentes especialistas de vendas</p></div>
+    <div class="stat-box"><div class="big c-mint">3</div><p>Plataformas de suporte ao lojista</p></div>
+  </div>
+
+  <!-- ARQUITETURA -->
+  <div class="sec-head" style="margin-top:40px">
+    <div class="pill" style="color:var(--gold);border-color:var(--gold-d)">Arquitetura</div>
+    <h2>Ecossistema de Agentes</h2>
+  </div>
+
+  <div class="arch">
+
+    <!-- ORQUESTRADOR -->
+    <div class="arch-row">
+      <div class="arch-node core">
+        <div class="badge">Central de Inteligência</div>
+        <h3 class="c-gold">Agente Orquestrador</h3>
+        <p>Roteia todos os fluxos, mantém contexto, enriquece perfis e faz o match entre investidores, marcas, lojistas e oportunidades do shopping.</p>
+      </div>
+    </div>
+
+    <!-- AGENTES ESPECIALISTAS -->
+    <div class="arch-row" style="padding-top:32px">
+      <div class="arch-agents">
+        <div class="arch-node bg-teal">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Agente 01</div>
+          <h3>Hunter</h3>
+          <p style="font-size:11px;color:var(--muted2)">Prospecção ativa de inovações e marcas num raio de 2–50km</p>
+        </div>
+        <div class="arch-node bg-violet">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--violet);margin-bottom:6px">Agente 02</div>
+          <h3>Farmer</h3>
+          <p style="font-size:11px;color:var(--muted2)">Captação e triagem de investidores locais por perfil e capital</p>
+        </div>
+        <div class="arch-node bg-sky">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sky);margin-bottom:6px">Agente 03</div>
+          <h3>KA / Expansão</h3>
+          <p style="font-size:11px;color:var(--muted2)">Curadoria de marcas/franquias em expansão + match com Farmer</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLATAFORMAS -->
+    <div class="arch-row" style="padding-top:32px">
+      <div class="arch-platforms">
+        <div class="arch-node bg-amber">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Plataforma A</div>
+          <h3>Alavancador</h3>
+          <p style="font-size:11px;color:var(--muted2)">Financiamento, seguros e soluções financeiras para abertura e operação</p>
+        </div>
+        <div class="arch-node bg-coral">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--coral);margin-bottom:6px">Plataforma B</div>
+          <h3>Builder</h3>
+          <p style="font-size:11px;color:var(--muted2)">Engenharia, obra, tecnologia, RH e suporte legal em um só lugar</p>
+        </div>
+        <div class="arch-node bg-mint">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mint);margin-bottom:6px">Plataforma C</div>
+          <h3>Seller</h3>
+          <p style="font-size:11px;color:var(--muted2)">Mídia, eventos, benefícios e expansão de espaços para vender mais</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FLUXO MACRO -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--violet);border-color:var(--violet-d)">Jornada</div>
+    <h2>Fluxo de Valor End-to-End</h2>
+  </div>
+
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:40px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative">
+      <div style="position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(to right,var(--teal),var(--violet),var(--sky),var(--amber),var(--mint));opacity:0.3"></div>
+      <div style="text-align:center;padding:0 8px">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(31,212,176,0.1);border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px">🔍</div>
+        <div style="font-size:11px;font-weight:600;color:var(--teal);margin-bottom:4px">DESCOBERTA</div>
+        <p style="font-size:11px;color:var(--muted2)">Hunter & Farmer identificam oportunidades e leads</p>
+      </div>
+      <div style="text-align:center;padding:0 8px">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(157,125,250,0.1);border:1px solid var(--violet);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px">🎯</div>
+        <div style="font-size:11px;font-weight:600;color:var(--violet);margin-bottom:4px">TRIAGEM</div>
+        <p style="font-size:11px;color:var(--muted2)">Orquestrador filtra e qualifica por perfil e fit</p>
+      </div>
+      <div style="text-align:center;padding:0 8px">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(58,182,245,0.1);border:1px solid var(--sky);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px">🤝</div>
+        <div style="font-size:11px;font-weight:600;color:var(--sky);margin-bottom:4px">MATCH</div>
+        <p style="font-size:11px;color:var(--muted2)">KA/Expansão conecta investidor ↔ marca ↔ ponto</p>
+      </div>
+      <div style="text-align:center;padding:0 8px">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(245,166,35,0.1);border:1px solid var(--amber);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px">🏗</div>
+        <div style="font-size:11px;font-weight:600;color:var(--amber);margin-bottom:4px">ABERTURA</div>
+        <p style="font-size:11px;color:var(--muted2)">Alavancador + Builder suportam obra e operação</p>
+      </div>
+      <div style="text-align:center;padding:0 8px">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(93,232,160,0.1);border:1px solid var(--mint);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px">📈</div>
+        <div style="font-size:11px;font-weight:600;color:var(--mint);margin-bottom:4px">CRESCIMENTO</div>
+        <p style="font-size:11px;color:var(--muted2)">Seller amplifica vendas e retém o lojista</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — AGENTES 1-3
+═══════════════════════════════════════════════ -->
+<div id="agentes" class="page">
+
+  <!-- AGENTE 01 — HUNTER -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--teal);border-color:var(--teal-d)">Agente 01</div>
+    <h2 class="c-teal">Hunter de Inovação</h2>
+  </div>
+
+  <div class="agent-detail bg-teal">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);border-radius:16px 16px 0 0"></div>
+    <div class="ad-head">
+      <div class="ad-icon" style="background:rgba(31,212,176,0.1);color:var(--teal)">🔍</div>
+      <div class="ad-title">
+        <h3>Agente Hunter — Prospecção Ativa de Inovação no Varejo</h3>
+        <p>Auxilia o executivo de vendas na busca de negócios, marcas e tendências num raio de 2 a 50km do shopping</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Filtros do Agente</div>
+        <ul class="filter-list">
+          <li><strong>Raio geográfico:</strong> 2km (mín.) a 50km (máx.) do shopping — configurável por EV</li>
+          <li><strong>Categoria de varejo:</strong> moda, alimentação, serviços, entretenimento, saúde/beleza, casa/deco, esporte, pet, tech</li>
+          <li><strong>Presença no shopping:</strong> ausente / presente com gap de qualidade / concorrente direto</li>
+          <li><strong>Faturamento estimado:</strong> cruzamento com CNPJ + dados SERASA/Receita</li>
+          <li><strong>Tempo de operação:</strong> &lt;1 ano / 1-3 anos / 3+ anos (maturidade do negócio)</li>
+          <li><strong>Presença digital:</strong> redes sociais, e-commerce, Google Reviews, seguidores</li>
+          <li><strong>Ticket médio estimado:</strong> popular / mid-market / premium / luxo</li>
+          <li><strong>Alinhamento ao mix planejado</strong> do shopping (plano de mix pré-carregado)</li>
+          <li><strong>Tendências de busca local:</strong> Google Trends + Waze + dados do app do shopping</li>
+        </ul>
+      </div>
+      <div>
+        <div class="block-label">Bases de Dados Necessárias</div>
+        <div class="tag-list" style="margin-bottom:16px">
+          <span class="tag" style="border-color:var(--teal);color:var(--teal)">✅ CNPJ / Receita Federal</span>
+          <span class="tag" style="border-color:var(--teal);color:var(--teal)">✅ Google Maps API</span>
+          <span class="tag" style="border-color:var(--amber);color:var(--amber)">⚠️ Dados sociais (scraping)</span>
+          <span class="tag" style="border-color:var(--rose);color:var(--rose)">🔴 Plano de Mix do Shopping</span>
+          <span class="tag" style="border-color:var(--rose);color:var(--rose)">🔴 Histórico de vacância</span>
+          <span class="tag" style="border-color:var(--amber);color:var(--amber)">⚠️ SERASA Experian API</span>
+          <span class="tag" style="border-color:var(--teal);color:var(--teal)">✅ Google Trends API</span>
+        </div>
+        <div class="block-label">Output para o EV</div>
+        <ul class="filter-list">
+          <li>Lista priorizada de alvos com score de fit ao shopping</li>
+          <li>Ficha do negócio: endereço, contato, redes sociais, faturamento estimado</li>
+          <li>Justificativa de fit: por que esse negócio eleva o mix?</li>
+          <li>Sugestão de abordagem e script de primeiro contato</li>
+          <li>Mapa geográfico dos alvos com rota otimizada para visitas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENTE 02 — FARMER -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--violet);border-color:var(--violet-d)">Agente 02</div>
+    <h2 class="c-violet">Farmer — Captação de Investidores</h2>
+  </div>
+
+  <div class="agent-detail bg-violet">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--violet);border-radius:16px 16px 0 0"></div>
+    <div class="ad-head">
+      <div class="ad-icon" style="background:rgba(157,125,250,0.1);color:var(--violet)">💼</div>
+      <div class="ad-title">
+        <h3>Agente Farmer — Triagem Inteligente de Investidores</h3>
+        <p>Modelo suitability (tipo XP Investimentos) aplicado ao varejo em shopping</p>
+      </div>
+    </div>
+
+    <div class="match-diagram">
+      <div class="match-side">
+        <div class="match-item">💰 Investidor com capital</div>
+        <div class="match-item">🕐 Investidor com tempo</div>
+        <div class="match-item">🧠 Investidor com experiência</div>
+        <div class="match-item">📊 Investidor financeiro (sócio)</div>
+      </div>
+      <div class="match-center">
+        <div class="arrow">⇄</div>
+        <p>Match<br>Inteligente</p>
+      </div>
+      <div class="match-side">
+        <div class="match-item">🏪 Franquia estabelecida</div>
+        <div class="match-item">🛍 Operação própria</div>
+        <div class="match-item">🎪 Pop-up / Quiosque</div>
+        <div class="match-item">🤝 Marca buscando sócio-operador</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Filtros de Perfil do Investidor</div>
+        <ul class="filter-list">
+          <li><strong>Capital inicial disponível:</strong> faixas R$30k / R$80k / R$150k / R$300k / R$500k+</li>
+          <li><strong>Capital de giro:</strong> meses de runway disponíveis (3 / 6 / 12 meses)</li>
+          <li><strong>Experiência prévia:</strong> nenhuma / varejo / gestão / franquias / empreendedorismo</li>
+          <li><strong>Disponibilidade de tempo:</strong> operador integral / parcial / sócio-investidor passivo</li>
+          <li><strong>Expectativa de retorno:</strong> payback esperado (18 / 24 / 36 / 48 meses)</li>
+          <li><strong>Tolerância a risco:</strong> conservador / moderado / arrojado</li>
+          <li><strong>Categoria de interesse:</strong> alimentação / moda / serviços / etc.</li>
+          <li><strong>Localização:</strong> mora perto do shopping? Raio de deslocamento</li>
+          <li><strong>Score de crédito:</strong> integração SERASA para verificar capacidade financeira</li>
+        </ul>
+      </div>
+      <div>
+        <div class="block-label">Filtros de Oportunidade (Output do Match)</div>
+        <ul class="filter-list">
+          <li><strong>Formato:</strong> loja / quiosque / pop-up / corner store</li>
+          <li><strong>Tamanho m²:</strong> compatível com capital disponível para obra</li>
+          <li><strong>Marca/franquia:</strong> alinhada ao perfil de operador (exige dedicação integral? aceita sócio passivo?)</li>
+          <li><strong>Royalties e taxas:</strong> compatíveis com expectativa de retorno</li>
+          <li><strong>Piso / localização interna:</strong> fluxo adequado à categoria</li>
+          <li><strong>Vizinhança de lojas:</strong> fit de mix (âncoras, corredores temáticos)</li>
+          <li><strong>Condições comerciais:</strong> preço m² + luvas + carência (dados do sistema Bahia)</li>
+          <li><strong>Score de fit:</strong> pontuação 0-100 calculada pelo agente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENTE 03 — KA/EXPANSÃO -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--sky);border-color:var(--sky-d)">Agente 03</div>
+    <h2 class="c-sky">KA / Expansão de Marcas</h2>
+  </div>
+
+  <div class="agent-detail bg-sky">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--sky);border-radius:16px 16px 0 0"></div>
+    <div class="ad-head">
+      <div class="ad-icon" style="background:rgba(58,182,245,0.1);color:var(--sky)">🏢</div>
+      <div class="ad-title">
+        <h3>Agente KA/Expansão — Curadoria de Marcas em Expansão</h3>
+        <p>Organiza marcas e franquias que buscam novas praças e faz o match automático com o Farmer</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="block-label">Filtros de Cadastro da Marca</div>
+        <ul class="filter-list">
+          <li><strong>Praças de interesse:</strong> cidade, região, DDD — tem interesse na praça do shopping?</li>
+          <li><strong>Modelo de expansão:</strong> loja própria / franquia / licenciado / corners em multimarcas</li>
+          <li><strong>Perfil do parceiro buscado:</strong> operador ativo / sócio-investidor / apenas aluguel</li>
+          <li><strong>Requisitos técnicos:</strong> m² mín/máx, pé-direito, vitrine (ml), energia (kVA), água/esgoto, acesso a docas</li>
+          <li><strong>Vizinhança ideal:</strong> âncoras de referência, categorias complementares</li>
+          <li><strong>Investimento inicial da franquia:</strong> faixas de capital exigido</li>
+          <li><strong>Histórico de performance:</strong> faturamento médio das unidades existentes</li>
+          <li><strong>Status de expansão:</strong> ativa buscando / em análise / pausa</li>
+        </ul>
+      </div>
+      <div>
+        <div class="block-label">Match com Plataforma Farmer</div>
+        <ul class="filter-list">
+          <li>Cruzamento automático: perfil do investidor (Farmer) ↔ requisitos da marca (KA)</li>
+          <li>Alerta em tempo real quando novo investidor qualificado entra no Farmer</li>
+          <li>Score de compatibilidade marca ↔ investidor ↔ ponto físico disponível</li>
+          <li>KA humano acionado apenas para negociação de contrato e aprovação final</li>
+        </ul>
+        <div class="block-label" style="margin-top:16px">Bases Necessárias</div>
+        <div class="tag-list">
+          <span class="tag" style="border-color:var(--rose);color:var(--rose)">🔴 CRM de marcas/franquias</span>
+          <span class="tag" style="border-color:var(--rose);color:var(--rose)">🔴 Banco de pontos vagos</span>
+          <span class="tag" style="border-color:var(--amber);color:var(--amber)">⚠️ ABF (Assoc. Brasileira de Franchising)</span>
+          <span class="tag" style="border-color:var(--teal);color:var(--teal)">✅ Sistema Bahia (preços)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 — PLATAFORMAS A-C
+═══════════════════════════════════════════════ -->
+<div id="plataformas" class="page">
+
+  <!-- ALAVANCADOR -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--amber);border-color:var(--amber-d)">Plataforma A</div>
+    <h2 class="c-amber">Alavancador — Soluções Financeiras</h2>
+  </div>
+  <div class="platform-card bg-amber">
+    <h3 class="c-amber">Alavancador</h3>
+    <p class="plat-sub">Conjunto de agentes que conectam o novo lojista a soluções de financiamento, seguros e serviços financeiros para abertura e operação</p>
+    <div class="solution-grid">
+      <div class="sol-item"><div class="sol-icon">🏦</div><p><strong>Financiamento de obra</strong><br>Crédito para execução do ponto com garantia no contrato de locação</p></div>
+      <div class="sol-item"><div class="sol-icon">💵</div><p><strong>Capital de giro</strong><br>Antecipação de recebíveis, crédito rotativo e linhas BNDES/fintech</p></div>
+      <div class="sol-item"><div class="sol-icon">🛡</div><p><strong>Seguro da obra</strong><br>Cobertura de sinistros, atrasos e danos a terceiros durante construção</p></div>
+      <div class="sol-item"><div class="sol-icon">🏪</div><p><strong>Seguro operacional</strong><br>Incêndio, roubo, responsabilidade civil, equipamentos</p></div>
+      <div class="sol-item"><div class="sol-icon">👔</div><p><strong>Seguro de vida PJ</strong><br>Para sócios e funcionários-chave</p></div>
+      <div class="sol-item"><div class="sol-icon">❤️</div><p><strong>Saúde para equipe</strong><br>Planos coletivos negociados com desconto por volume</p></div>
+      <div class="sol-item"><div class="sol-icon">🍽</div><p><strong>Vale alimentação/refeição</strong><br>Convênios com operadoras (Flash, Swile, VR, Ticket, Sodexo)</p></div>
+      <div class="sol-item"><div class="sol-icon">💳</div><p><strong>Pagamentos online/offline</strong><br>Maquininhas, gateway, PIX, link de pagamento integrado ao ERP</p></div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="block-label">Filtros do Agente Alavancador</div>
+      <div class="tag-list">
+        <span class="tag">Fase do negócio (pré-abertura / operando)</span>
+        <span class="tag">Valor do investimento total</span>
+        <span class="tag">Score de crédito PF/PJ</span>
+        <span class="tag">Tempo de contrato de locação (garantia)</span>
+        <span class="tag">Número de funcionários (para seguros e benefícios)</span>
+        <span class="tag">Volume de faturamento estimado (capital de giro)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILDER -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--coral);border-color:var(--coral-d)">Plataforma B</div>
+    <h2 class="c-coral">Builder — Construção e Operação</h2>
+  </div>
+  <div class="platform-card bg-coral">
+    <h3 class="c-coral">Builder</h3>
+    <p class="plat-sub">Marketplace de fornecedores especializados em shoppings — do projeto arquitetônico à contratação do primeiro funcionário</p>
+    <div class="solution-grid">
+      <div class="sol-item"><div class="sol-icon">📐</div><p><strong>Arquitetura &amp; Engenharia</strong><br>Projetos e aprovação junto ao shopping</p></div>
+      <div class="sol-item"><div class="sol-icon">🔨</div><p><strong>Execução de obra</strong><br>Empreiteiras especializadas em obras em shopping</p></div>
+      <div class="sol-item"><div class="sol-icon">🪵</div><p><strong>Materiais e acabamentos</strong><br>Catálogo de fornecedores homologados</p></div>
+      <div class="sol-item"><div class="sol-icon">📦</div><p><strong>Mobiliário e display</strong><br>Fornecedores de gôndolas, araras, vitrines e fixtures</p></div>
+      <div class="sol-item"><div class="sol-icon">💻</div><p><strong>Tecnologia para o varejo</strong><br>PDV, ERP, CFTV, som ambiente, Wi-Fi</p></div>
+      <div class="sol-item"><div class="sol-icon">📱</div><p><strong>Site e redes sociais</strong><br>Agências especializadas em varejo físico + digital</p></div>
+      <div class="sol-item"><div class="sol-icon">👥</div><p><strong>Contratação de pessoal</strong><br>Fixo, temporário, estágio — com filtro de perfil de venda</p></div>
+      <div class="sol-item"><div class="sol-icon">📋</div><p><strong>RH, folha e sindicato</strong><br>Gestão integrada com convenção coletiva do setor</p></div>
+      <div class="sol-item"><div class="sol-icon">⚖️</div><p><strong>Suporte jurídico</strong><br>Contratos, abertura de CNPJ, compliance</p></div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="block-label">Filtros do Agente Builder</div>
+      <div class="tag-list">
+        <span class="tag">Fase (projeto / obra / pré-abertura / operação)</span>
+        <span class="tag">Tamanho do ponto (m²)</span>
+        <span class="tag">Categoria do negócio</span>
+        <span class="tag">Orçamento total disponível</span>
+        <span class="tag">Prazo de entrega da obra</span>
+        <span class="tag">Número de funcionários previsto</span>
+        <span class="tag">Exigências técnicas do shopping (manual do lojista)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELLER -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--mint);border-color:var(--mint-d)">Plataforma C</div>
+    <h2 class="c-mint">Seller — Vender Mais no Shopping</h2>
+  </div>
+  <div class="platform-card bg-mint">
+    <h3 class="c-mint">Seller</h3>
+    <p class="plat-sub">Soluções para amplificar as vendas do lojista dentro e fora do shopping — mídia, eventos, relacionamento e expansão de espaços</p>
+
+    <div style="margin-bottom:20px">
+      <div class="block-label">Mídia &amp; Comunicação</div>
+      <div class="solution-grid">
+        <div class="sol-item"><div class="sol-icon">📺</div><p><strong>Mídia no Mall</strong><br>Telas internas, banners, totem e vitrinismo</p></div>
+        <div class="sol-item"><div class="sol-icon">📲</div><p><strong>App do Shopping</strong><br>Push, banner, destaque no feed e cupons</p></div>
+        <div class="sol-item"><div class="sol-icon">🖥</div><p><strong>Helloo / Telas icônicas</strong><br>Mídia programática em telas de alto impacto</p></div>
+        <div class="sol-item"><div class="sol-icon">🛣</div><p><strong>Out-of-home</strong><br>Outdoor, aeroporto e mídia de rua integrada</p></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div class="block-label">Relacionamento &amp; Eventos</div>
+      <div class="solution-grid">
+        <div class="sol-item"><div class="sol-icon">🎁</div><p><strong>Programa de Fidelidade</strong><br>Pontos, cashback e benefícios diferenciados</p></div>
+        <div class="sol-item"><div class="sol-icon">🎪</div><p><strong>Patrocínio de Eventos</strong><br>Dia das Mães, Namorados, Pais, Black Friday, Natal, Papai Noel</p></div>
+        <div class="sol-item"><div class="sol-icon">🎟</div><p><strong>Experiências exclusivas</strong><br>Lives, workshops, lançamentos no shopping</p></div>
+        <div class="sol-item"><div class="sol-icon">🏆</div><p><strong>Campanhas sazonais</strong><br>Co-investimento shopping + lojista em datas-chave</p></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block-label">Expansão de Espaços e Serviços</div>
+      <div class="solution-grid">
+        <div class="sol-item"><div class="sol-icon">👶</div><p>Fraldário Premium</p></div>
+        <div class="sol-item"><div class="sol-icon">🚗</div><p>Estacionamento carros, motos e eletroposto</p></div>
+        <div class="sol-item"><div class="sol-icon">🎭</div><p>Praça de Eventos</p></div>
+        <div class="sol-item"><div class="sol-icon">🚕</div><p>Valet</p></div>
+        <div class="sol-item"><div class="sol-icon">🍴</div><p>Taste Lab / Food Experience</p></div>
+        <div class="sol-item"><div class="sol-icon">🛝</div><p>Parquinho infantil</p></div>
+        <div class="sol-item"><div class="sol-icon">🐾</div><p>Pet Park + Praça Pet</p></div>
+        <div class="sol-item"><div class="sol-icon">⚽</div><p>Área esportiva</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px">
+      <div class="block-label">Filtros do Agente Seller</div>
+      <div class="tag-list">
+        <span class="tag">Categoria do lojista (alimentação / moda / serviços)</span>
+        <span class="tag">Orçamento de marketing mensal</span>
+        <span class="tag">Fase operacional (pré-abertura / recém-aberta / madura)</span>
+        <span class="tag">Objetivo (awareness / tráfego / conversão / fidelização)</span>
+        <span class="tag">Público-alvo (idade, renda, gênero)</span>
+        <span class="tag">Sazonalidade do negócio</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — BASES DE DADOS
+═══════════════════════════════════════════════ -->
+<div id="bases" class="page">
+
+  <div class="hero" style="padding-bottom:32px">
+    <div class="eyebrow">Infraestrutura de Dados</div>
+    <h1 style="font-size:clamp(24px,4vw,42px)">Quais bases <em>existem</em><br>e o que precisamos <em>criar</em>?</h1>
+  </div>
+
+  <!-- LEGENDA -->
+  <div style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span style="width:10px;height:10px;border-radius:50%;background:var(--mint);display:inline-block"></span>Já existe (integração via API)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span style="width:10px;height:10px;border-radius:50%;background:var(--amber);display:inline-block"></span>Existe parcialmente (precisa enriquecer)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span style="width:10px;height:10px;border-radius:50%;background:var(--rose);display:inline-block"></span>Precisa ser criada do zero</div>
+  </div>
+
+  <div class="base-grid">
+
+    <div class="base-card">
+      <div class="base-status exists">✅ Existe — API</div>
+      <h4>CNPJ / Receita Federal</h4>
+      <p>Dados cadastrais, CNAE, endereço, sócios, data de abertura e situação fiscal de qualquer empresa. Usado pelo Hunter para mapear negócios na região.</p>
+      <div class="fields">
+        <span>razao_social</span><span>cnae</span><span>endereco</span><span>data_abertura</span><span>situacao</span><span>capital_social</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status exists">✅ Existe — API</div>
+      <h4>Google Maps / Places API</h4>
+      <p>Geolocalização, raio de busca, dados de estabelecimentos, avaliações, horário de funcionamento e fotos. Base principal do Hunter para mapeamento geográfico.</p>
+      <div class="fields">
+        <span>place_id</span><span>lat_lng</span><span>rating</span><span>reviews</span><span>categoria</span><span>fotos</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status partial">⚠️ Parcial — Enriquecer</div>
+      <h4>SERASA Experian</h4>
+      <p>Score de crédito PF/PJ, histórico de inadimplência. Necessário para triagem financeira do investidor no Farmer. Requer contrato B2B com Serasa.</p>
+      <div class="fields">
+        <span>score_credito</span><span>pendencias</span><span>limite_estimado</span><span>historico_pag</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status exists">✅ Existe — Interno</div>
+      <h4>Sistema Bahia (Precificação)</h4>
+      <p>Sistema interno de gestão de preços de locação do shopping. Precisa de API de leitura para que os agentes consultem preços, condições e carências em tempo real.</p>
+      <div class="fields">
+        <span>preco_m2</span><span>luvas</span><span>carencia</span><span>piso</span><span>condicoes_especiais</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status create">🔴 Criar do Zero</div>
+      <h4>Banco de Pontos Vagos</h4>
+      <p>Cadastro completo dos pontos disponíveis (lojas, quiosques, pop-ups) com ficha técnica de cada espaço. Base central do Agente 02 e do KA/Expansão.</p>
+      <div class="fields">
+        <span>id_ponto</span><span>tipo</span><span>m2</span><span>vitrine_ml</span><span>pe_direito</span><span>energia_kva</span><span>agua</span><span>esgoto</span><span>docas</span><span>piso</span><span>vizinhanca</span><span>status</span><span>data_disponibilidade</span><span>fotos</span><span>planta</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status create">🔴 Criar do Zero</div>
+      <h4>CRM de Investidores</h4>
+      <p>Perfil completo dos leads e investidores cadastrados pelo Farmer. Modelo suitability com histórico de interações e score de qualificação.</p>
+      <div class="fields">
+        <span>id_investidor</span><span>capital_inicial</span><span>capital_giro</span><span>experiencia</span><span>disponibilidade_tempo</span><span>expectativa_retorno</span><span>risco</span><span>categoria_interesse</span><span>score_fit</span><span>status_negociacao</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status create">🔴 Criar do Zero</div>
+      <h4>CRM de Marcas e Franquias</h4>
+      <p>Catálogo de marcas e franquias em expansão com seus requisitos técnicos, perfil de parceiro buscado e praças de interesse. Alimenta o Agente KA/Expansão.</p>
+      <div class="fields">
+        <span>id_marca</span><span>nome</span><span>categoria</span><span>modelo_expansao</span><span>m2_min_max</span><span>investimento_inicial</span><span>royalties</span><span>pracas_interesse</span><span>parceiro_buscado</span><span>faturamento_medio_unidade</span><span>status</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status create">🔴 Criar do Zero</div>
+      <h4>Plano de Mix do Shopping</h4>
+      <p>Documento vivo com as necessidades estratégicas de mix por corredor, piso e categoria. Usado pelo Hunter para priorizar prospecções e pelo KA para triagem de marcas.</p>
+      <div class="fields">
+        <span>categoria_desejada</span><span>piso_preferencial</span><span>m2_alvo</span><span>prioridade</span><span>categorias_excluidas</span><span>marcas_alvo</span><span>data_atualizacao</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status partial">⚠️ Parcial — Enriquecer</div>
+      <h4>ABF — Franchising Brasil</h4>
+      <p>Associação Brasileira de Franchising disponibiliza dados de redes em expansão. Complementa o CRM de Marcas do Agente KA. Requer curadoria manual periódica.</p>
+      <div class="fields">
+        <span>nome_rede</span><span>segmento</span><span>num_unidades</span><span>investimento_inicial</span><span>estados_presentes</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status create">🔴 Criar do Zero</div>
+      <h4>Base de Fornecedores (Builder)</h4>
+      <p>Diretório de fornecedores homologados pelo shopping: arquitetos, empreiteiras, mobiliários, tech e RH. Com avaliações, especialidades e histórico de obras realizadas.</p>
+      <div class="fields">
+        <span>id_fornecedor</span><span>categoria</span><span>especialidade</span><span>portfolio</span><span>avaliacao_media</span><span>obras_realizadas_shopping</span><span>contato</span><span>faixa_preco</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status partial">⚠️ Parcial — Enriquecer</div>
+      <h4>Dados de Fluxo e Consumidores</h4>
+      <p>Fluxo do shopping por piso e corredor, ticket médio por categoria, perfil sociodemográfico. Essencial para calibrar recomendações do Hunter e do Seller.</p>
+      <div class="fields">
+        <span>fluxo_piso</span><span>ticket_medio_categoria</span><span>perfil_idade</span><span>perfil_renda</span><span>horario_pico</span><span>origem_consumidor</span>
+      </div>
+    </div>
+
+    <div class="base-card">
+      <div class="base-status create">🔴 Criar do Zero</div>
+      <h4>Base de Produtos Financeiros (Alavancador)</h4>
+      <p>Catálogo de soluções financeiras parceiras: bancos, fintechs, seguradoras e benefícios. Com condições, elegibilidade e processo de contratação integrado.</p>
+      <div class="fields">
+        <span>id_produto</span><span>tipo</span><span>parceiro</span><span>taxa_juros</span><span>prazo</span><span>valor_min_max</span><span>elegibilidade</span><span>link_contratacao</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESUMO EXECUTIVO -->
+  <div style="background:var(--s1);border:1px solid var(--border2);border-radius:14px;padding:28px;margin-top:8px">
+    <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px">Resumo: O que está pronto vs. o que falta</h3>
+    <div class="three-col">
+      <div>
+        <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mint);margin-bottom:10px">✅ Já existe (integrar)</div>
+        <ul class="filter-list">
+          <li>CNPJ / Receita Federal API</li>
+          <li>Google Maps / Places API</li>
+          <li>Sistema Bahia (interno)</li>
+          <li>Google Trends API</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">⚠️ Parcial (enriquecer)</div>
+        <ul class="filter-list">
+          <li>SERASA Experian (contrato B2B)</li>
+          <li>ABF Franchising (curadoria manual)</li>
+          <li>Dados de fluxo interno</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose);margin-bottom:10px">🔴 Criar do zero</div>
+        <ul class="filter-list">
+          <li>Banco de Pontos Vagos</li>
+          <li>CRM de Investidores (Farmer)</li>
+          <li>CRM de Marcas/Franquias (KA)</li>
+          <li>Plano de Mix do Shopping</li>
+          <li>Base de Fornecedores (Builder)</li>
+          <li>Base de Produtos Financeiros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 — FORMULÁRIOS DE CADASTRO
+═══════════════════════════════════════════════ -->
+<div id="formularios" class="page">
+
+  <div class="hero" style="padding-bottom:32px">
+    <div class="eyebrow">Templates de Input</div>
+    <h1 style="font-size:clamp(24px,4vw,42px)">Formulários para<br>as bases que precisamos <em>criar</em></h1>
+  </div>
+
+  <!-- FORM 1: PONTO VAGO -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--sky);border-color:var(--sky-d)">Form 01</div>
+    <h2>Cadastro de Ponto Vago</h2>
+  </div>
+  <div class="form-template">
+    <h4>🏪 Ficha Técnica do Ponto Comercial</h4>
+    <div class="two-col">
+      <div>
+        <div class="form-section">
+          <h5>Identificação</h5>
+          <div class="form-field"><div class="ff-name">ID do Ponto</div><div class="ff-type">Texto — gerado automaticamente</div><div class="ff-why c-violet">→ Chave única do ponto no sistema</div></div>
+          <div class="form-field"><div class="ff-name">Tipo</div><div class="ff-type">Seleção: Loja / Quiosque / Pop-up / Corner / Megastore</div></div>
+          <div class="form-field"><div class="ff-name">Piso</div><div class="ff-type">Seleção por piso do shopping</div></div>
+          <div class="form-field"><div class="ff-name">Corredor / Ala</div><div class="ff-type">Texto</div></div>
+          <div class="form-field"><div class="ff-name">Status</div><div class="ff-type">Vago / A vagar (data) / Negociação / Ocupado</div></div>
+          <div class="form-field"><div class="ff-name">Data de disponibilidade</div><div class="ff-type">Data</div></div>
+        </div>
+        <div class="form-section">
+          <h5>Dimensões e Estrutura</h5>
+          <div class="form-field"><div class="ff-name">Área total (m²)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Área de vendas (m²)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Vitrine (metros lineares)</div><div class="ff-type">Numérico</div><div class="ff-why c-violet">→ Crítico para marcas de moda e alimentação</div></div>
+          <div class="form-field"><div class="ff-name">Pé-direito (metros)</div><div class="ff-type">Numérico</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-section">
+          <h5>Infraestrutura Técnica</h5>
+          <div class="form-field"><div class="ff-name">Capacidade de energia (kVA)</div><div class="ff-type">Numérico</div><div class="ff-why c-violet">→ Essencial para food, salão de beleza, academia</div></div>
+          <div class="form-field"><div class="ff-name">Água (entrada disponível?)</div><div class="ff-type">Sim / Não / A instalar</div></div>
+          <div class="form-field"><div class="ff-name">Esgoto</div><div class="ff-type">Sim / Não / A instalar</div></div>
+          <div class="form-field"><div class="ff-name">Acesso a docas</div><div class="ff-type">Direto / Indireto / Sem acesso</div></div>
+          <div class="form-field"><div class="ff-name">Ar-condicionado central</div><div class="ff-type">Incluído / Próprio / Não tem</div></div>
+        </div>
+        <div class="form-section">
+          <h5>Contexto e Mídia</h5>
+          <div class="form-field"><div class="ff-name">Lojas vizinhas (até 5)</div><div class="ff-type">Texto livre / Tags de categoria</div><div class="ff-why c-violet">→ Análise de vizinhança para fit de mix</div></div>
+          <div class="form-field"><div class="ff-name">Fluxo médio do corredor</div><div class="ff-type">Baixo / Médio / Alto / âncora</div></div>
+          <div class="form-field"><div class="ff-name">Fotos do ponto</div><div class="ff-type">Upload múltiplos (mín. 5 fotos)</div></div>
+          <div class="form-field"><div class="ff-name">Planta baixa</div><div class="ff-type">Upload PDF/DWG</div></div>
+          <div class="form-field"><div class="ff-name">Condições comerciais</div><div class="ff-type">Integração automática com Sistema Bahia</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM 2: INVESTIDOR -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--violet);border-color:var(--violet-d)">Form 02</div>
+    <h2>Onboarding do Investidor (Farmer)</h2>
+  </div>
+  <div class="form-template">
+    <h4>💼 Perfil Suitability do Investidor</h4>
+    <div class="two-col">
+      <div>
+        <div class="form-section">
+          <h5>Dados Pessoais e Situação Atual</h5>
+          <div class="form-field"><div class="ff-name">Nome completo / CPF</div><div class="ff-type">Texto / Numérico (integra com SERASA)</div></div>
+          <div class="form-field"><div class="ff-name">Cidade e bairro de residência</div><div class="ff-type">Geolocalização + texto</div><div class="ff-why c-violet">→ Calcula proximidade com o shopping</div></div>
+          <div class="form-field"><div class="ff-name">Ocupação atual</div><div class="ff-type">CLT / PJ / Empreendedor / Aposentado / Outro</div></div>
+          <div class="form-field"><div class="ff-name">Disponibilidade de tempo</div><div class="ff-type">Integral (40h+) / Parcial (20h) / Passivo (só capital)</div><div class="ff-why c-violet">→ Determina se pode ser operador ou só sócio-investidor</div></div>
+        </div>
+        <div class="form-section">
+          <h5>Capacidade Financeira</h5>
+          <div class="form-field"><div class="ff-name">Capital inicial disponível (R$)</div><div class="ff-type">Faixas: até 50k / 50-100k / 100-200k / 200-500k / 500k+</div></div>
+          <div class="form-field"><div class="ff-name">Capital de giro adicional (meses)</div><div class="ff-type">3 / 6 / 12 / 18+ meses</div></div>
+          <div class="form-field"><div class="ff-name">Renda mensal atual (R$)</div><div class="ff-type">Faixas (para análise de comprometimento)</div></div>
+          <div class="form-field"><div class="ff-name">Já tem CNPJ?</div><div class="ff-type">Sim / Não / Vou abrir</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-section">
+          <h5>Experiência e Perfil</h5>
+          <div class="form-field"><div class="ff-name">Experiência com varejo</div><div class="ff-type">Nenhuma / Funcionário / Gerente / Dono de loja / Franqueado</div></div>
+          <div class="form-field"><div class="ff-name">Setores em que já trabalhou</div><div class="ff-type">Multi-seleção: moda / food / serviços / tech / saúde / outro</div></div>
+          <div class="form-field"><div class="ff-name">Já empreendeu antes?</div><div class="ff-type">Sim (bem-sucedido) / Sim (encerrou) / Não</div></div>
+          <div class="form-field"><div class="ff-name">Categoria de interesse</div><div class="ff-type">Multi-seleção de categorias do shopping</div></div>
+        </div>
+        <div class="form-section">
+          <h5>Expectativas e Tolerância</h5>
+          <div class="form-field"><div class="ff-name">Payback esperado</div><div class="ff-type">Até 18m / 18-24m / 24-36m / 36-48m / 48m+</div><div class="ff-why c-violet">→ Calibra recomendações: franquias têm paybacks mais previsíveis</div></div>
+          <div class="form-field"><div class="ff-name">Tolerância a risco</div><div class="ff-type">Conservador / Moderado / Arrojado</div></div>
+          <div class="form-field"><div class="ff-name">Prefere marca conhecida ou negócio próprio?</div><div class="ff-type">Franquia estabelecida / Marca em crescimento / Negócio próprio / Tanto faz</div></div>
+          <div class="form-field"><div class="ff-name">Score calculado pelo agente</div><div class="ff-type">0-100 (gerado automaticamente)</div><div class="ff-why c-violet">→ Base para ranking de oportunidades apresentadas</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM 3: MARCA / FRANQUIA -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--sky);border-color:var(--sky-d)">Form 03</div>
+    <h2>Cadastro de Marca / Franquia (KA Expansão)</h2>
+  </div>
+  <div class="form-template">
+    <h4>🏢 Perfil da Marca em Expansão</h4>
+    <div class="two-col">
+      <div>
+        <div class="form-section">
+          <h5>Dados da Empresa</h5>
+          <div class="form-field"><div class="ff-name">Nome da marca / rede</div><div class="ff-type">Texto</div></div>
+          <div class="form-field"><div class="ff-name">CNPJ / Razão social</div><div class="ff-type">Numérico (integra Receita Federal)</div></div>
+          <div class="form-field"><div class="ff-name">Categoria e subcategoria</div><div class="ff-type">Seleção hierárquica de categorias do varejo</div></div>
+          <div class="form-field"><div class="ff-name">Modelo de expansão</div><div class="ff-type">Loja própria / Franquia / Licenciado / Corner multimarcas</div></div>
+          <div class="form-field"><div class="ff-name">Número de unidades ativas</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Faturamento médio por unidade (R$/mês)</div><div class="ff-type">Faixas</div></div>
+        </div>
+        <div class="form-section">
+          <h5>Requisitos do Ponto</h5>
+          <div class="form-field"><div class="ff-name">Área mínima e máxima (m²)</div><div class="ff-type">Range numérico</div></div>
+          <div class="form-field"><div class="ff-name">Vitrine mínima (ml)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Pé-direito mínimo (m)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Energia necessária (kVA)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Necessita água/esgoto?</div><div class="ff-type">Sim / Não / Desejável</div></div>
+          <div class="form-field"><div class="ff-name">Necessita acesso a docas?</div><div class="ff-type">Obrigatório / Desejável / Não precisa</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-section">
+          <h5>Expansão e Parceiros</h5>
+          <div class="form-field"><div class="ff-name">Praças de interesse</div><div class="ff-type">Multi-seleção por estado / cidade / shopping específico</div><div class="ff-why c-violet">→ Filtro principal para match com shoppings</div></div>
+          <div class="form-field"><div class="ff-name">Perfil do parceiro/investidor buscado</div><div class="ff-type">Operador integral / Sócio parcial / Só capital (loja própria com gestão da marca)</div></div>
+          <div class="form-field"><div class="ff-name">Investimento inicial exigido (R$)</div><div class="ff-type">Valor ou faixa</div></div>
+          <div class="form-field"><div class="ff-name">Royalties (%/mês sobre faturamento)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Taxa de publicidade (%)</div><div class="ff-type">Numérico</div></div>
+          <div class="form-field"><div class="ff-name">Suporte ao franqueado</div><div class="ff-type">Multi-seleção: treinamento / obra / estoque / marketing / TI</div></div>
+        </div>
+        <div class="form-section">
+          <h5>Vizinhança e Posicionamento</h5>
+          <div class="form-field"><div class="ff-name">Âncoras de referência (operar próximo)</div><div class="ff-type">Multi-seleção de âncoras (C&A, Renner, Riachuelo, iFood etc.)</div></div>
+          <div class="form-field"><div class="ff-name">Categorias complementares desejadas</div><div class="ff-type">Tags de categorias do shopping</div></div>
+          <div class="form-field"><div class="ff-name">Posicionamento de preço</div><div class="ff-type">Popular / Acessível / Mid-market / Premium / Luxo</div></div>
+          <div class="form-field"><div class="ff-name">Status da expansão</div><div class="ff-type">Ativa buscando / Em análise / Pausa temporária</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM 4: PLANO DE MIX -->
+  <div class="sec-head">
+    <div class="pill" style="color:var(--gold);border-color:var(--gold-d)">Form 04</div>
+    <h2>Plano de Mix do Shopping</h2>
+  </div>
+  <div class="form-template">
+    <h4>🗺 Necessidades Estratégicas de Mix (preenchido pela equipe interna)</h4>
+    <div class="two-col">
+      <div>
+        <div class="form-section">
+          <h5>Por Vaga / Ponto</h5>
+          <div class="form-field"><div class="ff-name">ID do ponto (vago)</div><div class="ff-type">Vinculado ao Banco de Pontos Vagos</div></div>
+          <div class="form-field"><div class="ff-name">Categoria desejada (1ª opção)</div><div class="ff-type">Seleção de categoria de varejo</div></div>
+          <div class="form-field"><div class="ff-name">Categoria desejada (2ª opção)</div><div class="ff-type">Seleção alternativa</div></div>
+          <div class="form-field"><div class="ff-name">Categorias EXCLUÍDAS para este ponto</div><div class="ff-type">Multi-seleção</div><div class="ff-why c-violet">→ Evita conflito com lojas vizinhas ou excesso de categoria</div></div>
+          <div class="form-field"><div class="ff-name">Marcas-alvo (se houver)</div><div class="ff-type">Texto / Tags de marcas do CRM</div></div>
+          <div class="form-field"><div class="ff-name">Prioridade de preenchimento</div><div class="ff-type">Crítica / Alta / Normal / Oportunista</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-section">
+          <h5>Estratégia Geral do Shopping</h5>
+          <div class="form-field"><div class="ff-name">Categorias com excesso (reduzir)</div><div class="ff-type">Multi-seleção</div></div>
+          <div class="form-field"><div class="ff-name">Categorias em falta (crescer)</div><div class="ff-type">Multi-seleção</div></div>
+          <div class="form-field"><div class="ff-name">Segmento de público a atrair</div><div class="ff-type">Faixas de renda / idade / perfil</div></div>
+          <div class="form-field"><div class="ff-name">Inovações desejadas</div><div class="ff-type">Texto livre — ex: "food saudável", "tech wearable", "pet premium"</div></div>
+          <div class="form-field"><div class="ff-name">Validade do plano</div><div class="ff-type">Data de revisão</div></div>
+          <div class="form-field"><div class="ff-name">Responsável pelo plano</div><div class="ff-type">Nome do KA / Diretor Comercial</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

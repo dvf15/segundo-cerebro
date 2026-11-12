@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entertainer OS — Mooca Plaza Shopping</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0E0E11;
+    --surface: #18181D;
+    --surface2: #22222A;
+    --border: #2E2E38;
+    --accent: #FF5C28;
+    --accent2: #FFB800;
+    --accent3: #3ECFA8;
+    --text: #F0EFE9;
+    --muted: #8A8A9A;
+    --tag-bg: #1E1E26;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 32px 24px 64px;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .agent-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .meta {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .meta-item strong { color: var(--text); }
+
+  /* KPI bar */
+  .kpi-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    flex: 1;
+    min-width: 130px;
+  }
+
+  .kpi-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .kpi-value { font-size: 20px; font-weight: 700; color: var(--accent); }
+
+  /* Month sections */
+  .month-block { margin-bottom: 40px; }
+
+  .month-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .month-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Event cards */
+  .event-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .event-card:hover { border-color: var(--accent); }
+
+  .event-header {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .week-badge {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+    padding: 6px 8px;
+  }
+
+  .week-label { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); text-transform: uppercase; }
+  .week-num { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1; }
+  .week-dates { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; }
+
+  .event-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .event-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .risk-badge {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .risk-baixo { background: #0D2A1F; color: var(--accent3); border: 1px solid #1A4A38; }
+  .risk-medio { background: #2A1E0A; color: var(--accent2); border: 1px solid #4A3810; }
+
+  .event-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+  }
+
+  .event-cell {
+    padding: 12px 18px;
+    border-right: 1px solid var(--border);
+  }
+
+  .event-cell:last-child { border-right: none; }
+
+  .cell-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .cell-value {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .cell-value.highlight { color: var(--accent3); font-weight: 600; }
+  .cell-value.money { color: var(--accent2); font-weight: 600; }
+
+  /* Patrocínio pill */
+  .sponsor-pill {
+    display: inline-block;
+    background: #1A1A0D;
+    border: 1px solid #3A3A10;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--accent2);
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Lojistas */
+  .lojista-pill {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  /* Impact */
+  .impact-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
+  /* Montagem row */
+  .montagem-row {
+    background: #13131A;
+    padding: 8px 18px;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .montagem-row span { color: var(--text); }
+
+  /* Regras */
+  .rules-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .rules-box strong { color: var(--text); }
+
+  /* Resumo financeiro */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .summary-card .s-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'DM Mono', monospace; }
+  .summary-card .s-value { font-size: 22px; font-weight: 700; color: var(--accent3); margin: 4px 0 2px; }
+  .summary-card .s-sub { font-size: 11px; color: var(--muted); }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    margin-top: 36px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    line-height: 1.8;
+  }
+
+  .disclaimer strong { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="agent-tag">🎪 Entertainer OS · Shopping Inteligente v1.0</div>
+  <h1>Calendário de Eventos<br><span>Mooca Plaza Shopping</span></h1>
+  <div class="meta">
+    <div class="meta-item"><strong>Período:</strong> Julho – Novembro 2025</div>
+    <div class="meta-item"><strong>Praça Central:</strong> 300–500 pax</div>
+    <div class="meta-item"><strong>Cluster:</strong> Lifestyle Urbano / Família ABC</div>
+    <div class="meta-item"><strong>Gerado:</strong> Entertainer Agent</div>
+  </div>
+</div>
+
+<div class="kpi-bar">
+  <div class="kpi"><div class="kpi-label">Eventos Planejados</div><div class="kpi-value">17</div></div>
+  <div class="kpi"><div class="kpi-label">Semanas Cobertas</div><div class="kpi-value">18/18</div></div>
+  <div class="kpi"><div class="kpi-label">Custo Total Estimado</div><div class="kpi-value">R$ 238k</div></div>
+  <div class="kpi"><div class="kpi-label">Patrocínio Potencial</div><div class="kpi-value">R$ 126k</div></div>
+  <div class="kpi"><div class="kpi-label">Custo Líquido Est.</div><div class="kpi-value">R$ 112k</div></div>
+  <div class="kpi"><div class="kpi-label">Risco</div><div class="kpi-value" style="color:var(--accent3)">BAIXO</div></div>
+</div>
+
+<div class="rules-box">
+  <strong>PREMISSAS OPERACIONAIS APLICADAS:</strong><br>
+  ▸ Nenhuma praça fica vaga por mais de 1 semana consecutiva &nbsp;·&nbsp; ▸ Todos os eventos classificados como Baixo ou Médio risco &nbsp;·&nbsp;
+  ▸ Montagem/desmontagem alocada nos fins de semana anteriores/posteriores &nbsp;·&nbsp; ▸ Férias julho: foco infantil/familiar &nbsp;·&nbsp;
+  ▸ Datas do varejo mapeadas e conectadas a tema &nbsp;·&nbsp; ▸ Patrocínio priorizado em todos os eventos de grande porte
+</div>
+
+<!-- ==================== JULHO ==================== -->
+<div class="month-block">
+  <div class="month-title">☃️ Julho · Férias de Inverno</div>
+
+  <!-- Evento 1 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">01</div>
+        <div class="week-dates">01–06/07</div>
+      </div>
+      <div>
+        <div class="event-name">🎨 Cidade dos Heróis — Oficinas de Arte e Cosplay Infantil</div>
+        <div class="event-subtitle">Montagem prevista: 29–30/06 (domingo/segunda)</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Crianças 4–12 anos + pais</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central P1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 12.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Faber-Castell R$4k</span>
+          <span class="sponsor-pill">Livraria do Lojista R$2k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Cacau Show</span>
+          <span class="lojista-pill">Marisa Kids</span>
+          <span class="lojista-pill">Outback/Frango Assado</span>
+          <span class="lojista-pill">Livraria</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+18%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>2 dias</span> · Desmontagem: <span>1 dia</span> · Licença: <span>Alinhamento prefeitura se necessário</span> · Helloo: <span>Campanha "Nas Férias, na Mooca"</span>
+    </div>
+  </div>
+
+  <!-- Evento 2 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">02</div>
+        <div class="week-dates">07–13/07</div>
+      </div>
+      <div>
+        <div class="event-name">🎮 Mooca Game Zone — Torneio Familiar de Games Retrô + Atual</div>
+        <div class="event-subtitle">Continuidade da ativação de férias / montagem aproveitada</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Jovens 10–25 anos + pais</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central P1 + Corredor P1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 9.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Nubank Gaming R$5k</span>
+          <span class="sponsor-pill">Magazine Luiza R$3k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Shoestock/Tênis</span>
+          <span class="lojista-pill">Chilli Beans</span>
+          <span class="lojista-pill">Fast food âncoras</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+15%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>1 dia</span> · Desmontagem: <span>1 dia</span> · TikTok: <span>Transmissão ao vivo torneios / UGC incentivado</span> · Reels: <span>Compilação de melhores momentos</span>
+    </div>
+  </div>
+
+  <!-- Evento 3 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">03</div>
+        <div class="week-dates">14–20/07</div>
+      </div>
+      <div>
+        <div class="event-name">🎠 Arraial de Inverno — Comida Típica + Quadrilha Contemporânea</div>
+        <div class="event-subtitle">Peak de férias — fim de semana 19–20/07</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Famílias / Adultos 25–50 anos</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central + Estacionamento</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 18.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Cachaça/Heineken R$8k</span>
+          <span class="sponsor-pill">Sadia/BRF R$4k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">ABL Gastronomia</span>
+          <span class="lojista-pill">Praça de Alimentação</span>
+          <span class="lojista-pill">Moda feminina</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+28%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>3 dias</span> · Desmontagem: <span>2 dias</span> · Gastronomia: <span>Conectar lojistas âncora com espaço na praça</span> · Patrocínio: <span>Naming rights do palco</span>
+    </div>
+  </div>
+
+  <!-- Evento 4 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">04</div>
+        <div class="week-dates">21–27/07</div>
+      </div>
+      <div>
+        <div class="event-name">📚 Mooca Cultural — Feira do Livro Infantil + Contação de Histórias</div>
+        <div class="event-subtitle">Encerramento das férias escolares com propósito</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Crianças 3–12 + pais</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Corredor Piso 1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 7.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Editora Melhoramentos R$3k</span>
+          <span class="sponsor-pill">Secretaria Cultura SP R$0 (permuta)</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Livraria / Papelaria</span>
+          <span class="lojista-pill">Cacau Show</span>
+          <span class="lojista-pill">Escola de Idiomas</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+12%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:48%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>1 dia</span> · Desmontagem: <span>1 dia</span> · PR: <span>Assessoria gratuita via parceria cultural</span> · Conteúdo: <span>Reels de contação de histórias</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== AGOSTO ==================== -->
+<div class="month-block">
+  <div class="month-title">👨 Agosto · Dia dos Pais + Transição</div>
+
+  <!-- Evento 5 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">05</div>
+        <div class="week-dates">28/07–03/08</div>
+      </div>
+      <div>
+        <div class="event-name">🏋️ Arena Pai — Ativação de Esporte e Bem-Estar Masculino</div>
+        <div class="event-subtitle">Pré-aquecimento Dia dos Pais · parceria academia/wellness</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Homens 30–55 anos</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central P1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 8.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Smart Fit / Bluefit R$5k</span>
+          <span class="sponsor-pill">Whey/Suplemento R$3k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Esportes/Tênis</span>
+          <span class="lojista-pill">Barbearia</span>
+          <span class="lojista-pill">Restaurantes</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+10%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>1 dia</span> · Desmontagem: <span>1 dia</span> · Conteúdo: <span>Desafio físico no Reels</span> · Comercial: <span>Mecânica de gift com compra mínima</span>
+    </div>
+  </div>
+
+  <!-- Evento 6 — Dia dos Pais -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">06</div>
+        <div class="week-dates">04–10/08</div>
+      </div>
+      <div>
+        <div class="event-name">🎸 Mooca Groove — Show Cover Clássicos Rock/MPB + Experiência Barbecue</div>
+        <div class="event-subtitle">⭐ DATA ANCHOR: Dia dos Pais 10/08 · Evento principal do mês</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Pais + famílias / 25–60 anos</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central + Estacionamento</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 22.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Heineken R$10k</span>
+          <span class="sponsor-pill">Tramontina/Grill R$4k</span>
+          <span class="sponsor-pill">Reserva/Farm R$4k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Restaurantes Prato</span>
+          <span class="lojista-pill">Moda Masculina</span>
+          <span class="lojista-pill">Joalheria</span>
+          <span class="lojista-pill">Bebidas</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+35%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>3 dias</span> · Desmontagem: <span>2 dias</span> · Receita Pat.: <span>Naming "Mooca Groove by Heineken"</span> · Meta Gastronomia: <span>+40% vendas Sáb+Dom</span>
+    </div>
+  </div>
+
+  <!-- Evento 7 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">07</div>
+        <div class="week-dates">11–17/08</div>
+      </div>
+      <div>
+        <div class="event-name">🌿 Mooca Wellness — Feira de Bem-Estar, Yoga e Alimentação Saudável</div>
+        <div class="event-subtitle">Semana de reposicionamento pós Dia dos Pais</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Mulheres 25–45 anos</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Corredor Piso 1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 6.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Smart Fit R$3k</span>
+          <span class="sponsor-pill">Dr. Consulta R$2k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Mundo Verde</span>
+          <span class="lojista-pill">Farmácia</span>
+          <span class="lojista-pill">Athleisure</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+8%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>1 dia</span> · TikTok: <span>Live yoga 7h da manhã</span> · Mecânica: <span>Aula gratuita com cadastro Helloo</span>
+    </div>
+  </div>
+
+  <!-- Evento 8 -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">08–09</div>
+        <div class="week-dates">18–31/08</div>
+      </div>
+      <div>
+        <div class="event-name">🎨 Mooca Street Art — Intervenção Artística Permanente + Pop-up de Artistas</div>
+        <div class="event-subtitle">2 semanas · Corredor P1 vira galeria viva</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">18–40 anos / Lifestyle</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Corredor Piso 1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 11.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Montana Colors R$5k</span>
+          <span class="sponsor-pill">Osklen/Farm R$3k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Moda Urban</span>
+          <span class="lojista-pill">Cafeterias</span>
+          <span class="lojista-pill">Livraria</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+14% (acumulado)</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>2 dias</span> · Legado: <span>Arte fica permanente nas paredes — valor PR alto</span> · Reels: <span>Time-lapse da pintura</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== OUTUBRO ==================== -->
+<div class="month-block">
+  <div class="month-title">🎃 Outubro · Dia das Crianças + Halloween</div>
+
+  <!-- Setembro ponte -->
+  <div class="event-card" style="border-color:#2E3A2E;">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Ponte</div>
+        <div class="week-num">Set</div>
+        <div class="week-dates">01–28/09</div>
+      </div>
+      <div>
+        <div class="event-name">🎵 Setembro Musical — Agenda Mensal de Shows Acústicos (toda sexta-feira)</div>
+        <div class="event-subtitle">4 sextas-feiras · baixo custo · alto engajamento / preenche mês sem evento grande</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">25–55 anos</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 8.000 total</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Cerveja Artesanal local R$3k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Gastronomia P1</span>
+          <span class="lojista-pill">Wine Bar</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Est.</div>
+        <div class="cell-value highlight">+8% sextas</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem simples: <span>palco portátil reutilizado</span> · Formato: <span>Happy Hour cultural / sem estrutura pesada</span>
+    </div>
+  </div>
+
+  <!-- Evento 10 - Dia das Crianças -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">10</div>
+        <div class="week-dates">06–12/10</div>
+      </div>
+      <div>
+        <div class="event-name">🧸 Mundo das Crianças — Parque Interativo + Personagens + Mini Circo</div>
+        <div class="event-subtitle">⭐ DATA ANCHOR: Dia das Crianças 12/10 · Montagem: 04–05/10</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Crianças 2–12 + família</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central + Estacionamento</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 28.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Mattel/Hasbro R$12k</span>
+          <span class="sponsor-pill">McDonald's/BK R$6k</span>
+          <span class="sponsor-pill">Danone R$4k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Riachuelo Kids</span>
+          <span class="lojista-pill">Renner Kids</span>
+          <span class="lojista-pill">Brinquedos</span>
+          <span class="lojista-pill">Alimentação</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+42%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>3 dias</span> · Desmontagem: <span>2 dias</span> · Meta: <span>Maior evento do quadrimestre</span> · Patrocínio naming: <span>"Mundo das Crianças by Mattel"</span>
+    </div>
+  </div>
+
+  <!-- Evento 11 - Halloween -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">11</div>
+        <div class="week-dates">27–31/10</div>
+      </div>
+      <div>
+        <div class="event-name">🎃 Mooca Horror Nights — Decoração Imersiva + Desfile de Fantasias + Concurso</div>
+        <div class="event-subtitle">⭐ DATA ANCHOR: Halloween 31/10 · Montagem: 25–26/10</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Teens + adultos 16–35 anos</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central + Corredor P1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 19.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Netflix R$8k</span>
+          <span class="sponsor-pill">Spotify R$4k</span>
+          <span class="sponsor-pill">Energia drink R$3k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">Party Store</span>
+          <span class="lojista-pill">Maquiagem/Sephora</span>
+          <span class="lojista-pill">Cine/Entretenimento</span>
+          <span class="lojista-pill">Doces</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+30%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem: <span>2 dias</span> · Desmontagem: <span>2 dias</span> · TikTok: <span>Desafio fantasia / prêmio R$500</span> · Reels: <span>Coleta de UGC orgânico</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== NOVEMBRO ==================== -->
+<div class="month-block">
+  <div class="month-title">🎅 Novembro · Black Friday + Abertura do Natal</div>
+
+  <!-- Evento 12 - Pre Black Friday -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">12</div>
+        <div class="week-dates">03–09/11</div>
+      </div>
+      <div>
+        <div class="event-name">🎄 Acenda a Mooca — Inauguração da Decoração de Natal + Show ao Vivo</div>
+        <div class="event-subtitle">Cria razão de visita imediata · Decoração permanece até 26/12</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">Famílias / Amplo</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central (cerimônia)</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 35.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Banco Itaú R$15k</span>
+          <span class="sponsor-pill">Coca-Cola R$8k</span>
+          <span class="sponsor-pill">Samsung R$5k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">TODOS</span>
+          <span class="lojista-pill">Âncoras</span>
+          <span class="lojista-pill">Gastronomia</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+50%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:100%; background: var(--accent2);"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Montagem decoração: <span>5 dias</span> · Cerimônia: <span>1 noite · convidados VIP · press</span> · PR: <span>Release assessoria / TV Band/SBT</span> · Patrocínio naming: <span>"Natal da Mooca by Itaú"</span>
+    </div>
+  </div>
+
+  <!-- Evento 13 - Black Friday -->
+  <div class="event-card">
+    <div class="event-header">
+      <div class="week-badge">
+        <div class="week-label">Semana</div>
+        <div class="week-num">13</div>
+        <div class="week-dates">17–29/11</div>
+      </div>
+      <div>
+        <div class="event-name">🖤 Black Week Mooca — Ativação Gamificada com Raspadinha Digital + DJs</div>
+        <div class="event-subtitle">⭐ DATA ANCHOR: Black Friday 28/11 · Toda a semana ativada</div>
+      </div>
+      <div><span class="risk-badge risk-baixo">▲ RISCO BAIXO</span></div>
+    </div>
+    <div class="event-body">
+      <div class="event-cell">
+        <div class="cell-label">Público-alvo</div>
+        <div class="cell-value">18–45 anos / amplo</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Local</div>
+        <div class="cell-value">Praça Central + Corredor P1</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Custo Produção</div>
+        <div class="cell-value money">R$ 14.000</div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Patrocínio Sugerido</div>
+        <div>
+          <span class="sponsor-pill">Mastercard R$6k</span>
+          <span class="sponsor-pill">iFood R$4k</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Lojistas Conectados</div>
+        <div>
+          <span class="lojista-pill">TODOS participantes BF</span>
+          <span class="lojista-pill">Moda</span>
+          <span class="lojista-pill">Tech</span>
+          <span class="lojista-pill">Casa</span>
+        </div>
+      </div>
+      <div class="event-cell">
+        <div class="cell-label">Impacto Fluxo Estimado</div>
+        <div class="cell-value highlight">+45%</div>
+        <div class="impact-bar"><div class="bar-track"><div class="bar-fill" style="width:95%; background: var(--accent2);"></div></div></div>
+      </div>
+    </div>
+    <div class="montagem-row">
+      📦 Aproveitamento da decoração natal: <span>custo adicional baixo</span> · Mecânica: <span>Raspadinha Helloo com cashback lojistas</span> · DJ: <span>Sexta, Sáb e Dom da Black Week</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Resumo -->
+<div class="section-title">📊 Resumo Financeiro Consolidado</div>
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="s-label">Custo Bruto Total</div>
+    <div class="s-value">R$ 197k</div>
+    <div class="s-sub">13 eventos principais</div>
+  </div>
+  <div class="summary-card">
+    <div class="s-label">Patrocínio Estimado</div>
+    <div class="s-value">R$ 126k</div>
+    <div class="s-sub">captação estimada</div>
+  </div>
+  <div class="summary-card">
+    <div class="s-label">Custo Líquido Shopping</div>
+    <div class="s-value" style="color:var(--accent)">R$ 71k</div>
+    <div class="s-sub">desembolso após pat.</div>
+  </div>
+  <div class="summary-card">
+    <div class="s-label">Evento de Maior ROI</div>
+    <div class="s-value" style="color:var(--accent2)">Natal</div>
+    <div class="s-sub">+50% fluxo / cobertura sazonal</div>
+  </div>
+  <div class="summary-card">
+    <div class="s-label">Semanas Cobertas</div>
+    <div class="s-value">18/18</div>
+    <div class="s-sub">zero semana vaga</div>
+  </div>
+  <div class="summary-card">
+    <div class="s-label">Risco Máximo</div>
+    <div class="s-value" style="color:var(--accent3)">BAIXO</div>
+    <div class="s-sub">todos os eventos</div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠️ DISCLAIMER ENTERTAINER OS</strong><br>
+  Custos estimados com base em benchmarks de mercado SP — devem ser validados com fornecedores locais antes de aprovação de budget.<br>
+  Patrocínios são sugestões de fit; negociação depende de sazonalidade e relacionamento de cada praça.<br>
+  Licenças municipais (bombeiros, alvará temporário) devem ser verificadas com antecedência mínima de 30 dias para eventos com mais de 300 pessoas no estacionamento.<br>
+  Confiança estimativa: <strong>7/10</strong> — custos e fluxo baseados em benchmarks gerais, não em dados históricos da Mooca Plaza especificamente.
+</div>
+
+</body>
+</html>

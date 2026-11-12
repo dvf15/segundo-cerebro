@@ -7,6 +7,7 @@ source_id: "16ee1076-dc57-478b-afa6-ab98f235eb92"
 url: "https://claude.ai/chat/16ee1076-dc57-478b-afa6-ab98f235eb92"
 project: null
 messages: 12
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Tratamento para contusão e agendamento de medicamentos

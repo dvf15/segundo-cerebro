@@ -7,6 +7,7 @@ source_id: "3978d1c7-5e97-4e15-98be-5e328f3f24b2"
 url: "https://claude.ai/chat/3978d1c7-5e97-4e15-98be-5e328f3f24b2"
 project: null
 messages: 4
+generated_files: 2
 tags: ["claude", "conversa"]
 ---
 # Framework personalizável para calibração de dados fitness
@@ -293,3 +294,11 @@ Template base é para 80 kg (≈3200 kcal dia treino / 2600 kcal dia leve). Para
 - Substituições são livres dentro da mesma categoria (proteína, carbo, gordura) — o sistema não força marca/alimento específico.
 
 **Confiança: 7.5/10.** Os princípios do cardápio (proteína distribuída, carbo periodizado por dia, gordura boa) são bem suportados. O que tem mais incerteza: (1) a estimativa de macros por porção (variabilidade real de cortes, marcas, preparo); (2) o template base para 80 kg pode ficar "torto" em extremos (50 kg ou 130 kg) — gramaturas funcionam, mas a distribuição entre refeições pode precisar de ajuste manual. Se quiser, posso refinar isso com inputs adicionais (preferência alimentar, restrições) ou com opções A/B por refeição.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/framework-personalizavel-para-calibracao-de-dados_3978d1c7/home/claude/system/fitness-calibration.jsx]] (36 KB)
+- [[claude/arquivos-gerados/2026-05/framework-personalizavel-para-calibracao-de-dados_3978d1c7/home/claude/system/sistema-calibracao-spec.md]] (12 KB)

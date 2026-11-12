@@ -7,6 +7,7 @@ source_id: "79efeea1-c9fa-41d9-a163-7c3799961203"
 url: "https://claude.ai/chat/79efeea1-c9fa-41d9-a163-7c3799961203"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Arquivo indexado para Obsidian
@@ -171,3 +172,10 @@ Os números (NOI, funcionários, visitantes, crescimento de NOI) vêm só do seu
 
 - 📎 Perfil Profissional - Daniel.md
 - 📎 Perfil Profissional - Daniel.md
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-10/arquivo-indexado-para-obsidian_79efeea1/Perfil Profissional - Daniel.md]] (9 KB)

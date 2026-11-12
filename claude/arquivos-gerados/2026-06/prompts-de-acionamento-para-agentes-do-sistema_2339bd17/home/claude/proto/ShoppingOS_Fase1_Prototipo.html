@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Inteligente OS — Protótipo Fase 1 (dados fictícios)</title>
+<style>
+  :root{
+    --ink:#0d1117; --paper:#f5f1e8; --terra:#c8553d; --gold:#c9a55c;
+    --moss:#4a5d3a; --steel:#5c6878; --line:#e0dccf; --card:#fffdf8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter Tight',-apple-system,Segoe UI,Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+  header{background:var(--ink);color:var(--paper);padding:18px 24px;position:sticky;top:0;z-index:10}
+  header h1{font-size:18px;font-weight:700;letter-spacing:-.3px}
+  header .sub{font-size:12px;opacity:.75;margin-top:2px}
+  .demo-badge{display:inline-block;background:var(--terra);color:#fff;font-size:11px;font-weight:700;
+    padding:3px 9px;border-radius:4px;margin-left:8px;vertical-align:middle}
+  .wrap{max-width:1200px;margin:0 auto;padding:20px 24px 60px}
+  nav.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:18px 0 22px;border-bottom:2px solid var(--line)}
+  nav.tabs button{background:none;border:none;padding:10px 14px;font-size:13px;font-weight:600;color:var(--steel);
+    cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;font-family:inherit}
+  nav.tabs button.active{color:var(--ink);border-bottom-color:var(--terra)}
+  nav.tabs button:hover{color:var(--ink)}
+  .panel{display:none}
+  .panel.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:16px}
+  .card h2{font-size:15px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .card .desc{font-size:12.5px;color:var(--steel);margin-bottom:14px}
+  .badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;color:#fff}
+  .b-com{background:var(--terra)} .b-ops{background:var(--steel)} .b-fin{background:var(--moss)}
+  .b-mkt{background:var(--gold);color:#3a2e10} .b-gov{background:var(--ink)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{background:var(--ink);color:var(--paper);text-align:left;padding:8px 10px;font-weight:600;font-size:11.5px}
+  td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#faf7f0}
+  .score{display:inline-block;min-width:34px;text-align:center;font-weight:700;border-radius:4px;padding:2px 6px;color:#fff;font-size:11px}
+  .s-hi{background:var(--moss)} .s-mid{background:var(--gold);color:#3a2e10} .s-lo{background:var(--terra)}
+  .pill{font-size:10.5px;border:1px solid var(--steel);color:var(--steel);border-radius:20px;padding:1px 8px;white-space:nowrap}
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  .kpi .n{font-size:24px;font-weight:700;color:var(--terra)}
+  .kpi .l{font-size:11.5px;color:var(--steel);margin-top:2px}
+  .runbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+  select,button.run{font-family:inherit;font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--steel)}
+  button.run{background:var(--ink);color:var(--paper);border:none;cursor:pointer;font-weight:600}
+  button.run:hover{background:var(--terra)}
+  .out{background:#fff;border:1px dashed var(--steel);border-radius:8px;padding:14px;font-size:13px;margin-top:12px;white-space:pre-wrap;display:none}
+  .out.show{display:block}
+  .note{background:#fbe9e7;border-left:3px solid var(--terra);padding:10px 14px;border-radius:0 6px 6px 0;font-size:12.5px;margin-bottom:16px}
+  .legend{font-size:11px;color:var(--steel);margin-top:8px}
+  .nv{color:var(--terra);font-weight:600;font-style:italic}
+  footer{text-align:center;font-size:11px;color:var(--steel);padding:30px;border-top:1px solid var(--line);margin-top:30px}
+  code{background:#efe9da;padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Shopping Inteligente OS <span class="demo-badge">FASE 1 · DADOS FICTÍCIOS</span></h1>
+  <div class="sub">Protótipo de demonstração · nenhum dado real · não conectar a sistemas corporativos nesta fase</div>
+</header>
+
+<div class="wrap">
+  <div class="note">
+    <strong>Este é um protótipo de aprendizado e demonstração.</strong> Todos os dados abaixo são inventados.
+    Ele existe para você (a) aprender a estrutura do sistema e (b) mostrar à liderança e à TI da Allos como ele
+    funcionaria — <em>antes</em> de qualquer decisão sobre dados reais. A lógica dos agentes e scores é a mesma que
+    iria para produção; só os dados mudam.
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <button class="active" data-t="painel">Painel</button>
+    <button data-t="bases">7 Bases de Dados</button>
+    <button data-t="agentes">Agentes & Scores</button>
+    <button data-t="pipeline">Deal Conversion</button>
+    <button data-t="orq">Orquestrador (demo)</button>
+    <button data-t="arq">Arquitetura</button>
+  </nav>
+
+  <!-- PAINEL -->
+  <section class="panel active" id="painel">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="n">7</div><div class="l">Bases de dados estruturadas</div></div>
+      <div class="kpi"><div class="n">12</div><div class="l">Agentes especializados</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">Workflows prioritários</div></div>
+      <div class="kpi"><div class="n">98,4%</div><div class="l">Ocupação (Mooca, fictício p/ demo)</div></div>
+    </div>
+    <div class="card">
+      <h2>Como ler este protótipo</h2>
+      <div class="desc">Cada aba mostra uma parte do sistema funcionando com dados de exemplo.</div>
+      <table>
+        <tr><th>Aba</th><th>O que demonstra</th></tr>
+        <tr><td><strong>7 Bases de Dados</strong></td><td>O modelo de dados que a TI precisará hospedar. Cada base = uma tabela.</td></tr>
+        <tr><td><strong>Agentes & Scores</strong></td><td>Os 12 agentes e como os 4 scores (Cluster Fit, SRIS, Conversão, Impacto) são calculados.</td></tr>
+        <tr><td><strong>Deal Conversion</strong></td><td>O pipeline comercial — coração do sistema. Toda oportunidade vira uma linha rastreável.</td></tr>
+        <tr><td><strong>Orquestrador</strong></td><td>Simulação de como um comando aciona agentes (sem IA real nesta fase — texto pré-montado).</td></tr>
+        <tr><td><strong>Arquitetura</strong></td><td>O desenho técnico para a conversa com a TI.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- BASES -->
+  <section class="panel" id="bases">
+    <div class="card">
+      <h2>As 7 bases de dados <span class="pill">modelo p/ a TI hospedar</span></h2>
+      <div class="desc">Estas são as tabelas que precisarão existir no banco aprovado pela Allos. Os campos abaixo são o esquema.</div>
+      <table>
+        <tr><th>#</th><th>Base</th><th>Campos principais (esquema)</th><th>Sensibilidade LGPD/Corp.</th></tr>
+        <tr><td>1</td><td><strong>Pontos Vagos</strong></td><td>loja_id, piso, m², vitrine_ml, energia_kva, status, preço_m², cluster_fit_min</td><td><span class="pill">Comercial interno</span></td></tr>
+        <tr><td>2</td><td><strong>Investidores</strong></td><td>nome, capital, experiência, suitability_score, segmento, contato</td><td><span class="pill" style="border-color:var(--terra);color:var(--terra)">Dado pessoal — LGPD</span></td></tr>
+        <tr><td>3</td><td><strong>Marcas/KA</strong></td><td>marca, categoria, requisitos_técnicos, investimento, praças_interesse</td><td><span class="pill">Público/misto</span></td></tr>
+        <tr><td>4</td><td><strong>Plano de Mix</strong></td><td>categoria_alvo, prioridade, marcas_alvo, lacunas, batalha</td><td><span class="pill">Estratégico interno</span></td></tr>
+        <tr><td>5</td><td><strong>Fornecedores</strong></td><td>categoria, especialidade, avaliação, homologado</td><td><span class="pill">Comercial interno</span></td></tr>
+        <tr><td>6</td><td><strong>Hunter Targets</strong></td><td>marca, local, distância, sinais_tração, fonte, cluster_fit</td><td><span class="pill">Público</span></td></tr>
+        <tr><td>7</td><td><strong>Produtos Financeiros</strong></td><td>tipo, taxa, elegibilidade, parceiro, link</td><td><span class="pill">Comercial interno</span></td></tr>
+      </table>
+      <div class="legend">⚠️ A base 2 (Investidores) contém dado pessoal e exige base legal LGPD + decisão de hospedagem pela TI. É o item mais sensível do sistema.</div>
+    </div>
+  </section>
+
+  <!-- AGENTES -->
+  <section class="panel" id="agentes">
+    <div class="card">
+      <h2>12 agentes por categoria</h2>
+      <div class="desc">Cada agente tem uma missão e produz uma saída padrão. As cores marcam a categoria de negócio.</div>
+      <table>
+        <tr><th>Agente</th><th>Cat.</th><th>Missão resumida</th></tr>
+        <tr><td>Orquestrador Central</td><td><span class="badge b-gov">GOV</span></td><td>Coordena agentes, prioriza conversão e impacto financeiro</td></tr>
+        <tr><td>Cluster Positioning Engine</td><td><span class="badge b-com">COM</span></td><td>Confirma cluster e traduz em regra de underwriting</td></tr>
+        <tr><td>Deal Conversion Layer</td><td><span class="badge b-com">COM</span></td><td>Transforma inteligência em pipeline rastreável</td></tr>
+        <tr><td>Hunter (Rua+Regional+Premium)</td><td><span class="badge b-com">COM</span></td><td>Prospecta marcas e operações ausentes, 2–50km</td></tr>
+        <tr><td>Farmer / Investor Matchmaker</td><td><span class="badge b-com">COM</span></td><td>Qualifica investidores por suitability</td></tr>
+        <tr><td>KA / Brand Expansion</td><td><span class="badge b-com">COM</span></td><td>Conecta marcas em expansão a lojas e investidores</td></tr>
+        <tr><td>Plataforma de Espaços</td><td><span class="badge b-ops">OPS</span></td><td>Transforma loja vaga em produto comercial digital</td></tr>
+        <tr><td>Alavancador / Financial Engine</td><td><span class="badge b-fin">FIN</span></td><td>Reduz barreiras financeiras de abertura</td></tr>
+        <tr><td>Builder / Store Builder OS</td><td><span class="badge b-ops">OPS</span></td><td>Acelera obra e abertura</td></tr>
+        <tr><td>Seller / Sales Performance</td><td><span class="badge b-mkt">MKT</span></td><td>Maximiza venda do lojista (Master Equation)</td></tr>
+        <tr><td>Entertainer / Events Architect</td><td><span class="badge b-mkt">MKT</span></td><td>Maximiza ocupação de praças e eventos</td></tr>
+        <tr><td>Governance & KPI Monitor</td><td><span class="badge b-gov">GOV</span></td><td>Garante cadência, accountability e KPIs</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Calculadora de scores <span class="pill">lógica idêntica à de produção</span></h2>
+      <div class="desc">Ajuste os valores fictícios e veja o SRIS Score recalcular. É a mesma fórmula que rodaria no sistema real.</div>
+      <div id="sris-calc"></div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="panel" id="pipeline">
+    <div class="card">
+      <h2>Deal Conversion Table <span class="pill">dados fictícios</span></h2>
+      <div class="desc">O coração operacional. Note que toda linha tem dono, próxima ação e prazo — regra do sistema.</div>
+      <table id="pipe-table">
+        <tr><th>Oportunidade</th><th>Tipo</th><th>Estágio</th><th>Dono</th><th>Próxima ação</th><th>Prazo</th><th>Cluster Fit</th><th>Prob.</th></tr>
+      </table>
+      <div class="legend">Regra do sistema: lead sem dono = risco · sem próxima ação em 7 dias = rebaixar · Cluster Fit &lt;40 = pausar.</div>
+    </div>
+  </section>
+
+  <!-- ORQUESTRADOR -->
+  <section class="panel" id="orq">
+    <div class="card">
+      <h2>Orquestrador — simulação</h2>
+      <div class="desc">
+        Escolha um comando e veja o plano de execução que o Orquestrador montaria. <strong>Nesta Fase 1 a saída é
+        pré-montada</strong> (sem IA real) — serve para demonstrar o fluxo. Na Fase 2, esta mesma caixa chamaria o Claude via API homologada.
+      </div>
+      <div class="runbar">
+        <select id="cmd">
+          <option value="w1">Workflow 1 — Vacancy-to-Contract Sprint</option>
+          <option value="w3">Workflow 3 — Cluster Experience Growth</option>
+          <option value="hunter">Rodar apenas o Hunter</option>
+          <option value="full">Sistema completo</option>
+        </select>
+        <button class="run" onclick="runOrq()">Executar (demo)</button>
+      </div>
+      <div class="out" id="orq-out"></div>
+    </div>
+  </section>
+
+  <!-- ARQUITETURA -->
+  <section class="panel" id="arq">
+    <div class="card">
+      <h2>Arquitetura proposta — para a conversa com a TI</h2>
+      <div class="desc">Desenho conceitual. Os blocos marcados <span class="nv">[decisão da TI]</span> são os que você NÃO decide sozinho.</div>
+      <table>
+        <tr><th>Camada</th><th>Função</th><th>Opção sugerida (a validar)</th></tr>
+        <tr><td>Interface</td><td>O que a equipe comercial usa</td><td>Web app interno / plugin Cowork</td></tr>
+        <tr><td>Orquestração de agentes</td><td>Roteia comandos, monta prompts</td><td>n8n ou backend próprio <span class="nv">[decisão da TI]</span></td></tr>
+        <tr><td>Motor de IA</td><td>Executa os agentes</td><td>Claude via API <span class="nv">[contrato/segurança — decisão da TI]</span></td></tr>
+        <tr><td>Banco de dados (7 bases)</td><td>Armazena tudo</td><td>Banco homologado Allos <span class="nv">[decisão da TI]</span></td></tr>
+        <tr><td>Integração Sistema Bahia</td><td>Puxa preços/vendas reais</td><td>API interna concedida <span class="nv">[só a TI libera]</span></td></tr>
+        <tr><td>Camada LGPD</td><td>Protege dados de investidores</td><td>Base legal + controle de acesso <span class="nv">[jurídico + TI]</span></td></tr>
+      </table>
+      <div class="legend">Regra de ouro: tudo que toca dado real ou sistema interno depende de autorização da Allos. O protótipo (esta tela) não toca em nada disso.</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Shopping Inteligente OS · Protótipo Fase 1 · Dados 100% fictícios · Construído para demonstração e aprendizado<br>
+  Não conectar a dados reais ou sistemas corporativos sem aprovação da TI/segurança da Allos.
+</footer>
+
+<script>
+// ---- navegação ----
+document.querySelectorAll('#tabs button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.t).classList.add('active');
+  };
+});
+
+// ---- dados fictícios do pipeline ----
+const deals=[
+  ["Hospedaria (rua → shopping)","Operação rua","Lead","Daniel","Mapear contato do sócio","30/06",85,"35%"],
+  ["Game Station","Marca","Qualified Lead","Daniel","Enviar ficha técnica loja demo","05/07",78,"45%"],
+  ["Investidor fictício — R$300k","Investidor","Investor Match","Equipe","Reunião de suitability","02/07",70,"50%"],
+  ["Cabana Burger","Marca","Proposal","Daniel","Cobrar retorno da proposta","28/06",80,"40%"],
+  ["A Pizza da Mooca","Operação rua","Contacted","Daniel","Avaliar formato shopping","10/07",82,"30%"],
+];
+const pt=document.getElementById('pipe-table');
+deals.forEach(d=>{
+  const cf=d[6], cls=cf>=71?'s-hi':cf>=41?'s-mid':'s-lo';
+  pt.insertAdjacentHTML('beforeend',
+   `<tr><td><strong>${d[0]}</strong></td><td>${d[1]}</td><td>${d[2]}</td><td>${d[3]}</td>
+    <td>${d[4]}</td><td>${d[5]}</td><td><span class="score ${cls}">${cf}</span></td><td>${d[7]}</td></tr>`);
+});
+
+// ---- calculadora SRIS ----
+const dims=[
+  ["Fit com cluster",20],["Fit com lacuna de mix",20],["Força da marca",15],
+  ["Sinais de tração",15],["Potencial de venda",10],["Diferenciação/experiência",10],
+  ["Capacidade operacional",5],["Risco (invertido)",5]
+];
+const cont=document.getElementById('sris-calc');
+let html='<table><tr><th>Dimensão</th><th>Peso</th><th>Nota (0–10)</th></tr>';
+dims.forEach((d,i)=>{
+  html+=`<tr><td>${d[0]}</td><td>${d[1]}</td>
+    <td><input type="range" min="0" max="10" value="7" data-w="${d[1]}" oninput="calcSris()" style="width:120px"> <span id="v${i}">7</span></td></tr>`;
+});
+html+='</table><div style="margin-top:12px;font-size:15px;font-weight:700">SRIS Score: <span id="sris-total" style="color:var(--terra)">—</span> / 100</div>';
+cont.innerHTML=html;
+function calcSris(){
+  const rs=cont.querySelectorAll('input[type=range]');
+  let tot=0;
+  rs.forEach((r,i)=>{document.getElementById('v'+i).textContent=r.value;
+    tot += (r.value/10)*parseInt(r.dataset.w);});
+  document.getElementById('sris-total').textContent=Math.round(tot);
+}
+calcSris();
+
+// ---- orquestrador demo ----
+function runOrq(){
+  const v=document.getElementById('cmd').value;
+  const out=document.getElementById('orq-out');
+  const plans={
+    w1:`PLANO DE EXECUÇÃO — Vacancy-to-Contract Sprint (demo)\n\n1. Cluster: Entretenimento\n2. Batalhas: Entretenimento > Gastronomia > Lojas\n3. Agentes acionados: Cluster Engine → Plataforma de Espaços → Hunter → Farmer → KA → Deal Conversion\n4. Fontes: apenas públicas gratuitas\n5. Saída: Deal Conversion Table + plano 30/60/90\n\n⚠️ Demo: na Fase 2, este texto seria gerado pelo Claude via API homologada, lendo as 7 bases reais.`,
+    w3:`PLANO DE EXECUÇÃO — Cluster Experience Growth (demo)\n\n1. Cluster: Entretenimento\n2. Foco: frequência, ticket, experiência\n3. Agentes: Cluster Engine → Seller → Entertainer → Opportunity Channel → Governance\n4. Saída: calendário de eventos + plano Seller + KPIs\n\n⚠️ Demo pré-montada.`,
+    hunter:`PLANO — Hunter individual (demo)\n\n1. Raio: 2–50km da Mooca\n2. Módulos: Rua + Regional + Premium\n3. Regra: só marcas AUSENTES do shopping\n4. Saída: tabela de leads com Cluster Fit e SRIS\n\n⚠️ Demo pré-montada.`,
+    full:`PLANO — Sistema completo (demo)\n\nAciona todos os 12 agentes em sequência, consolida em Deal Conversion Table e plano 30/60/90.\n\n⚠️ Demo pré-montada — sem IA real nesta fase.`
+  };
+  out.textContent=plans[v];
+  out.classList.add('show');
+}
+</script>
+</body>
+</html>

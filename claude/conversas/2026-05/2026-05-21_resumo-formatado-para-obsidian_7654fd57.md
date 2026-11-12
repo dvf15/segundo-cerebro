@@ -7,6 +7,7 @@ source_id: "7654fd57-bcaa-4af4-acdb-d7b1dad8adac"
 url: "https://claude.ai/chat/7654fd57-bcaa-4af4-acdb-d7b1dad8adac"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo formatado para Obsidian
@@ -51,3 +52,10 @@ Resumo pronto, formatado com o padrão Obsidian completo: frontmatter YAML, wiki
 10. **Tarefas aplicáveis** + bloco Dataview de conexões
 
 **Confiança no trabalho: 9/10** — flag justificada na própria nota: fidelidade alta aos slides, mas (a) slides não capturam a aula completa e (b) as citações de Jobs/Fadell/McCord e o número de ~800M usuários do iTunes vêm reproduzidos dos slides de Sørensen, sem verificação independente nas fontes primárias (Stratechery, livro da McCord, dados Credit Suisse). Se for publicar, vale confirmar na fonte original.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-formatado-para-obsidian_7654fd57/mnt/user-data/outputs/Vision_and_Discovery_Sorensen.md]] (11 KB)

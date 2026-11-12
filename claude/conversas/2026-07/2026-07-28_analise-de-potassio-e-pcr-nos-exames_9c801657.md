@@ -7,6 +7,7 @@ source_id: "9c801657-0508-4c69-966f-fc0b20fc5437"
 url: "https://claude.ai/chat/9c801657-0508-4c69-966f-fc0b20fc5437"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Análise de potássio e PCR nos exames

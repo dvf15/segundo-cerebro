@@ -7,6 +7,7 @@ source_id: "c88a91db-381c-4c34-a012-02db5c7e805b"
 url: "https://claude.ai/chat/c88a91db-381c-4c34-a012-02db5c7e805b"
 project: null
 messages: 2
+generated_files: 1
 tags: ["claude", "conversa"]
 ---
 # Resumo em markdown para Obsidian
@@ -64,3 +65,10 @@ Arquivo `.md` pronto pra você jogar direto no vault.
 **Rating de confiança: 9/10**
 
 Justificativa: todo o conteúdo vem diretamente do PDF anexado. O -1 é porque os dados são de 2019 e podem estar desatualizados pra benchmarks atuais. Fonte primária única: `GCV_AcademySAO_PAULO1019_Morris.pdf`.
+
+
+---
+
+## Arquivos gerados nesta conversa
+
+- [[claude/arquivos-gerados/2026-05/resumo-em-markdown-para-obsidian_c88a91db/mnt/user-data/outputs/GCV-Academy-SP-2019-Intelligent-Corporate-Venturing.md]] (15 KB)

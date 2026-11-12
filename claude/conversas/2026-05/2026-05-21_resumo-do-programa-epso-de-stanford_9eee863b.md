@@ -7,6 +7,7 @@ source_id: "9eee863b-a757-4390-93e3-18d5004004af"
 url: "https://claude.ai/chat/9eee863b-a757-4390-93e3-18d5004004af"
 project: null
 messages: 2
+generated_files: 0
 tags: ["claude", "conversa"]
 ---
 # Resumo do programa EPSO de Stanford
