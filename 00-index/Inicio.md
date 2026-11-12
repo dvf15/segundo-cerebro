@@ -1,12 +1,12 @@
 ---
 title: "Início"
 generated: 2026-11-12
-total: 849
+total: 797
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_849 notas indexadas · gerado em 2026-11-12_
+_797 notas indexadas · gerado em 2026-11-12_
 
 ## Mapas de conteúdo
 
@@ -21,7 +21,7 @@ _849 notas indexadas · gerado em 2026-11-12_
 - [[00-index/Reflexoes|Reflexões (Anthropic)]] — 2
 - [[00-index/Rotinas|Tarefas agendadas e dados de artifacts]] — 4
 - [[00-index/Reunioes|Reuniões (Granola)]] — 0
-- [[00-index/Tags|Tags]] — 311
+- [[00-index/Tags|Tags]] — 274
 
 ## Recentes
 
