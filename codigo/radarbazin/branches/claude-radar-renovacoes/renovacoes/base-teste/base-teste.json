@@ -1,0 +1,4308 @@
+{
+  "_aviso": "BASE FICTÍCIA DE TESTE do Radar de Renovações. Lojas, CNPJs e números inventados para exercitar cada regra do sistema. Resultados esperados calculados com data de referência 2026-10-25.",
+  "params": {
+    "shopping": "Shopping Teste",
+    "mediaAmmM2Satelites": 100,
+    "mediaVendasM2Satelites": 1200,
+    "inflacaoAcumuladaPct": 4.2,
+    "metaLsrAnualPct": 18,
+    "anoPlanejamento": 2027,
+    "janelaAuditoriaMeses": 6,
+    "mesesSazonais": [
+      12
+    ],
+    "toleranciaDispersaoPct": 15
+  },
+  "lojas": [
+    {
+      "id": "t101",
+      "luc": "T-101",
+      "cnpj": "10.000.000/0001-01",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Maré Alta Moda Praia",
+      "segmento": "Moda praia",
+      "piso": "1",
+      "area": 80,
+      "mix": "Relevante",
+      "cenario": "Caso ideal: Relevante Q1 dentro da janela, histórico com queda de CO/Vendas (argumento 5), tudo informado.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-06-01",
+        "fim": "2027-05-31",
+        "ultimoReajuste": "2026-06-01"
+      },
+      "faturamento": {
+        "amm": 7600,
+        "aPctMedioSemDezembro": 900
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 128000,
+        "custoOcupacao": 9500,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-07-15",
+        "dispersaoPct": 3.5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 9,
+        "ammM2Entorno": 118,
+        "ammM2Piso": 105,
+        "ammM2Tamanho": 110,
+        "ammM2Concorrentes": 115,
+        "ammM2SegmentoAbrasce": 108,
+        "tabelaAbcM2": 130
+      },
+      "historico": [
+        {
+          "competencia": "2022-06",
+          "vendas": 107800,
+          "amm": 6400,
+          "aPct": 2763,
+          "custoOcupacao": 11763
+        },
+        {
+          "competencia": "2022-07",
+          "vendas": 98700,
+          "amm": 6400,
+          "aPct": 1990,
+          "custoOcupacao": 10990
+        },
+        {
+          "competencia": "2022-08",
+          "vendas": 99400,
+          "amm": 6400,
+          "aPct": 2049,
+          "custoOcupacao": 11049
+        },
+        {
+          "competencia": "2022-09",
+          "vendas": 100100,
+          "amm": 6400,
+          "aPct": 2109,
+          "custoOcupacao": 11109
+        },
+        {
+          "competencia": "2022-10",
+          "vendas": 100900,
+          "amm": 6400,
+          "aPct": 2177,
+          "custoOcupacao": 11177
+        },
+        {
+          "competencia": "2022-11",
+          "vendas": 101600,
+          "amm": 6400,
+          "aPct": 2236,
+          "custoOcupacao": 11236
+        },
+        {
+          "competencia": "2022-12",
+          "vendas": 163700,
+          "amm": 6400,
+          "aPct": 7515,
+          "custoOcupacao": 16515
+        },
+        {
+          "competencia": "2023-01",
+          "vendas": 103100,
+          "amm": 6400,
+          "aPct": 2364,
+          "custoOcupacao": 11364
+        },
+        {
+          "competencia": "2023-02",
+          "vendas": 93400,
+          "amm": 6400,
+          "aPct": 1539,
+          "custoOcupacao": 10539
+        },
+        {
+          "competencia": "2023-03",
+          "vendas": 104500,
+          "amm": 6400,
+          "aPct": 2483,
+          "custoOcupacao": 11483
+        },
+        {
+          "competencia": "2023-04",
+          "vendas": 105300,
+          "amm": 6400,
+          "aPct": 2551,
+          "custoOcupacao": 11551
+        },
+        {
+          "competencia": "2023-05",
+          "vendas": 116700,
+          "amm": 6400,
+          "aPct": 3520,
+          "custoOcupacao": 12520
+        },
+        {
+          "competencia": "2023-06",
+          "vendas": 117500,
+          "amm": 6720,
+          "aPct": 3268,
+          "custoOcupacao": 12588
+        },
+        {
+          "competencia": "2023-07",
+          "vendas": 107600,
+          "amm": 6720,
+          "aPct": 2426,
+          "custoOcupacao": 11746
+        },
+        {
+          "competencia": "2023-08",
+          "vendas": 108400,
+          "amm": 6720,
+          "aPct": 2494,
+          "custoOcupacao": 11814
+        },
+        {
+          "competencia": "2023-09",
+          "vendas": 109100,
+          "amm": 6720,
+          "aPct": 2554,
+          "custoOcupacao": 11874
+        },
+        {
+          "competencia": "2023-10",
+          "vendas": 109900,
+          "amm": 6720,
+          "aPct": 2622,
+          "custoOcupacao": 11942
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 110700,
+          "amm": 6720,
+          "aPct": 2690,
+          "custoOcupacao": 12010
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 178400,
+          "amm": 6720,
+          "aPct": 8444,
+          "custoOcupacao": 17764
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 112300,
+          "amm": 6720,
+          "aPct": 2826,
+          "custoOcupacao": 12146
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 101800,
+          "amm": 6720,
+          "aPct": 1933,
+          "custoOcupacao": 11253
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 114000,
+          "amm": 6720,
+          "aPct": 2970,
+          "custoOcupacao": 12290
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 114800,
+          "amm": 6720,
+          "aPct": 3038,
+          "custoOcupacao": 12358
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 127200,
+          "amm": 6720,
+          "aPct": 4092,
+          "custoOcupacao": 13412
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 128100,
+          "amm": 7056,
+          "aPct": 3833,
+          "custoOcupacao": 13489
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 117300,
+          "amm": 7056,
+          "aPct": 2915,
+          "custoOcupacao": 12571
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 118100,
+          "amm": 7056,
+          "aPct": 2983,
+          "custoOcupacao": 12639
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 119000,
+          "amm": 7056,
+          "aPct": 3059,
+          "custoOcupacao": 12715
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 119800,
+          "amm": 7056,
+          "aPct": 3127,
+          "custoOcupacao": 12783
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 120700,
+          "amm": 7056,
+          "aPct": 3204,
+          "custoOcupacao": 12860
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 194500,
+          "amm": 7056,
+          "aPct": 9477,
+          "custoOcupacao": 19133
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 122400,
+          "amm": 7056,
+          "aPct": 3348,
+          "custoOcupacao": 13004
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 111000,
+          "amm": 7056,
+          "aPct": 2379,
+          "custoOcupacao": 12035
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 124200,
+          "amm": 7056,
+          "aPct": 3501,
+          "custoOcupacao": 13157
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 125100,
+          "amm": 7056,
+          "aPct": 3578,
+          "custoOcupacao": 13234
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 138600,
+          "amm": 7056,
+          "aPct": 4725,
+          "custoOcupacao": 14381
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 139600,
+          "amm": 7409,
+          "aPct": 4457,
+          "custoOcupacao": 14466
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 127800,
+          "amm": 7409,
+          "aPct": 3454,
+          "custoOcupacao": 13463
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 128700,
+          "amm": 7409,
+          "aPct": 3531,
+          "custoOcupacao": 13540
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 129700,
+          "amm": 7409,
+          "aPct": 3616,
+          "custoOcupacao": 13625
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 130600,
+          "amm": 7409,
+          "aPct": 3692,
+          "custoOcupacao": 13701
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 131600,
+          "amm": 7409,
+          "aPct": 3777,
+          "custoOcupacao": 13786
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 212000,
+          "amm": 7409,
+          "aPct": 10611,
+          "custoOcupacao": 20620
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 133500,
+          "amm": 7409,
+          "aPct": 3939,
+          "custoOcupacao": 13948
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 121000,
+          "amm": 7409,
+          "aPct": 2876,
+          "custoOcupacao": 12885
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 135400,
+          "amm": 7409,
+          "aPct": 4100,
+          "custoOcupacao": 14109
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 136400,
+          "amm": 7409,
+          "aPct": 4185,
+          "custoOcupacao": 14194
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 151100,
+          "amm": 7409,
+          "aPct": 5435,
+          "custoOcupacao": 15444
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 152200,
+          "amm": 7600,
+          "aPct": 5337,
+          "custoOcupacao": 15537
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 139300,
+          "amm": 7600,
+          "aPct": 4241,
+          "custoOcupacao": 14441
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 140300,
+          "amm": 7600,
+          "aPct": 4326,
+          "custoOcupacao": 14526
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 141300,
+          "amm": 7600,
+          "aPct": 4411,
+          "custoOcupacao": 14611
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t102",
+      "luc": "T-102",
+      "cnpj": "10.000.000/0001-02",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "em-negociacao",
+      "keyAccount": false,
+      "nome": "Café do Pátio",
+      "segmento": "Cafeteria",
+      "piso": "2",
+      "area": 40,
+      "mix": "Essencial",
+      "cenario": "Essencial em negociação: cálculo caso a caso, subsídio de condomínio a retirar.",
+      "contrato": {
+        "indice": "IPCA",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [
+          "desconto de condomínio 20%"
+        ],
+        "inicio": "2022-04-01",
+        "fim": "2027-03-31",
+        "ultimoReajuste": "2026-04-01"
+      },
+      "faturamento": {
+        "amm": 6400,
+        "aPctMedioSemDezembro": 380
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 70000,
+        "custoOcupacao": 8900,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-08-05",
+        "dispersaoPct": 6,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 13.5,
+        "ammM2Entorno": 165,
+        "ammM2Piso": 150,
+        "ammM2Tamanho": 170,
+        "ammM2Concorrentes": 168,
+        "ammM2SegmentoAbrasce": 160,
+        "tabelaAbcM2": 180
+      },
+      "historico": [
+        {
+          "competencia": "2022-04",
+          "vendas": 60000,
+          "amm": 5400,
+          "aPct": 0,
+          "custoOcupacao": 7400
+        },
+        {
+          "competencia": "2022-05",
+          "vendas": 66300,
+          "amm": 5400,
+          "aPct": 567,
+          "custoOcupacao": 7967
+        },
+        {
+          "competencia": "2022-06",
+          "vendas": 66600,
+          "amm": 5400,
+          "aPct": 594,
+          "custoOcupacao": 7994
+        },
+        {
+          "competencia": "2022-07",
+          "vendas": 60900,
+          "amm": 5400,
+          "aPct": 81,
+          "custoOcupacao": 7481
+        },
+        {
+          "competencia": "2022-08",
+          "vendas": 61200,
+          "amm": 5400,
+          "aPct": 108,
+          "custoOcupacao": 7508
+        },
+        {
+          "competencia": "2022-09",
+          "vendas": 61500,
+          "amm": 5400,
+          "aPct": 135,
+          "custoOcupacao": 7535
+        },
+        {
+          "competencia": "2022-10",
+          "vendas": 61800,
+          "amm": 5400,
+          "aPct": 162,
+          "custoOcupacao": 7562
+        },
+        {
+          "competencia": "2022-11",
+          "vendas": 62100,
+          "amm": 5400,
+          "aPct": 189,
+          "custoOcupacao": 7589
+        },
+        {
+          "competencia": "2022-12",
+          "vendas": 99800,
+          "amm": 5400,
+          "aPct": 3582,
+          "custoOcupacao": 10982
+        },
+        {
+          "competencia": "2023-01",
+          "vendas": 62700,
+          "amm": 5400,
+          "aPct": 243,
+          "custoOcupacao": 7643
+        },
+        {
+          "competencia": "2023-02",
+          "vendas": 56700,
+          "amm": 5400,
+          "aPct": 0,
+          "custoOcupacao": 7400
+        },
+        {
+          "competencia": "2023-03",
+          "vendas": 63300,
+          "amm": 5400,
+          "aPct": 297,
+          "custoOcupacao": 7697
+        },
+        {
+          "competencia": "2023-04",
+          "vendas": 63600,
+          "amm": 5643,
+          "aPct": 81,
+          "custoOcupacao": 7724
+        },
+        {
+          "competencia": "2023-05",
+          "vendas": 70300,
+          "amm": 5643,
+          "aPct": 684,
+          "custoOcupacao": 8327
+        },
+        {
+          "competencia": "2023-06",
+          "vendas": 70600,
+          "amm": 5643,
+          "aPct": 711,
+          "custoOcupacao": 8354
+        },
+        {
+          "competencia": "2023-07",
+          "vendas": 64500,
+          "amm": 5643,
+          "aPct": 162,
+          "custoOcupacao": 7805
+        },
+        {
+          "competencia": "2023-08",
+          "vendas": 64800,
+          "amm": 5643,
+          "aPct": 189,
+          "custoOcupacao": 7832
+        },
+        {
+          "competencia": "2023-09",
+          "vendas": 65200,
+          "amm": 5643,
+          "aPct": 225,
+          "custoOcupacao": 7868
+        },
+        {
+          "competencia": "2023-10",
+          "vendas": 65500,
+          "amm": 5643,
+          "aPct": 252,
+          "custoOcupacao": 7895
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 65800,
+          "amm": 5643,
+          "aPct": 279,
+          "custoOcupacao": 7922
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 105800,
+          "amm": 5643,
+          "aPct": 3879,
+          "custoOcupacao": 11522
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 66400,
+          "amm": 5643,
+          "aPct": 333,
+          "custoOcupacao": 7976
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 60100,
+          "amm": 5643,
+          "aPct": 0,
+          "custoOcupacao": 7643
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 67100,
+          "amm": 5643,
+          "aPct": 396,
+          "custoOcupacao": 8039
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 67400,
+          "amm": 5897,
+          "aPct": 169,
+          "custoOcupacao": 8066
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 74500,
+          "amm": 5897,
+          "aPct": 808,
+          "custoOcupacao": 8705
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 74900,
+          "amm": 5897,
+          "aPct": 844,
+          "custoOcupacao": 8741
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 68400,
+          "amm": 5897,
+          "aPct": 259,
+          "custoOcupacao": 8156
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 68700,
+          "amm": 5897,
+          "aPct": 286,
+          "custoOcupacao": 8183
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 69100,
+          "amm": 5897,
+          "aPct": 322,
+          "custoOcupacao": 8219
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 69400,
+          "amm": 5897,
+          "aPct": 349,
+          "custoOcupacao": 8246
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 69700,
+          "amm": 5897,
+          "aPct": 376,
+          "custoOcupacao": 8273
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 112100,
+          "amm": 5897,
+          "aPct": 4192,
+          "custoOcupacao": 12089
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 70400,
+          "amm": 5897,
+          "aPct": 439,
+          "custoOcupacao": 8336
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 63700,
+          "amm": 5897,
+          "aPct": 0,
+          "custoOcupacao": 7897
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 71100,
+          "amm": 5897,
+          "aPct": 502,
+          "custoOcupacao": 8399
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 71500,
+          "amm": 6162,
+          "aPct": 273,
+          "custoOcupacao": 8435
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 79000,
+          "amm": 6162,
+          "aPct": 948,
+          "custoOcupacao": 9110
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 79400,
+          "amm": 6162,
+          "aPct": 984,
+          "custoOcupacao": 9146
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 72500,
+          "amm": 6162,
+          "aPct": 363,
+          "custoOcupacao": 8525
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 72900,
+          "amm": 6162,
+          "aPct": 399,
+          "custoOcupacao": 8561
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 73200,
+          "amm": 6162,
+          "aPct": 426,
+          "custoOcupacao": 8588
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 73600,
+          "amm": 6162,
+          "aPct": 462,
+          "custoOcupacao": 8624
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 73900,
+          "amm": 6162,
+          "aPct": 489,
+          "custoOcupacao": 8651
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 118900,
+          "amm": 6162,
+          "aPct": 4539,
+          "custoOcupacao": 12701
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 74700,
+          "amm": 6162,
+          "aPct": 561,
+          "custoOcupacao": 8723
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 67500,
+          "amm": 6162,
+          "aPct": 0,
+          "custoOcupacao": 8162
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 75400,
+          "amm": 6162,
+          "aPct": 624,
+          "custoOcupacao": 8786
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 75700,
+          "amm": 6440,
+          "aPct": 373,
+          "custoOcupacao": 8813
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 83700,
+          "amm": 6440,
+          "aPct": 1093,
+          "custoOcupacao": 9533
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 84100,
+          "amm": 6400,
+          "aPct": 1169,
+          "custoOcupacao": 9569
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 76900,
+          "amm": 6400,
+          "aPct": 521,
+          "custoOcupacao": 8921
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 77200,
+          "amm": 6400,
+          "aPct": 548,
+          "custoOcupacao": 8948
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 77600,
+          "amm": 6400,
+          "aPct": 584,
+          "custoOcupacao": 8984
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t103",
+      "luc": "T-103",
+      "cnpj": "10.000.000/0001-03",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Casa Bela Decor",
+      "segmento": "Casa e decoração",
+      "piso": "1",
+      "area": 120,
+      "mix": "Indiferente",
+      "cenario": "Indiferente em Q3 (vende mal, paga caro): avaliar permanência; sem A% (argumento 1 fora); CO/Vendas subindo (argumento 5 zero).",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-09-01",
+        "fim": "2027-08-31",
+        "ultimoReajuste": "2026-09-01"
+      },
+      "faturamento": {
+        "amm": 13800,
+        "aPctMedioSemDezembro": 0
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 96000,
+        "custoOcupacao": 19000,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-09-10",
+        "dispersaoPct": 2,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasSegmentoShoppingPct": 14,
+        "ammM2Entorno": 108,
+        "ammM2Piso": 100,
+        "ammM2Tamanho": 95,
+        "ammM2Concorrentes": 104,
+        "ammM2SegmentoAbrasce": 98,
+        "tabelaAbcM2": 112
+      },
+      "historico": [
+        {
+          "competencia": "2022-09",
+          "vendas": 112000,
+          "amm": 11800,
+          "aPct": 3880,
+          "custoOcupacao": 19780
+        },
+        {
+          "competencia": "2022-10",
+          "vendas": 111600,
+          "amm": 11800,
+          "aPct": 3824,
+          "custoOcupacao": 19724
+        },
+        {
+          "competencia": "2022-11",
+          "vendas": 111100,
+          "amm": 11800,
+          "aPct": 3754,
+          "custoOcupacao": 19654
+        },
+        {
+          "competencia": "2022-12",
+          "vendas": 177100,
+          "amm": 11800,
+          "aPct": 12994,
+          "custoOcupacao": 28894
+        },
+        {
+          "competencia": "2023-01",
+          "vendas": 110300,
+          "amm": 11800,
+          "aPct": 3642,
+          "custoOcupacao": 19542
+        },
+        {
+          "competencia": "2023-02",
+          "vendas": 98900,
+          "amm": 11800,
+          "aPct": 2046,
+          "custoOcupacao": 17946
+        },
+        {
+          "competencia": "2023-03",
+          "vendas": 109500,
+          "amm": 11800,
+          "aPct": 3530,
+          "custoOcupacao": 19430
+        },
+        {
+          "competencia": "2023-04",
+          "vendas": 109000,
+          "amm": 11800,
+          "aPct": 3460,
+          "custoOcupacao": 19360
+        },
+        {
+          "competencia": "2023-05",
+          "vendas": 119500,
+          "amm": 11800,
+          "aPct": 4930,
+          "custoOcupacao": 20830
+        },
+        {
+          "competencia": "2023-06",
+          "vendas": 119000,
+          "amm": 11800,
+          "aPct": 4860,
+          "custoOcupacao": 20760
+        },
+        {
+          "competencia": "2023-07",
+          "vendas": 107800,
+          "amm": 11800,
+          "aPct": 3292,
+          "custoOcupacao": 19192
+        },
+        {
+          "competencia": "2023-08",
+          "vendas": 107400,
+          "amm": 11800,
+          "aPct": 3236,
+          "custoOcupacao": 19136
+        },
+        {
+          "competencia": "2023-09",
+          "vendas": 107000,
+          "amm": 12449,
+          "aPct": 2531,
+          "custoOcupacao": 19080
+        },
+        {
+          "competencia": "2023-10",
+          "vendas": 106600,
+          "amm": 12449,
+          "aPct": 2475,
+          "custoOcupacao": 19024
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 106100,
+          "amm": 12449,
+          "aPct": 2405,
+          "custoOcupacao": 18954
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 169200,
+          "amm": 12449,
+          "aPct": 11239,
+          "custoOcupacao": 27788
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 105300,
+          "amm": 12449,
+          "aPct": 2293,
+          "custoOcupacao": 18842
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 94400,
+          "amm": 12449,
+          "aPct": 767,
+          "custoOcupacao": 17316
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 104500,
+          "amm": 12449,
+          "aPct": 2181,
+          "custoOcupacao": 18730
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 104100,
+          "amm": 12449,
+          "aPct": 2125,
+          "custoOcupacao": 18674
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 114100,
+          "amm": 12449,
+          "aPct": 3525,
+          "custoOcupacao": 20074
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 113700,
+          "amm": 12449,
+          "aPct": 3469,
+          "custoOcupacao": 20018
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 102900,
+          "amm": 12449,
+          "aPct": 1957,
+          "custoOcupacao": 18506
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 102500,
+          "amm": 12449,
+          "aPct": 1901,
+          "custoOcupacao": 18450
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 102100,
+          "amm": 13134,
+          "aPct": 1160,
+          "custoOcupacao": 18394
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 101800,
+          "amm": 13134,
+          "aPct": 1118,
+          "custoOcupacao": 18352
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 101400,
+          "amm": 13134,
+          "aPct": 1062,
+          "custoOcupacao": 18296
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 161600,
+          "amm": 13134,
+          "aPct": 9490,
+          "custoOcupacao": 26724
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 100600,
+          "amm": 13134,
+          "aPct": 950,
+          "custoOcupacao": 18184
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 90200,
+          "amm": 13134,
+          "aPct": 0,
+          "custoOcupacao": 17234
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 99800,
+          "amm": 13134,
+          "aPct": 838,
+          "custoOcupacao": 18072
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 99400,
+          "amm": 13134,
+          "aPct": 782,
+          "custoOcupacao": 18016
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 109000,
+          "amm": 13134,
+          "aPct": 2126,
+          "custoOcupacao": 19360
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 108500,
+          "amm": 13134,
+          "aPct": 2056,
+          "custoOcupacao": 19290
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 98300,
+          "amm": 13134,
+          "aPct": 628,
+          "custoOcupacao": 17862
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 97900,
+          "amm": 13134,
+          "aPct": 572,
+          "custoOcupacao": 17806
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 97600,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 97200,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 96800,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 154300,
+          "amm": 13856,
+          "aPct": 7746,
+          "custoOcupacao": 25702
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 96100,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 86100,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 95300,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 95000,
+          "amm": 13856,
+          "aPct": 0,
+          "custoOcupacao": 17956
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 104100,
+          "amm": 13856,
+          "aPct": 718,
+          "custoOcupacao": 18674
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 103700,
+          "amm": 13800,
+          "aPct": 718,
+          "custoOcupacao": 18618
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 93900,
+          "amm": 13800,
+          "aPct": 0,
+          "custoOcupacao": 17900
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 93500,
+          "amm": 13800,
+          "aPct": 0,
+          "custoOcupacao": 17900
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 93200,
+          "amm": 13800,
+          "aPct": 0,
+          "custoOcupacao": 17900
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t104",
+      "luc": "T-104",
+      "cnpj": "10.000.000/0001-04",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Bazar Tudo Barato",
+      "segmento": "Variedades",
+      "piso": "3",
+      "area": 70,
+      "mix": "Ofensora",
+      "negociacao": {
+        "resistencia": true
+      },
+      "cenario": "Ofensora a menos de 6 meses do fim, lojista resistente: negociar agora, checar jurídico, risco renovatório alto.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-01-01",
+        "fim": "2027-02-28",
+        "ultimoReajuste": "2026-01-01"
+      },
+      "faturamento": {
+        "amm": 4900,
+        "aPctMedioSemDezembro": 120
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 56000,
+        "custoOcupacao": 7300,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-20",
+        "dispersaoPct": 9,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasSegmentoShoppingPct": 15.5,
+        "ammM2Entorno": 90,
+        "ammM2Piso": 82,
+        "ammM2Tamanho": 96,
+        "ammM2Concorrentes": 98,
+        "ammM2SegmentoAbrasce": 86,
+        "tabelaAbcM2": 102
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t105",
+      "luc": "T-105",
+      "cnpj": "10.000.000/0001-05",
+      "formato": "satelite",
+      "mixValidado": false,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Ótica Visão Clara",
+      "segmento": "Óticas",
+      "piso": "2",
+      "area": 50,
+      "mix": "Relevante",
+      "cenario": "Auditoria integral fora da janela de 6 meses e livros pendentes: BLOQUEIO; mix ainda não validado pelo comitê.",
+      "contrato": {
+        "indice": "IPCA",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-08-01",
+        "fim": "2027-07-31",
+        "ultimoReajuste": "2026-08-01"
+      },
+      "faturamento": {
+        "amm": 5500,
+        "aPctMedioSemDezembro": 450
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 66000,
+        "custoOcupacao": 7200,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2025-10-12",
+        "dispersaoPct": 5,
+        "statusLivros": "pendente"
+      },
+      "comparativos": {
+        "coVendasRedePct": 13,
+        "ammM2Entorno": 138,
+        "ammM2Piso": 140,
+        "ammM2Tamanho": 145,
+        "ammM2Concorrentes": 136,
+        "tabelaAbcM2": 150
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t106",
+      "luc": "T-106",
+      "cnpj": "10.000.000/0001-06",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Sapataria Passo Firme",
+      "segmento": "Calçados",
+      "piso": "1",
+      "area": 65,
+      "mix": "Relevante",
+      "cenario": "Lojista inadimplente (2 meses, saldo em aberto): BLOQUEIO, não renovar até regularizar.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-05-01",
+        "fim": "2027-04-30",
+        "ultimoReajuste": "2026-05-01"
+      },
+      "faturamento": {
+        "amm": 7200,
+        "aPctMedioSemDezembro": 520
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 86000,
+        "custoOcupacao": 10200,
+        "mesesInadimplente": 2,
+        "saldoAberto": 19500
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-07-22",
+        "dispersaoPct": 4,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12.8,
+        "ammM2Entorno": 125,
+        "ammM2Piso": 118,
+        "ammM2Tamanho": 122,
+        "ammM2Concorrentes": 130,
+        "ammM2SegmentoAbrasce": 112,
+        "tabelaAbcM2": 140
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t107",
+      "luc": "T-107",
+      "cnpj": "10.000.000/0001-07",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Tech Ponto",
+      "segmento": "Eletrônicos",
+      "piso": "2",
+      "area": 60,
+      "mix": "Relevante",
+      "cenario": "Contrato longe do fim e ainda sujeito a reajuste: AGUARDAR (negociar antes derrete o LSR); auditoria entra como \"programar\", não bloqueio.",
+      "contrato": {
+        "indice": "IPCA",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2023-10-01",
+        "fim": "2028-09-30",
+        "ultimoReajuste": "2026-10-01"
+      },
+      "faturamento": {
+        "amm": 8200,
+        "aPctMedioSemDezembro": 850
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 118000,
+        "custoOcupacao": 11200,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-03-03",
+        "dispersaoPct": 2.5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 150,
+        "ammM2Piso": 142,
+        "ammM2Tamanho": 155,
+        "ammM2Concorrentes": 160,
+        "tabelaAbcM2": 170
+      },
+      "historico": [
+        {
+          "competencia": "2023-10",
+          "vendas": 104000,
+          "amm": 7400,
+          "aPct": 920,
+          "custoOcupacao": 11120
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 104300,
+          "amm": 7400,
+          "aPct": 944,
+          "custoOcupacao": 11144
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 167500,
+          "amm": 7400,
+          "aPct": 6000,
+          "custoOcupacao": 16200
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 105000,
+          "amm": 7400,
+          "aPct": 1000,
+          "custoOcupacao": 11200
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 94800,
+          "amm": 7400,
+          "aPct": 184,
+          "custoOcupacao": 10384
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 105700,
+          "amm": 7400,
+          "aPct": 1056,
+          "custoOcupacao": 11256
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 106100,
+          "amm": 7400,
+          "aPct": 1088,
+          "custoOcupacao": 11288
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 117000,
+          "amm": 7400,
+          "aPct": 1960,
+          "custoOcupacao": 12160
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 117400,
+          "amm": 7400,
+          "aPct": 1992,
+          "custoOcupacao": 12192
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 107100,
+          "amm": 7400,
+          "aPct": 1168,
+          "custoOcupacao": 11368
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 107500,
+          "amm": 7400,
+          "aPct": 1200,
+          "custoOcupacao": 11400
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 107800,
+          "amm": 7400,
+          "aPct": 1224,
+          "custoOcupacao": 11424
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 108200,
+          "amm": 7770,
+          "aPct": 886,
+          "custoOcupacao": 11456
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 108500,
+          "amm": 7770,
+          "aPct": 910,
+          "custoOcupacao": 11480
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 174200,
+          "amm": 7770,
+          "aPct": 6166,
+          "custoOcupacao": 16736
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 109200,
+          "amm": 7770,
+          "aPct": 966,
+          "custoOcupacao": 11536
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 98600,
+          "amm": 7770,
+          "aPct": 118,
+          "custoOcupacao": 10688
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 109900,
+          "amm": 7770,
+          "aPct": 1022,
+          "custoOcupacao": 11592
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 110300,
+          "amm": 7770,
+          "aPct": 1054,
+          "custoOcupacao": 11624
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 121700,
+          "amm": 7770,
+          "aPct": 1966,
+          "custoOcupacao": 12536
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 122100,
+          "amm": 7770,
+          "aPct": 1998,
+          "custoOcupacao": 12568
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 111400,
+          "amm": 7770,
+          "aPct": 1142,
+          "custoOcupacao": 11712
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 111800,
+          "amm": 7770,
+          "aPct": 1174,
+          "custoOcupacao": 11744
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 112100,
+          "amm": 7770,
+          "aPct": 1198,
+          "custoOcupacao": 11768
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 112500,
+          "amm": 8159,
+          "aPct": 841,
+          "custoOcupacao": 11800
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 112900,
+          "amm": 8159,
+          "aPct": 873,
+          "custoOcupacao": 11832
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 181200,
+          "amm": 8159,
+          "aPct": 6337,
+          "custoOcupacao": 17296
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 113600,
+          "amm": 8159,
+          "aPct": 929,
+          "custoOcupacao": 11888
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 102600,
+          "amm": 8159,
+          "aPct": 49,
+          "custoOcupacao": 11008
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 114300,
+          "amm": 8159,
+          "aPct": 985,
+          "custoOcupacao": 11944
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 114700,
+          "amm": 8159,
+          "aPct": 1017,
+          "custoOcupacao": 11976
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 126600,
+          "amm": 8159,
+          "aPct": 1969,
+          "custoOcupacao": 12928
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 127000,
+          "amm": 8200,
+          "aPct": 1960,
+          "custoOcupacao": 12960
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 115800,
+          "amm": 8200,
+          "aPct": 1064,
+          "custoOcupacao": 12064
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 116200,
+          "amm": 8200,
+          "aPct": 1096,
+          "custoOcupacao": 12096
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 116600,
+          "amm": 8200,
+          "aPct": 1128,
+          "custoOcupacao": 12128
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t108",
+      "luc": "T-108",
+      "cnpj": "10.000.000/0001-08",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "renovado",
+      "keyAccount": false,
+      "nome": "Doce Encanto",
+      "segmento": "Chocolates e doces",
+      "piso": "1",
+      "area": 35,
+      "mix": "Relevante",
+      "cenario": "Já renovada com AMM novo registrado: entra no realizado do planejamento, farol azul.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-01-01",
+        "fim": "2027-02-28",
+        "ultimoReajuste": "2026-01-01"
+      },
+      "faturamento": {
+        "amm": 5000,
+        "aPctMedioSemDezembro": 650
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 60000,
+        "custoOcupacao": 6700,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-04-18",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12,
+        "ammM2Entorno": 150,
+        "ammM2Piso": 142,
+        "ammM2Tamanho": 165,
+        "ammM2Concorrentes": 158,
+        "tabelaAbcM2": 170
+      },
+      "realizado": {
+        "ammNovo": 6100,
+        "data": "2026-09-30",
+        "novoFim": "2032-02-28"
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "historico": []
+    },
+    {
+      "id": "t109",
+      "luc": "T-109",
+      "cnpj": "10.000.000/0001-09",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Papel & Cia",
+      "segmento": "Papelaria",
+      "piso": "3",
+      "area": 55,
+      "mix": "Indiferente",
+      "cenario": "Contrato VENCIDO sem renovação: crítico, nenhuma loja pode operar vencida.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2021-09-01",
+        "fim": "2026-08-31",
+        "ultimoReajuste": "2025-09-01"
+      },
+      "faturamento": {
+        "amm": 4300,
+        "aPctMedioSemDezembro": 180
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 46000,
+        "custoOcupacao": 5900,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-02",
+        "dispersaoPct": 4,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasSegmentoShoppingPct": 13.5,
+        "ammM2Entorno": 92,
+        "ammM2Piso": 85,
+        "ammM2Tamanho": 95,
+        "ammM2Concorrentes": 90,
+        "tabelaAbcM2": 100
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t110",
+      "luc": "T-110",
+      "cnpj": "10.000.000/0001-10",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Kids Mundo",
+      "segmento": "Infantil",
+      "piso": "2",
+      "area": 90,
+      "mix": "Relevante",
+      "cenario": "Relevante em Q4 (vende mal, paga pouco): investigar a origem (localização × performance) antes do número; CO/Vendas da rede não dá base.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-07-01",
+        "fim": "2027-06-30",
+        "ultimoReajuste": "2026-07-01"
+      },
+      "faturamento": {
+        "amm": 7200,
+        "aPctMedioSemDezembro": 0
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 81000,
+        "custoOcupacao": 10300,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-08-14",
+        "dispersaoPct": 5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12.5,
+        "coVendasSegmentoShoppingPct": 11.8,
+        "ammM2Entorno": 112,
+        "ammM2Piso": 100,
+        "ammM2Tamanho": 98,
+        "ammM2Concorrentes": 105,
+        "ammM2SegmentoAbrasce": 95,
+        "tabelaAbcM2": 118
+      },
+      "historico": [
+        {
+          "competencia": "2022-07",
+          "vendas": 84000,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2022-08",
+          "vendas": 83900,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2022-09",
+          "vendas": 83900,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2022-10",
+          "vendas": 83800,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2022-11",
+          "vendas": 83700,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2022-12",
+          "vendas": 133800,
+          "amm": 6100,
+          "aPct": 3266,
+          "custoOcupacao": 12266
+        },
+        {
+          "competencia": "2023-01",
+          "vendas": 83600,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2023-02",
+          "vendas": 75200,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2023-03",
+          "vendas": 83400,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2023-04",
+          "vendas": 83400,
+          "amm": 6100,
+          "aPct": 0,
+          "custoOcupacao": 9000
+        },
+        {
+          "competencia": "2023-05",
+          "vendas": 91600,
+          "amm": 6100,
+          "aPct": 312,
+          "custoOcupacao": 9312
+        },
+        {
+          "competencia": "2023-06",
+          "vendas": 91600,
+          "amm": 6100,
+          "aPct": 312,
+          "custoOcupacao": 9312
+        },
+        {
+          "competencia": "2023-07",
+          "vendas": 83200,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2023-08",
+          "vendas": 83100,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2023-09",
+          "vendas": 83000,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2023-10",
+          "vendas": 83000,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 82900,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 132500,
+          "amm": 6375,
+          "aPct": 2900,
+          "custoOcupacao": 12175
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 82700,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 74400,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 82600,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 82500,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 90700,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 90600,
+          "amm": 6375,
+          "aPct": 0,
+          "custoOcupacao": 9275
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 82300,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 82300,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 82200,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 82100,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 82100,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 131200,
+          "amm": 6661,
+          "aPct": 2523,
+          "custoOcupacao": 12084
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 81900,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 73700,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 81800,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 81700,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 89800,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 89700,
+          "amm": 6661,
+          "aPct": 0,
+          "custoOcupacao": 9561
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 81500,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 81400,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 81400,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 81300,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 81200,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 129900,
+          "amm": 6961,
+          "aPct": 2132,
+          "custoOcupacao": 11993
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 81100,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 72900,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 81000,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 80900,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 88900,
+          "amm": 6961,
+          "aPct": 0,
+          "custoOcupacao": 9861
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 88800,
+          "amm": 7200,
+          "aPct": 0,
+          "custoOcupacao": 10100
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 80700,
+          "amm": 7200,
+          "aPct": 0,
+          "custoOcupacao": 10100
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 80600,
+          "amm": 7200,
+          "aPct": 0,
+          "custoOcupacao": 10100
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 80600,
+          "amm": 7200,
+          "aPct": 0,
+          "custoOcupacao": 10100
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t111",
+      "luc": "T-111",
+      "cnpj": "10.000.000/0001-11",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Joia Rara",
+      "segmento": "Joalheria",
+      "piso": "1",
+      "area": 45,
+      "mix": "Relevante",
+      "cenario": "Relevante Q2 que NÃO paga aluguel variável (A% = 0): argumento 1 sai da conta; pares e entorno sustentam a proposta.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-10-01",
+        "fim": "2027-09-30",
+        "ultimoReajuste": "2026-10-01"
+      },
+      "faturamento": {
+        "amm": 7650,
+        "aPctMedioSemDezembro": 0
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 108000,
+        "custoOcupacao": 9800,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-09-02",
+        "dispersaoPct": 2.5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 10.5,
+        "ammM2Entorno": 150,
+        "ammM2Piso": 142,
+        "ammM2Tamanho": 160,
+        "ammM2Concorrentes": 175,
+        "ammM2SegmentoAbrasce": 155,
+        "tabelaAbcM2": 185
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t112",
+      "luc": "T-112",
+      "cnpj": "10.000.000/0001-12",
+      "formato": "satelite",
+      "mixValidado": false,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Loja Sem Dados",
+      "segmento": "Vestuário masculino",
+      "piso": "2",
+      "area": 60,
+      "mix": "Relevante",
+      "cenario": "Cadastro incompleto: sem A%, vendas, custo de ocupação, auditoria, comparativos nem histórico. Muitos [FALTA], confiança baixa, bloqueio de auditoria.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-05-01",
+        "fim": "2027-04-30",
+        "ultimoReajuste": "2026-05-01"
+      },
+      "faturamento": {
+        "amm": 6600
+      },
+      "desempenho": {},
+      "auditoria": {},
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "comparativos": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t113",
+      "luc": "T-113",
+      "cnpj": "10.000.000/0001-13",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Perfumaria Essência",
+      "segmento": "Cosméticos",
+      "piso": "1",
+      "area": 50,
+      "mix": "Relevante",
+      "cenario": "Dispersão da curva de vendas de 18,2% (acima da tolerância de 15%): reauditar no mês seguinte, BLOQUEIO.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-06-01",
+        "fim": "2027-05-31",
+        "ultimoReajuste": "2026-06-01"
+      },
+      "faturamento": {
+        "amm": 6000,
+        "aPctMedioSemDezembro": 700
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 78000,
+        "custoOcupacao": 8400,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-07-30",
+        "dispersaoPct": 18.2,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12.4,
+        "ammM2Entorno": 135,
+        "ammM2Piso": 128,
+        "ammM2Tamanho": 130,
+        "ammM2Concorrentes": 140,
+        "ammM2SegmentoAbrasce": 125,
+        "tabelaAbcM2": 150
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t114",
+      "luc": "T-114",
+      "cnpj": "10.000.000/0001-14",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Esporte Total",
+      "segmento": "Esporte",
+      "piso": "2",
+      "area": 110,
+      "mix": "Relevante",
+      "cenario": "Auditoria integral feita em dezembro (mês sazonal): não conta, BLOQUEIO.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-06-01",
+        "fim": "2027-05-31",
+        "ultimoReajuste": "2026-06-01"
+      },
+      "faturamento": {
+        "amm": 10450,
+        "aPctMedioSemDezembro": 600
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 150000,
+        "custoOcupacao": 14200,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2025-12-10",
+        "dispersaoPct": 4,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11.5,
+        "ammM2Entorno": 118,
+        "ammM2Piso": 110,
+        "ammM2Tamanho": 100,
+        "ammM2Concorrentes": 120,
+        "ammM2SegmentoAbrasce": 105,
+        "tabelaAbcM2": 128
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t115",
+      "luc": "T-115",
+      "cnpj": "10.000.000/0001-15",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Pet Amigo",
+      "segmento": "Pet",
+      "piso": "3",
+      "area": 75,
+      "mix": "Relevante",
+      "juridico": {
+        "acaoContraShopping": true,
+        "renovatoriaAjuizada": false
+      },
+      "cenario": "Lojista com ação judicial contra o shopping: BLOQUEIO absoluto.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-08-01",
+        "fim": "2027-07-31",
+        "ultimoReajuste": "2026-08-01"
+      },
+      "faturamento": {
+        "amm": 6750,
+        "aPctMedioSemDezembro": 400
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 90000,
+        "custoOcupacao": 9300,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-08-20",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12,
+        "ammM2Entorno": 100,
+        "ammM2Piso": 92,
+        "ammM2Tamanho": 98,
+        "ammM2Concorrentes": 104,
+        "ammM2SegmentoAbrasce": 96,
+        "tabelaAbcM2": 110
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t116",
+      "luc": "T-116",
+      "cnpj": "10.000.000/0001-16",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "em-negociacao",
+      "keyAccount": false,
+      "nome": "Livraria Página",
+      "segmento": "Livraria",
+      "piso": "2",
+      "area": 95,
+      "mix": "Essencial",
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": true
+      },
+      "cenario": "Ação renovatória já ajuizada: risco 100, contraproposta vincula, envolver o jurídico.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-04-01",
+        "fim": "2027-03-31",
+        "ultimoReajuste": "2026-04-01"
+      },
+      "faturamento": {
+        "amm": 7600,
+        "aPctMedioSemDezembro": 300
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 95000,
+        "custoOcupacao": 10500,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-11",
+        "dispersaoPct": 5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12.9,
+        "ammM2Entorno": 112,
+        "ammM2Piso": 105,
+        "ammM2Tamanho": 100,
+        "ammM2Concorrentes": 110,
+        "ammM2SegmentoAbrasce": 102,
+        "tabelaAbcM2": 120
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t117",
+      "luc": "T-117",
+      "cnpj": "10.000.000/0001-17",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": true,
+      "nome": "Rede Nacional Calçados",
+      "segmento": "Calçados",
+      "piso": "1",
+      "area": 85,
+      "mix": "Relevante",
+      "cenario": "Key Account (informar a Holding) com contrato não comercial (haverá CDU) e cláusula limitante a retirar.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": false,
+        "clausulasEspeciais": [
+          "limitante de reajuste"
+        ],
+        "subsidios": [],
+        "inicio": "2022-05-01",
+        "fim": "2027-04-30",
+        "ultimoReajuste": "2026-05-01"
+      },
+      "faturamento": {
+        "amm": 9350,
+        "aPctMedioSemDezembro": 500
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 125000,
+        "custoOcupacao": 12600,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-07-08",
+        "dispersaoPct": 4.5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11.8,
+        "ammM2Entorno": 122,
+        "ammM2Piso": 115,
+        "ammM2Tamanho": 118,
+        "ammM2Concorrentes": 125,
+        "ammM2SegmentoAbrasce": 114,
+        "tabelaAbcM2": 135
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t118",
+      "luc": "T-118",
+      "cnpj": "10.000.000/0001-18",
+      "formato": "quiosque",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Quiosque Açaí Bom",
+      "segmento": "Açaí",
+      "piso": "1",
+      "area": 8,
+      "mix": "Indiferente",
+      "cenario": "Quiosque: fora do escopo do método (só lojas-satélite), bloqueado.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2023-01-01",
+        "fim": "2027-01-31",
+        "ultimoReajuste": "2026-01-01"
+      },
+      "faturamento": {
+        "amm": 3200,
+        "aPctMedioSemDezembro": 100
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 28000,
+        "custoOcupacao": 4300,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-09-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "comparativos": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t119",
+      "luc": "T-119",
+      "cnpj": "10.000.000/0001-19",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Nova Marca Streetwear",
+      "segmento": "Vestuário jovem",
+      "piso": "2",
+      "area": 60,
+      "mix": "Relevante",
+      "cenario": "Loja recém-entrada (vigência até 2030) com só 10 meses de histórico: aguardar reajuste; argumento 5 pede histórico maior.",
+      "contrato": {
+        "indice": "IPCA",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2025-04-01",
+        "fim": "2030-03-31",
+        "ultimoReajuste": "2026-04-01"
+      },
+      "faturamento": {
+        "amm": 6600,
+        "aPctMedioSemDezembro": 350
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 80000,
+        "custoOcupacao": 8800,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-09-01",
+        "dispersaoPct": 4,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12,
+        "ammM2Entorno": 130,
+        "ammM2Piso": 120,
+        "ammM2Tamanho": 125,
+        "ammM2Concorrentes": 128,
+        "tabelaAbcM2": 140
+      },
+      "historico": [
+        {
+          "competencia": "2025-12",
+          "vendas": 124800,
+          "amm": 6600,
+          "aPct": 3384,
+          "custoOcupacao": 12184
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 78300,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 70800,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 79000,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 79300,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 87600,
+          "amm": 6600,
+          "aPct": 408,
+          "custoOcupacao": 9208
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 87900,
+          "amm": 6600,
+          "aPct": 432,
+          "custoOcupacao": 9232
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 80300,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 80600,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 80900,
+          "amm": 6600,
+          "aPct": 0,
+          "custoOcupacao": 8800
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t120",
+      "luc": "T-120",
+      "cnpj": "10.000.000/0001-20",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Burger da Praça",
+      "segmento": "Alimentação",
+      "piso": "3",
+      "area": 50,
+      "mix": "Relevante",
+      "cenario": "Relevante a 3 meses do fim (atrasado para o ideal de 12 a 6): negociar já e confirmar com o jurídico; histórico com queda forte de CO/Vendas.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-02-01",
+        "fim": "2027-01-31",
+        "ultimoReajuste": "2026-02-01"
+      },
+      "faturamento": {
+        "amm": 7000,
+        "aPctMedioSemDezembro": 900
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 115000,
+        "custoOcupacao": 10500,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-07-19",
+        "dispersaoPct": 6,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 10.9,
+        "ammM2Entorno": 160,
+        "ammM2Piso": 150,
+        "ammM2Tamanho": 165,
+        "ammM2Concorrentes": 170,
+        "ammM2SegmentoAbrasce": 158,
+        "tabelaAbcM2": 180
+      },
+      "historico": [
+        {
+          "competencia": "2022-02",
+          "vendas": 72000,
+          "amm": 5900,
+          "aPct": 220,
+          "custoOcupacao": 8520
+        },
+        {
+          "competencia": "2022-03",
+          "vendas": 80700,
+          "amm": 5900,
+          "aPct": 960,
+          "custoOcupacao": 9260
+        },
+        {
+          "competencia": "2022-04",
+          "vendas": 81400,
+          "amm": 5900,
+          "aPct": 1019,
+          "custoOcupacao": 9319
+        },
+        {
+          "competencia": "2022-05",
+          "vendas": 90300,
+          "amm": 5900,
+          "aPct": 1776,
+          "custoOcupacao": 10076
+        },
+        {
+          "competencia": "2022-06",
+          "vendas": 91100,
+          "amm": 5900,
+          "aPct": 1844,
+          "custoOcupacao": 10144
+        },
+        {
+          "competencia": "2022-07",
+          "vendas": 83600,
+          "amm": 5900,
+          "aPct": 1206,
+          "custoOcupacao": 9506
+        },
+        {
+          "competencia": "2022-08",
+          "vendas": 84300,
+          "amm": 5900,
+          "aPct": 1266,
+          "custoOcupacao": 9566
+        },
+        {
+          "competencia": "2022-09",
+          "vendas": 85000,
+          "amm": 5900,
+          "aPct": 1325,
+          "custoOcupacao": 9625
+        },
+        {
+          "competencia": "2022-10",
+          "vendas": 85800,
+          "amm": 5900,
+          "aPct": 1393,
+          "custoOcupacao": 9693
+        },
+        {
+          "competencia": "2022-11",
+          "vendas": 86500,
+          "amm": 5900,
+          "aPct": 1453,
+          "custoOcupacao": 9753
+        },
+        {
+          "competencia": "2022-12",
+          "vendas": 139600,
+          "amm": 5900,
+          "aPct": 5966,
+          "custoOcupacao": 14266
+        },
+        {
+          "competencia": "2023-01",
+          "vendas": 88000,
+          "amm": 5900,
+          "aPct": 1580,
+          "custoOcupacao": 9880
+        },
+        {
+          "competencia": "2023-02",
+          "vendas": 79900,
+          "amm": 6166,
+          "aPct": 626,
+          "custoOcupacao": 9192
+        },
+        {
+          "competencia": "2023-03",
+          "vendas": 89600,
+          "amm": 6166,
+          "aPct": 1450,
+          "custoOcupacao": 10016
+        },
+        {
+          "competencia": "2023-04",
+          "vendas": 90400,
+          "amm": 6166,
+          "aPct": 1518,
+          "custoOcupacao": 10084
+        },
+        {
+          "competencia": "2023-05",
+          "vendas": 100300,
+          "amm": 6166,
+          "aPct": 2360,
+          "custoOcupacao": 10926
+        },
+        {
+          "competencia": "2023-06",
+          "vendas": 101100,
+          "amm": 6166,
+          "aPct": 2428,
+          "custoOcupacao": 10994
+        },
+        {
+          "competencia": "2023-07",
+          "vendas": 92700,
+          "amm": 6166,
+          "aPct": 1714,
+          "custoOcupacao": 10280
+        },
+        {
+          "competencia": "2023-08",
+          "vendas": 93600,
+          "amm": 6166,
+          "aPct": 1790,
+          "custoOcupacao": 10356
+        },
+        {
+          "competencia": "2023-09",
+          "vendas": 94400,
+          "amm": 6166,
+          "aPct": 1858,
+          "custoOcupacao": 10424
+        },
+        {
+          "competencia": "2023-10",
+          "vendas": 95200,
+          "amm": 6166,
+          "aPct": 1926,
+          "custoOcupacao": 10492
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 96000,
+          "amm": 6166,
+          "aPct": 1994,
+          "custoOcupacao": 10560
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 155000,
+          "amm": 6166,
+          "aPct": 7009,
+          "custoOcupacao": 15575
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 97700,
+          "amm": 6166,
+          "aPct": 2139,
+          "custoOcupacao": 10705
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 88700,
+          "amm": 6443,
+          "aPct": 1097,
+          "custoOcupacao": 9940
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 99400,
+          "amm": 6443,
+          "aPct": 2006,
+          "custoOcupacao": 10849
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 100300,
+          "amm": 6443,
+          "aPct": 2083,
+          "custoOcupacao": 10926
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 111300,
+          "amm": 6443,
+          "aPct": 3018,
+          "custoOcupacao": 11861
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 112300,
+          "amm": 6443,
+          "aPct": 3103,
+          "custoOcupacao": 11946
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 102900,
+          "amm": 6443,
+          "aPct": 2304,
+          "custoOcupacao": 11147
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 103800,
+          "amm": 6443,
+          "aPct": 2380,
+          "custoOcupacao": 11223
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 104800,
+          "amm": 6443,
+          "aPct": 2465,
+          "custoOcupacao": 11308
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 105700,
+          "amm": 6443,
+          "aPct": 2542,
+          "custoOcupacao": 11385
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 106600,
+          "amm": 6443,
+          "aPct": 2618,
+          "custoOcupacao": 11461
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 172000,
+          "amm": 6443,
+          "aPct": 8177,
+          "custoOcupacao": 17020
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 108500,
+          "amm": 6443,
+          "aPct": 2780,
+          "custoOcupacao": 11623
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 98500,
+          "amm": 6733,
+          "aPct": 1640,
+          "custoOcupacao": 10773
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 110400,
+          "amm": 6733,
+          "aPct": 2651,
+          "custoOcupacao": 11784
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 111300,
+          "amm": 6733,
+          "aPct": 2728,
+          "custoOcupacao": 11861
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 123500,
+          "amm": 6733,
+          "aPct": 3765,
+          "custoOcupacao": 12898
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 124600,
+          "amm": 6733,
+          "aPct": 3858,
+          "custoOcupacao": 12991
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 114300,
+          "amm": 6733,
+          "aPct": 2983,
+          "custoOcupacao": 12116
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 115300,
+          "amm": 6733,
+          "aPct": 3068,
+          "custoOcupacao": 12201
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 116300,
+          "amm": 6733,
+          "aPct": 3153,
+          "custoOcupacao": 12286
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 117300,
+          "amm": 6733,
+          "aPct": 3238,
+          "custoOcupacao": 12371
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 118300,
+          "amm": 6733,
+          "aPct": 3323,
+          "custoOcupacao": 12456
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 191000,
+          "amm": 6733,
+          "aPct": 9502,
+          "custoOcupacao": 18635
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 120400,
+          "amm": 6733,
+          "aPct": 3501,
+          "custoOcupacao": 12634
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 109300,
+          "amm": 7036,
+          "aPct": 2255,
+          "custoOcupacao": 11691
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 122500,
+          "amm": 7036,
+          "aPct": 3377,
+          "custoOcupacao": 12813
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 123600,
+          "amm": 7036,
+          "aPct": 3470,
+          "custoOcupacao": 12906
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 137100,
+          "amm": 7036,
+          "aPct": 4618,
+          "custoOcupacao": 14054
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 138300,
+          "amm": 7000,
+          "aPct": 4756,
+          "custoOcupacao": 14156
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 126800,
+          "amm": 7000,
+          "aPct": 3778,
+          "custoOcupacao": 13178
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 128000,
+          "amm": 7000,
+          "aPct": 3880,
+          "custoOcupacao": 13280
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 129100,
+          "amm": 7000,
+          "aPct": 3974,
+          "custoOcupacao": 13374
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t121",
+      "luc": "T-121",
+      "cnpj": "10.000.000/0001-21",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Presentes & Afetos",
+      "segmento": "Presentes",
+      "piso": "2",
+      "area": 55,
+      "mix": "Relevante",
+      "cenario": "Cadastro só com o histórico mensal (AMM, A%, vendas e custo de ocupação em branco): o sistema deriva do histórico e avisa.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-07-01",
+        "fim": "2027-06-30",
+        "ultimoReajuste": "2026-07-01"
+      },
+      "faturamento": {},
+      "desempenho": {
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-08-01",
+        "dispersaoPct": 4,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12.2,
+        "ammM2Entorno": 120,
+        "ammM2Piso": 112,
+        "ammM2Tamanho": 118,
+        "ammM2Concorrentes": 124,
+        "ammM2SegmentoAbrasce": 110,
+        "tabelaAbcM2": 132
+      },
+      "historico": [
+        {
+          "competencia": "2022-07",
+          "vendas": 62000,
+          "amm": 5100,
+          "aPct": 480,
+          "custoOcupacao": 7680
+        },
+        {
+          "competencia": "2022-08",
+          "vendas": 62400,
+          "amm": 5100,
+          "aPct": 516,
+          "custoOcupacao": 7716
+        },
+        {
+          "competencia": "2022-09",
+          "vendas": 62700,
+          "amm": 5100,
+          "aPct": 543,
+          "custoOcupacao": 7743
+        },
+        {
+          "competencia": "2022-10",
+          "vendas": 63100,
+          "amm": 5100,
+          "aPct": 579,
+          "custoOcupacao": 7779
+        },
+        {
+          "competencia": "2022-11",
+          "vendas": 63400,
+          "amm": 5100,
+          "aPct": 606,
+          "custoOcupacao": 7806
+        },
+        {
+          "competencia": "2022-12",
+          "vendas": 102000,
+          "amm": 5100,
+          "aPct": 4080,
+          "custoOcupacao": 11280
+        },
+        {
+          "competencia": "2023-01",
+          "vendas": 64100,
+          "amm": 5100,
+          "aPct": 669,
+          "custoOcupacao": 7869
+        },
+        {
+          "competencia": "2023-02",
+          "vendas": 58000,
+          "amm": 5100,
+          "aPct": 120,
+          "custoOcupacao": 7320
+        },
+        {
+          "competencia": "2023-03",
+          "vendas": 64900,
+          "amm": 5100,
+          "aPct": 741,
+          "custoOcupacao": 7941
+        },
+        {
+          "competencia": "2023-04",
+          "vendas": 65200,
+          "amm": 5100,
+          "aPct": 768,
+          "custoOcupacao": 7968
+        },
+        {
+          "competencia": "2023-05",
+          "vendas": 72200,
+          "amm": 5100,
+          "aPct": 1398,
+          "custoOcupacao": 8598
+        },
+        {
+          "competencia": "2023-06",
+          "vendas": 72600,
+          "amm": 5100,
+          "aPct": 1434,
+          "custoOcupacao": 8634
+        },
+        {
+          "competencia": "2023-07",
+          "vendas": 66300,
+          "amm": 5355,
+          "aPct": 612,
+          "custoOcupacao": 8067
+        },
+        {
+          "competencia": "2023-08",
+          "vendas": 66700,
+          "amm": 5355,
+          "aPct": 648,
+          "custoOcupacao": 8103
+        },
+        {
+          "competencia": "2023-09",
+          "vendas": 67100,
+          "amm": 5355,
+          "aPct": 684,
+          "custoOcupacao": 8139
+        },
+        {
+          "competencia": "2023-10",
+          "vendas": 67500,
+          "amm": 5355,
+          "aPct": 720,
+          "custoOcupacao": 8175
+        },
+        {
+          "competencia": "2023-11",
+          "vendas": 67900,
+          "amm": 5355,
+          "aPct": 756,
+          "custoOcupacao": 8211
+        },
+        {
+          "competencia": "2023-12",
+          "vendas": 109200,
+          "amm": 5355,
+          "aPct": 4473,
+          "custoOcupacao": 11928
+        },
+        {
+          "competencia": "2024-01",
+          "vendas": 68600,
+          "amm": 5355,
+          "aPct": 819,
+          "custoOcupacao": 8274
+        },
+        {
+          "competencia": "2024-02",
+          "vendas": 62100,
+          "amm": 5355,
+          "aPct": 234,
+          "custoOcupacao": 7689
+        },
+        {
+          "competencia": "2024-03",
+          "vendas": 69400,
+          "amm": 5355,
+          "aPct": 891,
+          "custoOcupacao": 8346
+        },
+        {
+          "competencia": "2024-04",
+          "vendas": 69800,
+          "amm": 5355,
+          "aPct": 927,
+          "custoOcupacao": 8382
+        },
+        {
+          "competencia": "2024-05",
+          "vendas": 77200,
+          "amm": 5355,
+          "aPct": 1593,
+          "custoOcupacao": 9048
+        },
+        {
+          "competencia": "2024-06",
+          "vendas": 77600,
+          "amm": 5355,
+          "aPct": 1629,
+          "custoOcupacao": 9084
+        },
+        {
+          "competencia": "2024-07",
+          "vendas": 71000,
+          "amm": 5623,
+          "aPct": 767,
+          "custoOcupacao": 8490
+        },
+        {
+          "competencia": "2024-08",
+          "vendas": 71400,
+          "amm": 5623,
+          "aPct": 803,
+          "custoOcupacao": 8526
+        },
+        {
+          "competencia": "2024-09",
+          "vendas": 71800,
+          "amm": 5623,
+          "aPct": 839,
+          "custoOcupacao": 8562
+        },
+        {
+          "competencia": "2024-10",
+          "vendas": 72200,
+          "amm": 5623,
+          "aPct": 875,
+          "custoOcupacao": 8598
+        },
+        {
+          "competencia": "2024-11",
+          "vendas": 72600,
+          "amm": 5623,
+          "aPct": 911,
+          "custoOcupacao": 8634
+        },
+        {
+          "competencia": "2024-12",
+          "vendas": 116800,
+          "amm": 5623,
+          "aPct": 4889,
+          "custoOcupacao": 12612
+        },
+        {
+          "competencia": "2025-01",
+          "vendas": 73400,
+          "amm": 5623,
+          "aPct": 983,
+          "custoOcupacao": 8706
+        },
+        {
+          "competencia": "2025-02",
+          "vendas": 66500,
+          "amm": 5623,
+          "aPct": 362,
+          "custoOcupacao": 8085
+        },
+        {
+          "competencia": "2025-03",
+          "vendas": 74300,
+          "amm": 5623,
+          "aPct": 1064,
+          "custoOcupacao": 8787
+        },
+        {
+          "competencia": "2025-04",
+          "vendas": 74700,
+          "amm": 5623,
+          "aPct": 1100,
+          "custoOcupacao": 8823
+        },
+        {
+          "competencia": "2025-05",
+          "vendas": 82600,
+          "amm": 5623,
+          "aPct": 1811,
+          "custoOcupacao": 9534
+        },
+        {
+          "competencia": "2025-06",
+          "vendas": 83100,
+          "amm": 5623,
+          "aPct": 1856,
+          "custoOcupacao": 9579
+        },
+        {
+          "competencia": "2025-07",
+          "vendas": 76000,
+          "amm": 5904,
+          "aPct": 936,
+          "custoOcupacao": 8940
+        },
+        {
+          "competencia": "2025-08",
+          "vendas": 76400,
+          "amm": 5904,
+          "aPct": 972,
+          "custoOcupacao": 8976
+        },
+        {
+          "competencia": "2025-09",
+          "vendas": 76800,
+          "amm": 5904,
+          "aPct": 1008,
+          "custoOcupacao": 9012
+        },
+        {
+          "competencia": "2025-10",
+          "vendas": 77200,
+          "amm": 5904,
+          "aPct": 1044,
+          "custoOcupacao": 9048
+        },
+        {
+          "competencia": "2025-11",
+          "vendas": 77700,
+          "amm": 5904,
+          "aPct": 1089,
+          "custoOcupacao": 9093
+        },
+        {
+          "competencia": "2025-12",
+          "vendas": 125000,
+          "amm": 5904,
+          "aPct": 5346,
+          "custoOcupacao": 13350
+        },
+        {
+          "competencia": "2026-01",
+          "vendas": 78600,
+          "amm": 5904,
+          "aPct": 1170,
+          "custoOcupacao": 9174
+        },
+        {
+          "competencia": "2026-02",
+          "vendas": 71100,
+          "amm": 5904,
+          "aPct": 495,
+          "custoOcupacao": 8499
+        },
+        {
+          "competencia": "2026-03",
+          "vendas": 79500,
+          "amm": 5904,
+          "aPct": 1251,
+          "custoOcupacao": 9255
+        },
+        {
+          "competencia": "2026-04",
+          "vendas": 79900,
+          "amm": 5904,
+          "aPct": 1287,
+          "custoOcupacao": 9291
+        },
+        {
+          "competencia": "2026-05",
+          "vendas": 88400,
+          "amm": 5904,
+          "aPct": 2052,
+          "custoOcupacao": 10056
+        },
+        {
+          "competencia": "2026-06",
+          "vendas": 88900,
+          "amm": 6200,
+          "aPct": 1801,
+          "custoOcupacao": 10101
+        },
+        {
+          "competencia": "2026-07",
+          "vendas": 81300,
+          "amm": 6200,
+          "aPct": 1117,
+          "custoOcupacao": 9417
+        },
+        {
+          "competencia": "2026-08",
+          "vendas": 81700,
+          "amm": 6200,
+          "aPct": 1153,
+          "custoOcupacao": 9453
+        },
+        {
+          "competencia": "2026-09",
+          "vendas": 82200,
+          "amm": 6200,
+          "aPct": 1198,
+          "custoOcupacao": 9498
+        }
+      ],
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {}
+    },
+    {
+      "id": "t122",
+      "luc": "T-122",
+      "cnpj": "10.000.000/0001-22",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Butique Lux",
+      "segmento": "Moda premium",
+      "piso": "1",
+      "area": 70,
+      "mix": "Relevante",
+      "cenario": "CO/Vendas da rede muito acima da loja gera LSR enorme: teste do perito FRÁGIL, risco alto, apertar menos.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-06-01",
+        "fim": "2027-05-31",
+        "ultimoReajuste": "2026-06-01"
+      },
+      "faturamento": {
+        "amm": 9100,
+        "aPctMedioSemDezembro": 1500
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 160000,
+        "custoOcupacao": 12800,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-08-25",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 14.5,
+        "ammM2Entorno": 135,
+        "ammM2Piso": 128,
+        "ammM2Tamanho": 140,
+        "ammM2Concorrentes": 138,
+        "ammM2SegmentoAbrasce": 130,
+        "tabelaAbcM2": 150
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t123",
+      "luc": "T-123",
+      "cnpj": "10.000.000/0001-23",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "nao-renovado",
+      "keyAccount": false,
+      "nome": "Antiga Loja Fechada",
+      "segmento": "Vestuário",
+      "piso": "3",
+      "area": 60,
+      "mix": "Indiferente",
+      "cenario": "Não renovada: fica cinza, fora da fila, do mapa e do planejamento.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2021-06-01",
+        "fim": "2026-05-31",
+        "ultimoReajuste": "2025-06-01"
+      },
+      "faturamento": {
+        "amm": 4500,
+        "aPctMedioSemDezembro": 0
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 40000,
+        "custoOcupacao": 6000
+      },
+      "auditoria": {},
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "comparativos": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t124",
+      "luc": "T-124",
+      "cnpj": "10.000.000/0001-24",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Cozinha & Mesa",
+      "segmento": "Utilidades",
+      "piso": "2",
+      "area": 100,
+      "mix": "Relevante",
+      "cenario": "Mais de 12 meses para o fim e sem data de último reajuste: fase de preparação (levantar comparativos e pedir auditoria).",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-12-01",
+        "fim": "2027-12-31",
+        "ultimoReajuste": ""
+      },
+      "faturamento": {
+        "amm": 9800,
+        "aPctMedioSemDezembro": 400
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 125000,
+        "custoOcupacao": 13500,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-05-05",
+        "dispersaoPct": 5,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 12,
+        "ammM2Entorno": 110,
+        "ammM2Piso": 104,
+        "ammM2Tamanho": 100,
+        "ammM2Concorrentes": 112,
+        "ammM2SegmentoAbrasce": 103,
+        "tabelaAbcM2": 120
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t125",
+      "luc": "T-125",
+      "cnpj": "10.000.000/0001-25",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Farmácia Vida",
+      "segmento": "Farmácia",
+      "piso": "1",
+      "area": 60,
+      "mix": "Essencial",
+      "inflacaoAcumuladaPct": 6.1,
+      "cenario": "Essencial com inflação acumulada própria (6,1%) diferente da do shopping (4,2%).",
+      "contrato": {
+        "indice": "IPCA",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2022-06-01",
+        "fim": "2027-05-31",
+        "ultimoReajuste": "2026-06-01"
+      },
+      "faturamento": {
+        "amm": 7800,
+        "aPctMedioSemDezembro": 420
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 140000,
+        "custoOcupacao": 10200,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-07-01",
+        "dispersaoPct": 2,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 9.5,
+        "ammM2Entorno": 140,
+        "ammM2Piso": 135,
+        "ammM2Tamanho": 130,
+        "ammM2Concorrentes": 145,
+        "ammM2SegmentoAbrasce": 138,
+        "tabelaAbcM2": 160
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t126",
+      "luc": "T-126",
+      "cnpj": "10.000.000/0001-26",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Doce Vida Sorvetes",
+      "segmento": "Sorvetes",
+      "piso": "1",
+      "area": 42,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2024), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2024-06-01",
+        "fim": "2029-06-01",
+        "ultimoReajuste": "2026-06-01"
+      },
+      "faturamento": {
+        "amm": 5292,
+        "aPctMedioSemDezembro": 318
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 66150,
+        "custoOcupacao": 7144,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 134,
+        "ammM2Piso": 128,
+        "ammM2Tamanho": 131,
+        "ammM2Concorrentes": 136,
+        "tabelaAbcM2": 146
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t127",
+      "luc": "T-127",
+      "cnpj": "10.000.000/0001-27",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Lingerie & Cia",
+      "segmento": "Moda íntima",
+      "piso": "1",
+      "area": 72,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2025), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2025-02-01",
+        "fim": "2030-02-01",
+        "ultimoReajuste": "2026-02-01"
+      },
+      "faturamento": {
+        "amm": 8496,
+        "aPctMedioSemDezembro": 510
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 106200,
+        "custoOcupacao": 11470,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 126,
+        "ammM2Piso": 120,
+        "ammM2Tamanho": 123,
+        "ammM2Concorrentes": 128,
+        "tabelaAbcM2": 138
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t128",
+      "luc": "T-128",
+      "cnpj": "10.000.000/0001-28",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Mundo dos Óculos",
+      "segmento": "Óticas",
+      "piso": "2",
+      "area": 55,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2024), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2024-11-01",
+        "fim": "2029-11-01",
+        "ultimoReajuste": "2026-11-01"
+      },
+      "faturamento": {
+        "amm": 6710,
+        "aPctMedioSemDezembro": 403
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 83875,
+        "custoOcupacao": 9059,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 130,
+        "ammM2Piso": 124,
+        "ammM2Tamanho": 127,
+        "ammM2Concorrentes": 132,
+        "tabelaAbcM2": 142
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t129",
+      "luc": "T-129",
+      "cnpj": "10.000.000/0001-29",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Brinque Bem",
+      "segmento": "Infantil",
+      "piso": "2",
+      "area": 95,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2025), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2025-05-01",
+        "fim": "2030-05-01",
+        "ultimoReajuste": "2026-05-01"
+      },
+      "faturamento": {
+        "amm": 9880,
+        "aPctMedioSemDezembro": 593
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 123500,
+        "custoOcupacao": 13338,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 112,
+        "ammM2Piso": 106,
+        "ammM2Tamanho": 109,
+        "ammM2Concorrentes": 114,
+        "tabelaAbcM2": 124
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t130",
+      "luc": "T-130",
+      "cnpj": "10.000.000/0001-30",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Casa da Mala",
+      "segmento": "Bolsas e malas",
+      "piso": "3",
+      "area": 65,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2024), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2024-09-01",
+        "fim": "2029-09-01",
+        "ultimoReajuste": "2026-09-01"
+      },
+      "faturamento": {
+        "amm": 6240,
+        "aPctMedioSemDezembro": 374
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 78000,
+        "custoOcupacao": 8424,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 104,
+        "ammM2Piso": 98,
+        "ammM2Tamanho": 101,
+        "ammM2Concorrentes": 106,
+        "tabelaAbcM2": 116
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t131",
+      "luc": "T-131",
+      "cnpj": "10.000.000/0001-31",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Barba & Cabelo",
+      "segmento": "Serviços",
+      "piso": "3",
+      "area": 48,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2025), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2025-08-01",
+        "fim": "2030-08-01",
+        "ultimoReajuste": "2026-08-01"
+      },
+      "faturamento": {
+        "amm": 4848,
+        "aPctMedioSemDezembro": 291
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 60600,
+        "custoOcupacao": 6545,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 109,
+        "ammM2Piso": 103,
+        "ammM2Tamanho": 106,
+        "ammM2Concorrentes": 111,
+        "tabelaAbcM2": 121
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t132",
+      "luc": "T-132",
+      "cnpj": "10.000.000/0001-32",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Toque Final Acessórios",
+      "segmento": "Acessórios",
+      "piso": "1",
+      "area": 38,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2025), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2025-03-01",
+        "fim": "2030-03-01",
+        "ultimoReajuste": "2026-03-01"
+      },
+      "faturamento": {
+        "amm": 5244,
+        "aPctMedioSemDezembro": 315
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 65550,
+        "custoOcupacao": 7079,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 146,
+        "ammM2Piso": 140,
+        "ammM2Tamanho": 143,
+        "ammM2Concorrentes": 148,
+        "tabelaAbcM2": 158
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    },
+    {
+      "id": "t133",
+      "luc": "T-133",
+      "cnpj": "10.000.000/0001-33",
+      "formato": "satelite",
+      "mixValidado": true,
+      "status": "a-negociar",
+      "keyAccount": false,
+      "nome": "Fit Nutri Suplementos",
+      "segmento": "Saúde",
+      "piso": "2",
+      "area": 85,
+      "mix": "Relevante",
+      "cenario": "Comparável contemporâneo: contrato recente (2024), vigência longa; não negocia agora, mas sustenta o laudo prévio e a linearidade do shopping.",
+      "contrato": {
+        "indice": "IGP-M",
+        "comercial": true,
+        "clausulasEspeciais": [],
+        "subsidios": [],
+        "inicio": "2024-04-01",
+        "fim": "2029-04-01",
+        "ultimoReajuste": "2026-04-01"
+      },
+      "faturamento": {
+        "amm": 9180,
+        "aPctMedioSemDezembro": 551
+      },
+      "desempenho": {
+        "vendas12mExpurgada": 114750,
+        "custoOcupacao": 12393,
+        "mesesInadimplente": 0,
+        "saldoAberto": 0
+      },
+      "auditoria": {
+        "ultimaIntegral": "2026-06-15",
+        "dispersaoPct": 3,
+        "statusLivros": "auditado"
+      },
+      "comparativos": {
+        "coVendasRedePct": 11,
+        "ammM2Entorno": 116,
+        "ammM2Piso": 110,
+        "ammM2Tamanho": 113,
+        "ammM2Concorrentes": 118,
+        "tabelaAbcM2": 128
+      },
+      "juridico": {
+        "acaoContraShopping": false,
+        "renovatoriaAjuizada": false
+      },
+      "negociacao": {},
+      "realizado": {},
+      "historico": []
+    }
+  ]
+}

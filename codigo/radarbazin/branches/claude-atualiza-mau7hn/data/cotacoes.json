@@ -1,0 +1,112 @@
+{
+  "atualizadoEm": "2026-09-08T23:39:00.670Z",
+  "origem": "scripts/atualizar-cotacoes.mjs",
+  "nota": "Valores iniciais copiados da planilha enviada em 06/09/2026. São substituídos automaticamente pelo workflow de atualização.",
+  "cambio": {
+    "USDBRL": {
+      "valor": 5.0856,
+      "fonte": "Banco Central (PTAX venda, 08/09/2026)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    }
+  },
+  "cotacoes": {
+    "ALOS3": {
+      "preco": 29.13,
+      "variacao": 1.15,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "TAEE11": {
+      "preco": 41.83,
+      "variacao": 1.04,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "AURE3": {
+      "preco": 12.13,
+      "variacao": 1.17,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "BBSE3": {
+      "preco": 42.52,
+      "variacao": 0.76,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "ITSA4": {
+      "preco": 14.24,
+      "variacao": 2.3,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "KLBN4": {
+      "preco": 3.86,
+      "variacao": 0,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "SAPR11": {
+      "preco": 36.13,
+      "variacao": 3.08,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "CMIG4": {
+      "preco": 11.66,
+      "variacao": 3.28,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "BBDC4": {
+      "preco": 18.19,
+      "variacao": 1.56,
+      "moeda": "BRL",
+      "fonte": "B3 (cotacao.b3.com.br)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "NVDA": {
+      "preco": 225.4699,
+      "variacao": -0.12,
+      "moeda": "USD",
+      "fonte": "Nasdaq (api.nasdaq.com)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "PLTR": {
+      "preco": 170.6,
+      "variacao": 0.18,
+      "moeda": "USD",
+      "fonte": "Nasdaq (api.nasdaq.com)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "TSLA": {
+      "preco": 366.6,
+      "variacao": -0.42,
+      "moeda": "USD",
+      "fonte": "Nasdaq (api.nasdaq.com)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "SPY": {
+      "preco": 765.5687,
+      "variacao": -0.06,
+      "moeda": "USD",
+      "fonte": "Nasdaq (api.nasdaq.com)",
+      "ts": "2026-09-08T23:39:00.670Z"
+    },
+    "VUAA": {
+      "preco": 148.76,
+      "variacao": -0.17,
+      "moeda": "USD",
+      "fonte": "Yahoo Finance",
+      "ts": "2026-09-08T23:39:00.670Z"
+    }
+  }
+}

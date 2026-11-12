@@ -1,0 +1,25 @@
+Radar de Auditoria — pacote para hospedagem
+===========================================
+
+Esta pasta é o site inteiro. É estático: não tem servidor, não tem API,
+não tem variável de ambiente. Todo arquivo fiscal é lido dentro do
+navegador de quem abre a página e nunca chega a servidor nenhum.
+
+Como publicar na Vercel (o projeto "apurador-fiscal" já está criado e
+com a proteção de login desligada, pronto para receber):
+
+  Opção A — arrastar
+    1. Abra https://vercel.com/new
+    2. Arraste esta pasta (ou o .zip) para a área de upload
+    3. Escolha o projeto "apurador-fiscal"
+
+  Opção B — linha de comando, dentro desta pasta
+    npx vercel link --project apurador-fiscal
+    npx vercel deploy --prod
+
+Depois de publicar, abra a URL no celular e use "Adicionar à Tela de
+Início" (Safari) ou "Instalar app" (Chrome). O ícone do livro aparece.
+
+O vercel.json desta pasta já traz os cabeçalhos de segurança:
+Content-Security-Policy, nosniff, no-referrer, Permissions-Policy e
+noindex. Serve para qualquer host estático, não só Vercel.

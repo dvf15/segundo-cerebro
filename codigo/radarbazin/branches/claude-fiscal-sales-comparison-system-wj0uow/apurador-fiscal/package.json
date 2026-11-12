@@ -1,0 +1,21 @@
+{
+  "name": "apurador-fiscal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Comparador de vendas: livros fiscais (PDF/SPED/Excel/CSV/foto) contra vendas informadas em planilha, por CNPJ e competência.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "e2e": "node test/e2e.mjs",
+    "demo": "node scripts/gerar-demo.mjs",
+    "video": "node scripts/gravar-video.mjs",
+    "icones": "node scripts/gerar-icones.mjs",
+    "build:hospedado": "node scripts/build-hospedado.mjs",
+    "video:celular": "node scripts/gravar-video-celular.mjs",
+    "voz": "node scripts/baixar-voz.mjs",
+    "base": "node scripts/gerar-base-ficticia.mjs",
+    "video:novidades": "node scripts/gravar-video-novidades.mjs"
+  },
+  "license": "MIT"
+}

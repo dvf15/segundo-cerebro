@@ -1,0 +1,7 @@
+{
+  "_nota": "PROVISÓRIO — não é o hex oficial da Allos. Não consegui verificar: o proxy deste ambiente bloqueia allos.co, ri.allos.co e os agregadores de marca. O verde abaixo é escolha minha, coerente com a cor institucional verde da marca. Troque os valores aqui e rode `npm run icones`; nada mais precisa mudar.",
+  "verde": "#00A868",
+  "verdeProfundo": "#00754A",
+  "papel": "#FFFFFF",
+  "papelSombra": "#CDF2E1"
+}

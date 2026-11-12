@@ -1,0 +1,5 @@
+node_modules/
+apurador-fiscal-deploy.zip
+demo/.gravacao*/
+demo/.bruto*.webm
+demo/.narracao/

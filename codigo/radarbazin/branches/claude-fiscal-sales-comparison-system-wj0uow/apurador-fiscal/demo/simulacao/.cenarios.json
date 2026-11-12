@@ -1,0 +1,182 @@
+{
+  "lojas": {
+    "BELA": {
+      "cnpj": "11222333000181",
+      "nome": "Bela Cosméticos",
+      "razao": "BELA COSMETICOS LTDA",
+      "luc": "101",
+      "email": "fiscal@belacosmeticos.com.br",
+      "telefone": "11983566334",
+      "regime": "normal",
+      "segmento": "Beleza",
+      "uf": "SP",
+      "inicioContrato": "2016-01-10",
+      "ativo": true
+    },
+    "QUIOSQUE": {
+      "cnpj": "11222333000262",
+      "nome": "Bela Cosméticos — quiosque",
+      "razao": "BELA COSMETICOS LTDA",
+      "luc": "109",
+      "email": "fiscal@belacosmeticosquiosque.com.br",
+      "telefone": "11987859409",
+      "regime": "normal",
+      "segmento": "Beleza",
+      "uf": "SP",
+      "inicioContrato": "2019-01-14",
+      "ativo": true
+    },
+    "CAFE": {
+      "cnpj": "69781682000113",
+      "nome": "Café Aurora",
+      "razao": "CAFE AURORA MODA LTDA",
+      "luc": "117",
+      "email": "fiscal@cafeaurora.com.br",
+      "telefone": "11985773894",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2016-03-13",
+      "ativo": true
+    },
+    "TRILHA": {
+      "cnpj": "47231337000173",
+      "nome": "Trilha & Cia",
+      "razao": "TRILHA  CIA SERVICOS LTDA",
+      "luc": "122",
+      "email": "fiscal@trilhacia.com.br",
+      "telefone": "",
+      "regime": "normal",
+      "segmento": "Esporte",
+      "uf": "SP",
+      "inicioContrato": "2021-01-13",
+      "ativo": true
+    },
+    "OTICA": {
+      "cnpj": "18637317000107",
+      "nome": "Ótica Horizonte",
+      "razao": "OTICA HORIZONTE VAREJO LTDA",
+      "luc": "131",
+      "email": "fiscal@oticahorizonte.com.br",
+      "telefone": "11985374824",
+      "regime": "simples",
+      "segmento": "Serviços",
+      "uf": "SP",
+      "inicioContrato": "2015-05-11",
+      "ativo": true
+    },
+    "VERTICE": {
+      "cnpj": "24538526000198",
+      "nome": "Vértice Calçados",
+      "razao": "VERTICE CALCADOS MODA LTDA",
+      "luc": "167",
+      "email": "fiscal@verticecalcados.com.br",
+      "telefone": "11982991005",
+      "regime": "normal",
+      "segmento": "Calçados",
+      "uf": "SP",
+      "inicioContrato": "2019-02-10",
+      "ativo": true
+    },
+    "LUME": {
+      "cnpj": "17385654000183",
+      "nome": "Lume Joias",
+      "razao": "LUME JOIAS SERVICOS LTDA",
+      "luc": "173",
+      "email": "fiscal@lumejoias.com.br",
+      "telefone": "",
+      "regime": "simples",
+      "segmento": "Joias",
+      "uf": "SP",
+      "inicioContrato": "2020-03-11",
+      "ativo": true
+    },
+    "URBANO": {
+      "cnpj": "56288060000106",
+      "nome": "Urbano Moda Masculina",
+      "razao": "URBANO MODA MASCULINA DISTRIBUIDORA LTDA",
+      "luc": "187",
+      "email": "fiscal@urbanomodamasculina.com.br",
+      "telefone": "11988100981",
+      "regime": "normal",
+      "segmento": "Moda",
+      "uf": "SP",
+      "inicioContrato": "2016-05-13",
+      "ativo": true
+    },
+    "MUNDOPET": {
+      "cnpj": "80230013000196",
+      "nome": "Mundo Pet Center",
+      "razao": "MUNDO PET CENTER COMERCIO LTDA",
+      "luc": "203",
+      "email": "",
+      "telefone": "11989842285",
+      "regime": "normal",
+      "segmento": "Pet",
+      "uf": "SP",
+      "inicioContrato": "2018-07-15",
+      "ativo": true
+    },
+    "RAIZ": {
+      "cnpj": "79153668000129",
+      "nome": "Raiz Natural",
+      "razao": "RAIZ NATURAL COMERCIO LTDA",
+      "luc": "248",
+      "email": "fiscal@raiznatural.com.br",
+      "telefone": "11982086990",
+      "regime": "normal",
+      "segmento": "Saúde",
+      "uf": "SP",
+      "inicioContrato": "2017-04-07",
+      "ativo": true
+    },
+    "BAMBU": {
+      "cnpj": "64978755000148",
+      "nome": "Bambu Decor",
+      "razao": "BAMBU DECOR ALIMENTOS LTDA",
+      "luc": "258",
+      "email": "fiscal@bambudecor.com.br",
+      "telefone": "11987416632",
+      "regime": "normal",
+      "segmento": "Casa",
+      "uf": "SP",
+      "inicioContrato": "2017-11-26",
+      "ativo": true
+    }
+  },
+  "novos": {
+    "NOVO1": "41852963000109",
+    "NOVO2": "52741896000163",
+    "NOVO3": "63927185000102"
+  },
+  "totais": {
+    "lume": {
+      "z": 110725,
+      "pdv": 110725
+    },
+    "vertice": {
+      "z": 132175,
+      "pdv": 140675
+    },
+    "mundopet": {
+      "z": 88310,
+      "pdv": 92675
+    },
+    "raiz": {
+      "z": 79275
+    },
+    "bambu": {
+      "z": 10254,
+      "pdv": 10254
+    },
+    "trilhaJan": {
+      "z": 180000,
+      "pdv": 180000
+    },
+    "napp": {
+      "lume": 110725,
+      "vertice": 140675,
+      "mundopet": 94675
+    }
+  }
+}

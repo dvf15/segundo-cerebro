@@ -1,0 +1,486 @@
+{
+  "geradoEm": "2026-10-27",
+  "ocr": false,
+  "passos": [
+    {
+      "titulo": "Carregar a base fictícia",
+      "onde": "Lojistas → Carregar base fictícia",
+      "arquivos": [],
+      "conferencias": [
+        {
+          "item": "a base entrou com 40 lojistas",
+          "esperado": "Base fictícia de teste · 40 lojistas",
+          "observado": "🧪 Base fictícia de teste carregada em 27/10/2026 — 40 lojistas inventados. Tudo o que você fizer aqui fica só neste navegador. Apagar base fictícia",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Importar lojistas novos (com erros de propósito)",
+      "onde": "Lojistas → arrastar a planilha",
+      "arquivos": [
+        "1-carteira/lojistas-novos-e-com-erros.xlsx"
+      ],
+      "conferencias": [
+        {
+          "item": "3 lojistas novos e a Bela atualizada",
+          "esperado": "3 novo(s), 1 atualizado(s)",
+          "observado": "4 lojista(s) de lojistas-novos-e-com-erros.xlsx: 3 novo(s), 1 atualizado(s). Linha 5: CNPJ inválido (\"12.345.678/0001-00\") — ignorada. Linha 6: CNPJ 41.852.963/0001-09 repetido — ignorada.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "CNPJ com dígito errado é recusado",
+          "esperado": "CNPJ inválido (\"12.345.678/0001-00\")",
+          "observado": "4 lojista(s) de lojistas-novos-e-com-erros.xlsx: 3 novo(s), 1 atualizado(s). Linha 5: CNPJ inválido (\"12.345.678/0001-00\") — ignorada. Linha 6: CNPJ 41.852.963/0001-09 repetido — ignorada.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "CNPJ repetido na planilha é ignorado",
+          "esperado": "repetido — ignorada",
+          "observado": "4 lojista(s) de lojistas-novos-e-com-erros.xlsx: 3 novo(s), 1 atualizado(s). Linha 5: CNPJ inválido (\"12.345.678/0001-00\") — ignorada. Linha 6: CNPJ 41.852.963/0001-09 repetido — ignorada.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "o Societário avisa o lojista sem UF",
+          "esperado": "sem UF do contrato",
+          "observado": "§ Mudança societária nos últimos 12 meses Loja que muda de mãos — cessão de quotas, novo controle, incorporação — costuma dever a taxa de transferência do contrato. A ferramenta não consulta a Junta sozinha (cada estado tem portal próprio, sem API): o botão abre a Junta do estado do contrato com o CNPJ copiado; você registra o que encontrou; o sistema sinaliza a mudança recente, pede a validação d",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Carregar os livros fiscais (todos os formatos)",
+      "onde": "Auditoria fiscal → Dados → Livros",
+      "arquivos": [
+        "2-auditoria/bela-livro-entradas-2025.pdf",
+        "2-auditoria/bela-livro-saidas-2025.pdf",
+        "2-auditoria/cafe-aurora-extrato-pgdas-d-2025-12.pdf",
+        "2-auditoria/otica-livro-fiscal-planilha-2025.xlsx",
+        "2-auditoria/trilha-sped-efd-2025-01.txt",
+        "2-auditoria/trilha-sped-efd-2025-02.txt",
+        "2-auditoria/trilha-sped-efd-2025-03.txt",
+        "2-auditoria/urbano-resumo-cst-cfop-entradas-2025.pdf",
+        "2-auditoria/urbano-resumo-cst-cfop-saidas-2025.pdf"
+      ],
+      "conferencias": [
+        {
+          "item": "livro impresso (P1/P2) da Bela",
+          "esperado": "Livro fiscal impresso (modelo P1/P2)",
+          "observado": "Livro fiscal impresso (modelo P1/P2) · 9 lançamento(s) · 2 CNPJ · 01/2025–03/2025",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "SPED EFD da Trilha",
+          "esperado": "SPED EFD ICMS/IPI",
+          "observado": "SPED EFD ICMS/IPI · 3 lançamento(s) · 47.231.337/0001-73 · 01/2025",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "SPED: documento cancelado fica fora",
+          "esperado": "cancelad",
+          "observado": "trilha-sped-efd-2025-01.txt sped efd icms/ipi · 3 lançamento(s) · 47.231.337/0001-73 · 01/2025 ✕ formato detectar livro impresso (p1/p2) resumo por cst/cfop sped efd livro pelo cfop entradas saídas lojista (se o arquivo não trouxer cnpj) — pelo arquivo — bela cosméticos · 11.222.333/0001-81 bela cosméticos — quiosque · 11.222.333/0002-62 café aurora · 69.781.682/0001-13 trilha & cia · 47.231.337/0",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "resumo CST/CFOP da Urbano",
+          "esperado": "Resumo fiscal por CST/CFOP",
+          "observado": "Resumo fiscal por CST/CFOP · 6 lançamento(s) · 56.288.060/0001-06 · 01/2025–02/2025",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "extrato do Simples (PGDAS-D) do Café Aurora",
+          "esperado": "Extrato do Simples Nacional (PGDAS-D) · 13 competência(s)",
+          "observado": "Extrato do Simples Nacional (PGDAS-D) · 13 competência(s) declarada(s) · 69.781.682/0001-13 · 12/2024–12/2025",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "planilha de livro da Ótica",
+          "esperado": "Tabular (livro fiscal)",
+          "observado": "Tabular (livro fiscal) · 6 lançamento(s) · 18.637.317/0001-07 · 01/2025–05/2025",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Carregar as fichas de vendas informadas",
+      "onde": "Auditoria fiscal → Dados → Vendas informadas",
+      "arquivos": [
+        "2-auditoria/ficha-vendas-informadas-2025.xlsx",
+        "3-triangulacao/ficha-vendas-informadas-2026-10.xlsx"
+      ],
+      "conferencias": [
+        {
+          "item": "ficha 2025 lida",
+          "esperado": "26 linha(s) de venda",
+          "observado": "ficha-vendas-informadas-2025.xlsx 26 linha(s) de venda · 6 CNPJ · 01/2025–12/2025 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001-77 S",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "linha sem CNPJ recusada com aviso",
+          "esperado": "CNPJ ilegível",
+          "observado": "ficha-vendas-informadas-2025.xlsx 26 linha(s) de venda · 6 CNPJ · 01/2025–12/2025 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001-77 S",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Conferir a conciliação",
+      "onde": "Auditoria fiscal → Resultado",
+      "arquivos": [],
+      "conferencias": [
+        {
+          "item": "Bela 02/2025: venda com ST fora da ficha",
+          "esperado": "R$ 40.000,00 · DIVERGENTE",
+          "observado": "11.222.333/0001-81 BELA COSMETICOS LTDA 02/2025 R$ 138.500,00 R$ 0,00 R$ 138.500,00 R$ 98.500,00 R$ 40.000,00 28,88% DIVERGENTE o livro registra MAIS do que o informado.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Quiosque 01/2025: diferença pequena",
+          "esperado": "-R$ 900,00 · ATENÇÃO",
+          "observado": "11.222.333/0002-62 BELA COSMETICOS LTDA 01/2025 R$ 45.000,00 R$ 0,00 R$ 45.000,00 R$ 45.900,00 -R$ 900,00 -1,96% ATENÇÃO o informado é MAIOR do que o livro registra. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Trilha 01/2025 (SPED): tudo bate",
+          "esperado": "R$ 180.000,00 · OK",
+          "observado": "47.231.337/0001-73 TRILHA CIA SERVICOS LTDA 01/2025 R$ 180.000,00 R$ 0,00 R$ 180.000,00 R$ 180.000,00 R$ 0,00 0,00% OK A apuração e o informado batem dentro da tolerância. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Trilha 02/2025: devolução deduzida, 0,96% de diferença",
+          "esperado": "R$ 3.000,00 · R$ 1.500,00 · ATENÇÃO",
+          "observado": "47.231.337/0001-73 TRILHA CIA SERVICOS LTDA 02/2025 R$ 160.000,00 R$ 3.000,00 R$ 157.000,00 R$ 155.500,00 R$ 1.500,00 0,96% ATENÇÃO o livro registra MAIS do que o informado; as devoluções de venda já deduzidas somam R$ 3.000,00.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Trilha 03/2025: ST (5405) fora da ficha",
+          "esperado": "R$ 25.000,00 · DIVERGENTE",
+          "observado": "47.231.337/0001-73 TRILHA CIA SERVICOS LTDA 03/2025 R$ 195.000,00 R$ 0,00 R$ 195.000,00 R$ 170.000,00 R$ 25.000,00 12,82% DIVERGENTE o livro registra MAIS do que o informado. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Urbano 01/2025: bate, com CFOP 5949 para revisar",
+          "esperado": "R$ 245.000,00 · OK · alerta",
+          "observado": "56.288.060/0001-06 URBANO MODA MASCULINA DISTRIBUIDORA LTDA 01/2025 R$ 250.000,00 R$ 5.000,00 R$ 245.000,00 R$ 245.000,00 R$ 0,00 0,00% OK A apuração e o informado batem dentro da tolerância. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Urbano 02/2025: informado 10% abaixo",
+          "esperado": "R$ 23.000,00 · DIVERGENTE",
+          "observado": "56.288.060/0001-06 URBANO MODA MASCULINA DISTRIBUIDORA LTDA 02/2025 R$ 225.000,00 R$ 2.000,00 R$ 223.000,00 R$ 200.000,00 R$ 23.000,00 10,31% DIVERGENTE o livro registra MAIS do que o informado; as devoluções de venda já deduzidas somam R$ 2.000,00.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Café 05/2025 (Simples): declarado no PGDAS maior que a ficha",
+          "esperado": "R$ 12.000,00 · DIVERGENTE",
+          "observado": "69.781.682/0001-13 CAFE AURORA MODA LTDA 05/2025 R$ 92.000,00 R$ 0,00 R$ 92.000,00 R$ 80.000,00 R$ 12.000,00 13,04% DIVERGENTE a receita declarada no Simples é MAIOR do que o informado.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Café 12/2025: mês do PA bate",
+          "esperado": "R$ 95.000,00 · OK",
+          "observado": "69.781.682/0001-13 CAFE AURORA MODA LTDA 12/2025 R$ 95.000,00 R$ 0,00 R$ 95.000,00 R$ 95.000,00 R$ 0,00 0,00% OK A apuração e o informado batem dentro da tolerância.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Café 12/2024: só no histórico do extrato",
+          "esperado": "SÓ NA APURAÇÃO",
+          "observado": "69.781.682/0001-13 CAFE AURORA MODA LTDA 12/2024 R$ 88.000,00 R$ 0,00 R$ 88.000,00 — — — SÓ NA APURAÇÃO Há receita declarada no extrato do Simples e nenhuma venda informada para esta competência.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Ótica 01/2025: duas linhas na ficha, somadas",
+          "esperado": "R$ 79.000,00 · OK · alerta",
+          "observado": "18.637.317/0001-07 Ótica Horizonte 01/2025 R$ 80.000,00 R$ 1.000,00 R$ 79.000,00 R$ 79.000,00 R$ 0,00 0,00% OK A apuração e o informado batem dentro da tolerância. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Ótica 03/2025: ficha sem livro",
+          "esperado": "SÓ NO INFORMADO",
+          "observado": "18.637.317/0001-07 Ótica Horizonte 03/2025 — — — R$ 70.000,00 — — SÓ NO INFORMADO Há venda informada e nenhuma apuração (livro fiscal ou extrato) para esta competência.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Ótica 04/2025: livro sem ficha (nome vem da carteira)",
+          "esperado": "Ótica Horizonte · SÓ NA APURAÇÃO",
+          "observado": "18.637.317/0001-07 Ótica Horizonte 04/2025 R$ 72.000,00 R$ 0,00 R$ 72.000,00 — — — SÓ NA APURAÇÃO Existe movimento no livro fiscal e nenhuma venda informada para esta competência. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Ótica 05/2025: só o livro de entradas",
+          "esperado": "LIVRO INCOMPLETO",
+          "observado": "18.637.317/0001-07 Ótica Horizonte 05/2025 R$ 0,00 R$ 0,00 R$ 0,00 R$ 74.000,00 -R$ 74.000,00 -100,00% LIVRO INCOMPLETO O livro de SAÍDAS desta competência não foi carregado — sem ele não há venda para comparar. Carregue o livro de saídas do mês antes de tirar conclusão desta linha. 1 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Lume 10/2026: a ficha do mês aparece sem livro (esperado)",
+          "esperado": "SÓ NO INFORMADO",
+          "observado": "17.385.654/0001-83 Lume Joias 10/2026 — — — R$ 110.725,00 — — SÓ NO INFORMADO Há venda informada e nenhuma apuração (livro fiscal ou extrato) para esta competência.",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Conferir o Painel: livros carregados viram AUDITADO ✦",
+      "onde": "Painel",
+      "arquivos": [],
+      "conferencias": [
+        {
+          "item": "Trilha & Cia avançou para AUDITADO (ou já estava além)",
+          "esperado": "AUDITADO",
+          "observado": "Trilha & Cia LUC 122 · 47.231.337/0001-73 AUDITADO ✦ ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Urbano Moda Masculina avançou para AUDITADO (ou já estava além)",
+          "esperado": "AUDITADO",
+          "observado": "Urbano Moda Masculina LUC 187 · 56.288.060/0001-06 AUDITADO ✦ ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Café Aurora avançou para AUDITADO (ou já estava além)",
+          "esperado": "AUDITADO",
+          "observado": "Café Aurora LUC 117 · 69.781.682/0001-13 · Simples AUDITADO ✦ ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Ótica Horizonte avançou para AUDITADO (ou já estava além)",
+          "esperado": "AUDITADO",
+          "observado": "Ótica Horizonte LUC 131 · 18.637.317/0001-07 · Simples AUDITADO ✦ ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Bela Cosméticos — quiosque avançou para AUDITADO (ou já estava além)",
+          "esperado": "AUDITADO",
+          "observado": "Bela Cosméticos — quiosque LUC 109 · 11.222.333/0002-62 AUDITADO ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Carregar reduções Z (PDF e foto), relatórios de PDV e o NAPP",
+      "onde": "Triangulação",
+      "arquivos": [
+        "3-triangulacao/bambu-decor-reducao-z-foto-01-10-2026.jpg",
+        "3-triangulacao/bambu-decor-reducao-z-foto-02-10-2026.jpg",
+        "3-triangulacao/bambu-decor-reducao-z-foto-03-10-2026.jpg",
+        "3-triangulacao/bela-reducao-z-marco-2025.pdf",
+        "3-triangulacao/lume-joias-reducao-z-2026-10.pdf",
+        "3-triangulacao/mundo-pet-reducao-z-2026-10.pdf",
+        "3-triangulacao/raiz-natural-reducao-z-2026-10.pdf",
+        "3-triangulacao/trilha-reducao-z-2025-01.pdf",
+        "3-triangulacao/vertice-calcados-reducao-z-2026-10.pdf",
+        "3-triangulacao/bambu-decor-pdv-2026-10.pdf",
+        "3-triangulacao/bela-pdv-marco-2025.pdf",
+        "3-triangulacao/lume-joias-pdv-2026-10.pdf",
+        "3-triangulacao/mundo-pet-pdv-2026-10.pdf",
+        "3-triangulacao/trilha-pdv-2025-01.pdf",
+        "3-triangulacao/vertice-calcados-pdv-2026-10.pdf",
+        "3-triangulacao/napp-vendas-diarias-2026-10.xlsx"
+      ],
+      "conferencias": [
+        {
+          "item": "planilha do NAPP lida pelo número da loja",
+          "esperado": "Tabular (NAPP) · dia(s) de NAPP",
+          "observado": "napp-vendas-diarias-2026-10.xlsx Tabular (NAPP) · 76 dia(s) de NAPP · 3 CNPJ · 10/2026 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "loja do NAPP fora da carteira é avisada",
+          "esperado": "Loja(s) 999 sem CNPJ na carteira",
+          "observado": "napp-vendas-diarias-2026-10.xlsx Tabular (NAPP) · 76 dia(s) de NAPP · 3 CNPJ · 10/2026 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "foto da redução Z lida por OCR (precisa de internet)",
+          "esperado": "Redução Z",
+          "observado": "bambu-decor-reducao-z-foto-01-10-2026.jpg erro Não foi possível baixar o OCR (tesseract.js). Verifique a conexão ou converta a foto em PDF/Excel. ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinqu",
+          "ok": false,
+          "obrigatorio": false
+        },
+        {
+          "item": "Lume 10/2026: Z, PDV, NAPP e ficha iguais",
+          "esperado": "25d Z · 25d PDV · 25d NAPP · COERENTE",
+          "observado": "17.385.654/0001-83 Lume Joias 10/2026 25d Z · 25d PDV · 25d NAPP R$ 110.725,00 R$ 110.725,00 R$ 110.725,00 R$ 110.725,00 R$ 0,00 R$ 0,00 COERENTE Maior valor: Redução Z e PDV e NAPP e Declarado R$ 110.725,00. Os tipos de lançamento variam R$ 0,00, dentro do limite.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Vértice 10/2026: PDV e NAPP empatam no maior, acima da Z (venda sem cupom)",
+          "esperado": "Maior valor: PDV e NAPP R$ 140.675,00 · R$ 8.500,00 acima do declarado · DISPERSO",
+          "observado": "24.538.526/0001-98 Vértice Calçados 10/2026 25d Z · 25d PDV · 25d NAPP R$ 132.175,00 R$ 140.675,00 MAIOR R$ 140.675,00 MAIOR R$ 132.175,00 R$ 8.500,00 R$ 8.500,00 DISPERSO Maior valor: PDV e NAPP R$ 140.675,00; variação de R$ 8.500,00 entre os tipos de lançamento; R$ 8.500,00 acima do declarado; PDV acima da Z em R$ 8.500,00. 2 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Mundo Pet 10/2026: NAPP é o maior; falta a Z do dia 15",
+          "esperado": "24d Z · 25d PDV · 25d NAPP · Maior valor: NAPP R$ 94.675,00 · DISPERSO",
+          "observado": "80.230.013/0001-96 Mundo Pet Center 10/2026 24d Z · 25d PDV · 25d NAPP R$ 88.310,00 R$ 92.675,00 R$ 94.675,00 MAIOR R$ 92.211,63 R$ 6.365,00 R$ 2.463,37 DISPERSO Maior valor: NAPP R$ 94.675,00; variação de R$ 6.365,00 entre os tipos de lançamento; R$ 2.463,37 acima do declarado; PDV acima da Z em R$ 4.365,00. 2 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Raiz Natural 10/2026: só a redução Z",
+          "esperado": "FONTE ÚNICA",
+          "observado": "79.153.668/0001-29 Raiz Natural 10/2026 25d Z · 0d PDV · 0d NAPP R$ 79.275,00 — — — — — FONTE ÚNICA Só a redução Z. Falta uma segunda fonte.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Bambu Decor 10/2026: Z em foto + PDV",
+          "esperado": "3d PDV · COERENTE",
+          "observado": "64.978.755/0001-48 Bambu Decor 10/2026 0d Z · 3d PDV · 0d NAPP — R$ 10.254,00 — R$ 10.254,00 R$ 0,00 R$ 0,00 COERENTE Maior valor: PDV e Declarado R$ 10.254,00. Os tipos de lançamento variam R$ 0,00, dentro do limite.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Trilha 01/2025: Z = PDV = ficha",
+          "esperado": "31d Z · 31d PDV · COERENTE",
+          "observado": "47.231.337/0001-73 Trilha & Cia 01/2025 31d Z · 31d PDV · 0d NAPP R$ 180.000,00 R$ 180.000,00 — R$ 180.000,00 R$ 0,00 R$ 0,00 COERENTE Maior valor: Redução Z e PDV e Declarado R$ 180.000,00. Os tipos de lançamento variam R$ 0,00, dentro do limite.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Bela 03/2025: PDV acima da Z e ficha abaixo",
+          "esperado": "variação de R$ 21.026,00 · DISPERSO",
+          "observado": "11.222.333/0001-81 Bela Cosméticos 03/2025 30d Z · 31d PDV · 0d NAPP R$ 121.196,00 R$ 129.076,00 MAIOR — R$ 108.050,00 R$ 21.026,00 R$ 21.026,00 DISPERSO Maior valor: PDV R$ 129.076,00; variação de R$ 21.026,00 entre os tipos de lançamento; R$ 21.026,00 acima do declarado; PDV acima da Z em R$ 7.880,00. 2 alerta(s)",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "o maior valor fica em destaque na linha (Mundo Pet: NAPP)",
+          "esperado": "R$ 94.675,00 · MAIOR",
+          "observado": "R$ 94.675,00 MAIOR",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "a tabela não traz mais a coluna de dispersão em %",
+          "esperado": "sem coluna de %",
+          "observado": "sem coluna de %",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "sequência: o CRZ da Mundo Pet pula",
+          "esperado": "pula de · (14/10/2026)",
+          "observado": "Sequência do equipamento fiscal Duas conferências que só a redução Z permite: o contador CRZ sobe de um em um, e o Grande Total é acumulador que não zera. 11.222.333/0001-81 · BE0912345: o contador de redução Z pula de 629 (19/03/2025) para 631 (21/03/2025). Falta 1 redução(ões) no material entregue. 11.222.333/0001-81 · BE0912345: entre 19/03/2025 e 21/03/2025 o Grande Total avançou R$ 8.211,00, ",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Fechar outubro/2026",
+      "onde": "Triangulação → Fechar o mês",
+      "arquivos": [],
+      "conferencias": [
+        {
+          "item": "outubro entra no histórico",
+          "esperado": "10/2026 fechado: 5 lojista(s) no histórico",
+          "observado": "10/2026 fechado: 5 lojista(s) no histórico.",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Conferir o cruzamento final",
+      "onde": "Triangulação → Cruzamento final",
+      "arquivos": [],
+      "conferencias": [
+        {
+          "item": "Trilha 01/2025: as 4 fontes fecham",
+          "esperado": "As 4 fontes fecham · TUDO FECHA",
+          "observado": "47.231.337/0001-73 TRILHA CIA SERVICOS LTDA 01/2025 mês aberto livro fiscal R$ 180.000,00 R$ 180.000,00 R$ 180.000,00 — R$ 180.000,00 R$ 0,00 TUDO FECHA As 4 fontes fecham com o apurado.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Bela 03/2025: Z e PDV acima do livro",
+          "esperado": "INVESTIGAR",
+          "observado": "11.222.333/0001-81 BELA COSMETICOS LTDA 03/2025 mês aberto livro fiscal R$ 108.050,00 R$ 121.196,00 R$ 129.076,00 MAIOR — R$ 108.050,00 R$ 21.026,00 INVESTIGAR redução Z acima do apurado em R$ 13.146,00 (12,17%); PDV acima do apurado em R$ 21.026,00 (19,46%).",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Café 05/2025: extrato do Simples acima da ficha",
+          "esperado": "extrato do Simples · INVESTIGAR",
+          "observado": "69.781.682/0001-13 CAFE AURORA MODA LTDA 05/2025 mês aberto extrato do Simples R$ 92.000,00 MAIOR — — — R$ 80.000,00 R$ 12.000,00 INVESTIGAR informado abaixo do apurado em R$ 12.000,00 (13,04%).",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Ótica 05/2025: sem livro de saídas não há referência",
+          "esperado": "sem apurado nem redução Z · FONTES DE MENOS",
+          "observado": "18.637.317/0001-07 Ótica Horizonte 05/2025 mês aberto — — — — — R$ 74.000,00 — FONTES DE MENOS Só o informado — sem apurado nem redução Z não há referência para cruzar.",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "Vértice 10/2026 (fechado): referência é a Z",
+          "esperado": "fechado · redução Z · INVESTIGAR",
+          "observado": "24.538.526/0001-98 Vértice Calçados 10/2026 fechado redução Z — R$ 132.175,00 R$ 140.675,00 MAIOR R$ 140.675,00 MAIOR R$ 132.175,00 R$ 8.500,00 INVESTIGAR PDV acima do redução Z em R$ 8.500,00 (6,43%); NAPP acima do redução Z em R$ 8.500,00 (6,43%).",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    },
+    {
+      "titulo": "Ver o Dashboard",
+      "onde": "Dashboard",
+      "arquivos": [],
+      "conferencias": [
+        {
+          "item": "o dashboard reflete a simulação",
+          "esperado": "LIVROS RECEBIDOS · TRIANGULAÇÃO: MESES FECHADOS (10/2026)",
+          "observado": "LIVROS RECEBIDOS 61,9% APURADOS 52,4% COBRADOS 14,3% TRIANGULAÇÃO: MESES FECHADOS (10/2026) 11,9% PESQUISADOS NA JUNTA 81% TT FATURADA / ENCONTRADA 40,1%",
+          "ok": true,
+          "obrigatorio": true
+        },
+        {
+          "item": "nenhum erro de JavaScript na página",
+          "esperado": "nenhum",
+          "observado": "nenhum",
+          "ok": true,
+          "obrigatorio": true
+        }
+      ]
+    }
+  ]
+}

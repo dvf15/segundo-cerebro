@@ -1,0 +1,6042 @@
+{
+  "versao": 2,
+  "ficticia": true,
+  "geradaEm": "2026-10-27",
+  "lojistas": [
+    {
+      "cnpj": "11222333000181",
+      "nome": "Bela Cosméticos",
+      "razao": "BELA COSMETICOS LTDA",
+      "luc": "101",
+      "email": "fiscal@belacosmeticos.com.br",
+      "telefone": "11983566334",
+      "regime": "normal",
+      "segmento": "Beleza",
+      "uf": "SP",
+      "inicioContrato": "2016-01-10",
+      "ativo": true
+    },
+    {
+      "cnpj": "11222333000262",
+      "nome": "Bela Cosméticos — quiosque",
+      "razao": "BELA COSMETICOS LTDA",
+      "luc": "109",
+      "email": "fiscal@belacosmeticosquiosque.com.br",
+      "telefone": "11987859409",
+      "regime": "normal",
+      "segmento": "Beleza",
+      "uf": "SP",
+      "inicioContrato": "2019-01-14",
+      "ativo": true
+    },
+    {
+      "cnpj": "69781682000113",
+      "nome": "Café Aurora",
+      "razao": "CAFE AURORA MODA LTDA",
+      "luc": "117",
+      "email": "fiscal@cafeaurora.com.br",
+      "telefone": "11985773894",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2016-03-13",
+      "ativo": true
+    },
+    {
+      "cnpj": "47231337000173",
+      "nome": "Trilha & Cia",
+      "razao": "TRILHA  CIA SERVICOS LTDA",
+      "luc": "122",
+      "email": "fiscal@trilhacia.com.br",
+      "telefone": "",
+      "regime": "normal",
+      "segmento": "Esporte",
+      "uf": "SP",
+      "inicioContrato": "2021-01-13",
+      "ativo": true
+    },
+    {
+      "cnpj": "18637317000107",
+      "nome": "Ótica Horizonte",
+      "razao": "OTICA HORIZONTE VAREJO LTDA",
+      "luc": "131",
+      "email": "fiscal@oticahorizonte.com.br",
+      "telefone": "11985374824",
+      "regime": "simples",
+      "segmento": "Serviços",
+      "uf": "SP",
+      "inicioContrato": "2015-05-11",
+      "ativo": true
+    },
+    {
+      "cnpj": "66681907000171",
+      "nome": "Brinquedos Pipa",
+      "razao": "BRINQUEDOS PIPA DISTRIBUIDORA LTDA",
+      "luc": "136",
+      "email": "",
+      "telefone": "11985291258",
+      "regime": "simples",
+      "segmento": "Infantil",
+      "uf": "SP",
+      "inicioContrato": "2018-09-24",
+      "ativo": true
+    },
+    {
+      "cnpj": "80926487000177",
+      "nome": "Casa Linho",
+      "razao": "CASA LINHO ARTIGOS LTDA",
+      "luc": "145",
+      "email": "fiscal@casalinho.com.br",
+      "telefone": "11984033159",
+      "regime": "simples",
+      "segmento": "Casa",
+      "uf": "SP",
+      "inicioContrato": "2016-07-02",
+      "ativo": true
+    },
+    {
+      "cnpj": "73624117000110",
+      "nome": "Studio Vinil",
+      "razao": "STUDIO VINIL COMERCIO LTDA",
+      "luc": "150",
+      "email": "",
+      "telefone": "",
+      "regime": "simples",
+      "segmento": "Cultura",
+      "uf": "SP",
+      "inicioContrato": "2015-08-19",
+      "ativo": true
+    },
+    {
+      "cnpj": "88967134000127",
+      "nome": "Sabor da Serra",
+      "razao": "SABOR DA SERRA ALIMENTOS LTDA",
+      "luc": "156",
+      "email": "fiscal@sabordaserra.com.br",
+      "telefone": "11987212746",
+      "regime": "normal",
+      "segmento": "Alimentação",
+      "uf": "",
+      "inicioContrato": "",
+      "ativo": true
+    },
+    {
+      "cnpj": "24538526000198",
+      "nome": "Vértice Calçados",
+      "razao": "VERTICE CALCADOS MODA LTDA",
+      "luc": "167",
+      "email": "fiscal@verticecalcados.com.br",
+      "telefone": "11982991005",
+      "regime": "normal",
+      "segmento": "Calçados",
+      "uf": "SP",
+      "inicioContrato": "2019-02-10",
+      "ativo": true
+    },
+    {
+      "cnpj": "17385654000183",
+      "nome": "Lume Joias",
+      "razao": "LUME JOIAS SERVICOS LTDA",
+      "luc": "173",
+      "email": "fiscal@lumejoias.com.br",
+      "telefone": "",
+      "regime": "simples",
+      "segmento": "Joias",
+      "uf": "SP",
+      "inicioContrato": "2020-03-11",
+      "ativo": true
+    },
+    {
+      "cnpj": "32185023000104",
+      "nome": "Pão de Ló Confeitaria",
+      "razao": "PAO DE LO CONFEITARIA VAREJO LTDA",
+      "luc": "179",
+      "email": "fiscal@paodeloconfeitaria.com.br",
+      "telefone": "11982234544",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2026-07-01",
+      "ativo": true
+    },
+    {
+      "cnpj": "56288060000106",
+      "nome": "Urbano Moda Masculina",
+      "razao": "URBANO MODA MASCULINA DISTRIBUIDORA LTDA",
+      "luc": "187",
+      "email": "fiscal@urbanomodamasculina.com.br",
+      "telefone": "11988100981",
+      "regime": "normal",
+      "segmento": "Moda",
+      "uf": "SP",
+      "inicioContrato": "2016-05-13",
+      "ativo": true
+    },
+    {
+      "cnpj": "28428793000163",
+      "nome": "Flor de Sal",
+      "razao": "FLOR DE SAL ARTIGOS LTDA",
+      "luc": "193",
+      "email": "fiscal@flordesal.com.br",
+      "telefone": "11981562509",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2017-06-14",
+      "ativo": true
+    },
+    {
+      "cnpj": "80230013000196",
+      "nome": "Mundo Pet Center",
+      "razao": "MUNDO PET CENTER COMERCIO LTDA",
+      "luc": "203",
+      "email": "",
+      "telefone": "11989842285",
+      "regime": "normal",
+      "segmento": "Pet",
+      "uf": "SP",
+      "inicioContrato": "2018-07-15",
+      "ativo": true
+    },
+    {
+      "cnpj": "12673096000138",
+      "nome": "Ateliê Brisa",
+      "razao": "ATELIE BRISA ALIMENTOS LTDA",
+      "luc": "209",
+      "email": "fiscal@ateliebrisa.com.br",
+      "telefone": "11988281438",
+      "regime": "normal",
+      "segmento": "Moda",
+      "uf": "SP",
+      "inicioContrato": "2019-08-16",
+      "ativo": true
+    },
+    {
+      "cnpj": "94810329000161",
+      "nome": "Tech Point Celulares",
+      "razao": "TECH POINT CELULARES MODA LTDA",
+      "luc": "213",
+      "email": "fiscal@techpointcelulares.com.br",
+      "telefone": "11984878895",
+      "regime": "simples",
+      "segmento": "Eletrônicos",
+      "uf": "SP",
+      "inicioContrato": "2020-01-17",
+      "ativo": true
+    },
+    {
+      "cnpj": "47484133000144",
+      "nome": "Livraria Página 9",
+      "razao": "LIVRARIA PAGINA 9 SERVICOS LTDA",
+      "luc": "224",
+      "email": "fiscal@livrariapagina9.com.br",
+      "telefone": "",
+      "regime": "simples",
+      "segmento": "Cultura",
+      "uf": "SP",
+      "inicioContrato": "2021-02-18",
+      "ativo": true
+    },
+    {
+      "cnpj": "37304836000190",
+      "nome": "Doce Lima Sorvetes",
+      "razao": "DOCE LIMA SORVETES VAREJO LTDA",
+      "luc": "231",
+      "email": "fiscal@docelimasorvetes.com.br",
+      "telefone": "11985392920",
+      "regime": "normal",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2016-03-10",
+      "ativo": true
+    },
+    {
+      "cnpj": "24806316000133",
+      "nome": "Nuvem Kids",
+      "razao": "NUVEM KIDS DISTRIBUIDORA LTDA",
+      "luc": "237",
+      "email": "fiscal@nuvemkids.com.br",
+      "telefone": "11984060759",
+      "regime": "normal",
+      "segmento": "Infantil",
+      "uf": "SP",
+      "inicioContrato": "2017-08-20",
+      "ativo": true
+    },
+    {
+      "cnpj": "66152371000105",
+      "nome": "Forma Academia Store",
+      "razao": "FORMA ACADEMIA STORE ARTIGOS LTDA",
+      "luc": "245",
+      "email": "fiscal@formaacademiastore.com.br",
+      "telefone": "11984743658",
+      "regime": "normal",
+      "segmento": "Esporte",
+      "uf": "SP",
+      "inicioContrato": "2016-02-13",
+      "ativo": true
+    },
+    {
+      "cnpj": "79153668000129",
+      "nome": "Raiz Natural",
+      "razao": "RAIZ NATURAL COMERCIO LTDA",
+      "luc": "248",
+      "email": "fiscal@raiznatural.com.br",
+      "telefone": "11982086990",
+      "regime": "normal",
+      "segmento": "Saúde",
+      "uf": "SP",
+      "inicioContrato": "2017-04-07",
+      "ativo": true
+    },
+    {
+      "cnpj": "64978755000148",
+      "nome": "Bambu Decor",
+      "razao": "BAMBU DECOR ALIMENTOS LTDA",
+      "luc": "258",
+      "email": "fiscal@bambudecor.com.br",
+      "telefone": "11987416632",
+      "regime": "normal",
+      "segmento": "Casa",
+      "uf": "SP",
+      "inicioContrato": "2017-11-26",
+      "ativo": true
+    },
+    {
+      "cnpj": "16105826000155",
+      "nome": "Farol Óculos",
+      "razao": "FAROL OCULOS MODA LTDA",
+      "luc": "266",
+      "email": "",
+      "telefone": "11986731533",
+      "regime": "normal",
+      "segmento": "Serviços",
+      "uf": "SP",
+      "inicioContrato": "2017-09-24",
+      "ativo": true
+    },
+    {
+      "cnpj": "54610303000155",
+      "nome": "Matiz Perfumaria",
+      "razao": "MATIZ PERFUMARIA SERVICOS LTDA",
+      "luc": "268",
+      "email": "fiscal@matizperfumaria.com.br",
+      "telefone": "",
+      "regime": "simples",
+      "segmento": "Beleza",
+      "uf": "SP",
+      "inicioContrato": "2025-03-14",
+      "ativo": true
+    },
+    {
+      "cnpj": "57285368000160",
+      "nome": "Grão Torrado Café",
+      "razao": "GRAO TORRADO CAFE VAREJO LTDA",
+      "luc": "279",
+      "email": "fiscal@graotorradocafe.com.br",
+      "telefone": "11987958311",
+      "regime": "normal",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2015-05-07",
+      "ativo": true
+    },
+    {
+      "cnpj": "97740581000130",
+      "nome": "Passo Leve Tênis",
+      "razao": "PASSO LEVE TENIS DISTRIBUIDORA LTDA",
+      "luc": "286",
+      "email": "fiscal@passolevetenis.com.br",
+      "telefone": "11986851010",
+      "regime": "simples",
+      "segmento": "Calçados",
+      "uf": "SP",
+      "inicioContrato": "2024-03-12",
+      "ativo": true
+    },
+    {
+      "cnpj": "51406654000150",
+      "nome": "Linha Fina Alfaiataria",
+      "razao": "LINHA FINA ALFAIATARIA ARTIGOS LTDA",
+      "luc": "293",
+      "email": "fiscal@linhafinaalfaiataria.com.br",
+      "telefone": "11987740388",
+      "regime": "normal",
+      "segmento": "Moda",
+      "uf": "SP",
+      "inicioContrato": "2018-07-20",
+      "ativo": true
+    },
+    {
+      "cnpj": "81577743000120",
+      "nome": "Brasa Grill",
+      "razao": "BRASA GRILL COMERCIO LTDA",
+      "luc": "301",
+      "email": "fiscal@brasagrill.com.br",
+      "telefone": "11984212984",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "SP",
+      "inicioContrato": "2020-01-05",
+      "ativo": true
+    },
+    {
+      "cnpj": "36634996000134",
+      "nome": "Clique Fotografia",
+      "razao": "CLIQUE FOTOGRAFIA ALIMENTOS LTDA",
+      "luc": "306",
+      "email": "fiscal@cliquefotografia.com.br",
+      "telefone": "11987732935",
+      "regime": "normal",
+      "segmento": "Serviços",
+      "uf": "SP",
+      "inicioContrato": "2024-01-27",
+      "ativo": true
+    },
+    {
+      "cnpj": "46844023000183",
+      "nome": "Onda Surf Shop",
+      "razao": "ONDA SURF SHOP MODA LTDA",
+      "luc": "310",
+      "email": "fiscal@ondasurfshop.com.br",
+      "telefone": "11982208833",
+      "regime": "simples",
+      "segmento": "Esporte",
+      "uf": "RJ",
+      "inicioContrato": "2021-03-11",
+      "ativo": true
+    },
+    {
+      "cnpj": "63973325000170",
+      "nome": "Prisma Bijoux",
+      "razao": "PRISMA BIJOUX SERVICOS LTDA",
+      "luc": "322",
+      "email": "fiscal@prismabijoux.com.br",
+      "telefone": "",
+      "regime": "normal",
+      "segmento": "Joias",
+      "uf": "MG",
+      "inicioContrato": "2020-01-01",
+      "ativo": true
+    },
+    {
+      "cnpj": "34429166000140",
+      "nome": "Vila Massas",
+      "razao": "VILA MASSAS VAREJO LTDA",
+      "luc": "326",
+      "email": "",
+      "telefone": "11983138888",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "PR",
+      "inicioContrato": "2022-11-05",
+      "ativo": true
+    },
+    {
+      "cnpj": "27375423000142",
+      "nome": "Ponto Cruz Armarinho",
+      "razao": "PONTO CRUZ ARMARINHO DISTRIBUIDORA LTDA",
+      "luc": "332",
+      "email": "fiscal@pontocruzarmarinho.com.br",
+      "telefone": "11988834463",
+      "regime": "normal",
+      "segmento": "Casa",
+      "uf": "RJ",
+      "inicioContrato": "2026-08-20",
+      "ativo": true
+    },
+    {
+      "cnpj": "92438284000110",
+      "nome": "Cacau & Cia",
+      "razao": "CACAU  CIA ARTIGOS LTDA",
+      "luc": "338",
+      "email": "fiscal@cacaucia.com.br",
+      "telefone": "11988837339",
+      "regime": "simples",
+      "segmento": "Alimentação",
+      "uf": "MG",
+      "inicioContrato": "2015-07-03",
+      "ativo": true
+    },
+    {
+      "cnpj": "69728336000171",
+      "nome": "Zênite Eletro",
+      "razao": "ZENITE ELETRO COMERCIO LTDA",
+      "luc": "350",
+      "email": "fiscal@zeniteeletro.com.br",
+      "telefone": "11989772150",
+      "regime": "normal",
+      "segmento": "Eletrônicos",
+      "uf": "SC",
+      "inicioContrato": "2017-12-08",
+      "ativo": true
+    },
+    {
+      "cnpj": "69858808000100",
+      "nome": "Rota Viagens",
+      "razao": "ROTA VIAGENS ALIMENTOS LTDA",
+      "luc": "354",
+      "email": "fiscal@rotaviagens.com.br",
+      "telefone": "11986360897",
+      "regime": "simples",
+      "segmento": "Serviços",
+      "uf": "BA",
+      "inicioContrato": "2019-01-18",
+      "ativo": true
+    },
+    {
+      "cnpj": "33951168000131",
+      "nome": "Alfa Farma",
+      "razao": "ALFA FARMA MODA LTDA",
+      "luc": "364",
+      "email": "fiscal@alfafarma.com.br",
+      "telefone": "11983485765",
+      "regime": "normal",
+      "segmento": "Saúde",
+      "uf": "RS",
+      "inicioContrato": "2025-08-14",
+      "ativo": true
+    },
+    {
+      "cnpj": "57182979000183",
+      "nome": "Corte Certo Barbearia",
+      "razao": "CORTE CERTO BARBEARIA SERVICOS LTDA",
+      "luc": "367",
+      "email": "fiscal@cortecertobarbearia.com.br",
+      "telefone": "",
+      "regime": "simples",
+      "segmento": "Serviços",
+      "uf": "GO",
+      "inicioContrato": "2020-11-10",
+      "ativo": true
+    },
+    {
+      "cnpj": "32126452000100",
+      "nome": "Estação Games",
+      "razao": "ESTACAO GAMES VAREJO LTDA",
+      "luc": "377",
+      "email": "fiscal@estacaogames.com.br",
+      "telefone": "11984394554",
+      "regime": "simples",
+      "segmento": "Eletrônicos",
+      "uf": "DF",
+      "inicioContrato": "2026-03-06",
+      "ativo": false
+    }
+  ],
+  "ciclos": {
+    "2026": {
+      "11222333000181": {
+        "recebido": "2026-04-18",
+        "auditado": "2026-05-20",
+        "negociado": "2026-06-15",
+        "cobrado": "2026-07-10",
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 40000,
+          "negociado": 36000,
+          "cobrado": 36000
+        },
+        "obs": ""
+      },
+      "11222333000262": {
+        "recebido": "2026-05-12",
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {},
+        "valores": {},
+        "obs": ""
+      },
+      "69781682000113": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "47231337000173": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05",
+          "multa": "2026-08-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "18637317000107": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "66681907000171": {
+        "recebido": "2026-05-06",
+        "auditado": "2026-06-09",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 18400
+        },
+        "obs": ""
+      },
+      "80926487000177": {
+        "recebido": "2026-04-22",
+        "auditado": "2026-05-25",
+        "negociado": "2026-07-02",
+        "cobrado": null,
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 9600,
+          "negociado": 8000
+        },
+        "obs": ""
+      },
+      "73624117000110": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {},
+        "valores": {},
+        "obs": ""
+      },
+      "88967134000127": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-03",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-03"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "24538526000198": {
+        "recebido": "2026-06-26",
+        "auditado": "2026-08-13",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05"
+        },
+        "valores": {
+          "divergencia": 0
+        },
+        "obs": ""
+      },
+      "17385654000183": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-09",
+          "n2": "2026-05-05",
+          "n3": "2026-06-09",
+          "aviso": "2026-07-09",
+          "multa": "2026-08-07"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "32185023000104": {
+        "recebido": "2026-04-19",
+        "auditado": "2026-06-14",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 0
+        },
+        "obs": ""
+      },
+      "56288060000106": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-08"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "28428793000163": {
+        "recebido": "2026-08-19",
+        "auditado": "2026-09-17",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05"
+        },
+        "valores": {
+          "divergencia": 19080
+        },
+        "obs": ""
+      },
+      "80230013000196": {
+        "recebido": "2026-06-27",
+        "auditado": "2026-08-09",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05"
+        },
+        "valores": {
+          "divergencia": 0
+        },
+        "obs": ""
+      },
+      "12673096000138": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-09",
+          "n2": "2026-05-04",
+          "n3": "2026-06-07",
+          "aviso": "2026-07-09",
+          "multa": "2026-08-03"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "94810329000161": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-04",
+          "n2": "2026-05-08"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "47484133000144": {
+        "recebido": "2026-07-18",
+        "auditado": "2026-08-27",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05"
+        },
+        "valores": {
+          "divergencia": 0
+        },
+        "obs": ""
+      },
+      "37304836000190": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-07"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "24806316000133": {
+        "recebido": "2026-05-08",
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "66152371000105": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-03",
+          "n3": "2026-06-04",
+          "aviso": "2026-07-04"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "79153668000129": {
+        "recebido": "2026-05-16",
+        "auditado": "2026-06-28",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05"
+        },
+        "valores": {
+          "divergencia": 67080
+        },
+        "obs": ""
+      },
+      "64978755000148": {
+        "recebido": "2026-08-02",
+        "auditado": "2026-09-12",
+        "negociado": "2026-10-08",
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05"
+        },
+        "valores": {
+          "divergencia": 40170,
+          "negociado": 29010
+        },
+        "obs": ""
+      },
+      "16105826000155": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-03",
+          "n2": "2026-05-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "54610303000155": {
+        "recebido": "2026-05-17",
+        "auditado": "2026-06-22",
+        "negociado": "2026-07-17",
+        "cobrado": "2026-08-05",
+        "notificacoes": {
+          "n1": "2026-04-05"
+        },
+        "valores": {
+          "divergencia": 19230,
+          "negociado": 15750,
+          "cobrado": 15750
+        },
+        "obs": ""
+      },
+      "57285368000160": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-06",
+          "n2": "2026-05-09",
+          "n3": "2026-06-08",
+          "aviso": "2026-07-04",
+          "multa": "2026-08-03"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "97740581000130": {
+        "recebido": "2026-09-05",
+        "auditado": "2026-10-14",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05"
+        },
+        "valores": {
+          "divergencia": 0
+        },
+        "obs": ""
+      },
+      "51406654000150": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-09",
+          "n2": "2026-05-04"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "81577743000120": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-03",
+          "n2": "2026-05-08"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "36634996000134": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-06",
+          "n2": "2026-05-06"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "46844023000183": {
+        "recebido": "2026-04-02",
+        "auditado": "2026-04-29",
+        "negociado": "2026-05-16",
+        "cobrado": "2026-06-16",
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 77210,
+          "negociado": 48240,
+          "cobrado": 48240
+        },
+        "obs": ""
+      },
+      "63973325000170": {
+        "recebido": "2026-04-21",
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {},
+        "valores": {},
+        "obs": ""
+      },
+      "34429166000140": {
+        "recebido": null,
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-04",
+          "n2": "2026-05-07",
+          "n3": "2026-06-06",
+          "aviso": "2026-07-05",
+          "multa": "2026-08-03"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "27375423000142": {
+        "recebido": "2026-09-06",
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "92438284000110": {
+        "recebido": "2026-09-03",
+        "auditado": null,
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05"
+        },
+        "valores": {},
+        "obs": ""
+      },
+      "69728336000171": {
+        "recebido": "2026-05-20",
+        "auditado": "2026-07-18",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05"
+        },
+        "valores": {
+          "divergencia": 0
+        },
+        "obs": ""
+      },
+      "69858808000100": {
+        "recebido": "2026-04-06",
+        "auditado": "2026-04-19",
+        "negociado": "2026-05-30",
+        "cobrado": "2026-07-08",
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 41340,
+          "negociado": 37030,
+          "cobrado": 37030
+        },
+        "obs": ""
+      },
+      "33951168000131": {
+        "recebido": "2026-04-19",
+        "auditado": "2026-06-11",
+        "negociado": "2026-06-24",
+        "cobrado": "2026-07-06",
+        "notificacoes": {},
+        "valores": {
+          "divergencia": 38060,
+          "negociado": 27730,
+          "cobrado": 27730
+        },
+        "obs": ""
+      },
+      "57182979000183": {
+        "recebido": "2026-05-10",
+        "auditado": "2026-07-02",
+        "negociado": "2026-07-25",
+        "cobrado": "2026-08-18",
+        "notificacoes": {
+          "n1": "2026-04-05"
+        },
+        "valores": {
+          "divergencia": 28810,
+          "negociado": 25060,
+          "cobrado": 25060
+        },
+        "obs": ""
+      },
+      "32126452000100": {
+        "recebido": "2026-09-20",
+        "auditado": "2026-10-25",
+        "negociado": null,
+        "cobrado": null,
+        "notificacoes": {
+          "n1": "2026-04-05",
+          "n2": "2026-05-05",
+          "n3": "2026-06-05",
+          "aviso": "2026-07-05"
+        },
+        "valores": {
+          "divergencia": 72720
+        },
+        "obs": ""
+      }
+    }
+  },
+  "fechamentos": [
+    {
+      "competencia": "2026-04",
+      "cnpj": "11222333000262",
+      "fechadoEm": "2026-05-05",
+      "z": 199085,
+      "pdv": 199067,
+      "napp": 199122,
+      "declarado": 199050,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 30,
+      "maior": 199122,
+      "menor": 199050,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 72,
+      "dispersao": 0.04,
+      "naoDeclarado": 72,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 72 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "16105826000155",
+      "fechadoEm": "2026-05-05",
+      "z": 227942,
+      "pdv": null,
+      "napp": 228020,
+      "declarado": 227732,
+      "diasZ": 31,
+      "diasPdv": 0,
+      "diasNapp": 31,
+      "maior": 228020,
+      "menor": 227732,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 288,
+      "dispersao": 0.13,
+      "naoDeclarado": 288,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 288 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 288 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "17385654000183",
+      "fechadoEm": "2026-05-05",
+      "z": 211570,
+      "pdv": 211451,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 211570,
+      "menor": 211451,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 119,
+      "dispersao": 0.06,
+      "naoDeclarado": null,
+      "status": "ATENÇÃO",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 119 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "24538526000198",
+      "fechadoEm": "2026-05-05",
+      "z": 245998,
+      "pdv": null,
+      "napp": 259903,
+      "declarado": 245904,
+      "diasZ": 29,
+      "diasPdv": 0,
+      "diasNapp": 29,
+      "maior": 259903,
+      "menor": 245904,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 13999,
+      "dispersao": 5.39,
+      "naoDeclarado": 13999,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 13.999 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 13.999 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "32185023000104",
+      "fechadoEm": "2026-05-05",
+      "z": 243956,
+      "pdv": 244185,
+      "napp": 244047,
+      "declarado": 243727,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 30,
+      "maior": 244185,
+      "menor": 243727,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 458,
+      "dispersao": 0.19,
+      "naoDeclarado": 458,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 229 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 458 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 458 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "37304836000190",
+      "fechadoEm": "2026-05-05",
+      "z": 211769,
+      "pdv": 211781,
+      "napp": 211804,
+      "declarado": 211757,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 28,
+      "maior": 211804,
+      "menor": 211757,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 47,
+      "dispersao": 0.02,
+      "naoDeclarado": 47,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 47 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "47231337000173",
+      "fechadoEm": "2026-05-05",
+      "z": 221436,
+      "pdv": 221491,
+      "napp": null,
+      "declarado": 221381,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 221491,
+      "menor": 221381,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 110,
+      "dispersao": 0.05,
+      "naoDeclarado": 110,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 110 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 110 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "47484133000144",
+      "fechadoEm": "2026-05-05",
+      "z": 216429,
+      "pdv": null,
+      "napp": 216412,
+      "declarado": 216398,
+      "diasZ": 29,
+      "diasPdv": 0,
+      "diasNapp": 29,
+      "maior": 216429,
+      "menor": 216398,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 31,
+      "dispersao": 0.01,
+      "naoDeclarado": 31,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 31 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "54610303000155",
+      "fechadoEm": "2026-05-05",
+      "z": 145629,
+      "pdv": 145750,
+      "napp": null,
+      "declarado": 145508,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 145750,
+      "menor": 145508,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 242,
+      "dispersao": 0.17,
+      "naoDeclarado": 242,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 121 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 242 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 242 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "57285368000160",
+      "fechadoEm": "2026-05-05",
+      "z": 257933,
+      "pdv": 270807,
+      "napp": 257908,
+      "declarado": 245059,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 28,
+      "maior": 270807,
+      "menor": 245059,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 25748,
+      "dispersao": 9.51,
+      "naoDeclarado": 25748,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 12.874 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 25.748 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 25.748 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "64978755000148",
+      "fechadoEm": "2026-05-05",
+      "z": 245252,
+      "pdv": 245349,
+      "napp": 245292,
+      "declarado": 245184,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 31,
+      "maior": 245349,
+      "menor": 245184,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 165,
+      "dispersao": 0.07,
+      "naoDeclarado": 165,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 165 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 165 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "69858808000100",
+      "fechadoEm": "2026-05-05",
+      "z": 211245,
+      "pdv": 211394,
+      "napp": 211279,
+      "declarado": 211236,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 31,
+      "maior": 211394,
+      "menor": 211236,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 158,
+      "dispersao": 0.07,
+      "naoDeclarado": 158,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 149 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 158 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 158 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "88967134000127",
+      "fechadoEm": "2026-05-05",
+      "z": 71052,
+      "pdv": null,
+      "napp": null,
+      "declarado": 71038,
+      "diasZ": 31,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 71052,
+      "menor": 71038,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 14,
+      "dispersao": 0.02,
+      "naoDeclarado": 14,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 14 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "92438284000110",
+      "fechadoEm": "2026-05-05",
+      "z": 120810,
+      "pdv": 120882,
+      "napp": 120846,
+      "declarado": 120738,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 28,
+      "maior": 120882,
+      "menor": 120738,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 144,
+      "dispersao": 0.12,
+      "naoDeclarado": 144,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 144 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 144 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "94810329000161",
+      "fechadoEm": "2026-05-05",
+      "z": 185503,
+      "pdv": 185405,
+      "napp": 185548,
+      "declarado": 185307,
+      "diasZ": 30,
+      "diasPdv": 31,
+      "diasNapp": 30,
+      "maior": 185548,
+      "menor": 185307,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 241,
+      "dispersao": 0.13,
+      "naoDeclarado": 241,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 241 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 241 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-04",
+      "cnpj": "97740581000130",
+      "fechadoEm": "2026-05-05",
+      "z": 208081,
+      "pdv": 208066,
+      "napp": 208181,
+      "declarado": 208000,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 31,
+      "maior": 208181,
+      "menor": 208000,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 181,
+      "dispersao": 0.09,
+      "naoDeclarado": 181,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 181 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 181 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "11222333000262",
+      "fechadoEm": "2026-06-03",
+      "z": 54659,
+      "pdv": 54693,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 54693,
+      "menor": 54659,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 34,
+      "dispersao": 0.06,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 34 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "16105826000155",
+      "fechadoEm": "2026-06-03",
+      "z": 111716,
+      "pdv": 133745,
+      "napp": null,
+      "declarado": 111688,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 133745,
+      "menor": 111688,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 22057,
+      "dispersao": 16.49,
+      "naoDeclarado": 22057,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 22.029 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 22.057 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 22.057 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "24538526000198",
+      "fechadoEm": "2026-06-03",
+      "z": 144008,
+      "pdv": 150165,
+      "napp": 148881,
+      "declarado": 137851,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 31,
+      "maior": 150165,
+      "menor": 137851,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 12314,
+      "dispersao": 8.2,
+      "naoDeclarado": 12314,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 6.157 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 12.314 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 12.314 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "28428793000163",
+      "fechadoEm": "2026-06-03",
+      "z": 37589,
+      "pdv": 37613,
+      "napp": null,
+      "declarado": 37565,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 37613,
+      "menor": 37565,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 48,
+      "dispersao": 0.13,
+      "naoDeclarado": 48,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 48 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "34429166000140",
+      "fechadoEm": "2026-06-03",
+      "z": 172758,
+      "pdv": 172901,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 28,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 172901,
+      "menor": 172758,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 143,
+      "dispersao": 0.08,
+      "naoDeclarado": null,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 143 a mais do que a redução Z."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 143 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "37304836000190",
+      "fechadoEm": "2026-06-03",
+      "z": 130394,
+      "pdv": 130326,
+      "napp": null,
+      "declarado": 130258,
+      "diasZ": 30,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 130394,
+      "menor": 130258,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 136,
+      "dispersao": 0.1,
+      "naoDeclarado": 136,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 136 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 136 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "46844023000183",
+      "fechadoEm": "2026-06-03",
+      "z": 56809,
+      "pdv": 56821,
+      "napp": 56811,
+      "declarado": null,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 28,
+      "maior": 56821,
+      "menor": 56809,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 12,
+      "dispersao": 0.02,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 12 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "47484133000144",
+      "fechadoEm": "2026-06-03",
+      "z": 241252,
+      "pdv": 241498,
+      "napp": 241197,
+      "declarado": 241006,
+      "diasZ": 29,
+      "diasPdv": 31,
+      "diasNapp": 29,
+      "maior": 241498,
+      "menor": 241006,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 492,
+      "dispersao": 0.2,
+      "naoDeclarado": 492,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 246 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 492 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 492 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "57285368000160",
+      "fechadoEm": "2026-06-03",
+      "z": 161289,
+      "pdv": 161321,
+      "napp": 161286,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 31,
+      "diasNapp": 30,
+      "maior": 161321,
+      "menor": 161286,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 35,
+      "dispersao": 0.02,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 35 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "64978755000148",
+      "fechadoEm": "2026-06-03",
+      "z": 54600,
+      "pdv": 49750,
+      "napp": 54611,
+      "declarado": 44900,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 54611,
+      "menor": 44900,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 9711,
+      "dispersao": 17.78,
+      "naoDeclarado": 9711,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 9.711 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 9.711 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "69728336000171",
+      "fechadoEm": "2026-06-03",
+      "z": 38124,
+      "pdv": 38118,
+      "napp": 38123,
+      "declarado": 38113,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 38124,
+      "menor": 38113,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 11,
+      "dispersao": 0.03,
+      "naoDeclarado": 11,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 11 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "69858808000100",
+      "fechadoEm": "2026-06-03",
+      "z": 52297,
+      "pdv": 52334,
+      "napp": null,
+      "declarado": 52260,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 52334,
+      "menor": 52260,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 74,
+      "dispersao": 0.14,
+      "naoDeclarado": 74,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 74 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "73624117000110",
+      "fechadoEm": "2026-06-03",
+      "z": 139466,
+      "pdv": null,
+      "napp": 139516,
+      "declarado": 139429,
+      "diasZ": 31,
+      "diasPdv": 0,
+      "diasNapp": 31,
+      "maior": 139516,
+      "menor": 139429,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 87,
+      "dispersao": 0.06,
+      "naoDeclarado": 87,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 87 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-05",
+      "cnpj": "94810329000161",
+      "fechadoEm": "2026-06-03",
+      "z": 79329,
+      "pdv": 79393,
+      "napp": 79322,
+      "declarado": 79309,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 29,
+      "maior": 79393,
+      "menor": 79309,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 84,
+      "dispersao": 0.11,
+      "naoDeclarado": 84,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 84 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "11222333000181",
+      "fechadoEm": "2026-07-09",
+      "z": 52978,
+      "pdv": 53038,
+      "napp": 56237,
+      "declarado": 52918,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 31,
+      "maior": 56237,
+      "menor": 52918,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 3319,
+      "dispersao": 5.9,
+      "naoDeclarado": 3319,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 3.319 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 3.319 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "11222333000262",
+      "fechadoEm": "2026-07-09",
+      "z": 99524,
+      "pdv": 99606,
+      "napp": null,
+      "declarado": 99442,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 99606,
+      "menor": 99442,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 164,
+      "dispersao": 0.16,
+      "naoDeclarado": 164,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 164 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 164 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "16105826000155",
+      "fechadoEm": "2026-07-09",
+      "z": 141809,
+      "pdv": 141775,
+      "napp": null,
+      "declarado": 141741,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 141809,
+      "menor": 141741,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 68,
+      "dispersao": 0.05,
+      "naoDeclarado": 68,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 68 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "17385654000183",
+      "fechadoEm": "2026-07-09",
+      "z": 245832,
+      "pdv": 245872,
+      "napp": 245874,
+      "declarado": 245829,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 31,
+      "maior": 245874,
+      "menor": 245829,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 45,
+      "dispersao": 0.02,
+      "naoDeclarado": 45,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 45 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "28428793000163",
+      "fechadoEm": "2026-07-09",
+      "z": 168353,
+      "pdv": 168346,
+      "napp": 168343,
+      "declarado": 168338,
+      "diasZ": 30,
+      "diasPdv": 28,
+      "diasNapp": 30,
+      "maior": 168353,
+      "menor": 168338,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 15,
+      "dispersao": 0.01,
+      "naoDeclarado": 15,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 15 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "32185023000104",
+      "fechadoEm": "2026-07-09",
+      "z": 181825,
+      "pdv": 181771,
+      "napp": 181845,
+      "declarado": null,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 29,
+      "maior": 181845,
+      "menor": 181771,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 74,
+      "dispersao": 0.04,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 74 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "34429166000140",
+      "fechadoEm": "2026-07-09",
+      "z": 240706,
+      "pdv": 240948,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 240948,
+      "menor": 240706,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 242,
+      "dispersao": 0.1,
+      "naoDeclarado": null,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 242 a mais do que a redução Z."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 242 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "37304836000190",
+      "fechadoEm": "2026-07-09",
+      "z": 245232,
+      "pdv": 279073,
+      "napp": null,
+      "declarado": 211391,
+      "diasZ": 28,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 279073,
+      "menor": 211391,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 67682,
+      "dispersao": 24.25,
+      "naoDeclarado": 67682,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 33.841 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 67.682 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 67.682 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "47231337000173",
+      "fechadoEm": "2026-07-09",
+      "z": 203597,
+      "pdv": 203776,
+      "napp": 203597,
+      "declarado": 203418,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 28,
+      "maior": 203776,
+      "menor": 203418,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 358,
+      "dispersao": 0.18,
+      "naoDeclarado": 358,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 179 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 358 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 358 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "51406654000150",
+      "fechadoEm": "2026-07-09",
+      "z": 77304,
+      "pdv": 77271,
+      "napp": null,
+      "declarado": 77237,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 77304,
+      "menor": 77237,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 67,
+      "dispersao": 0.09,
+      "naoDeclarado": 67,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 67 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "57285368000160",
+      "fechadoEm": "2026-07-09",
+      "z": 218095,
+      "pdv": 218091,
+      "napp": null,
+      "declarado": 218088,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 218095,
+      "menor": 218088,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 7,
+      "dispersao": 0,
+      "naoDeclarado": 7,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 7 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "63973325000170",
+      "fechadoEm": "2026-07-09",
+      "z": 243335,
+      "pdv": null,
+      "napp": null,
+      "declarado": 243047,
+      "diasZ": 31,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 243335,
+      "menor": 243047,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 288,
+      "dispersao": 0.12,
+      "naoDeclarado": 288,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 288 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 288 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "64978755000148",
+      "fechadoEm": "2026-07-09",
+      "z": 206866,
+      "pdv": 228489,
+      "napp": null,
+      "declarado": 185243,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 228489,
+      "menor": 185243,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 43246,
+      "dispersao": 18.93,
+      "naoDeclarado": 43246,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 21.623 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 43.246 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 43.246 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "66681907000171",
+      "fechadoEm": "2026-07-09",
+      "z": 144889,
+      "pdv": 145042,
+      "napp": null,
+      "declarado": 144736,
+      "diasZ": 28,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 145042,
+      "menor": 144736,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 306,
+      "dispersao": 0.21,
+      "naoDeclarado": 306,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 153 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 306 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 306 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "69728336000171",
+      "fechadoEm": "2026-07-09",
+      "z": 109091,
+      "pdv": 104537,
+      "napp": null,
+      "declarado": 99982,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 109091,
+      "menor": 99982,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 9109,
+      "dispersao": 8.35,
+      "naoDeclarado": 9109,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 9.109 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 9.109 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "69858808000100",
+      "fechadoEm": "2026-07-09",
+      "z": 219050,
+      "pdv": 219246,
+      "napp": null,
+      "declarado": 218854,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 219246,
+      "menor": 218854,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 392,
+      "dispersao": 0.18,
+      "naoDeclarado": 392,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 196 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 392 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 392 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "73624117000110",
+      "fechadoEm": "2026-07-09",
+      "z": 69338,
+      "pdv": 76506,
+      "napp": null,
+      "declarado": 69316,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 76506,
+      "menor": 69316,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 7190,
+      "dispersao": 9.4,
+      "naoDeclarado": 7190,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 7.168 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 7.190 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 7.190 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "79153668000129",
+      "fechadoEm": "2026-07-09",
+      "z": 189733,
+      "pdv": null,
+      "napp": 189692,
+      "declarado": 165934,
+      "diasZ": 29,
+      "diasPdv": 0,
+      "diasNapp": 29,
+      "maior": 189733,
+      "menor": 165934,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 23799,
+      "dispersao": 12.54,
+      "naoDeclarado": 23799,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 23.799 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 23.799 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "88967134000127",
+      "fechadoEm": "2026-07-09",
+      "z": 123040,
+      "pdv": 123157,
+      "napp": null,
+      "declarado": 123038,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 123157,
+      "menor": 123038,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 119,
+      "dispersao": 0.1,
+      "naoDeclarado": 119,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 117 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 119 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 119 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "92438284000110",
+      "fechadoEm": "2026-07-09",
+      "z": 187170,
+      "pdv": 187326,
+      "napp": 198884,
+      "declarado": 187014,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 198884,
+      "menor": 187014,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 11870,
+      "dispersao": 5.97,
+      "naoDeclarado": 11870,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 156 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 11.870 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 11.870 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "94810329000161",
+      "fechadoEm": "2026-07-09",
+      "z": 256565,
+      "pdv": 300473,
+      "napp": 256504,
+      "declarado": 212657,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 31,
+      "maior": 300473,
+      "menor": 212657,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 87816,
+      "dispersao": 29.23,
+      "naoDeclarado": 87816,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 43.908 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 87.816 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 87.816 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-06",
+      "cnpj": "97740581000130",
+      "fechadoEm": "2026-07-09",
+      "z": 182855,
+      "pdv": 182933,
+      "napp": null,
+      "declarado": 182777,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 182933,
+      "menor": 182777,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 156,
+      "dispersao": 0.09,
+      "naoDeclarado": 156,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 156 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 156 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "11222333000181",
+      "fechadoEm": "2026-08-05",
+      "z": 187711,
+      "pdv": 187930,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 187930,
+      "menor": 187711,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 219,
+      "dispersao": 0.12,
+      "naoDeclarado": null,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 219 a mais do que a redução Z."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 219 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "11222333000262",
+      "fechadoEm": "2026-08-05",
+      "z": 192092,
+      "pdv": null,
+      "napp": 192134,
+      "declarado": 191938,
+      "diasZ": 29,
+      "diasPdv": 0,
+      "diasNapp": 29,
+      "maior": 192134,
+      "menor": 191938,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 196,
+      "dispersao": 0.1,
+      "naoDeclarado": 196,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 196 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 196 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "12673096000138",
+      "fechadoEm": "2026-08-05",
+      "z": 169800,
+      "pdv": 188285,
+      "napp": 169860,
+      "declarado": 169745,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 29,
+      "maior": 188285,
+      "menor": 169745,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 18540,
+      "dispersao": 9.85,
+      "naoDeclarado": 18540,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 18.485 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 18.540 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 18.540 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "16105826000155",
+      "fechadoEm": "2026-08-05",
+      "z": 44450,
+      "pdv": null,
+      "napp": null,
+      "declarado": 44433,
+      "diasZ": 28,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 44450,
+      "menor": 44433,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 17,
+      "dispersao": 0.04,
+      "naoDeclarado": 17,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 17 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "18637317000107",
+      "fechadoEm": "2026-08-05",
+      "z": 99912,
+      "pdv": null,
+      "napp": 99912,
+      "declarado": 99909,
+      "diasZ": 28,
+      "diasPdv": 0,
+      "diasNapp": 28,
+      "maior": 99912,
+      "menor": 99909,
+      "fonteMaior": [
+        "z",
+        "napp"
+      ],
+      "amplitude": 3,
+      "dispersao": 0,
+      "naoDeclarado": 3,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z e NAPP; variação de R$ 3 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "24538526000198",
+      "fechadoEm": "2026-08-05",
+      "z": 102100,
+      "pdv": 102139,
+      "napp": 102088,
+      "declarado": 102061,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 102139,
+      "menor": 102061,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 78,
+      "dispersao": 0.08,
+      "naoDeclarado": 78,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 78 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "24806316000133",
+      "fechadoEm": "2026-08-05",
+      "z": 79777,
+      "pdv": 79774,
+      "napp": null,
+      "declarado": 79772,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 79777,
+      "menor": 79772,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 5,
+      "dispersao": 0.01,
+      "naoDeclarado": 5,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 5 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "27375423000142",
+      "fechadoEm": "2026-08-05",
+      "z": 164765,
+      "pdv": 157577,
+      "napp": null,
+      "declarado": 150389,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 164765,
+      "menor": 150389,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 14376,
+      "dispersao": 8.73,
+      "naoDeclarado": 14376,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 14.376 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 14.376 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "28428793000163",
+      "fechadoEm": "2026-08-05",
+      "z": 235561,
+      "pdv": 235763,
+      "napp": 249152,
+      "declarado": 235488,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 31,
+      "maior": 249152,
+      "menor": 235488,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 13664,
+      "dispersao": 5.48,
+      "naoDeclarado": 13664,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 202 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 13.664 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 13.664 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "33951168000131",
+      "fechadoEm": "2026-08-05",
+      "z": 138223,
+      "pdv": 138164,
+      "napp": 145567,
+      "declarado": null,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 31,
+      "maior": 145567,
+      "menor": 138164,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 7403,
+      "dispersao": 5.09,
+      "naoDeclarado": null,
+      "status": "DISPERSO",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 7.403 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "37304836000190",
+      "fechadoEm": "2026-08-05",
+      "z": 200210,
+      "pdv": 189312,
+      "napp": 200286,
+      "declarado": 200164,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 28,
+      "maior": 200286,
+      "menor": 189312,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 10974,
+      "dispersao": 5.48,
+      "naoDeclarado": 122,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 122 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 10.974 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "47484133000144",
+      "fechadoEm": "2026-08-05",
+      "z": 125922,
+      "pdv": 125898,
+      "napp": null,
+      "declarado": 125874,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 125922,
+      "menor": 125874,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 48,
+      "dispersao": 0.04,
+      "naoDeclarado": 48,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 48 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "51406654000150",
+      "fechadoEm": "2026-08-05",
+      "z": 248614,
+      "pdv": 248903,
+      "napp": 248661,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 28,
+      "diasNapp": 30,
+      "maior": 248903,
+      "menor": 248614,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 289,
+      "dispersao": 0.12,
+      "naoDeclarado": null,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 289 a mais do que a redução Z."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 289 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "54610303000155",
+      "fechadoEm": "2026-08-05",
+      "z": 110516,
+      "pdv": 110606,
+      "napp": 110526,
+      "declarado": 110426,
+      "diasZ": 29,
+      "diasPdv": 30,
+      "diasNapp": 29,
+      "maior": 110606,
+      "menor": 110426,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 180,
+      "dispersao": 0.16,
+      "naoDeclarado": 180,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 180 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 180 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "56288060000106",
+      "fechadoEm": "2026-08-05",
+      "z": 121878,
+      "pdv": 133953,
+      "napp": null,
+      "declarado": 109803,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 133953,
+      "menor": 109803,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 24150,
+      "dispersao": 18.03,
+      "naoDeclarado": 24150,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 12.075 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 24.150 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 24.150 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "57182979000183",
+      "fechadoEm": "2026-08-05",
+      "z": 99661,
+      "pdv": 99692,
+      "napp": 99689,
+      "declarado": 99630,
+      "diasZ": 29,
+      "diasPdv": 31,
+      "diasNapp": 29,
+      "maior": 99692,
+      "menor": 99630,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 62,
+      "dispersao": 0.06,
+      "naoDeclarado": 62,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 62 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "57285368000160",
+      "fechadoEm": "2026-08-05",
+      "z": 167509,
+      "pdv": 167665,
+      "napp": 167467,
+      "declarado": 167353,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 31,
+      "maior": 167665,
+      "menor": 167353,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 312,
+      "dispersao": 0.19,
+      "naoDeclarado": 312,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 156 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 312 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 312 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "63973325000170",
+      "fechadoEm": "2026-08-05",
+      "z": 245737,
+      "pdv": 246032,
+      "napp": null,
+      "declarado": 245442,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 246032,
+      "menor": 245442,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 590,
+      "dispersao": 0.24,
+      "naoDeclarado": 590,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 295 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 590 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 590 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "66152371000105",
+      "fechadoEm": "2026-08-05",
+      "z": 96413,
+      "pdv": 96521,
+      "napp": null,
+      "declarado": 96305,
+      "diasZ": 29,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 96521,
+      "menor": 96305,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 216,
+      "dispersao": 0.22,
+      "naoDeclarado": 216,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 108 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 216 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 216 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "66681907000171",
+      "fechadoEm": "2026-08-05",
+      "z": 80209,
+      "pdv": 80279,
+      "napp": null,
+      "declarado": 80184,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 80279,
+      "menor": 80184,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 95,
+      "dispersao": 0.12,
+      "naoDeclarado": 95,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 95 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "69728336000171",
+      "fechadoEm": "2026-08-05",
+      "z": 83769,
+      "pdv": 89791,
+      "napp": 83784,
+      "declarado": 83740,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 31,
+      "maior": 89791,
+      "menor": 83740,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 6051,
+      "dispersao": 6.74,
+      "naoDeclarado": 6051,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 6.022 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 6.051 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 6.051 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "69781682000113",
+      "fechadoEm": "2026-08-05",
+      "z": 221178,
+      "pdv": 221082,
+      "napp": null,
+      "declarado": 220986,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 221178,
+      "menor": 220986,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 192,
+      "dispersao": 0.09,
+      "naoDeclarado": 192,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 192 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 192 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "69858808000100",
+      "fechadoEm": "2026-08-05",
+      "z": 123392,
+      "pdv": 123332,
+      "napp": 123408,
+      "declarado": 123384,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 29,
+      "maior": 123408,
+      "menor": 123332,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 76,
+      "dispersao": 0.06,
+      "naoDeclarado": 24,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 76 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "73624117000110",
+      "fechadoEm": "2026-08-05",
+      "z": 100367,
+      "pdv": 100461,
+      "napp": null,
+      "declarado": 100273,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 100461,
+      "menor": 100273,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 188,
+      "dispersao": 0.19,
+      "naoDeclarado": 188,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 188 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 188 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "81577743000120",
+      "fechadoEm": "2026-08-05",
+      "z": 201016,
+      "pdv": 200921,
+      "napp": null,
+      "declarado": 200826,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 201016,
+      "menor": 200826,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 190,
+      "dispersao": 0.09,
+      "naoDeclarado": 190,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 190 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 190 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "88967134000127",
+      "fechadoEm": "2026-08-05",
+      "z": 199790,
+      "pdv": 199797,
+      "napp": 199836,
+      "declarado": 199788,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 31,
+      "maior": 199836,
+      "menor": 199788,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 48,
+      "dispersao": 0.02,
+      "naoDeclarado": 48,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 48 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "92438284000110",
+      "fechadoEm": "2026-08-05",
+      "z": 201164,
+      "pdv": 201170,
+      "napp": null,
+      "declarado": 201158,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 201170,
+      "menor": 201158,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 12,
+      "dispersao": 0.01,
+      "naoDeclarado": 12,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 12 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-07",
+      "cnpj": "94810329000161",
+      "fechadoEm": "2026-08-05",
+      "z": 148722,
+      "pdv": 134653,
+      "napp": null,
+      "declarado": 148668,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 148722,
+      "menor": 134653,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 14069,
+      "dispersao": 9.46,
+      "naoDeclarado": 54,
+      "status": "DISPERSO",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 14.069 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "11222333000181",
+      "fechadoEm": "2026-09-09",
+      "z": 117203,
+      "pdv": 117150,
+      "napp": 117223,
+      "declarado": 117098,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 28,
+      "maior": 117223,
+      "menor": 117098,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 125,
+      "dispersao": 0.11,
+      "naoDeclarado": 125,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 125 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 125 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "11222333000262",
+      "fechadoEm": "2026-09-09",
+      "z": 89875,
+      "pdv": 89909,
+      "napp": 89869,
+      "declarado": 89841,
+      "diasZ": 28,
+      "diasPdv": 31,
+      "diasNapp": 28,
+      "maior": 89909,
+      "menor": 89841,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 68,
+      "dispersao": 0.08,
+      "naoDeclarado": 68,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 68 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "12673096000138",
+      "fechadoEm": "2026-09-09",
+      "z": 174463,
+      "pdv": null,
+      "napp": 182687,
+      "declarado": 174457,
+      "diasZ": 29,
+      "diasPdv": 0,
+      "diasNapp": 29,
+      "maior": 182687,
+      "menor": 174457,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 8230,
+      "dispersao": 4.5,
+      "naoDeclarado": 8230,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 8.230 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 8.230 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "17385654000183",
+      "fechadoEm": "2026-09-09",
+      "z": 79803,
+      "pdv": 79789,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 29,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 79803,
+      "menor": 79789,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 14,
+      "dispersao": 0.02,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 14 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "24806316000133",
+      "fechadoEm": "2026-09-09",
+      "z": 56821,
+      "pdv": null,
+      "napp": null,
+      "declarado": 53628,
+      "diasZ": 28,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 56821,
+      "menor": 53628,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 3193,
+      "dispersao": 5.62,
+      "naoDeclarado": 3193,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 3.193 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 3.193 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "27375423000142",
+      "fechadoEm": "2026-09-09",
+      "z": 136172,
+      "pdv": 136205,
+      "napp": 136183,
+      "declarado": 136139,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 28,
+      "maior": 136205,
+      "menor": 136139,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 66,
+      "dispersao": 0.05,
+      "naoDeclarado": 66,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 66 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "28428793000163",
+      "fechadoEm": "2026-09-09",
+      "z": 256685,
+      "pdv": 256780,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 256780,
+      "menor": 256685,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 95,
+      "dispersao": 0.04,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 95 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "32185023000104",
+      "fechadoEm": "2026-09-09",
+      "z": 195972,
+      "pdv": 196022,
+      "napp": null,
+      "declarado": 195922,
+      "diasZ": 29,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 196022,
+      "menor": 195922,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 100,
+      "dispersao": 0.05,
+      "naoDeclarado": 100,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 100 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "33951168000131",
+      "fechadoEm": "2026-09-09",
+      "z": 202020,
+      "pdv": 202166,
+      "napp": null,
+      "declarado": 201874,
+      "diasZ": 28,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 202166,
+      "menor": 201874,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 292,
+      "dispersao": 0.14,
+      "naoDeclarado": 292,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 146 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 292 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 292 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "36634996000134",
+      "fechadoEm": "2026-09-09",
+      "z": 206519,
+      "pdv": 206506,
+      "napp": 206466,
+      "declarado": 206493,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 31,
+      "maior": 206519,
+      "menor": 206466,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 53,
+      "dispersao": 0.03,
+      "naoDeclarado": 26,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 53 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "46844023000183",
+      "fechadoEm": "2026-09-09",
+      "z": 127121,
+      "pdv": 127183,
+      "napp": 127109,
+      "declarado": 127071,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 28,
+      "maior": 127183,
+      "menor": 127071,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 112,
+      "dispersao": 0.09,
+      "naoDeclarado": 112,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 112 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 112 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "47484133000144",
+      "fechadoEm": "2026-09-09",
+      "z": 250148,
+      "pdv": 250233,
+      "napp": 250201,
+      "declarado": 250147,
+      "diasZ": 29,
+      "diasPdv": 31,
+      "diasNapp": 29,
+      "maior": 250233,
+      "menor": 250147,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 86,
+      "dispersao": 0.03,
+      "naoDeclarado": 86,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 86 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "51406654000150",
+      "fechadoEm": "2026-09-09",
+      "z": 207951,
+      "pdv": 233124,
+      "napp": null,
+      "declarado": 182778,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 233124,
+      "menor": 182778,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 50346,
+      "dispersao": 21.6,
+      "naoDeclarado": 50346,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 25.173 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 50.346 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 50.346 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "54610303000155",
+      "fechadoEm": "2026-09-09",
+      "z": 81429,
+      "pdv": 81454,
+      "napp": 81419,
+      "declarado": 81410,
+      "diasZ": 30,
+      "diasPdv": 31,
+      "diasNapp": 30,
+      "maior": 81454,
+      "menor": 81410,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 44,
+      "dispersao": 0.05,
+      "naoDeclarado": 44,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 44 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "56288060000106",
+      "fechadoEm": "2026-09-09",
+      "z": 136655,
+      "pdv": 136607,
+      "napp": null,
+      "declarado": 136560,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 136655,
+      "menor": 136560,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 95,
+      "dispersao": 0.07,
+      "naoDeclarado": 95,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 95 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "57182979000183",
+      "fechadoEm": "2026-09-09",
+      "z": 123612,
+      "pdv": 123621,
+      "napp": 123618,
+      "declarado": 123566,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 31,
+      "maior": 123621,
+      "menor": 123566,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 55,
+      "dispersao": 0.04,
+      "naoDeclarado": 55,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 55 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "57285368000160",
+      "fechadoEm": "2026-09-09",
+      "z": 122635,
+      "pdv": 122677,
+      "napp": 122660,
+      "declarado": 122594,
+      "diasZ": 30,
+      "diasPdv": 29,
+      "diasNapp": 30,
+      "maior": 122677,
+      "menor": 122594,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 83,
+      "dispersao": 0.07,
+      "naoDeclarado": 83,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 83 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "63973325000170",
+      "fechadoEm": "2026-09-09",
+      "z": 124964,
+      "pdv": 142927,
+      "napp": null,
+      "declarado": 107001,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 142927,
+      "menor": 107001,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 35926,
+      "dispersao": 25.14,
+      "naoDeclarado": 35926,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 17.963 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 35.926 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 35.926 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "64978755000148",
+      "fechadoEm": "2026-09-09",
+      "z": 94511,
+      "pdv": 94497,
+      "napp": null,
+      "declarado": 94507,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 94511,
+      "menor": 94497,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 14,
+      "dispersao": 0.01,
+      "naoDeclarado": 4,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 14 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "66152371000105",
+      "fechadoEm": "2026-09-09",
+      "z": 120623,
+      "pdv": 120638,
+      "napp": null,
+      "declarado": 120606,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 120638,
+      "menor": 120606,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 32,
+      "dispersao": 0.03,
+      "naoDeclarado": 32,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 32 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "66681907000171",
+      "fechadoEm": "2026-09-09",
+      "z": 234972,
+      "pdv": 234871,
+      "napp": 235022,
+      "declarado": 234916,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 235022,
+      "menor": 234871,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 151,
+      "dispersao": 0.06,
+      "naoDeclarado": 106,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 106 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 151 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "69728336000171",
+      "fechadoEm": "2026-09-09",
+      "z": 45798,
+      "pdv": null,
+      "napp": null,
+      "declarado": 45779,
+      "diasZ": 30,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 45798,
+      "menor": 45779,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 19,
+      "dispersao": 0.04,
+      "naoDeclarado": 19,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 19 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "69781682000113",
+      "fechadoEm": "2026-09-09",
+      "z": 175154,
+      "pdv": 162817,
+      "napp": 175197,
+      "declarado": 175101,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 31,
+      "maior": 175197,
+      "menor": 162817,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 12380,
+      "dispersao": 7.07,
+      "naoDeclarado": 96,
+      "status": "DISPERSO",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 12.380 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "73624117000110",
+      "fechadoEm": "2026-09-09",
+      "z": 252101,
+      "pdv": 252321,
+      "napp": null,
+      "declarado": 251881,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 252321,
+      "menor": 251881,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 440,
+      "dispersao": 0.17,
+      "naoDeclarado": 440,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 220 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 440 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 440 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "79153668000129",
+      "fechadoEm": "2026-09-09",
+      "z": 71520,
+      "pdv": 71506,
+      "napp": null,
+      "declarado": 71491,
+      "diasZ": 31,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 71520,
+      "menor": 71491,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 29,
+      "dispersao": 0.04,
+      "naoDeclarado": 29,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 29 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "80230013000196",
+      "fechadoEm": "2026-09-09",
+      "z": 215901,
+      "pdv": null,
+      "napp": 230411,
+      "declarado": 215870,
+      "diasZ": 30,
+      "diasPdv": 0,
+      "diasNapp": 30,
+      "maior": 230411,
+      "menor": 215870,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 14541,
+      "dispersao": 6.31,
+      "naoDeclarado": 14541,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 14.541 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 14.541 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "80926487000177",
+      "fechadoEm": "2026-09-09",
+      "z": 178834,
+      "pdv": null,
+      "napp": 178804,
+      "declarado": 155052,
+      "diasZ": 28,
+      "diasPdv": 0,
+      "diasNapp": 28,
+      "maior": 178834,
+      "menor": 155052,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 23782,
+      "dispersao": 13.3,
+      "naoDeclarado": 23782,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 23.782 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 23.782 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "88967134000127",
+      "fechadoEm": "2026-09-09",
+      "z": 153562,
+      "pdv": 180167,
+      "napp": 153540,
+      "declarado": 126957,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 28,
+      "maior": 180167,
+      "menor": 126957,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 53210,
+      "dispersao": 29.53,
+      "naoDeclarado": 53210,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 26.605 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 53.210 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 53.210 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-08",
+      "cnpj": "97740581000130",
+      "fechadoEm": "2026-09-09",
+      "z": 126283,
+      "pdv": 126318,
+      "napp": 126343,
+      "declarado": null,
+      "diasZ": 31,
+      "diasPdv": 30,
+      "diasNapp": 31,
+      "maior": 126343,
+      "menor": 126283,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 60,
+      "dispersao": 0.05,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 60 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "11222333000181",
+      "fechadoEm": "2026-10-03",
+      "z": 121196,
+      "pdv": 129076,
+      "napp": null,
+      "declarado": 108050,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 129076,
+      "menor": 108050,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 21026,
+      "dispersao": 16.29,
+      "naoDeclarado": 21026,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 7.880 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 21.026 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 21.026 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "16105826000155",
+      "fechadoEm": "2026-10-03",
+      "z": 98000,
+      "pdv": 98100,
+      "napp": 104500,
+      "declarado": 98000,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 30,
+      "maior": 104500,
+      "menor": 98000,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 6500,
+      "dispersao": 6.22,
+      "naoDeclarado": 6500,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 6.500 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 6.500 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "17385654000183",
+      "fechadoEm": "2026-10-10",
+      "z": 228476,
+      "pdv": 228398,
+      "napp": null,
+      "declarado": 228320,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 228476,
+      "menor": 228320,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 156,
+      "dispersao": 0.07,
+      "naoDeclarado": 156,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 156 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 156 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "18637317000107",
+      "fechadoEm": "2026-10-10",
+      "z": 76989,
+      "pdv": 76995,
+      "napp": null,
+      "declarado": 76983,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 76995,
+      "menor": 76983,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 12,
+      "dispersao": 0.02,
+      "naoDeclarado": 12,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 12 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "24806316000133",
+      "fechadoEm": "2026-10-03",
+      "z": 84200,
+      "pdv": null,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 84200,
+      "menor": 84200,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": null,
+      "dispersao": null,
+      "naoDeclarado": null,
+      "status": "FONTE ÚNICA",
+      "alertas": [],
+      "explicacao": "Só uma fonte."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "27375423000142",
+      "fechadoEm": "2026-10-10",
+      "z": 69319,
+      "pdv": 69393,
+      "napp": 69319,
+      "declarado": null,
+      "diasZ": 30,
+      "diasPdv": 28,
+      "diasNapp": 30,
+      "maior": 69393,
+      "menor": 69319,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 74,
+      "dispersao": 0.11,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 74 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "32185023000104",
+      "fechadoEm": "2026-10-10",
+      "z": 258775,
+      "pdv": 259069,
+      "napp": 272255,
+      "declarado": 258743,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 28,
+      "maior": 272255,
+      "menor": 258743,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 13512,
+      "dispersao": 4.96,
+      "naoDeclarado": 13512,
+      "status": "DISPERSO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 294 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 13.512 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 13.512 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "33951168000131",
+      "fechadoEm": "2026-10-10",
+      "z": 172353,
+      "pdv": 172269,
+      "napp": null,
+      "declarado": 172306,
+      "diasZ": 29,
+      "diasPdv": 31,
+      "diasNapp": 0,
+      "maior": 172353,
+      "menor": 172269,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 84,
+      "dispersao": 0.05,
+      "naoDeclarado": 47,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 84 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "34429166000140",
+      "fechadoEm": "2026-10-10",
+      "z": 36708,
+      "pdv": null,
+      "napp": 36724,
+      "declarado": 36672,
+      "diasZ": 29,
+      "diasPdv": 0,
+      "diasNapp": 29,
+      "maior": 36724,
+      "menor": 36672,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 52,
+      "dispersao": 0.14,
+      "naoDeclarado": 52,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 52 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "36634996000134",
+      "fechadoEm": "2026-10-10",
+      "z": 150292,
+      "pdv": 150227,
+      "napp": 150358,
+      "declarado": 150272,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 150358,
+      "menor": 150227,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 131,
+      "dispersao": 0.09,
+      "naoDeclarado": 86,
+      "status": "ATENÇÃO",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 131 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "37304836000190",
+      "fechadoEm": "2026-10-10",
+      "z": 113724,
+      "pdv": 113689,
+      "napp": 113736,
+      "declarado": 113654,
+      "diasZ": 29,
+      "diasPdv": 30,
+      "diasNapp": 29,
+      "maior": 113736,
+      "menor": 113654,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 82,
+      "dispersao": 0.07,
+      "naoDeclarado": 82,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 82 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "46844023000183",
+      "fechadoEm": "2026-10-10",
+      "z": 127341,
+      "pdv": 127375,
+      "napp": 127311,
+      "declarado": 127307,
+      "diasZ": 30,
+      "diasPdv": 31,
+      "diasNapp": 30,
+      "maior": 127375,
+      "menor": 127307,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 68,
+      "dispersao": 0.05,
+      "naoDeclarado": 68,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 68 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "47484133000144",
+      "fechadoEm": "2026-10-10",
+      "z": 113410,
+      "pdv": 113425,
+      "napp": null,
+      "declarado": null,
+      "diasZ": 28,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 113425,
+      "menor": 113410,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 15,
+      "dispersao": 0.01,
+      "naoDeclarado": null,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 15 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "51406654000150",
+      "fechadoEm": "2026-10-10",
+      "z": 74242,
+      "pdv": 74234,
+      "napp": null,
+      "declarado": 74226,
+      "diasZ": 29,
+      "diasPdv": 29,
+      "diasNapp": 0,
+      "maior": 74242,
+      "menor": 74226,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 16,
+      "dispersao": 0.02,
+      "naoDeclarado": 16,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 16 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "54610303000155",
+      "fechadoEm": "2026-10-10",
+      "z": 152258,
+      "pdv": 152339,
+      "napp": 152265,
+      "declarado": 152242,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 152339,
+      "menor": 152242,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 97,
+      "dispersao": 0.06,
+      "naoDeclarado": 97,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 97 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "56288060000106",
+      "fechadoEm": "2026-10-10",
+      "z": 115381,
+      "pdv": 115444,
+      "napp": 115381,
+      "declarado": 115361,
+      "diasZ": 31,
+      "diasPdv": 29,
+      "diasNapp": 31,
+      "maior": 115444,
+      "menor": 115361,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 83,
+      "dispersao": 0.07,
+      "naoDeclarado": 83,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 83 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "57182979000183",
+      "fechadoEm": "2026-10-10",
+      "z": 155009,
+      "pdv": 154949,
+      "napp": null,
+      "declarado": 155004,
+      "diasZ": 29,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 155009,
+      "menor": 154949,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 60,
+      "dispersao": 0.04,
+      "naoDeclarado": 5,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 60 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "57285368000160",
+      "fechadoEm": "2026-10-10",
+      "z": 242645,
+      "pdv": 242905,
+      "napp": null,
+      "declarado": 242632,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 242905,
+      "menor": 242632,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 273,
+      "dispersao": 0.11,
+      "naoDeclarado": 273,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "venda_sem_documento",
+          "grave": true,
+          "texto": "O PDV registra R$ 260 a mais do que a redução Z."
+        },
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 273 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 273 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "63973325000170",
+      "fechadoEm": "2026-10-10",
+      "z": 212550,
+      "pdv": 212488,
+      "napp": 212602,
+      "declarado": 212427,
+      "diasZ": 30,
+      "diasPdv": 31,
+      "diasNapp": 30,
+      "maior": 212602,
+      "menor": 212427,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 175,
+      "dispersao": 0.08,
+      "naoDeclarado": 175,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 175 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 175 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "64978755000148",
+      "fechadoEm": "2026-10-10",
+      "z": 210976,
+      "pdv": 210851,
+      "napp": 211019,
+      "declarado": 210726,
+      "diasZ": 28,
+      "diasPdv": 29,
+      "diasNapp": 28,
+      "maior": 211019,
+      "menor": 210726,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 293,
+      "dispersao": 0.14,
+      "naoDeclarado": 293,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 293 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: NAPP; variação de R$ 293 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "69781682000113",
+      "fechadoEm": "2026-10-10",
+      "z": 60571,
+      "pdv": 60570,
+      "napp": 60579,
+      "declarado": 60568,
+      "diasZ": 29,
+      "diasPdv": 28,
+      "diasNapp": 29,
+      "maior": 60579,
+      "menor": 60568,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 11,
+      "dispersao": 0.02,
+      "naoDeclarado": 11,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 11 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "69858808000100",
+      "fechadoEm": "2026-10-10",
+      "z": 47834,
+      "pdv": 47859,
+      "napp": null,
+      "declarado": 47833,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 0,
+      "maior": 47859,
+      "menor": 47833,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 26,
+      "dispersao": 0.05,
+      "naoDeclarado": 26,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 26 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "79153668000129",
+      "fechadoEm": "2026-10-03",
+      "z": 152300,
+      "pdv": 152350,
+      "napp": 152320,
+      "declarado": 152300,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 30,
+      "maior": 152350,
+      "menor": 152300,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 50,
+      "dispersao": 0.03,
+      "naoDeclarado": 50,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 50 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "80230013000196",
+      "fechadoEm": "2026-10-10",
+      "z": 92514,
+      "pdv": 92519,
+      "napp": 92529,
+      "declarado": 92509,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 30,
+      "maior": 92529,
+      "menor": 92509,
+      "fonteMaior": [
+        "napp"
+      ],
+      "amplitude": 20,
+      "dispersao": 0.02,
+      "naoDeclarado": 20,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: NAPP; variação de R$ 20 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "81577743000120",
+      "fechadoEm": "2026-10-10",
+      "z": 250018,
+      "pdv": null,
+      "napp": null,
+      "declarado": 249929,
+      "diasZ": 30,
+      "diasPdv": 0,
+      "diasNapp": 0,
+      "maior": 250018,
+      "menor": 249929,
+      "fonteMaior": [
+        "z"
+      ],
+      "amplitude": 89,
+      "dispersao": 0.04,
+      "naoDeclarado": 89,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: Redução Z; variação de R$ 89 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "88967134000127",
+      "fechadoEm": "2026-10-10",
+      "z": 64962,
+      "pdv": 65021,
+      "napp": 64947,
+      "declarado": 64958,
+      "diasZ": 30,
+      "diasPdv": 30,
+      "diasNapp": 30,
+      "maior": 65021,
+      "menor": 64947,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 74,
+      "dispersao": 0.11,
+      "naoDeclarado": 63,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 74 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "94810329000161",
+      "fechadoEm": "2026-10-10",
+      "z": 226581,
+      "pdv": 226624,
+      "napp": 226576,
+      "declarado": 226538,
+      "diasZ": 28,
+      "diasPdv": 30,
+      "diasNapp": 28,
+      "maior": 226624,
+      "menor": 226538,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 86,
+      "dispersao": 0.04,
+      "naoDeclarado": 86,
+      "status": "COERENTE",
+      "alertas": [],
+      "explicacao": "Maior valor: PDV; variação de R$ 86 entre os tipos de lançamento."
+    },
+    {
+      "competencia": "2026-09",
+      "cnpj": "97740581000130",
+      "fechadoEm": "2026-10-10",
+      "z": 95911,
+      "pdv": 96005,
+      "napp": null,
+      "declarado": 95817,
+      "diasZ": 31,
+      "diasPdv": 28,
+      "diasNapp": 0,
+      "maior": 96005,
+      "menor": 95817,
+      "fonteMaior": [
+        "pdv"
+      ],
+      "amplitude": 188,
+      "dispersao": 0.2,
+      "naoDeclarado": 188,
+      "status": "ATENÇÃO",
+      "alertas": [
+        {
+          "tipo": "declarado_a_menor",
+          "grave": true,
+          "texto": "Foi declarado R$ 188 a menos do que o maior valor registrado."
+        }
+      ],
+      "explicacao": "Maior valor: PDV; variação de R$ 188 entre os tipos de lançamento."
+    }
+  ],
+  "societario": {
+    "11222333000181": {
+      "motivo": "periodica",
+      "nire": "31200000000",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026021234",
+      "certidaoBaixadaEm": "2026-09-08",
+      "encaminhadoEm": "2026-10-05",
+      "indicio": "sim",
+      "guiaPagaEm": "2026-09-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-08-15",
+      "tipo": "entrada_saida",
+      "registro": "400002/2026",
+      "descricao": "saída de sócio e entrada de novo sócio com 60%",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-10-05",
+      "cobrar": true,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": 15000,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "11222333000262": {
+      "motivo": "periodica",
+      "nire": "31200007919",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "",
+      "certidaoBaixadaEm": null,
+      "encaminhadoEm": null,
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "69781682000113": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-07-24",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "34332768534",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "66681907000171": {
+      "indicio": "sim",
+      "guiaPagaEm": "2026-04-05",
+      "guiaNumero": "",
+      "consultadoEm": "2026-04-05",
+      "houveMudanca": true,
+      "dataMudanca": "2025-07-08",
+      "tipo": "outra",
+      "registro": "128003/2025",
+      "descricao": "mudança de endereço da sede",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2025-08-30",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2025-08-28",
+        "n2": "2025-09-28",
+        "n3": "2025-10-28",
+        "aviso": "2025-11-28",
+        "multa": "2025-12-28"
+      },
+      "negociado": "2025-10-24",
+      "cobrado": null,
+      "valores": {
+        "taxa": 40900,
+        "negociado": 31200,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "32402314085",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "20269801514",
+      "certidaoBaixadaEm": "2026-04-13",
+      "encaminhadoEm": "2025-08-30"
+    },
+    "80926487000177": {
+      "indicio": "sim",
+      "guiaPagaEm": "2026-07-27",
+      "guiaNumero": "",
+      "consultadoEm": "2026-07-27",
+      "houveMudanca": true,
+      "dataMudanca": "2026-04-23",
+      "tipo": "outra",
+      "registro": "569608/2026",
+      "descricao": "mudança de endereço da sede",
+      "isencao": "sim",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-05-22",
+      "cobrar": false,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "31788995282",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "20265931112"
+    },
+    "73624117000110": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-24",
+      "houveMudanca": false,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "34943056902",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "32185023000104": {
+      "motivo": "periodica",
+      "nire": "31200087109",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026061234",
+      "certidaoBaixadaEm": "2026-05-08",
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": "2026-05-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-04-15",
+      "tipo": "capital",
+      "registro": "400006/2026",
+      "descricao": "aumento de capital social",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "56288060000106": {
+      "motivo": "periodica",
+      "nire": "31200095028",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026041234",
+      "certidaoBaixadaEm": "2026-07-08",
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": "2026-07-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-06-15",
+      "tipo": "outra",
+      "registro": "400004/2026",
+      "descricao": "mudança de endereço da sede",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "28428793000163": {
+      "motivo": "periodica",
+      "nire": "31200102947",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "",
+      "certidaoBaixadaEm": null,
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "80230013000196": {
+      "motivo": "periodica",
+      "nire": "31200110866",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026031234",
+      "certidaoBaixadaEm": "2026-08-08",
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": "2026-08-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-07-15",
+      "tipo": "socio_admin",
+      "registro": "400003/2026",
+      "descricao": "troca de administrador",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "12673096000138": {
+      "motivo": "periodica",
+      "nire": "31200118785",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026051234",
+      "certidaoBaixadaEm": "2026-06-08",
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": "2026-06-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-05-15",
+      "tipo": "entrada_saida",
+      "registro": "400005/2026",
+      "descricao": "saída de sócio e entrada de novo sócio com 60%",
+      "isencao": "sim",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-06-05",
+      "cobrar": false,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "94810329000161": {
+      "motivo": "periodica",
+      "nire": "31200126704",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026061234",
+      "certidaoBaixadaEm": "2026-05-08",
+      "encaminhadoEm": "2026-07-05",
+      "indicio": "sim",
+      "guiaPagaEm": "2026-05-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-04-15",
+      "tipo": "capital",
+      "registro": "400006/2026",
+      "descricao": "aumento de capital social",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-07-05",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2026-07-06"
+      },
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": 22000,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "47484133000144": {
+      "motivo": "periodica",
+      "nire": "31200134623",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026081234",
+      "certidaoBaixadaEm": "2026-03-08",
+      "encaminhadoEm": "2026-04-05",
+      "indicio": "sim",
+      "guiaPagaEm": "2026-03-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-02-15",
+      "tipo": "objeto",
+      "registro": "400008/2026",
+      "descricao": "inclusão de atividade no objeto social",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-04-05",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2026-04-06",
+        "n2": "2026-05-06"
+      },
+      "negociado": "2026-06-20",
+      "cobrado": null,
+      "valores": {
+        "taxa": 18000,
+        "negociado": 14500,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "37304836000190": {
+      "motivo": "periodica",
+      "nire": "31200142542",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "2026091234",
+      "certidaoBaixadaEm": "2026-02-08",
+      "encaminhadoEm": "2026-02-05",
+      "indicio": "sim",
+      "guiaPagaEm": "2026-02-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": true,
+      "dataMudanca": "2026-01-15",
+      "tipo": "entrada_saida",
+      "registro": "400009/2026",
+      "descricao": "saída de sócio e entrada de novo sócio com 60%",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-02-05",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2026-02-06"
+      },
+      "negociado": "2026-03-10",
+      "cobrado": "2026-04-10",
+      "valores": {
+        "taxa": 30000,
+        "negociado": 27000,
+        "cobrado": 27000
+      },
+      "obs": ""
+    },
+    "24806316000133": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-10-21",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "34297207046",
+      "nireConfirmado": false,
+      "atosListados": true
+    },
+    "66152371000105": {
+      "indicio": "sim",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-05-21",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "renovacao",
+      "nire": "33833640740",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "79153668000129": {
+      "motivo": "periodica",
+      "nire": "31200166299",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "",
+      "certidaoBaixadaEm": null,
+      "encaminhadoEm": null,
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": false,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "16105826000155": {
+      "indicio": "sim",
+      "guiaPagaEm": "2026-08-21",
+      "guiaNumero": "",
+      "consultadoEm": "2026-08-21",
+      "houveMudanca": true,
+      "dataMudanca": "2026-08-11",
+      "tipo": "objeto",
+      "registro": "607472/2026",
+      "descricao": "inclusão de atividade no objeto social",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "31259044981",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "20267451647"
+    },
+    "54610303000155": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-08-09",
+      "houveMudanca": false,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "35243728624",
+      "nireConfirmado": true,
+      "atosListados": false
+    },
+    "57285368000160": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-12",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "34603569490",
+      "nireConfirmado": true,
+      "atosListados": false
+    },
+    "97740581000130": {
+      "indicio": "sim",
+      "guiaPagaEm": "2026-05-24",
+      "guiaNumero": "",
+      "consultadoEm": "2026-05-24",
+      "houveMudanca": true,
+      "dataMudanca": "2025-11-15",
+      "tipo": "socio_admin",
+      "registro": "824038/2025",
+      "descricao": "troca de administrador",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2025-12-04",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2025-12-05",
+        "n2": "2026-01-05",
+        "n3": "2026-02-05",
+        "aviso": "2026-03-05",
+        "multa": "2026-04-05"
+      },
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": 30000,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "33524248648",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "20262896021",
+      "encaminhadoEm": "2025-12-04"
+    },
+    "51406654000150": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-10-03",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "suspeita",
+      "nire": "33899666324",
+      "nireConfirmado": false,
+      "atosListados": true
+    },
+    "81577743000120": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-10-27",
+      "houveMudanca": false,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "35117093343",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "36634996000134": {
+      "indicio": "sim",
+      "guiaPagaEm": "2026-09-24",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-24",
+      "houveMudanca": true,
+      "dataMudanca": "2026-03-22",
+      "tipo": "capital",
+      "registro": "583612/2026",
+      "descricao": "aumento de capital social",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-05-03",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2026-05-04",
+        "n2": "2026-06-04",
+        "n3": "2026-07-04",
+        "aviso": "2026-08-04"
+      },
+      "negociado": "2026-05-31",
+      "cobrado": "2026-06-16",
+      "valores": {
+        "taxa": 19700,
+        "negociado": 17200,
+        "cobrado": 17200
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "34462294749",
+      "nireConfirmado": false,
+      "atosListados": true,
+      "protocolo": "20265994063",
+      "certidaoBaixadaEm": "2026-09-29",
+      "encaminhadoEm": "2026-05-03"
+    },
+    "46844023000183": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-06-24",
+      "houveMudanca": false,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "32227593127",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "63973325000170": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-06-20",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "31213165242",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "34429166000140": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-05-18",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "34792850789",
+      "nireConfirmado": false,
+      "atosListados": true
+    },
+    "27375423000142": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-10-05",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "32860653391",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "92438284000110": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": false,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "32676064981",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "69728336000171": {
+      "indicio": "sim",
+      "guiaPagaEm": "2026-09-12",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-12",
+      "houveMudanca": true,
+      "dataMudanca": "2026-03-25",
+      "tipo": "capital",
+      "registro": "597854/2026",
+      "descricao": "aumento de capital social",
+      "isencao": "nao",
+      "limite": "até 25% das quotas entre sócios atuais",
+      "validadoEm": "2026-04-25",
+      "cobrar": true,
+      "notificacoes": {
+        "n1": "2026-04-26",
+        "n2": "2026-05-26",
+        "n3": "2026-06-26",
+        "aviso": "2026-07-26",
+        "multa": "2026-08-26"
+      },
+      "negociado": "2026-06-26",
+      "cobrado": "2026-07-26",
+      "valores": {
+        "taxa": 26300,
+        "negociado": 20300,
+        "cobrado": 20300
+      },
+      "obs": "",
+      "motivo": "suspeita",
+      "nire": "34473118527",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "20263633815",
+      "certidaoBaixadaEm": "2026-09-19",
+      "encaminhadoEm": "2026-04-25"
+    },
+    "33951168000131": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-08-24",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "32234011085",
+      "nireConfirmado": true,
+      "atosListados": false
+    },
+    "57182979000183": {
+      "indicio": "sim",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-10-13",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "renovacao",
+      "nire": "32663339088",
+      "nireConfirmado": false,
+      "atosListados": true
+    },
+    "32126452000100": {
+      "indicio": "nao",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-10",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": "",
+      "motivo": "periodica",
+      "nire": "33155555291",
+      "nireConfirmado": true,
+      "atosListados": true
+    },
+    "24538526000198": {
+      "motivo": "periodica",
+      "nire": "31200071271",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "",
+      "certidaoBaixadaEm": null,
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": null,
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    },
+    "17385654000183": {
+      "motivo": "periodica",
+      "nire": "31200079190",
+      "nireConfirmado": true,
+      "atosListados": true,
+      "protocolo": "202607778899",
+      "certidaoBaixadaEm": null,
+      "encaminhadoEm": null,
+      "indicio": "sim",
+      "guiaPagaEm": "2026-10-02",
+      "guiaNumero": "",
+      "consultadoEm": "2026-09-03",
+      "houveMudanca": null,
+      "dataMudanca": null,
+      "tipo": "",
+      "registro": "",
+      "descricao": "",
+      "isencao": null,
+      "limite": "",
+      "validadoEm": null,
+      "cobrar": null,
+      "notificacoes": {},
+      "negociado": null,
+      "cobrado": null,
+      "valores": {
+        "taxa": null,
+        "negociado": null,
+        "cobrado": null
+      },
+      "obs": ""
+    }
+  },
+  "cenarios": [
+    {
+      "loja": "Bela Cosméticos",
+      "cnpj": "11222333000181",
+      "processo": "Auditoria fiscal",
+      "situacao": "Ciclo completo: recebido, apurado, negociado e cobrado (R$ 36.000)",
+      "onde": "Painel · Dashboard"
+    },
+    {
+      "loja": "Bela Cosméticos",
+      "cnpj": "11222333000181",
+      "processo": "Triangulação",
+      "situacao": "DISPERSO em 09/2026: PDV acima da redução Z (alerta grave)",
+      "onde": "Triangulação · Dashboard"
+    },
+    {
+      "loja": "Bela Cosméticos",
+      "cnpj": "11222333000181",
+      "processo": "Societário",
+      "situacao": "TT confirmada este mês, 1ª notificação devida (R$ 15.000)",
+      "onde": "Societário · Notificações"
+    },
+    {
+      "loja": "Bela Cosméticos — quiosque",
+      "cnpj": "11222333000262",
+      "processo": "Auditoria fiscal",
+      "situacao": "Livro recebido, aguardando apuração — carregue os livros de demo/ e ele vira AUDITADO sozinho",
+      "onde": "Auditoria fiscal · Painel"
+    },
+    {
+      "loja": "Bela Cosméticos — quiosque",
+      "cnpj": "11222333000262",
+      "processo": "Societário",
+      "situacao": "Triagem sem indício de TT",
+      "onde": "Societário"
+    },
+    {
+      "loja": "Café Aurora",
+      "cnpj": "69781682000113",
+      "processo": "Auditoria fiscal",
+      "situacao": "Livro não recebido, três notificações feitas, próxima etapa devida",
+      "onde": "Notificações"
+    },
+    {
+      "loja": "Trilha & Cia",
+      "cnpj": "47231337000173",
+      "processo": "Auditoria fiscal",
+      "situacao": "Livro não recebido, multa enviada",
+      "onde": "Notificações · Painel (multados)"
+    },
+    {
+      "loja": "Ótica Horizonte",
+      "cnpj": "18637317000107",
+      "processo": "Auditoria fiscal",
+      "situacao": "Livro não recebido, só a 1ª notificação: etapas acumuladas",
+      "onde": "Notificações"
+    },
+    {
+      "loja": "Brinquedos Pipa",
+      "cnpj": "66681907000171",
+      "processo": "Auditoria fiscal",
+      "situacao": "Apurado com divergência de R$ 18.400, aguardando negociação",
+      "onde": "Dashboard (pendências)"
+    },
+    {
+      "loja": "Casa Linho",
+      "cnpj": "80926487000177",
+      "processo": "Auditoria fiscal",
+      "situacao": "Negociado (R$ 8.000), aguardando cobrança",
+      "onde": "Dashboard (pendências)"
+    },
+    {
+      "loja": "Studio Vinil",
+      "cnpj": "73624117000110",
+      "processo": "Auditoria fiscal",
+      "situacao": "Livro não recebido, sem e-mail nem WhatsApp, nenhuma notificação",
+      "onde": "Notificações"
+    },
+    {
+      "loja": "Sabor da Serra",
+      "cnpj": "88967134000127",
+      "processo": "Cadastro",
+      "situacao": "Sem UF e sem início do contrato: a Junta não abre e a aba avisa",
+      "onde": "Societário · Lojistas"
+    },
+    {
+      "loja": "Vértice Calçados",
+      "cnpj": "24538526000198",
+      "processo": "Societário",
+      "situacao": "Indício na triagem, guia a pagar",
+      "onde": "Societário · Dashboard"
+    },
+    {
+      "loja": "Lume Joias",
+      "cnpj": "17385654000183",
+      "processo": "Societário",
+      "situacao": "Certidão paga, aguardando download",
+      "onde": "Societário · Dashboard"
+    },
+    {
+      "loja": "Pão de Ló Confeitaria",
+      "cnpj": "32185023000104",
+      "processo": "Societário",
+      "situacao": "Alteração de capital ANTERIOR ao início do contrato: não é TT",
+      "onde": "Societário"
+    },
+    {
+      "loja": "Urbano Moda Masculina",
+      "cnpj": "56288060000106",
+      "processo": "Societário",
+      "situacao": "Outra alteração (endereço): não é TT",
+      "onde": "Societário"
+    },
+    {
+      "loja": "Flor de Sal",
+      "cnpj": "28428793000163",
+      "processo": "Societário",
+      "situacao": "Mudança marcada sem a data: \"informe a data da alteração\"",
+      "onde": "Societário"
+    },
+    {
+      "loja": "Mundo Pet Center",
+      "cnpj": "80230013000196",
+      "processo": "Societário",
+      "situacao": "Troca de administrador há 3 meses: sinalizado, aguardando validação",
+      "onde": "Societário · Dashboard"
+    },
+    {
+      "loja": "Ateliê Brisa",
+      "cnpj": "12673096000138",
+      "processo": "Societário",
+      "situacao": "Alteração dentro do limite contratual: isento",
+      "onde": "Societário"
+    },
+    {
+      "loja": "Tech Point Celulares",
+      "cnpj": "94810329000161",
+      "processo": "Societário",
+      "situacao": "TT em cobrança há 3 meses com só a 1ª notificação: etapas acumuladas (R$ 22.000)",
+      "onde": "Societário · Notificações"
+    },
+    {
+      "loja": "Livraria Página 9",
+      "cnpj": "47484133000144",
+      "processo": "Societário",
+      "situacao": "TT negociada (R$ 14.500 de R$ 18.000)",
+      "onde": "Societário · Dashboard"
+    },
+    {
+      "loja": "Doce Lima Sorvetes",
+      "cnpj": "37304836000190",
+      "processo": "Societário",
+      "situacao": "TT cobrada (R$ 27.000), alteração há 9 meses",
+      "onde": "Societário · Dashboard"
+    },
+    {
+      "loja": "Nuvem Kids",
+      "cnpj": "24806316000133",
+      "processo": "Triangulação",
+      "situacao": "Só a redução Z no mês: FONTE ÚNICA",
+      "onde": "Triangulação (histórico)"
+    },
+    {
+      "loja": "Forma Academia Store",
+      "cnpj": "66152371000105",
+      "processo": "Triangulação",
+      "situacao": "Sem Z nem PDV no mês de referência",
+      "onde": "Dashboard (pendências)"
+    },
+    {
+      "loja": "Raiz Natural",
+      "cnpj": "79153668000129",
+      "processo": "Triangulação + Societário",
+      "situacao": "Z, PDV, NAPP e declarado variam R$ 50: COERENTE; sem mudança societária; checklist completo",
+      "onde": "Triangulação · Societário"
+    },
+    {
+      "loja": "Farol Óculos",
+      "cnpj": "16105826000155",
+      "processo": "Triangulação",
+      "situacao": "NAPP é o maior valor em 09/2026 (R$ 104.500): R$ 6.500 acima do declarado, DISPERSO",
+      "onde": "Triangulação (histórico) · Dashboard"
+    },
+    {
+      "loja": "Estação Games",
+      "cnpj": "32126452000100",
+      "processo": "Cadastro",
+      "situacao": "Lojista inativo: fora do painel, das notificações e do dashboard",
+      "onde": "Lojistas"
+    }
+  ],
+  "prefs": {
+    "shopping": "o Shopping Parque Exemplo",
+    "prazoDias": 10,
+    "assinatura": "Equipe de Auditoria — Shopping Parque Exemplo",
+    "clausulaMulta": "a multa de 1 (um) aluguel mínimo prevista na cláusula 18.3 do contrato de locação",
+    "clausulaTaxa": "a taxa de transferência de 3 (três) aluguéis mínimos prevista na cláusula 22 do contrato de locação"
+  },
+  "_inicioCiclo": "2026-04-01"
+}
