@@ -10,6 +10,7 @@ commit: "15f5c0d"
 files: 270
 size_mb: 24.2
 skipped: 2
+branches_with_work: 22
 tags: ["codigo", "github", "repo/radarbazin1"]
 ---
 # radarbazin1
@@ -17,15 +18,47 @@ tags: ["codigo", "github", "repo/radarbazin1"]
 Radar de shopping centers: docs, workflows de leads, app bloquinhos
 
 - **GitHub:** https://github.com/dvf15/radarbazin1
-- **Branch espelhado:** main · **commit:** 15f5c0d · **último commit:** 2026-11-02T10:11:50-03:00
-- **Código-fonte completo:** pasta `src/` (270 arquivos, 24.2 MB). Histórico de commits e demais branches ficam no GitHub.
+- **Branch padrão espelhado:** main · **commit:** 15f5c0d · **último commit:** 2026-11-02T10:11:50-03:00
+- **Código-fonte do branch padrão:** pasta `src/` (270 arquivos, 24.2 MB). Histórico de commits fica no GitHub.
+- **Trabalho em outros branches:** pasta `branches/` (22 branches, 288 arquivos, 77.8 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
 
-## Arquivos acima de 20 MB (só no GitHub)
+## Arquivos do branch padrão acima de 20 MB (só no GitHub)
 
 - public/midia-como-usar.mp4 (30.0 MB)
 - public/midia-passo-a-passo-celular.mp4 (49.3 MB)
 
-## Documentação (.md) dentro do código
+## Branches com trabalho não mesclado
+
+| Branch | Pasta | Commits | Arquivos | Último commit |
+| --- | --- | --- | --- | --- |
+| `claude/ai-orchestration-training-6576av` | `branches/claude-ai-orchestration-training-6576av/` | 3 | 3 | 2026-07-11 — Módulos de guardrails e auditoria do modelo no treinamento de orquestração |
+| `claude/benefits-ux-improvements-7ptjlq` | `branches/claude-benefits-ux-improvements-7ptjlq/` | 4 | 8 | 2026-07-03 — Add 'Anexo para consulta' page with verbatim source texts |
+| `claude/casas-bahia-risk-analysis-6rceir` | `branches/claude-casas-bahia-risk-analysis-6rceir/` | 2 | 3 | 2026-08-16 — Amplia deck da Casas Bahia com erros estratégicos, exposição e pipeline |
+| `claude/clause-approval-strategy-sbulaw` | `branches/claude-clause-approval-strategy-sbulaw/` | 1 | 1 | 2026-11-02 — Ferramentas publicas fora do middleware |
+| `claude/exec-compensation-simulator-y9fq93` | `branches/claude-exec-compensation-simulator-y9fq93/` | 6 | 8 | 2026-09-01 — Torna o simulador instalavel: service worker, botao e instrucoes |
+| `claude/fable5-agent-builder-config-4vn6pq` | `branches/claude-fable5-agent-builder-config-4vn6pq/` | 3 | 5 | 2026-07-16 — Base de teste completa (Excel + 3 CSVs) para exercitar todas as funcionalidad |
+| `claude/fitness-photo-workout-app-swee4u` | `branches/claude-fitness-photo-workout-app-swee4u/` | 1 | 4 | 2026-10-12 — Histórico: barra de tempo em calorias/macros/micros/pressão e calorias vs met |
+| `claude/kiosk-investor-screening-ickf15` | `branches/claude-kiosk-investor-screening-ickf15/` | 1 | 1 | 2026-08-20 — Seguranca: corrige XSS armazenado/refletido e adiciona hardening |
+| `claude/math-game-numberblocks-vjfnkf` | `branches/claude-math-game-numberblocks-vjfnkf/` | 3 | 15 | 2026-10-19 — Pop-up "Pense com calma" em todos os jogos de múltipla escolha |
+| `claude/media-screening-tool-executives-xlp20a` | `branches/claude-media-screening-tool-executives-xlp20a/` | 2 | 2 (+2 só no GitHub) | 2026-10-27 — Radar de Mídia: vídeos do fluxo revisado e das mudanças pedidas no teste |
+| `claude/media-vehicle-reit-analysis-dekwqf` | `branches/claude-media-vehicle-reit-analysis-dekwqf/` | 3 | 29 | 2026-06-26 — Add Obsidian vault: concept stubs, deep-dive notes, README as MOC |
+| `claude/seguro-lojas-estrategia-auzz4y` | `branches/claude-seguro-lojas-estrategia-auzz4y/` | 3 | 4 | 2026-08-23 — docs: deck PPTX do material de pre-comite de Seguro para Lojas |
+| `claude/shopping-ai-efficiency-presentation-vlfzql` | `branches/claude-shopping-ai-efficiency-presentation-vlfzql/` | 134 | 137 (+1 só no GitHub) | 2026-10-29 — Workshop: versao final (VF) a partir do PDF de referencia + versao de 1h30 pa |
+| `claude/shopping-app-guidelines-pzkv93` | `branches/claude-shopping-app-guidelines-pzkv93/` | 2 | 1 | 2026-07-21 — Adiciona Ciclo 2 das orientações: Goal, shopping ativo e revisão dos agentes |
+| `claude/shopping-retrofit-rationale-pf0o9v` | `branches/claude-shopping-retrofit-rationale-pf0o9v/` | 9 | 8 | 2026-07-02 — Atualiza Resumo Detalhado com dados reais do ativo (BBH, aceleração 2%) |
+| `claude/shopping-shift-report-skill-ifcwk3` | `branches/claude-shopping-shift-report-skill-ifcwk3/` | 2 | 5 | 2026-08-10 — Adiciona instruções do teste piloto do relatório de plantão |
+| `claude/supplier-screening-tool-retail-wy6ui6` | `branches/claude-supplier-screening-tool-retail-wy6ui6/` | 5 | 7 | 2026-10-27 — Merge remote-tracking branch 'origin/main' into claude/supplier-screening-too |
+| `claude/taste-lab-tijuca-slide-odix37` | `branches/claude-taste-lab-tijuca-slide-odix37/` | 1 | 4 | 2026-06-23 — Add Taste Lab Tijuca internal highlights slide (pptx) |
+| `claude/training-markdown-file-11rsdm` | `branches/claude-training-markdown-file-11rsdm/` | 1 | 1 | 2026-07-07 — Adiciona treinamento Shopping Inteligente IA (Mooca Plaza) em Markdown |
+| `claude/treino-funcional-jiu-jitsu-hhyk9q` | `branches/claude-treino-funcional-jiu-jitsu-hhyk9q/` | 1 | 1 | 2026-07-19 — Agenda semanal padrao do dono: musculacao, BJJ e HIIT por dia da semana |
+| `claude/via-center-niteroi-development-3sqqae` | `branches/claude-via-center-niteroi-development-3sqqae/` | 8 | 5 | 2026-09-02 — Dossie Via Center: compacta o slide de riscos para a regularidade do Plaza |
+| `nutritreino` | `branches/nutritreino/` | 28 | 36 | 2026-10-12 — Histórico: barra de tempo em calorias/macros/micros/pressão e calorias vs met |
+
+**Só no GitHub (`claude/media-screening-tool-executives-xlp20a`):** public/midia-o-que-mudou.mp4 (vídeo), public/midia-passo-a-passo-celular.mp4 (vídeo)
+
+**Só no GitHub (`claude/shopping-ai-efficiency-presentation-vlfzql`):** apresentacao/Workshop_Shopping_Inteligente_VF.pptx (acima de 20 MB ou ilegível)
+
+## Documentação (.md) no branch padrão
 
 - [[codigo/radarbazin1/src/README|README.md]]
 - [[codigo/radarbazin1/src/app-bloquinhos/README|app-bloquinhos/README.md]]
@@ -86,7 +119,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - [[codigo/radarbazin1/src/skill/simulador-estrutura-shoppings/SKILL|skill/simulador-estrutura-shoppings/SKILL.md]]
 - [[codigo/radarbazin1/src/skill/simulador-estrutura-shoppings/referencia-dados|skill/simulador-estrutura-shoppings/referencia-dados.md]]
 
-## Árvore (até 400 arquivos)
+## Árvore do branch padrão (até 400 arquivos)
 
 ```
 .env.example

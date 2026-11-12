@@ -1,0 +1,2699 @@
+{
+  "version": 1,
+  "exportedAt": "2026-10-27T20:38:13.928Z",
+  "advertisers": [
+    {
+      "id": "ad_mvr5dont_5yi",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Ótica Vision",
+        "contato": "ana@oticavision.exemplo",
+        "origem": "Indicação do shopping",
+        "canal": "lojista",
+        "segmento": "Varejo & moda",
+        "verba": 25000,
+        "verbames": 12000,
+        "verbastatus": "aprovada",
+        "objetivo": "consideracao",
+        "kpi": "trafego",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "indiferente",
+        "pracas": "",
+        "publicos": [
+          "Famílias com filhos",
+          "Mulheres 25–49"
+        ],
+        "nichos": [
+          "Famílias & mães"
+        ],
+        "semanas": 4,
+        "data": "",
+        "prop": "",
+        "cats": [
+          "Mídia digital — Shopping"
+        ],
+        "objecao": "preco"
+      },
+      "top": [
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 100,
+          "adScore": 96,
+          "mix": 100,
+          "custo": 14000,
+          "prioVenda": true
+        },
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 100,
+          "adScore": 97,
+          "mix": 100,
+          "custo": 15000,
+          "prioVenda": false
+        },
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 97,
+          "adScore": 94,
+          "mix": 100,
+          "custo": 18000,
+          "prioVenda": false
+        },
+        {
+          "n": "Cupom Extra em Promoções",
+          "cat": "Promoções & cupons",
+          "finalScore": 68,
+          "adScore": 62,
+          "mix": 100,
+          "custo": 25000,
+          "prioVenda": true
+        },
+        {
+          "n": "DOOH Programático — Rede Helloo",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 61,
+          "adScore": 62,
+          "mix": 90,
+          "custo": 25000,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5donv_3t2",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Café Grão",
+        "contato": "lucas@cafegrao.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "lojista",
+        "segmento": "Alimentação & bebidas",
+        "verba": 12000,
+        "verbames": 6000,
+        "verbastatus": "aprovacao",
+        "objetivo": "conversao",
+        "kpi": "vendas",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Massa / grande fluxo",
+          "Jovens 18–29"
+        ],
+        "nichos": [
+          "Gastronomia & bares"
+        ],
+        "semanas": 8,
+        "data": "",
+        "prop": "Testeira Digital — Shopping",
+        "cats": [
+          "Mídia digital — Shopping",
+          "Promoções & cupons"
+        ],
+        "objecao": "medir"
+      },
+      "top": [
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 41,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 33600,
+          "prioVenda": false
+        },
+        {
+          "n": "Geofencing & Drive-to-Store",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 41,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 52300,
+          "prioVenda": false
+        },
+        {
+          "n": "Patrocínio de Evento no Shopping",
+          "cat": "Patrocínio de eventos",
+          "finalScore": 41,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 93300,
+          "prioVenda": false
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 70900,
+          "prioVenda": true
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 90,
+          "custo": 26100,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dony_4l7",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "proposta",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Academia Pulse",
+        "contato": "contato@pulse.exemplo",
+        "origem": "Formulário do site",
+        "canal": "lojista",
+        "segmento": "Saúde & bem-estar",
+        "verba": 18000,
+        "verbames": 9000,
+        "verbastatus": "aprovada",
+        "objetivo": "conversao",
+        "kpi": "cadastro",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Jovens 18–29",
+          "Classes A/B"
+        ],
+        "nichos": [
+          "Fitness & saúde"
+        ],
+        "semanas": 6,
+        "data": "Volta às aulas",
+        "prop": "",
+        "cats": [
+          "App do programa",
+          "CRM & venda certa"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 82,
+          "adScore": 85,
+          "mix": 78,
+          "custo": 21000,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 75,
+          "adScore": 74,
+          "mix": 78,
+          "custo": 19600,
+          "prioVenda": true
+        },
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 53,
+          "adScore": 50,
+          "mix": 100,
+          "custo": 16800,
+          "prioVenda": false
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 44,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 42000,
+          "prioVenda": true
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 53200,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doo2_47z",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Pet Vila",
+        "contato": "vila@petvila.exemplo",
+        "origem": "Indicação do shopping",
+        "canal": "lojista",
+        "segmento": "Pet",
+        "verba": 40000,
+        "verbames": 7000,
+        "verbastatus": "exploratoria",
+        "objetivo": "fidelizacao",
+        "kpi": "recorrencia",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Tutores de pets",
+          "Famílias com filhos"
+        ],
+        "nichos": [
+          "Pet lovers"
+        ],
+        "semanas": 26,
+        "data": "",
+        "prop": "Adoção do Pet Park",
+        "cats": [
+          "Adoção de espaços",
+          "App do programa"
+        ],
+        "objecao": "verba_toda"
+      },
+      "top": [
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 44,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 84900,
+          "prioVenda": true
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 84900,
+          "prioVenda": true
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 182000,
+          "prioVenda": true
+        },
+        {
+          "n": "Cupom Extra em Promoções",
+          "cat": "Promoções & cupons",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 151700,
+          "prioVenda": true
+        },
+        {
+          "n": "Status Match",
+          "cat": "Programa de pontos",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 212300,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doo7_2u7",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Livraria Página",
+        "contato": "marketing@pagina.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "lojista",
+        "segmento": "Entretenimento & mídia",
+        "verba": 5000,
+        "verbames": 5000,
+        "verbastatus": "exploratoria",
+        "objetivo": "awareness",
+        "kpi": "alcance",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Massa / grande fluxo"
+        ],
+        "nichos": [],
+        "semanas": 2,
+        "data": "",
+        "prop": "",
+        "cats": [],
+        "objecao": "preco"
+      },
+      "top": [
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 38000,
+          "prioVenda": true
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 14000,
+          "prioVenda": true
+        },
+        {
+          "n": "Túnel Icônico — Aeroporto",
+          "cat": "Outdoors & icônicos",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 120000,
+          "prioVenda": true
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 30000,
+          "prioVenda": true
+        },
+        {
+          "n": "Cupom Extra em Promoções",
+          "cat": "Promoções & cupons",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 25000,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doo9_z8",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Farmácia Bem",
+        "contato": "gerente@farmaciabem.exemplo",
+        "origem": "Indicação do shopping",
+        "canal": "lojista",
+        "segmento": "Saúde & bem-estar",
+        "verba": 30000,
+        "verbames": 15000,
+        "verbastatus": "aprovada",
+        "objetivo": "conversao",
+        "kpi": "vendas",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "indiferente",
+        "pracas": "",
+        "publicos": [
+          "Público 50+",
+          "Famílias com filhos"
+        ],
+        "nichos": [
+          "Sênior 50+"
+        ],
+        "semanas": 8,
+        "data": "Black Friday",
+        "prop": "Cupom Extra em Promoções",
+        "cats": [
+          "Promoções & cupons"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 90,
+          "adScore": 93,
+          "mix": 78,
+          "custo": 28000,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 87,
+          "adScore": 87,
+          "mix": 78,
+          "custo": 26100,
+          "prioVenda": true
+        },
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 77,
+          "adScore": 78,
+          "mix": 90,
+          "custo": 33600,
+          "prioVenda": false
+        },
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 53,
+          "adScore": 50,
+          "mix": 100,
+          "custo": 22400,
+          "prioVenda": false
+        },
+        {
+          "n": "Helloo Home — Elevador Residencial",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 52,
+          "adScore": 50,
+          "mix": 90,
+          "custo": 29900,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dooa_2pe",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "proposta",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Banco Alfa",
+        "contato": "marina@bancoalfa.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "direto",
+        "segmento": "Financeiro & bancos",
+        "verba": 300000,
+        "verbames": 60000,
+        "verbastatus": "aprovada",
+        "objetivo": "fidelizacao",
+        "kpi": "recorrencia",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Classes A/B",
+          "Executivos & viajantes"
+        ],
+        "nichos": [
+          "Alta renda",
+          "Investidores & finanças"
+        ],
+        "semanas": 20,
+        "data": "",
+        "prop": "Acelerador de Categoria",
+        "cats": [
+          "Programa de pontos"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Status Match",
+          "cat": "Programa de pontos",
+          "finalScore": 100,
+          "adScore": 99,
+          "mix": 90,
+          "custo": 163300,
+          "prioVenda": true
+        },
+        {
+          "n": "Acelerador de Categoria",
+          "cat": "Programa de pontos",
+          "finalScore": 94,
+          "adScore": 100,
+          "mix": 62,
+          "custo": 186700,
+          "prioVenda": false
+        },
+        {
+          "n": "Adoção do Valet",
+          "cat": "Adoção de espaços",
+          "finalScore": 83,
+          "adScore": 84,
+          "mix": 90,
+          "custo": 93300,
+          "prioVenda": false
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 77,
+          "adScore": 75,
+          "mix": 90,
+          "custo": 177300,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 76,
+          "adScore": 75,
+          "mix": 78,
+          "custo": 65300,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doob_1zs",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Banco Beta",
+        "contato": "mídia@bancobeta.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Financeiro & bancos",
+        "verba": 180000,
+        "verbames": 45000,
+        "verbastatus": "aprovacao",
+        "objetivo": "fidelizacao",
+        "kpi": "recorrencia",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Classes A/B"
+        ],
+        "nichos": [
+          "Alta renda"
+        ],
+        "semanas": 16,
+        "data": "",
+        "prop": "Acelerador de Categoria",
+        "cats": [
+          "Programa de pontos"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Status Match",
+          "cat": "Programa de pontos",
+          "finalScore": 99,
+          "adScore": 97,
+          "mix": 90,
+          "custo": 130700,
+          "prioVenda": true
+        },
+        {
+          "n": "Acelerador de Categoria",
+          "cat": "Programa de pontos",
+          "finalScore": 90,
+          "adScore": 98,
+          "mix": 45,
+          "custo": 149300,
+          "prioVenda": false
+        },
+        {
+          "n": "Adoção do Valet",
+          "cat": "Adoção de espaços",
+          "finalScore": 83,
+          "adScore": 84,
+          "mix": 90,
+          "custo": 74700,
+          "prioVenda": false
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 79,
+          "adScore": 79,
+          "mix": 78,
+          "custo": 52300,
+          "prioVenda": true
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 77,
+          "adScore": 75,
+          "mix": 90,
+          "custo": 141900,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dooc_79p",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Montadora Vale",
+        "contato": "comercial@vale.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Automotivo",
+        "verba": 420000,
+        "verbames": 140000,
+        "verbastatus": "aprovada",
+        "objetivo": "awareness",
+        "kpi": "lembranca",
+        "exclusiv": "nao",
+        "praca": "aeroporto",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Executivos & viajantes",
+          "Motoristas / carro próprio"
+        ],
+        "nichos": [
+          "Motoristas & carro próprio",
+          "Viajantes frequentes"
+        ],
+        "semanas": 12,
+        "data": "",
+        "prop": "Túnel Icônico — Aeroporto",
+        "cats": [
+          "Mídia digital — Aeroporto",
+          "Outdoors & icônicos"
+        ],
+        "objecao": "publico_aero"
+      },
+      "top": [
+        {
+          "n": "Túnel Icônico — Aeroporto",
+          "cat": "Outdoors & icônicos",
+          "finalScore": 93,
+          "adScore": 87,
+          "mix": 100,
+          "custo": 336000,
+          "prioVenda": true
+        },
+        {
+          "n": "Outdoor Digital — Aeroporto",
+          "cat": "Outdoors & icônicos",
+          "finalScore": 91,
+          "adScore": 88,
+          "mix": 100,
+          "custo": 98000,
+          "prioVenda": false
+        },
+        {
+          "n": "Geofencing & Drive-to-Store",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 82,
+          "adScore": 83,
+          "mix": 90,
+          "custo": 78400,
+          "prioVenda": false
+        },
+        {
+          "n": "Totem Digital — Aeroporto",
+          "cat": "Mídia digital — Aeroporto",
+          "finalScore": 81,
+          "adScore": 84,
+          "mix": 78,
+          "custo": 72800,
+          "prioVenda": false
+        },
+        {
+          "n": "Megabanner — Aeroporto",
+          "cat": "Mídia digital — Aeroporto",
+          "finalScore": 81,
+          "adScore": 88,
+          "mix": 45,
+          "custo": 182000,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dood_6ek",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Construtora Horizonte",
+        "contato": "lancamento@horizonte.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "direto",
+        "segmento": "Imobiliário & construção",
+        "verba": 240000,
+        "verbames": 80000,
+        "verbastatus": "aprovada",
+        "objetivo": "awareness",
+        "kpi": "alcance",
+        "exclusiv": "nao",
+        "praca": "residencial",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Classes A/B",
+          "Moradores de condomínio"
+        ],
+        "nichos": [
+          "Alta renda",
+          "Casa & decoração"
+        ],
+        "semanas": 13,
+        "data": "",
+        "prop": "",
+        "cats": [
+          "Helloo Home — Residencial",
+          "Mídia programática (DOOH)"
+        ],
+        "objecao": "impacto_home"
+      },
+      "top": [
+        {
+          "n": "Helloo Home — Elevador Residencial",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 98,
+          "adScore": 92,
+          "mix": 100,
+          "custo": 48500,
+          "prioVenda": true
+        },
+        {
+          "n": "Helloo Home — Rede Geolocalizada",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 93,
+          "adScore": 99,
+          "mix": 62,
+          "custo": 151700,
+          "prioVenda": false
+        },
+        {
+          "n": "DOOH Programático — Rede Helloo",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 89,
+          "adScore": 92,
+          "mix": 78,
+          "custo": 75800,
+          "prioVenda": false
+        },
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 89,
+          "adScore": 92,
+          "mix": 78,
+          "custo": 36400,
+          "prioVenda": false
+        },
+        {
+          "n": "Extensão de Audiência — Mobile & CTV",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 85,
+          "adScore": 88,
+          "mix": 78,
+          "custo": 91000,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dooe_55o",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Delivery Já",
+        "contato": "growth@deliveryja.exemplo",
+        "origem": "Formulário do site",
+        "canal": "direto",
+        "segmento": "Tecnologia & telecom",
+        "verba": 90000,
+        "verbames": 45000,
+        "verbastatus": "aprovada",
+        "objetivo": "conversao",
+        "kpi": "cadastro",
+        "exclusiv": "nao",
+        "praca": "indiferente",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Jovens 18–29",
+          "Moradores de condomínio"
+        ],
+        "nichos": [
+          "Gastronomia & bares"
+        ],
+        "semanas": 8,
+        "data": "",
+        "prop": "",
+        "cats": [
+          "Mídia programática (DOOH)",
+          "Helloo Home — Residencial"
+        ],
+        "objecao": "online_vs_ooh"
+      },
+      "top": [
+        {
+          "n": "DOOH Programático — Rede Helloo",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 94,
+          "adScore": 91,
+          "mix": 100,
+          "custo": 46700,
+          "prioVenda": false
+        },
+        {
+          "n": "Extensão de Audiência — Mobile & CTV",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 92,
+          "adScore": 95,
+          "mix": 78,
+          "custo": 56000,
+          "prioVenda": false
+        },
+        {
+          "n": "Geofencing & Drive-to-Store",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 88,
+          "adScore": 91,
+          "mix": 78,
+          "custo": 52300,
+          "prioVenda": false
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 86,
+          "adScore": 86,
+          "mix": 78,
+          "custo": 56000,
+          "prioVenda": true
+        },
+        {
+          "n": "Status Match",
+          "cat": "Programa de pontos",
+          "finalScore": 86,
+          "adScore": 86,
+          "mix": 78,
+          "custo": 65300,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doof_22d",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "proposta",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Cosméticos Lumi",
+        "contato": "trade@lumi.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Beleza & cosméticos",
+        "verba": 150000,
+        "verbames": 75000,
+        "verbastatus": "aprovada",
+        "objetivo": "conversao",
+        "kpi": "vendas",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Mulheres 25–49",
+          "Classes A/B"
+        ],
+        "nichos": [
+          "Beleza & autocuidado",
+          "Moda & tendência"
+        ],
+        "semanas": 9,
+        "data": "Dia das Mães",
+        "prop": "Patrocínio de Campanha de Data de Varejo",
+        "cats": [
+          "Campanhas sazonais",
+          "Promoções & cupons"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Cupom Extra em Promoções",
+          "cat": "Promoções & cupons",
+          "finalScore": 97,
+          "adScore": 95,
+          "mix": 90,
+          "custo": 52500,
+          "prioVenda": true
+        },
+        {
+          "n": "Extensão de Audiência — Mobile & CTV",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 96,
+          "adScore": 93,
+          "mix": 100,
+          "custo": 63000,
+          "prioVenda": false
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 95,
+          "adScore": 95,
+          "mix": 78,
+          "custo": 63000,
+          "prioVenda": true
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 90,
+          "adScore": 88,
+          "mix": 90,
+          "custo": 29400,
+          "prioVenda": true
+        },
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 90,
+          "adScore": 91,
+          "mix": 90,
+          "custo": 31500,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doog_31f",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Seguradora Norte",
+        "contato": "parcerias@norte.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "direto",
+        "segmento": "Financeiro & bancos",
+        "verba": 120000,
+        "verbames": 40000,
+        "verbastatus": "aprovacao",
+        "objetivo": "fidelizacao",
+        "kpi": "cadastro",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Classes A/B",
+          "Executivos & viajantes"
+        ],
+        "nichos": [
+          "Alta renda",
+          "Viajantes frequentes"
+        ],
+        "semanas": 13,
+        "data": "",
+        "prop": "Status Match",
+        "cats": [
+          "Programa de pontos"
+        ],
+        "objecao": "medir"
+      },
+      "top": [
+        {
+          "n": "Status Match",
+          "cat": "Programa de pontos",
+          "finalScore": 100,
+          "adScore": 100,
+          "mix": 90,
+          "custo": 106200,
+          "prioVenda": true
+        },
+        {
+          "n": "Extensão de Audiência — Mobile & CTV",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 89,
+          "adScore": 90,
+          "mix": 90,
+          "custo": 91000,
+          "prioVenda": false
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 89,
+          "adScore": 89,
+          "mix": 78,
+          "custo": 91000,
+          "prioVenda": true
+        },
+        {
+          "n": "Geofencing & Drive-to-Store",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 87,
+          "adScore": 90,
+          "mix": 78,
+          "custo": 84900,
+          "prioVenda": false
+        },
+        {
+          "n": "Adoção do Valet",
+          "cat": "Adoção de espaços",
+          "finalScore": 85,
+          "adScore": 86,
+          "mix": 90,
+          "custo": 60700,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dooh_6ay",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Telecom Onda",
+        "contato": "midia@onda.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Tecnologia & telecom",
+        "verba": 500000,
+        "verbames": 125000,
+        "verbastatus": "aprovada",
+        "objetivo": "institucional",
+        "kpi": "lembranca",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Massa / grande fluxo",
+          "Classes A/B"
+        ],
+        "nichos": [
+          "Gamers & tech"
+        ],
+        "semanas": 17,
+        "data": "",
+        "prop": "Empena / Fachada Icônica",
+        "cats": [
+          "Outdoors & icônicos",
+          "Mídia digital — Shopping"
+        ],
+        "objecao": "verba_toda"
+      },
+      "top": [
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 88,
+          "adScore": 88,
+          "mix": 78,
+          "custo": 150700,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Eletroposto",
+          "cat": "Adoção de espaços",
+          "finalScore": 87,
+          "adScore": 85,
+          "mix": 90,
+          "custo": 63500,
+          "prioVenda": true
+        },
+        {
+          "n": "Túnel Icônico — Shopping",
+          "cat": "Outdoors & icônicos",
+          "finalScore": 86,
+          "adScore": 91,
+          "mix": 62,
+          "custo": 337200,
+          "prioVenda": false
+        },
+        {
+          "n": "Empena / Fachada Icônica",
+          "cat": "Outdoors & icônicos",
+          "finalScore": 86,
+          "adScore": 94,
+          "mix": 45,
+          "custo": 436300,
+          "prioVenda": false
+        },
+        {
+          "n": "Patrocínio de Evento no Shopping",
+          "cat": "Patrocínio de eventos",
+          "finalScore": 84,
+          "adScore": 87,
+          "mix": 78,
+          "custo": 198300,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dook_1k9",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Colégio Saber",
+        "contato": "diretoria@saber.exemplo",
+        "origem": "Indicação do shopping",
+        "canal": "direto",
+        "segmento": "Educação",
+        "verba": 35000,
+        "verbames": 12000,
+        "verbastatus": "aprovada",
+        "objetivo": "consideracao",
+        "kpi": "cadastro",
+        "exclusiv": "nao",
+        "praca": "residencial",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Famílias com filhos",
+          "Moradores de condomínio"
+        ],
+        "nichos": [
+          "Kids & infantil",
+          "Famílias & mães"
+        ],
+        "semanas": 12,
+        "data": "Volta às aulas",
+        "prop": "",
+        "cats": [
+          "Helloo Home — Residencial"
+        ],
+        "objecao": "impacto_home"
+      },
+      "top": [
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 81,
+          "adScore": 84,
+          "mix": 78,
+          "custo": 33600,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 51,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 39200,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 51,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 40000,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Fraldário",
+          "cat": "Adoção de espaços",
+          "finalScore": 46,
+          "adScore": 50,
+          "mix": 45,
+          "custo": 36000,
+          "prioVenda": false
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 106400,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doom_62u",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Clínica Viva",
+        "contato": "marketing@clinicaviva.exemplo",
+        "origem": "Formulário do site",
+        "canal": "direto",
+        "segmento": "Saúde & bem-estar",
+        "verba": 60000,
+        "verbames": 20000,
+        "verbastatus": "aprovacao",
+        "objetivo": "consideracao",
+        "kpi": "trafego",
+        "exclusiv": "nao",
+        "praca": "residencial",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Público 50+",
+          "Moradores de condomínio"
+        ],
+        "nichos": [
+          "Sênior 50+"
+        ],
+        "semanas": 13,
+        "data": "",
+        "prop": "",
+        "cats": [
+          "Helloo Home — Residencial",
+          "CRM & venda certa"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 93,
+          "adScore": 90,
+          "mix": 100,
+          "custo": 36400,
+          "prioVenda": false
+        },
+        {
+          "n": "Helloo Home — Elevador Residencial",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 92,
+          "adScore": 90,
+          "mix": 90,
+          "custo": 48500,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 52,
+          "adScore": 50,
+          "mix": 90,
+          "custo": 42500,
+          "prioVenda": true
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 51,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 42500,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Eletroposto",
+          "cat": "Adoção de espaços",
+          "finalScore": 51,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 48500,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dooo_tn",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "proposta",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Aérea Azul Céu",
+        "contato": "trade@azulceu.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Turismo & aéreas",
+        "verba": 200000,
+        "verbames": 100000,
+        "verbastatus": "aprovada",
+        "objetivo": "awareness",
+        "kpi": "lembranca",
+        "exclusiv": "nao",
+        "praca": "aeroporto",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Executivos & viajantes"
+        ],
+        "nichos": [
+          "Viajantes frequentes"
+        ],
+        "semanas": 9,
+        "data": "",
+        "prop": "Megabanner — Aeroporto",
+        "cats": [
+          "Mídia digital — Aeroporto"
+        ],
+        "objecao": "preco"
+      },
+      "top": [
+        {
+          "n": "Totem Digital — Aeroporto",
+          "cat": "Mídia digital — Aeroporto",
+          "finalScore": 87,
+          "adScore": 88,
+          "mix": 90,
+          "custo": 54600,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Aeroporto",
+          "cat": "Mídia digital — Aeroporto",
+          "finalScore": 87,
+          "adScore": 84,
+          "mix": 100,
+          "custo": 46200,
+          "prioVenda": false
+        },
+        {
+          "n": "Status Match",
+          "cat": "Programa de pontos",
+          "finalScore": 87,
+          "adScore": 81,
+          "mix": 100,
+          "custo": 73500,
+          "prioVenda": true
+        },
+        {
+          "n": "Megabanner — Aeroporto",
+          "cat": "Mídia digital — Aeroporto",
+          "finalScore": 86,
+          "adScore": 91,
+          "mix": 62,
+          "custo": 136500,
+          "prioVenda": false
+        },
+        {
+          "n": "Outdoor Digital — Aeroporto",
+          "cat": "Outdoors & icônicos",
+          "finalScore": 83,
+          "adScore": 86,
+          "mix": 78,
+          "custo": 73500,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doop_5wg",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Cervejaria Serra",
+        "contato": "eventos@serra.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "direto",
+        "segmento": "Alimentação & bebidas",
+        "verba": 80000,
+        "verbames": 80000,
+        "verbastatus": "aprovada",
+        "objetivo": "awareness",
+        "kpi": "alcance",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Jovens 18–29",
+          "Massa / grande fluxo"
+        ],
+        "nichos": [
+          "Gastronomia & bares"
+        ],
+        "semanas": 2,
+        "data": "",
+        "prop": "Patrocínio de Evento no Shopping",
+        "cats": [
+          "Patrocínio de eventos"
+        ],
+        "objecao": "engajamento_live"
+      },
+      "top": [
+        {
+          "n": "Patrocínio de Evento no Shopping",
+          "cat": "Patrocínio de eventos",
+          "finalScore": 93,
+          "adScore": 90,
+          "mix": 100,
+          "custo": 50000,
+          "prioVenda": false
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 82,
+          "adScore": 82,
+          "mix": 78,
+          "custo": 38000,
+          "prioVenda": true
+        },
+        {
+          "n": "Patrocínio de Campanha de Data de Varejo",
+          "cat": "Campanhas sazonais",
+          "finalScore": 76,
+          "adScore": 75,
+          "mix": 78,
+          "custo": 90000,
+          "prioVenda": true
+        },
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 63,
+          "adScore": 60,
+          "mix": 100,
+          "custo": 18000,
+          "prioVenda": false
+        },
+        {
+          "n": "Geofencing & Drive-to-Store",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 63,
+          "adScore": 60,
+          "mix": 100,
+          "custo": 28000,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5door_5p7",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Prefeitura Cidade Limpa",
+        "contato": "comunicacao@cidade.exemplo",
+        "origem": "Formulário do site",
+        "canal": "direto",
+        "segmento": "Governo & institucional",
+        "verba": 70000,
+        "verbames": 23000,
+        "verbastatus": "aprovada",
+        "objetivo": "institucional",
+        "kpi": "alcance",
+        "exclusiv": "nao",
+        "praca": "indiferente",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Massa / grande fluxo",
+          "Público 50+"
+        ],
+        "nichos": [],
+        "semanas": 13,
+        "data": "",
+        "prop": "",
+        "cats": [
+          "Mídia digital — Shopping",
+          "Helloo Home — Residencial"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 87,
+          "adScore": 90,
+          "mix": 78,
+          "custo": 36400,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 81,
+          "adScore": 81,
+          "mix": 78,
+          "custo": 42500,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 81,
+          "adScore": 81,
+          "mix": 78,
+          "custo": 42500,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Eletroposto",
+          "cat": "Adoção de espaços",
+          "finalScore": 81,
+          "adScore": 81,
+          "mix": 78,
+          "custo": 48500,
+          "prioVenda": true
+        },
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 80,
+          "adScore": 83,
+          "mix": 78,
+          "custo": 54600,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doou_8h",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Pet Food Latido",
+        "contato": "marketing@latido.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Pet",
+        "verba": 110000,
+        "verbames": 18000,
+        "verbastatus": "aprovada",
+        "objetivo": "institucional",
+        "kpi": "lembranca",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Tutores de pets",
+          "Famílias com filhos"
+        ],
+        "nichos": [
+          "Pet lovers"
+        ],
+        "semanas": 26,
+        "data": "",
+        "prop": "Adoção do Pet Park",
+        "cats": [
+          "Adoção de espaços"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 100,
+          "adScore": 98,
+          "mix": 100,
+          "custo": 84900,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Eletroposto",
+          "cat": "Adoção de espaços",
+          "finalScore": 84,
+          "adScore": 84,
+          "mix": 78,
+          "custo": 97100,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Fraldário",
+          "cat": "Adoção de espaços",
+          "finalScore": 82,
+          "adScore": 89,
+          "mix": 45,
+          "custo": 72800,
+          "prioVenda": false
+        },
+        {
+          "n": "Adoção do Valet",
+          "cat": "Adoção de espaços",
+          "finalScore": 70,
+          "adScore": 72,
+          "mix": 78,
+          "custo": 121300,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 61,
+          "adScore": 60,
+          "mix": 78,
+          "custo": 84900,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5doox_2j7",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "contato",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Baby Nuvem",
+        "contato": "trade@babynuvem.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "direto",
+        "segmento": "Saúde & bem-estar",
+        "verba": 48000,
+        "verbames": 12000,
+        "verbastatus": "aprovacao",
+        "objetivo": "fidelizacao",
+        "kpi": "recorrencia",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Famílias com filhos",
+          "Mulheres 25–49"
+        ],
+        "nichos": [
+          "Famílias & mães",
+          "Kids & infantil"
+        ],
+        "semanas": 17,
+        "data": "",
+        "prop": "Adoção do Fraldário",
+        "cats": [
+          "Adoção de espaços",
+          "Promoções & cupons"
+        ],
+        "objecao": "influencia_shopping"
+      },
+      "top": [
+        {
+          "n": "Adoção do Fraldário",
+          "cat": "Adoção de espaços",
+          "finalScore": 91,
+          "adScore": 96,
+          "mix": 62,
+          "custo": 47600,
+          "prioVenda": false
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 83,
+          "adScore": 81,
+          "mix": 90,
+          "custo": 55500,
+          "prioVenda": true
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 61,
+          "adScore": 60,
+          "mix": 78,
+          "custo": 55500,
+          "prioVenda": true
+        },
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 53,
+          "adScore": 50,
+          "mix": 100,
+          "custo": 47600,
+          "prioVenda": false
+        },
+        {
+          "n": "Venda Certa — benefício direcionado",
+          "cat": "CRM & venda certa",
+          "finalScore": 44,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 119000,
+          "prioVenda": true
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dop0_2oe",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "proposta",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Elétrico Volt",
+        "contato": "parcerias@volt.exemplo",
+        "origem": "Agência de mídia",
+        "canal": "agencia",
+        "segmento": "Automotivo",
+        "verba": 60000,
+        "verbames": 15000,
+        "verbastatus": "aprovada",
+        "objetivo": "institucional",
+        "kpi": "lembranca",
+        "exclusiv": "sim",
+        "praca": "shopping",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Classes A/B",
+          "Motoristas / carro próprio"
+        ],
+        "nichos": [
+          "Motoristas & carro próprio",
+          "Alta renda"
+        ],
+        "semanas": 17,
+        "data": "",
+        "prop": "Adoção do Eletroposto",
+        "cats": [
+          "Adoção de espaços",
+          "Outdoors & icônicos"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Adoção do Eletroposto",
+          "cat": "Adoção de espaços",
+          "finalScore": 92,
+          "adScore": 86,
+          "mix": 100,
+          "custo": 63500,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Pet Park",
+          "cat": "Adoção de espaços",
+          "finalScore": 86,
+          "adScore": 86,
+          "mix": 78,
+          "custo": 55500,
+          "prioVenda": true
+        },
+        {
+          "n": "Adoção do Fraldário",
+          "cat": "Adoção de espaços",
+          "finalScore": 74,
+          "adScore": 81,
+          "mix": 45,
+          "custo": 47600,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 61,
+          "adScore": 60,
+          "mix": 78,
+          "custo": 55500,
+          "prioVenda": true
+        },
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 58,
+          "adScore": 60,
+          "mix": 78,
+          "custo": 59500,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dop2_39p",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "novo",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Moda Rua Nova",
+        "contato": "expansao@ruanova.exemplo",
+        "origem": "Prospecção ativa (executivo)",
+        "canal": "direto",
+        "segmento": "Varejo & moda",
+        "verba": 45000,
+        "verbames": 22000,
+        "verbastatus": "aprovada",
+        "objetivo": "consideracao",
+        "kpi": "trafego",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "indiferente",
+        "pracas": "",
+        "publicos": [
+          "Mulheres 25–49",
+          "Jovens 18–29"
+        ],
+        "nichos": [
+          "Moda & tendência"
+        ],
+        "semanas": 9,
+        "data": "Natal",
+        "prop": "Empena / Fachada Icônica",
+        "cats": [
+          "Outdoors & icônicos"
+        ],
+        "objecao": "preco"
+      },
+      "top": [
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 99,
+          "adScore": 93,
+          "mix": 100,
+          "custo": 29400,
+          "prioVenda": true
+        },
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 98,
+          "adScore": 95,
+          "mix": 100,
+          "custo": 31500,
+          "prioVenda": false
+        },
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 90,
+          "adScore": 87,
+          "mix": 100,
+          "custo": 37800,
+          "prioVenda": false
+        },
+        {
+          "n": "Cupom Extra em Promoções",
+          "cat": "Promoções & cupons",
+          "finalScore": 87,
+          "adScore": 81,
+          "mix": 100,
+          "custo": 52500,
+          "prioVenda": true
+        },
+        {
+          "n": "DOOH Programático — Rede Helloo",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 83,
+          "adScore": 84,
+          "mix": 90,
+          "custo": 52500,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dop5_7d",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "descartado",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Fintech Ponto",
+        "contato": "mkt@ponto.exemplo",
+        "origem": "Formulário do site",
+        "canal": "direto",
+        "segmento": "Financeiro & bancos",
+        "verba": 20000,
+        "verbames": 20000,
+        "verbastatus": "exploratoria",
+        "objetivo": "awareness",
+        "kpi": "alcance",
+        "exclusiv": "nao",
+        "praca": "aeroporto",
+        "um1": "nao",
+        "pracas": "",
+        "publicos": [
+          "Executivos & viajantes"
+        ],
+        "nichos": [
+          "Investidores & finanças"
+        ],
+        "semanas": 1,
+        "data": "",
+        "prop": "Túnel Icônico — Aeroporto",
+        "cats": [
+          "Outdoors & icônicos"
+        ],
+        "objecao": "preco"
+      },
+      "top": [
+        {
+          "n": "Anúncio no App do Programa",
+          "cat": "App do programa",
+          "finalScore": 73,
+          "adScore": 76,
+          "mix": 78,
+          "custo": 15000,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Aeroporto",
+          "cat": "Mídia digital — Aeroporto",
+          "finalScore": 53,
+          "adScore": 55,
+          "mix": 78,
+          "custo": 22000,
+          "prioVenda": false
+        },
+        {
+          "n": "Testeira Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 51,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 14000,
+          "prioVenda": true
+        },
+        {
+          "n": "Helloo Home — Elevador Residencial",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 51,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 16000,
+          "prioVenda": true
+        },
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 49,
+          "adScore": 50,
+          "mix": 90,
+          "custo": 12000,
+          "prioVenda": false
+        }
+      ]
+    },
+    {
+      "id": "ad_mvr5dop9_27a",
+      "createdAt": "2026-10-27T20:38:05.845Z",
+      "updatedAt": "2026-10-27T20:38:05.845Z",
+      "status": "fechado",
+      "notes": "",
+      "ad": {
+        "nome": "Exemplo_Restaurante Mar",
+        "contato": "chef@mar.exemplo",
+        "origem": "Indicação do shopping",
+        "canal": "lojista",
+        "segmento": "Alimentação & bebidas",
+        "verba": 22000,
+        "verbames": 11000,
+        "verbastatus": "aprovada",
+        "objetivo": "conversao",
+        "kpi": "vendas",
+        "exclusiv": "nao",
+        "praca": "shopping",
+        "um1": "sim",
+        "pracas": "",
+        "publicos": [
+          "Classes A/B",
+          "Famílias com filhos"
+        ],
+        "nichos": [
+          "Gastronomia & bares"
+        ],
+        "semanas": 8,
+        "data": "",
+        "prop": "",
+        "cats": [
+          "App do programa",
+          "CRM & venda certa"
+        ],
+        "objecao": ""
+      },
+      "top": [
+        {
+          "n": "Helloo Home — Hall & Portaria",
+          "cat": "Helloo Home — Residencial",
+          "finalScore": 48,
+          "adScore": 50,
+          "mix": 78,
+          "custo": 22400,
+          "prioVenda": false
+        },
+        {
+          "n": "Totem Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 41,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 33600,
+          "prioVenda": false
+        },
+        {
+          "n": "Geofencing & Drive-to-Store",
+          "cat": "Mídia programática (DOOH)",
+          "finalScore": 41,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 52300,
+          "prioVenda": false
+        },
+        {
+          "n": "Patrocínio de Evento no Shopping",
+          "cat": "Patrocínio de eventos",
+          "finalScore": 41,
+          "adScore": 38,
+          "mix": 100,
+          "custo": 93300,
+          "prioVenda": false
+        },
+        {
+          "n": "Megabanner Digital — Shopping",
+          "cat": "Mídia digital — Shopping",
+          "finalScore": 40,
+          "adScore": 38,
+          "mix": 78,
+          "custo": 70900,
+          "prioVenda": true
+        }
+      ]
+    }
+  ],
+  "plan": {
+    "spaces": [
+      {
+        "id": "s_mvr5dnzb_7db",
+        "nome": "Túnel do estacionamento",
+        "praca": "Exemplo_Leblon",
+        "prop": "Túnel Icônico — Shopping",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Telecom Onda",
+        "ate": "03/2027",
+        "valor": 85000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_4so",
+        "nome": "Átrio central",
+        "praca": "Exemplo_Leblon",
+        "prop": "Megabanner Digital — Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 38000,
+        "prio": 1,
+        "segs": [
+          "Beleza & cosméticos",
+          "Varejo & moda",
+          "Financeiro & bancos"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_7eh",
+        "nome": "Rede de totens L1/L2",
+        "praca": "Exemplo_Leblon",
+        "prop": "Totem Digital — Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 18000,
+        "prio": 0,
+        "segs": [
+          "Varejo & moda",
+          "Alimentação & bebidas",
+          "Saúde & bem-estar"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_2ar",
+        "nome": "Rede de totens L3",
+        "praca": "Exemplo_Leblon",
+        "prop": "Totem Digital — Shopping",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Cosméticos Lumi",
+        "ate": "12/2026",
+        "valor": 18000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_5uu",
+        "nome": "Testeiras das escadas",
+        "praca": "Exemplo_Leblon",
+        "prop": "Testeira Digital — Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 14000,
+        "prio": 1,
+        "segs": [
+          "Varejo & moda",
+          "Alimentação & bebidas",
+          "Beleza & cosméticos"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_3ds",
+        "nome": "Painel da fachada",
+        "praca": "Exemplo_Leblon",
+        "prop": "Outdoor Digital — Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 30000,
+        "prio": 0,
+        "segs": [
+          "Automotivo",
+          "Tecnologia & telecom",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_1fh",
+        "nome": "Empena da torre",
+        "praca": "Exemplo_Leblon",
+        "prop": "Empena / Fachada Icônica",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Banco Alfa",
+        "ate": "06/2027",
+        "valor": 110000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_101",
+        "nome": "Painéis da Av. Principal",
+        "praca": "Exemplo_Leblon",
+        "prop": "Painel Rodoviário / Avenida",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 45000,
+        "prio": 0,
+        "segs": [
+          "Automotivo",
+          "Imobiliário & construção",
+          "Varejo & moda"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzb_j5",
+        "nome": "Acelerador de categoria — bancos",
+        "praca": "Exemplo_Leblon",
+        "prop": "Acelerador de Categoria",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Banco Alfa",
+        "ate": "12/2026",
+        "valor": 40000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_65k",
+        "nome": "Status match do programa",
+        "praca": "Exemplo_Leblon",
+        "prop": "Status Match",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 35000,
+        "prio": 1,
+        "segs": [
+          "Turismo & aéreas",
+          "Financeiro & bancos",
+          "Saúde & bem-estar"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_h7",
+        "nome": "Banners do app",
+        "praca": "Exemplo_Leblon",
+        "prop": "Anúncio no App do Programa",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 15000,
+        "prio": 0,
+        "segs": [
+          "Varejo & moda",
+          "Alimentação & bebidas",
+          "Beleza & cosméticos"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_2yq",
+        "nome": "Venda certa — base do programa",
+        "praca": "Exemplo_Leblon",
+        "prop": "Venda Certa — benefício direcionado",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 30000,
+        "prio": 1,
+        "segs": [
+          "Saúde & bem-estar",
+          "Varejo & moda",
+          "Alimentação & bebidas"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_27y",
+        "nome": "Cupom extra do Natal",
+        "praca": "Exemplo_Leblon",
+        "prop": "Cupom Extra em Promoções",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 25000,
+        "prio": 1,
+        "segs": [
+          "Varejo & moda",
+          "Beleza & cosméticos",
+          "Alimentação & bebidas"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_k1",
+        "nome": "Campanha de Natal",
+        "praca": "Exemplo_Leblon",
+        "prop": "Patrocínio de Campanha de Data de Varejo",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 90000,
+        "prio": 1,
+        "segs": [
+          "Beleza & cosméticos",
+          "Financeiro & bancos",
+          "Varejo & moda"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_4fd",
+        "nome": "Praça de eventos — dezembro",
+        "praca": "Exemplo_Leblon",
+        "prop": "Patrocínio de Evento no Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 50000,
+        "prio": 0,
+        "segs": [
+          "Alimentação & bebidas",
+          "Entretenimento & mídia",
+          "Automotivo"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_7hg",
+        "nome": "Naming da praça de eventos",
+        "praca": "Exemplo_Leblon",
+        "prop": "Naming da Praça de Eventos",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Telecom Onda",
+        "ate": "12/2027",
+        "valor": 40000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_3r2",
+        "nome": "Valet do piso G2",
+        "praca": "Exemplo_Leblon",
+        "prop": "Adoção do Valet",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 20000,
+        "prio": 0,
+        "segs": [
+          "Automotivo",
+          "Financeiro & bancos",
+          "Serviços & utilities"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_2rh",
+        "nome": "Pet park do piso L3",
+        "praca": "Exemplo_Leblon",
+        "prop": "Adoção do Pet Park",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 14000,
+        "prio": 1,
+        "segs": [
+          "Pet",
+          "Saúde & bem-estar",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_337",
+        "nome": "Fraldário do L1",
+        "praca": "Exemplo_Leblon",
+        "prop": "Adoção do Fraldário",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Baby Nuvem",
+        "ate": "09/2026",
+        "valor": 12000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_7ke",
+        "nome": "Eletroposto do G1",
+        "praca": "Exemplo_Leblon",
+        "prop": "Adoção do Eletroposto",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 16000,
+        "prio": 1,
+        "segs": [
+          "Automotivo",
+          "Serviços & utilities",
+          "Tecnologia & telecom"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_625",
+        "nome": "Rede de totens — Barra",
+        "praca": "Exemplo_Barra",
+        "prop": "Totem Digital — Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 16000,
+        "prio": 0,
+        "segs": [
+          "Alimentação & bebidas",
+          "Varejo & moda",
+          "Educação"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_630",
+        "nome": "Testeiras — Barra",
+        "praca": "Exemplo_Barra",
+        "prop": "Testeira Digital — Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 12000,
+        "prio": 0,
+        "segs": [
+          "Varejo & moda",
+          "Beleza & cosméticos",
+          "Alimentação & bebidas"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_4yv",
+        "nome": "Megabanner — Barra",
+        "praca": "Exemplo_Barra",
+        "prop": "Megabanner Digital — Shopping",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Montadora Vale",
+        "ate": "11/2026",
+        "valor": 36000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_2wg",
+        "nome": "Praça de eventos — Barra",
+        "praca": "Exemplo_Barra",
+        "prop": "Patrocínio de Evento no Shopping",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 45000,
+        "prio": 0,
+        "segs": [
+          "Alimentação & bebidas",
+          "Entretenimento & mídia",
+          "Pet"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_ry",
+        "nome": "Totens do saguão",
+        "praca": "Exemplo_Santos Dumont",
+        "prop": "Totem Digital — Aeroporto",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 26000,
+        "prio": 0,
+        "segs": [
+          "Financeiro & bancos",
+          "Turismo & aéreas",
+          "Tecnologia & telecom"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_km",
+        "nome": "Megabanner do desembarque",
+        "praca": "Exemplo_Santos Dumont",
+        "prop": "Megabanner — Aeroporto",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Aérea Azul Céu",
+        "ate": "08/2026",
+        "valor": 65000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_55x",
+        "nome": "Passarela de embarque",
+        "praca": "Exemplo_Santos Dumont",
+        "prop": "Túnel Icônico — Aeroporto",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 120000,
+        "prio": 1,
+        "segs": [
+          "Automotivo",
+          "Financeiro & bancos",
+          "Turismo & aéreas"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_3iz",
+        "nome": "Testeiras das esteiras",
+        "praca": "Exemplo_Santos Dumont",
+        "prop": "Testeira Digital — Aeroporto",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 22000,
+        "prio": 0,
+        "segs": [
+          "Turismo & aéreas",
+          "Varejo & moda",
+          "Alimentação & bebidas"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_np",
+        "nome": "Outdoor do acesso viário",
+        "praca": "Exemplo_Santos Dumont",
+        "prop": "Outdoor Digital — Aeroporto",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 35000,
+        "prio": 0,
+        "segs": [
+          "Automotivo",
+          "Imobiliário & construção",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_1f1",
+        "nome": "Elevadores — edifícios da Zona Sul",
+        "praca": "Helloo Home · Zona Sul",
+        "prop": "Helloo Home — Elevador Residencial",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 16000,
+        "prio": 1,
+        "segs": [
+          "Imobiliário & construção",
+          "Alimentação & bebidas",
+          "Educação"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_2w1",
+        "nome": "Halls e portarias — Zona Sul",
+        "praca": "Helloo Home · Zona Sul",
+        "prop": "Helloo Home — Hall & Portaria",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 12000,
+        "prio": 0,
+        "segs": [
+          "Saúde & bem-estar",
+          "Serviços & utilities",
+          "Financeiro & bancos"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_1qx",
+        "nome": "Rede residencial — Barra",
+        "praca": "Helloo Home · Barra",
+        "prop": "Helloo Home — Rede Geolocalizada",
+        "status": "ocupado",
+        "anunciante": "Exemplo_Construtora Horizonte",
+        "ate": "10/2026",
+        "valor": 50000,
+        "prio": 0,
+        "segs": [
+          "",
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_1i5",
+        "nome": "Elevadores — edifícios da Barra",
+        "praca": "Helloo Home · Barra",
+        "prop": "Helloo Home — Elevador Residencial",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 16000,
+        "prio": 0,
+        "segs": [
+          "Imobiliário & construção",
+          "Educação",
+          "Saúde & bem-estar"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_32j",
+        "nome": "DOOH programático — rede completa",
+        "praca": "Rede Helloo",
+        "prop": "DOOH Programático — Rede Helloo",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 25000,
+        "prio": 0,
+        "segs": [
+          "Tecnologia & telecom",
+          "Alimentação & bebidas",
+          "Varejo & moda"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_4pu",
+        "nome": "Extensão mobile & CTV",
+        "praca": "Rede Helloo",
+        "prop": "Extensão de Audiência — Mobile & CTV",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 30000,
+        "prio": 0,
+        "segs": [
+          "Beleza & cosméticos",
+          "Varejo & moda",
+          "Financeiro & bancos"
+        ]
+      },
+      {
+        "id": "s_mvr5dnzc_bc",
+        "nome": "Geofencing — entorno dos shoppings",
+        "praca": "Rede Helloo",
+        "prop": "Geofencing & Drive-to-Store",
+        "status": "disponivel",
+        "anunciante": "",
+        "ate": "",
+        "valor": 28000,
+        "prio": 0,
+        "segs": [
+          "Alimentação & bebidas",
+          "Varejo & moda",
+          "Automotivo"
+        ]
+      }
+    ],
+    "desiredAds": []
+  },
+  "customProps": []
+}

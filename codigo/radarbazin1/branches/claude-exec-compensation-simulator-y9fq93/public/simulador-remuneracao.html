@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#1a2332">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Remuneração">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Simulador de Remuneração Executiva — PJ x CLT</title>
+<link rel="icon" type="image/svg+xml" href="remuneracao-icon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="remuneracao-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="remuneracao-icon-180.png">
+<link rel="manifest" href="remuneracao.webmanifest">
+<style>
+  :root{ color-scheme: light; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:#f2f6f5; color:#223041; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:16px; padding-bottom:64px; }
+  .wrap{ max-width:1040px; margin:0 auto; }
+  h1{ font-size:23px; font-weight:800; color:#1a2332; margin:0 0 2px; }
+  h2{ font-size:16px; font-weight:800; color:#1a2332; margin:0 0 10px; }
+  h3{ font-size:12px; font-weight:800; color:#3f5566; margin:14px 0 6px; text-transform:uppercase; letter-spacing:.4px; }
+  p.lead{ margin:4px 0 14px; color:#3f5566; font-size:14px; }
+  .card{ background:#fff; border:1px solid #d8e3e4; border-radius:12px; padding:14px 16px; margin-bottom:14px; box-shadow:0 1px 4px rgba(26,35,50,.05); }
+  .app-header{ background:linear-gradient(135deg,#1a2332 0%,#22394a 55%,#2d8b8b 160%); color:#f1faee;
+    border-radius:14px; padding:20px 22px 16px; box-shadow:0 2px 12px rgba(26,35,50,.22); margin-bottom:14px; }
+  .app-header h1{ color:#f1faee; letter-spacing:.2px; }
+  .app-header p.lead{ color:#a8dadc; margin-bottom:0; }
+  .app-header .topo{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  #btn-instalar{ display:none; flex:none; border:1px solid #a8dadc; background:rgba(241,250,238,.12); color:#f1faee;
+    font-weight:700; font-size:13px; padding:8px 14px; border-radius:999px; cursor:pointer; white-space:nowrap; }
+  #btn-instalar:hover{ background:rgba(241,250,238,.22); }
+  .instalar{ background:#fff; border:1px solid #d8e3e4; border-radius:12px; padding:12px 16px; margin-bottom:14px; font-size:13px; color:#3f5566; }
+  .instalar b{ color:#1a2332; }
+  .instalar ul{ margin:6px 0 0; }
+  table{ border-collapse:collapse; width:100%; font-size:13px; }
+  th,td{ text-align:left; padding:6px 8px; border-bottom:1px solid #e9f2f1; vertical-align:top; }
+  th{ color:#3f5566; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.4px; }
+  td.n,th.n{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  tr.tot td{ border-top:2px solid #1a2332; border-bottom:none; font-weight:800; background:#f7faf9; }
+  tr.sub td{ font-weight:700; background:#f7faf9; }
+  tr.neg td.n{ color:#b3261e; }
+  .muted{ color:#6e8090; font-size:12px; }
+  .tabs{ display:flex; gap:6px; margin:0 0 14px; flex-wrap:wrap; }
+  .tabs button{ border:1px solid #d8e3e4; background:#fff; color:#1a2332; font-weight:700; font-size:13px; padding:8px 14px; border-radius:999px; cursor:pointer; }
+  .tabs button:hover{ background:#e9f2f1; border-color:#a8dadc; }
+  .tabs button.ativa{ background:#1a2332; color:#f1faee; border-color:#1a2332; }
+  section.tab{ display:none; } section.tab.ativa{ display:block; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:10px 14px; }
+  .grid2{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px; }
+  .campo{ display:flex; flex-direction:column; gap:3px; }
+  .campo label{ font-size:12px; font-weight:700; color:#3f5566; }
+  .campo select,.campo input[type=text],.campo input[type=number],textarea{ border:1px solid #c6d6d6; border-radius:8px; padding:8px 10px; font-size:13px; background:#fff; color:#223041; width:100%; font-family:inherit; }
+  .campo .nota{ font-size:11px; color:#6e8090; }
+  .campo select:disabled,.campo input:disabled{ background:#eef2f2; color:#93a2ac; cursor:not-allowed; }
+  .check{ display:flex; align-items:flex-start; gap:8px; font-size:13px; font-weight:600; color:#223041; padding:5px 0; }
+  .check input{ width:17px; height:17px; margin-top:1px; flex:none; }
+  .check span small{ display:block; font-weight:500; color:#6e8090; font-size:11px; }
+  .btn{ border:none; border-radius:8px; padding:9px 14px; font-size:13px; font-weight:700; cursor:pointer; background:#2d8b8b; color:#f1faee; }
+  .btn:hover{ background:#25716f; } .btn:active{ transform:translateY(1px); }
+  .btn.sec{ background:#e9f2f1; color:#1a2332; } .btn.sec:hover{ background:#dcebe9; }
+  .linha-acoes{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+  .kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; margin:4px 0 14px; }
+  .kpi{ background:#edf4f2; border-radius:10px; padding:10px 12px; border-left:4px solid #2d8b8b; }
+  .kpi .valor{ font-size:21px; font-weight:800; color:#1a2332; font-variant-numeric:tabular-nums; }
+  .kpi .rotulo{ font-size:11px; font-weight:700; color:#6e8090; text-transform:uppercase; letter-spacing:.3px; }
+  .kpi .nota{ font-size:11px; color:#6e8090; margin-top:2px; }
+  .kpi.win{ border-left-color:#0a7d43; } .kpi.win .valor{ color:#0a7d43; }
+  .kpi.alerta{ border-left-color:#a34700; }
+  .aviso{ background:#fff8f2; border:1px solid #f0d6bd; border-radius:10px; padding:10px 12px; font-size:12.5px; color:#7a4a12; margin-bottom:10px; }
+  .aviso b{ color:#a34700; }
+  .info{ background:#eef5fb; border:1px solid #cfe0ef; border-radius:10px; padding:10px 12px; font-size:12.5px; color:#20455f; margin-bottom:10px; }
+  .pill{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:11px; font-weight:700; }
+  .pill.ok{ background:#e2f5ea; color:#0a7d43; } .pill.warn{ background:#fff3d6; color:#8a6100; }
+  .pill.bad{ background:#fbe9e7; color:#b3261e; }
+  details{ border:1px solid #e2ebeb; border-radius:10px; padding:8px 12px; margin-top:10px; background:#fbfdfd; }
+  summary{ cursor:pointer; font-weight:700; font-size:13px; color:#1a2332; }
+  ul{ margin:6px 0; padding-left:20px; font-size:13px; } li{ margin:3px 0; }
+  .fonte{ font-size:12px; color:#3f5566; }
+  .fonte b{ color:#1a2332; }
+  @media (max-width:620px){ body{padding:10px;} .card{padding:12px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="app-header">
+  <div class="topo">
+  <h1>Simulador de Remuneração Executiva</h1>
+  <button id="btn-instalar" type="button">Instalar app</button>
+  </div>
+  <p class="lead">Compara <b>PJ x CLT</b> em pacote completo: fixo, PLR em múltiplos do salário, ILP por co-investimento
+  com matching e vesting, férias, 13º, check-up anual e plano de saúde executivo. Cada benefício liga/desliga individualmente.</p>
+</div>
+
+<div class="tabs">
+  <button class="ativa" data-tab="pacote">1. Pacote</button>
+  <button data-tab="pj">2. Modelo PJ</button>
+  <button data-tab="resultado">3. Resultado</button>
+  <button data-tab="detalhe">4. Memória de cálculo</button>
+  <button data-tab="params">5. Parâmetros fiscais</button>
+  <button data-tab="fontes">6. Fontes e premissas</button>
+</div>
+
+<!-- ================= PACOTE ================= -->
+<section class="tab ativa" id="tab-pacote">
+  <div class="card">
+    <h2>Remuneração fixa</h2>
+    <div class="grid">
+      <div class="campo"><label>Salário fixo mensal (R$)</label>
+        <input type="number" id="salario" value="60000" step="500">
+        <span class="nota">Base de todos os múltiplos.</span></div>
+      <div class="campo"><label>Dependentes (IRRF)</label>
+        <input type="number" id="dependentes" value="0" step="1" min="0"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Bônus / PLR</h2>
+    <label class="check"><input type="checkbox" id="on_plr" checked>
+      <span>Incluir PLR no pacote<small>PLR paga na forma da Lei 10.101/2000: sem INSS, sem FGTS, tabela de IR exclusiva e anual.</small></span></label>
+    <div class="grid">
+      <div class="campo"><label>PLR — múltiplos do salário</label>
+        <input type="number" id="plr_mult" value="6" step="0.5"><span class="nota">Ex.: 6 = seis salários no ano.</span></div>
+      <div class="campo"><label>PLR — parcela absoluta (R$/ano)</label>
+        <input type="number" id="plr_abs" value="0" step="1000"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Incentivo de longo prazo (ILP)</h2>
+    <label class="check"><input type="checkbox" id="on_ilp" checked>
+      <span>Incluir ILP no pacote<small>Desligue para ver o pacote sem incentivo de longo prazo.</small></span></label>
+    <div class="grid">
+      <div class="campo"><label>Desenho do plano</label>
+        <select id="ilp_modo">
+          <option value="match" selected>Co-investimento com matching da empresa</option>
+          <option value="grant">Grant direto (múltiplos do salário + absoluto)</option>
+        </select>
+        <span class="nota">No co-investimento o executivo aporta parte do bônus e a empresa iguala o aporte.</span></div>
+      <div class="campo"><label>Anos de vesting</label>
+        <input type="number" id="ilp_vesting" value="3" step="1" min="0">
+        <span class="nota">Prazo até o matching ser liberado.</span></div>
+    </div>
+
+    <div id="bloco-match">
+    <h3>Co-investimento com matching</h3>
+    <div class="grid">
+      <div class="campo"><label>Aporte do executivo (% do PLR líquido)</label>
+        <input type="number" id="ilp_pct_plr" value="30" step="1">
+        <span class="nota">Sobre a PLR já líquida de imposto — é dinheiro do bolso dele.</span></div>
+      <div class="campo"><label>Matching da empresa (% do aporte)</label>
+        <input type="number" id="ilp_matching" value="100" step="5">
+        <span class="nota">100% = a empresa iguala o aporte.</span></div>
+      <div class="campo"><label>Chance de chegar ao vesting (%)</label>
+        <input type="number" id="ilp_prob" value="100" step="5" min="0" max="100">
+        <span class="nota">Saída antes do prazo costuma significar perda do matching.</span></div>
+      <div class="campo"><label>Custo de oportunidade anual (%)</label>
+        <input type="number" id="ilp_desconto" value="10" step="0.5">
+        <span class="nota">Taxa para trazer o matching a valor presente (ex.: CDI). Ajuste ao cenário atual.</span></div>
+      <div class="campo"><label>Como contabilizar o matching</label>
+        <select id="ilp_base">
+          <option value="vp" selected>Valor presente (desconta o prazo de vesting)</option>
+          <option value="nominal">Valor nominal (sem desconto)</option>
+        </select>
+        <span class="nota">Receber daqui a 3 anos, com risco de perda, não vale o mesmo que receber hoje.</span></div>
+    </div>
+    </div>
+
+    <div id="bloco-grant">
+    <h3>Grant direto</h3>
+    <div class="grid">
+      <div class="campo"><label>ILP — múltiplos do salário</label>
+        <input type="number" id="ilp_mult" value="8" step="0.5"></div>
+      <div class="campo"><label>ILP — parcela absoluta (R$/ano)</label>
+        <input type="number" id="ilp_abs" value="0" step="1000"></div>
+    </div>
+    </div>
+
+    <h3>Tributação</h3>
+    <div class="grid">
+      <div class="campo"><label>Tratamento tributário do ILP</label>
+        <select id="ilp_trib">
+          <option value="remuneracao">Remuneração (INSS + IRRF + FGTS)</option>
+          <option value="ganho" selected>Ganho de capital (plano mercantil)</option>
+          <option value="isento">Sem tributação no ano (diferido)</option>
+        </select>
+        <span class="nota" id="nota_trib">O co-investimento com dinheiro próprio e risco de perda é o desenho que sustenta a tese mercantil (STJ, Tema 1226). Confirme com o jurídico.</span></div>
+      <div class="campo"><label>Alíquota — ganho de capital (%)</label>
+        <input type="number" id="ilp_aliq" value="15" step="0.5"><span class="nota">15% até R$ 5 mi de ganho; progressiva acima.</span></div>
+    </div>
+    <label class="check"><input type="checkbox" id="ilp_gross" checked>
+      <span>Matching com <b>gross-up</b> — a empresa banca todos os encargos<small>O executivo recebe líquido igual à parcela investida.
+      A empresa paga o bruto necessário para isso, mais INSS patronal e FGTS por cima. Liga o tratamento como remuneração.</small></span></label>
+    <label class="check"><input type="checkbox" id="ilp_fgts" checked>
+      <span>O matching gera FGTS (8%)<small>Como no plano atual: o depósito do empregador incide sobre o matching e entra na conta da pessoa física.
+      Vale independentemente do tratamento de IR escolhido acima — mas recolher FGTS é indício de natureza salarial.</small></span></label>
+  </div>
+
+  <div class="card">
+    <h2>Benefícios e verbas CLT</h2>
+    <p class="muted">Desligue qualquer item para simular o pacote sem ele. O que a empresa não paga, o executivo paga do próprio bolso (ver equiparação).</p>
+    <div class="grid2">
+      <div>
+        <label class="check"><input type="checkbox" id="on_13" checked>
+          <span>13º salário<small>+1 salário/ano, com INSS e IRRF próprios.</small></span></label>
+        <label class="check"><input type="checkbox" id="on_ferias" checked>
+          <span>Férias — terço constitucional<small>+1/3 de um salário/ano (as férias em si já estão nos 12 salários).</small></span></label>
+        <label class="check"><input type="checkbox" id="on_fgts" checked>
+          <span>FGTS (8%)<small>Depósito do empregador. Conta como patrimônio do executivo, mas de liquidez restrita.</small></span></label>
+        <label class="check"><input type="checkbox" id="on_multa">
+          <span>Provisionar multa de 40% do FGTS<small>Só se materializa em demissão sem justa causa. Entra no custo da empresa.</small></span></label>
+      </div>
+      <div>
+        <label class="check"><input type="checkbox" id="on_saude" checked>
+          <span>Plano de saúde executivo (SulAmérica)<small>Não integra salário (CLT art. 458, §5º) — benefício líquido de imposto.</small></span></label>
+        <div class="grid">
+          <div class="campo"><label>Custo mensal do plano (R$)</label>
+            <input type="number" id="saude_mes" value="3200" step="100">
+            <span class="nota">Valor de referência — substitua pela cotação real da corretora.</span></div>
+          <div class="campo"><label>Custo no PJ (R$/mês)</label>
+            <input type="number" id="saude_mes_pj" value="3800" step="100">
+            <span class="nota">Individual/PME costuma custar mais que o coletivo empresarial.</span></div>
+        </div>
+        <label class="check"><input type="checkbox" id="on_checkup" checked>
+          <span>Check-up executivo anual<small>Idem: benefício de saúde, sem incidência salarial.</small></span></label>
+        <div class="campo"><label>Custo do check-up (R$/ano)</label>
+          <input type="number" id="checkup_ano" value="9000" step="500">
+          <span class="nota">Valor de referência — substitua pela cotação real.</span></div>
+      </div>
+    </div>
+    <div class="info" style="margin-top:12px">
+      <label class="check" style="padding:0"><input type="checkbox" id="on_equipar" checked>
+        <span>Equiparar os cenários<small>Quando um benefício de saúde não é pago pelo contratante, o custo é descontado da renda disponível
+        do executivo — é assim que os dois modelos ficam comparáveis.</small></span></label>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PJ ================= -->
+<section class="tab" id="tab-pj">
+  <div class="card">
+    <h2>Contrato PJ</h2>
+    <div class="grid">
+      <div class="campo"><label>Faturamento mensal da PJ (R$)</label>
+        <input type="number" id="pj_fat" value="90000" step="1000">
+        <span class="nota">Valor fixo mensal do contrato de prestação de serviços.</span></div>
+      <div class="campo"><label>Regime tributário</label>
+        <select id="pj_regime">
+          <option value="III">Simples Nacional — Anexo III (com Fator R)</option>
+          <option value="V">Simples Nacional — Anexo V (sem Fator R)</option>
+          <option value="LP" selected>Lucro Presumido (serviços — presunção 32%)</option>
+        </select></div>
+      <div class="campo"><label>Pró-labore (% do faturamento)</label>
+        <input type="number" id="pj_prolabore" value="28" step="1">
+        <span class="nota">≥ 28% habilita o Fator R (Anexo III). Pró-labore muito baixo é risco fiscal.</span></div>
+      <div class="campo"><label>ISS municipal (%) — só Lucro Presumido</label>
+        <input type="number" id="pj_iss" value="3" step="0.5">
+        <span class="nota">2% a 5% conforme o município e o código de serviço.</span></div>
+      <div class="campo"><label>Contador (R$/mês)</label>
+        <input type="number" id="pj_contador" value="800" step="50"></div>
+      <div class="campo"><label>Outras despesas da PJ (R$/mês)</label>
+        <input type="number" id="pj_desp" value="200" step="50">
+        <span class="nota">Certificado digital, taxas, domicílio fiscal, jurídico.</span></div>
+    </div>
+    <label class="check" style="margin-top:8px"><input type="checkbox" id="pj_replica" checked>
+      <span>Replicar bônus e ILP no contrato PJ<small>Os mesmos valores de PLR e ILP entram como faturamento extra — sem a tabela exclusiva de PLR, que só existe no vínculo CLT.</small></span></label>
+    <div class="grid" style="margin-top:8px">
+      <div class="campo"><label>Contratante paga plano de saúde do PJ?</label>
+        <select id="pj_saude"><option value="nao" selected>Não — custo do executivo</option><option value="sim">Sim — reembolso/pagamento direto</option></select></div>
+      <div class="campo"><label>Contratante paga check-up do PJ?</label>
+        <select id="pj_checkup"><option value="nao" selected>Não — custo do executivo</option><option value="sim">Sim</option></select></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Tributação de dividendos</h2>
+    <label class="check"><input type="checkbox" id="pj_div2026" checked>
+      <span>Aplicar a regra de 2026 (Lei 15.270/2025)<small>Retenção de 10% de IRRF sobre lucros/dividendos pagos pela mesma PJ à mesma pessoa física quando o total do mês ultrapassa R$ 50 mil.</small></span></label>
+    <div class="grid">
+      <div class="campo"><label>Base da retenção</label>
+        <select id="pj_div_base">
+          <option value="total" selected>Sobre o valor total do mês (leitura conservadora)</option>
+          <option value="excedente">Somente sobre o que excede o limite</option>
+        </select>
+        <span class="nota">A leitura da base ainda é controversa — confirme com o contador antes de decidir.</span></div>
+      <div class="campo"><label>Limite mensal isento de retenção (R$)</label>
+        <input type="number" id="pj_div_limite" value="50000" step="1000"></div>
+      <div class="campo"><label>Alíquota da retenção (%)</label>
+        <input type="number" id="pj_div_aliq" value="10" step="0.5"></div>
+    </div>
+    <div class="aviso" style="margin-top:10px"><b>Não modelado:</b> o IRPFM (imposto mínimo anual sobre alta renda, com alíquota crescente até 10%
+      entre R$ 600 mil e R$ 1,2 milhão de renda anual) e seus redutores. Para rendas acima de R$ 1,2 mi/ano o efeito prático tende a se
+      aproximar da retenção de 10% já simulada, mas o ajuste anual precisa de cálculo do contador.</div>
+  </div>
+</section>
+
+<!-- ================= RESULTADO ================= -->
+<section class="tab" id="tab-resultado">
+  <div id="alertas"></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="card">
+    <h2>Comparativo anual</h2>
+    <div style="overflow-x:auto"><table id="tbl-comp"></table></div>
+    <p class="muted" style="margin-top:10px">Renda disponível = o que sobra no bolso do executivo depois de impostos e depois de pagar,
+    do próprio bolso, os benefícios de saúde que o contratante não cobre.</p>
+  </div>
+  <div class="card">
+    <h2>Totalizador — com e sem ILP, com e sem benefícios</h2>
+    <div style="overflow-x:auto"><table id="tbl-matriz"></table></div>
+    <p class="muted" style="margin-top:10px">Benefícios = plano de saúde executivo + check-up anual. Nos cenários "sem",
+    o executivo compra os dois do próprio bolso — por isso a renda disponível cai mais do que o custo do benefício para a empresa.
+    Se no cenário PJ o contratante já não cobre saúde nem check-up, o Δ do lado PJ é zero: não há o que tirar.
+    Tirar a PLR também zera o ILP, porque o aporte sai dela.</p>
+    <h3>Quanto vale cada item do pacote</h3>
+    <div style="overflow-x:auto"><table id="tbl-itens"></table></div>
+  </div>
+
+  <div class="card">
+    <h2>Ponto de equilíbrio</h2>
+    <div id="breakeven"></div>
+  </div>
+  <div class="card">
+    <h2>Sensibilidade — faturamento PJ</h2>
+    <div style="overflow-x:auto"><table id="tbl-sens"></table></div>
+  </div>
+</section>
+
+<!-- ================= DETALHE ================= -->
+<section class="tab" id="tab-detalhe">
+  <div class="grid2">
+    <div class="card"><h2>CLT — memória de cálculo</h2><div style="overflow-x:auto"><table id="tbl-clt"></table></div></div>
+    <div class="card"><h2>PJ — memória de cálculo</h2><div style="overflow-x:auto"><table id="tbl-pj"></table></div></div>
+  </div>
+  <div class="card"><h2>Custo para a empresa</h2><div style="overflow-x:auto"><table id="tbl-custo"></table></div></div>
+</section>
+
+<!-- ================= PARÂMETROS ================= -->
+<section class="tab" id="tab-params">
+  <div class="card">
+    <h2>Parâmetros fiscais</h2>
+    <div class="aviso"><b>Confira antes de usar em negociação.</b> As tabelas abaixo mudam por lei/medida provisória
+      todos os anos. Os valores que vêm de fábrica são os de 2025 (INSS e IRRF a partir de maio/2025) e podem estar
+      desatualizados na data em que você abrir esta página. Edite o JSON e clique em aplicar.</div>
+    <div class="grid">
+      <div class="campo"><label>Encargo patronal CLT (%)</label>
+        <input type="number" id="p_cpp" value="26.8" step="0.1">
+        <span class="nota">20% CPP + ~5,8% terceiros + RAT×FAP. Sem teto.</span></div>
+      <div class="campo"><label>FGTS (%)</label><input type="number" id="p_fgts" value="8" step="0.5"></div>
+      <div class="campo"><label>Multa rescisória FGTS (%)</label><input type="number" id="p_multa" value="40" step="5"></div>
+      <div class="campo"><label>INSS sócio — alíquota (%)</label>
+        <input type="number" id="p_inss_ci" value="11" step="1"><span class="nota">Contribuinte individual, limitado ao teto.</span></div>
+    </div>
+    <h3>Tabelas (JSON)</h3>
+    <textarea id="p_json" rows="14" spellcheck="false"></textarea>
+    <div class="linha-acoes">
+      <button class="btn" id="btn-aplicar">Aplicar parâmetros</button>
+      <button class="btn sec" id="btn-restaurar">Restaurar padrão</button>
+      <span class="muted" id="p_status"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FONTES ================= -->
+<section class="tab" id="tab-fontes">
+  <div class="card">
+    <h2>Fontes e premissas</h2>
+    <div class="aviso"><b>Isto é uma ferramenta de negociação, não uma opinião fiscal.</b> Antes de assinar contrato,
+      valide os números com contador e advogado. Os valores de plano de saúde e check-up são <b>placeholders</b> —
+      não são cotação da SulAmérica nem de qualquer operadora; troque pela cotação real.</div>
+
+    <h3>Base legal usada no cálculo</h3>
+    <ul class="fonte">
+      <li><b>13º salário</b> — Lei 4.090/1962. Recolhimento de INSS e IRRF em separado (IRRF exclusivo na fonte).</li>
+      <li><b>Terço de férias</b> — CF/1988, art. 7º, XVII; CLT arts. 129-145. Incidência de contribuição previdenciária confirmada pelo <b>STF, Tema 985</b> (RE 1.072.485, 2020).</li>
+      <li><b>FGTS 8% e multa de 40%</b> — Lei 8.036/1990, arts. 15 e 18, §1º.</li>
+      <li><b>PLR</b> — Lei 10.101/2000: não integra a remuneração (sem INSS/FGTS) e é tributada por <b>tabela anual exclusiva</b>, separada dos demais rendimentos.</li>
+      <li><b>Plano de saúde e check-up</b> — CLT art. 458, §5º (redação da Lei 13.467/2017): assistência médica/odontológica não integra o salário.</li>
+      <li><b>Plano de co-investimento com matching</b> — não há regra específica: a tributação segue a natureza do plano.
+        Com aporte de dinheiro próprio, risco de perda e prazo de carência, o desenho se aproxima do que o STJ tratou como
+        mercantil; sem risco efetivo, tende a ser remuneração (INSS, IRRF e FGTS). É ponto a fechar com o jurídico antes de assinar.</li>
+      <li><b>Stock options / ILP</b> — <b>STJ, Tema 1226</b> (REsp 2.069.644 e 2.074.564, julgado em 11/09/2024): planos de opção de natureza mercantil são tributados como ganho de capital na venda, não como salário. Planos com natureza remuneratória seguem como salário.</li>
+      <li><b>Simples Nacional</b> — LC 123/2006, Anexos III e V; Fator R no art. 18, §§ 5º-J e 5º-M (folha ≥ 28% da receita bruta de 12 meses).</li>
+      <li><b>Lucro Presumido — serviços</b> — Lei 9.249/1995, arts. 15 e 20 (presunção de 32% para IRPJ e CSLL); adicional de 10% sobre o lucro presumido que exceder R$ 20 mil/mês; PIS 0,65% e COFINS 3% cumulativos; ISS municipal.</li>
+      <li><b>Dividendos</b> — Lei 9.249/1995, art. 10 (isenção histórica), alterado pela <b>Lei 15.270/2025</b>, que instituiu a retenção de 10% acima de R$ 50 mil/mês pagos pela mesma PJ à mesma PF e o imposto mínimo (IRPFM) sobre alta renda a partir de 2026.</li>
+    </ul>
+
+    <h3>Onde a confiança é baixa — verifique</h3>
+    <ul class="fonte">
+      <li><b>Tabelas de INSS, IRRF e PLR</b>: os valores de fábrica são os de 2025. Se você está simulando em 2026 ou depois, atualize na aba <i>Parâmetros fiscais</i> com a tabela vigente publicada pela Receita Federal.</li>
+      <li><b>Base da retenção de 10% sobre dividendos</b>: se incide sobre o total do mês ou apenas sobre o excedente de R$ 50 mil ainda comporta leituras diferentes. O padrão do simulador é a leitura conservadora (total).</li>
+      <li><b>IRPFM (imposto mínimo de alta renda)</b>: não é calculado aqui. Depende da renda total do ano, incluindo outras fontes, e tem redutor quando a soma da carga da empresa com o IRPFM ultrapassa o teto legal.</li>
+      <li><b>Risco de pejotização</b>: contratar executivo como PJ com subordinação, pessoalidade e habitualidade expõe a empresa a reconhecimento de vínculo e passivo retroativo. O tema está em repercussão geral no STF (<b>Tema 1389</b>), com processos sobrestados — confirme o estado atual com o jurídico.</li>
+      <li><b>Valores de plano de saúde e check-up</b>: são estimativas de ordem de grandeza para plano executivo, não cotação.</li>
+    </ul>
+
+    <h3>O que o modelo assume</h3>
+    <ul class="fonte">
+      <li>Salário e faturamento constantes nos 12 meses; sem admissão/rescisão no meio do ano.</li>
+      <li><b>ILP por co-investimento</b>: o simulador mede o <b>grant do ano</b> — o aporte feito agora e o matching que ele gera.
+        Não é o caixa de um ano em regime permanente (plano maduro, em que vence o matching de safras anteriores).
+        O aporte do executivo <b>não</b> é subtraído da renda disponível, porque continua sendo patrimônio dele; aparece
+        na linha <i>caixa livre</i>, que mostra o efeito de liquidez, e fica exposto a perda se ele sair antes do vesting.</li>
+      <li>O matching é trazido a valor presente pela taxa de custo de oportunidade informada e multiplicado pela chance de
+        chegar ao vesting. O imposto é calculado sobre esse valor considerado — no mundo real ele incide no momento da
+        liberação, sobre o valor de então.</li>
+      <li><b>Gross-up do matching</b> (caso do plano atual): o líquido na mão do executivo é fixo — igual à parcela que ele
+        investiu — e o <b>bruto é a incógnita</b>. O simulador resolve o bruto que faz o líquido fechar, considerando o INSS e o
+        IRRF incrementais sobre o salário do mês, e a empresa arca com INSS patronal e FGTS por cima desse bruto. Com salário
+        acima do teto do INSS, o bruto tende a ficar em torno do líquido dividido por 0,725 (alíquota marginal de 27,5%).
+        Nesse desenho o tratamento é necessariamente remuneratório — o seletor de IR fica travado.</li>
+      <li>Quando o plano recolhe <b>FGTS sobre o matching</b> (caso do plano atual), o depósito entra na renda do executivo
+        pelo mesmo critério de contabilização do matching — em valor presente, se for essa a escolha. O valor nominal
+        aparece ao lado, na memória de cálculo.</li>
+      <li>No modelo PJ, o matching replicado entra pelo <b>bruto</b>, sem encargos por cima: não existe INSS patronal nem FGTS
+        nesse vínculo. A diferença de custo entre os dois modelos aparece na tabela de custo da empresa.</li>
+      <li>O custo da empresa usa o mesmo valor de ILP contabilizado na renda, para os dois lados baterem. O desembolso
+        nominal dela no vencimento aparece na memória de cálculo.</li>
+      <li>Férias gozadas integralmente, sem venda de 1/3 (abono pecuniário).</li>
+      <li>No Simples e no Lucro Presumido, despesas da PJ <b>não reduzem</b> o imposto — a tributação é sobre a receita.</li>
+      <li>Empresa contratante no Lucro Real/Presumido (encargo patronal cheio, sem desoneração).</li>
+      <li>FGTS entra na renda do executivo como patrimônio, embora tenha saque restrito. Desligue o item para comparar só o caixa.</li>
+      <li>Não modelados: vale-refeição, previdência privada com contrapartida, seguro de vida, bônus de contratação, aviso prévio e demais verbas rescisórias.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="instalar">
+  <b>Usar como app no celular</b> — abre em tela cheia, com ícone próprio, e funciona sem internet depois da primeira visita.
+  <ul>
+    <li><b>iPhone / iPad:</b> abra este link no <b>Safari</b> (não no app do Gmail, WhatsApp ou Chrome), toque no botão
+      <b>Compartilhar</b> (o quadrado com a seta para cima) e escolha <b>Adicionar à Tela de Início</b>.</li>
+    <li><b>Android:</b> no Chrome, use o botão <b>Instalar app</b> acima; se ele não aparecer, abra o menu de três pontinhos
+      e toque em <b>Instalar aplicativo</b> ou <b>Adicionar à tela inicial</b>.</li>
+    <li><b>Computador:</b> no Chrome ou no Edge, o ícone de instalar aparece na barra de endereço, à direita.</li>
+  </ul>
+</div>
+
+<p class="muted" style="text-align:center">Roda 100% no navegador — nenhum dado sai do seu dispositivo.</p>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- parâmetros fiscais padrão (2025 — confira a vigência) ---------- */
+var P_PADRAO = {
+  inss_faixas:      [[1518.00,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]],
+  inss_teto_base:   8157.41,
+  irrf_faixas:      [[2428.80,0,0],[2826.65,0.075,182.16],[3751.05,0.15,394.16],[4664.68,0.225,675.49],[1e12,0.275,908.73]],
+  irrf_simplificado:607.20,
+  irrf_dependente:  189.59,
+  plr_faixas:       [[7640.80,0,0],[9922.28,0.075,573.06],[13167.00,0.15,1317.23],[16380.38,0.225,2304.76],[1e12,0.275,5123.14]],
+  simples_III:      [[180000,0.060,0],[360000,0.112,9360],[720000,0.135,17640],[1800000,0.160,35640],[3600000,0.210,125640],[4800000,0.330,648000]],
+  simples_V:        [[180000,0.155,0],[360000,0.180,4500],[720000,0.195,9900],[1800000,0.205,17100],[3600000,0.230,62100],[4800000,0.305,540000]],
+  lp_presuncao:0.32, lp_irpj:0.15, lp_adicional:0.10, lp_adicional_limite_ano:240000,
+  lp_csll:0.09, lp_pis:0.0065, lp_cofins:0.03,
+  salario_minimo:1518.00
+};
+var P = JSON.parse(JSON.stringify(P_PADRAO));
+
+/* ---------- helpers ---------- */
+var $ = function(id){ return document.getElementById(id); };
+function num(id){ var v = parseFloat($(id).value); return isFinite(v) ? v : 0; }
+function chk(id){ return $(id).checked; }
+function sel(id){ return $(id).value; }
+function fmt(v){ return (v<0?"-":"") + "R$ " + Math.abs(Math.round(v)).toLocaleString("pt-BR"); }
+function pct(v){ return (v*100).toFixed(1).replace(".",",") + "%"; }
+
+/* ---------- motor tributário ---------- */
+function inssEmpregado(base){
+  var acc=0, prev=0;
+  for(var i=0;i<P.inss_faixas.length;i++){
+    var lim=P.inss_faixas[i][0], al=P.inss_faixas[i][1];
+    if(base>prev){ acc += (Math.min(base,lim)-prev)*al; prev=lim; } else break;
+  }
+  return acc;
+}
+function tabelaIR(base, faixas){
+  if(base<=0) return 0;
+  for(var i=0;i<faixas.length;i++){
+    if(base<=faixas[i][0]) return Math.max(0, base*faixas[i][1] - faixas[i][2]);
+  }
+  var u=faixas[faixas.length-1];
+  return Math.max(0, base*u[1]-u[2]);
+}
+/* IRRF mensal: escolhe entre deduções legais e desconto simplificado (o que der menos imposto) */
+function irrfMensal(rend, inssV, deps){
+  var legal = inssV + deps*P.irrf_dependente;
+  var base  = rend - Math.max(legal, P.irrf_simplificado);
+  return tabelaIR(Math.max(0,base), P.irrf_faixas);
+}
+function aliquotaSimples(rbt12, tabela){
+  if(rbt12<=0) return 0;
+  for(var i=0;i<tabela.length;i++){
+    if(rbt12<=tabela[i][0]) return Math.max(0,(rbt12*tabela[i][1]-tabela[i][2])/rbt12);
+  }
+  var u=tabela[tabela.length-1];
+  return Math.max(0,(rbt12*u[1]-u[2])/rbt12);
+}
+
+/* ---------- leitura do formulário ---------- */
+function lerEntradas(){
+  var S = num("salario");
+  var i = {
+    S:S, deps:num("dependentes"),
+    onPLR:chk("on_plr"), plr: chk("on_plr") ? num("plr_mult")*S + num("plr_abs") : 0,
+    onILP:chk("on_ilp"), ilpModo:sel("ilp_modo"), ilpVesting:num("ilp_vesting"),
+    ilpPctPlr:num("ilp_pct_plr")/100, ilpMatching:num("ilp_matching")/100,
+    ilpProb:num("ilp_prob")/100, ilpDesconto:num("ilp_desconto")/100, ilpBase:sel("ilp_base"),
+    ilpTrib:sel("ilp_trib"), ilpAliq:num("ilp_aliq")/100, ilpFgts:chk("ilp_fgts"), ilpGross:chk("ilp_gross"),
+    on13:chk("on_13"), onFerias:chk("on_ferias"), onFgts:chk("on_fgts"), onMulta:chk("on_multa"),
+    onSaude:chk("on_saude"), saudeMes:num("saude_mes"), saudeMesPJ:num("saude_mes_pj"),
+    onCheckup:chk("on_checkup"), checkupAno:num("checkup_ano"),
+    equipar:chk("on_equipar"),
+    fat:num("pj_fat"), regime:sel("pj_regime"), proPct:num("pj_prolabore")/100, iss:num("pj_iss")/100,
+    contador:num("pj_contador"), despPJ:num("pj_desp"), replica:chk("pj_replica"),
+    pjSaude:sel("pj_saude")==="sim", pjCheckup:sel("pj_checkup")==="sim",
+    div2026:chk("pj_div2026"), divBase:sel("pj_div_base"), divLimite:num("pj_div_limite"), divAliq:num("pj_div_aliq")/100,
+    cpp:num("p_cpp")/100, fgts:num("p_fgts")/100, multa:num("p_multa")/100, inssCI:num("p_inss_ci")/100
+  };
+  i.ilpGrant = num("ilp_mult")*S + num("ilp_abs");
+  i.ilpTribEscolhido = i.ilpTrib;
+  return derivarILP(i);
+}
+
+/* ILP: co-investimento com matching (padrão) ou grant direto.
+   Fica em função separada porque o aporte deriva da PLR líquida — se a PLR muda
+   (nos cenários do totalizador), o aporte e o matching mudam junto. */
+function derivarILP(i){
+  i.plrLiquido = i.plr - tabelaIR(i.plr, P.plr_faixas);
+  i.aporte = 0; i.ilpNominal = 0; i.ilpLiqNominal = 0; i.ilp = 0; i.ilpFator = 1; i.ilpComGross = false;
+  i.ilpTrib = i.ilpTribEscolhido;
+  if(i.onILP){
+    /* fator único: chance de vesting e, se for o caso, desconto a valor presente */
+    i.ilpFator = i.ilpProb * ((i.ilpBase === "vp")
+      ? 1 / Math.pow(1 + i.ilpDesconto, Math.max(0, i.ilpVesting)) : 1);
+    if(i.ilpModo === "match"){
+      i.aporte = Math.max(0, i.plrLiquido) * i.ilpPctPlr;
+      if(i.ilpGross){
+        /* a empresa garante o líquido: o bruto é a incógnita */
+        i.ilpComGross    = true;
+        i.ilpLiqNominal  = i.aporte * i.ilpMatching;
+        i.ilpNominal     = grossUp(i.ilpLiqNominal, i.S, i.deps);
+        i.ilpTrib        = "remuneracao";
+      } else {
+        i.ilpNominal    = i.aporte * i.ilpMatching;
+        i.ilpLiqNominal = 0;
+      }
+      i.ilp = i.ilpNominal * i.ilpFator;
+    } else {
+      i.ilpNominal = i.ilpGrant;
+      i.ilp = i.ilpGrant;
+      i.ilpFator = 1;
+    }
+  }
+  if(!i.onILP || i.ilp<=0) i.ilpTrib = "isento";
+  return i;
+}
+
+/* bruto necessário para que o líquido na mão seja exatamente o valor desejado,
+   considerando INSS e IRRF incrementais sobre o salário do mês */
+function grossUp(liq, S, deps){
+  if(liq<=0) return 0;
+  var inssBase = inssEmpregado(S), irBase = irrfMensal(S, inssBase, deps);
+  function liquidoDe(b){
+    var inssCom = inssEmpregado(S+b);
+    return b - (inssCom - inssBase) - (irrfMensal(S+b, inssCom, deps) - irBase);
+  }
+  var lo = liq, hi = liq*4 + 1000;
+  for(var k=0;k<80;k++){
+    var mid = (lo+hi)/2;
+    if(liquidoDe(mid) < liq) lo = mid; else hi = mid;
+  }
+  return (lo+hi)/2;
+}
+
+/* ---------- CLT ---------- */
+function calcCLT(i){
+  var S=i.S, r={};
+  r.salarios = 12*S;
+  r.decimo   = i.on13 ? S : 0;
+  r.terco    = i.onFerias ? S/3 : 0;
+
+  var inssMes = inssEmpregado(S), irrfMes = irrfMensal(S, inssMes, i.deps);
+  if(i.onFerias){
+    var baseF = S + S/3, inssF = inssEmpregado(baseF);
+    r.inss = inssMes*11 + inssF;
+    r.irrf = irrfMes*11 + irrfMensal(baseF, inssF, i.deps);
+  } else {
+    r.inss = inssMes*12; r.irrf = irrfMes*12;
+  }
+  if(i.on13){
+    var inss13 = inssEmpregado(S);
+    r.inss13 = inss13; r.irrf13 = irrfMensal(S, inss13, i.deps);
+  } else { r.inss13=0; r.irrf13=0; }
+
+  r.plr = i.plr; r.irPlr = tabelaIR(i.plr, P.plr_faixas);
+
+  r.ilp = i.ilp; r.irIlp = 0; r.inssIlp = 0; r.ilpNota = "";
+  if(i.ilp>0){
+    if(i.ilpComGross){
+      var Bn = i.ilpNominal, inssB = inssEmpregado(S), inssC = inssEmpregado(S+Bn);
+      r.inssIlp = (inssC - inssB) * i.ilpFator;
+      r.irIlp   = (irrfMensal(S+Bn, inssC, i.deps) - irrfMensal(S, inssB, i.deps)) * i.ilpFator;
+      r.ilpNota = "gross-up: encargos por conta da empresa";
+    } else if(i.ilpTrib==="remuneracao"){
+      var inssBase = inssEmpregado(S), inssCom = inssEmpregado(S+i.ilp);
+      r.inssIlp = inssCom - inssBase;
+      r.irIlp = irrfMensal(S+i.ilp, inssCom, i.deps) - irrfMensal(S, inssBase, i.deps);
+      r.ilpNota = "tributado como salário";
+    } else if(i.ilpTrib==="ganho"){
+      r.irIlp = i.ilp*i.ilpAliq; r.ilpNota = "ganho de capital " + pct(i.ilpAliq);
+    } else { r.ilpNota = "sem tributação no ano"; }
+  }
+
+  /* o matching gera FGTS quando é tratado como remuneração ou quando o plano recolhe (caso atual) */
+  r.ilpGeraFgts = (i.ilp>0) && (i.ilpTrib==="remuneracao" || i.ilpFgts);
+  var baseIlpFgts = r.ilpGeraFgts ? i.ilp : 0;
+  var baseFgts = r.salarios + r.decimo + r.terco + baseIlpFgts;
+  r.baseFgts = baseFgts;
+  r.fgtsIlp = baseIlpFgts*i.fgts;                  /* parcela vinda do matching, exibida em separado */
+  r.fgts = i.onFgts ? baseFgts*i.fgts : 0;
+  r.fgtsEmpresa = baseFgts*i.fgts;                 /* custo da empresa mesmo se não contado na renda */
+  r.multa = i.onMulta ? r.fgtsEmpresa*i.multa : 0;
+
+  r.aporte     = i.aporte;
+  r.ilpNominal = i.ilpNominal;
+  r.beneficios = (i.onSaude ? i.saudeMes*12 : 0) + (i.onCheckup ? i.checkupAno : 0);
+  r.desembolso = i.equipar ? ((i.onSaude?0:i.saudeMesPJ*12) + (i.onCheckup?0:i.checkupAno)) : 0;
+
+  r.bruto   = r.salarios + r.decimo + r.terco;
+  r.impostos= r.inss + r.irrf + r.inss13 + r.irrf13 + r.irPlr + r.irIlp + r.inssIlp;
+  r.liquido = r.bruto - r.inss - r.irrf - r.inss13 - r.irrf13
+            + (r.plr - r.irPlr) + (r.ilp - r.irIlp - r.inssIlp) + r.fgts;
+  r.disponivel = r.liquido - r.desembolso;
+  r.caixaLivre = r.disponivel - r.aporte;          /* o aporte segue sendo dele, mas fica bloqueado */
+  r.pacoteBruto = r.bruto + r.plr + r.ilp + r.fgts + r.beneficios;
+
+  var baseEncargos = r.bruto + (i.ilpTrib==="remuneracao" ? i.ilp : 0);
+  r.encargos = baseEncargos*i.cpp;
+  r.custoEmpresa = r.bruto + r.encargos + r.fgtsEmpresa + r.multa + r.plr + r.ilp
+                 + (i.onSaude ? i.saudeMes*12 : 0) + (i.onCheckup ? i.checkupAno : 0);
+  return r;
+}
+
+/* ---------- PJ ---------- */
+function calcPJ(i, fatMensalOverride){
+  var fatMensal = (fatMensalOverride===undefined) ? i.fat : fatMensalOverride;
+  var r={}, avisos=[];
+  r.fatFixo   = fatMensal*12;
+  r.fatVar    = i.replica ? (i.plr + i.ilp) : 0;
+  r.fat       = r.fatFixo + r.fatVar;
+  r.proLabore = r.fat * i.proPct;
+  var proMes  = r.proLabore/12;
+  r.fatorR    = r.fat>0 ? r.proLabore/r.fat : 0;
+
+  r.detImp = [];
+  if(i.regime==="III" || i.regime==="V"){
+    var anexo = i.regime;
+    if(anexo==="III" && r.fatorR<0.28){
+      anexo = "V";
+      avisos.push("Fator R de "+pct(r.fatorR)+" está abaixo de 28%: a empresa cai automaticamente no Anexo V. O cálculo abaixo já usa o Anexo V — para ficar no III, aumente o pró-labore.");
+    }
+    var tab = (anexo==="III") ? P.simples_III : P.simples_V;
+    r.aliqEf = aliquotaSimples(r.fat, tab);
+    r.impostos = r.fat*r.aliqEf;
+    r.cpp = 0;
+    r.anexo = anexo;
+    r.detImp.push(["DAS — Simples Nacional (Anexo "+anexo+"), alíquota efetiva "+pct(r.aliqEf), r.impostos]);
+    if(r.fat>4800000) avisos.push("Faturamento de "+fmt(r.fat)+"/ano está acima do limite do Simples (R$ 4,8 mi): a PJ seria desenquadrada. Simule em Lucro Presumido — o número ao lado subestima o imposto.");
+  } else {
+    var basePres = r.fat*P.lp_presuncao;
+    var irpj = basePres*P.lp_irpj;
+    var adic = Math.max(0, basePres - P.lp_adicional_limite_ano)*P.lp_adicional;
+    var csll = basePres*P.lp_csll;
+    var pis  = r.fat*P.lp_pis, cof = r.fat*P.lp_cofins, iss = r.fat*i.iss;
+    r.cpp = r.proLabore*0.20;
+    r.impostos = irpj+adic+csll+pis+cof+iss;
+    r.aliqEf = r.fat>0 ? r.impostos/r.fat : 0;
+    r.detImp.push(["IRPJ 15% sobre presunção de 32%", irpj]);
+    r.detImp.push(["IRPJ — adicional de 10% acima de R$ 20 mil/mês", adic]);
+    r.detImp.push(["CSLL 9% sobre presunção de 32%", csll]);
+    r.detImp.push(["PIS 0,65% + COFINS 3%", pis+cof]);
+    r.detImp.push(["ISS "+pct(i.iss), iss]);
+    r.detImp.push(["INSS patronal 20% sobre o pró-labore", r.cpp]);
+  }
+  r.despesas = (i.contador + i.despPJ)*12;
+  if(proMes < P.salario_minimo && r.proLabore>0) avisos.push("Pró-labore mensal de "+fmt(proMes)+" está abaixo do salário mínimo — risco de autuação.");
+
+  r.inssPro  = Math.min(proMes, P.inss_teto_base)*i.inssCI*12;
+  r.irrfPro  = irrfMensal(proMes, r.inssPro/12, i.deps)*12;
+  r.proLiq   = r.proLabore - r.inssPro - r.irrfPro;
+
+  r.dividendos = r.fat - r.impostos - r.cpp - r.despesas - r.proLabore;
+  if(r.dividendos<0){ avisos.push("O faturamento não cobre pró-labore, impostos e despesas da PJ neste cenário."); }
+  r.irDiv = 0;
+  if(i.div2026 && r.dividendos>0){
+    var divMes = r.dividendos/12;
+    if(divMes > i.divLimite){
+      var base = (i.divBase==="total") ? divMes : (divMes - i.divLimite);
+      r.irDiv = base*i.divAliq*12;
+    }
+  }
+  r.beneficios = (i.pjSaude ? i.saudeMesPJ*12 : 0) + (i.pjCheckup ? i.checkupAno : 0);
+  r.desembolso = i.equipar ? ((i.pjSaude?0:i.saudeMesPJ*12) + (i.pjCheckup?0:i.checkupAno)) : 0;
+
+  r.liquido    = r.proLiq + Math.max(0,r.dividendos) - r.irDiv;
+  r.disponivel = r.liquido - r.desembolso;
+  r.aporte     = i.replica ? i.aporte : 0;         /* só há aporte se o plano for replicado no PJ */
+  r.caixaLivre = r.disponivel - r.aporte;
+  r.impostosTot= r.impostos + r.cpp + r.inssPro + r.irrfPro + r.irDiv;
+  r.custoEmpresa = r.fat + r.beneficios;
+  r.avisos = avisos;
+  return r;
+}
+
+/* ---------- ponto de equilíbrio: faturamento PJ que iguala o líquido CLT ---------- */
+function breakEven(i, alvo){
+  var lo=0, hi=Math.max(50000, i.S*30), it;
+  for(it=0; it<80; it++){
+    var mid=(lo+hi)/2;
+    if(calcPJ(i,mid).disponivel < alvo) lo=mid; else hi=mid;
+  }
+  return (lo+hi)/2;
+}
+
+/* ---------- renderização ---------- */
+function linha(rot, val, cls, nota){
+  return '<tr class="'+(cls||"")+'"><td>'+rot+(nota?' <span class="muted">'+nota+'</span>':'')+'</td><td class="n">'+fmt(val)+'</td></tr>';
+}
+function render(){
+  var i = lerEntradas();
+  $("bloco-match").style.display = (i.onILP && i.ilpModo==="match") ? "" : "none";
+  $("ilp_trib").disabled = i.ilpComGross;
+  $("ilp_aliq").disabled = i.ilpComGross;
+  $("nota_trib").innerHTML = i.ilpComGross
+    ? "Travado em <b>remuneração</b>: com gross-up a empresa recolhe os encargos, o que define a natureza salarial da verba. Desligue o gross-up para escolher outro tratamento."
+    : "O co-investimento com dinheiro próprio e risco de perda é o desenho que sustenta a tese mercantil (STJ, Tema 1226). Confirme com o jurídico.";
+  $("ilp_gross").parentNode.style.display = (i.onILP && i.ilpModo==="match") ? "" : "none";
+  $("bloco-grant").style.display = (i.onILP && i.ilpModo==="grant") ? "" : "none";
+  var c = calcCLT(i);
+  var p = calcPJ(i);
+  var dif = p.disponivel - c.disponivel;
+  var be  = breakEven(i, c.disponivel);
+
+  /* ---- alertas ---- */
+  var al = [];
+  p.avisos.forEach(function(a){ al.push('<div class="aviso">'+a+'</div>'); });
+  if(i.ilpTrib==="ganho" && i.ilp>0)
+    al.push('<div class="info">ILP tratado como <b>ganho de capital</b> ('+pct(i.ilpAliq)+'). Isso depende de o plano ter natureza mercantil (STJ, Tema 1226). Se o plano for remuneratório, troque para "Remuneração" — a diferença é grande.</div>');
+  if(i.onILP && i.ilpModo==="match" && i.ilp>0 && i.ilpComGross)
+    al.push('<div class="info"><b>Plano de co-investimento com gross-up:</b> o executivo aporta '+fmt(i.aporte)+
+      ' ('+pct(i.ilpPctPlr)+' da PLR líquida) e recebe '+fmt(i.ilpLiqNominal)+' <b>líquidos</b> de matching. '+
+      'Para isso a empresa paga '+fmt(i.ilpNominal)+' de bruto e ainda arca com INSS patronal e FGTS por cima — '+
+      'custo total de '+fmt(c.ilp*(1+i.cpp+i.fgts))+' no critério de contabilização escolhido. '+
+      'O aporte continua sendo patrimônio dele, mas sai do caixa livre e fica exposto a perda se ele sair antes do prazo.</div>');
+  if(i.onILP && i.ilpModo==="match" && i.ilp>0 && !i.ilpComGross)
+    al.push('<div class="info"><b>Plano de co-investimento:</b> o executivo aporta '+fmt(i.aporte)+
+      ' ('+pct(i.ilpPctPlr)+' da PLR líquida) e a empresa iguala com '+fmt(i.ilpNominal)+
+      ', liberado em '+i.ilpVesting+' ano(s). Considerado no ano como '+fmt(i.ilp)+
+      (i.ilpBase==="vp" ? ' (valor presente a '+pct(i.ilpDesconto)+' a.a., chance de vesting '+pct(i.ilpProb)+').' : ' (valor nominal, chance de vesting '+pct(i.ilpProb)+').')+
+      ' O aporte continua sendo patrimônio dele, mas sai do caixa livre e fica exposto a perda se ele sair antes do prazo.</div>');
+  if(i.ilp>0 && i.ilpFgts && i.ilpTrib!=="remuneracao")
+    al.push('<div class="aviso"><b>Atenção à coerência:</b> o plano recolhe <b>FGTS</b> sobre o matching, o que é indício de '+
+      'natureza salarial, mas o IR está sendo calculado como '+(i.ilpTrib==="ganho"?"ganho de capital":"valor diferido")+
+      '. É uma combinação que o fisco pode questionar — e, se a verba for salarial, provavelmente também haveria INSS patronal, '+
+      'que o simulador só aplica no tratamento "Remuneração". Vale fechar essa leitura com o jurídico e o contador.</div>');
+  if(i.ilpTrib==="isento" && i.ilp>0)
+    al.push('<div class="info">ILP marcado como <b>diferido</b>: o valor entra na renda sem imposto neste ano. O imposto aparece no ano do exercício/venda.</div>');
+  al.push('<div class="aviso"><b>Risco não financeiro:</b> no modelo PJ o executivo perde FGTS, seguro-desemprego, estabilidade e verbas rescisórias, e a empresa assume risco de reconhecimento de vínculo (pejotização). Nenhum desses itens está precificado nos números abaixo.</div>');
+  $("alertas").innerHTML = al.join("");
+
+  /* ---- KPIs ---- */
+  var effC = c.custoEmpresa>0 ? c.disponivel/c.custoEmpresa : 0;
+  var effP = p.custoEmpresa>0 ? p.disponivel/p.custoEmpresa : 0;
+  $("kpis").innerHTML =
+    '<div class="kpi'+(dif<=0?" win":"")+'"><div class="rotulo">CLT — renda disponível</div><div class="valor">'+fmt(c.disponivel)+'</div><div class="nota">'+fmt(c.disponivel/12)+' / mês</div></div>'+
+    '<div class="kpi'+(dif>0?" win":"")+'"><div class="rotulo">PJ — renda disponível</div><div class="valor">'+fmt(p.disponivel)+'</div><div class="nota">'+fmt(p.disponivel/12)+' / mês</div></div>'+
+    '<div class="kpi'+(dif>0?" win":" alerta")+'"><div class="rotulo">Diferença (PJ − CLT)</div><div class="valor">'+fmt(dif)+'</div><div class="nota">'+(c.disponivel>0?pct(dif/c.disponivel):"—")+' sobre o CLT</div></div>'+
+    '<div class="kpi"><div class="rotulo">Faturamento PJ de equilíbrio</div><div class="valor">'+fmt(be)+'</div><div class="nota">por mês, para empatar com o CLT</div></div>'+
+    '<div class="kpi"><div class="rotulo">Eficiência do gasto</div><div class="valor">'+pct(effP)+'</div><div class="nota">PJ · CLT: '+pct(effC)+' (bolso ÷ custo da empresa)</div></div>';
+
+  /* ---- comparativo ---- */
+  var comp = '<thead><tr><th>Anual</th><th class="n">CLT</th><th class="n">PJ</th><th class="n">PJ − CLT</th></tr></thead><tbody>';
+  function lc(rot, a, b, cls){
+    return '<tr class="'+(cls||"")+'"><td>'+rot+'</td><td class="n">'+fmt(a)+'</td><td class="n">'+fmt(b)+'</td><td class="n">'+fmt(b-a)+'</td></tr>';
+  }
+  comp += lc("Pacote bruto (tudo que a empresa entrega)", c.pacoteBruto, p.fat + p.beneficios);
+  comp += lc("Impostos e contribuições do executivo", -c.impostos, -p.impostosTot);
+  comp += lc("Renda líquida em caixa", c.liquido, p.liquido, "sub");
+  comp += lc("Desembolso próprio com saúde", -c.desembolso, -p.desembolso);
+  comp += lc("Renda disponível", c.disponivel, p.disponivel, "tot");
+  comp += lc("Equivalente mensal", c.disponivel/12, p.disponivel/12);
+  if(c.aporte>0 || p.aporte>0){
+    comp += lc("Aporte próprio no plano (bloqueado)", -c.aporte, -p.aporte);
+    comp += lc("Caixa livre no ano", c.caixaLivre, p.caixaLivre);
+  }
+  comp += '<tr><td>Carga tributária efetiva sobre o pacote</td><td class="n">'+pct(c.pacoteBruto>0?c.impostos/c.pacoteBruto:0)+
+          '</td><td class="n">'+pct(p.fat>0?p.impostosTot/p.fat:0)+'</td><td class="n">—</td></tr>';
+  comp += lc("Custo total para a empresa", c.custoEmpresa, p.custoEmpresa);
+  comp += '<tr><td>Eficiência (disponível ÷ custo da empresa)</td><td class="n">'+pct(effC)+'</td><td class="n">'+pct(effP)+'</td><td class="n">—</td></tr>';
+  comp += '</tbody>';
+  $("tbl-comp").innerHTML = comp;
+
+  /* ---- totalizador: com/sem ILP x com/sem benefícios ---- */
+  function variar(mods){
+    var j = {}; for(var k in i) j[k]=i[k];
+    for(var m in mods) j[m]=mods[m];
+    derivarILP(j);                       /* aporte e matching acompanham a PLR do cenário */
+    return { c: calcCLT(j), p: calcPJ(j) };
+  }
+  var semILP  = {onILP:false};
+  var semBen  = {onSaude:false, onCheckup:false, pjSaude:false, pjCheckup:false};
+  var semAmbos= {}; for(var k1 in semILP) semAmbos[k1]=semILP[k1];
+  for(var k2 in semBen) semAmbos[k2]=semBen[k2];
+
+  var cenarios = [
+    ["Pacote completo (com ILP e com benefícios)", {}],
+    ["Sem ILP (mantém benefícios)", semILP],
+    ["Sem benefícios (mantém ILP)", semBen],
+    ["Sem ILP e sem benefícios", semAmbos]
+  ];
+  var base = null;
+  var mtz = '<thead><tr><th>Cenário</th><th class="n">CLT</th><th class="n">Δ CLT</th><th class="n">PJ</th><th class="n">Δ PJ</th><th class="n">PJ − CLT</th></tr></thead><tbody>';
+  cenarios.forEach(function(cn, idx){
+    var r = variar(cn[1]);
+    if(idx===0) base = r;
+    mtz += '<tr'+(idx===0?' class="sub"':'')+'><td>'+cn[0]+'</td>'+
+      '<td class="n">'+fmt(r.c.disponivel)+'</td><td class="n">'+(idx===0?"—":fmt(r.c.disponivel-base.c.disponivel))+'</td>'+
+      '<td class="n">'+fmt(r.p.disponivel)+'</td><td class="n">'+(idx===0?"—":fmt(r.p.disponivel-base.p.disponivel))+'</td>'+
+      '<td class="n">'+fmt(r.p.disponivel-r.c.disponivel)+'</td></tr>';
+  });
+  mtz += '</tbody>';
+  $("tbl-matriz").innerHTML = mtz;
+
+  /* ---- valor marginal de cada item ---- */
+  var itens = [
+    ["ILP — matching da empresa", semILP],
+    ["Plano de saúde executivo", {onSaude:false, pjSaude:false}],
+    ["Check-up anual", {onCheckup:false, pjCheckup:false}],
+    ["PLR / bônus", {onPLR:false, plr:0}],
+    ["13º salário", {on13:false}],
+    ["Férias — terço constitucional", {onFerias:false}],
+    ["FGTS", {onFgts:false}]
+  ];
+  var it = '<thead><tr><th>Item</th><th class="n">Perda na renda CLT se tirar</th><th class="n">Perda na renda PJ se tirar</th></tr></thead><tbody>';
+  itens.forEach(function(x){
+    var r = variar(x[1]);
+    it += '<tr><td>'+x[0]+'</td><td class="n">'+fmt(r.c.disponivel-c.disponivel)+
+          '</td><td class="n">'+fmt(r.p.disponivel-p.disponivel)+'</td></tr>';
+  });
+  it += '</tbody>';
+  $("tbl-itens").innerHTML = it;
+
+  /* ---- break-even ---- */
+  var pBe = calcPJ(i, be);
+  $("breakeven").innerHTML =
+    '<p style="font-size:14px;margin:0 0 10px">Para o executivo ficar <b>indiferente</b> entre os dois modelos, o contrato PJ precisa ser de '+
+    '<b>'+fmt(be)+'/mês</b>'+(i.replica?' (mais os bônus e ILP replicados)':'')+'. '+
+    'Nesse ponto a empresa gastaria <b>'+fmt(pBe.custoEmpresa)+'/ano</b> contra <b>'+fmt(c.custoEmpresa)+'/ano</b> no CLT — '+
+    (pBe.custoEmpresa<c.custoEmpresa ? 'economia' : 'custo adicional')+' de <b>'+fmt(Math.abs(c.custoEmpresa-pBe.custoEmpresa))+'/ano</b>.</p>'+
+    '<p class="muted" style="margin:0">Faturamento atual proposto: '+fmt(i.fat)+'/mês — '+
+    (i.fat>=be ? '<span class="pill ok">acima do equilíbrio</span>' : '<span class="pill bad">abaixo do equilíbrio</span>')+
+    ' (diferença de '+fmt(i.fat-be)+'/mês).</p>';
+
+  /* ---- sensibilidade ---- */
+  var mult=[0.7,0.85,1,1.15,1.3,1.5], s='<thead><tr><th>Faturamento PJ (mês)</th><th class="n">Disponível PJ</th><th class="n">vs. CLT</th><th class="n">Custo da empresa</th><th class="n">vs. custo CLT</th></tr></thead><tbody>';
+  var pontos = mult.map(function(m){ return i.fat*m; });
+  pontos.push(be); pontos.sort(function(a,b){return a-b;});
+  pontos.forEach(function(f){
+    var x = calcPJ(i,f), eq = Math.abs(f-be)<1;
+    s += '<tr'+(eq?' class="sub"':'')+'><td>'+fmt(f)+(eq?' <span class="pill warn">equilíbrio</span>':'')+'</td><td class="n">'+fmt(x.disponivel)+
+         '</td><td class="n">'+fmt(x.disponivel-c.disponivel)+'</td><td class="n">'+fmt(x.custoEmpresa)+
+         '</td><td class="n">'+fmt(x.custoEmpresa-c.custoEmpresa)+'</td></tr>';
+  });
+  $("tbl-sens").innerHTML = s+'</tbody>';
+
+  /* ---- memória CLT ---- */
+  var t='<tbody>';
+  t += linha("Salários (12 × "+fmt(i.S)+")", c.salarios);
+  t += linha("13º salário", c.decimo, "", i.on13?"":"(desligado)");
+  t += linha("Férias — terço constitucional", c.terco, "", i.onFerias?"":"(desligado)");
+  t += linha("Remuneração bruta", c.bruto, "sub");
+  t += linha("(−) INSS sobre salários", -c.inss, "neg");
+  t += linha("(−) INSS sobre 13º", -c.inss13, "neg");
+  t += linha("(−) IRRF sobre salários", -c.irrf, "neg");
+  t += linha("(−) IRRF sobre 13º", -c.irrf13, "neg");
+  t += linha("Líquido salarial", c.bruto-c.inss-c.inss13-c.irrf-c.irrf13, "sub");
+  t += linha("PLR bruta", c.plr, "", i.onPLR?"(tabela exclusiva, sem INSS/FGTS)":"(desligada)");
+  t += linha("(−) IR sobre a PLR", -c.irPlr, "neg", c.plr>0?"efetivo "+pct(c.irPlr/c.plr):"");
+  if(i.onILP && i.ilpModo==="match"){
+    t += linha("PLR líquida (base do aporte)", i.plrLiquido, "sub");
+    t += linha("Aporte do executivo no plano", i.aporte, "", "("+pct(i.ilpPctPlr)+" da PLR líquida — dinheiro próprio)");
+    if(i.ilpComGross){
+      t += linha("Matching líquido garantido (nominal)", i.ilpLiqNominal, "", "("+pct(i.ilpMatching)+" do aporte, na mão do executivo)");
+      t += linha("Matching bruto com gross-up (nominal)", i.ilpNominal, "", "(o que a empresa precisa pagar para o líquido fechar)");
+    } else {
+      t += linha("Matching da empresa (nominal)", c.ilpNominal, "", "("+pct(i.ilpMatching)+" do aporte, liberado em "+i.ilpVesting+" ano(s))");
+    }
+    t += linha("ILP considerado no ano" + (i.ilpComGross ? " (bruto)" : ""), c.ilp, "", i.ilpBase==="vp"
+        ? "(valor presente a "+pct(i.ilpDesconto)+" a.a. · chance de vesting "+pct(i.ilpProb)+")"
+        : "(valor nominal · chance de vesting "+pct(i.ilpProb)+")");
+  } else {
+    t += linha("ILP bruto", c.ilp, "", c.ilpNota?"("+c.ilpNota+")":"(desligado)");
+  }
+  t += linha("(−) INSS sobre o ILP", -c.inssIlp, "neg");
+  t += linha("(−) IR sobre o ILP", -c.irIlp, "neg", c.ilpNota&&i.onILP?"("+c.ilpNota+")":"");
+  t += linha("FGTS depositado", c.fgts, "", i.onFgts?"(liquidez restrita)":"(não contado na renda)");
+  if(c.fgtsIlp>0 && i.onFgts) t += linha("— dos quais, FGTS sobre o matching", c.fgtsIlp, "",
+      "(mesmo critério do matching" + (i.ilpModo==="match" ? "; em valor nominal seriam "+fmt(c.ilpNominal*i.fgts) : "") + ")");
+  t += linha("Renda líquida em caixa", c.liquido, "sub");
+  t += linha("Benefícios pagos pela empresa", c.beneficios, "", "(plano de saúde e check-up — evitam desembolso)");
+  t += linha("(−) Saúde paga do próprio bolso", -c.desembolso, "neg");
+  t += linha("Renda disponível", c.disponivel, "tot");
+  if(c.aporte>0){
+    t += linha("(−) Aporte próprio no plano", -c.aporte, "neg", "(patrimônio dele, mas bloqueado por "+i.ilpVesting+" ano(s))");
+    t += linha("Caixa livre no ano", c.caixaLivre, "sub");
+  }
+  $("tbl-clt").innerHTML = t+'</tbody>';
+
+  /* ---- memória PJ ---- */
+  var u='<tbody>';
+  u += linha("Faturamento fixo (12 × "+fmt(i.fat)+")", p.fatFixo);
+  u += linha("Bônus e ILP replicados no contrato", p.fatVar, "",
+      i.replica ? (i.ilpComGross ? "(o matching entra pelo bruto; no PJ não há encargos nem FGTS por cima)" : "") : "(não replicados)");
+  u += linha("Faturamento anual", p.fat, "sub");
+  p.detImp.forEach(function(d){ u += linha("(−) "+d[0], -d[1], "neg"); });
+  u += linha("(−) Contador e despesas da PJ", -p.despesas, "neg");
+  u += linha("Pró-labore bruto", p.proLabore, "", "("+pct(i.proPct)+" do faturamento · Fator R "+pct(p.fatorR)+")");
+  u += linha("(−) INSS do sócio", -p.inssPro, "neg", "("+pct(i.inssCI)+" limitado ao teto)");
+  u += linha("(−) IRRF sobre o pró-labore", -p.irrfPro, "neg");
+  u += linha("Pró-labore líquido", p.proLiq, "sub");
+  u += linha("Dividendos distribuíveis", p.dividendos);
+  u += linha("(−) IRRF sobre dividendos", -p.irDiv, "neg", i.div2026?"(regra de 2026)":"(regra de 2026 desligada)");
+  u += linha("Renda líquida em caixa", p.liquido, "sub");
+  u += linha("Benefícios pagos pelo contratante", p.beneficios);
+  u += linha("(−) Saúde paga do próprio bolso", -p.desembolso, "neg");
+  u += linha("Renda disponível", p.disponivel, "tot");
+  if(p.aporte>0){
+    u += linha("(−) Aporte próprio no plano", -p.aporte, "neg", "(mesmo aporte do cenário CLT, para comparar em pé de igualdade)");
+    u += linha("Caixa livre no ano", p.caixaLivre, "sub");
+  }
+  $("tbl-pj").innerHTML = u+'</tbody>';
+
+  /* ---- custo empresa ---- */
+  var v='<thead><tr><th>Componente</th><th class="n">CLT</th><th class="n">PJ</th></tr></thead><tbody>';
+  v += lc("Remuneração fixa / faturamento fixo", c.bruto, p.fatFixo);
+  v += lc("PLR e ILP (no PJ, faturados no contrato)", c.plr + c.ilp, p.fatVar);
+  if(i.ilpComGross)
+    v += lc("— matching: com encargos no CLT · só o bruto faturado no PJ", c.ilp*(1+i.cpp+i.fgts), p.fatVar>0 ? i.ilp : 0);
+  v += lc("Encargos patronais ("+pct(i.cpp)+")", c.encargos, 0);
+  v += lc("FGTS", c.fgtsEmpresa, 0);
+  v += lc("Provisão de multa de "+pct(i.multa), c.multa, 0);
+  v += lc("Plano de saúde e check-up", c.beneficios, p.beneficios);
+  v += lc("Custo total anual", c.custoEmpresa, p.custoEmpresa, "tot");
+  v += lc("Custo mensal equivalente", c.custoEmpresa/12, p.custoEmpresa/12);
+  $("tbl-custo").innerHTML = v+'</tbody>';
+
+  salvar();
+}
+
+/* ---------- parâmetros editáveis ---------- */
+var CHAVES_JSON = ["inss_faixas","inss_teto_base","irrf_faixas","irrf_simplificado","irrf_dependente",
+                   "plr_faixas","simples_III","simples_V","lp_presuncao","lp_irpj","lp_adicional",
+                   "lp_adicional_limite_ano","lp_csll","lp_pis","lp_cofins","salario_minimo"];
+function paramsParaTextarea(){
+  var o={}; CHAVES_JSON.forEach(function(k){ o[k]=P[k]; });
+  $("p_json").value = JSON.stringify(o,null,1);
+}
+function aplicarParams(){
+  try{
+    var o = JSON.parse($("p_json").value);
+    CHAVES_JSON.forEach(function(k){ if(o[k]!==undefined) P[k]=o[k]; });
+    $("p_status").textContent = "Parâmetros aplicados.";
+    render();
+  }catch(e){ $("p_status").textContent = "JSON inválido: "+e.message; }
+}
+$("btn-aplicar").addEventListener("click", aplicarParams);
+$("btn-restaurar").addEventListener("click", function(){
+  P = JSON.parse(JSON.stringify(P_PADRAO));
+  paramsParaTextarea(); $("p_status").textContent = "Padrão restaurado."; render();
+});
+
+/* ---------- abas ---------- */
+Array.prototype.forEach.call(document.querySelectorAll(".tabs button"), function(b){
+  b.addEventListener("click", function(){
+    Array.prototype.forEach.call(document.querySelectorAll(".tabs button"), function(x){ x.classList.remove("ativa"); });
+    Array.prototype.forEach.call(document.querySelectorAll("section.tab"), function(x){ x.classList.remove("ativa"); });
+    b.classList.add("ativa");
+    $("tab-"+b.dataset.tab).classList.add("ativa");
+    window.scrollTo(0,0);
+  });
+});
+
+/* ---------- persistência local ---------- */
+var CAMPOS = ["salario","dependentes","plr_mult","plr_abs","ilp_modo","ilp_vesting","ilp_pct_plr",
+  "ilp_matching","ilp_prob","ilp_desconto","ilp_base","ilp_mult","ilp_abs","ilp_trib","ilp_aliq",
+  "saude_mes","saude_mes_pj","checkup_ano","pj_fat","pj_regime","pj_prolabore","pj_iss","pj_contador",
+  "pj_desp","pj_saude","pj_checkup","pj_div_base","pj_div_limite","pj_div_aliq",
+  "p_cpp","p_fgts","p_multa","p_inss_ci"];
+var FLAGS = ["on_plr","on_ilp","ilp_gross","ilp_fgts","on_13","on_ferias","on_fgts","on_multa","on_saude","on_checkup",
+  "on_equipar","pj_replica","pj_div2026"];
+function salvar(){
+  try{
+    var o={};
+    CAMPOS.forEach(function(k){ o[k]=$(k).value; });
+    FLAGS.forEach(function(k){ o[k]=$(k).checked; });
+    localStorage.setItem("simRemun", JSON.stringify(o));
+  }catch(e){}
+}
+function carregar(){
+  try{
+    var o = JSON.parse(localStorage.getItem("simRemun")||"{}");
+    CAMPOS.forEach(function(k){ if(o[k]!==undefined) $(k).value=o[k]; });
+    FLAGS.forEach(function(k){ if(o[k]!==undefined) $(k).checked=o[k]; });
+  }catch(e){}
+}
+
+CAMPOS.concat(FLAGS).forEach(function(k){
+  $(k).addEventListener("input", render);
+  $(k).addEventListener("change", render);
+});
+
+carregar();
+paramsParaTextarea();
+render();
+
+/* ---------- instalação como app ---------- */
+var origemSegura = location.protocol === "https:" ||
+  location.hostname === "localhost" || location.hostname === "127.0.0.1";
+if("serviceWorker" in navigator && origemSegura){
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("sw-remuneracao.js").catch(function(){});
+  });
+}
+var promptInstalar = null;
+window.addEventListener("beforeinstallprompt", function(e){
+  e.preventDefault();
+  promptInstalar = e;
+  $("btn-instalar").style.display = "block";
+});
+$("btn-instalar").addEventListener("click", function(){
+  if(!promptInstalar) return;
+  promptInstalar.prompt();
+  promptInstalar.userChoice.then(function(){ promptInstalar = null; $("btn-instalar").style.display = "none"; });
+});
+window.addEventListener("appinstalled", function(){ $("btn-instalar").style.display = "none"; });
+})();
+</script>
+</body>
+</html>

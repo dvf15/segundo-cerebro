@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background: #242427;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Com viewport-fit=cover, o conteúdo passa sob a barra de status do iPhone;
+   este respiro empurra o topo para a área segura (0 fora do celular). */
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+input,
+textarea,
+select {
+  font-size: 16px; /* evita zoom no iOS */
+}
+
+/* Campos nativos de data/hora (iOS/Safari): por padrão o iOS centraliza o
+   valor e reserva espaço interno, deixando a caixa "desconfigurada". Aqui o
+   valor é alinhado à esquerda e a caixa normalizada para caber melhor. */
+input[type="date"],
+input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0;
+}
+input[type="date"]::-webkit-date-and-time-value,
+input[type="time"]::-webkit-date-and-time-value {
+  text-align: left;
+  margin: 0;
+}
+input[type="date"]::-webkit-datetime-edit,
+input[type="time"]::-webkit-datetime-edit {
+  padding: 0;
+}
+
+/* Interações mais fluidas e táteis, sem exageros */
+button,
+a,
+select,
+input,
+textarea {
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease,
+    opacity 0.16s ease, transform 0.1s ease, box-shadow 0.16s ease;
+}
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* Foco acessível e discreto (só teclado) */
+:focus-visible {
+  outline: 2px solid #6ea8fe;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Seleção de texto na cor da marca */
+::selection {
+  background: rgba(52, 211, 153, 0.32);
+}
+
+/* Scrollbar sutil */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #55555f transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #55555f;
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Entrada suave de cartões/toasts */
+@keyframes nt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-in {
+  animation: nt-fade-in 0.22s ease-out both;
+}

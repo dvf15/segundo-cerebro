@@ -1,0 +1,5613 @@
+{
+ "version": 1,
+ "exportedAt": "2026-10-27T19:49:15.811Z",
+ "suppliers": [
+  {
+   "id": "fx_t01",
+   "n": "Prisma Arquitetura de Varejo",
+   "cat": "arquitetura",
+   "segs": [
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Beleza & cosméticos",
+    "Joalheria & ótica"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 30,
+   "areaMax": 600,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 4,
+   "lead": 7,
+   "nota": 4.7,
+   "nAval": 9,
+   "obrasShopping": 14,
+   "mats": [
+    "Marcenaria sob medida",
+    "Iluminação cênica / trilhos",
+    "Vitrine & expositores"
+   ],
+   "contato": "projetos@prisma-arq.exemplo",
+   "obs": "Projeto executivo compatível com o manual técnico do shopping."
+  },
+  {
+   "id": "fx_t02",
+   "n": "Traço Rápido Projetos",
+   "cat": "arquitetura",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Farmácia & conveniência"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 12,
+   "areaMax": 250,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 8,
+   "lead": 4,
+   "nota": 4,
+   "nAval": 12,
+   "obrasShopping": 22,
+   "mats": [
+    "Aço inox (cozinha)",
+    "Comunicação visual / letreiro"
+   ],
+   "contato": "oi@tracorapido.exemplo",
+   "obs": "Formatos compactos de alimentação; entrega em 10 dias."
+  },
+  {
+   "id": "fx_t03",
+   "n": "Ateliê Vértice Design",
+   "cat": "arquitetura",
+   "segs": [
+    "Joalheria & ótica",
+    "Eletrônicos & tech",
+    "Megaloja & âncora"
+   ],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 80,
+   "areaMax": 3000,
+   "preco": 4,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 2,
+   "lead": 15,
+   "nota": 4.9,
+   "nAval": 5,
+   "obrasShopping": 3,
+   "mats": [
+    "Pedra natural (mármore / granito)",
+    "Vidro & esquadrias",
+    "Iluminação cênica / trilhos"
+   ],
+   "contato": "studio@vertice.exemplo",
+   "obs": "Flagships e âncoras; agenda concorrida."
+  },
+  {
+   "id": "fx_t04",
+   "n": "Planta Viva Arquitetos",
+   "cat": "arquitetura",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 20,
+   "areaMax": 800,
+   "preco": 2,
+   "credenciado": 0,
+   "docOk": 0,
+   "simult": 4,
+   "lead": 6,
+   "nota": 4.3,
+   "nAval": 2,
+   "obrasShopping": 0,
+   "mats": [],
+   "contato": "contato@plantaviva.exemplo",
+   "obs": "Ainda não credenciado no empreendimento."
+  },
+  {
+   "id": "fx_t05",
+   "n": "EngPlan Complementares",
+   "cat": "complementares",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 15,
+   "areaMax": 3000,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 8,
+   "lead": 5,
+   "nota": 4.5,
+   "nAval": 15,
+   "obrasShopping": 31,
+   "mats": [
+    "Ar-condicionado",
+    "Refrigeração & exaustão"
+   ],
+   "contato": "eng@engplan.exemplo",
+   "obs": "Elétrica, hidráulica, PPCI e HVAC com ART por disciplina."
+  },
+  {
+   "id": "fx_t06",
+   "n": "Sigma Instalações & Laudos",
+   "cat": "complementares",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Saúde & serviços"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 20,
+   "areaMax": 800,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 0,
+   "simult": 4,
+   "lead": 9,
+   "nota": 4.1,
+   "nAval": 6,
+   "obrasShopping": 8,
+   "mats": [
+    "Refrigeração & exaustão",
+    "Aço inox (cozinha)"
+   ],
+   "contato": "sigma@laudos.exemplo",
+   "obs": "Credenciamento vencido em 30/09 — renovar antes da ordem de serviço."
+  },
+  {
+   "id": "fx_t07",
+   "n": "Norte Projetos Elétricos",
+   "cat": "complementares",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 400,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 6,
+   "lead": 4,
+   "nota": 3.7,
+   "nAval": 4,
+   "obrasShopping": 5,
+   "mats": [],
+   "contato": "norte@projetos.exemplo",
+   "obs": "Só elétrica e hidráulica; PPCI terceirizado."
+  },
+  {
+   "id": "fx_t08",
+   "n": "Prumo Gerenciamento de Obras",
+   "cat": "gerenciamento",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 3000,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 6,
+   "lead": 4,
+   "nota": 4.8,
+   "nAval": 20,
+   "obrasShopping": 38,
+   "mats": [],
+   "contato": "prumo@gerenciamento.exemplo",
+   "obs": "Fiscalização, cronograma físico-financeiro e interface com a engenharia do shopping."
+  },
+  {
+   "id": "fx_t09",
+   "n": "Marco Zero Implantação",
+   "cat": "gerenciamento",
+   "segs": [
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Casa & decoração",
+    "Farmácia & conveniência"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 400,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 9,
+   "lead": 3,
+   "nota": 4.1,
+   "nAval": 10,
+   "obrasShopping": 19,
+   "mats": [],
+   "contato": "contato@marcozero.exemplo",
+   "obs": "Formato enxuto, bom para primeira obra e satélites."
+  },
+  {
+   "id": "fx_t10",
+   "n": "Compasso Engenharia",
+   "cat": "gerenciamento",
+   "segs": [],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 150,
+   "areaMax": 4000,
+   "preco": 4,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 2,
+   "lead": 12,
+   "nota": 3.4,
+   "nAval": 3,
+   "obrasShopping": 2,
+   "mats": [],
+   "contato": "compasso@eng.exemplo",
+   "obs": "Duas obras com atraso registrado em 2025."
+  },
+  {
+   "id": "fx_t11",
+   "n": "Obra Certa Empreiteira",
+   "cat": "construtora",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Farmácia & conveniência",
+    "Saúde & serviços"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 10,
+   "areaMax": 220,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 7,
+   "lead": 6,
+   "nota": 3.9,
+   "nAval": 14,
+   "obrasShopping": 27,
+   "mats": [
+    "Gesso acartonado & forro",
+    "Resina epóxi / cimento queimado",
+    "Aço inox (cozinha)"
+   ],
+   "contato": "comercial@obracerta.exemplo",
+   "obs": "Custo competitivo em lojas pequenas; agenda apertada em novembro."
+  },
+  {
+   "id": "fx_t12",
+   "n": "Construtora Bandeira Retail",
+   "cat": "construtora",
+   "segs": [
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Casa & decoração",
+    "Esporte & outdoor",
+    "Beleza & cosméticos"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 50,
+   "areaMax": 900,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 3,
+   "lead": 12,
+   "nota": 4.5,
+   "nAval": 11,
+   "obrasShopping": 15,
+   "mats": [
+    "Gesso acartonado & forro",
+    "Porcelanato & cerâmica",
+    "Marcenaria sob medida"
+   ],
+   "contato": "obras@bandeira.exemplo",
+   "obs": "Turn-key com equipe própria de acabamento."
+  },
+  {
+   "id": "fx_t13",
+   "n": "Domus Construções Premium",
+   "cat": "construtora",
+   "segs": [
+    "Joalheria & ótica",
+    "Eletrônicos & tech",
+    "Megaloja & âncora",
+    "Restaurante & café"
+   ],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 100,
+   "areaMax": 3000,
+   "preco": 4,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 2,
+   "lead": 18,
+   "nota": 4.8,
+   "nAval": 7,
+   "obrasShopping": 6,
+   "mats": [
+    "Pedra natural (mármore / granito)",
+    "Vidro & esquadrias",
+    "Estrutura metálica / mezanino"
+   ],
+   "contato": "contato@domus.exemplo",
+   "obs": "Alto padrão, mezaninos e estrutura metálica."
+  },
+  {
+   "id": "fx_t14",
+   "n": "Base Forte Engenharia",
+   "cat": "construtora",
+   "segs": [
+    "Megaloja & âncora",
+    "Esporte & outdoor",
+    "Educação & entretenimento"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 300,
+   "areaMax": 6000,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 2,
+   "lead": 20,
+   "nota": 4.3,
+   "nAval": 4,
+   "obrasShopping": 3,
+   "mats": [
+    "Estrutura metálica / mezanino",
+    "Gesso acartonado & forro"
+   ],
+   "contato": "baseforte@eng.exemplo",
+   "obs": "Grandes áreas; não pega loja abaixo de 300 m²."
+  },
+  {
+   "id": "fx_t15",
+   "n": "Nordeste Obras Rápidas",
+   "cat": "construtora",
+   "segs": [],
+   "padroes": [
+    "economico"
+   ],
+   "areaMin": 10,
+   "areaMax": 150,
+   "preco": 1,
+   "credenciado": 0,
+   "docOk": 0,
+   "simult": 5,
+   "lead": 4,
+   "nota": 3.2,
+   "nAval": 2,
+   "obrasShopping": 0,
+   "mats": [
+    "Gesso acartonado & forro",
+    "Pintura especial & texturas"
+   ],
+   "contato": "nordeste@obras.exemplo",
+   "obs": "Sem credenciamento — sem acesso à obra."
+  },
+  {
+   "id": "fx_t16",
+   "n": "Madeira Viva Marcenaria",
+   "cat": "marcenaria",
+   "segs": [
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Joalheria & ótica",
+    "Beleza & cosméticos"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 800,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 5,
+   "lead": 15,
+   "nota": 4.6,
+   "nAval": 13,
+   "obrasShopping": 21,
+   "mats": [
+    "Marcenaria sob medida",
+    "Vitrine & expositores"
+   ],
+   "contato": "vendas@madeiraviva.exemplo",
+   "obs": "Montagem noturna."
+  },
+  {
+   "id": "fx_t17",
+   "n": "Linha Reta Mobiliário",
+   "cat": "marcenaria",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Farmácia & conveniência",
+    "Casa & decoração"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 300,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 8,
+   "lead": 10,
+   "nota": 4,
+   "nAval": 8,
+   "obrasShopping": 12,
+   "mats": [
+    "Marcenaria sob medida"
+   ],
+   "contato": "linhareta@exemplo",
+   "obs": "Balcões e expositores em série."
+  },
+  {
+   "id": "fx_t18",
+   "n": "Oficina Nobre Móveis",
+   "cat": "marcenaria",
+   "segs": [],
+   "padroes": [
+    "premium"
+   ],
+   "areaMin": 40,
+   "areaMax": 1000,
+   "preco": 4,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 2,
+   "lead": 25,
+   "nota": 4.9,
+   "nAval": 4,
+   "obrasShopping": 2,
+   "mats": [
+    "Marcenaria sob medida",
+    "Vitrine & expositores",
+    "Pedra natural (mármore / granito)"
+   ],
+   "contato": "oficina@nobre.exemplo",
+   "obs": "Só premium; prazo de fábrica longo."
+  },
+  {
+   "id": "fx_t19",
+   "n": "Vitrine Vidros & Serralheria",
+   "cat": "serralheria",
+   "segs": [
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Joalheria & ótica",
+    "Eletrônicos & tech"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 800,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 4,
+   "lead": 12,
+   "nota": 4.4,
+   "nAval": 10,
+   "obrasShopping": 17,
+   "mats": [
+    "Vidro & esquadrias",
+    "ACM / fachada metálica",
+    "Estrutura metálica / mezanino"
+   ],
+   "contato": "orcamento@vitrinevidros.exemplo",
+   "obs": "Fachadas em vidro laminado, ACM e portas de enrolar."
+  },
+  {
+   "id": "fx_t20",
+   "n": "Metálica Sul Estruturas",
+   "cat": "serralheria",
+   "segs": [
+    "Megaloja & âncora",
+    "Esporte & outdoor",
+    "Casa & decoração"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 150,
+   "areaMax": 4000,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 2,
+   "lead": 20,
+   "nota": 4.3,
+   "nAval": 5,
+   "obrasShopping": 4,
+   "mats": [
+    "Estrutura metálica / mezanino",
+    "ACM / fachada metálica"
+   ],
+   "contato": "metalicasul@exemplo",
+   "obs": "Mezaninos com projeto e ART."
+  },
+  {
+   "id": "fx_t21",
+   "n": "Ferro & Vidro Express",
+   "cat": "serralheria",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 200,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 0,
+   "simult": 6,
+   "lead": 5,
+   "nota": 3.8,
+   "nAval": 6,
+   "obrasShopping": 9,
+   "mats": [
+    "Vidro & esquadrias"
+   ],
+   "contato": "express@ferrovidro.exemplo",
+   "obs": "Seguro de obra vencido — documentação pendente."
+  },
+  {
+   "id": "fx_t22",
+   "n": "Voltz Instalações Elétricas",
+   "cat": "eletrica",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 15,
+   "areaMax": 1500,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 6,
+   "lead": 6,
+   "nota": 4.3,
+   "nAval": 16,
+   "obrasShopping": 30,
+   "mats": [
+    "Iluminação cênica / trilhos",
+    "Automação, som & dados"
+   ],
+   "contato": "voltz@exemplo",
+   "obs": "NR-10 e NR-35; entrega laudo elétrico."
+  },
+  {
+   "id": "fx_t23",
+   "n": "Lumine Iluminação",
+   "cat": "eletrica",
+   "segs": [
+    "Joalheria & ótica",
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Beleza & cosméticos"
+   ],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 600,
+   "preco": 4,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 3,
+   "lead": 11,
+   "nota": 4.7,
+   "nAval": 6,
+   "obrasShopping": 7,
+   "mats": [
+    "Iluminação cênica / trilhos"
+   ],
+   "contato": "lumine@exemplo",
+   "obs": "Iluminação cênica e de vitrine."
+  },
+  {
+   "id": "fx_t24",
+   "n": "Elétrica Popular",
+   "cat": "eletrica",
+   "segs": [],
+   "padroes": [
+    "economico"
+   ],
+   "areaMin": 20,
+   "areaMax": 120,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 10,
+   "lead": 3,
+   "nota": 3.5,
+   "nAval": 9,
+   "obrasShopping": 11,
+   "mats": [],
+   "contato": "popular@eletrica.exemplo",
+   "obs": "Lojas pequenas; não faz iluminação cênica."
+  },
+  {
+   "id": "fx_t25",
+   "n": "ClimaTech Ar-Condicionado",
+   "cat": "climatizacao",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 2000,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 5,
+   "lead": 10,
+   "nota": 4.5,
+   "nAval": 14,
+   "obrasShopping": 26,
+   "mats": [
+    "Ar-condicionado",
+    "Refrigeração & exaustão"
+   ],
+   "contato": "climatech@exemplo",
+   "obs": "VRF, split e interligação ao sistema central."
+  },
+  {
+   "id": "fx_t26",
+   "n": "Exaust Pro Cozinhas",
+   "cat": "climatizacao",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 25,
+   "areaMax": 500,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 4,
+   "lead": 14,
+   "nota": 4.4,
+   "nAval": 9,
+   "obrasShopping": 14,
+   "mats": [
+    "Refrigeração & exaustão",
+    "Aço inox (cozinha)"
+   ],
+   "contato": "exaustpro@exemplo",
+   "obs": "Coifas, dutos e laudo de vazão."
+  },
+  {
+   "id": "fx_t27",
+   "n": "FrioBom Refrigeração",
+   "cat": "climatizacao",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Farmácia & conveniência"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 300,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 6,
+   "lead": 7,
+   "nota": 4,
+   "nAval": 5,
+   "obrasShopping": 8,
+   "mats": [
+    "Refrigeração & exaustão"
+   ],
+   "contato": "friobom@exemplo",
+   "obs": "Câmaras frias e balcões refrigerados."
+  },
+  {
+   "id": "fx_t28",
+   "n": "HidroMax Instalações",
+   "cat": "hidraulica",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Saúde & serviços",
+    "Beleza & cosméticos"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 20,
+   "areaMax": 900,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 6,
+   "lead": 7,
+   "nota": 4.2,
+   "nAval": 12,
+   "obrasShopping": 22,
+   "mats": [
+    "Aço inox (cozinha)"
+   ],
+   "contato": "hidromax@exemplo",
+   "obs": "Água, esgoto, caixa de gordura e gás com teste de estanqueidade."
+  },
+  {
+   "id": "fx_t29",
+   "n": "Gás Seguro Instalações",
+   "cat": "hidraulica",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café"
+   ],
+   "padroes": [
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 1200,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 3,
+   "lead": 9,
+   "nota": 4.6,
+   "nAval": 7,
+   "obrasShopping": 10,
+   "mats": [],
+   "contato": "gasseguro@exemplo",
+   "obs": "Rede de gás e laudo; não faz hidráulica civil."
+  },
+  {
+   "id": "fx_t30",
+   "n": "Casa dos Revestimentos",
+   "cat": "acabamentos",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 20,
+   "areaMax": 2000,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 10,
+   "lead": 5,
+   "nota": 4.1,
+   "nAval": 18,
+   "obrasShopping": 33,
+   "mats": [
+    "Porcelanato & cerâmica",
+    "Piso vinílico / laminado",
+    "Resina epóxi / cimento queimado"
+   ],
+   "contato": "casarevest@exemplo",
+   "obs": "Fornecimento e assentamento."
+  },
+  {
+   "id": "fx_t31",
+   "n": "Pedra Nobre Mármores",
+   "cat": "acabamentos",
+   "segs": [
+    "Joalheria & ótica",
+    "Beleza & cosméticos",
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Restaurante & café"
+   ],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 900,
+   "preco": 4,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 3,
+   "lead": 16,
+   "nota": 4.6,
+   "nAval": 8,
+   "obrasShopping": 9,
+   "mats": [
+    "Pedra natural (mármore / granito)"
+   ],
+   "contato": "pedranobre@exemplo",
+   "obs": "Mármore, granito e quartzo sob medida."
+  },
+  {
+   "id": "fx_t32",
+   "n": "Piso Pronto Distribuidora",
+   "cat": "acabamentos",
+   "segs": [],
+   "padroes": [
+    "economico"
+   ],
+   "areaMin": 20,
+   "areaMax": 400,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 12,
+   "lead": 3,
+   "nota": 3.6,
+   "nAval": 7,
+   "obrasShopping": 10,
+   "mats": [
+    "Piso vinílico / laminado",
+    "Porcelanato & cerâmica"
+   ],
+   "contato": "pisopronto@exemplo",
+   "obs": "Só fornecimento; assentamento por conta da construtora."
+  },
+  {
+   "id": "fx_t33",
+   "n": "Cor & Textura Pinturas",
+   "cat": "pintura",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 1500,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 9,
+   "lead": 4,
+   "nota": 4,
+   "nAval": 15,
+   "obrasShopping": 28,
+   "mats": [
+    "Pintura especial & texturas",
+    "Gesso acartonado & forro"
+   ],
+   "contato": "cortextura@exemplo",
+   "obs": "Texturas e retoque pré-inauguração."
+  },
+  {
+   "id": "fx_t34",
+   "n": "Ateliê de Paredes",
+   "cat": "pintura",
+   "segs": [],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 800,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 3,
+   "lead": 10,
+   "nota": 4.7,
+   "nAval": 5,
+   "obrasShopping": 4,
+   "mats": [
+    "Pintura especial & texturas"
+   ],
+   "contato": "atelie@paredes.exemplo",
+   "obs": "Efeitos especiais, papel de parede e microcimento."
+  },
+  {
+   "id": "fx_t35",
+   "n": "Sinal Comunicação Visual",
+   "cat": "comunicacao",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 2000,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 7,
+   "lead": 9,
+   "nota": 4.3,
+   "nAval": 17,
+   "obrasShopping": 31,
+   "mats": [
+    "Comunicação visual / letreiro",
+    "Vitrine & expositores"
+   ],
+   "contato": "sinalcv@exemplo",
+   "obs": "Letreiro e fachada luminosa conforme manual do shopping."
+  },
+  {
+   "id": "fx_t36",
+   "n": "Letra Viva Letreiros",
+   "cat": "comunicacao",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 300,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 8,
+   "lead": 6,
+   "nota": 3.9,
+   "nAval": 6,
+   "obrasShopping": 8,
+   "mats": [
+    "Comunicação visual / letreiro"
+   ],
+   "contato": "letraviva@exemplo",
+   "obs": "Letras-caixa e adesivação."
+  },
+  {
+   "id": "fx_t37",
+   "n": "Neon & Marca Studio",
+   "cat": "comunicacao",
+   "segs": [
+    "Moda & vestuário",
+    "Calçados & acessórios",
+    "Beleza & cosméticos",
+    "Restaurante & café"
+   ],
+   "padroes": [
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 800,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 3,
+   "lead": 12,
+   "nota": 4.5,
+   "nAval": 4,
+   "obrasShopping": 3,
+   "mats": [
+    "Comunicação visual / letreiro",
+    "Iluminação cênica / trilhos"
+   ],
+   "contato": "neon@marca.exemplo",
+   "obs": "Letreiros de neon LED e fachadas conceito."
+  },
+  {
+   "id": "fx_t38",
+   "n": "Fogo Zero Engenharia de Incêndio",
+   "cat": "incendio",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 3000,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 4,
+   "lead": 8,
+   "nota": 4.7,
+   "nAval": 12,
+   "obrasShopping": 20,
+   "mats": [],
+   "contato": "fogozero@exemplo",
+   "obs": "Sprinkler, detecção, alarme e ART junto ao Corpo de Bombeiros."
+  },
+  {
+   "id": "fx_t39",
+   "n": "Hidrante Já Sistemas",
+   "cat": "incendio",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 600,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 0,
+   "simult": 5,
+   "lead": 6,
+   "nota": 4,
+   "nAval": 5,
+   "obrasShopping": 7,
+   "mats": [],
+   "contato": "hidranteja@exemplo",
+   "obs": "ART coletiva vencida — regularizar."
+  },
+  {
+   "id": "fx_t40",
+   "n": "Guardião Segurança Eletrônica",
+   "cat": "seguranca",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 2000,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 8,
+   "lead": 6,
+   "nota": 4.1,
+   "nAval": 11,
+   "obrasShopping": 18,
+   "mats": [
+    "Automação, som & dados"
+   ],
+   "contato": "guardiao@exemplo",
+   "obs": "CFTV, alarme, acesso e antifurto integrados à central."
+  },
+  {
+   "id": "fx_t41",
+   "n": "Olho Vivo Monitoramento",
+   "cat": "seguranca",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 500,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 10,
+   "lead": 4,
+   "nota": 3.8,
+   "nAval": 7,
+   "obrasShopping": 9,
+   "mats": [],
+   "contato": "olhovivo@exemplo",
+   "obs": "CFTV básico; não faz controle de acesso."
+  },
+  {
+   "id": "fx_t42",
+   "n": "Legaliza Consultoria Imobiliária",
+   "cat": "regularizacao",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 5000,
+   "preco": 3,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 6,
+   "lead": 5,
+   "nota": 4.5,
+   "nAval": 14,
+   "obrasShopping": 24,
+   "mats": [],
+   "contato": "legaliza@exemplo",
+   "obs": "Alvará, AVCB/CLCB, licença sanitária, ART/RRT e protocolo em prefeitura."
+  },
+  {
+   "id": "fx_t43",
+   "n": "Alvará Já Despachante",
+   "cat": "regularizacao",
+   "segs": [
+    "Alimentação — praça (fast food)",
+    "Restaurante & café",
+    "Saúde & serviços"
+   ],
+   "padroes": [
+    "economico",
+    "intermediario"
+   ],
+   "areaMin": 20,
+   "areaMax": 600,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 0,
+   "simult": 10,
+   "lead": 3,
+   "nota": 3.8,
+   "nAval": 6,
+   "obrasShopping": 10,
+   "mats": [],
+   "contato": "alvaraja@exemplo",
+   "obs": "Documentação de credenciamento pendente."
+  },
+  {
+   "id": "fx_t44",
+   "n": "Vistoria Fácil Assessoria",
+   "cat": "regularizacao",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto"
+   ],
+   "areaMin": 20,
+   "areaMax": 1500,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 5,
+   "lead": 6,
+   "nota": 4.2,
+   "nAval": 4,
+   "obrasShopping": 5,
+   "mats": [],
+   "contato": "vistoriafacil@exemplo",
+   "obs": "Acompanhamento de vistoria do Corpo de Bombeiros e vigilância sanitária."
+  },
+  {
+   "id": "fx_t45",
+   "n": "Limpa Obra Serviços",
+   "cat": "limpeza",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 3000,
+   "preco": 1,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 12,
+   "lead": 2,
+   "nota": 4,
+   "nAval": 19,
+   "obrasShopping": 35,
+   "mats": [],
+   "contato": "limpaobra@exemplo",
+   "obs": "Limpeza fina pré-inauguração e MTR do entulho."
+  },
+  {
+   "id": "fx_t46",
+   "n": "Caçamba Certa",
+   "cat": "limpeza",
+   "segs": [],
+   "padroes": [
+    "economico",
+    "intermediario",
+    "alto",
+    "premium"
+   ],
+   "areaMin": 20,
+   "areaMax": 6000,
+   "preco": 2,
+   "credenciado": 1,
+   "docOk": 1,
+   "simult": 8,
+   "lead": 2,
+   "nota": 4.3,
+   "nAval": 8,
+   "obrasShopping": 12,
+   "mats": [],
+   "contato": "cacamba@certa.exemplo",
+   "obs": "Caçambas e destinação com MTR; limpeza fina terceirizada."
+  }
+ ],
+ "obras": [
+  {
+   "id": "ob_t01",
+   "createdAt": "2026-10-22T19:49:15.778Z",
+   "updatedAt": "2026-10-26T19:49:15.778Z",
+   "notes": "Comunicado de fechamento recebido; tapume previsto para sexta.",
+   "obra": {
+    "contato": "11 99100-0001",
+    "luc": "L-021 · Piso 1",
+    "tipoop": "satelite",
+    "testada": 5,
+    "entrega": "adaptar",
+    "tipoobra": "nova",
+    "carencia": 45,
+    "inauguracao": "",
+    "manual": "sim",
+    "materiais": [
+     "Marcenaria sob medida",
+     "Iluminação cênica / trilhos",
+     "Vitrine & expositores"
+    ],
+    "instalacoes": [
+     "climatizacao"
+    ],
+    "kva": 0,
+    "projshop": "nao",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "na",
+    "art": "pendente",
+    "conting": 10,
+    "contratacao": "turnkey",
+    "exp": "rede",
+    "temprojeto": "sim",
+    "temger": "nao",
+    "nome": "Ótica Prisma",
+    "segmento": "Joalheria & ótica",
+    "area": 38,
+    "padrao": "intermediario",
+    "orcamento": 190000
+   },
+   "est": {
+    "area": 38,
+    "custoM2": 3686,
+    "base": 140068,
+    "extras": [
+     [
+      "Climatização própria",
+      19760
+     ]
+    ],
+    "extraTotal": 19760,
+    "central": 159828,
+    "min": 135854,
+    "max": 191794,
+    "conting": 15983,
+    "diasObra": 26,
+    "diasAprov": 25,
+    "diasTotal": 51
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Prisma Arquitetura de Varejo",
+     "score": 100,
+     "contato": "projetos@prisma-arq.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 95,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "recomendado",
+     "n": "Marco Zero Implantação",
+     "score": 92,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 90,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "obrigatorio",
+     "n": "Madeira Viva Marcenaria",
+     "score": 95,
+     "contato": "vendas@madeiraviva.exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 97,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 91,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 95,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 96,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 88,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 95,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 94,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Caçamba Certa",
+     "score": 95,
+     "contato": "cacamba@certa.exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-10-22T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-26T19:49:15.778Z"
+    }
+   },
+   "contratados": {},
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao"
+    ],
+    "kvaDisp": 0,
+    "feitas": [
+     "Arquitetura"
+    ],
+    "obs": "",
+    "em": ""
+   },
+   "docs": {},
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "VISTORIA",
+    "desde": "2026-10-26T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "",
+    "validadoEm": "",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-10-22T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t02",
+   "createdAt": "2026-10-15T19:49:15.778Z",
+   "updatedAt": "2026-10-25T19:49:15.778Z",
+   "notes": "Chaves recebidas com fotos. Vistoria geral marcada.",
+   "obra": {
+    "contato": "11 99100-0002",
+    "luc": "L-108 · Piso Térreo",
+    "tipoop": "satelite",
+    "testada": 7,
+    "entrega": "adaptar",
+    "tipoobra": "nova",
+    "carencia": 45,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [],
+    "instalacoes": [
+     "refrigeracao",
+     "hidraulica"
+    ],
+    "kva": 0,
+    "projshop": "nao",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "na",
+    "art": "pendente",
+    "conting": 8,
+    "contratacao": "turnkey",
+    "exp": "uma",
+    "temprojeto": "nao",
+    "temger": "nao",
+    "nome": "Pit Stop Conveniência",
+    "segmento": "Farmácia & conveniência",
+    "area": 90,
+    "padrao": "economico",
+    "orcamento": 210000
+   },
+   "est": {
+    "area": 90,
+    "custoM2": 2177,
+    "base": 195930,
+    "extras": [
+     [
+      "Câmara fria / refrigeração",
+      12600
+     ]
+    ],
+    "extraTotal": 12600,
+    "central": 208530,
+    "min": 177251,
+    "max": 250236,
+    "conting": 16682,
+    "diasObra": 38,
+    "diasAprov": 25,
+    "diasTotal": 63
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "obrigatorio",
+     "n": "Traço Rápido Projetos",
+     "score": 100,
+     "contato": "oi@tracorapido.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "Norte Projetos Elétricos",
+     "score": 93,
+     "contato": "norte@projetos.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "recomendado",
+     "n": "Marco Zero Implantação",
+     "score": 94,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 100,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Linha Reta Mobiliário",
+     "score": 93,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Elétrica Popular",
+     "score": 94,
+     "contato": "popular@eletrica.exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 94,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 86,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Piso Pronto Distribuidora",
+     "score": 94,
+     "contato": "pisopronto@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Letra Viva Letreiros",
+     "score": 94,
+     "contato": "letraviva@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Hidrante Já Sistemas",
+     "score": 62,
+     "contato": "hidranteja@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Olho Vivo Monitoramento",
+     "score": 94,
+     "contato": "olhovivo@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 88,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 95,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-10-15T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-18T07:49:15.778Z"
+    },
+    "3": {
+     "at": "2026-10-20T19:49:15.778Z"
+    },
+    "4": {
+     "at": "2026-10-23T07:49:15.778Z"
+    },
+    "5": {
+     "at": "2026-10-25T19:49:15.778Z"
+    }
+   },
+   "contratados": {},
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "hidraulica"
+    ],
+    "kvaDisp": 30,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica"
+    ],
+    "obs": "",
+    "em": ""
+   },
+   "docs": {},
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "VISTORIA",
+    "desde": "2026-10-25T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "",
+    "validadoEm": "",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-10-15T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t03",
+   "createdAt": "2026-09-27T19:49:15.778Z",
+   "updatedAt": "2026-10-20T19:49:15.778Z",
+   "notes": "Megaloja: vistoria concluída; a carga disponível está bem abaixo da necessária. Validação parada com o Executivo.",
+   "obra": {
+    "contato": "11 99100-0003",
+    "luc": "A-02 · Piso 2",
+    "tipoop": "ancora",
+    "testada": 22,
+    "entrega": "casca",
+    "tipoobra": "nova",
+    "carencia": 150,
+    "inauguracao": "2027-04-15",
+    "manual": "nao",
+    "materiais": [
+     "Pedra natural (mármore / granito)",
+     "Vidro & esquadrias",
+     "Estrutura metálica / mezanino",
+     "Iluminação cênica / trilhos"
+    ],
+    "instalacoes": [
+     "climatizacao",
+     "mezanino",
+     "fachada",
+     "carga",
+     "automacao",
+     "sprinkler"
+    ],
+    "kva": 180,
+    "projshop": "nao",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "na",
+    "art": "pendente",
+    "conting": 12,
+    "contratacao": "administracao",
+    "exp": "equipe",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Casa Bella Megaloja",
+    "segmento": "Megaloja & âncora",
+    "area": 900,
+    "padrao": "premium",
+    "orcamento": 6500000
+   },
+   "est": {
+    "area": 900,
+    "custoM2": 5848,
+    "base": 5263200,
+    "extras": [
+     [
+      "Climatização própria",
+      468000
+     ],
+     [
+      "Reforço de carga elétrica",
+      25000
+     ],
+     [
+      "Sprinkler / detecção",
+      162000
+     ],
+     [
+      "Fachada / vitrine especial",
+      77000
+     ],
+     [
+      "Mezanino / estrutura metálica",
+      631584
+     ]
+    ],
+    "extraTotal": 1363584,
+    "central": 6626784,
+    "min": 5632766,
+    "max": 7952141,
+    "conting": 795214,
+    "diasObra": 321,
+    "diasAprov": 25,
+    "diasTotal": 346
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Ateliê Vértice Design",
+     "score": 100,
+     "contato": "studio@vertice.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 93,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Prumo Gerenciamento de Obras",
+     "score": 93,
+     "contato": "prumo@gerenciamento.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Domus Construções Premium",
+     "score": 100,
+     "contato": "contato@domus.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Oficina Nobre Móveis",
+     "score": 90,
+     "contato": "oficina@nobre.exemplo"
+    },
+    {
+     "k": "serralheria",
+     "nivel": "obrigatorio",
+     "n": "Metálica Sul Estruturas",
+     "score": 87,
+     "contato": "metalicasul@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 88,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "ClimaTech Ar-Condicionado",
+     "score": 89,
+     "contato": "climatech@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Pedra Nobre Mármores",
+     "score": 88,
+     "contato": "pedranobre@exemplo"
+    },
+    {
+     "k": "pintura",
+     "nivel": "recomendado",
+     "n": "Cor & Textura Pinturas",
+     "score": 93,
+     "contato": "cortextura@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 88,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 88,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 93,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Legaliza Consultoria Imobiliária",
+     "score": 93,
+     "contato": "legaliza@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 93,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-09-27T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-05T11:49:15.778Z"
+    },
+    "3": {
+     "at": "2026-10-13T03:49:15.778Z"
+    },
+    "4": {
+     "at": "2026-10-20T19:49:15.778Z"
+    },
+    "6": {
+     "at": "2026-10-11T01:13:15.778Z"
+    }
+   },
+   "contratados": {},
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao",
+     "hidraulica",
+     "carga"
+    ],
+    "kvaDisp": 80,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-10-01T06:37:15.778Z"
+   },
+   "docs": {},
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "VALIDACAO",
+    "desde": "2026-10-20T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "",
+    "validadoEm": "",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-09-27T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-10-11T01:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t04",
+   "createdAt": "2026-10-07T19:49:15.778Z",
+   "updatedAt": "2026-10-24T19:49:15.778Z",
+   "notes": "Orçamento abaixo da estimativa — conversar sobre padrão/escopo antes do kick off.",
+   "obra": {
+    "contato": "11 99100-0004",
+    "luc": "PA-14 · Praça de alimentação",
+    "tipoop": "alimentacao",
+    "testada": 5,
+    "entrega": "adaptar",
+    "tipoobra": "nova",
+    "carencia": 40,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Aço inox (cozinha)",
+     "Comunicação visual / letreiro"
+    ],
+    "instalacoes": [
+     "exaustao",
+     "gas",
+     "hidraulica"
+    ],
+    "kva": 0,
+    "projshop": "nao",
+    "sprk": "naosei",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "pendente",
+    "art": "pendente",
+    "conting": 0,
+    "contratacao": "separado",
+    "exp": "nenhuma",
+    "temprojeto": "nao",
+    "temger": "nao",
+    "nome": "Burger Station",
+    "segmento": "Alimentação — praça (fast food)",
+    "area": 32,
+    "padrao": "alto",
+    "orcamento": 120000
+   },
+   "est": {
+    "area": 32,
+    "custoM2": 5930,
+    "base": 189760,
+    "extras": [
+     [
+      "Exaustão / coifa",
+      12160
+     ],
+     [
+      "Instalação de gás",
+      18000
+     ]
+    ],
+    "extraTotal": 30160,
+    "central": 219920,
+    "min": 186932,
+    "max": 263904,
+    "conting": 0,
+    "diasObra": 46,
+    "diasAprov": 25,
+    "diasTotal": 71
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "obrigatorio",
+     "n": "Traço Rápido Projetos",
+     "score": 97,
+     "contato": "oi@tracorapido.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 89,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Marco Zero Implantação",
+     "score": 79,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 95,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Linha Reta Mobiliário",
+     "score": 81,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 89,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 87,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 96,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 89,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "pintura",
+     "nivel": "recomendado",
+     "n": "Cor & Textura Pinturas",
+     "score": 95,
+     "contato": "cortextura@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Letra Viva Letreiros",
+     "score": 89,
+     "contato": "letraviva@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Hidrante Já Sistemas",
+     "score": 62,
+     "contato": "hidranteja@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 89,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 88,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 95,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-10-07T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-09T22:49:15.778Z"
+    },
+    "3": {
+     "at": "2026-10-12T01:49:15.778Z"
+    },
+    "4": {
+     "at": "2026-10-14T04:49:15.778Z"
+    },
+    "5": {
+     "at": "2026-10-16T07:49:15.778Z"
+    },
+    "6": {
+     "at": "2026-10-18T10:49:15.778Z"
+    },
+    "7": {
+     "at": "2026-10-20T13:49:15.778Z"
+    },
+    "8": {
+     "at": "2026-10-22T16:49:15.778Z"
+    },
+    "9": {
+     "at": "2026-10-24T19:49:15.778Z"
+    },
+    "13": {
+     "at": "2026-10-11T11:41:52.701Z"
+    },
+    "14": {
+     "at": "2026-10-11T11:41:52.701Z"
+    }
+   },
+   "contratados": {},
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "hidraulica"
+    ],
+    "kvaDisp": 20,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-10-10T09:01:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "complementares": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "fornecedores": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "plano": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": {
+    "itens": [
+     "Exaustão / coifa (cozinha)",
+     "Instalação de gás"
+    ],
+    "valor": 58000,
+    "prazo": 20,
+    "obs": "Coifa com filtro inercial e rede de gás com teste de estanqueidade.",
+    "em": "2026-10-11T11:41:52.701Z"
+   },
+   "trilha": {
+    "estado": "NEGOCIACAO",
+    "desde": "2026-10-24T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "nao_atende",
+    "validadoEm": "2026-10-13",
+    "origem": "ENVIO",
+    "negociacao": {
+     "assunto": "Orçamento da adequação",
+     "motivo": "O valor da coifa ficou acima da minha cotação. Meu orçamento total é R$ 120 mil.",
+     "abertaEm": "2026-10-23T17:08:38.854Z",
+     "abertaPor": "lojista",
+     "comentarios": [
+      {
+       "em": "2026-10-23T17:08:38.854Z",
+       "perfil": "executivo",
+       "txt": "Pedi a Operações para revisar o item da coifa.",
+       "publico": false
+      }
+     ]
+    },
+    "negHist": [],
+    "docsEm": "2026-10-11T11:41:52.701Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-10-07T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-10-10T09:01:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-10-11T11:41:52.701Z",
+      "perfil": "executivo",
+      "ev": "infra_nao_atende",
+      "de": "VALIDACAO",
+      "para": "ORCAMENTO",
+      "txt": "Infra não atende. Itens a adequar: Exaustão / coifa (cozinha); Instalação de gás."
+     },
+     {
+      "em": "2026-10-23T17:08:38.854Z",
+      "perfil": "operacoes",
+      "ev": "concluir_orcamento",
+      "de": "ORCAMENTO",
+      "para": "ENVIO",
+      "txt": "Orçamento da adequação concluído: R$ 58.000 em 20 dias. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-10-23T17:08:38.854Z",
+      "perfil": "lojista",
+      "ev": "discordo",
+      "de": "ENVIO",
+      "para": "NEGOCIACAO",
+      "txt": "Negociação aberta (Orçamento da adequação) pelo lojista. Motivo: O valor da coifa ficou acima da minha cotação. Meu orçamento total é R$ 120 mil."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t05",
+   "createdAt": "2026-10-12T19:49:15.778Z",
+   "updatedAt": "2026-10-27T19:49:15.778Z",
+   "notes": "O ponto não tem ar-condicionado próprio. Orçar a adequação antes do kick off.",
+   "obra": {
+    "contato": "11 99100-0005",
+    "luc": "L-233 · Piso 2",
+    "tipoop": "satelite",
+    "testada": 11,
+    "entrega": "casca",
+    "tipoobra": "nova",
+    "carencia": 75,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Piso vinílico / laminado",
+     "Gesso acartonado & forro"
+    ],
+    "instalacoes": [
+     "climatizacao"
+    ],
+    "kva": 0,
+    "projshop": "nao",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "na",
+    "art": "pendente",
+    "conting": 10,
+    "contratacao": "separado",
+    "exp": "uma",
+    "temprojeto": "nao",
+    "temger": "nao",
+    "nome": "Lar & Decor",
+    "segmento": "Casa & decoração",
+    "area": 260,
+    "padrao": "economico",
+    "orcamento": 520000
+   },
+   "est": {
+    "area": 260,
+    "custoM2": 2189,
+    "base": 569140,
+    "extras": [
+     [
+      "Climatização própria",
+      135200
+     ]
+    ],
+    "extraTotal": 135200,
+    "central": 704340,
+    "min": 598689,
+    "max": 845208,
+    "conting": 70434,
+    "diasObra": 74,
+    "diasAprov": 25,
+    "diasTotal": 99
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "obrigatorio",
+     "n": "Traço Rápido Projetos",
+     "score": 87,
+     "contato": "oi@tracorapido.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "Norte Projetos Elétricos",
+     "score": 93,
+     "contato": "norte@projetos.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Marco Zero Implantação",
+     "score": 94,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 89,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Linha Reta Mobiliário",
+     "score": 89,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 89,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 85,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Piso Pronto Distribuidora",
+     "score": 96,
+     "contato": "pisopronto@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Letra Viva Letreiros",
+     "score": 94,
+     "contato": "letraviva@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Hidrante Já Sistemas",
+     "score": 62,
+     "contato": "hidranteja@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Olho Vivo Monitoramento",
+     "score": 94,
+     "contato": "olhovivo@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 88,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 95,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-10-12T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-14T04:32:53.959Z"
+    },
+    "3": {
+     "at": "2026-10-15T13:16:32.141Z"
+    },
+    "4": {
+     "at": "2026-10-16T22:00:10.323Z"
+    },
+    "5": {
+     "at": "2026-10-18T06:43:48.505Z"
+    },
+    "6": {
+     "at": "2026-10-19T15:27:26.687Z"
+    },
+    "7": {
+     "at": "2026-10-21T00:11:04.868Z"
+    },
+    "8": {
+     "at": "2026-10-22T08:54:43.050Z"
+    },
+    "9": {
+     "at": "2026-10-23T17:38:21.232Z"
+    },
+    "10": {
+     "at": "2026-10-25T02:21:59.414Z"
+    },
+    "11": {
+     "at": "2026-10-26T11:05:37.596Z"
+    },
+    "12": {
+     "at": "2026-10-27T19:49:15.778Z"
+    },
+    "14": {
+     "at": "2026-10-15T01:49:15.778Z"
+    }
+   },
+   "contratados": {},
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [],
+    "kvaDisp": 35,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-10-15T01:49:15.778Z"
+   },
+   "docs": {},
+   "orcAdeq": {
+    "itens": [
+     "Ar-condicionado próprio"
+    ],
+    "valor": 0,
+    "prazo": 0,
+    "obs": "",
+    "em": ""
+   },
+   "trilha": {
+    "estado": "ORCAMENTO",
+    "desde": "2026-10-27T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "nao_atende",
+    "validadoEm": "2026-10-18",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-10-12T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-10-15T01:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-10-15T01:49:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_nao_atende",
+      "de": "VALIDACAO",
+      "para": "ORCAMENTO",
+      "txt": "Infra não atende. Itens a adequar: Ar-condicionado próprio."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t06",
+   "createdAt": "2026-10-02T19:49:15.778Z",
+   "updatedAt": "2026-10-25T19:49:15.778Z",
+   "notes": "Rede com manual próprio. Aguardando documentos e projetos (etapa 15).",
+   "obra": {
+    "contato": "11 91234-5678",
+    "luc": "Q-08 · Praça de alimentação",
+    "tipoop": "alimentacao",
+    "testada": 6,
+    "entrega": "adaptar",
+    "tipoobra": "nova",
+    "carencia": 45,
+    "inauguracao": "",
+    "manual": "sim",
+    "materiais": [
+     "Marcenaria sob medida",
+     "Aço inox (cozinha)",
+     "Comunicação visual / letreiro"
+    ],
+    "instalacoes": [
+     "exaustao",
+     "hidraulica"
+    ],
+    "kva": 0,
+    "projshop": "nao",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "andamento",
+    "sanitaria": "pendente",
+    "art": "pendente",
+    "conting": 10,
+    "contratacao": "turnkey",
+    "exp": "rede",
+    "temprojeto": "sim",
+    "temger": "nao",
+    "nome": "Doceria Lume",
+    "segmento": "Alimentação — praça (fast food)",
+    "area": 45,
+    "padrao": "intermediario",
+    "orcamento": 280000
+   },
+   "est": {
+    "area": 45,
+    "custoM2": 4090,
+    "base": 184050,
+    "extras": [
+     [
+      "Exaustão / coifa",
+      17100
+     ]
+    ],
+    "extraTotal": 17100,
+    "central": 201150,
+    "min": 170978,
+    "max": 241380,
+    "conting": 20115,
+    "diasObra": 35,
+    "diasAprov": 25,
+    "diasTotal": 60
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Traço Rápido Projetos",
+     "score": 100,
+     "contato": "oi@tracorapido.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 93,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "recomendado",
+     "n": "Prumo Gerenciamento de Obras",
+     "score": 95,
+     "contato": "prumo@gerenciamento.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 100,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "obrigatorio",
+     "n": "Linha Reta Mobiliário",
+     "score": 99,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 93,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "Exaust Pro Cozinhas",
+     "score": 100,
+     "contato": "exaustpro@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 100,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 93,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 94,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 94,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 93,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Legaliza Consultoria Imobiliária",
+     "score": 95,
+     "contato": "legaliza@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 93,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-10-02T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-04T17:49:15.778Z"
+    },
+    "3": {
+     "at": "2026-10-06T15:49:15.778Z"
+    },
+    "4": {
+     "at": "2026-10-08T13:49:15.778Z"
+    },
+    "5": {
+     "at": "2026-10-10T11:49:15.778Z"
+    },
+    "6": {
+     "at": "2026-10-12T09:49:15.778Z"
+    },
+    "7": {
+     "at": "2026-10-14T07:49:15.778Z"
+    },
+    "8": {
+     "at": "2026-10-16T05:49:15.778Z"
+    },
+    "9": {
+     "at": "2026-10-18T03:49:15.778Z"
+    },
+    "10": {
+     "at": "2026-10-20T01:49:15.778Z"
+    },
+    "11": {
+     "at": "2026-10-21T23:49:15.778Z"
+    },
+    "12": {
+     "at": "2026-10-23T21:49:15.778Z"
+    },
+    "13": {
+     "at": "2026-10-25T19:49:15.778Z"
+    },
+    "14": {
+     "at": "2026-10-06T06:37:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "construtora": "fx_t11",
+    "marcenaria": "fx_t17",
+    "eletrica": "fx_t22",
+    "climatizacao": "fx_t26",
+    "hidraulica": "fx_t28",
+    "acabamentos": "fx_t30",
+    "comunicacao": "fx_t35",
+    "incendio": "fx_t38",
+    "regularizacao": "fx_t42",
+    "limpeza": "fx_t45"
+   },
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "exaustao",
+     "hidraulica"
+    ],
+    "kvaDisp": 25,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-10-06T06:37:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "complementares": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "fornecedores": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "plano": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "ENVIO",
+    "desde": "2026-10-25T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "atende",
+    "validadoEm": "2026-10-10",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-10-06T06:37:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-10-02T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-10-06T06:37:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-10-06T06:37:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_atende",
+      "de": "VALIDACAO",
+      "para": "ENVIO",
+      "txt": "Infra atende. Documentos e fornecedores liberados ao lojista."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t07",
+   "createdAt": "2026-10-09T19:49:15.778Z",
+   "updatedAt": "2026-10-26T19:49:15.778Z",
+   "notes": "Documentos entregues. Validação documental em curso — sprinkler ainda não levantado.",
+   "obra": {
+    "contato": "11 99100-0007",
+    "luc": "L-150 · Piso 1",
+    "tipoop": "satelite",
+    "testada": 9,
+    "entrega": "casca",
+    "tipoobra": "nova",
+    "carencia": 70,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Vidro & esquadrias",
+     "Iluminação cênica / trilhos",
+     "Automação, som & dados"
+    ],
+    "instalacoes": [
+     "climatizacao",
+     "fachada",
+     "automacao",
+     "carga"
+    ],
+    "kva": 60,
+    "projshop": "analise",
+    "sprk": "naosei",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "na",
+    "art": "pendente",
+    "conting": 12,
+    "contratacao": "turnkey",
+    "exp": "rede",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Tech Zone",
+    "segmento": "Eletrônicos & tech",
+    "area": 140,
+    "padrao": "alto",
+    "orcamento": 980000
+   },
+   "est": {
+    "area": 140,
+    "custoM2": 5197,
+    "base": 727580,
+    "extras": [
+     [
+      "Climatização própria",
+      72800
+     ],
+     [
+      "Reforço de carga elétrica",
+      25000
+     ],
+     [
+      "Fachada / vitrine especial",
+      31500
+     ]
+    ],
+    "extraTotal": 129300,
+    "central": 856880,
+    "min": 728348,
+    "max": 1028256,
+    "conting": 102826,
+    "diasObra": 68,
+    "diasAprov": 14,
+    "diasTotal": 82
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Prisma Arquitetura de Varejo",
+     "score": 94,
+     "contato": "projetos@prisma-arq.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 93,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Prumo Gerenciamento de Obras",
+     "score": 95,
+     "contato": "prumo@gerenciamento.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Domus Construções Premium",
+     "score": 91,
+     "contato": "contato@domus.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Madeira Viva Marcenaria",
+     "score": 88,
+     "contato": "vendas@madeiraviva.exemplo"
+    },
+    {
+     "k": "serralheria",
+     "nivel": "obrigatorio",
+     "n": "Vitrine Vidros & Serralheria",
+     "score": 96,
+     "contato": "orcamento@vitrinevidros.exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 97,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "ClimaTech Ar-Condicionado",
+     "score": 91,
+     "contato": "climatech@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 93,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "pintura",
+     "nivel": "recomendado",
+     "n": "Cor & Textura Pinturas",
+     "score": 93,
+     "contato": "cortextura@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 92,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 94,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 95,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Legaliza Consultoria Imobiliária",
+     "score": 95,
+     "contato": "legaliza@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 93,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-10-09T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-10-11T00:57:50.063Z"
+    },
+    "3": {
+     "at": "2026-10-12T06:06:24.349Z"
+    },
+    "4": {
+     "at": "2026-10-13T11:14:58.635Z"
+    },
+    "5": {
+     "at": "2026-10-14T16:23:32.920Z"
+    },
+    "6": {
+     "at": "2026-10-15T21:32:07.206Z"
+    },
+    "7": {
+     "at": "2026-10-17T02:40:41.492Z"
+    },
+    "8": {
+     "at": "2026-10-18T07:49:15.778Z"
+    },
+    "9": {
+     "at": "2026-10-19T12:57:50.063Z"
+    },
+    "10": {
+     "at": "2026-10-20T18:06:24.349Z"
+    },
+    "11": {
+     "at": "2026-10-21T23:14:58.635Z"
+    },
+    "12": {
+     "at": "2026-10-23T04:23:32.920Z"
+    },
+    "13": {
+     "at": "2026-10-24T09:32:07.206Z"
+    },
+    "14": {
+     "at": "2026-10-25T14:40:41.492Z"
+    },
+    "15": {
+     "at": "2026-10-26T19:49:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "gerenciamento": "fx_t08",
+    "construtora": "fx_t13",
+    "serralheria": "fx_t19",
+    "eletrica": "fx_t22",
+    "climatizacao": "fx_t25",
+    "acabamentos": "fx_t30",
+    "comunicacao": "fx_t35",
+    "incendio": "fx_t38",
+    "regularizacao": "fx_t42",
+    "limpeza": "fx_t45"
+   },
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao",
+     "fachada",
+     "automacao",
+     "carga"
+    ],
+    "kvaDisp": 75,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-10-12T09:01:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "enviado",
+     "motivo": "",
+     "em": "2026-10-12T09:01:15.778Z"
+    },
+    "complementares": {
+     "st": "enviado",
+     "motivo": "",
+     "em": "2026-10-12T09:01:15.778Z"
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "enviado",
+     "motivo": "",
+     "em": "2026-10-12T09:01:15.778Z"
+    },
+    "fornecedores": {
+     "st": "enviado",
+     "motivo": "",
+     "em": "2026-10-12T09:01:15.778Z"
+    },
+    "plano": {
+     "st": "enviado",
+     "motivo": "",
+     "em": "2026-10-12T09:01:15.778Z"
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "ANALISE",
+    "desde": "2026-10-26T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "atende",
+    "validadoEm": "2026-10-15",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-10-12T09:01:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-10-09T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-10-12T09:01:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-10-12T09:01:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_atende",
+      "de": "VALIDACAO",
+      "para": "ENVIO",
+      "txt": "Infra atende. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-10-12T09:01:15.778Z",
+      "perfil": "lojista",
+      "ev": "enviei",
+      "de": "ENVIO",
+      "para": "ANALISE",
+      "txt": "Lojista informou o envio dos documentos na intranet."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t08",
+   "createdAt": "2026-09-17T19:49:15.778Z",
+   "updatedAt": "2026-10-23T19:49:15.778Z",
+   "notes": "Segunda rodada de pendências: ART do mezanino.",
+   "obra": {
+    "contato": "11 99100-0008",
+    "luc": "L-310 · Piso 3",
+    "tipoop": "semiancora",
+    "testada": 14,
+    "entrega": "casca",
+    "tipoobra": "nova",
+    "carencia": 120,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Piso vinílico / laminado",
+     "Estrutura metálica / mezanino",
+     "Automação, som & dados"
+    ],
+    "instalacoes": [
+     "climatizacao",
+     "mezanino",
+     "hidraulica",
+     "carga",
+     "sprinkler"
+    ],
+    "kva": 90,
+    "projshop": "aprovado",
+    "sprk": "sim",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "na",
+    "art": "emitida",
+    "conting": 15,
+    "contratacao": "turnkey",
+    "exp": "rede",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Studio Fit Academia",
+    "segmento": "Esporte & outdoor",
+    "area": 420,
+    "padrao": "alto",
+    "orcamento": 2100000
+   },
+   "est": {
+    "area": 420,
+    "custoM2": 4547,
+    "base": 1909740,
+    "extras": [
+     [
+      "Climatização própria",
+      218400
+     ],
+     [
+      "Reforço de carga elétrica",
+      25000
+     ],
+     [
+      "Sprinkler / detecção",
+      75600
+     ],
+     [
+      "Mezanino / estrutura metálica",
+      229169
+     ]
+    ],
+    "extraTotal": 548168.8,
+    "central": 2457909,
+    "min": 2089223,
+    "max": 2949491,
+    "conting": 368686,
+    "diasObra": 150,
+    "diasAprov": 6,
+    "diasTotal": 156
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Prisma Arquitetura de Varejo",
+     "score": 86,
+     "contato": "projetos@prisma-arq.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 95,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Prumo Gerenciamento de Obras",
+     "score": 89,
+     "contato": "prumo@gerenciamento.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Base Forte Engenharia",
+     "score": 96,
+     "contato": "baseforte@eng.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Madeira Viva Marcenaria",
+     "score": 82,
+     "contato": "vendas@madeiraviva.exemplo"
+    },
+    {
+     "k": "serralheria",
+     "nivel": "obrigatorio",
+     "n": "Metálica Sul Estruturas",
+     "score": 90,
+     "contato": "metalicasul@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 97,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "ClimaTech Ar-Condicionado",
+     "score": 85,
+     "contato": "climatech@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 92,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 97,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "pintura",
+     "nivel": "recomendado",
+     "n": "Cor & Textura Pinturas",
+     "score": 93,
+     "contato": "cortextura@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 90,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 84,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 97,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 94,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Caçamba Certa",
+     "score": 95,
+     "contato": "cacamba@certa.exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-09-17T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-09-20T09:32:07.206Z"
+    },
+    "3": {
+     "at": "2026-09-22T23:14:58.635Z"
+    },
+    "4": {
+     "at": "2026-09-25T12:57:50.063Z"
+    },
+    "5": {
+     "at": "2026-09-28T02:40:41.492Z"
+    },
+    "6": {
+     "at": "2026-09-30T16:23:32.920Z"
+    },
+    "7": {
+     "at": "2026-10-03T06:06:24.349Z"
+    },
+    "8": {
+     "at": "2026-10-05T19:49:15.778Z"
+    },
+    "9": {
+     "at": "2026-10-08T09:32:07.206Z"
+    },
+    "10": {
+     "at": "2026-10-10T23:14:58.635Z"
+    },
+    "11": {
+     "at": "2026-10-13T12:57:50.063Z"
+    },
+    "12": {
+     "at": "2026-10-16T02:40:41.492Z"
+    },
+    "13": {
+     "at": "2026-10-18T16:23:32.920Z"
+    },
+    "14": {
+     "at": "2026-10-21T06:06:24.349Z"
+    },
+    "15": {
+     "at": "2026-10-23T19:49:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "gerenciamento": "fx_t08",
+    "construtora": "fx_t14",
+    "serralheria": "fx_t20",
+    "eletrica": "fx_t22",
+    "climatizacao": "fx_t25",
+    "hidraulica": "fx_t28",
+    "acabamentos": "fx_t30",
+    "comunicacao": "fx_t35",
+    "incendio": "fx_t38",
+    "regularizacao": "fx_t44",
+    "limpeza": "fx_t46"
+   },
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao",
+     "hidraulica"
+    ],
+    "kvaDisp": 50,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-09-23T05:25:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-23T05:25:15.778Z"
+    },
+    "complementares": {
+     "st": "pendente",
+     "motivo": "A ART reenviada é de outro endereço (L-301). Corrigir para L-310.",
+     "em": "2026-09-23T05:25:15.778Z"
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-23T05:25:15.778Z"
+    },
+    "fornecedores": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-23T05:25:15.778Z"
+    },
+    "plano": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-23T05:25:15.778Z"
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": {
+    "itens": [
+     "Mezanino / estrutura metálica",
+     "Carga elétrica: 50 → 90 kVA"
+    ],
+    "valor": 210000,
+    "prazo": 35,
+    "obs": "Mezanino metálico com projeto estrutural e reforço do quadro para 90 kVA.",
+    "em": "2026-09-23T05:25:15.778Z"
+   },
+   "trilha": {
+    "estado": "PENDENCIAS",
+    "desde": "2026-10-23T19:49:15.778Z",
+    "rodada": 2,
+    "decisao": "nao_atende",
+    "validadoEm": "2026-09-30",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-09-23T05:25:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-09-17T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-09-23T05:25:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-09-23T05:25:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_nao_atende",
+      "de": "VALIDACAO",
+      "para": "ORCAMENTO",
+      "txt": "Infra não atende. Itens a adequar: Mezanino / estrutura metálica; Carga elétrica: 50 → 90 kVA."
+     },
+     {
+      "em": "2026-09-23T05:25:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_orcamento",
+      "de": "ORCAMENTO",
+      "para": "ENVIO",
+      "txt": "Orçamento da adequação concluído: R$ 210.000 em 35 dias. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-09-23T05:25:15.778Z",
+      "perfil": "lojista",
+      "ev": "enviei",
+      "de": "ENVIO",
+      "para": "ANALISE",
+      "txt": "Lojista informou o envio dos documentos na intranet."
+     },
+     {
+      "em": "2026-09-23T05:25:15.778Z",
+      "perfil": "operacoes",
+      "ev": "devolver_pend",
+      "de": "ANALISE",
+      "para": "PENDENCIAS",
+      "txt": "Análise com 1 pendência(s): Projetos complementares (elétrica, hidráulica, climatização, PPCI) com ART/RRT (ART do mezanino sem a assinatura do engenheiro.)"
+     },
+     {
+      "em": "2026-09-23T05:25:15.778Z",
+      "perfil": "lojista",
+      "ev": "reenviei",
+      "de": "PENDENCIAS",
+      "para": "ANALISE",
+      "txt": "Lojista informou que corrigiu e reenviou os documentos."
+     },
+     {
+      "em": "2026-10-08T12:37:15.778Z",
+      "perfil": "operacoes",
+      "ev": "devolver_pend",
+      "de": "ANALISE",
+      "para": "PENDENCIAS",
+      "txt": "Análise com 1 pendência(s): Projetos complementares (elétrica, hidráulica, climatização, PPCI) com ART/RRT (A ART reenviada é de outro endereço (L-301). Corrigir para L-310.)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t09",
+   "createdAt": "2026-09-02T19:49:15.778Z",
+   "updatedAt": "2026-10-22T19:49:15.778Z",
+   "notes": "Manta e forro conferidos; falta estanqueidade de gás (não se aplica) e SPK.",
+   "obra": {
+    "contato": "11 99100-0009",
+    "luc": "L-402 · Piso 4",
+    "tipoop": "servico",
+    "testada": 8,
+    "entrega": "adaptar",
+    "tipoobra": "nova",
+    "carencia": 60,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Porcelanato & cerâmica",
+     "Marcenaria sob medida"
+    ],
+    "instalacoes": [
+     "climatizacao",
+     "hidraulica"
+    ],
+    "kva": 0,
+    "projshop": "aprovado",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "andamento",
+    "sanitaria": "pendente",
+    "art": "emitida",
+    "conting": 10,
+    "contratacao": "turnkey",
+    "exp": "uma",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Clínica Sorriso",
+    "segmento": "Saúde & serviços",
+    "area": 150,
+    "padrao": "intermediario",
+    "orcamento": 560000
+   },
+   "est": {
+    "area": 150,
+    "custoM2": 3312,
+    "base": 496800,
+    "extras": [
+     [
+      "Climatização própria",
+      78000
+     ]
+    ],
+    "extraTotal": 78000,
+    "central": 574800,
+    "min": 488580,
+    "max": 689760,
+    "conting": 57480,
+    "diasObra": 51,
+    "diasAprov": 6,
+    "diasTotal": 57
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Traço Rápido Projetos",
+     "score": 90,
+     "contato": "oi@tracorapido.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 95,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "opcional",
+     "n": "Marco Zero Implantação",
+     "score": 92,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 98,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "obrigatorio",
+     "n": "Linha Reta Mobiliário",
+     "score": 93,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 95,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 91,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 100,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 97,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 94,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 88,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 95,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 94,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Caçamba Certa",
+     "score": 95,
+     "contato": "cacamba@certa.exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-09-02T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-09-05T14:29:15.778Z"
+    },
+    "3": {
+     "at": "2026-09-08T09:09:15.778Z"
+    },
+    "4": {
+     "at": "2026-09-11T03:49:15.778Z"
+    },
+    "5": {
+     "at": "2026-09-13T22:29:15.778Z"
+    },
+    "6": {
+     "at": "2026-09-16T17:09:15.778Z"
+    },
+    "7": {
+     "at": "2026-09-19T11:49:15.778Z"
+    },
+    "8": {
+     "at": "2026-09-22T06:29:15.778Z"
+    },
+    "9": {
+     "at": "2026-09-25T01:09:15.778Z"
+    },
+    "10": {
+     "at": "2026-09-27T19:49:15.778Z"
+    },
+    "11": {
+     "at": "2026-09-30T14:29:15.778Z"
+    },
+    "12": {
+     "at": "2026-10-03T09:09:15.778Z"
+    },
+    "13": {
+     "at": "2026-10-06T03:49:15.778Z"
+    },
+    "14": {
+     "at": "2026-10-08T22:29:15.778Z"
+    },
+    "15": {
+     "at": "2026-10-11T17:09:15.778Z"
+    },
+    "16": {
+     "at": "2026-10-14T11:49:15.778Z"
+    },
+    "17": {
+     "at": "2026-10-17T06:29:15.778Z"
+    },
+    "18": {
+     "at": "2026-10-20T01:09:15.778Z"
+    },
+    "19": {
+     "at": "2026-10-22T19:49:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "construtora": "fx_t11",
+    "marcenaria": "fx_t17",
+    "eletrica": "fx_t22",
+    "climatizacao": "fx_t27",
+    "hidraulica": "fx_t28",
+    "acabamentos": "fx_t30",
+    "comunicacao": "fx_t35",
+    "incendio": "fx_t38",
+    "regularizacao": "fx_t44",
+    "limpeza": "fx_t46"
+   },
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao",
+     "hidraulica"
+    ],
+    "kvaDisp": 30,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-09-10T07:49:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-10T07:49:15.778Z"
+    },
+    "complementares": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-10T07:49:15.778Z"
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-10T07:49:15.778Z"
+    },
+    "fornecedores": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-10T07:49:15.778Z"
+    },
+    "plano": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-09-10T07:49:15.778Z"
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "APROVADO",
+    "desde": "2026-10-22T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "atende",
+    "validadoEm": "2026-09-20",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-09-10T07:49:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-09-02T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-09-10T07:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-09-10T07:49:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_atende",
+      "de": "VALIDACAO",
+      "para": "ENVIO",
+      "txt": "Infra atende. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-09-10T07:49:15.778Z",
+      "perfil": "lojista",
+      "ev": "enviei",
+      "de": "ENVIO",
+      "para": "ANALISE",
+      "txt": "Lojista informou o envio dos documentos na intranet."
+     },
+     {
+      "em": "2026-10-01T13:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "aprovar",
+      "de": "ANALISE",
+      "para": "APROVADO",
+      "txt": "Documentação aprovada. Obra liberada para iniciar."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t10",
+   "createdAt": "2026-08-18T19:49:15.778Z",
+   "updatedAt": "2026-10-06T19:49:15.778Z",
+   "notes": "Vistoria final reprovou: forro da cozinha e sinalização de rota de fuga. Lojista ainda não corrigiu.",
+   "obra": {
+    "contato": "11 98765-4321",
+    "luc": "L-142 · Piso 2",
+    "tipoop": "restaurante",
+    "testada": 9,
+    "entrega": "casca",
+    "tipoobra": "nova",
+    "carencia": 60,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Pedra natural (mármore / granito)",
+     "Iluminação cênica / trilhos",
+     "Aço inox (cozinha)"
+    ],
+    "instalacoes": [
+     "climatizacao",
+     "exaustao",
+     "gas"
+    ],
+    "kva": 0,
+    "projshop": "aprovado",
+    "sprk": "sim",
+    "avcb": "shopping",
+    "alvara": "andamento",
+    "sanitaria": "pendente",
+    "art": "emitida",
+    "conting": 12,
+    "contratacao": "turnkey",
+    "exp": "nenhuma",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Café Aurora",
+    "segmento": "Restaurante & café",
+    "area": 180,
+    "padrao": "alto",
+    "orcamento": 1500000
+   },
+   "est": {
+    "area": 180,
+    "custoM2": 6960,
+    "base": 1252800,
+    "extras": [
+     [
+      "Climatização própria",
+      93600
+     ],
+     [
+      "Exaustão / coifa",
+      68400
+     ],
+     [
+      "Instalação de gás",
+      18000
+     ]
+    ],
+    "extraTotal": 180000,
+    "central": 1432800,
+    "min": 1217880,
+    "max": 1719360,
+    "conting": 171936,
+    "diasObra": 89,
+    "diasAprov": 6,
+    "diasTotal": 95
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Prisma Arquitetura de Varejo",
+     "score": 94,
+     "contato": "projetos@prisma-arq.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 93,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Prumo Gerenciamento de Obras",
+     "score": 95,
+     "contato": "prumo@gerenciamento.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 93,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Madeira Viva Marcenaria",
+     "score": 88,
+     "contato": "vendas@madeiraviva.exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 95,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "Exaust Pro Cozinhas",
+     "score": 96,
+     "contato": "exaustpro@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 100,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 93,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "pintura",
+     "nivel": "recomendado",
+     "n": "Cor & Textura Pinturas",
+     "score": 93,
+     "contato": "cortextura@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Neon & Marca Studio",
+     "score": 97,
+     "contato": "neon@marca.exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 90,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 93,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Legaliza Consultoria Imobiliária",
+     "score": 95,
+     "contato": "legaliza@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 93,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-08-18T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-08-21T01:16:32.141Z"
+    },
+    "3": {
+     "at": "2026-08-23T06:43:48.505Z"
+    },
+    "4": {
+     "at": "2026-08-25T12:11:04.868Z"
+    },
+    "5": {
+     "at": "2026-08-27T17:38:21.232Z"
+    },
+    "6": {
+     "at": "2026-08-29T23:05:37.596Z"
+    },
+    "7": {
+     "at": "2026-09-01T04:32:53.959Z"
+    },
+    "8": {
+     "at": "2026-09-03T10:00:10.323Z"
+    },
+    "9": {
+     "at": "2026-09-05T15:27:26.687Z"
+    },
+    "10": {
+     "at": "2026-09-07T20:54:43.050Z"
+    },
+    "11": {
+     "at": "2026-09-10T02:21:59.414Z"
+    },
+    "12": {
+     "at": "2026-09-12T07:49:15.778Z"
+    },
+    "13": {
+     "at": "2026-09-14T13:16:32.141Z"
+    },
+    "14": {
+     "at": "2026-09-16T18:43:48.505Z"
+    },
+    "15": {
+     "at": "2026-09-19T00:11:04.868Z"
+    },
+    "16": {
+     "at": "2026-09-21T05:38:21.232Z"
+    },
+    "17": {
+     "at": "2026-09-23T11:05:37.596Z"
+    },
+    "18": {
+     "at": "2026-09-25T16:32:53.959Z"
+    },
+    "19": {
+     "at": "2026-09-27T22:00:10.323Z"
+    },
+    "20": {
+     "at": "2026-09-30T03:27:26.687Z"
+    },
+    "21": {
+     "at": "2026-10-02T08:54:43.050Z"
+    },
+    "22": {
+     "at": "2026-10-04T14:21:59.414Z"
+    },
+    "23": {
+     "at": "2026-10-06T19:49:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "gerenciamento": "fx_t08",
+    "construtora": "fx_t11",
+    "eletrica": "fx_t22",
+    "climatizacao": "fx_t26",
+    "hidraulica": "fx_t28",
+    "acabamentos": "fx_t30",
+    "comunicacao": "fx_t37",
+    "incendio": "fx_t38",
+    "regularizacao": "fx_t42",
+    "limpeza": "fx_t45"
+   },
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao"
+    ],
+    "kvaDisp": 40,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-08-26T04:13:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-26T04:13:15.778Z"
+    },
+    "complementares": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-26T04:13:15.778Z"
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-26T04:13:15.778Z"
+    },
+    "fornecedores": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-26T04:13:15.778Z"
+    },
+    "plano": {
+     "st": "aprovado",
+     "motivo": "Falta a rota de carga e descarga no plano de trabalho.",
+     "em": "2026-08-26T04:13:15.778Z"
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": {
+    "itens": [
+     "Exaustão / coifa (cozinha)",
+     "Instalação de gás"
+    ],
+    "valor": 142000,
+    "prazo": 25,
+    "obs": "Coifa e rede de gás.",
+    "em": "2026-08-26T04:13:15.778Z"
+   },
+   "trilha": {
+    "estado": "APROVADO",
+    "desde": "2026-10-06T19:49:15.778Z",
+    "rodada": 1,
+    "decisao": "nao_atende",
+    "validadoEm": "2026-09-04",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-08-26T04:13:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-08-18T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_nao_atende",
+      "de": "VALIDACAO",
+      "para": "ORCAMENTO",
+      "txt": "Infra não atende. Itens a adequar: Exaustão / coifa (cozinha); Instalação de gás."
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_orcamento",
+      "de": "ORCAMENTO",
+      "para": "ENVIO",
+      "txt": "Orçamento da adequação concluído: R$ 142.000 em 25 dias. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "lojista",
+      "ev": "enviei",
+      "de": "ENVIO",
+      "para": "ANALISE",
+      "txt": "Lojista informou o envio dos documentos na intranet."
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "devolver_pend",
+      "de": "ANALISE",
+      "para": "PENDENCIAS",
+      "txt": "Análise com 1 pendência(s): Plano de trabalho: horário noturno, tapume, rota de carga/descarga e destinação de entulho (Falta a rota de carga e descarga no plano de trabalho.)"
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "lojista",
+      "ev": "reenviei",
+      "de": "PENDENCIAS",
+      "para": "ANALISE",
+      "txt": "Lojista informou que corrigiu e reenviou os documentos."
+     },
+     {
+      "em": "2026-08-26T04:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "aprovar",
+      "de": "ANALISE",
+      "para": "APROVADO",
+      "txt": "Documentação aprovada. Obra liberada para iniciar."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t11",
+   "createdAt": "2026-07-29T19:49:15.778Z",
+   "updatedAt": "2026-10-26T19:49:15.778Z",
+   "notes": "Inaugurada 20/10. Falta botão de pânico... entregue; CA/seguro/PMOC em acompanhamento.",
+   "obra": {
+    "contato": "11 99100-0011",
+    "luc": "L-077 · Piso 1",
+    "tipoop": "satelite",
+    "testada": 8,
+    "entrega": "reforma",
+    "tipoobra": "troca",
+    "carencia": 45,
+    "inauguracao": "",
+    "manual": "sim",
+    "materiais": [
+     "Marcenaria sob medida",
+     "Porcelanato & cerâmica",
+     "Comunicação visual / letreiro"
+    ],
+    "instalacoes": [
+     "climatizacao"
+    ],
+    "kva": 0,
+    "projshop": "aprovado",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "obtido",
+    "sanitaria": "na",
+    "art": "emitida",
+    "conting": 10,
+    "contratacao": "turnkey",
+    "exp": "rede",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Moda Vero",
+    "segmento": "Moda & vestuário",
+    "area": 110,
+    "padrao": "intermediario",
+    "orcamento": 330000
+   },
+   "est": {
+    "area": 110,
+    "custoM2": 2496,
+    "base": 274560,
+    "extras": [
+     [
+      "Climatização própria",
+      57200
+     ]
+    ],
+    "extraTotal": 57200,
+    "central": 331760,
+    "min": 281996,
+    "max": 398112,
+    "conting": 33176,
+    "diasObra": 42,
+    "diasAprov": 6,
+    "diasTotal": 48
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Prisma Arquitetura de Varejo",
+     "score": 96,
+     "contato": "projetos@prisma-arq.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 95,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "opcional",
+     "n": "Marco Zero Implantação",
+     "score": 100,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Construtora Bandeira Retail",
+     "score": 93,
+     "contato": "obras@bandeira.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "obrigatorio",
+     "n": "Linha Reta Mobiliário",
+     "score": 93,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 95,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 91,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Casa dos Revestimentos",
+     "score": 97,
+     "contato": "casarevest@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 96,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "recomendado",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 88,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 95,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "recomendado",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 94,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Caçamba Certa",
+     "score": 95,
+     "contato": "cacamba@certa.exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-07-29T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-08-02T02:55:55.778Z"
+    },
+    "3": {
+     "at": "2026-08-05T10:02:35.778Z"
+    },
+    "4": {
+     "at": "2026-08-08T17:09:15.778Z"
+    },
+    "5": {
+     "at": "2026-08-12T00:15:55.778Z"
+    },
+    "6": {
+     "at": "2026-08-15T07:22:35.778Z"
+    },
+    "7": {
+     "at": "2026-08-18T14:29:15.778Z"
+    },
+    "8": {
+     "at": "2026-08-21T21:35:55.778Z"
+    },
+    "9": {
+     "at": "2026-08-25T04:42:35.778Z"
+    },
+    "10": {
+     "at": "2026-08-28T11:49:15.778Z"
+    },
+    "11": {
+     "at": "2026-08-31T18:55:55.778Z"
+    },
+    "12": {
+     "at": "2026-09-04T02:02:35.778Z"
+    },
+    "13": {
+     "at": "2026-09-07T09:09:15.778Z"
+    },
+    "14": {
+     "at": "2026-09-10T16:15:55.778Z"
+    },
+    "15": {
+     "at": "2026-09-13T23:22:35.778Z"
+    },
+    "16": {
+     "at": "2026-09-17T06:29:15.778Z"
+    },
+    "17": {
+     "at": "2026-09-20T13:35:55.778Z"
+    },
+    "18": {
+     "at": "2026-09-23T20:42:35.778Z"
+    },
+    "19": {
+     "at": "2026-09-27T03:49:15.778Z"
+    },
+    "20": {
+     "at": "2026-09-30T10:55:55.778Z"
+    },
+    "21": {
+     "at": "2026-10-03T18:02:35.778Z"
+    },
+    "22": {
+     "at": "2026-10-07T01:09:15.778Z"
+    },
+    "23": {
+     "at": "2026-10-10T08:15:55.778Z"
+    },
+    "24": {
+     "at": "2026-10-13T15:22:35.778Z"
+    },
+    "25": {
+     "at": "2026-10-16T22:29:15.778Z"
+    },
+    "26": {
+     "at": "2026-10-20T05:35:55.778Z"
+    },
+    "27": {
+     "at": "2026-10-23T12:42:35.778Z"
+    },
+    "28": {
+     "at": "2026-10-26T19:49:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "construtora": "fx_t12",
+    "marcenaria": "fx_t17",
+    "eletrica": "fx_t22",
+    "climatizacao": "fx_t27",
+    "acabamentos": "fx_t30",
+    "comunicacao": "fx_t35",
+    "limpeza": "fx_t46"
+   },
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [
+     "climatizacao"
+    ],
+    "kvaDisp": 30,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-08-12T04:13:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-12T04:13:15.778Z"
+    },
+    "complementares": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-12T04:13:15.778Z"
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-12T04:13:15.778Z"
+    },
+    "fornecedores": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-12T04:13:15.778Z"
+    },
+    "plano": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-08-12T04:13:15.778Z"
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "APROVADO",
+    "desde": "2026-10-26T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "atende",
+    "validadoEm": "2026-08-29",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-08-12T04:13:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-07-29T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-08-12T04:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-08-12T04:13:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_atende",
+      "de": "VALIDACAO",
+      "para": "ENVIO",
+      "txt": "Infra atende. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-08-12T04:13:15.778Z",
+      "perfil": "lojista",
+      "ev": "enviei",
+      "de": "ENVIO",
+      "para": "ANALISE",
+      "txt": "Lojista informou o envio dos documentos na intranet."
+     },
+     {
+      "em": "2026-08-12T04:13:15.778Z",
+      "perfil": "operacoes",
+      "ev": "aprovar",
+      "de": "ANALISE",
+      "para": "APROVADO",
+      "txt": "Documentação aprovada. Obra liberada para iniciar."
+     }
+    ]
+   }
+  },
+  {
+   "id": "ob_t12",
+   "createdAt": "2026-06-29T19:49:15.778Z",
+   "updatedAt": "2026-10-18T19:49:15.778Z",
+   "notes": "Fluxo encerrado. Avaliações registradas na base.",
+   "obra": {
+    "contato": "11 99100-0012",
+    "luc": "L-003 · Piso Térreo",
+    "tipoop": "satelite",
+    "testada": 6,
+    "entrega": "casca",
+    "tipoobra": "nova",
+    "carencia": 60,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Pedra natural (mármore / granito)",
+     "Vidro & esquadrias",
+     "Iluminação cênica / trilhos",
+     "Vitrine & expositores"
+    ],
+    "instalacoes": [
+     "climatizacao",
+     "fachada",
+     "automacao"
+    ],
+    "kva": 0,
+    "projshop": "aprovado",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "obtido",
+    "sanitaria": "na",
+    "art": "emitida",
+    "conting": 15,
+    "contratacao": "turnkey",
+    "exp": "rede",
+    "temprojeto": "sim",
+    "temger": "sim",
+    "nome": "Joalheria Aurum",
+    "segmento": "Joalheria & ótica",
+    "area": 60,
+    "padrao": "premium",
+    "orcamento": 900000
+   },
+   "est": {
+    "area": 60,
+    "custoM2": 8806,
+    "base": 528360,
+    "extras": [
+     [
+      "Climatização própria",
+      31200
+     ],
+     [
+      "Fachada / vitrine especial",
+      21000
+     ]
+    ],
+    "extraTotal": 52200,
+    "central": 580560,
+    "min": 493476,
+    "max": 696672,
+    "conting": 87084,
+    "diasObra": 54,
+    "diasAprov": 6,
+    "diasTotal": 60
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "opcional",
+     "n": "Prisma Arquitetura de Varejo",
+     "score": 100,
+     "contato": "projetos@prisma-arq.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 93,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Prumo Gerenciamento de Obras",
+     "score": 93,
+     "contato": "prumo@gerenciamento.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Domus Construções Premium",
+     "score": 88,
+     "contato": "contato@domus.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "obrigatorio",
+     "n": "Madeira Viva Marcenaria",
+     "score": 96,
+     "contato": "vendas@madeiraviva.exemplo"
+    },
+    {
+     "k": "serralheria",
+     "nivel": "obrigatorio",
+     "n": "Vitrine Vidros & Serralheria",
+     "score": 98,
+     "contato": "orcamento@vitrinevidros.exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Lumine Iluminação",
+     "score": 100,
+     "contato": "lumine@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "ClimaTech Ar-Condicionado",
+     "score": 93,
+     "contato": "climatech@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Pedra Nobre Mármores",
+     "score": 97,
+     "contato": "pedranobre@exemplo"
+    },
+    {
+     "k": "pintura",
+     "nivel": "recomendado",
+     "n": "Cor & Textura Pinturas",
+     "score": 93,
+     "contato": "cortextura@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Sinal Comunicação Visual",
+     "score": 94,
+     "contato": "sinalcv@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Fogo Zero Engenharia de Incêndio",
+     "score": 92,
+     "contato": "fogozero@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Guardião Segurança Eletrônica",
+     "score": 93,
+     "contato": "guardiao@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "recomendado",
+     "n": "Legaliza Consultoria Imobiliária",
+     "score": 93,
+     "contato": "legaliza@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 93,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-06-29T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-07-03T15:40:59.226Z"
+    },
+    "3": {
+     "at": "2026-07-07T11:32:42.674Z"
+    },
+    "4": {
+     "at": "2026-07-11T07:24:26.122Z"
+    },
+    "5": {
+     "at": "2026-07-15T03:16:09.571Z"
+    },
+    "6": {
+     "at": "2026-07-18T23:07:53.019Z"
+    },
+    "7": {
+     "at": "2026-07-22T18:59:36.467Z"
+    },
+    "8": {
+     "at": "2026-07-26T14:51:19.915Z"
+    },
+    "9": {
+     "at": "2026-07-30T10:43:03.364Z"
+    },
+    "10": {
+     "at": "2026-08-03T06:34:46.812Z"
+    },
+    "11": {
+     "at": "2026-08-07T02:26:30.260Z"
+    },
+    "12": {
+     "at": "2026-08-10T22:18:13.709Z"
+    },
+    "13": {
+     "at": "2026-08-14T18:09:57.157Z"
+    },
+    "14": {
+     "at": "2026-08-18T14:01:40.605Z"
+    },
+    "15": {
+     "at": "2026-08-22T09:53:24.053Z"
+    },
+    "16": {
+     "at": "2026-08-26T05:45:07.502Z"
+    },
+    "17": {
+     "at": "2026-08-30T01:36:50.950Z"
+    },
+    "18": {
+     "at": "2026-09-02T21:28:34.398Z"
+    },
+    "19": {
+     "at": "2026-09-06T17:20:17.846Z"
+    },
+    "20": {
+     "at": "2026-09-10T13:12:01.295Z"
+    },
+    "21": {
+     "at": "2026-09-14T09:03:44.743Z"
+    },
+    "22": {
+     "at": "2026-09-18T04:55:28.191Z"
+    },
+    "23": {
+     "at": "2026-09-22T00:47:11.640Z"
+    },
+    "24": {
+     "at": "2026-09-25T20:38:55.088Z"
+    },
+    "25": {
+     "at": "2026-09-29T16:30:38.536Z"
+    },
+    "26": {
+     "at": "2026-10-03T12:22:21.984Z"
+    },
+    "27": {
+     "at": "2026-10-07T08:14:05.433Z"
+    },
+    "28": {
+     "at": "2026-10-11T04:05:48.881Z"
+    },
+    "29": {
+     "at": "2026-10-14T23:57:32.329Z"
+    },
+    "30": {
+     "at": "2026-10-18T19:49:15.778Z"
+    }
+   },
+   "contratados": {
+    "complementares": "fx_t05",
+    "gerenciamento": "fx_t08",
+    "construtora": "fx_t13",
+    "marcenaria": "fx_t16",
+    "serralheria": "fx_t19",
+    "eletrica": "fx_t23",
+    "climatizacao": "fx_t25",
+    "acabamentos": "fx_t31",
+    "comunicacao": "fx_t35",
+    "incendio": "fx_t38",
+    "limpeza": "fx_t45"
+   },
+   "avaliacoes": {
+    "fx_t05": 5,
+    "fx_t08": 4,
+    "fx_t13": 5,
+    "fx_t16": 3,
+    "fx_t19": 4,
+    "fx_t23": 5,
+    "fx_t25": 5,
+    "fx_t31": 4,
+    "fx_t35": 5,
+    "fx_t38": 3,
+    "fx_t45": 4
+   },
+   "vistoria": {
+    "existe": [
+     "climatizacao",
+     "fachada",
+     "automacao"
+    ],
+    "kvaDisp": 30,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-07-16T11:25:15.778Z"
+   },
+   "docs": {
+    "projeto": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-07-16T11:25:15.778Z"
+    },
+    "complementares": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-07-16T11:25:15.778Z"
+    },
+    "incendio": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "avcb": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "alvara": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "sanitaria": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "acessibilidade": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-07-16T11:25:15.778Z"
+    },
+    "fornecedores": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-07-16T11:25:15.778Z"
+    },
+    "plano": {
+     "st": "aprovado",
+     "motivo": "",
+     "em": "2026-07-16T11:25:15.778Z"
+    },
+    "vistoriafinal": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    },
+    "pos": {
+     "st": "",
+     "motivo": "",
+     "em": ""
+    }
+   },
+   "orcAdeq": null,
+   "trilha": {
+    "estado": "APROVADO",
+    "desde": "2026-10-18T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "atende",
+    "validadoEm": "2026-08-07",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [],
+    "docsEm": "2026-07-16T11:25:15.778Z",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-06-29T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-07-16T11:25:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-07-16T11:25:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_atende",
+      "de": "VALIDACAO",
+      "para": "ENVIO",
+      "txt": "Infra atende. Documentos e fornecedores liberados ao lojista."
+     },
+     {
+      "em": "2026-07-16T11:25:15.778Z",
+      "perfil": "lojista",
+      "ev": "enviei",
+      "de": "ENVIO",
+      "para": "ANALISE",
+      "txt": "Lojista informou o envio dos documentos na intranet."
+     },
+     {
+      "em": "2026-07-16T11:25:15.778Z",
+      "perfil": "operacoes",
+      "ev": "aprovar",
+      "de": "ANALISE",
+      "para": "APROVADO",
+      "txt": "Documentação aprovada. Obra liberada para iniciar."
+     }
+    ]
+   },
+   "avaliado": true
+  },
+  {
+   "id": "ob_t13",
+   "createdAt": "2026-09-22T19:49:15.778Z",
+   "updatedAt": "2026-10-19T19:49:15.778Z",
+   "notes": "Lojista não aceitou o custo da adequação. O ponto volta para o Comercial.",
+   "obra": {
+    "contato": "11 99100-0013",
+    "luc": "Q-12 · Praça de alimentação",
+    "tipoop": "alimentacao",
+    "testada": 3,
+    "entrega": "adaptar",
+    "tipoobra": "nova",
+    "carencia": 30,
+    "inauguracao": "",
+    "manual": "nao",
+    "materiais": [
+     "Aço inox (cozinha)"
+    ],
+    "instalacoes": [
+     "exaustao",
+     "refrigeracao",
+     "hidraulica"
+    ],
+    "kva": 0,
+    "projshop": "nao",
+    "sprk": "nao",
+    "avcb": "shopping",
+    "alvara": "nao",
+    "sanitaria": "pendente",
+    "art": "pendente",
+    "conting": 5,
+    "contratacao": "turnkey",
+    "exp": "nenhuma",
+    "temprojeto": "nao",
+    "temger": "nao",
+    "nome": "Açaí da Serra",
+    "segmento": "Alimentação — praça (fast food)",
+    "area": 18,
+    "padrao": "economico",
+    "orcamento": 70000
+   },
+   "est": {
+    "area": 18,
+    "custoM2": 2945,
+    "base": 53010,
+    "extras": [
+     [
+      "Exaustão / coifa",
+      6840
+     ],
+     [
+      "Câmara fria / refrigeração",
+      2520
+     ]
+    ],
+    "extraTotal": 9360,
+    "central": 62370,
+    "min": 53015,
+    "max": 74844,
+    "conting": 3119,
+    "diasObra": 36,
+    "diasAprov": 25,
+    "diasTotal": 61
+   },
+   "picks": [
+    {
+     "k": "arquitetura",
+     "nivel": "obrigatorio",
+     "n": "Traço Rápido Projetos",
+     "score": 100,
+     "contato": "oi@tracorapido.exemplo"
+    },
+    {
+     "k": "complementares",
+     "nivel": "obrigatorio",
+     "n": "EngPlan Complementares",
+     "score": 89,
+     "contato": "eng@engplan.exemplo"
+    },
+    {
+     "k": "gerenciamento",
+     "nivel": "obrigatorio",
+     "n": "Marco Zero Implantação",
+     "score": 81,
+     "contato": "contato@marcozero.exemplo"
+    },
+    {
+     "k": "construtora",
+     "nivel": "obrigatorio",
+     "n": "Obra Certa Empreiteira",
+     "score": 100,
+     "contato": "comercial@obracerta.exemplo"
+    },
+    {
+     "k": "marcenaria",
+     "nivel": "recomendado",
+     "n": "Linha Reta Mobiliário",
+     "score": 84,
+     "contato": "linhareta@exemplo"
+    },
+    {
+     "k": "eletrica",
+     "nivel": "obrigatorio",
+     "n": "Voltz Instalações Elétricas",
+     "score": 89,
+     "contato": "voltz@exemplo"
+    },
+    {
+     "k": "climatizacao",
+     "nivel": "obrigatorio",
+     "n": "FrioBom Refrigeração",
+     "score": 89,
+     "contato": "friobom@exemplo"
+    },
+    {
+     "k": "hidraulica",
+     "nivel": "obrigatorio",
+     "n": "HidroMax Instalações",
+     "score": 91,
+     "contato": "hidromax@exemplo"
+    },
+    {
+     "k": "acabamentos",
+     "nivel": "obrigatorio",
+     "n": "Piso Pronto Distribuidora",
+     "score": 88,
+     "contato": "pisopronto@exemplo"
+    },
+    {
+     "k": "comunicacao",
+     "nivel": "obrigatorio",
+     "n": "Letra Viva Letreiros",
+     "score": 89,
+     "contato": "letraviva@exemplo"
+    },
+    {
+     "k": "incendio",
+     "nivel": "obrigatorio",
+     "n": "Hidrante Já Sistemas",
+     "score": 62,
+     "contato": "hidranteja@exemplo"
+    },
+    {
+     "k": "seguranca",
+     "nivel": "recomendado",
+     "n": "Olho Vivo Monitoramento",
+     "score": 89,
+     "contato": "olhovivo@exemplo"
+    },
+    {
+     "k": "regularizacao",
+     "nivel": "obrigatorio",
+     "n": "Vistoria Fácil Assessoria",
+     "score": 83,
+     "contato": "vistoriafacil@exemplo"
+    },
+    {
+     "k": "limpeza",
+     "nivel": "obrigatorio",
+     "n": "Limpa Obra Serviços",
+     "score": 90,
+     "contato": "limpaobra@exemplo"
+    }
+   ],
+   "steps": {
+    "1": {
+     "at": "2026-09-22T19:49:15.778Z"
+    },
+    "2": {
+     "at": "2026-09-26T04:49:15.778Z"
+    },
+    "3": {
+     "at": "2026-09-29T13:49:15.778Z"
+    },
+    "4": {
+     "at": "2026-10-02T22:49:15.778Z"
+    },
+    "5": {
+     "at": "2026-10-06T07:49:15.778Z"
+    },
+    "6": {
+     "at": "2026-10-09T16:49:15.778Z"
+    },
+    "7": {
+     "at": "2026-10-13T01:49:15.778Z"
+    },
+    "8": {
+     "at": "2026-10-16T10:49:15.778Z"
+    },
+    "9": {
+     "at": "2026-10-19T19:49:15.778Z"
+    },
+    "14": {
+     "at": "2026-09-26T21:01:15.778Z"
+    }
+   },
+   "contratados": {},
+   "avaliacoes": {},
+   "vistoria": {
+    "existe": [],
+    "kvaDisp": 15,
+    "feitas": [
+     "Arquitetura",
+     "Elétrica",
+     "SPK (sprinkler)",
+     "Detecção",
+     "Hidráulica",
+     "Cozinha / FTR",
+     "Manta e forro",
+     "Estanqueidade de gás",
+     "Dados condominiais"
+    ],
+    "obs": "",
+    "em": "2026-09-26T21:01:15.778Z"
+   },
+   "docs": {},
+   "orcAdeq": {
+    "itens": [
+     "Exaustão / coifa (cozinha)",
+     "Ponto de água / esgoto novo",
+     "Câmara fria / refrigeração"
+    ],
+    "valor": 0,
+    "prazo": 0,
+    "obs": "",
+    "em": ""
+   },
+   "trilha": {
+    "estado": "ENCERRADA",
+    "desde": "2026-10-19T19:49:15.778Z",
+    "rodada": 0,
+    "decisao": "nao_atende",
+    "validadoEm": "2026-10-02",
+    "origem": "",
+    "negociacao": null,
+    "negHist": [
+     {
+      "assunto": "Orçamento da adequação",
+      "motivo": "Não aceito arcar com a exaustão. O ponto foi anunciado como pronto para alimentação.",
+      "abertaEm": "2026-09-26T21:01:15.778Z",
+      "abertaPor": "lojista",
+      "comentarios": [
+       {
+        "em": "2026-09-26T21:01:15.778Z",
+        "perfil": "executivo",
+        "txt": "Sem acordo. O lojista desistiu do ponto e o Comercial vai reofertar a LUC.",
+        "publico": true
+       }
+      ],
+      "fechadaEm": "2026-09-26T21:01:15.778Z",
+      "desfecho": "Encerrada sem acordo",
+      "fechamento": "Sem acordo. O lojista desistiu do ponto e o Comercial vai reofertar a LUC."
+     }
+    ],
+    "docsEm": "",
+    "fichaEm": "",
+    "historico": [
+     {
+      "em": "2026-09-22T19:49:15.778Z",
+      "perfil": "operacoes",
+      "ev": "abrir",
+      "de": "",
+      "para": "VISTORIA",
+      "txt": "Obra aberta por Operações."
+     },
+     {
+      "em": "2026-09-26T21:01:15.778Z",
+      "perfil": "operacoes",
+      "ev": "concluir_vistoria",
+      "de": "VISTORIA",
+      "para": "VALIDACAO",
+      "txt": "Vistoria concluída."
+     },
+     {
+      "em": "2026-09-26T21:01:15.778Z",
+      "perfil": "executivo",
+      "ev": "infra_nao_atende",
+      "de": "VALIDACAO",
+      "para": "ORCAMENTO",
+      "txt": "Infra não atende. Itens a adequar: Exaustão / coifa (cozinha); Ponto de água / esgoto novo; Câmara fria / refrigeração."
+     },
+     {
+      "em": "2026-09-26T21:01:15.778Z",
+      "perfil": "lojista",
+      "ev": "discordo",
+      "de": "ORCAMENTO",
+      "para": "NEGOCIACAO",
+      "txt": "Negociação aberta (Orçamento da adequação) pelo lojista. Motivo: Não aceito arcar com a exaustão. O ponto foi anunciado como pronto para alimentação."
+     },
+     {
+      "em": "2026-09-26T21:01:15.778Z",
+      "perfil": "executivo",
+      "ev": "encerrar",
+      "de": "NEGOCIACAO",
+      "para": "ENCERRADA",
+      "txt": "Negociação encerrada sem acordo. Comentário: Sem acordo. O lojista desistiu do ponto e o Comercial vai reofertar a LUC."
+     }
+    ]
+   }
+  }
+ ],
+ "params": {
+  "custoM2": 3200,
+  "prazoBase": 18,
+  "prazoM2": 0.22,
+  "aprovacao": 25,
+  "clima": 520,
+  "exaust": 380,
+  "fachada": 3500,
+  "sprk": 180,
+  "gas": 18000,
+  "carga": 25000
+ },
+ "nota": "BASE DE TESTE FICTÍCIA do Otimizador de Obras — fornecedores, obras e valores inventados para experimentar a ferramenta. Nenhuma empresa aqui existe."
+}

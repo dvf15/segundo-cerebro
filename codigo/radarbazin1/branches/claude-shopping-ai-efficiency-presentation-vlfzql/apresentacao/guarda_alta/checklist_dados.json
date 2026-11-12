@@ -1,0 +1,390 @@
+[
+ {
+  "titulo": "1. Riscos simultâneos",
+  "intro": "Três fatores aumentam o risco ao mesmo tempo: mais movimento, mais equipes novas e risco de redução da atenção. Equipes preparadas e atenção redobrada a sistemas, acessos e rotinas.",
+  "subs": [
+   {
+    "nome": null,
+    "itens": [
+     "Operação dimensionada para o aumento de público, estoques, entregas e serviços",
+     "Temporários e terceiros (shopping e lojas) orientados sobre as rotinas locais antes de iniciar",
+     "Execução dos temporários e terceiros acompanhada em campo",
+     "Supervisão em campo reforçada no período de festas",
+     "Cumprimento dos procedimentos verificado",
+     "Canal e rotina de reporte de desvios funcionando"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "2. Água, drenagem e abastecimento",
+  "intro": "Preparar a resposta aos pontos vulneráveis antes que a chuva comprometa a operação.",
+  "subs": [
+   {
+    "nome": "Água e drenagem",
+    "itens": [
+     "Calhas conferidas: limpeza e funcionamento",
+     "Condutores conferidos: limpeza e funcionamento",
+     "Bombas de drenagem conferidas: limpeza e funcionamento",
+     "Pontos com histórico de infiltração ou alagamento revisados",
+     "Plano de resposta para esses pontos revisado e conhecido pela equipe"
+    ]
+   },
+   {
+    "nome": "Água e resposta",
+    "itens": [
+     "Autonomia de água conhecida",
+     "Forma e prazo de reposição de água conhecidos",
+     "Reserva de incêndio preservada (não consumida na operação)",
+     "Recursos de contingência confirmados para falhas que possam interromper a operação",
+     "Suporte (fornecedores/regional) confirmado para falhas de abastecimento"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "3. Energia e climatização",
+  "intro": "Parâmetros e liberação seguem projeto, fabricante e plano técnico local.",
+  "subs": [
+   {
+    "nome": "Energia",
+    "itens": [
+     "Cargas adicionais do período avaliadas (lojas temporárias, eventos, decoração)",
+     "Quadros de distribuição avaliados",
+     "QGBT (quadro geral de distribuição elétrica) avaliado",
+     "Aquecimento anormal identificado na termografia tratado",
+     "Desarmes recorrentes investigados e tratados",
+     "Reparos provisórios identificados e com prazo para correção definitiva"
+    ]
+   },
+   {
+    "nome": "Climatização",
+    "itens": [
+     "Desempenho no horário de pico acompanhado",
+     "Pontos de condensação tratados",
+     "Chamados recorrentes de climatização analisados",
+     "Setpoint dos chillers verificado",
+     "Approach dos chillers verificado",
+     "Corrente dos chillers verificada",
+     "Partida e desligamento alinhados ao horário da operação"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "4. Proteção contra incêndio",
+  "intro": "A proteção precisa funcionar quando necessária. Indisponibilidades exigem tratamento.",
+  "subs": [
+   {
+    "nome": "Alarme e central",
+    "itens": [
+     "Todo acionamento verificado e com registro do retorno à central, conforme o procedimento",
+     "Liderança conhece as falhas e limitações atuais da central e dos detectores"
+    ]
+   },
+   {
+    "nome": "Combate",
+    "itens": [
+     "Bombas de incêndio em condição de uso",
+     "Válvulas em condição de uso",
+     "Rede de hidrantes/sprinklers em condição de uso",
+     "Reserva de água de incêndio em condição de uso",
+     "Pendências de combate acompanhadas, com correção confirmada"
+    ]
+   },
+   {
+    "nome": "Saídas e pessoas",
+    "itens": [
+     "Rotas de fuga livres",
+     "Equipamentos de proteção acessíveis (extintores, hidrantes, acionadores)",
+     "Brigada conhece as funções previstas no plano de emergência",
+     "Demais equipes conhecem as funções previstas no plano de emergência"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "5. Lojas temporárias, estoques e eventos",
+  "intro": "Regra: nenhuma loja, depósito temporário ou evento é liberado para ocupação ou funcionamento sem validação prévia de Operações e cumprimento dos requisitos de segurança.",
+  "subs": [
+   {
+    "nome": "Lojas temporárias",
+    "itens": [
+     "Vistoria da brigada realizada antes da ocupação de cada loja e depósito temporário",
+     "Instalação elétrica adequada",
+     "Detecção de incêndio adequada",
+     "Proteção contra incêndio adequada",
+     "Saídas adequadas",
+     "Nenhuma liberação feita por pressa ou pressão financeira"
+    ]
+   },
+   {
+    "nome": "Estoque e layout",
+    "itens": [
+     "Caixas e mercadorias não obstruem saídas",
+     "Caixas e mercadorias não obstruem proteção contra incêndio",
+     "Depósitos extras avaliados",
+     "Cargas adicionais avaliadas"
+    ]
+   },
+   {
+    "nome": "Áreas alinhadas",
+    "itens": [
+     "Marketing, Comercial e Operações alinhados antes dos compromissos e montagens",
+     "Filas organizadas sem comprometer circulação e saídas",
+     "Carga e descarga nas docas organizadas sem comprometer circulação e saídas"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "6. Motos e bicicletas elétricas",
+  "intro": "A especificação e a quantidade de equipamentos de proteção dependem da avaliação técnica do risco.",
+  "subs": [
+   {
+    "nome": "Estoque e recarga",
+    "itens": [
+     "Lojas que vendem motos ou bicicletas elétricas mapeadas",
+     "Lojas que armazenam baterias/veículos elétricos mapeadas",
+     "Lojas que recarregam baterias/veículos elétricos mapeadas",
+     "Estoque de baterias avaliado",
+     "Pontos de recarga avaliados",
+     "Rotas de saída preservadas nessas lojas"
+    ]
+   },
+   {
+    "nome": "Proteção e resposta",
+    "itens": [
+     "Proteção e recursos adequados às baterias presentes definidos, com validação técnica",
+     "Alarme previsto para essas áreas",
+     "Proteção das pessoas prevista no plano de emergência",
+     "Acionamento do socorro previsto no plano de emergência"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "7. Cozinhas e operação a quente",
+  "intro": "A correção precisa atender ao risco identificado e ter confirmação técnica.",
+  "subs": [
+   {
+    "nome": "Exaustão e limpeza",
+    "itens": [
+     "Coifas acompanhadas",
+     "Filtros acompanhados",
+     "Dutos acompanhados",
+     "Exaustores acompanhados",
+     "Pendências de limpeza ou funcionamento avaliadas e tratadas"
+    ]
+   },
+   {
+    "nome": "Gás e proteção",
+    "itens": [
+     "Proteção dos registros de gás de cada loja conferida",
+     "Identificação dos registros de gás de cada loja conferida",
+     "Acesso aos registros de gás de cada loja conferido",
+     "Equipe conhece os pontos de corte de gás",
+     "Mudanças na instalação de gás passaram por análise técnica"
+    ]
+   },
+   {
+    "nome": "Correção e retomada",
+    "itens": [
+     "Desvios das inspeções acompanhados",
+     "Condições de fechamento de operação conhecidas e aplicadas",
+     "Restrição e retorno de operação seguem a matriz e a circular vigentes"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "8. Equipamentos, acessos e comunicação",
+  "intro": "Equipe preparada para proteger o público e acionar apoio. Resgates e intervenções somente por profissionais habilitados.",
+  "subs": [
+   {
+    "nome": "Escadas e elevadores",
+    "itens": [
+     "Ruídos e vibrações reportados e avaliados tecnicamente",
+     "Falhas repetidas avaliadas tecnicamente",
+     "Manutenção pendente identificada e com prazo",
+     "Impacto de paradas em circulação e acessibilidade previsto (rota alternativa, sinalização)",
+     "Equipe orientada: resgate de pessoas só por profissional habilitado"
+    ]
+   },
+   {
+    "nome": "Estacionamento",
+    "itens": [
+     "Cancelas com suporte e contingência",
+     "Insumos (tickets, bobinas, etc.) em estoque suficiente",
+     "Máquinas de pagamento com suporte e contingência",
+     "Plano para filas na entrada e na saída",
+     "Saída do público preservada em qualquer cenário",
+     "Entrada de socorro preservada em qualquer cenário"
+    ]
+   },
+   {
+    "nome": "CFTV e rádio",
+    "itens": [
+     "Câmeras funcionando",
+     "Gravação funcionando e com retenção conhecida",
+     "Comunicação por rádio funcionando",
+     "Falhas e pontos sem cobertura conhecidos pela liderança",
+     "Alternativas de comunicação e monitoramento disponíveis"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "9. Fechamento, acessos e equipes",
+  "intro": "Potencial de crise exige comunicação pronta à regional. Proteção e socorro seguem em paralelo.",
+  "subs": [
+   {
+    "nome": "Fechamento seguro",
+    "itens": [
+     "Rotina de fechamento conferida diariamente",
+     "Verificação de permanência indevida após o fechamento",
+     "Acessos restritos conferidos conforme o procedimento local",
+     "Forros conferidos conforme o procedimento local",
+     "Áreas técnicas conferidas conforme o procedimento local"
+    ]
+   },
+   {
+    "nome": "Furtos e roubos",
+    "itens": [
+     "Rondas reforçadas nos pontos vulneráveis",
+     "Monitoramento reforçado nos pontos vulneráveis",
+     "Sinais suspeitos acionados e registrados conforme o procedimento",
+     "Ocorrências acionadas e registradas conforme o procedimento"
+    ]
+   },
+   {
+    "nome": "Temporários e terceiros",
+    "itens": [
+     "Orientação antes do início: acessos, riscos e quem acionar",
+     "Treinamento por função realizado",
+     "Aplicação das rotinas acompanhada de perto no shopping",
+     "Aplicação das rotinas acompanhada de perto nas lojas"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "10. Resíduos e áreas de serviço",
+  "intro": "Falhas na coleta e acúmulo de materiais precisam chegar à gestão antes de comprometer a operação.",
+  "subs": [
+   {
+    "nome": null,
+    "itens": [
+     "Coleta de papelão e resíduos compatível com a demanda do período",
+     "Armazenamento nas docas e depósitos compatível com a demanda",
+     "Compactadora funcionando",
+     "Capacidade de atendimento da compactadora conferida",
+     "Alternativa de coleta definida para o caso de falha",
+     "Corredores de serviço livres de materiais",
+     "Equipamentos de segurança livres de materiais",
+     "Acesso de socorro livre de materiais"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "11. Prateleira vermelha",
+  "intro": "Estoque de peças essenciais para reduzir a interrupção dos sistemas críticos. Peças de reposição reduzem a parada; equipamentos de contingência apoiam a resposta.",
+  "subs": [
+   {
+    "nome": null,
+    "itens": [
+     "Saldo físico das peças conferido contra a lista",
+     "Compatibilidade de cada peça com o equipamento instalado confirmada",
+     "Condição de uso das peças conferida (validade, armazenamento, integridade)",
+     "Peças utilizadas repostas",
+     "Insumos do gerador conferidos (combustível, filtros, baterias)",
+     "Insumos dos no-breaks conferidos (baterias)",
+     "Suporte técnico para equipamentos críticos acionável"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "12. Kit crise",
+  "intro": "Antecipar necessidades e confirmar prontidão. Compras e mobilização seguem as alçadas vigentes.",
+  "subs": [
+   {
+    "nome": "Inventário e testes",
+    "itens": [
+     "Itens do kit crise conferidos contra o Book",
+     "Testes previstos no Book realizados e registrados",
+     "Geradores em condição de uso",
+     "Bombas em condição de uso",
+     "No-breaks em condição de uso",
+     "Demais recursos de contingência em condição de uso"
+    ]
+   },
+   {
+    "nome": "Extratores",
+    "itens": [
+     "Capacidade dos extratores avaliada",
+     "Funcionamento dos extratores testado",
+     "Alternativa de apoio prevista para falha ou insuficiência, conforme avaliação técnica"
+    ]
+   },
+   {
+    "nome": "Apoio disponível",
+    "itens": [
+     "Lista de fornecedores atualizada",
+     "Contatos de emergência atualizados",
+     "Recursos da regional conhecidos",
+     "Responsáveis pelos recursos da regional conhecidos",
+     "Condições para mobilizar os recursos da regional conhecidas"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "13. Apoio de trânsito e policiamento",
+  "intro": "Confirmar recebimento, retorno e contatos antes da operação planejada.",
+  "subs": [
+   {
+    "nome": "Apoio solicitado",
+    "itens": [
+     "Ofício encaminhado ao órgão de trânsito",
+     "Ofício encaminhado ao órgão de policiamento",
+     "Acessos e entorno alinhados com os órgãos",
+     "Horários alinhados com os órgãos",
+     "Pontos de maior concentração alinhados com os órgãos",
+     "Recebimento dos ofícios confirmado",
+     "Retorno dos órgãos recebido e contatos de plantão registrados"
+    ]
+   },
+   {
+    "nome": "Dados que o ofício precisa conter",
+    "itens": [
+     "Data, local e horários",
+     "Previsão de movimento e impacto nas vias",
+     "Apoio solicitado",
+     "Acessos de emergência",
+     "Contato responsável pelo shopping"
+    ]
+   }
+  ]
+ },
+ {
+  "titulo": "14. Prevenção diante de manifestações",
+  "intro": "Antecipar a resposta, preservar acessos e orientar atuação respeitosa, sem confronto.",
+  "subs": [
+   {
+    "nome": null,
+    "itens": [
+     "Sinais de mobilização acompanhados (local, data, possível impacto no shopping e no entorno)",
+     "Efeitos sobre acessos, circulação e segurança antecipados",
+     "Apoio alinhado com a liderança",
+     "Fatos registrados no grupo interno (se houver) ou no grupo oficial",
+     "O que falta confirmar indicado no registro",
+     "Potencial de crise informado prontamente à regional no grupo oficial",
+     "Atualizações mantidas até a conclusão",
+     "Equipes orientadas para atuação respeitosa, sem confronto"
+    ]
+   }
+  ]
+ }
+]

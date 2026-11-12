@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Radar Quiosques">
+<meta name="theme-color" content="#00616f">
+<title>Radar Quiosques — Triagem, Banco & Planejamento</title>
+<link rel="icon" type="image/png" sizes="192x192" href="quiosque-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="quiosque-icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>try{if(/^#investidor\b/i.test(location.hash||""))document.documentElement.classList.add("investor");}catch(e){}</script>
+<style>
+  :root{ color-scheme: light; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:#ffffff; color:#0d454a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:16px; padding-bottom:64px; }
+  .wrap{ max-width:760px; margin:0 auto; }
+  h1{ font-size:23px; font-weight:800; color:#00616f; margin:0 0 2px; }
+  h2{ font-size:16px; font-weight:800; color:#00616f; margin:0 0 4px; }
+  h3{ font-size:13px; font-weight:800; color:#00616f; margin:0 0 8px; }
+  .sub{ font-size:13px; color:rgba(13,69,74,.62); margin:0; }
+  .muted{ font-size:11px; color:rgba(13,69,74,.5); margin-top:4px; }
+  .card{ background:#e5ded4; border:1px solid #ccc5bc; border-radius:14px; padding:16px; margin-bottom:14px; }
+  .lbl{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:rgba(13,69,74,.55); display:block; margin-bottom:5px; font-weight:600; }
+  .lblsec{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#00616f; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .lblsec .n{ background:rgba(0,97,111,.14); color:#00616f; width:20px; height:20px; border-radius:99px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
+  input, select, textarea{ width:100%; background:#ffffff; border:1px solid #ccc5bc; border-radius:10px; padding:10px 12px; color:#0d454a; font-size:16px; outline:none; font-family:inherit; }
+  input:focus, select:focus, textarea:focus{ border-color:#00616f; }
+  textarea{ resize:vertical; min-height:52px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .field{ margin-bottom:12px; }
+  .hint{ font-size:10px; color:rgba(13,69,74,.5); margin-top:4px; line-height:1.4; }
+  .row{ display:flex; justify-content:space-between; align-items:center; padding:4px 0; font-size:14px; gap:10px; }
+  .row .k{ color:rgba(13,69,74,.62); } .row .v{ color:#0d454a; font-weight:700; }
+  .badge{ font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700; display:inline-block; }
+  .b-abf{ background:rgba(108,198,128,.3); color:#0d454a; }
+  .b-pegn{ background:rgba(54,140,130,.2); color:#00616f; }
+  .b-seg{ background:rgba(204,197,188,.45); color:#0d454a; margin:1px 0; }
+  .b-goal{ background:rgba(237,167,84,.34); color:#0d454a; }
+  .acard{ border-radius:14px; border:1px solid; padding:16px; margin-bottom:12px; }
+  .verde{ background:rgba(108,198,128,.16); border-color:rgba(108,198,128,.55); }
+  .amarelo{ background:rgba(237,167,84,.16); border-color:rgba(237,167,84,.55); }
+  .vermelho{ background:rgba(205,81,81,.12); border-color:rgba(205,81,81,.5); }
+  .cinza{ background:rgba(204,197,188,.22); border-color:#ccc5bc; }
+  .t-verde{ color:#3f9e6a; } .t-amarelo{ color:#c07d1e; } .t-vermelho{ color:#cd5151; } .t-cinza{ color:rgba(13,69,74,.55); } .t-blue{ color:#368c82; }
+  button{ border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:700; cursor:pointer; width:100%; font-family:inherit; }
+  .btn-blue{ background:#00616f; color:#ffffff; }
+  .btn-green{ background:#368c82; color:#ffffff; }
+  .btn-gray{ background:#ffffff; color:#0d454a; border:1px solid #ccc5bc; }
+  .btn-wa{ background:#6cc680; color:#0d454a; }
+  .btn-sm{ padding:8px 12px; font-size:13px; width:auto; }
+  .btn-danger{ background:rgba(205,81,81,.12); color:#cd5151; border:1px solid rgba(205,81,81,.5); }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px; }
+  .actions3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:4px; }
+  .warn{ font-size:11px; color:rgba(13,69,74,.5); border-top:1px solid #ccc5bc; padding-top:10px; margin-top:12px; line-height:1.5; }
+  .tabs{ display:flex; gap:6px; margin:14px 0 16px; overflow-x:auto; padding-bottom:2px; }
+  .tab{ flex:0 0 auto; padding:9px 13px; border-radius:10px; background:#e5ded4; border:1px solid #ccc5bc; color:rgba(13,69,74,.72); font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:6px; }
+  .tab.on{ background:#00616f; border-color:#00616f; color:#ffffff; }
+  .tab .cnt{ background:rgba(255,255,255,.28); border-radius:99px; padding:0 7px; font-size:11px; }
+  .tab:not(.on) .cnt{ background:#ffffff; color:rgba(13,69,74,.6); }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-size:13px; padding:8px 12px; border-radius:99px; background:#ffffff; color:#0d454a; cursor:pointer; border:1px solid #ccc5bc; user-select:none; }
+  .chip.on{ background:rgba(0,97,111,.14); border-color:#00616f; color:#00616f; }
+  .seg{ display:flex; gap:6px; flex-wrap:wrap; }
+  .seg label{ flex:1 1 auto; text-align:center; padding:9px 8px; border-radius:10px; background:#ffffff; border:1px solid #ccc5bc; color:#0d454a; cursor:pointer; font-size:13px; font-weight:600; }
+  .seg label.on{ background:rgba(0,97,111,.14); border-color:#00616f; color:#00616f; }
+  .steps{ display:flex; gap:6px; margin-bottom:16px; }
+  .steps .s{ flex:1; height:5px; border-radius:99px; background:#ccc5bc; }
+  .steps .s.done{ background:#00616f; } .steps .s.cur{ background:#368c82; }
+  .scorebar{ height:8px; border-radius:99px; background:#ccc5bc; overflow:hidden; margin-top:6px; }
+  .scorebar > div{ height:100%; border-radius:99px; }
+  .bigscore{ font-size:26px; font-weight:800; line-height:1; }
+  .brand-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .brand-name{ font-size:16px; font-weight:800; color:#00616f; }
+  .brand-seg{ font-size:11px; color:rgba(13,69,74,.62); margin-top:2px; }
+  .metrics{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px; }
+  .metric{ background:#ffffff; border:1px solid #ccc5bc; border-radius:9px; padding:8px 10px; }
+  .metric .mk{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(13,69,74,.5); }
+  .metric .mv{ font-size:13px; font-weight:700; color:#0d454a; margin-top:2px; }
+  .reasons{ margin-top:12px; display:flex; flex-direction:column; gap:5px; }
+  .reason{ font-size:12px; line-height:1.4; display:flex; gap:7px; align-items:flex-start; color:#0d454a; }
+  .reason .ic{ flex:0 0 auto; }
+  .subscores{ display:flex; gap:5px; flex-wrap:wrap; margin-top:10px; }
+  .ss{ font-size:10px; padding:3px 8px; border-radius:8px; background:#ffffff; border:1px solid #ccc5bc; color:rgba(13,69,74,.6); }
+  .ss b{ color:#0d454a; }
+  .hidden{ display:none; }
+  /* Modo investidor: só a Triagem fica visível; abas e demais views nunca aparecem */
+  html.investor #tabs,
+  html.investor #intakeCard,
+  html.investor #view-investidores,
+  html.investor #view-plano,
+  html.investor #view-cruzamento{ display:none !important; }
+  a, .linklike{ color:#00616f; cursor:pointer; }
+  .linklike{ text-decoration:underline; font-size:12px; font-weight:600; }
+  .banner{ font-size:12px; line-height:1.5; background:rgba(0,97,111,.08); border:1px solid rgba(54,140,130,.35); border-radius:10px; padding:10px 12px; color:#0d454a; margin-bottom:14px; }
+  .empty{ text-align:center; color:rgba(13,69,74,.5); padding:26px 12px; font-size:13px; }
+  details summary{ cursor:pointer; font-size:12px; color:rgba(13,69,74,.6); padding:6px 0; }
+  .tag-mem{ font-size:10px; color:#c07d1e; } .tag-mem svg.ic{ width:10px; height:10px; margin-right:2px; vertical-align:-1px; }
+  .inv-card{ background:#e5ded4; border:1px solid #ccc5bc; border-radius:12px; padding:13px; margin-bottom:10px; }
+  .inv-top{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .inv-name{ font-size:15px; font-weight:800; color:#00616f; }
+  .inv-meta{ font-size:11px; color:rgba(13,69,74,.5); margin-top:2px; }
+  .status-pill{ font-size:10px; font-weight:700; padding:3px 9px; border-radius:99px; border:1px solid; cursor:pointer; white-space:nowrap; }
+  .st-novo{ color:#00616f; border-color:rgba(54,140,130,.45); background:rgba(54,140,130,.16); }
+  .st-contato{ color:#0d454a; border-color:rgba(237,167,84,.55); background:rgba(237,167,84,.28); }
+  .st-proposta{ color:#ffffff; border-color:#00616f; background:#00616f; }
+  .st-fechado{ color:#0d454a; border-color:rgba(108,198,128,.55); background:rgba(108,198,128,.28); }
+  .st-descartado{ color:rgba(13,69,74,.6); border-color:#ccc5bc; background:rgba(204,197,188,.35); }
+  .rec-mini{ font-size:12px; color:#0d454a; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+  .rec-tag{ background:#ffffff; border:1px solid #ccc5bc; border-radius:7px; padding:3px 8px; }
+  .toolbar{ display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+  .toolbar input, .toolbar select{ font-size:14px; padding:9px 10px; }
+  .toolbar .grow{ flex:1 1 160px; }
+  .addrow{ display:flex; gap:8px; margin-bottom:10px; }
+  .addrow .grow{ flex:1; }
+  .rm{ background:#ffffff; color:rgba(13,69,74,.6); border:1px solid #ccc5bc; border-radius:8px; width:40px; height:40px; padding:0; font-size:18px; line-height:1; flex:0 0 auto; }
+  .goalrow{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 10px; background:#ffffff; border:1px solid #ccc5bc; border-radius:10px; margin-bottom:8px; }
+  .goalrow .gn{ font-size:13px; font-weight:700; color:#00616f; }
+  .pt-card{ border:1px solid #ccc5bc; border-radius:12px; padding:12px; margin-bottom:10px; background:#ffffff; }
+  .pt-card .seg label{ font-size:12px; padding:7px 6px; }
+  .mixrow{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .mixrow .mixnum{ flex:0 0 auto; width:24px; height:24px; border-radius:99px; background:#00616f; color:#ffffff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .mixrow select{ flex:1; margin:0; }
+  .mixrow .rm{ width:34px; height:34px; font-size:16px; }
+  .mixrow .rmspacer{ width:34px; flex:0 0 auto; }
+  .mixadd{ background:#ffffff; border:1px dashed #ccc5bc; color:#00616f; font-size:13px; font-weight:700; border-radius:8px; padding:8px; margin-top:2px; }
+  .mixadd:hover{ border-color:#00616f; }
+  .mixdet summary{ font-size:12px; font-weight:700; color:#00616f; padding:6px 0; }
+  .codebox{ width:100%; min-height:90px; font-family:ui-monospace,Menlo,monospace; font-size:12px; word-break:break-all; }
+  .toast{ position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:#00616f; color:#ffffff; font-size:13px; font-weight:700; padding:10px 16px; border-radius:10px; box-shadow:0 8px 24px rgba(13,69,74,.28); opacity:0; transition:opacity .2s; pointer-events:none; z-index:50; }
+  .toast.show{ opacity:1; }
+  @media(max-width:520px){ .metrics{ grid-template-columns:1fr 1fr; } .grid2{ grid-template-columns:1fr; } }
+
+  /* ===== polimento profissional (ALLOS claro) ===== */
+  body{ background:#e5ded4; overflow-x:hidden; -webkit-font-smoothing:antialiased; padding-left:max(16px,env(safe-area-inset-left)); padding-right:max(16px,env(safe-area-inset-right)); }
+  .wrap{ max-width:720px; }
+  .brand{ display:flex; gap:12px; align-items:center; margin-bottom:6px; }
+  .brandmark{ width:42px; height:42px; border-radius:12px; background:#00616f; color:#fff; font-weight:800; font-size:22px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; box-shadow:0 6px 16px rgba(0,97,111,.28); }
+  h1{ letter-spacing:-.3px; }
+  .card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:16px; padding:18px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 12px 28px rgba(13,69,74,.06); }
+  .inv-card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:14px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 8px 20px rgba(13,69,74,.05); }
+  .metric, .rec-tag, .ss, .pt-card, .goalrow, .linkbox, .codebox{ background:#f1ece3; }
+  .metric{ border:1px solid #e3dccf; } .ss{ border:1px solid #e3dccf; } .rec-tag{ border:1px solid #e3dccf; }
+  input, select, textarea, .chip, .seg label, .btn-gray, .rm{ transition:border-color .15s ease, box-shadow .15s ease; }
+  input:focus, select:focus, textarea:focus{ border-color:#00616f; box-shadow:0 0 0 3px rgba(0,97,111,.13); }
+  button{ transition:transform .05s ease, box-shadow .15s ease, filter .15s ease; }
+  button:active{ transform:translateY(1px); }
+  .btn-blue{ box-shadow:0 6px 16px rgba(0,97,111,.22); } .btn-blue:hover{ filter:brightness(1.07); }
+  .btn-green:hover, .btn-wa:hover{ filter:brightness(1.05); } .btn-gray:hover{ border-color:#00616f; }
+  .tabs{ flex-wrap:wrap; overflow:visible; gap:8px; margin:16px 0 18px; }
+  .tab{ background:#ffffff; box-shadow:0 1px 2px rgba(13,69,74,.05); }
+  .tab.on{ box-shadow:0 6px 16px rgba(0,97,111,.24); }
+  .linkbox{ border:1px solid #ccc5bc; border-radius:10px; padding:9px 11px; font-size:12px; font-family:ui-monospace,Menlo,monospace; color:#0d454a; word-break:break-all; line-height:1.5; }
+  .codebox{ padding:10px 11px; }
+  .acard{ box-shadow:0 6px 18px rgba(13,69,74,.05); }
+  .status-pill{ box-shadow:0 1px 2px rgba(13,69,74,.05); }
+  @media(max-width:520px){
+    .brandmark{ width:38px; height:38px; font-size:20px; }
+    h1{ font-size:21px; }
+    .tab{ font-size:12.5px; padding:8px 11px; }
+    .btn-sm{ font-size:12.5px; padding:8px 10px; }
+    .actions3{ gap:8px; }
+  }
+
+  /* ===== fit iPhone / sem rolagem horizontal ===== */
+  html,body{ max-width:100%; }
+  .wrap, .brand, .brand>div{ min-width:0; max-width:100%; }
+  .sub{ overflow-wrap:anywhere; }
+  .tabs{ width:100%; }
+  .tab{ flex:1 1 142px; justify-content:center; min-width:0; }
+  .actions, .actions3{ min-width:0; }
+  .actions button, .actions3 button{ min-width:0; overflow:hidden; text-overflow:ellipsis; }
+
+  /* abas em 2x2 no celular (cabe sem rolagem) */
+  @media(max-width:520px){
+    #tabs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    #tabs .tab{ flex:none; }
+  }
+
+  /* status bar (relogio) + safe areas */
+  body{ padding-top:calc(16px + env(safe-area-inset-top)); padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
+  /* icones SVG monocromaticos */
+  svg.ic{ width:17px; height:17px; display:inline-block; flex:0 0 auto; vertical-align:-3px; stroke-width:2; }
+  .tab svg.ic{ width:16px; height:16px; vertical-align:-2px; }
+  .lblsec .n svg.ic{ width:12px; height:12px; vertical-align:0; }
+  .badge svg.ic{ width:11px; height:11px; vertical-align:-1px; margin-right:3px; stroke-width:2.2; }
+  button svg.ic{ margin-right:7px; }
+  .rec-tag svg.ic, .rec-mini svg.ic{ width:12px; height:12px; vertical-align:-2px; }
+  .brandmark svg.ic{ width:25px; height:25px; stroke-width:1.9; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="brandmark" data-ic="kiosk" aria-hidden="true"></div>
+    <div>
+      <h1 id="appTitle">Radar Quiosques</h1>
+      <p class="sub" id="appSub">Captação, triagem e banco de investidores · cruzamento com o planejamento comercial</p>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <div class="tab on" data-view="triagem" data-ic="clipboard">Triagem</div>
+    <div class="tab" data-view="investidores" data-ic="users">Investidores <span class="cnt" id="cntInv">0</span></div>
+    <div class="tab" data-view="plano" data-ic="map">Planejamento</div>
+    <div class="tab" data-view="cruzamento" data-ic="link">Cruzamento</div>
+  </nav>
+
+  <!-- ===================== VIEW: TRIAGEM ===================== -->
+  <section id="view-triagem">
+    <div id="intakeCard" class="card">
+      <div class="lblsec"><span class="n" data-ic="mail"></span> Ficha do investidor — enviar & receber</div>
+      <div class="actions">
+        <button type="button" class="btn-gray" id="btnSendForm" data-ic="send">Enviar ficha</button>
+        <button type="button" class="btn-gray" id="btnRecvForm" data-ic="inbox">Receber resposta</button>
+      </div>
+      <div id="intakeOut" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="steps" id="steps"></div>
+    <div id="editBanner"></div>
+
+    <form id="form">
+      <div class="card">
+        <div class="lblsec"><span class="n">1</span> Identificação do investidor</div>
+        <div class="grid2">
+          <div class="field"><span class="lbl">Nome</span><input id="q_nome" placeholder="Nome do investidor"></div>
+          <div class="field"><span class="lbl">Contato (tel / e-mail)</span><input id="q_contato" placeholder="WhatsApp ou e-mail"></div>
+        </div>
+        <div class="field">
+          <span class="lbl">Origem / como chegou</span>
+          <select id="q_origem">
+            <option value="">—</option>
+            <option>Indicação</option><option>Site / formulário do shopping</option>
+            <option>Feira / evento (ex.: ABF Franchising Expo)</option>
+            <option>Corretor / consultoria</option><option>Prospecção ativa</option><option>Ficha do investidor</option><option>Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">2</span> Capacidade de investimento</div>
+        <div class="grid2">
+          <div class="field">
+            <span class="lbl">Capital para implantação (R$)</span>
+            <input id="q_capital" type="number" inputmode="numeric" placeholder="ex.: 200000">
+            <div class="hint">Total para a montagem (obra, equipamentos, estoque inicial, taxa de franquia).</div>
+          </div>
+          <div class="field">
+            <span class="lbl">Capital de giro reservado (R$)</span>
+            <input id="q_giro" type="number" inputmode="numeric" placeholder="ex.: 40000">
+            <div class="hint">Reserva <b>além</b> da implantação para os primeiros meses até o ponto de equilíbrio.</div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Fonte do capital</span>
+          <div class="seg" data-seg="q_fonte">
+            <label data-v="proprio">Recursos próprios</label>
+            <label data-v="socio">Com sócio</label>
+            <label data-v="financiado">Parte financiada</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">3</span> Tempo dedicado</div>
+        <div class="field">
+          <span class="lbl">Disponibilidade para tocar o negócio</span>
+          <div class="seg" data-seg="q_tempo">
+            <label data-v="integral">Integral · operador</label>
+            <label data-v="parcial">Parcial · meio-período</label>
+            <label data-v="baixo">Baixa · investidor / à distância</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Vai operar pessoalmente ou contratar gerente?</span>
+          <div class="seg" data-seg="q_operacao">
+            <label data-v="dono">Eu no balcão</label>
+            <label data-v="gerente">Contrato gerente</label>
+            <label data-v="misto">Misto</label>
+          </div>
+          <div class="hint">Quiosque tem operação enxuta (1–3 pessoas): quem não fica presente precisa de marca com gestão simples.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">4</span> Experiência prévia</div>
+        <div class="field">
+          <span class="lbl">Já teve ou tocou algum negócio?</span>
+          <div class="seg" data-seg="q_exp">
+            <label data-v="nenhuma">Primeira vez</label>
+            <label data-v="gestao">Já geriu negócio/equipe</label>
+            <label data-v="setor">Experiência no varejo/setor</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl">Segmentos em que tem experiência (opcional)</span>
+          <div class="chips" id="chipsExp"></div>
+        </div>
+        <div class="field">
+          <span class="lbl">Já é ou foi franqueado?</span>
+          <div class="seg" data-seg="q_franq">
+            <label data-v="nao">Não</label>
+            <label data-v="sim">Sim</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="lblsec"><span class="n">5</span> Marca & segmento em mente</div>
+        <div class="field">
+          <span class="lbl">Já tem alguma <b>marca</b> específica em mente? (opcional)</span>
+          <input id="q_marca" placeholder="ex.: Cacau Show, Chilli Beans... ou deixe em branco" list="brandlist">
+          <datalist id="brandlist"></datalist>
+          <div class="hint">Se citar uma marca, a ferramenta valida a aderência dela ao perfil e ao mix — e sugere alternativas.</div>
+        </div>
+        <div class="field">
+          <span class="lbl">Segmentos de interesse (opcional)</span>
+          <div class="chips" id="chipsInt"></div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <span class="lbl">Perfil de risco</span>
+            <div class="seg" data-seg="q_risco">
+              <label data-v="conservador">Conservador</label>
+              <label data-v="moderado">Moderado</label>
+              <label data-v="arrojado">Arrojado</label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="lbl">Principal objetivo</span>
+            <select id="q_objetivo">
+              <option value="renda">Gerar renda / novo trabalho</option>
+              <option value="passivo">Investimento (renda passiva)</option>
+              <option value="realizacao">Realização / marca que admira</option>
+              <option value="portfolio">Ampliar portfólio (já é franqueado)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn-gray" id="btnClear">Limpar</button>
+        <button type="submit" class="btn-green" id="btnRun">Cruzar dados & recomendar ▸</button>
+      </div>
+    </form>
+
+    <div id="result" class="hidden" style="margin-top:18px;"></div>
+
+    <div class="warn" id="execNote" style="margin-top:24px;">
+      <b style="color:#00616f;">Sobre os dados.</b> Base de marcas em formato quiosque com valores de <b>referência</b> (material público <b>ABF</b> e <b>PEGN</b>) — <b>confirme na COF</b> de cada rede. Investidores e planejamento ficam salvos <b>neste navegador</b>; use Backup (aba Investidores) para não perder e mover entre dispositivos.
+    </div>
+  </section>
+
+  <!-- ===================== VIEW: INVESTIDORES ===================== -->
+  <section id="view-investidores" class="hidden">
+    <div class="toolbar">
+      <input class="grow" id="invSearch" placeholder="Buscar por nome, contato, marca...">
+      <select id="invFilter">
+        <option value="">Todos os status</option>
+        <option value="novo">Novo</option><option value="contato">Em contato</option>
+        <option value="proposta">Proposta</option><option value="fechado">Fechado</option>
+        <option value="descartado">Descartado</option>
+      </select>
+    </div>
+    <div class="actions" style="margin-bottom:10px;">
+      <button class="btn-gray btn-sm" id="invExportCsv" data-ic="download">Exportar CSV</button>
+      <button class="btn-gray btn-sm" id="invImportCsv" data-ic="upload">Importar CSV</button>
+    </div>
+    <div class="actions" style="margin-bottom:12px;">
+      <button class="btn-gray btn-sm" id="invExportJson" data-ic="download">Backup JSON</button>
+      <button class="btn-gray btn-sm" id="invImport" data-ic="upload">Importar backup</button>
+    </div>
+    <p class="hint" style="margin-bottom:14px;">Cadastro em massa: <b>Exportar CSV</b> serve de modelo (abra no Excel/Sheets) — edite/adicione linhas e use <b>Importar CSV</b>. As colunas de status, tempo, operação e experiência aceitam tanto o rótulo (ex.: "Integral") quanto o código.</p>
+    <input type="file" id="invFile" accept="application/json" class="hidden">
+    <input type="file" id="invCsvFile" accept=".csv,text/csv" class="hidden">
+    <div id="invList"></div>
+  </section>
+
+  <!-- ===================== VIEW: PLANEJAMENTO ===================== -->
+  <section id="view-plano" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="map"></span> Pontos do shopping</div>
+      <p class="hint" style="margin-bottom:12px;">Lance cada <b>ponto/quiosque</b> do shopping. Se <b>ocupado</b>, informe a <b>marca</b> que opera nele — e, se quiser, defina o <b>mix desejado caso o ponto vague</b> (planejamento futuro). Se <b>vago</b>, defina o <b>mix desejado em ordem de prioridade</b> (no mínimo 3 opções numeradas; use <b>+ adicionar opção</b> para mais). A 1ª opção tem o maior peso. O cruzamento usa os pontos vagos para encontrar o melhor investidor × marca; o mix de pontos ocupados entra como direção futura (peso menor). Marcas já presentes não são recomendadas de novo.</p>
+      <div id="pointRows"></div>
+      <button class="btn-gray btn-sm" id="ptAdd" style="width:100%;margin-top:4px;">+ Adicionar ponto</button>
+      <div class="actions" style="margin-top:12px;">
+        <button class="btn-gray" id="ptReset">Restaurar exemplo</button>
+        <button class="btn-blue" id="ptSave">Salvar pontos</button>
+      </div>
+      <div class="actions" style="margin-top:10px;">
+        <button class="btn-gray btn-sm" id="ptCsv" data-ic="download">Baixar modelo (CSV)</button>
+        <button class="btn-gray btn-sm" id="ptImportCsv" data-ic="upload">Importar CSV</button>
+      </div>
+      <input type="file" id="ptFile" accept=".csv,text/csv" class="hidden">
+      <p class="hint" style="margin-top:8px;">Preenchimento em massa: baixe o <b>modelo CSV</b> (traz seus pontos atuais + exemplos + a lista de segmentos válidos), edite no Excel/Google Sheets e importe. Colunas: <b>nome, status, marca, mix1, mix2, mix3</b> (pode acrescentar <b>mix4, mix5…</b> para mais prioridades) — status = <b>ocupado</b> (preencha a marca; o mix é opcional, como direção futura) ou <b>vago</b> (preencha os segmentos em mix1, mix2, mix3… em ordem de prioridade).</p>
+      <div id="planSummary" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="star"></span> Marcas desejadas (lista de captação)</div>
+      <p class="hint" style="margin-bottom:12px;">Marcas específicas que o shopping <b>quer atrair</b>, independentemente do ponto. Ganham destaque na recomendação e uma seção própria no <b>Cruzamento</b>.</p>
+      <div class="addrow">
+        <input class="grow" id="goalBrand" placeholder="Marca (ex.: Cacau Show)" list="brandlist2">
+        <datalist id="brandlist2"></datalist>
+        <select id="goalPrio" style="width:110px;"><option value="alta">Alta</option><option value="media">Média</option></select>
+        <button class="btn-blue btn-sm" id="goalAdd">Add</button>
+      </div>
+      <div id="goalList"></div>
+    </div>
+
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="tag"></span> Base de marcas (avançado)</div>
+      <p class="hint" style="margin-bottom:12px;">Expanda a base de franquias <b>sem editar código</b>. Baixe o modelo (traz as marcas atuais), edite no Excel/Sheets e importe. Colunas: <b>nome, segmento, investimento, giro, faturamento, payback, royalties, fundo, tempo</b> (dono/gerente/passivo), <b>experiencia</b> (iniciante/intermediario/avancado), <b>complexidade</b> (1–5), <b>abf</b> (0/1), <b>pegn</b> (0/1), <b>descricao</b>. Segmentos novos são criados automaticamente.</p>
+      <div class="actions">
+        <button class="btn-gray btn-sm" id="brCsv" data-ic="download">Modelo de marcas</button>
+        <button class="btn-gray btn-sm" id="brImport" data-ic="upload">Importar marcas</button>
+      </div>
+      <input type="file" id="brFile" accept=".csv,text/csv" class="hidden">
+      <div id="brInfo" style="margin-top:10px;"></div>
+    </div>
+  </section>
+
+  <!-- ===================== VIEW: CRUZAMENTO ===================== -->
+  <section id="view-cruzamento" class="hidden">
+    <div id="crossOut"></div>
+  </section>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   BASE DE MARCAS (referência ABF / PEGN) — formato quiosque
+   (base fixa; marcas personalizadas importadas por CSV entram por cima)
+   ============================================================ */
+const BASE_BRANDS = [
+  {n:"Cacau Show",seg:"Chocolates & doces",invest:120000,giro:25000,fat:60000,payback:24,roy:0,fpp:0,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Maior rede de chocolates finos do país; quiosque express de alto giro."},
+  {n:"Chocolates Brasil Cacau",seg:"Chocolates & doces",invest:150000,giro:30000,fat:70000,payback:28,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Chocolate acessível, forte em datas comemorativas."},
+  {n:"Kopenhagen",seg:"Chocolates & doces",invest:280000,giro:45000,fat:110000,payback:30,roy:7,fpp:2,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Chocolate premium; ticket alto e público AB."},
+  {n:"Amor aos Pedaços",seg:"Chocolates & doces",invest:190000,giro:35000,fat:85000,payback:30,roy:6,fpp:3,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Doces e bolos premium; forte em presentes."},
+  {n:"Brigaderia",seg:"Chocolates & doces",invest:110000,giro:22000,fat:48000,payback:26,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Brigadeiros gourmet; operação compacta."},
+  {n:"Nutty Bavarian",seg:"Snacks & castanhas",invest:95000,giro:18000,fat:45000,payback:20,roy:6,fpp:2,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Castanhas caramelizadas na hora; aroma como atrativo — clássico de quiosque."},
+  {n:"Balonè",seg:"Snacks & castanhas",invest:130000,giro:25000,fat:55000,payback:24,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Pipoca gourmet, doces e presentes; alto apelo impulsivo."},
+  {n:"Casa do Pão de Queijo",seg:"Cafeteria & padaria",invest:160000,giro:30000,fat:65000,payback:26,roy:5,fpp:2,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Pão de queijo, cafés e salgados; tráfego o dia todo."},
+  {n:"Croasonho",seg:"Cafeteria & padaria",invest:170000,giro:30000,fat:70000,payback:28,roy:5,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:0,desc:"Croissants recheados na hora; forte no lanche da tarde."},
+  {n:"Mr. Cheney",seg:"Cafeteria & padaria",invest:180000,giro:32000,fat:75000,payback:28,roy:6,fpp:3,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Cookies americanos e cafés; público jovem."},
+  {n:"The Coffee",seg:"Cafeteria & padaria",invest:220000,giro:40000,fat:90000,payback:26,roy:7,fpp:2,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Café de especialidade; forte apelo entre jovens; formato compacto."},
+  {n:"Grão Espresso",seg:"Cafeteria & padaria",invest:150000,giro:28000,fat:60000,payback:26,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Café e snacks em quiosque; operação simples."},
+  {n:"Rei do Mate",seg:"Cafeteria & padaria",invest:130000,giro:25000,fat:55000,payback:24,roy:6,fpp:4,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Mate gelado, sucos e salgados; marca tradicional de quiosque."},
+  {n:"Oakberry",seg:"Sorvetes & açaí",invest:180000,giro:32000,fat:80000,payback:24,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:3,abf:1,pegn:1,desc:"Açaí premium com forte marca global; sazonalidade no verão."},
+  {n:"Los Paleteros",seg:"Sorvetes & açaí",invest:110000,giro:22000,fat:45000,payback:26,roy:5,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Paletas mexicanas artesanais; apelo visual e impulsivo."},
+  {n:"Bacio di Latte",seg:"Sorvetes & açaí",invest:250000,giro:45000,fat:100000,payback:30,roy:5,fpp:2,tempo:"dono",exp:"intermediario",compl:4,abf:1,pegn:1,desc:"Gelato italiano premium; ticket alto, operação mais exigente."},
+  {n:"Morana",seg:"Acessórios & bijuterias",invest:110000,giro:20000,fat:50000,payback:24,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Bijuterias e acessórios femininos; líder do segmento em quiosque."},
+  {n:"Chilli Beans",seg:"Acessórios & bijuterias",invest:160000,giro:28000,fat:70000,payback:26,roy:8,fpp:4,tempo:"gerente",exp:"intermediario",compl:2,abf:1,pegn:1,desc:"Óculos e acessórios; marca desejo, coleções frequentes."},
+  {n:"Jorge Bischoff",seg:"Acessórios & bijuterias",invest:250000,giro:40000,fat:95000,payback:30,roy:5,fpp:2,tempo:"gerente",exp:"avancado",compl:3,abf:1,pegn:0,desc:"Bolsas e calçados em couro; público AB, ticket alto."},
+  {n:"Uatt?",seg:"Presentes & utilidades",invest:120000,giro:24000,fat:55000,payback:26,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:1,desc:"Presentes criativos e itens de humor; campeão de compra por impulso."},
+  {n:"Life by Vivara",seg:"Joalheria & relógios",invest:220000,giro:35000,fat:85000,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Braço acessível da Vivara em quiosque; joias e Life charms."},
+  {n:"Monreale",seg:"Joalheria & relógios",invest:150000,giro:28000,fat:70000,payback:28,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Joias em prata e semijoias; forte presença em quiosque."},
+  {n:"Água de Cheiro",seg:"Cosméticos & perfumaria",invest:90000,giro:18000,fat:42000,payback:24,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Perfumaria e cosméticos nacionais; marca tradicional."},
+  {n:"L'acqua di Fiori",seg:"Cosméticos & perfumaria",invest:110000,giro:20000,fat:48000,payback:26,roy:5,fpp:3,tempo:"gerente",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Perfumaria fina nacional; boa margem."},
+  {n:"Amakha Paris",seg:"Cosméticos & perfumaria",invest:45000,giro:12000,fat:28000,payback:20,roy:0,fpp:0,tempo:"dono",exp:"iniciante",compl:1,abf:1,pegn:0,desc:"Perfumaria de baixo investimento; entrada acessível ao pequeno investidor."},
+  {n:"Doctor Feet",seg:"Serviços & bem-estar",invest:95000,giro:18000,fat:40000,payback:24,roy:6,fpp:3,tempo:"gerente",exp:"iniciante",compl:3,abf:1,pegn:0,desc:"Podologia e cuidados com os pés; serviço recorrente, pouca concorrência."},
+  {n:"Havanna",seg:"Cafeteria & padaria",invest:230000,giro:40000,fat:95000,payback:30,roy:6,fpp:2,tempo:"dono",exp:"intermediario",compl:3,abf:1,pegn:1,desc:"Cafeteria e alfajores argentinos; público AB, formato café/quiosque."},
+  {n:"iPlace",seg:"Acessórios de celular & tech",invest:350000,giro:60000,fat:180000,payback:30,roy:0,fpp:0,tempo:"gerente",exp:"avancado",compl:4,abf:1,pegn:1,desc:"Apple Premium Reseller; ticket e estoque altos, exige capital e gestão robustos."},
+  {n:"The Case",seg:"Acessórios de celular & tech",invest:110000,giro:22000,fat:55000,payback:24,roy:6,fpp:3,tempo:"dono",exp:"iniciante",compl:2,abf:1,pegn:0,desc:"Capas e acessórios para celular; compra por impulso, operação simples."},
+];
+
+let SEGMENTS = [
+  "Chocolates & doces","Snacks & castanhas","Cafeteria & padaria","Sorvetes & açaí",
+  "Acessórios & bijuterias","Presentes & utilidades","Joalheria & relógios",
+  "Cosméticos & perfumaria","Serviços & bem-estar","Acessórios de celular & tech"
+];
+
+/* pontos de exemplo (ocupados com marca / vagos com 3 opções de mix) */
+const DEFAULT_POINTS = [
+  {id:"p1",nome:"Q01 · Praça Central",status:"ocupado",marca:"Cacau Show",mix:["","",""]},
+  {id:"p2",nome:"Q02 · Corredor Norte",status:"ocupado",marca:"Chilli Beans",mix:["","",""]},
+  {id:"p3",nome:"Q03 · Praça de Alimentação",status:"ocupado",marca:"Oakberry",mix:["","",""]},
+  {id:"p4",nome:"Q04 · Corredor Moda",status:"ocupado",marca:"Morana",mix:["","",""]},
+  {id:"p5",nome:"Q05 · Entrada Principal",status:"vago",marca:"",mix:["Cafeteria & padaria","Sorvetes & açaí","Snacks & castanhas"]},
+  {id:"p6",nome:"Q06 · Corredor Sul",status:"vago",marca:"",mix:["Serviços & bem-estar","Cosméticos & perfumaria","Presentes & utilidades"]},
+  {id:"p7",nome:"Q07 · Acesso Cinemas",status:"vago",marca:"",mix:["Chocolates & doces","Snacks & castanhas","Cafeteria & padaria"]},
+];
+
+/* ---------- persistência ---------- */
+const LS = { plan:"radarQuiosques.plan.v2", inv:"radarQuiosques.investors.v1", brands:"radarQuiosques.brands.v1" };
+const clone = o => JSON.parse(JSON.stringify(o));
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+
+let PLAN = (()=>{ const s=lsGet(LS.plan); if(s&&Array.isArray(s.points)) return {points:s.points,desiredBrands:s.desiredBrands||[]}; return {points:clone(DEFAULT_POINTS),desiredBrands:[]}; })();
+let INVESTORS = lsGet(LS.inv) || [];
+let CUSTOM_BRANDS = lsGet(LS.brands) || [];
+let BRANDS;
+function rebuildBrands(){ const names=new Set(CUSTOM_BRANDS.map(b=>normalize(b.n))); BRANDS = BASE_BRANDS.filter(b=>!names.has(normalize(b.n))).concat(CUSTOM_BRANDS); }
+rebuildBrands();
+let SEGSTATS = {}, PRESENT = new Set();
+
+const money  = n => "R$ " + Number(n||0).toLocaleString("pt-BR");
+const moneyK = n => n>=1000 ? "R$ "+(n/1000).toLocaleString("pt-BR",{maximumFractionDigits:0})+"k" : money(n);
+function normalize(str){ return (str||"").toString().trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+function isDesired(name){ return PLAN.desiredBrands.some(d=>normalize(d.name)===normalize(name)); }
+function newId(p){ return (p||"id")+"_"+Date.now().toString(36)+"_"+Math.floor(Math.random()*1e4).toString(36); }
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1600); }
+function findBrand(name){ return BRANDS.find(b=>normalize(b.n)===normalize(name)); }
+const ICONS={clipboard:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="4" rx="1"/><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M9 13l2 2 4-4"/></svg>',users:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',map:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>',link:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2-2a5 5 0 1 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-2 2a5 5 0 1 0 7.07 7.07l1-1"/></svg>',mail:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',send:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>',inbox:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>',star:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>',tag:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg>',chart:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-3"/><path d="M12 16v-6"/><path d="M17 16v-9"/></svg>',download:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>',upload:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>',search:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',target:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg>',edit:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',check:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',kiosk:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg>'};
+function applyIcons(root){ (root||document).querySelectorAll('[data-ic]').forEach(el=>{ if(el.dataset.icd) return; el.dataset.icd="1"; const svg=ICONS[el.getAttribute('data-ic')]; if(!svg) return; if(el.classList.contains('n')) el.innerHTML=svg; else el.insertAdjacentHTML('afterbegin', svg); }); }
+
+
+function recomputeSegStats(){
+  SEGSTATS={}; SEGMENTS.forEach(s=>SEGSTATS[s]={atual:0,demand:0,top:false,vagos:0});
+  PRESENT=new Set();
+  (PLAN.points||[]).forEach(p=>{
+    if(p.status==="ocupado"){
+      if(p.marca){ PRESENT.add(normalize(p.marca)); const b=findBrand(p.marca); if(b&&SEGSTATS[b.seg]) SEGSTATS[b.seg].atual++; }
+      /* mix desejado de ponto ocupado: direção futura (caso vague), peso reduzido; não conta como vaga */
+      (p.mix||[]).forEach((seg,i)=>{ if(seg&&SEGSTATS[seg]) SEGSTATS[seg].demand+=Math.max(1,3-i)*0.5; });
+    }
+    else if(p.status==="vago"){ (p.mix||[]).forEach((seg,i)=>{ if(seg&&SEGSTATS[seg]){ SEGSTATS[seg].demand+=Math.max(1,3-i); SEGSTATS[seg].vagos++; if(i===0) SEGSTATS[seg].top=true; } }); }
+  });
+}
+recomputeSegStats();
+
+/* ---------- estado (triagem) ---------- */
+const state = { exp:new Set(), int:new Set(), seg:{} };
+let editingId = null, INVESTOR_MODE = false;
+
+/* ============================================================
+   SEGURANÇA — escape de HTML e saneamento de fichas recebidas
+   ============================================================ */
+/* Escapa qualquer texto antes de injetar em innerHTML (previne XSS a partir de
+   dados de terceiros: fichas de investidores, CSV importado, localStorage). */
+function escHtml(v){ return String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+/* Whitelist + coerção de tipos para uma ficha vinda de fora (link #resp / código / arquivo).
+   Descarta campos inesperados, limita tamanhos e garante números — evita XSS,
+   payloads gigantes e poluição de estrutura. */
+function sanitizeInv(raw){
+  if(!raw || typeof raw!=="object") return null;
+  const s=(v,max)=>String(v==null?"":v).slice(0,max||160);
+  const n=v=>{ const x=Number(v); return (isFinite(x)&&x>0)?Math.min(Math.round(x),1e11):0; };
+  const segs=a=>Array.isArray(a)?a.filter(x=>typeof x==="string").slice(0,30).map(x=>s(x,80)):[];
+  return {
+    nome:s(raw.nome,120), contato:s(raw.contato,120), origem:s(raw.origem,80),
+    marca:s(raw.marca,80), objetivo:s(raw.objetivo,40),
+    capital:n(raw.capital), giro:n(raw.giro),
+    fonte:s(raw.fonte,40), tempo:s(raw.tempo,40), operacao:s(raw.operacao,40),
+    exp:s(raw.exp,40), franq:s(raw.franq,10), risco:s(raw.risco,40),
+    expSegs:segs(raw.expSegs), intSegs:segs(raw.intSegs)
+  };
+}
+
+/* ============================================================
+   MOTOR DE MATCHING
+   ============================================================ */
+/* Pesos por prioridade: 1º financeiro (capital+giro, pré-requisito) · 2º experiência · 3º preferência (interesse) · demais de apoio. Planejamento entra como modulação (4º). */
+const W = { fin:34, giro:16, exp:18, interesse:16, tempo:9, risco:7 };
+
+function scoreBrand(inv, b){
+  const need=b.invest, needGiro=b.giro, capital=inv.capital, giro=inv.giro;
+  const parts={}; const reasons=[];
+
+  let fin;
+  if(capital<=0){ fin=50; }
+  else{ const r=capital/need;
+    if(r<0.85){ fin=Math.max(0,60*r); reasons.push(["✗","t-vermelho",`Implantação ${moneyK(need)} acima do capital disponível (${moneyK(capital)}).`]); }
+    else if(r<1){ fin=70; reasons.push(["△","t-amarelo",`Implantação ${moneyK(need)} no limite do capital — margem apertada.`]); }
+    else if(r<=1.8){ fin=100; reasons.push(["✓","t-verde",`Implantação ${moneyK(need)} cabe no capital com folga saudável.`]); }
+    else if(r<=3){ fin=88; }
+    else { fin=72; reasons.push(["△","t-cinza",`Capital bem acima do necessário — poderia mirar formato/marca maior.`]); }
+  }
+  parts.fin=fin;
+
+  let g;
+  if(giro<=0){ g=45; reasons.push(["△","t-amarelo",`Capital de giro não informado — confirmar reserva de ~${moneyK(needGiro)}.`]); }
+  else{ const rg=giro/needGiro;
+    if(rg>=1){ g=100; } else if(rg>=0.6){ g=72; reasons.push(["△","t-amarelo",`Giro reservado (${moneyK(giro)}) abaixo do sugerido (${moneyK(needGiro)}).`]); }
+    else { g=40; reasons.push(["✗","t-vermelho",`Giro insuficiente: ${moneyK(giro)} vs. ~${moneyK(needGiro)} recomendados.`]); }
+  }
+  parts.giro=g;
+
+  let t; const wantHandsOff = inv.tempo==="baixo"||inv.operacao==="gerente";
+  if(b.tempo==="dono"){
+    if(inv.tempo==="integral" && inv.operacao!=="gerente"){ t=100; }
+    else if(inv.tempo==="parcial"){ t=70; reasons.push(["△","t-amarelo","Marca pede dono presente; dedicação parcial exige um gerente forte."]); }
+    else { t=42; reasons.push(["✗","t-vermelho","Marca mão-na-massa e você quer baixa dedicação/gerente."]); }
+  } else if(b.tempo==="gerente"){ t=wantHandsOff?100:88; if(inv.tempo==="integral") reasons.push(["✓","t-verde","Operação gerenciável — compatível e delegável."]); }
+  else { t=95; }
+  parts.tempo=t;
+
+  let e; const rank={iniciante:1,intermediario:2,avancado:3};
+  const need_e=rank[b.exp], has_e=inv.exp==="setor"?3:inv.exp==="gestao"?2:1;
+  const eff=Math.min(3, has_e+(inv.franq==="sim"?1:0));
+  if(eff>=need_e){ e=100; }
+  else if(eff===need_e-1){ e=b.compl>=4?62:78; reasons.push(["△","t-amarelo",`Complexidade ${b.compl}/5 — recomendável suporte/treino reforçado.`]); }
+  else { e=b.compl>=4?38:58; reasons.push(["✗","t-vermelho",`Marca pede perfil ${b.exp}; experiência abaixo — risco na curva.`]); }
+  if((inv.expSegs||[]).includes(b.seg)){ e=Math.min(100,e+15); reasons.push(["✓","t-verde",`Experiência no segmento ${escHtml(b.seg)} — fator de peso na recomendação.`]); }
+  parts.exp=e;
+
+  let it=60, memHit=false;
+  if(inv.marca && normalize(inv.marca)===normalize(b.n)){ it=100; memHit=true; reasons.push(["★","t-blue","Marca que o investidor já tinha em mente."]); }
+  else if(inv.marca && normalize(b.n).includes(normalize(inv.marca)) && normalize(inv.marca).length>=3){ it=92; memHit=true; }
+  if((inv.intSegs||[]).length){
+    if(inv.intSegs.includes(b.seg)){ it=Math.max(it,88); reasons.push(["✓","t-verde",`Segmento de interesse: ${escHtml(b.seg)}.`]); }
+    else if(!memHit){ it=Math.min(it,50); }
+  }
+  parts.interesse=it;
+
+  let rk=80; const riskLevel=b.compl+(b.payback>28?2:b.payback>24?1:0);
+  if(inv.risco==="conservador") rk=riskLevel<=3?100:riskLevel<=5?70:45;
+  else if(inv.risco==="moderado") rk=riskLevel<=5?92:70; else rk=88;
+  parts.risco=rk;
+
+  let invScore=Math.round((parts.fin*W.fin+parts.giro*W.giro+parts.tempo*W.tempo+parts.exp*W.exp+parts.interesse*W.interesse+parts.risco*W.risco)/(W.fin+W.giro+W.tempo+W.exp+W.interesse+W.risco));
+
+  /* 1º PRÉ-REQUISITO: capital de implantação + reserva de giro (barreira da operação).
+     Sem capital para implantar, a marca é inviável independentemente do resto. */
+  const canImplant = capital>0 && capital >= need*0.85;
+  if(!canImplant){ invScore=Math.min(invScore,38); reasons.unshift(["✗","t-vermelho",`Capital de implantação insuficiente: ${moneyK(capital)} vs. ${moneyK(need)} — pré-requisito da operação não atendido.`]); }
+  else if(giro>0 && giro < needGiro*0.5){ invScore=Math.min(invScore,62); reasons.unshift(["✗","t-vermelho",`Reserva de giro muito baixa: ${moneyK(giro)} vs. ~${moneyK(needGiro)} — sustentação no 1º ano em risco.`]); }
+
+  const st=SEGSTATS[b.seg]||{atual:0,demand:0,top:false}; let mix, mixReason, lacunaBonus=0;
+  const duplicate=PRESENT.has(normalize(b.n));
+  if(duplicate){ mix=32; mixReason=["✗","t-vermelho","Marca já opera em um ponto do shopping — evitar duplicar."]; }
+  else if(st.demand>0){ if(st.top){ mix=100; lacunaBonus=3; mixReason=["✓","t-verde",`Segmento pedido em ponto vago como 1ª opção de mix.`]; } else { mix=88; mixReason=["✓","t-verde",`Segmento consta no mix desejado de ponto(s) vago(s).`]; } }
+  else if(st.atual>0){ mix=34; mixReason=["✗","t-vermelho",`Segmento já ocupado e fora do mix desejado das vagas — risco de canibalização.`]; }
+  else { mix=52; mixReason=["△","t-cinza",`Segmento fora das opções de mix dos pontos vagos atuais.`]; }
+
+  /* 4º planejamento do shopping: modulação suave (peso menor que perfil/experiência/preferência) */
+  let finalScore=Math.min(100, Math.round(invScore*(0.85+0.15*(mix/100))+lacunaBonus));
+  if(duplicate) finalScore=Math.min(finalScore,45);
+  const desired=isDesired(b.n);
+  if(desired){ finalScore=Math.min(100,finalScore+3); reasons.unshift(["◎","t-amarelo","Marca desejada no planejamento comercial do shopping."]); }
+
+  return { b, parts, invScore, mix, mixReason, finalScore, reasons, memHit, desired };
+}
+
+function tierOf(s){ if(s>=78) return {t:"Alto match",cls:"verde",tc:"t-verde"}; if(s>=60) return {t:"Match médio",cls:"amarelo",tc:"t-amarelo"}; if(s>=42) return {t:"Match baixo",cls:"cinza",tc:"t-cinza"}; return {t:"Não recomendado",cls:"vermelho",tc:"t-vermelho"}; }
+function barColor(s){ return s>=78?"#6cc680":s>=60?"#eda754":s>=42?"#ccc5bc":"#cd5151"; }
+
+/* ============================================================
+   FORM helpers (compartilhado exec/investidor)
+   ============================================================ */
+function buildChips(el,set){ el.innerHTML=""; SEGMENTS.forEach(s=>{ const c=document.createElement("div"); c.className="chip"; if(set.has(s)) c.classList.add("on"); c.textContent=s; c.onclick=()=>{ if(set.has(s)){set.delete(s);c.classList.remove("on");}else{set.add(s);c.classList.add("on");} }; el.appendChild(c); }); }
+buildChips(document.getElementById("chipsExp"),state.exp);
+buildChips(document.getElementById("chipsInt"),state.int);
+function refreshBrandLists(){ const h=BRANDS.map(b=>`<option value="${escHtml(b.n)}">`).join(""); const a=document.getElementById("brandlist"),b2=document.getElementById("brandlist2"); if(a)a.innerHTML=h; if(b2)b2.innerHTML=h; }
+refreshBrandLists();
+function rebuildChips(){ buildChips(document.getElementById("chipsExp"),state.exp); buildChips(document.getElementById("chipsInt"),state.int); }
+
+document.querySelectorAll("[data-seg]").forEach(g=>{ const key=g.getAttribute("data-seg"); g.querySelectorAll("label").forEach(l=>{ l.onclick=()=>{ g.querySelectorAll("label").forEach(x=>x.classList.remove("on")); l.classList.add("on"); state.seg[key]=l.getAttribute("data-v"); }; }); });
+function setSeg(key,val){ const g=document.querySelector(`[data-seg="${key}"]`); const l=g&&g.querySelector(`[data-v="${val}"]`); if(l) l.click(); }
+function resetSegDefaults(){ setSeg("q_fonte","proprio"); setSeg("q_tempo","integral"); setSeg("q_operacao","dono"); setSeg("q_exp","nenhuma"); setSeg("q_franq","nao"); setSeg("q_risco","moderado"); }
+resetSegDefaults();
+
+function val(id){ return document.getElementById(id).value.trim(); }
+function num(id){ return parseFloat(document.getElementById(id).value)||0; }
+function readInvestor(){
+  return { nome:val("q_nome"),contato:val("q_contato"),origem:val("q_origem"),
+    capital:num("q_capital"),giro:num("q_giro"),fonte:state.seg.q_fonte,tempo:state.seg.q_tempo,operacao:state.seg.q_operacao,
+    exp:state.seg.q_exp,franq:state.seg.q_franq,risco:state.seg.q_risco,objetivo:val("q_objetivo"),marca:val("q_marca"),
+    expSegs:[...state.exp],intSegs:[...state.int] };
+}
+function fillForm(inv){
+  inv=inv||{};
+  document.getElementById("q_nome").value=inv.nome||""; document.getElementById("q_contato").value=inv.contato||"";
+  document.getElementById("q_origem").value=inv.origem||""; document.getElementById("q_capital").value=inv.capital||"";
+  document.getElementById("q_giro").value=inv.giro||""; document.getElementById("q_marca").value=inv.marca||"";
+  document.getElementById("q_objetivo").value=inv.objetivo||"renda";
+  setSeg("q_fonte",inv.fonte||"proprio"); setSeg("q_tempo",inv.tempo||"integral"); setSeg("q_operacao",inv.operacao||"dono");
+  setSeg("q_exp",inv.exp||"nenhuma"); setSeg("q_franq",inv.franq||"nao"); setSeg("q_risco",inv.risco||"moderado");
+  state.exp=new Set(inv.expSegs||[]); state.int=new Set(inv.intSegs||[]);
+  buildChips(document.getElementById("chipsExp"),state.exp); buildChips(document.getElementById("chipsInt"),state.int);
+}
+function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):"—"; }
+function labelTempo(v){ return {integral:"Integral",parcial:"Parcial",baixo:"Baixa dedicação"}[v]||"—"; }
+function labelOper(v){ return {dono:"opera pessoalmente",gerente:"contrata gerente",misto:"misto"}[v]||"—"; }
+function labelExp(v){ return {nenhuma:"Primeira vez",gestao:"Já geriu negócio",setor:"Experiência no setor"}[v]||"—"; }
+
+function perfilResumo(inv){
+  const notas=[]; let tipo;
+  if(inv.tempo==="baixo"||inv.operacao==="gerente") tipo="Perfil investidor (gestão à distância)";
+  else if(inv.tempo==="integral") tipo="Perfil operador (mão-na-massa)"; else tipo="Perfil semi-operador";
+  if(inv.franq==="sim"||inv.objetivo==="portfolio") tipo+=" · multifranqueado";
+  const c=inv.capital, giro=inv.giro;
+  if(c&&giro){ const pct=giro/(c||1); if(pct<0.12) notas.push(["△","t-amarelo",`Giro (${moneyK(giro)}) baixo frente à implantação — ideal ~15–25% do aporte.`]); else notas.push(["✓","t-verde",`Boa reserva de giro (${Math.round(pct*100)}% do capital de implantação).`]); }
+  else notas.push(["△","t-amarelo","Falta detalhar a reserva de capital de giro — crítico no 1º ano."]);
+  if(inv.exp==="nenhuma"&&inv.franq==="nao") notas.push(["△","t-amarelo","Primeira operação: priorizar marcas de baixa complexidade e forte suporte."]);
+  if(inv.exp==="setor") notas.push(["✓","t-verde","Experiência prévia no setor reduz risco de curva de aprendizado."]);
+  if(!inv.marca&&!(inv.intSegs||[]).length) notas.push(["○","t-cinza","Sem marca/segmento definidos — recomendação puxada por capacidade, tempo e pontos vagos."]);
+  return {tipo,notas};
+}
+
+function computeScored(inv){ return BRANDS.map(b=>scoreBrand(inv,b)).sort((a,b)=>b.finalScore-a.finalScore); }
+
+function resultInnerHTML(inv, scored){
+  const top=scored.slice(0,8);
+  const perfil=perfilResumo(inv); const capTotal=(inv.capital||0)+(inv.giro||0);
+  let marcaMsg="";
+  if(inv.marca){
+    const hit=scored.find(s=>normalize(s.b.n)===normalize(inv.marca)||(normalize(s.b.n).includes(normalize(inv.marca))&&normalize(inv.marca).length>=3));
+    if(hit){ const tv=tierOf(hit.finalScore); marcaMsg=`<div class="banner"><b>Marca citada:</b> ${escHtml(hit.b.n)} — <span class="${tv.tc}">${tv.t} (${hit.finalScore})</span>. ${hit.finalScore<60?"Aderência limitada; veja alternativas abaixo.":"Boa aderência — candidata forte."}</div>`; }
+    else marcaMsg=`<div class="banner"><b>Marca citada:</b> “${escHtml(inv.marca)}” não está na base de referência. Considere as equivalentes do ranking, ou cadastre-a na base.</div>`;
+  }
+  const demanded=SEGMENTS.filter(s=>SEGSTATS[s].demand>0).sort((a,b)=>SEGSTATS[b].demand-SEGSTATS[a].demand);
+  const vagos=(PLAN.points||[]).filter(p=>p.status==="vago").length;
+  return `
+    <div class="card">
+      <h2>Diagnóstico do investidor</h2>
+      <p class="sub" style="margin-bottom:10px;">${inv.nome?escHtml(inv.nome)+" · ":""}${perfil.tipo}</p>
+      <div class="row"><span class="k">Capital total (implantação + giro)</span><span class="v">${money(capTotal)}</span></div>
+      <div class="row"><span class="k">Dedicação</span><span class="v">${labelTempo(inv.tempo)} · ${labelOper(inv.operacao)}</span></div>
+      <div class="row"><span class="k">Experiência</span><span class="v">${labelExp(inv.exp)}${inv.franq==="sim"?" · já franqueado":""}</span></div>
+      <div class="row"><span class="k">Perfil de risco</span><span class="v">${cap(inv.risco)}</span></div>
+      ${(inv.intSegs||[]).length?`<div class="row"><span class="k">Interesse</span><span class="v" style="text-align:right;">${inv.intSegs.map(escHtml).join(", ")}</span></div>`:""}
+      <div class="reasons" style="margin-top:10px;">${perfil.notas.map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${n[2]}</span></div>`).join("")}</div>
+    </div>
+    ${marcaMsg}
+    <div class="card" style="background:rgba(0,97,111,.12);border-color:rgba(54,140,130,.28);">
+      <div class="lblsec" style="margin-bottom:8px;">Pontos vagos & mix desejado</div>
+      ${vagos?`<p class="sub"><b>${vagos}</b> ponto(s) vago(s). Segmentos mais pedidos no mix: ${demanded.slice(0,4).map(escHtml).join(", ")||"—"}. Marcas nesses segmentos ganham prioridade; marcas já presentes não são recomendadas.</p>`:`<p class="sub">Nenhum ponto vago cadastrado — o ranking pondera apenas o perfil. Cadastre pontos em <b>Planejamento</b>.</p>`}
+    </div>
+    <h2 style="margin:18px 0 4px;">Ranking de marcas recomendadas</h2>
+    <p class="sub" style="margin-bottom:12px;">Prioridade do diagnóstico: <b>1º</b> capital + giro (pré-requisito da operação — sem capital para implantar, a marca é inviável) · <b>2º</b> experiência no segmento · <b>3º</b> preferência do investidor · <b>4º</b> planejamento do shopping (modulação). Base de referência ABF/PEGN.</p>
+    ${top.map(renderBrandCard).join("")}`;
+}
+
+function renderBrandCard(r){
+  const tv=tierOf(r.finalScore), b=r.b;
+  const badges=[ r.desired?`<span class="badge b-goal">${ICONS.target}Desejada</span>`:"", b.abf?`<span class="badge b-abf">ABF</span>`:"", b.pegn?`<span class="badge b-pegn">Destaque PEGN</span>`:"", `<span class="badge b-seg">${escHtml(b.seg)}</span>` ].join(" ");
+  const ss=[["Financeiro",r.parts.fin],["Giro",r.parts.giro],["Tempo",r.parts.tempo],["Experiência",r.parts.exp],["Interesse",r.parts.interesse],["Risco",r.parts.risco],["Mix",r.mix]]
+    .map(([k,v])=>`<span class="ss">${k} <b class="${v>=75?'t-verde':v>=55?'t-amarelo':'t-vermelho'}">${v}</b></span>`).join("");
+  const reasons=[r.mixReason,...r.reasons].slice(0,5).map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${n[2]}</span></div>`).join("");
+  return `<div class="acard ${tv.cls}">
+    <div class="brand-head">
+      <div><div class="brand-name">${escHtml(b.n)} ${r.memHit?'<span class="tag-mem">'+ICONS.star+'citada</span>':''}</div><div style="margin-top:6px;">${badges}</div></div>
+      <div style="text-align:right;"><div class="bigscore ${tv.tc}">${r.finalScore}</div><div class="brand-seg ${tv.tc}" style="font-weight:700;">${tv.t}</div></div>
+    </div>
+    <div class="scorebar"><div style="width:${r.finalScore}%;background:${barColor(r.finalScore)};"></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="mk">Implantação</div><div class="mv">${moneyK(b.invest)}</div></div>
+      <div class="metric"><div class="mk">Capital giro</div><div class="mv">${moneyK(b.giro)}</div></div>
+      <div class="metric"><div class="mk">Fat. médio/mês</div><div class="mv">${moneyK(b.fat)}</div></div>
+      <div class="metric"><div class="mk">Payback</div><div class="mv">${b.payback} meses</div></div>
+      <div class="metric"><div class="mk">Royalties</div><div class="mv">${b.roy?b.roy+"%":"—"}</div></div>
+      <div class="metric"><div class="mk">Fundo promo.</div><div class="mv">${b.fpp?b.fpp+"%":"—"}</div></div>
+    </div>
+    <div class="subscores">${ss}</div>
+    <div class="reasons">${reasons}</div>
+    <details><summary>Sobre a marca</summary><p class="sub" style="margin:4px 0 0;">${escHtml(b.desc)}</p></details>
+  </div>`;
+}
+
+/* ---------- run (triagem executivo) ---------- */
+function run(){
+  const inv=readInvestor();
+  if(!inv.capital){ alert("Informe o capital para implantação (etapa 2)."); document.getElementById("q_capital").focus(); return; }
+  const scored=computeScored(inv);
+  const top=scored.slice(0,5).map(r=>({n:r.b.n,seg:r.b.seg,finalScore:r.finalScore,invScore:r.invScore,mix:r.mix,desired:r.desired}));
+  const el=document.getElementById("result");
+  el.innerHTML = resultInnerHTML(inv,scored) + `
+    <div class="actions3" style="margin-top:6px;">
+      <button class="btn-gray" id="btnBack">◂ Ajustar</button>
+      <button class="btn-gray" id="btnCopy">Copiar resumo</button>
+      <button class="btn-green" id="btnSave">${editingId?"Atualizar":"Salvar"}</button>
+    </div>`;
+  document.getElementById("form").classList.add("hidden");
+  el.classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"});
+  document.getElementById("btnBack").onclick=()=>{ el.classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); };
+  document.getElementById("btnCopy").onclick=()=>copySummary(inv,perfilResumo(inv),scored.slice(0,5));
+  document.getElementById("btnSave").onclick=()=>saveInvestor(inv,top);
+  buildSteps(2);
+}
+
+function copySummary(inv,perfil,topR){
+  const L=["RADAR QUIOSQUES — Triagem de Investidor","Data: "+new Date().toLocaleDateString("pt-BR")];
+  if(inv.nome) L.push("Investidor: "+inv.nome+(inv.contato?" · "+inv.contato:""));
+  L.push("Perfil: "+perfil.tipo);
+  L.push("Capital implantação: "+money(inv.capital)+" | Giro: "+money(inv.giro)+" | Total: "+money((inv.capital||0)+(inv.giro||0)));
+  L.push("Dedicação: "+labelTempo(inv.tempo)+" ("+labelOper(inv.operacao)+") | Experiência: "+labelExp(inv.exp)+" | Risco: "+cap(inv.risco));
+  if((inv.intSegs||[]).length) L.push("Interesse: "+inv.intSegs.join(", "));
+  if(inv.marca) L.push("Marca em mente: "+inv.marca);
+  L.push("","TOP RECOMENDAÇÕES (score final):");
+  topR.forEach((r,i)=>{ L.push(`${i+1}. ${r.b.n} — ${r.finalScore}/100 (${tierOf(r.finalScore).t}) · ${r.b.seg}${r.desired?" · desejada":""}`); });
+  L.push("","Valores de referência (ABF/PEGN) — validar na COF de cada rede.");
+  const txt=L.join("\n");
+  navigator.clipboard.writeText(txt).then(()=>toast("Resumo copiado"),()=>prompt("Copie o resumo:",txt));
+}
+
+function buildSteps(cur){ const labels=["Perguntas","Cruzamento","Recomendação"]; document.getElementById("steps").innerHTML=labels.map((_,i)=>`<div class="s ${i<cur?'done':i===cur?'cur':''}"></div>`).join(""); }
+buildSteps(0);
+
+document.getElementById("form").addEventListener("submit",e=>{ e.preventDefault(); if(INVESTOR_MODE){ generateInvestorResponse(); } else { buildSteps(1); run(); } });
+document.getElementById("btnClear").onclick=()=>clearForm();
+function clearForm(){
+  fillForm({}); document.getElementById("q_origem").value="";
+  resetSegDefaults(); editingId=null; document.getElementById("editBanner").innerHTML="";
+  document.getElementById("result").classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); buildSteps(0);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- salvar investidor ---------- */
+function saveInvestor(inv,top){
+  if(!inv.nome){ if(!confirm("Salvar sem nome? Recomendo preencher o nome para consulta futura.")) return; }
+  const now=new Date().toISOString();
+  if(editingId){ const idx=INVESTORS.findIndex(x=>x.id===editingId); if(idx>=0) INVESTORS[idx]={...INVESTORS[idx],inv,top,updatedAt:now}; toast("Investidor atualizado"); }
+  else { INVESTORS.unshift({id:newId("inv"),createdAt:now,updatedAt:now,status:"novo",notes:"",inv,top}); toast("Investidor salvo na base"); }
+  lsSet(LS.inv,INVESTORS); updateCounts(); editingId=null; document.getElementById("editBanner").innerHTML=""; clearForm(); showView("investidores");
+}
+
+function loadInvestorIntoForm(rec){
+  editingId=rec.id; fillForm(rec.inv);
+  document.getElementById("editBanner").innerHTML=`<div class="banner">${ICONS.edit} Editando <b>${escHtml(rec.inv.nome||"investidor")}</b>. Ao recalcular e salvar, o cadastro é atualizado. <span class="linklike" id="cancelEdit">cancelar</span></div>`;
+  document.getElementById("result").classList.add("hidden"); document.getElementById("form").classList.remove("hidden"); buildSteps(0);
+  showView("triagem");
+  const ce=document.getElementById("cancelEdit"); if(ce) ce.onclick=clearForm;
+}
+
+/* ============================================================
+   FICHA DO INVESTIDOR — enviar / gerar / receber
+   ============================================================ */
+function encodePayload(o){ try{ return "RQ1:"+btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }catch(e){ return JSON.stringify(o); } }
+function decodePayload(str){
+  if(!str) return null; str=str.trim();
+  try{ if(str[0]==="{") return JSON.parse(str); }catch(e){}
+  // extrai o bloco RQ1:... mesmo que venha dentro de uma mensagem maior (ex.: texto do WhatsApp)
+  const m=str.match(/RQ1:[A-Za-z0-9+/=]+/);
+  const b=(m?m[0]:str).replace(/^RQ1:/,"");
+  try{ return JSON.parse(decodeURIComponent(escape(atob(b)))); }catch(e){ return null; }
+}
+function investorLink(){ return location.origin+location.pathname+"#investidor"; }
+
+function showSendForm(){
+  const link=investorLink();
+  const msg="Olá! Para avaliarmos a melhor oportunidade de quiosque para você, preencha esta ficha rápida (2 min) e me devolva o código gerado ao final:\n"+link;
+  const out=document.getElementById("intakeOut");
+  out.innerHTML=`
+    <div class="banner">Envie este link ao investidor. Ele preenche a ficha no próprio celular e te devolve por WhatsApp/e-mail um <b>link</b> que, ao ser tocado, lança a ficha automaticamente no seu banco (ou um <b>código</b> para colar em <b>Receber resposta</b>).</div>
+    <div class="field"><span class="lbl">Link da ficha</span><div class="linkbox">${link}</div></div>
+    <div class="actions3">
+      <button class="btn-gray btn-sm" id="lkCopy">Copiar link</button>
+      <button class="btn-wa btn-sm" id="lkWa">WhatsApp</button>
+      <button class="btn-gray btn-sm" id="lkMail">E-mail</button>
+    </div>`;
+  document.getElementById("lkCopy").onclick=()=>{ navigator.clipboard.writeText(link).then(()=>toast("Link copiado"),()=>prompt("Copie:",link)); };
+  document.getElementById("lkWa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener");
+  document.getElementById("lkMail").onclick=()=>window.open("mailto:?subject="+encodeURIComponent("Ficha de interesse — quiosque")+"&body="+encodeURIComponent(msg),"_blank","noopener");
+}
+function showRecvForm(){
+  const out=document.getElementById("intakeOut");
+  out.innerHTML=`
+    <div class="banner">Se o investidor enviou um <b>link</b>, basta tocá-lo — a ficha entra sozinha no banco. Ou cole aqui o <b>código</b> (começa com <code>RQ1:</code>) — pode colar a mensagem inteira do WhatsApp — ou selecione o arquivo <code>.json</code> da ficha.</div>
+    <textarea id="recvCode" class="codebox" placeholder="Cole aqui o código RQ1:..."></textarea>
+    <div class="actions" style="margin-top:8px;">
+      <button class="btn-gray btn-sm" id="recvFile">Selecionar arquivo</button>
+      <button class="btn-green btn-sm" id="recvGo">Lançar no banco</button>
+    </div>
+    <input type="file" id="respFile" accept="application/json,.json" class="hidden">`;
+  document.getElementById("recvGo").onclick=()=>{ receiveResponse(decodePayload(document.getElementById("recvCode").value)); };
+  document.getElementById("recvFile").onclick=()=>document.getElementById("respFile").click();
+  document.getElementById("respFile").onchange=e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>receiveResponse(decodePayload(rd.result)); rd.readAsText(f); e.target.value=""; };
+}
+function receiveResponse(d, fromLink){
+  const raw = d && (d.inv || (d.capital!=null ? d : null));
+  const inv = sanitizeInv(raw);
+  if(!inv || inv.capital==null || !(inv.capital>0)){ alert("Não consegui ler a ficha. Confira se colou o código completo (RQ1:...) ou o arquivo correto."); return; }
+  if(!inv.origem) inv.origem="Ficha do investidor";
+  // Auto-import por link é iniciado por terceiro: confirmar antes de gravar no banco.
+  if(fromLink && !confirm(`Lançar no seu banco a ficha recebida de "${inv.nome||"investidor"}"?`)) return;
+  const scored=computeScored(inv);
+  const top=scored.slice(0,5).map(r=>({n:r.b.n,seg:r.b.seg,finalScore:r.finalScore,invScore:r.invScore,mix:r.mix,desired:r.desired}));
+  const now=new Date().toISOString();
+  INVESTORS.unshift({id:newId("inv"),createdAt:now,updatedAt:now,status:"novo",notes:"",inv,top});
+  lsSet(LS.inv,INVESTORS); updateCounts();
+  document.getElementById("intakeOut").innerHTML=`<div class="banner">${ICONS.check} Ficha de <b>${escHtml(inv.nome||"investidor")}</b> lançada no banco e pontuada. Veja em <b>Investidores</b>.</div>`;
+  toast("Ficha lançada no banco"); showView("investidores");
+}
+/* recomendação de marcas para o investidor — base ABF/PEGN × perfil (sem o mix do shopping) */
+function investorScored(inv){ return BRANDS.map(b=>scoreBrand(inv,b)).sort((a,b)=>b.invScore-a.invScore); }
+function renderInvestorBrandCard(r){
+  const tv=tierOf(r.invScore), b=r.b;
+  const badges=[ b.abf?`<span class="badge b-abf">ABF</span>`:"", b.pegn?`<span class="badge b-pegn">Destaque PEGN</span>`:"", `<span class="badge b-seg">${escHtml(b.seg)}</span>` ].join(" ");
+  const ss=[["Financeiro",r.parts.fin],["Giro",r.parts.giro],["Tempo",r.parts.tempo],["Experiência",r.parts.exp],["Interesse",r.parts.interesse],["Risco",r.parts.risco]]
+    .map(([k,v])=>`<span class="ss">${k} <b class="${v>=75?'t-verde':v>=55?'t-amarelo':'t-vermelho'}">${v}</b></span>`).join("");
+  const reasons=r.reasons.slice(0,4).map(n=>`<div class="reason"><span class="ic ${n[1]}">${n[0]}</span><span>${n[2]}</span></div>`).join("");
+  return `<div class="acard ${tv.cls}">
+    <div class="brand-head">
+      <div><div class="brand-name">${escHtml(b.n)} ${r.memHit?'<span class="tag-mem">'+ICONS.star+'citada</span>':''}</div><div style="margin-top:6px;">${badges}</div></div>
+      <div style="text-align:right;"><div class="bigscore ${tv.tc}">${r.invScore}</div><div class="brand-seg ${tv.tc}" style="font-weight:700;">${tv.t}</div></div>
+    </div>
+    <div class="scorebar"><div style="width:${r.invScore}%;background:${barColor(r.invScore)};"></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="mk">Implantação</div><div class="mv">${moneyK(b.invest)}</div></div>
+      <div class="metric"><div class="mk">Capital giro</div><div class="mv">${moneyK(b.giro)}</div></div>
+      <div class="metric"><div class="mk">Fat. médio/mês</div><div class="mv">${moneyK(b.fat)}</div></div>
+      <div class="metric"><div class="mk">Payback</div><div class="mv">${b.payback} meses</div></div>
+    </div>
+    <div class="subscores">${ss}</div>
+    <div class="reasons">${reasons}</div>
+    <details><summary>Sobre a marca</summary><p class="sub" style="margin:4px 0 0;">${escHtml(b.desc)}</p></details>
+  </div>`;
+}
+function renderInvestorRecs(inv){
+  const scored=investorScored(inv);
+  const top=scored.slice(0,5);
+  let marcaMsg="";
+  if(inv.marca){
+    const hit=scored.find(s=>normalize(s.b.n)===normalize(inv.marca)||(normalize(s.b.n).includes(normalize(inv.marca))&&normalize(inv.marca).length>=3));
+    if(hit){ const tv=tierOf(hit.invScore); marcaMsg=`<div class="banner"><b>Marca citada:</b> ${escHtml(hit.b.n)} — <span class="${tv.tc}">${tv.t} (${hit.invScore}/100)</span>.</div>`; }
+    else marcaMsg=`<div class="banner"><b>Marca citada:</b> “${escHtml(inv.marca)}” não está na base de referência ABF/PEGN. Veja abaixo marcas equivalentes ao seu perfil.</div>`;
+  }
+  return `<div class="card">
+      <h2>Marcas que combinam com você</h2>
+      <p class="sub" style="margin-bottom:10px;">Cruzamos seu perfil com a base de franquias de quiosque — valores de <b>referência ABF e PEGN</b>. Prioridade: <b>1º</b> capital + giro (pré-requisito), <b>2º</b> sua experiência no segmento, <b>3º</b> sua preferência. Aderência ao seu perfil (0–100):</p>
+      ${marcaMsg}
+      ${top.map(renderInvestorBrandCard).join("")}
+      <p class="sub" style="margin-top:12px;">Valores de <b>referência (ABF/PEGN)</b> — confirme na COF de cada rede. O executivo do shopping vai refinar considerando o mix de pontos disponíveis.</p>
+    </div>`;
+}
+function generateInvestorResponse(){
+  const inv=readInvestor();
+  if(!inv.nome){ alert("Por favor, preencha seu nome."); document.getElementById("q_nome").focus(); return; }
+  if(!inv.capital){ alert("Por favor, informe o capital disponível para implantação."); document.getElementById("q_capital").focus(); return; }
+  const code=encodePayload({t:"RQ-INV",v:1,sentAt:new Date().toISOString(),inv});
+  const link=location.origin+location.pathname+"#resp="+encodeURIComponent(code);
+  const wa="Segue minha ficha de interesse para o quiosque (Radar Quiosques).\n\n▶ Toque no link para lançar a ficha automaticamente:\n"+link+"\n\nSe o link não abrir, copie e me envie este código:\n"+code;
+  const el=document.getElementById("result");
+  el.innerHTML=renderInvestorRecs(inv)+`
+    <div class="card">
+      <h2>Envie sua ficha ao executivo</h2>
+      <p class="sub" style="margin-bottom:12px;">Obrigado, ${escHtml(inv.nome)}. Agora <b>envie sua ficha ao executivo do shopping</b> pelo WhatsApp ou e-mail. A mensagem já leva um <b>link</b> que lança sua ficha automaticamente — e o código, caso o link não abra.</p>
+      <div class="actions3">
+        <button class="btn-wa btn-sm" id="genWa">Enviar por WhatsApp</button>
+        <button class="btn-gray btn-sm" id="genMail">Enviar por e-mail</button>
+      </div>
+      <p class="sub" style="margin:14px 0 6px;">Alternativas (caso prefira):</p>
+      <textarea class="codebox" id="genCode" readonly>${code}</textarea>
+      <div class="actions3" style="margin-top:10px;">
+        <button class="btn-gray btn-sm" id="genCopy">Copiar código</button>
+        <button class="btn-gray btn-sm" id="genFile">Baixar arquivo (.json)</button>
+      </div>
+    </div>`;
+  document.getElementById("form").classList.add("hidden"); el.classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"});
+  document.getElementById("genWa").onclick=()=>window.open("https://wa.me/?text="+encodeURIComponent(wa),"_blank","noopener");
+  document.getElementById("genMail").onclick=()=>window.open("mailto:?subject="+encodeURIComponent("Minha ficha de interesse — quiosque")+"&body="+encodeURIComponent(wa),"_blank","noopener");
+  document.getElementById("genCopy").onclick=()=>{ navigator.clipboard.writeText(code).then(()=>toast("Código copiado"),()=>{ const t=document.getElementById("genCode"); t.focus(); t.select(); }); };
+  document.getElementById("genFile").onclick=()=>download("ficha-"+((normalize(inv.nome)||"investidor").replace(/\s+/g,"-"))+".json",JSON.stringify({t:"RQ-INV",v:1,inv},null,2),"application/json");
+}
+
+/* ============================================================
+   VIEW: INVESTIDORES
+   ============================================================ */
+const STATUS={novo:["Novo","st-novo"],contato:["Em contato","st-contato"],proposta:["Proposta","st-proposta"],fechado:["Fechado","st-fechado"],descartado:["Descartado","st-descartado"]};
+const STATUS_ORDER=["novo","contato","proposta","fechado","descartado"];
+
+function renderInvestidores(){
+  const q=normalize(document.getElementById("invSearch").value);
+  const f=document.getElementById("invFilter").value;
+  const list=document.getElementById("invList");
+  if(!INVESTORS.length){ list.innerHTML=`<div class="empty">Nenhum investidor salvo ainda.<br>Faça uma triagem e clique em <b>Salvar</b>, ou receba uma <b>ficha</b> preenchida.</div>`; return; }
+  const arr=INVESTORS.filter(r=>{ if(f && r.status!==f) return false; if(!q) return true;
+    return normalize([r.inv.nome,r.inv.contato,r.inv.marca,(r.inv.intSegs||[]).join(" "),(r.top||[]).map(t=>t.n).join(" ")].join(" ")).includes(q); });
+  if(!arr.length){ list.innerHTML=`<div class="empty">Nenhum resultado para o filtro.</div>`; return; }
+  list.innerHTML=arr.map(r=>{
+    const inv=r.inv, st=STATUS[r.status]||STATUS.novo; const capTotal=(inv.capital||0)+(inv.giro||0);
+    const recs=(r.top||[]).slice(0,3).map(t=>`<span class="rec-tag">${escHtml(t.n)} <b class="${t.finalScore>=78?'t-verde':t.finalScore>=60?'t-amarelo':'t-cinza'}">${t.finalScore}</b>${t.desired?" "+ICONS.target:""}</span>`).join("");
+    const date=new Date(r.createdAt).toLocaleDateString("pt-BR");
+    return `<div class="inv-card" data-id="${r.id}">
+      <div class="inv-top">
+        <div><div class="inv-name">${escHtml(inv.nome||"(sem nome)")}</div>
+          <div class="inv-meta">${date} · ${money(capTotal)} · ${labelTempo(inv.tempo)} · ${labelExp(inv.exp)}${inv.contato?" · "+escHtml(inv.contato):""}</div></div>
+        <span class="status-pill ${st[1]}" data-act="status" title="clique p/ mudar status">${st[0]}</span>
+      </div>
+      ${recs?`<div class="rec-mini">${recs}</div>`:""}
+      <div class="actions3" style="margin-top:10px;">
+        <button class="btn-gray btn-sm" data-act="detail">Ver</button>
+        <button class="btn-gray btn-sm" data-act="edit">Reabrir</button>
+        <button class="btn-danger btn-sm" data-act="del">Excluir</button>
+      </div>
+      <div class="detail-slot"></div>
+    </div>`;
+  }).join("");
+
+  list.querySelectorAll(".inv-card").forEach(cardEl=>{
+    const id=cardEl.getAttribute("data-id"); const rec=INVESTORS.find(x=>x.id===id);
+    cardEl.querySelector('[data-act="status"]').onclick=()=>{ const i=STATUS_ORDER.indexOf(rec.status); rec.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length]; rec.updatedAt=new Date().toISOString(); lsSet(LS.inv,INVESTORS); renderInvestidores(); };
+    cardEl.querySelector('[data-act="edit"]').onclick=()=>loadInvestorIntoForm(rec);
+    cardEl.querySelector('[data-act="del"]').onclick=()=>{ if(confirm(`Excluir ${rec.inv.nome||"investidor"}?`)){ INVESTORS=INVESTORS.filter(x=>x.id!==id); lsSet(LS.inv,INVESTORS); updateCounts(); renderInvestidores(); } };
+    cardEl.querySelector('[data-act="detail"]').onclick=()=>{ const slot=cardEl.querySelector(".detail-slot"); if(slot.innerHTML){ slot.innerHTML=""; return; } const scored=computeScored(rec.inv); slot.innerHTML=`<div style="margin-top:12px;border-top:1px solid rgba(0,97,111,.5);padding-top:12px;">${renderInvestorNotes(rec)}${resultInnerHTML(rec.inv,scored)}</div>`; bindNotes(cardEl,rec); };
+  });
+}
+function renderInvestorNotes(rec){ return `<div class="field"><span class="lbl">Anotações do executivo</span><textarea data-notes="${rec.id}" placeholder="Follow-up, objeções, próximos passos...">${escHtml(rec.notes||"")}</textarea><div style="margin-top:6px;"><button class="btn-gray btn-sm" data-savenotes="${rec.id}">Salvar anotações</button></div></div>`; }
+function bindNotes(cardEl,rec){ const ta=cardEl.querySelector(`[data-notes="${rec.id}"]`); const btn=cardEl.querySelector(`[data-savenotes="${rec.id}"]`); if(btn) btn.onclick=()=>{ rec.notes=ta.value; rec.updatedAt=new Date().toISOString(); lsSet(LS.inv,INVESTORS); toast("Anotações salvas"); }; }
+
+/* ---------- export / import ---------- */
+function download(name,text,mime){
+  try{ const blob=new Blob([text],{type:mime||"text/plain"}); const url=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000); }
+  catch(e){ prompt("Copie o conteúdo:",text); }
+}
+function exportCsv(){
+  if(!INVESTORS.length){ toast("Base vazia"); return; }
+  const head=["data","nome","contato","origem","capital","giro","total","tempo","operacao","experiencia","franqueado","risco","objetivo","marca_em_mente","interesse","status","top1","top1_score","top2","top2_score","top3","top3_score","notas"];
+  const esc=v=>`"${(v==null?"":String(v)).replace(/"/g,'""')}"`;
+  const rows=INVESTORS.map(r=>{ const i=r.inv,t=r.top||[]; return [new Date(r.createdAt).toLocaleDateString("pt-BR"),i.nome,i.contato,i.origem,i.capital,i.giro,(i.capital||0)+(i.giro||0),labelTempo(i.tempo),labelOper(i.operacao),labelExp(i.exp),i.franq,i.risco,i.objetivo,i.marca,(i.intSegs||[]).join("; "),(STATUS[r.status]||STATUS.novo)[0],t[0]?t[0].n:"",t[0]?t[0].finalScore:"",t[1]?t[1].n:"",t[1]?t[1].finalScore:"",t[2]?t[2].n:"",t[2]?t[2].finalScore:"",r.notes].map(esc).join(","); });
+  download("investidores.csv","﻿"+[head.map(esc).join(","),...rows].join("\n"),"text/csv");
+}
+function exportJson(){ download("radar-quiosques-backup.json",JSON.stringify({version:2,exportedAt:new Date().toISOString(),investors:INVESTORS,plan:PLAN},null,2),"application/json"); }
+function importJson(file){
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const d=JSON.parse(rd.result);
+      if(Array.isArray(d.investors)){ const mode=confirm("OK = SUBSTITUIR a base atual pelos dados do arquivo.\nCancelar = MESCLAR (adicionar sem duplicar por id).");
+        if(mode){ INVESTORS=d.investors; } else { const ids=new Set(INVESTORS.map(x=>x.id)); d.investors.forEach(x=>{ if(!ids.has(x.id)) INVESTORS.push(x); }); } lsSet(LS.inv,INVESTORS); }
+      if(d.plan&&Array.isArray(d.plan.points)){ PLAN={points:d.plan.points,desiredBrands:d.plan.desiredBrands||[]}; lsSet(LS.plan,PLAN); recomputeSegStats(); }
+      updateCounts(); renderInvestidores(); toast("Importado com sucesso");
+    }catch(e){ alert("Arquivo inválido: "+e.message); } };
+  rd.readAsText(file);
+}
+
+/* ---------- import de investidores por CSV ---------- */
+function parseNum(v){ v=String(v==null?"":v).replace(/[^\d,.-]/g,"").replace(/\.(?=\d{3}(\D|$))/g,"").replace(",","."); const n=parseFloat(v); return isNaN(n)?0:Math.round(n); }
+function idxOf(h,names){ for(const nm of names){ const i=h.indexOf(nm); if(i>=0) return i; } return -1; }
+function decFonte(v){ v=normalize(v); if(v.indexOf("soci")>=0) return "socio"; if(v.indexOf("financ")>=0) return "financiado"; return "proprio"; }
+function decTempo2(v){ v=normalize(v); if(v.indexOf("integ")>=0) return "integral"; if(v.indexOf("parc")>=0) return "parcial"; if(v.indexOf("baix")>=0||v.indexOf("dist")>=0||v.indexOf("passiv")>=0) return "baixo"; return "integral"; }
+function decOper2(v){ v=normalize(v); if(v.indexOf("gerente")>=0) return "gerente"; if(v.indexOf("misto")>=0) return "misto"; return "dono"; }
+function decExp2(v){ v=normalize(v); if(v.indexOf("setor")>=0||v.indexOf("varejo")>=0) return "setor"; if(v.indexOf("gest")>=0||v.indexOf("geriu")>=0) return "gestao"; return "nenhuma"; }
+function decRisco2(v){ v=normalize(v); if(v.indexOf("conserv")>=0) return "conservador"; if(v.indexOf("arroj")>=0) return "arrojado"; return "moderado"; }
+function decFranq2(v){ v=normalize(v); return (v.indexOf("sim")>=0||v==="s"||v==="1"||v.indexOf("true")>=0)?"sim":"nao"; }
+function decObjetivo2(v){ v=normalize(v); if(v.indexOf("passiv")>=0) return "passivo"; if(v.indexOf("realiz")>=0) return "realizacao"; if(v.indexOf("portf")>=0||v.indexOf("carteira")>=0) return "portfolio"; return "renda"; }
+function decStatus2(v){ v=normalize(v); if(v.indexOf("contato")>=0) return "contato"; if(v.indexOf("propost")>=0) return "proposta"; if(v.indexOf("fech")>=0) return "fechado"; if(v.indexOf("descart")>=0) return "descartado"; return "novo"; }
+function splitSegs(s){ return String(s||"").split(/[;/|]+/).map(x=>matchSegment(x)).filter(Boolean); }
+function importInvestorsCsv(file){
+  const rd=new FileReader();
+  rd.onload=()=>{ try{
+    const rows=parseCSV(rd.result).filter(r=>r.length && !(r.length===1 && !r[0].trim()));
+    if(rows.length<2){ alert("CSV vazio ou sem dados."); return; }
+    const h=rows[0].map(c=>normalize(c));
+    if(idxOf(h,["nome"])<0){ alert('O CSV precisa ter um cabeçalho com a coluna "nome". Dica: use o Exportar CSV como modelo.'); return; }
+    const I={ nome:idxOf(h,["nome"]),contato:idxOf(h,["contato","telefone","email","e-mail"]),origem:idxOf(h,["origem"]),
+      capital:idxOf(h,["capital","implantacao","capital_implantacao"]),giro:idxOf(h,["giro","capital_giro"]),fonte:idxOf(h,["fonte"]),
+      tempo:idxOf(h,["tempo","dedicacao"]),operacao:idxOf(h,["operacao","operação"]),exp:idxOf(h,["experiencia","exp"]),
+      franq:idxOf(h,["franqueado","franquia","franq"]),risco:idxOf(h,["risco","perfil","perfil_risco"]),objetivo:idxOf(h,["objetivo"]),
+      marca:idxOf(h,["marca_em_mente","marca"]),interesse:idxOf(h,["interesse","segmentos","interesse_segmentos"]),status:idxOf(h,["status"]) };
+    const g=(r,k)=> I[k]>=0 ? (r[I[k]]||"").trim() : "";
+    const recs=[]; const now=new Date().toISOString();
+    for(let i=1;i<rows.length;i++){ const r=rows[i]; const nome=g(r,"nome"); const cap=parseNum(g(r,"capital"));
+      if((!nome||nome.startsWith("#")) && !cap) continue;
+      const inv={ nome, contato:g(r,"contato"), origem:g(r,"origem")||"Importação CSV", capital:cap, giro:parseNum(g(r,"giro")),
+        fonte:decFonte(g(r,"fonte")), tempo:decTempo2(g(r,"tempo")), operacao:decOper2(g(r,"operacao")), exp:decExp2(g(r,"exp")),
+        franq:decFranq2(g(r,"franq")), risco:decRisco2(g(r,"risco")), objetivo:decObjetivo2(g(r,"objetivo")), marca:g(r,"marca"),
+        expSegs:[], intSegs:splitSegs(g(r,"interesse")) };
+      const top=computeScored(inv).slice(0,5).map(x=>({n:x.b.n,seg:x.b.seg,finalScore:x.finalScore,invScore:x.invScore,mix:x.mix,desired:x.desired}));
+      recs.push({ id:newId("inv"), createdAt:now, updatedAt:now, status:decStatus2(g(r,"status")), notes:"", inv, top });
+    }
+    if(!recs.length){ alert("Nenhum investidor válido no CSV (confira a coluna nome/capital)."); return; }
+    const repl=confirm(`${recs.length} investidor(es) lido(s).\n\nOK = SUBSTITUIR a base atual.\nCancelar = ADICIONAR aos existentes.`);
+    INVESTORS = repl ? recs : recs.concat(INVESTORS);
+    lsSet(LS.inv,INVESTORS); updateCounts(); renderInvestidores(); toast(`${recs.length} investidor(es) importado(s)`);
+  }catch(e){ alert("Não consegui ler o CSV: "+e.message); } };
+  rd.readAsText(file);
+}
+
+/* ============================================================
+   VIEW: PLANEJAMENTO (pontos)
+   ============================================================ */
+function mixFieldHTML(idx, mix, occ){
+  const rows=mix.map((val,i)=>`<div class="mixrow"><span class="mixnum">${i+1}</span><select data-p="${idx}" data-f="mix${i}"><option value="">— segmento (${i+1}ª prioridade) —</option>${SEGMENTS.map(s=>`<option ${val===s?'selected':''}>${escHtml(s)}</option>`).join("")}</select>${i>=3?`<button class="rm" data-mixrm="${idx}:${i}" title="remover opção">×</button>`:`<span class="rmspacer"></span>`}</div>`).join("")+`<button class="mixadd" data-mixadd="${idx}">+ adicionar opção</button>`;
+  if(occ){
+    const hasMix=(mix||[]).some(x=>x);
+    return `<details class="mixdet" ${hasMix?'open':''} style="margin-top:10px;"><summary>Mix desejado para este ponto — prioridade, caso vague</summary><div style="margin-top:8px;">${rows}</div></details>`;
+  }
+  return `<div class="field" style="margin-top:10px;"><span class="lbl">Mix desejado — em ordem de prioridade (mín. 3 opções)</span>${rows}</div>`;
+}
+function renderPoints(){
+  const box=document.getElementById("pointRows"); box.innerHTML="";
+  (PLAN.points||[]).forEach((p,idx)=>{
+    const div=document.createElement("div"); div.className="pt-card"; const occ=p.status==="ocupado";
+    let mix=(p.mix||[]).slice(); while(mix.length<3) mix.push(""); p.mix=mix;
+    div.innerHTML=`
+      <div class="addrow">
+        <input class="grow" value="${escHtml(p.nome)}" placeholder="Nome/local do ponto (ex.: Q05 · Entrada)" data-p="${idx}" data-f="nome">
+        <button class="rm" data-rm="${idx}" title="remover">×</button>
+      </div>
+      <div class="seg" data-ptstatus="${idx}">
+        <label class="${occ?'on':''}" data-v="ocupado">Ocupado</label>
+        <label class="${!occ?'on':''}" data-v="vago">Vago</label>
+      </div>
+      ${occ
+        ? `<div class="field" style="margin-top:10px;"><span class="lbl">Marca que ocupa o ponto</span><input list="brandlist2" value="${escHtml(p.marca)}" placeholder="ex.: Cacau Show" data-p="${idx}" data-f="marca"></div>`+mixFieldHTML(idx,mix,true)
+        : mixFieldHTML(idx,mix,false)}
+    `;
+    box.appendChild(div);
+  });
+  box.querySelectorAll("[data-ptstatus]").forEach(g=>{ const idx=+g.getAttribute("data-ptstatus"); g.querySelectorAll("label").forEach(l=>{ l.onclick=()=>{ syncPoints(); PLAN.points[idx].status=l.getAttribute("data-v"); renderPoints(); }; }); });
+  box.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ syncPoints(); PLAN.points.splice(+b.getAttribute("data-rm"),1); renderPoints(); });
+  box.querySelectorAll("[data-mixadd]").forEach(b=>b.onclick=()=>{ syncPoints(); const i=+b.getAttribute("data-mixadd"); (PLAN.points[i].mix=PLAN.points[i].mix||[]).push(""); renderPoints(); });
+  box.querySelectorAll("[data-mixrm]").forEach(b=>b.onclick=()=>{ syncPoints(); const parts=b.getAttribute("data-mixrm").split(":"); const pi=+parts[0], mi=+parts[1]; PLAN.points[pi].mix.splice(mi,1); renderPoints(); });
+}
+function syncPoints(){
+  (PLAN.points||[]).forEach((p,idx)=>{
+    const nm=document.querySelector(`#pointRows [data-p="${idx}"][data-f="nome"]`); if(nm) p.nome=nm.value;
+    if(p.status==="ocupado"){ const mc=document.querySelector(`#pointRows [data-p="${idx}"][data-f="marca"]`); p.marca=mc?mc.value.trim():""; }
+    const sels=[...document.querySelectorAll(`#pointRows [data-p="${idx}"][data-f^="mix"]`)].sort((a,b)=>(+a.getAttribute("data-f").slice(3))-(+b.getAttribute("data-f").slice(3)));
+    if(sels.length){ p.mix=sels.map(s=>s.value); while(p.mix.length<3) p.mix.push(""); }
+  });
+}
+function renderPlanSummary(){
+  const el=document.getElementById("planSummary");
+  const occ=(PLAN.points||[]).filter(p=>p.status==="ocupado").length, vag=(PLAN.points||[]).filter(p=>p.status==="vago").length;
+  const demanded=SEGMENTS.filter(s=>SEGSTATS[s].demand>0).sort((a,b)=>SEGSTATS[b].demand-SEGSTATS[a].demand);
+  el.innerHTML=`<div class="banner" style="margin:0;">${occ} ocupado(s) · <b>${vag} vago(s)</b>. Segmentos mais pedidos nas vagas: ${demanded.slice(0,4).map(escHtml).join(", ")||"—"}.</div>`;
+}
+function renderGoals(){
+  const box=document.getElementById("goalList");
+  if(!PLAN.desiredBrands.length){ box.innerHTML=`<div class="empty" style="padding:14px;">Nenhuma marca desejada cadastrada.</div>`; return; }
+  box.innerHTML=PLAN.desiredBrands.map((d,idx)=>{ const inBase=findBrand(d.name); return `<div class="goalrow">
+      <div><span class="gn">${escHtml(d.name)}</span> <span class="badge ${d.prioridade==='alta'?'b-goal':'b-seg'}" style="margin-left:6px;">${d.prioridade==='alta'?'Alta':'Média'}</span> ${inBase?`<span class="badge b-seg" style="margin-left:4px;">${escHtml(inBase.seg)}</span>`:`<span class="badge b-seg" style="margin-left:4px;color:#cd5151;">fora da base</span>`}</div>
+      <button class="rm" data-goal="${idx}">×</button></div>`; }).join("");
+  box.querySelectorAll("[data-goal]").forEach(b=>b.onclick=()=>{ PLAN.desiredBrands.splice(+b.getAttribute("data-goal"),1); lsSet(LS.plan,PLAN); renderGoals(); });
+}
+document.getElementById("ptAdd").onclick=()=>{ syncPoints(); PLAN.points.push({id:newId("p"),nome:"",status:"vago",marca:"",mix:["","",""]}); renderPoints(); };
+document.getElementById("ptSave").onclick=()=>{ syncPoints(); lsSet(LS.plan,PLAN); recomputeSegStats(); renderPlanSummary(); toast("Pontos salvos"); };
+
+/* ---------- pontos: exportar modelo CSV / importar CSV ---------- */
+function exportPointsCsv(){
+  syncPoints();
+  const esc=v=>`"${(v==null?"":String(v)).replace(/"/g,'""')}"`;
+  const src = (PLAN.points&&PLAN.points.length)? PLAN.points : clone(DEFAULT_POINTS);
+  const maxMix = Math.max(3, ...src.map(p=>(p.mix||[]).length));
+  const mixCols = Array.from({length:maxMix},(_,i)=>"mix"+(i+1));
+  const L=[["nome","status","marca",...mixCols].map(esc).join(",")];
+  src.forEach(p=>{ const m=p.mix||[]; L.push([p.nome,p.status,p.status==="ocupado"?(p.marca||""):"",...mixCols.map((_,i)=>m[i]||"")].map(esc).join(",")); });
+  L.push("");
+  L.push('"# Referência — não é importado. status=ocupado (com marca; mix opcional = direção futura) ou vago (segmentos em mix1, mix2, mix3… em ordem de prioridade; no mínimo 3)."');
+  L.push('"# Segmentos válidos para mix1/mix2/mix3:"');
+  SEGMENTS.forEach(s=>L.push('"# '+s.replace(/"/g,'""')+'"'));
+  download("modelo-pontos-shopping.csv","﻿"+L.join("\n"),"text/csv");
+}
+function parseCSV(text){
+  text=String(text).replace(/^﻿/,"").replace(/\r\n?/g,"\n");
+  const nl=text.indexOf("\n"); const firstLine= nl>=0?text.slice(0,nl):text;
+  const delim=(firstLine.split(";").length>firstLine.split(",").length)?";":",";
+  const rows=[]; let row=[],field="",inQ=false;
+  for(let i=0;i<text.length;i++){ const c=text[i];
+    if(inQ){ if(c==='"'){ if(text[i+1]==='"'){ field+='"'; i++; } else inQ=false; } else field+=c; }
+    else{ if(c==='"') inQ=true; else if(c===delim){ row.push(field); field=""; } else if(c==="\n"){ row.push(field); rows.push(row); row=[]; field=""; } else field+=c; }
+  }
+  if(field.length||row.length){ row.push(field); rows.push(row); }
+  return rows;
+}
+function matchSegment(v){ v=normalize(v); if(!v) return ""; const hit=SEGMENTS.find(s=>normalize(s)===v); if(hit) return hit; const part=SEGMENTS.find(s=>normalize(s).includes(v)||v.includes(normalize(s))); return part||""; }
+function importPointsCsv(file){
+  const rd=new FileReader();
+  rd.onload=()=>{ try{
+    const rows=parseCSV(rd.result).filter(r=>r.length && !(r.length===1 && !r[0].trim()));
+    if(!rows.length){ alert("CSV vazio."); return; }
+    let start=0, idx={nome:0,status:1,marca:2,mix1:3,mix2:4,mix3:5};
+    const h0=rows[0].map(c=>normalize(c));
+    if(h0.includes("nome")&&h0.includes("status")){ start=1; idx={}; h0.forEach((k,i)=>{ if(k) idx[k]=i; }); }
+    const mixKeys=Object.keys(idx).filter(k=>/^mix\d+$/.test(k)).sort((a,b)=>(+a.slice(3))-(+b.slice(3)));
+    const pts=[]; let unmatched=0;
+    for(let i=start;i<rows.length;i++){ const r=rows[i]; const first=(r[idx.nome]||"").trim();
+      if(!first || first.startsWith("#")) continue;
+      const status = normalize(r[idx.status]||"").indexOf("oc")===0 ? "ocupado" : "vago";
+      let marca="";
+      if(status==="ocupado"){ marca=(r[idx.marca]||"").trim(); }
+      let mix=mixKeys.map(k=>{ const raw=(r[idx[k]]||"").trim(); if(!raw) return ""; const m=matchSegment(raw); if(!m) unmatched++; return m; });
+      while(mix.length<3) mix.push("");
+      pts.push({id:newId("p"),nome:first,status,marca,mix});
+    }
+    if(!pts.length){ alert("Nenhum ponto válido encontrado no CSV. Confira o cabeçalho e as colunas."); return; }
+    const repl = confirm(`${pts.length} ponto(s) lido(s).\n\nOK = SUBSTITUIR todos os pontos atuais.\nCancelar = ADICIONAR aos existentes.`);
+    PLAN.points = repl ? pts : (PLAN.points||[]).concat(pts);
+    lsSet(LS.plan,PLAN); recomputeSegStats(); renderPoints(); renderPlanSummary();
+    toast(`${pts.length} ponto(s) importado(s)`+(unmatched?` · ${unmatched} segmento(s) não reconhecido(s)`:""));
+    if(unmatched) alert(`${unmatched} valor(es) de segmento não bateram com a lista oficial e ficaram em branco. Use exatamente os nomes do modelo (ex.: "Cafeteria & padaria").`);
+  }catch(e){ alert("Não consegui ler o CSV: "+e.message); } };
+  rd.readAsText(file);
+}
+document.getElementById("ptCsv").onclick=exportPointsCsv;
+document.getElementById("ptImportCsv").onclick=()=>document.getElementById("ptFile").click();
+document.getElementById("ptFile").onchange=e=>{ if(e.target.files[0]) importPointsCsv(e.target.files[0]); e.target.value=""; };
+
+/* ---------- base de marcas: modelo CSV / importar / restaurar ---------- */
+function decBrandTempo(v){ v=normalize(v); if(v.indexOf("gerente")>=0) return "gerente"; if(v.indexOf("passiv")>=0) return "passivo"; return "dono"; }
+function decBrandExp(v){ v=normalize(v); if(v.indexOf("avanc")>=0) return "avancado"; if(v.indexOf("interm")>=0) return "intermediario"; return "iniciante"; }
+function decBool(v){ v=normalize(v); return (v==="1"||v==="sim"||v==="s"||v==="true"||v==="x"||v==="verdadeiro")?1:0; }
+function exportBrandsCsv(){
+  const esc=v=>`"${(v==null?"":String(v)).replace(/"/g,'""')}"`;
+  const head=["nome","segmento","investimento","giro","faturamento","payback","royalties","fundo","tempo","experiencia","complexidade","abf","pegn","descricao"];
+  const L=[head.map(esc).join(",")];
+  BRANDS.forEach(b=>L.push([b.n,b.seg,b.invest,b.giro,b.fat,b.payback,b.roy,b.fpp,b.tempo,b.exp,b.compl,b.abf,b.pegn,b.desc].map(esc).join(",")));
+  download("modelo-marcas.csv","﻿"+L.join("\n"),"text/csv");
+}
+function importBrandsCsv(file){
+  const rd=new FileReader();
+  rd.onload=()=>{ try{
+    const rows=parseCSV(rd.result).filter(r=>r.length && !(r.length===1 && !r[0].trim()));
+    if(rows.length<2){ alert("CSV vazio ou sem dados."); return; }
+    const h=rows[0].map(c=>normalize(c));
+    if(idxOf(h,["nome"])<0||idxOf(h,["segmento","seg"])<0){ alert('O CSV de marcas precisa de cabeçalho com "nome" e "segmento". Use o Modelo de marcas.'); return; }
+    const I={ n:idxOf(h,["nome"]),seg:idxOf(h,["segmento","seg"]),invest:idxOf(h,["investimento","invest","implantacao"]),giro:idxOf(h,["giro","capital_giro"]),
+      fat:idxOf(h,["faturamento","fat"]),payback:idxOf(h,["payback"]),roy:idxOf(h,["royalties","roy"]),fpp:idxOf(h,["fundo","fpp","fundo_promocao"]),
+      tempo:idxOf(h,["tempo","dedicacao"]),exp:idxOf(h,["experiencia","exp"]),compl:idxOf(h,["complexidade","compl"]),abf:idxOf(h,["abf"]),pegn:idxOf(h,["pegn"]),desc:idxOf(h,["descricao","desc","descrição"]) };
+    const g=(r,k)=> I[k]>=0 ? (r[I[k]]||"").trim() : "";
+    const list=[]; const newSegs=[];
+    for(let i=1;i<rows.length;i++){ const r=rows[i]; const n=g(r,"n"); if(!n||n.startsWith("#")) continue;
+      const invv=parseNum(g(r,"invest")); if(!invv) continue;
+      let seg=matchSegment(g(r,"seg")); if(!seg){ seg=g(r,"seg").trim(); if(seg && SEGMENTS.indexOf(seg)<0 && newSegs.indexOf(seg)<0) newSegs.push(seg); }
+      const compl=Math.max(1,Math.min(5,parseInt(g(r,"compl")||"2",10)||2));
+      list.push({ n, seg, invest:invv, giro:parseNum(g(r,"giro"))||Math.round(invv*0.18), fat:parseNum(g(r,"fat")), payback:parseNum(g(r,"payback"))||24,
+        roy:parseNum(g(r,"roy")), fpp:parseNum(g(r,"fpp")), tempo:decBrandTempo(g(r,"tempo")), exp:decBrandExp(g(r,"exp")), compl, abf:decBool(g(r,"abf")), pegn:decBool(g(r,"pegn")), desc:g(r,"desc") });
+    }
+    if(!list.length){ alert("Nenhuma marca válida (precisa de nome, segmento e investimento)."); return; }
+    if(newSegs.length) SEGMENTS=SEGMENTS.concat(newSegs);
+    CUSTOM_BRANDS=list; lsSet(LS.brands,CUSTOM_BRANDS); rebuildBrands(); refreshBrandLists(); rebuildChips(); recomputeSegStats();
+    renderBrandsInfo();
+    toast(`${list.length} marca(s) na base`+(newSegs.length?` · ${newSegs.length} segmento(s) novo(s)`:""));
+    if(newSegs.length) alert("Novos segmentos criados: "+newSegs.join(", ")+". Eles já aparecem nas opções de mix e interesse.");
+  }catch(e){ alert("Não consegui ler o CSV: "+e.message); } };
+  rd.readAsText(file);
+}
+function restoreBaseBrands(){ if(!confirm("Remover as marcas personalizadas e voltar à base original?")) return; CUSTOM_BRANDS=[]; lsSet(LS.brands,CUSTOM_BRANDS); rebuildBrands(); refreshBrandLists(); recomputeSegStats(); renderBrandsInfo(); toast("Base original restaurada"); }
+function renderBrandsInfo(){
+  const el=document.getElementById("brInfo"); if(!el) return;
+  el.innerHTML=`<div class="banner" style="margin:0;">Base atual: <b>${BRANDS.length}</b> marcas (${CUSTOM_BRANDS.length} personalizada(s)).${CUSTOM_BRANDS.length?' <span class="linklike" id="brRestore">restaurar base original</span>':''}</div>`;
+  const rb=document.getElementById("brRestore"); if(rb) rb.onclick=restoreBaseBrands;
+}
+document.getElementById("brCsv").onclick=exportBrandsCsv;
+document.getElementById("brImport").onclick=()=>document.getElementById("brFile").click();
+document.getElementById("brFile").onchange=e=>{ if(e.target.files[0]) importBrandsCsv(e.target.files[0]); e.target.value=""; };
+document.getElementById("ptReset").onclick=()=>{ if(!confirm("Restaurar os pontos de exemplo? Isto substitui os pontos atuais.")) return; PLAN.points=clone(DEFAULT_POINTS); lsSet(LS.plan,PLAN); recomputeSegStats(); renderPoints(); renderPlanSummary(); toast("Pontos de exemplo restaurados"); };
+document.getElementById("goalAdd").onclick=()=>{ const name=document.getElementById("goalBrand").value.trim(); if(!name) return; if(isDesired(name)){ toast("Já está na lista"); return; } PLAN.desiredBrands.push({name,prioridade:document.getElementById("goalPrio").value}); lsSet(LS.plan,PLAN); document.getElementById("goalBrand").value=""; renderGoals(); };
+
+/* ============================================================
+   VIEW: CRUZAMENTO
+   ============================================================ */
+function bestBrandForInvestorInSegs(inv, segs){
+  let best=null; BRANDS.forEach(b=>{ if(!segs.includes(b.seg)) return; if(PRESENT.has(normalize(b.n))) return; const s=scoreBrand(inv,b); if(!best||s.invScore>best.invScore) best={b,invScore:s.invScore}; }); return best;
+}
+function renderCruzamento(){
+  const out=document.getElementById("crossOut");
+  if(!INVESTORS.length){ out.innerHTML=`<div class="empty">Cadastre investidores (Triagem ou Ficha recebida) para cruzar com o planejamento.</div>`; return; }
+
+  const vagos=(PLAN.points||[]).filter(p=>p.status==="vago");
+  let html=`<div class="card"><div class="lblsec"><span class="n">${ICONS.map}</span> Pontos vagos × melhor encaixe</div>`;
+  if(!vagos.length){ html+=`<p class="sub">Nenhum ponto vago. Cadastre pontos vagos com mix desejado em <b>Planejamento</b>.</p>`; }
+  else{
+    html+=vagos.map(p=>{
+      const segs=(p.mix||[]).filter(Boolean); let body;
+      if(!segs.length){ body=`<div class="sub" style="margin-top:4px;">Sem mix desejado definido para este ponto.</div>`; }
+      else{
+        const seen=new Set(), cand=[];
+        INVESTORS.forEach(r=>{ const bb=bestBrandForInvestorInSegs(r.inv,segs); if(bb && bb.invScore>=60 && !seen.has(r.id)){ seen.add(r.id); cand.push({r,bb}); } });
+        cand.sort((a,b)=>b.bb.invScore-a.bb.invScore);
+        const tops=cand.slice(0,3);
+        body= tops.length? tops.map(c=>{ const tv=tierOf(c.bb.invScore); return `<div class="row"><span class="k">${escHtml(c.r.inv.nome||"(sem nome)")} → <b style="color:#00616f;">${escHtml(c.bb.b.n)}</b>${c.r.inv.contato?" · "+escHtml(c.r.inv.contato):""}</span><span class="v ${tv.tc}">${c.bb.invScore}</span></div>`; }).join("")
+          : `<div class="sub" style="margin-top:4px;">Nenhum investidor aderente (≥60) na base — foco de captação para este ponto.</div>`;
+      }
+      return `<div style="padding:10px 0;border-top:1px solid rgba(0,97,111,.5);"><div><span class="gn" style="font-weight:800;color:#00616f;">${escHtml(p.nome||"(ponto)")}</span> ${segs.map(s=>`<span class="badge b-seg">${escHtml(s)}</span>`).join(" ")}</div>${body}</div>`;
+    }).join("");
+  }
+  html+=`</div>`;
+
+  html+=`<div class="card"><div class="lblsec"><span class="n">${ICONS.star}</span> Marcas desejadas × sua base</div>`;
+  if(!PLAN.desiredBrands.length){ html+=`<p class="sub">Nenhuma marca desejada. Cadastre em <b>Planejamento</b>.</p>`; }
+  else{
+    html+=PLAN.desiredBrands.map(d=>{ const b=findBrand(d.name);
+      if(!b) return `<div style="padding:10px 0;border-top:1px solid rgba(0,97,111,.5);"><span class="gn">${escHtml(d.name)}</span> <span class="badge b-seg" style="color:#cd5151;">fora da base</span><div class="sub" style="margin-top:4px;">Cadastre a marca na base de dados para ranquear investidores.</div></div>`;
+      const cand=INVESTORS.map(r=>({r,s:scoreBrand(r.inv,b)})).sort((a,b2)=>b2.s.invScore-a.s.invScore).filter(x=>x.s.invScore>=55).slice(0,3);
+      const body= cand.length? cand.map(c=>{ const tv=tierOf(c.s.invScore); return `<div class="row"><span class="k">${escHtml(c.r.inv.nome||"(sem nome)")} · ${moneyK(c.r.inv.capital||0)}${c.r.inv.contato?" · "+escHtml(c.r.inv.contato):""}</span><span class="v ${tv.tc}">${c.s.invScore}</span></div>`; }).join("")
+        : `<div class="sub" style="margin-top:4px;">Nenhum investidor da base se encaixa bem (≥55) — oportunidade de captação.</div>`;
+      return `<div style="padding:10px 0;border-top:1px solid rgba(0,97,111,.5);"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="gn">${escHtml(b.n)} <span class="badge b-seg">${escHtml(b.seg)}</span> ${d.prioridade==='alta'?'<span class="badge b-goal">Alta</span>':''}</span><span class="sub">${moneyK(b.invest)} impl.</span></div>${body}</div>`;
+    }).join("");
+  }
+  html+=`</div>`;
+
+  const coberto=vagos.filter(p=>{ const segs=(p.mix||[]).filter(Boolean); if(!segs.length) return false; return INVESTORS.some(r=>{ const bb=bestBrandForInvestorInSegs(r.inv,segs); return bb&&bb.invScore>=65; }); });
+  const semCand=vagos.filter(p=>!coberto.includes(p));
+  html+=`<div class="card" style="background:rgba(108,198,128,.08);border-color:rgba(108,198,128,.22);">
+    <div class="lblsec"><span class="n">${ICONS.chart}</span> Cobertura do planejamento</div>
+    <div class="row"><span class="k">Investidores cadastrados</span><span class="v">${INVESTORS.length}</span></div>
+    <div class="row"><span class="k">Pontos vagos</span><span class="v">${vagos.length}</span></div>
+    <div class="row"><span class="k">Pontos vagos com candidato forte (≥65)</span><span class="v t-verde">${coberto.length}/${vagos.length}</span></div>
+    ${semCand.length?`<p class="sub" style="margin-top:8px;">Vagas <b>sem candidato ainda</b>: ${semCand.map(p=>p.nome||"ponto").join(", ")} — foco de captação.</p>`:""}
+  </div>`;
+
+  out.innerHTML=html;
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+function updateCounts(){ document.getElementById("cntInv").textContent=INVESTORS.length; }
+function showView(name){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.getAttribute("data-view")===name));
+  ["triagem","investidores","plano","cruzamento"].forEach(v=>document.getElementById("view-"+v).classList.toggle("hidden",v!==name));
+  if(name==="investidores") renderInvestidores();
+  if(name==="plano"){ renderPoints(); renderGoals(); renderPlanSummary(); renderBrandsInfo(); }
+  if(name==="cruzamento") renderCruzamento();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>showView(t.getAttribute("data-view")));
+document.getElementById("invSearch").addEventListener("input",renderInvestidores);
+document.getElementById("invFilter").addEventListener("change",renderInvestidores);
+document.getElementById("invExportCsv").onclick=exportCsv;
+document.getElementById("invExportJson").onclick=exportJson;
+document.getElementById("invImport").onclick=()=>document.getElementById("invFile").click();
+document.getElementById("invFile").onchange=e=>{ if(e.target.files[0]) importJson(e.target.files[0]); e.target.value=""; };
+document.getElementById("invImportCsv").onclick=()=>document.getElementById("invCsvFile").click();
+document.getElementById("invCsvFile").onchange=e=>{ if(e.target.files[0]) importInvestorsCsv(e.target.files[0]); e.target.value=""; };
+document.getElementById("btnSendForm").onclick=showSendForm;
+document.getElementById("btnRecvForm").onclick=showRecvForm;
+
+/* ---------- modo investidor (via #investidor) ---------- */
+function applyInvestorMode(){
+  INVESTOR_MODE=true;
+  document.documentElement.classList.add("investor");
+  document.getElementById("tabs").classList.add("hidden");
+  document.getElementById("intakeCard").classList.add("hidden");
+  document.getElementById("execNote").classList.add("hidden");
+  document.getElementById("steps").classList.add("hidden");
+  document.getElementById("appTitle").textContent="Ficha de Interesse — Quiosque";
+  document.getElementById("appSub").textContent="Preencha em 2 minutos, veja marcas que combinam com você (base ABF/PEGN) e envie ao executivo.";
+  document.getElementById("editBanner").innerHTML=`<div class="banner">Bem-vindo! Responda sobre seu perfil e capacidade de investimento. Ao final, mostramos <b>marcas de quiosque que combinam com você</b> (referência ABF e PEGN) e geramos um <b>link</b> para enviar sua ficha ao executivo do shopping.</div>`;
+  document.getElementById("btnRun").textContent="Recomendar marcas & concluir ▸";
+}
+if(/^#investidor\b/i.test(location.hash||"")) applyInvestorMode();
+
+applyIcons();
+updateCounts();
+
+/* ---------- resposta via link (#resp=CODE): importa a ficha automaticamente ---------- */
+(function(){
+  const m=(location.hash||"").match(/[#&]resp=([^&]+)/i);
+  if(!m) return;
+  let d=null;
+  try{ d=decodePayload(decodeURIComponent(m[1])); }catch(e){}
+  // limpa o hash para um refresh não relançar a mesma ficha
+  try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){}
+  if(d) receiveResponse(d, true);
+  else alert("Não consegui ler a ficha recebida pelo link. Peça ao investidor para reenviar o código (RQ1:...).");
+})();
+</script>
+</body>
+</html>

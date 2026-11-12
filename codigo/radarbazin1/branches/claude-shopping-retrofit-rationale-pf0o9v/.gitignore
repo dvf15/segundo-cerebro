@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.env
+.env.local
+*.db
+*.db-journal
+prisma/dev.db
+prisma/migrations/dev.db
+.DS_Store
+*.log
+
+# Planilhas com dados reais/sensíveis do ativo (vendas por lojista etc.) — não versionar
+docs/retrofit-shoppings/BBH-*.xlsx
+docs/retrofit-shoppings/uploaded*.xlsx

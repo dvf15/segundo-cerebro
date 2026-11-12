@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env
+.env.local
+*.db
+*.db-journal
+prisma/dev.db
+prisma/migrations/dev.db
+.DS_Store
+*.log
+apresentacao/Pack_Workshop_Regional.zip
+apresentacao/guarda_alta/.checklist_pages

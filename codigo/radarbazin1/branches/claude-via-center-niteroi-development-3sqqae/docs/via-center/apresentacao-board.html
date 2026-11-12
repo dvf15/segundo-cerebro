@@ -1,0 +1,1005 @@
+<title>Dossiê Via Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+:root{
+  --paper:#EBEEF0; --surface:#FFFFFF; --surface-2:#F4F7F8; --sunken:#E1E7EA;
+  --ink:#131E27; --ink-2:#43535F; --ink-3:#6E7E8A;
+  --rule:#C6D0D6; --rule-soft:#DEE5E9;
+  --accent:#0B5F73; --accent-ink:#0B5F73; --accent-soft:#DBEAEE;
+  --signal:#A9491A; --signal-soft:#F6E3D7;
+  --go:#2C6B50; --go-soft:#DCEBE3;
+  --hold:#7E5C12; --hold-soft:#F3E9CF;
+  --stop:#96301F; --stop-soft:#F5DDD8;
+  --shadow:0 1px 2px rgba(19,30,39,.06), 0 8px 24px -16px rgba(19,30,39,.35);
+}
+:root:not([data-theme="light"]){ }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D151B; --surface:#151F27; --surface-2:#1B2831; --sunken:#101A21;
+    --ink:#E7EDF1; --ink-2:#AABAC4; --ink-3:#7C8E9B;
+    --rule:#2C3D49; --rule-soft:#22323D;
+    --accent:#63C1D7; --accent-ink:#8FD6E7; --accent-soft:#123742;
+    --signal:#E28C57; --signal-soft:#3B2517;
+    --go:#74CCA1; --go-soft:#153322;
+    --hold:#DFB95F; --hold-soft:#332913;
+    --stop:#E58A79; --stop-soft:#3C1F19;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D151B; --surface:#151F27; --surface-2:#1B2831; --sunken:#101A21;
+  --ink:#E7EDF1; --ink-2:#AABAC4; --ink-3:#7C8E9B;
+  --rule:#2C3D49; --rule-soft:#22323D;
+  --accent:#63C1D7; --accent-ink:#8FD6E7; --accent-soft:#123742;
+  --signal:#E28C57; --signal-soft:#3B2517;
+  --go:#74CCA1; --go-soft:#153322;
+  --hold:#DFB95F; --hold-soft:#332913;
+  --stop:#E58A79; --stop-soft:#3C1F19;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:16.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px; margin:0 auto; padding:0 26px 96px}
+
+/* ---------- shared type ---------- */
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.sans{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+h1,h2,h3,h4{font-family:Archivo,"Helvetica Neue",Arial,sans-serif; text-wrap:balance; margin:0}
+h2{font-size:clamp(26px,3.4vw,38px); font-weight:700; letter-spacing:-.021em; line-height:1.08}
+h3{font-size:19px; font-weight:600; letter-spacing:-.008em; line-height:1.25}
+h4{font-size:13px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3)}
+p{margin:0}
+a{color:var(--accent-ink)}
+strong{font-weight:600}
+
+/* ---------- masthead ---------- */
+.masthead{padding:64px 0 40px; border-bottom:2px solid var(--ink)}
+.kicker{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-ink); display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center}
+.kicker span:not(:last-child)::after{content:"";}
+h1{font-size:clamp(38px,7vw,74px); font-weight:700; letter-spacing:-.033em; line-height:.98; margin:18px 0 0}
+.dek{font-size:clamp(17px,2vw,20px); color:var(--ink-2); max-width:60ch; margin-top:18px; line-height:1.5}
+.stampline{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px}
+
+/* ---------- sections ---------- */
+section.slide{padding:56px 0 8px; border-bottom:1px solid var(--rule-soft)}
+section.slide:last-of-type{border-bottom:none}
+.slidehead{display:flex; align-items:baseline; gap:16px; border-top:1px solid var(--rule); padding-top:12px; margin-bottom:22px}
+.slideno{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500; letter-spacing:.12em; color:var(--ink-3); white-space:nowrap; padding-top:6px}
+.slidehead .t{flex:1}
+.subdek{color:var(--ink-2); max-width:66ch; margin-top:12px}
+
+/* ---------- verification tags ---------- */
+.tag{font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+  padding:3px 7px; border-radius:2px; white-space:nowrap; display:inline-block; vertical-align:2px}
+.tag.v{background:var(--go-soft); color:var(--go)}
+.tag.c{background:var(--hold-soft); color:var(--hold)}
+.tag.p{background:var(--accent-soft); color:var(--accent-ink)}
+.tag.x{background:var(--stop-soft); color:var(--stop)}
+
+/* ---------- verdict strip ---------- */
+.verdicts{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:26px}
+.vd{background:var(--surface); padding:18px 18px 20px; display:flex; flex-direction:column; gap:9px}
+.vd .lamp{width:100%; height:5px; border-radius:1px}
+.vd.go .lamp{background:var(--go)} .vd.hold .lamp{background:var(--hold)} .vd.stop .lamp{background:var(--stop)}
+.vd .who{font-family:Archivo,sans-serif; font-weight:600; font-size:16px; letter-spacing:-.01em}
+.vd .call{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.09em; text-transform:uppercase}
+.vd.go .call{color:var(--go)} .vd.hold .call{color:var(--hold)} .vd.stop .call{color:var(--stop)}
+.vd .why{font-size:14.5px; color:var(--ink-2); line-height:1.45}
+
+/* ---------- generic blocks ---------- */
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px; margin-top:24px}
+.cols.tight{gap:18px}
+.prose > * + *{margin-top:14px}
+.prose p{max-width:68ch}
+
+.panel{background:var(--surface); border:1px solid var(--rule-soft); padding:22px 24px; box-shadow:var(--shadow)}
+.panel.flat{box-shadow:none; background:var(--surface-2)}
+.panel.mark{border-left:3px solid var(--signal)}
+.panel.markg{border-left:3px solid var(--go)}
+.panel > * + *{margin-top:12px}
+
+.deflist{display:grid; grid-template-columns:auto 1fr; gap:0; border-top:1px solid var(--rule-soft); margin-top:18px}
+.deflist dt{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3);
+  padding:11px 22px 11px 0; border-bottom:1px solid var(--rule-soft); white-space:nowrap}
+.deflist dd{margin:0; padding:11px 0; border-bottom:1px solid var(--rule-soft); font-size:15.5px}
+.deflist dd .num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-weight:500}
+
+ul.ticks{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+ul.ticks li{position:relative; padding-left:22px; font-size:15.5px; line-height:1.5; color:var(--ink-2)}
+ul.ticks li::before{content:"—"; position:absolute; left:0; top:0; color:var(--accent-ink); font-family:"IBM Plex Mono",monospace; font-size:13px}
+ul.ticks li strong{color:var(--ink)}
+ul.ticks.warn li::before{content:"!"; font-weight:600; color:var(--signal)}
+ul.ticks.ok li::before{content:"+"; color:var(--go)}
+
+.tablewrap{overflow-x:auto; margin-top:22px; border:1px solid var(--rule-soft); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px}
+th,td{text-align:left; padding:12px 16px; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); background:var(--surface-2); font-weight:500; white-space:nowrap}
+td.n{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+
+figure{margin:30px 0 0; background:var(--surface); border:1px solid var(--rule-soft); padding:22px 22px 16px; box-shadow:var(--shadow); overflow-x:auto}
+figure svg{display:block; width:100%; max-width:100%; height:auto; min-width:520px; color:var(--ink)}
+figcaption{margin-top:14px; font-size:13.5px; color:var(--ink-3); line-height:1.5; max-width:76ch}
+figcaption b{color:var(--ink-2); font-weight:600}
+
+.callout{margin-top:26px; background:var(--sunken); border:1px solid var(--rule); padding:22px 24px}
+.callout h4{margin-bottom:8px}
+.callout p{max-width:74ch}
+
+.gates{display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px}
+.gate{background:var(--surface); padding:16px 18px; display:grid; grid-template-columns:34px 1fr auto; gap:16px; align-items:start}
+.gate .g{font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:var(--signal); padding-top:2px}
+.gate .gt{font-family:Archivo,sans-serif; font-weight:600; font-size:15.5px; margin-bottom:4px}
+.gate .gd{font-size:14.5px; color:var(--ink-2); line-height:1.45}
+
+ol.steps{list-style:none; counter-reset:s; padding:0; margin:24px 0 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule)}
+ol.steps li{counter-increment:s; background:var(--surface); padding:20px; display:flex; flex-direction:column; gap:8px}
+ol.steps li::before{content:"FASE " counter(s); font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; color:var(--accent-ink)}
+ol.steps .when{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-3)}
+ol.steps h3{font-size:16.5px}
+ol.steps ul{margin:0; padding-left:16px; font-size:14.5px; color:var(--ink-2); line-height:1.5}
+ol.steps ul li{display:list-item; background:none; padding:0; margin-bottom:5px}
+ol.steps ul li::before{content:none}
+
+.srcs{display:flex; flex-direction:column; gap:0; margin-top:22px; border-top:1px solid var(--rule-soft)}
+.src{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:11px 0; border-bottom:1px solid var(--rule-soft); align-items:baseline}
+.src a{font-size:14.5px; word-break:break-word; text-decoration-thickness:1px; text-underline-offset:2px}
+.src .what{font-size:13px; color:var(--ink-3); display:block; margin-top:2px; font-family:"IBM Plex Mono",monospace; letter-spacing:.02em}
+
+.confbox{margin-top:36px; border:2px solid var(--ink); padding:24px 26px; background:var(--surface)}
+.confbox .score{font-family:Archivo,sans-serif; font-size:40px; font-weight:700; letter-spacing:-.03em; line-height:1}
+.confbox .score small{font-size:18px; font-weight:500; color:var(--ink-3)}
+
+footer.foot{margin-top:56px; padding-top:20px; border-top:2px solid var(--ink); font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.05em; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between}
+
+@media (max-width:640px){
+  .slidehead{flex-direction:column; gap:6px}
+  .deflist{grid-template-columns:1fr}
+  .deflist dt{border-bottom:none; padding-bottom:0}
+  .gate{grid-template-columns:26px 1fr}
+}
+@media print{
+  body{background:#fff}
+  section.slide{break-inside:avoid; page-break-inside:avoid}
+  figure,.panel,.verdicts{box-shadow:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  a{transition:color .15s ease}
+}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">
+    <span>Estudo de viabilidade preliminar</span>
+    <span>·</span>
+    <span>Centro de Niterói — RJ</span>
+    <span>·</span>
+    <span>Setembro de 2026</span>
+  </div>
+  <h1>Via Center:<br>o que dá para fazer<br>com 9.696 m² colados<br>no Plaza</h1>
+  <p class="dek">Academia big-box, food hall na fachada, andares superiores convertidos e um hotel sobre a laje de cobertura — quatro perguntas, quatro respostas diferentes. Este dossiê separa o que já está verificado do que ainda é premissa, e diz onde o projeto morre se a verificação der errado.</p>
+  <div class="stampline">
+    <span class="tag v">Verificado — fonte pública citada</span>
+    <span class="tag c">A confirmar — não verificável nesta sessão</span>
+    <span class="tag p">Premissa — hipótese de trabalho</span>
+  </div>
+</header>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">01 / 13</div><div class="t"><h2>Recomendação ao board</h2></div></div>
+  <div class="prose">
+    <p><strong>Aprovar somente a Fase 0 de due diligence (90 dias, custo baixo). Não aprovar capital de obra agora.</strong> Dois dos quatro componentes formam um projeto autônomo e defensável; os outros dois dependem de três verificações que ainda não foram feitas e que podem encerrar a discussão em uma semana cada.</p>
+    <p>A leitura curta: o Via Center não é um shopping em dificuldade — é uma <em>galeria de seis caixas grandes, sem estacionamento, encostada em um shopping de 300 lojas que tem estacionamento</em>. Esse é ao mesmo tempo o ativo e o problema. Toda a tese depende de resolver a relação com o vizinho.</p>
+  </div>
+
+  <div class="verdicts">
+    <div class="vd go">
+      <div class="lamp"></div>
+      <div class="call">Seguir</div>
+      <div class="who">Academia big-box</div>
+      <div class="why">Formato casa com o imóvel: poucas caixas grandes, pé-direito de varejo, fluxo de pedestre no Centro. Trava principal é vaga de garagem e reforço de laje, não a lei.</div>
+    </div>
+    <div class="vd go">
+      <div class="lamp"></div>
+      <div class="call">Seguir</div>
+      <div class="who">Food hall na fachada</div>
+      <div class="why">Maior alavanca de valor por m². Fachada dá para a Av. Visconde do Rio Branco, em requalificação. Trava é exaustão e horário estendido, ambos resolvíveis em projeto.</div>
+    </div>
+    <div class="vd hold">
+      <div class="lamp"></div>
+      <div class="call">Reformular</div>
+      <div class="who">Lajes corporativas</div>
+      <div class="why">A lei tende a permitir; o mercado é que não sustenta. Andar de varejo é profundo e escuro. Converter para saúde, educação e serviços — não para escritório corporativo.</div>
+    </div>
+    <div class="vd stop">
+      <div class="lamp"></div>
+      <div class="call">Não decidir agora</div>
+      <div class="who">Hotel sobre a cobertura</div>
+      <div class="why">Três portas de saída não testadas: estrutura do prédio de 2000, unanimidade do condomínio e gabarito aeronáutico do Santos Dumont. Custo de testar é baixo; custo de errar é o projeto inteiro.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>A decisão que o board precisa tomar hoje</h4>
+    <p>Não é “fazemos ou não fazemos o retrofit”. É <strong>“vamos operar isso sozinhos ou como extensão do Plaza?”</strong> A resposta muda estacionamento, marca, mix, âncoras e a própria conta do hotel. As duas rotas estão desenhadas na seção 04.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">02 / 13</div><div class="t"><h2>Como esta análise foi feita — e o que ela não tem</h2>
+  <p class="subdek">Um estudo de viabilidade só vale pelo que ele admite não saber. Três limites materiais, declarados antes dos números.</p></div></div>
+
+  <div class="cols">
+    <div class="panel mark">
+      <h4>Limite 1 — não houve acesso à planta</h4>
+      <p>Não obtive o projeto arquitetônico, o as-built nem o projeto estrutural do Via Center. A avaliação “da planta” aqui é feita <em>por engenharia reversa</em> a partir de dados públicos de ABL, número de lojas, número de pavimentos conhecidos e ausência de estacionamento. <span class="tag c">A confirmar</span></p>
+    </div>
+    <div class="panel mark">
+      <h4>Limite 2 — não houve acesso ao texto da lei</h4>
+      <p>O PDF da Lei 3.905/2024 e os quadros de parâmetros no portal da Prefeitura estavam bloqueados para esta sessão. O marco legal descrito na seção 10 vem de fontes secundárias confiáveis (imprensa local, portal da Prefeitura, DECEA). <strong>Nenhum parâmetro do lote específico está verificado.</strong> <span class="tag c">A confirmar</span></p>
+    </div>
+    <div class="panel mark">
+      <h4>Limite 3 — não há números financeiros inventados</h4>
+      <p>Este dossiê não traz CAPEX, aluguel por m², TIR ou payback. Não encontrei fonte pública para nenhum deles nesta praça, e número plausível é pior que número ausente numa reunião de board. A seção 12 lista o que precisa ser cotado, e por quem.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>Sobre as imagens</h4>
+    <p>Todos os desenhos deste dossiê são <strong>esquemas próprios, sem escala</strong>, construídos para explicar mecanismo — implantação, empilhamento de usos, rota de aprovação. Não são plantas, não são renders e não substituem levantamento. Não há fotos do imóvel porque não há material de uso livre disponível.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">03 / 13</div><div class="t"><h2>O ativo e o quarteirão</h2>
+  <p class="subdek">O Via Center é uma galeria anexa ao Plaza Shopping, na Av. Visconde do Rio Branco, a poucos metros da estação das barcas. Três edifícios de perfis muito diferentes dividem o mesmo miolo de quadra.</p></div></div>
+
+  <figure>
+    <svg viewBox="0 0 900 480" role="img" aria-label="Esquema de implantação: a estação das barcas da Praça Araribóia ao norte, a Rua XV de Novembro separando-a do quarteirão, e no quarteirão o Plaza Corporate, o Plaza Shopping e o Via Center, este último com fachada para a Avenida Visconde do Rio Branco e ligado ao Plaza por passarela.">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <rect x="0" y="0" width="900" height="74" fill="var(--accent-soft)"/>
+      <text x="18" y="30" class="mono" font-size="11" letter-spacing="1.6" fill="var(--accent-ink)">BAÍA DE GUANABARA</text>
+      <text x="18" y="52" font-family="Archivo, sans-serif" font-size="13" fill="var(--ink-2)">travessia p/ Praça XV, Rio — 15 min</text>
+
+      <rect x="60" y="96" width="215" height="52" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <text x="167" y="120" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">Estação Araribóia</text>
+      <text x="167" y="138" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-3)">barcas · terminal de ônibus</text>
+
+      <rect x="40" y="164" width="600" height="26" fill="var(--sunken)"/>
+      <text x="50" y="182" class="mono" font-size="10.5" letter-spacing="1.4" fill="var(--ink-3)">R. XV DE NOVEMBRO</text>
+
+      <rect x="40" y="212" width="86" height="176" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"/>
+      <text transform="rotate(-90 83 300)" x="83" y="300" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" font-weight="600" fill="currentColor">Plaza Corporate</text>
+      <text transform="rotate(-90 100 300)" x="100" y="300" text-anchor="middle" class="mono" font-size="10" fill="var(--ink-3)">10.323 m² · 15 lajes</text>
+
+      <rect x="140" y="212" width="272" height="176" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.6"/>
+      <text x="276" y="278" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="700" fill="currentColor">PLAZA SHOPPING</text>
+      <text x="276" y="302" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="var(--ink-2)">43–46 mil m² ABL · 300+ lojas</text>
+      <text x="276" y="322" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="var(--ink-2)">Cinemark · estacionamento</text>
+      <text x="276" y="346" text-anchor="middle" class="mono" font-size="10.5" letter-spacing=".8" fill="var(--accent-ink)">GESTÃO ALLOS · 1986</text>
+
+      <line x1="412" y1="290" x2="452" y2="290" stroke="currentColor" stroke-width="1.4" stroke-dasharray="5 4"/>
+      <text x="432" y="280" text-anchor="middle" class="mono" font-size="10" fill="var(--ink-3)">passarela</text>
+
+      <rect x="452" y="212" width="176" height="176" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+      <text x="540" y="272" text-anchor="middle" font-family="Archivo, sans-serif" font-size="17" font-weight="700" fill="var(--accent-ink)">VIA CENTER</text>
+      <text x="540" y="296" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="var(--ink-2)">9.696 m² ABL</text>
+      <text x="540" y="314" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="var(--ink-2)">6 lojas · 1 quiosque</text>
+      <text x="540" y="338" text-anchor="middle" class="mono" font-size="10.5" letter-spacing=".8" fill="var(--signal)">SEM ESTACIONAMENTO</text>
+
+      <line x1="628" y1="216" x2="628" y2="384" stroke="var(--signal)" stroke-width="6"/>
+      <text transform="rotate(-90 650 300)" x="650" y="300" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" font-weight="600" fill="var(--signal)">fachada proposta para o food hall</text>
+
+      <rect x="700" y="96" width="62" height="330" fill="var(--sunken)"/>
+      <text transform="rotate(-90 731 262)" x="731" y="262" text-anchor="middle" class="mono" font-size="10.5" letter-spacing="1.4" fill="var(--ink-3)">AV. VISCONDE DO RIO BRANCO · CORREDOR DE ÔNIBUS</text>
+
+      <line x1="250" y1="152" x2="250" y2="208" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"/>
+      <text x="262" y="182" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-3)">fluxo de pedestres</text>
+
+      <line x1="690" y1="404" x2="640" y2="404" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"/>
+      <text x="452" y="424" class="mono" font-size="10.5" letter-spacing="1.2" fill="var(--ink-3)">ACESSO DE VEÍCULOS PELA AVENIDA</text>
+
+      <text x="40" y="452" class="mono" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">ESQUEMA SEM ESCALA · POSIÇÕES RELATIVAS, NÃO GEOMETRIA REAL</text>
+    </svg>
+    <figcaption><b>O quarteirão em uma imagem.</b> O Via Center tem a fachada boa (avenida, corredor de ônibus, requalificação em curso) e não tem a infraestrutura (garagem). O Plaza tem exatamente o inverso na relação com a avenida, e tem a garagem. A passarela entre os dois é o ativo estratégico mais barato do conjunto.</figcaption>
+  </figure>
+
+  <div class="cols">
+    <div>
+      <h3>Via Center — o que está verificado</h3>
+      <dl class="deflist">
+        <dt>Endereço</dt><dd>Av. Visconde do Rio Branco, Centro, Niterói <span class="tag v">V</span></dd>
+        <dt>ABL</dt><dd><span class="num">9.696 m²</span> <span class="tag v">V</span></dd>
+        <dt>Lojas</dt><dd>6 lojas + 1 quiosque <span class="tag v">V</span></dd>
+        <dt>Estacionamento</dt><dd>Não possui <span class="tag v">V</span></dd>
+        <dt>Ligação</dt><dd>Passarela para o Plaza Shopping <span class="tag v">V</span></dd>
+        <dt>Pavimentos</dt><dd>Pelo menos 4 acima do térreo <span class="tag c">C</span></dd>
+        <dt>Âncoras</dt><dd>Renner; Torra ocupou a antiga Leader em 2024 <span class="tag v">V</span></dd>
+        <dt>4º pavimento</dt><dd>Espaço Fashion Mall — 200+ stands populares <span class="tag v">V</span></dd>
+        <dt>Estrutura jurídica</dt><dd>Condomínio (CNPJ próprio); gestão de mall pela AXOR <span class="tag v">V</span></dd>
+        <dt>Domínio</dt><dd>Quantos proprietários, e quem controla <span class="tag x">Não verificado</span></dd>
+      </dl>
+    </div>
+    <div>
+      <h3>A leitura do que esses números dizem</h3>
+      <ul class="ticks">
+        <li><strong>9.696 m² divididos por 6 lojas = ~1.600 m² por loja.</strong> Isso não é uma galeria de lojas satélite: é um prédio de caixas grandes. Grandes caixas são exatamente o que academia de alta performance e food hall precisam, e o que escritório corporativo <em>não</em> quer.</li>
+        <li><strong>Sem estacionamento é o dado mais duro da ficha.</strong> Determina o público (pedestre, barca, ônibus), determina o ticket, e é a razão número um pela qual uma bandeira tipo Ironberg ou Nitrogym pode recusar a praça.</li>
+        <li><strong>Já existe um shopping popular de 200 stands lá dentro.</strong> Qualquer tese que termine em “Novotel” tem que explicar como convive com isso — ou pagar para realocá-lo.</li>
+        <li><strong>O condomínio é o verdadeiro dono da decisão.</strong> Sem saber quantos proprietários existem, nenhuma das quatro perguntas do board tem resposta executável.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">04 / 13</div><div class="t"><h2>A tese: duas rotas, uma escolha</h2>
+  <p class="subdek">A sinergia com o Plaza não é um detalhe de execução — é a variável que define o projeto. Vale a pena desenhar exatamente o que cada rota adiciona e o que cada uma tira.</p></div></div>
+
+  <figure>
+    <svg viewBox="0 0 900 400" role="img" aria-label="Comparação de duas rotas. Na rota autônoma, o Via Center não troca nada com o Plaza e precisa contratar garagem, marca e locação por conta própria. Na rota de extensão, quatro ligações passam a existir entre os dois: uso da garagem, marca compartilhada, leasing conjunto e acesso às marcas próprias da Allos, ao custo de perder autonomia de horário e preço.">
+      <defs>
+        <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <marker id="ar2a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+
+      <line x1="450" y1="20" x2="450" y2="380" stroke="var(--rule)" stroke-width="1"/>
+
+      <text x="30" y="34" class="mono" font-size="11" letter-spacing="1.6" fill="var(--ink-3)">ROTA A — OPERAÇÃO AUTÔNOMA</text>
+      <rect x="30" y="60" width="150" height="74" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+      <text x="105" y="92" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="700" fill="var(--accent-ink)">VIA CENTER</text>
+      <text x="105" y="112" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-2)">9.696 m² ABL</text>
+
+      <rect x="255" y="60" width="150" height="74" fill="none" stroke="var(--rule)" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <text x="330" y="92" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="600" fill="var(--ink-3)">PLAZA</text>
+      <text x="330" y="112" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-3)">vizinho, não sócio</text>
+
+      <line x1="182" y1="97" x2="253" y2="97" stroke="var(--rule)" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <text x="217" y="86" text-anchor="middle" class="mono" font-size="9.5" fill="var(--ink-3)">passarela</text>
+
+      <text x="30" y="176" class="mono" font-size="10" letter-spacing="1.2" fill="var(--signal)">O QUE PRECISA COMPRAR SOZINHO</text>
+      <line x1="30" y1="186" x2="405" y2="186" stroke="var(--rule-soft)" stroke-width="1"/>
+      <text x="30" y="210" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Vagas — contrato com garagem de terceiro</text>
+      <text x="30" y="236" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Marca — construir do zero no Centro</text>
+      <text x="30" y="262" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Leasing — equipe própria de comercial</text>
+      <text x="30" y="288" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Operadores de A&amp;B — prospecção individual</text>
+      <line x1="30" y1="310" x2="405" y2="310" stroke="var(--rule-soft)" stroke-width="1"/>
+      <text x="30" y="336" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="var(--go)">Fica com: horário, preço e mix próprios</text>
+      <text x="30" y="360" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="var(--signal)">Perde: escala e o fluxo do vizinho</text>
+
+      <text x="490" y="34" class="mono" font-size="11" letter-spacing="1.6" fill="var(--accent-ink)">ROTA B — EXTENSÃO DO PLAZA</text>
+      <rect x="490" y="60" width="150" height="74" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+      <text x="565" y="92" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="700" fill="var(--accent-ink)">VIA CENTER</text>
+      <text x="565" y="112" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-2)">9.696 m² ABL</text>
+
+      <rect x="715" y="60" width="150" height="74" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.6"/>
+      <text x="790" y="92" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="700" fill="currentColor">PLAZA · ALLOS</text>
+      <text x="790" y="112" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-2)">300+ lojas · garagem</text>
+
+      <line x1="642" y1="80" x2="713" y2="80" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ar2a)"/>
+      <line x1="713" y1="100" x2="642" y2="100" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ar2a)"/>
+      <line x1="642" y1="120" x2="713" y2="120" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ar2a)"/>
+
+      <text x="490" y="176" class="mono" font-size="10" letter-spacing="1.2" fill="var(--accent-ink)">O QUE O ACORDO DESTRAVA</text>
+      <line x1="490" y1="186" x2="865" y2="186" stroke="var(--rule-soft)" stroke-width="1"/>
+      <text x="490" y="210" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Vagas — garagem do Plaza resolve a trava nº 1</text>
+      <text x="490" y="236" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Marca — vira “ala nova” de um shopping conhecido</text>
+      <text x="490" y="262" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">Leasing — pipeline de lojistas já existente</text>
+      <text x="490" y="288" font-family="Archivo, sans-serif" font-size="13" fill="currentColor">A&amp;B — acesso a marca de food hall da casa</text>
+      <line x1="490" y1="310" x2="865" y2="310" stroke="var(--rule-soft)" stroke-width="1"/>
+      <text x="490" y="336" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="var(--signal)">Custa: autonomia de horário, preço e mix</text>
+      <text x="490" y="360" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="var(--signal)">Custa: entrar no cronograma da outra parte</text>
+    </svg>
+    <figcaption><b>A diferença entre as rotas são quatro arestas.</b> Na rota A elas não existem e cada uma vira uma linha de custo. Na rota B elas existem e cada uma vira uma cláusula de contrato. A passarela já está construída — o que falta é o acordo comercial que a transforma em fluxo.</figcaption>
+  </figure>
+
+  <div class="cols">
+    <div class="panel markg">
+      <h4>Três fatos que empurram para a rota B</h4>
+      <ul class="ticks ok">
+        <li><strong>A Allos já tem projeto de expansão do Plaza Niterói em fase de aprovação</strong>, ao lado de Tijuca, Mooca, Franca e Taboão. Existe uma janela em que a conversa sobre o quarteirão inteiro é natural. <span class="tag v">V</span></li>
+        <li><strong>O Taste Lab é marca da casa</strong> — nasceu no grupo brMalls, hoje Allos, e já rodou como festival dentro do próprio Plaza Niterói, com entrada pelo terraço G6. Colocar um “estilo Taste Lab” no Via Center sem a Allos significa copiar um conceito do vizinho na porta dele. <span class="tag v">V</span></li>
+        <li><strong>A garagem do Plaza é a única solução de vaga a 0 m de distância.</strong> Qualquer outra alternativa é contrato com terceiro em outro quarteirão. <span class="tag v">V</span></li>
+      </ul>
+    </div>
+    <div class="panel mark">
+      <h4>Dois fatos que seguram a rota B</h4>
+      <ul class="ticks warn">
+        <li><strong>Food hall e academia querem horário que shopping não tem.</strong> Academia de alta performance abre 5h e fecha 23h; food hall vive de jantar e fim de noite. Sob a operação do shopping, esses horários viram exceção negociada. O projeto precisa de <em>acesso independente pela avenida</em> em qualquer cenário.</li>
+        <li><strong>Entrar no cronograma da Allos é abrir mão do seu.</strong> Uma expansão “em aprovação” não tem data pública. Amarrar a academia a esse calendário atrasa a única operação que poderia entrar rápido.</li>
+      </ul>
+      <p><strong>Saída sugerida:</strong> rota híbrida — academia e acesso pela avenida seguem autônomos e independentes desde já; garagem e food hall entram como pauta de acordo com a Allos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">05 / 13</div><div class="t"><h2>Empilhamento proposto</h2>
+  <p class="subdek">Onde cada uso cabe, e por quê. À esquerda, o prédio como opera hoje; à direita, a proposta. O volume tracejado no topo é a única parte que não é retrofit — é obra nova, e é onde estão todos os riscos.</p></div></div>
+
+  <figure>
+    <svg viewBox="0 0 900 600" role="img" aria-label="Comparação de empilhamento. Hoje: térreo e primeiro pavimento de varejo âncora, segundo e terceiro subocupados, quarto pavimento com o shopping popular de 200 stands. Proposta: food hall no térreo com fachada para a avenida, academia ocupando dois pavimentos, pavimento de serviços de saúde e educação, shopping popular mantido no quarto, e um volume novo de hotel no topo, apoiado em estrutura de transferência que desce até fundação nova.">
+      <defs>
+        <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <marker id="ar3s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--signal)"/>
+        </marker>
+      </defs>
+
+      <text x="40" y="30" class="mono" font-size="11" letter-spacing="1.6" fill="var(--ink-3)">HOJE</text>
+      <text x="500" y="30" class="mono" font-size="11" letter-spacing="1.6" fill="var(--accent-ink)">PROPOSTO</text>
+
+      <rect x="40" y="150" width="300" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"/>
+      <text x="56" y="178" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">4º — Espaço Fashion Mall</text>
+      <text x="56" y="197" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-3)">200+ stands populares</text>
+
+      <rect x="40" y="210" width="300" height="55" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"/>
+      <text x="56" y="236" font-family="Archivo, sans-serif" font-size="13.5" fill="var(--ink-3)">3º — subocupado</text>
+      <text x="56" y="254" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-3)">serviços dispersos</text>
+
+      <rect x="40" y="265" width="300" height="55" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"/>
+      <text x="56" y="291" font-family="Archivo, sans-serif" font-size="13.5" fill="var(--ink-3)">2º — subocupado</text>
+      <text x="56" y="309" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-3)">serviços dispersos</text>
+
+      <rect x="40" y="320" width="300" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"/>
+      <text x="56" y="348" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">1º — varejo âncora</text>
+      <text x="56" y="367" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-3)">Renner · Torra</text>
+
+      <rect x="40" y="380" width="300" height="66" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.6"/>
+      <text x="56" y="408" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">Térreo — varejo de rua</text>
+      <text x="56" y="427" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-3)">fachada subaproveitada</text>
+
+      <rect x="40" y="446" width="300" height="20" fill="var(--sunken)"/>
+      <text x="56" y="461" class="mono" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">FUNDAÇÃO EXISTENTE — CAPACIDADE DESCONHECIDA</text>
+
+      <line x1="360" y1="300" x2="480" y2="300" stroke="currentColor" stroke-width="1.4" marker-end="url(#ar3)"/>
+      <text x="420" y="288" text-anchor="middle" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">RETROFIT</text>
+      <text x="420" y="318" text-anchor="middle" class="mono" font-size="10" letter-spacing="1" fill="var(--signal)">+ ACRÉSCIMO</text>
+
+      <rect x="500" y="52" width="300" height="86" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="7 5"/>
+      <text x="516" y="82" font-family="Archivo, sans-serif" font-size="14" font-weight="700" fill="var(--signal)">HOTEL — VOLUME NOVO</text>
+      <text x="516" y="102" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">obra nova sobre a cobertura</text>
+      <text x="516" y="121" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">depende de estrutura, outorga e DECEA</text>
+
+      <rect x="500" y="150" width="300" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"/>
+      <text x="516" y="178" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">4º — Fashion Mall mantido</text>
+      <text x="516" y="197" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-3)">ou realocado — conflito de posicionamento</text>
+
+      <rect x="500" y="210" width="300" height="55" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1"/>
+      <text x="516" y="236" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="var(--accent-ink)">3º — serviços, saúde, educação</text>
+      <text x="516" y="254" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">≈ 1.500–2.500 m² · não escritório corporativo</text>
+
+      <rect x="500" y="265" width="300" height="55" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1"/>
+      <text x="516" y="291" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="var(--accent-ink)">2º — academia · cardio e coletivas</text>
+      <text x="516" y="309" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">carga menor no piso superior</text>
+
+      <rect x="500" y="320" width="300" height="60" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.4"/>
+      <text x="516" y="348" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="var(--accent-ink)">1º — academia · musculação e peso livre</text>
+      <text x="516" y="367" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">≈ 2.500–3.500 m² nos dois pisos</text>
+
+      <rect x="500" y="380" width="300" height="66" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.8"/>
+      <text x="516" y="408" font-family="Archivo, sans-serif" font-size="13.5" font-weight="700" fill="var(--signal)">Térreo — food hall na fachada</text>
+      <text x="516" y="427" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">≈ 1.400–1.800 m² · acesso direto pela avenida</text>
+
+      <rect x="500" y="446" width="300" height="20" fill="var(--sunken)"/>
+      <text x="516" y="461" class="mono" font-size="10" letter-spacing="1.2" fill="var(--signal)">FUNDAÇÃO NOVA PARA O ACRÉSCIMO</text>
+
+      <line x1="836" y1="60" x2="836" y2="470" stroke="var(--signal)" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#ar3s)"/>
+      <text transform="rotate(-90 862 265)" x="862" y="265" text-anchor="middle" class="mono" font-size="10" letter-spacing="1" fill="var(--signal)">ESTRUTURA DE TRANSFERÊNCIA ATRAVESSA TODOS OS PISOS</text>
+
+      <text x="40" y="500" class="mono" font-size="10.5" letter-spacing="1.2" fill="var(--ink-3)">NÚMERO DE PAVIMENTOS E DISTRIBUIÇÃO ATUAL DE USOS: A CONFIRMAR EM LEVANTAMENTO</text>
+      <text x="40" y="522" class="mono" font-size="10.5" letter-spacing="1.2" fill="var(--ink-3)">ÁREAS PROPOSTAS SOMAM ≈ 9.700 m², COMPATÍVEIS COM A ABL VERIFICADA DE 9.696 m²</text>
+      <text x="40" y="544" class="mono" font-size="10.5" letter-spacing="1.2" fill="var(--signal)">O VOLUME DO HOTEL É ÁREA ADICIONAL — NÃO SAI DOS 9.696 m²</text>
+      <text x="40" y="576" class="mono" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">ESQUEMA SEM ESCALA</text>
+    </svg>
+    <figcaption><b>A linha tracejada vertical é o argumento inteiro do hotel.</b> Para pousar um volume novo sobre um prédio de 2000 que não foi projetado para isso, a carga precisa descer até fundação nova, atravessando todos os pavimentos abaixo. Cada pilar novo custa área locável nos andares que estão gerando receita — inclusive no food hall e na academia. É por isso que o hotel não é “mais um andar”: é uma obra que interfere em tudo o que está embaixo.</figcaption>
+  </figure>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">06 / 13</div><div class="t"><h2>Componente A — academia big-box</h2>
+  <p class="subdek">Padrão Nitrogym / Ironberg: alta performance, peso livre pesado, público que treina cedo e tarde, ticket acima da média. É o componente com melhor encaixe físico e a maior trava operacional.</p></div></div>
+
+  <div class="cols">
+    <div class="prose">
+      <h3>Por que encaixa</h3>
+      <ul class="ticks ok">
+        <li><strong>O imóvel já é o formato certo.</strong> Seis caixas em 9.696 m² significam vãos grandes e pé-direito de varejo — o inverso de uma galeria de lojinhas, que teria de ser demolida internamente.</li>
+        <li><strong>Dois pavimentos contíguos resolvem a planta.</strong> Peso livre e musculação embaixo, cardio e salas de aula em cima: separa carga, ruído e vibração de forma natural.</li>
+        <li><strong>O Centro tem a densidade diurna.</strong> Barcas, terminal de ônibus, tribunal, prefeitura e o próprio Plaza entregam público de horário comercial que academia de bairro não tem.</li>
+        <li><strong>Não depende da Allos.</strong> É a única peça que pode entrar sem negociar com o vizinho — e por isso é a que deve entrar primeiro.</li>
+      </ul>
+    </div>
+    <div class="prose">
+      <h3>O que trava</h3>
+      <ul class="ticks warn">
+        <li><strong>Vaga.</strong> O público-alvo de Ironberg e Nitrogym dirige. Sem garagem, ou se resolve com o Plaza, ou a bandeira recusa a praça. Trate isso como pré-condição, não como item de negociação tardia.</li>
+        <li><strong>Carga de piso.</strong> Área de peso livre pede sobrecarga bem acima do que um piso de varejo comum foi dimensionado para receber, além de laje flutuante contra impacto de anilha. Só o laudo estrutural diz se cabe — e em qual pavimento. <span class="tag c">A confirmar</span></li>
+        <li><strong>Vibração e ruído para os vizinhos.</strong> Se houver ocupação sensível acima ou ao lado, isolamento vira item de projeto caro, não acabamento.</li>
+        <li><strong>Ar-condicionado e ventilação.</strong> Carga térmica de academia é muito superior à de loja; a infraestrutura existente provavelmente não atende.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>Recomendação</h4>
+    <p>Levar academia como <strong>âncora nº 1 e teste de mercado do projeto inteiro</strong>. Se uma bandeira de alta performance assinar LOI condicionada a vaga e a laudo estrutural, o board ganha duas coisas de graça: validação de demanda e a alavanca para sentar com a Allos falando de garagem.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">07 / 13</div><div class="t"><h2>Componente B — food hall na fachada</h2>
+  <p class="subdek">Padrão Taste Lab: coletivo gastronômico com operações independentes, praça comum, curadoria. É a maior alavanca de valor por metro quadrado do projeto — e a que mais depende de instalações que o prédio talvez não tenha.</p></div></div>
+
+  <div class="cols">
+    <div class="prose">
+      <h3>A referência real</h3>
+      <p>O Taste Lab do NorteShopping opera <strong>18 operações em 1.700 m²</strong> <span class="tag v">V</span> — cerca de 95 m² por operação, contando praça comum. Esse é um número de calibragem útil: um food hall no térreo do Via Center com 1.400 a 1.800 m² comporta algo entre 14 e 19 operações.</p>
+      <p>O Taste Lab também já rodou <strong>como festival itinerante dentro do próprio Plaza Niterói</strong>, com entrada pelo terraço G6 <span class="tag v">V</span>. Ou seja: a praça já foi testada pela marca, e a marca pertence ao grupo do vizinho.</p>
+      <h3>Por que a fachada é o ponto</h3>
+      <ul class="ticks ok">
+        <li>A Av. Visconde do Rio Branco tem corredor de ônibus e está em obra de requalificação pela Prefeitura — o projeto Orla Centro. <span class="tag v">V</span></li>
+        <li>Fachada ativa muda a natureza do ativo: food hall com porta para a rua vende fora do horário do shopping e captura o fluxo de quem sai da barca.</li>
+        <li>É o uso que melhor justifica o investimento em acesso independente, que a academia também precisa. Um único hall de entrada serve os dois.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="panel mark">
+        <h4>As quatro instalações que decidem</h4>
+        <ul class="ticks warn">
+          <li><strong>Exaustão.</strong> Cozinhas precisam de prumada de exaustão até a cobertura. Em prédio existente, achar ou abrir esse shaft é o item nº 1 de risco técnico — e ele conflita diretamente com qualquer volume novo no topo.</li>
+          <li><strong>Caixa de gordura e efluentes.</strong> Rede separada, dimensionada, com acesso para limpeza. Não improvisável.</li>
+          <li><strong>Gás.</strong> Central de GLP com afastamentos regulamentares, ou decisão por cozinha 100% elétrica — que muda o CAPEX de cada operador.</li>
+          <li><strong>Segurança contra incêndio.</strong> Concentração de cocção muda a classificação de risco e reabre o projeto de combate a incêndio do pavimento inteiro perante o CBMERJ.</li>
+        </ul>
+      </div>
+      <div class="panel flat" style="margin-top:18px">
+        <h4>Decisão de marca</h4>
+        <p>“Estilo Taste Lab” tem dois caminhos: <strong>licenciar/parceria com a Allos</strong>, que resolve curadoria e pipeline de operadores mas amarra o cronograma; ou <strong>conceito próprio</strong>, que preserva autonomia mas compete de porta a porta com a marca da casa do vizinho. Não existe terceira via confortável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">08 / 13</div><div class="t"><h2>Componente C — os andares superiores</h2>
+  <p class="subdek">A pergunta veio como “lajes corporativas”. A resposta honesta é que a lei provavelmente permite e o mercado provavelmente não compra. Vale reformular o produto antes de descartar o andar.</p></div></div>
+
+  <div class="cols">
+    <div class="prose">
+      <h3>O lado legal — o mais fácil dos quatro</h3>
+      <p>Escritório é uso não residencial em zona central de um município que acabou de aprovar uma lei urbanística cujo objetivo declarado, nas palavras do próprio secretário de Urbanismo, é <em>resgatar o Centro</em>. <span class="tag v">V</span> A mudança de uso de varejo para serviços exige licenciamento e adequação de projeto, mas não é o tipo de pedido que a legislação vigente desestimula. <span class="tag c">Parâmetros do lote a confirmar</span></p>
+      <h3>O lado do mercado — o mais difícil</h3>
+      <ul class="ticks warn">
+        <li><strong>O comparável fica a 200 metros e já existe.</strong> O Plaza Corporate &amp; Offices, na R. XV de Novembro, tem 10.323 m², 15 lajes corporativas e 139 salas, com habite-se de 2014. <span class="tag v">V</span> Um produto novo no Via Center entra competindo com estoque pronto, com garagem, ao lado.</li>
+          <li><strong>O Centro está documentadamente esvaziado.</strong> A saída de instituições públicas e a pandemia derrubaram o fluxo; no Niterói Shopping, 69 das 109 lojas estão desocupadas — 63%. <span class="tag v">V</span> Isso é sinal de mercado, não anedota.</li>
+        <li><strong>A planta é contra.</strong> Andar de varejo é profundo, com pouca fachada por metro quadrado e luz natural só na borda. Escritório A/B quer o oposto. Sem retrofit pesado de fachada e núcleo, o produto sai de segunda linha.</li>
+        <li><strong>Falta o resto do pacote.</strong> Lobby próprio, elevadores dedicados, controle de acesso independente do varejo, vaga. Nada disso existe hoje.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="panel markg">
+        <h4>O produto que a planta pede</h4>
+        <p>A própria descrição comercial do Via Center já indica que o prédio atende <strong>profissionais de saúde e trabalho remoto</strong> <span class="tag v">V</span> — ou seja, o mercado já apontou o caminho antes de nós.</p>
+        <ul class="ticks ok">
+          <li><strong>Clínicas e centros de diagnóstico.</strong> Toleram planta profunda, valorizam fluxo de pedestre, pagam bem por m² e trazem recorrência diária.</li>
+          <li><strong>Educação e cursos técnicos.</strong> Salas internas sem janela são aceitáveis; público jovem chega de barca e ônibus, não de carro.</li>
+          <li><strong>Serviços públicos e back-office.</strong> Proximidade de tribunal e prefeitura é ativo real.</li>
+          <li><strong>Coworking como âncora de um andar</strong>, não como o andar inteiro.</li>
+        </ul>
+        <p>Esses usos são <em>compatíveis</em> com academia e food hall no mesmo prédio, e <em>incompatíveis</em> em nada. Escritório corporativo tradicional é o único que exigiria descaracterizar o resto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">09 / 13</div><div class="t"><h2>Componente D — hotel padrão Novotel sobre a cobertura</h2>
+  <p class="subdek">Este é o componente que precisa de um veredito claro: <strong>não é impossível, mas não pode ser decidido com a informação disponível hoje</strong>. Quatro portas precisam abrir, em ordem, e três delas ainda nem foram testadas.</p></div></div>
+
+  <div class="gates">
+    <div class="gate">
+      <div class="g">01</div>
+      <div><div class="gt">Estrutura — o prédio aguenta?</div>
+      <div class="gd">Um edifício comercial do início dos anos 2000 não é projetado para receber uma torre em cima. Na prática, isso quase sempre exige estrutura independente, com pilares descendo por dentro do prédio até fundação nova, e reforço ou substituição de fundações. Custo alto, obra invasiva, perda de área locável nos pavimentos que estão gerando receita. <strong>Sem o projeto estrutural as-built e um parecer de engenheiro, não há projeto de hotel — há um desejo.</strong> <span class="tag x">Não verificado</span></div></div>
+    </div>
+    <div class="gate">
+      <div class="g">02</div>
+      <div><div class="gt">Condomínio — quem pode autorizar?</div>
+      <div class="gd">O Via Center é um condomínio. Construir sobre a cobertura significa mexer em área comum e, muito provavelmente, alterar a destinação do edifício — matéria que o Código Civil trata com quórum agravado, chegando à unanimidade dos condôminos para mudança de destinação. Com seis lojas grandes e um shopping popular de 200 stands dentro, unanimidade não é hipótese trivial. <strong>Ler a matrícula e a convenção de condomínio custa uma semana e pode encerrar o assunto.</strong> <span class="tag c">Confirmar com o jurídico</span></div></div>
+    </div>
+    <div class="gate">
+      <div class="g">03</div>
+      <div><div class="gt">Gabarito, coeficiente e outorga — a cidade permite?</div>
+      <div class="gd">Área nova acima do coeficiente básico do lote se compra da Prefeitura via outorga onerosa, calculada nos termos do Plano Diretor com os fatores de planejamento e interesse social da Lei 3.905/2024. Em Niterói os coeficientes básicos variam de 1,0 a 2,0 em áreas centrais e chegam a 5,0 em eixos arteriais. <span class="tag v">V</span> Se o edifício resultante passar de 16 pavimentos, entra Estudo de Impacto de Vizinhança. <span class="tag v">V</span> <strong>O valor da outorga é uma linha relevante do CAPEX e hoje é desconhecido.</strong></div></div>
+    </div>
+    <div class="gate">
+      <div class="g">04</div>
+      <div><div class="gt">Aeronáutica — o céu permite?</div>
+      <div class="gd">O Centro de Niterói está sob o Plano Básico de Zona de Proteção do Aeroporto Santos Dumont. O DECEA já analisou publicamente casos em Niterói em que as construções projetadas <em>excediam</em> os limites do plano; a análise preliminar não apontou interferência nas superfícies de procedimento por instrumentos e o processo seguiu para estudo aeronáutico, com medidas mitigadoras como publicação do obstáculo e sinalização luminosa. <span class="tag v">V</span> <strong>Ou seja: altura acima do plano não é veto automático, mas é processo próprio, com prazo e risco próprios.</strong></div></div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="panel">
+      <h4>Cinco perguntas de bandeira que ninguém fez ainda</h4>
+      <ul class="ticks">
+        <li><strong>A Accor quer?</strong> A rede já opera o ibis Niterói Niemeyer na cidade. Uma segunda operação a poucos quilômetros pode esbarrar em restrição territorial do contrato existente. <span class="tag c">Confirmar com a Accor</span></li>
+        <li><strong>Que tamanho?</strong> Unidades Novotel no Brasil variam muito — 122 quartos em Criciúma, 203 em Belo Horizonte, 448 em Fortaleza. <span class="tag v">V</span> Não existe “tamanho padrão Novotel”; o programa é negociado caso a caso.</li>
+        <li><strong>Onde entra o hóspede?</strong> Hotel exige lobby de rua, elevadores dedicados e circulação totalmente separada do varejo, do food hall e do shopping popular. Isso consome térreo — exatamente o metro quadrado mais valioso, disputado com o food hall.</li>
+        <li><strong>Onde estaciona?</strong> Hotel sem vaga própria, em prédio sem garagem, com exigência municipal de vagas para uso não residencial especial.</li>
+        <li><strong>Convive com 200 stands populares?</strong> Um hotel de bandeira internacional dividindo prédio com um shopping de stands é uma decisão de posicionamento que a Accor vai auditar antes de assinar.</li>
+      </ul>
+    </div>
+    <div class="panel mark">
+      <h4>Veredito</h4>
+      <p><strong>Não levar o hotel a decisão de investimento agora.</strong> Levar apenas a decisão de <em>testar as portas 01 e 02</em> — laudo estrutural e leitura da convenção de condomínio. São as duas mais baratas e as duas mais letais.</p>
+      <p>Se qualquer uma delas fechar, o hotel sai da mesa e o board economiza o custo de um estudo de massa, uma consulta ao DECEA e uma negociação com a Accor.</p>
+      <p>Se as duas abrirem, aí sim vale gastar com estudo de massa, cálculo de outorga e sondagem de bandeira — nessa ordem.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">10 / 13</div><div class="t"><h2>O que a legislação exige</h2>
+  <p class="subdek">Niterói trocou de marco urbanístico em 2024. O sentido da mudança é favorável ao projeto; os parâmetros do lote específico é que ainda não foram lidos.</p></div></div>
+
+  <div class="panel mark">
+    <p><strong>Aviso metodológico.</strong> O PDF integral da Lei 3.905/2024 e os quadros de parâmetros do portal da Prefeitura estavam inacessíveis nesta sessão. Tudo abaixo vem de fontes secundárias verificáveis, listadas na seção 13. <strong>Nenhum número de coeficiente, gabarito ou taxa de ocupação aplicável ao lote do Via Center foi confirmado.</strong> A consulta prévia na Secretaria de Urbanismo é o único documento que resolve isso, e ela é gratuita.</p>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Instrumento</th><th>O que estabelece</th><th>Impacto neste projeto</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Lei 3.905/2024</strong><br><span class="mono" style="font-size:12px;color:var(--ink-3)">Lei Urbanística de Niterói</span></td>
+          <td>Zoneamento, uso e ocupação do solo, instrumentos de política urbana e licenciamento edilício. Publicada em 21/05/2024, em vigor desde 19/08/2024.</td>
+          <td>Define tudo: se o uso é permitido, qual o coeficiente, qual o gabarito, quantas vagas. É a lei que precisa ser lida sobre o lote.</td>
+          <td><span class="tag c">Texto não lido</span></td>
+        </tr>
+        <tr>
+          <td><strong>Plano Diretor</strong><br><span class="mono" style="font-size:12px;color:var(--ink-3)">Lei 3.385/2019</span></td>
+          <td>Base da outorga onerosa do direito de construir; o cálculo da contrapartida financeira remete ao seu art. 84, com fatores de planejamento e de interesse social nos quadros da Lei 3.905/2024.</td>
+          <td>É a conta do metro quadrado adicional do hotel. Linha de CAPEX, não formalidade.</td>
+          <td><span class="tag v">Mecanismo verificado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Coeficientes básicos</strong></td>
+          <td>Em Niterói variam de 1,0 em áreas de expansão a 1,0–2,0 em áreas centrais, chegando a 5,0 em eixos de via arterial.</td>
+          <td>A Av. Visconde do Rio Branco é eixo arterial com corredor de ônibus — indício favorável, não confirmação.</td>
+          <td><span class="tag p">Indício</span></td>
+        </tr>
+        <tr>
+          <td><strong>Requalificação do Centro</strong></td>
+          <td>Doze quadras ao longo do Caminho Niemeyer com gabarito liberado para até 24 pavimentos; arrecadação estimada de R$ 70 milhões em dez anos de outorga só nessa área.</td>
+          <td>Mostra a direção da política pública. <strong>Não se sabe se o lote do Via Center está dentro dessas 12 quadras</strong> — é a primeira pergunta da consulta prévia.</td>
+          <td><span class="tag c">Perímetro a confirmar</span></td>
+        </tr>
+        <tr>
+          <td><strong>EIV</strong></td>
+          <td>Edificações com mais de 16 pavimentos exigem Estudo de Impacto de Vizinhança para licenciamento.</td>
+          <td>Se o hotel levar o conjunto acima de 16 pavimentos, some prazo e custo de EIV ao cronograma.</td>
+          <td><span class="tag v">V</span></td>
+        </tr>
+        <tr>
+          <td><strong>Cota de referência</strong></td>
+          <td>Acima da cota de referência da zona, a altura reduz um pavimento a cada 3,50 m de acréscimo de altitude, garantido mínimo de três pavimentos.</td>
+          <td>Regra topográfica. O Centro é plano, mas o parâmetro precisa ser checado com a cota do lote.</td>
+          <td><span class="tag c">C</span></td>
+        </tr>
+        <tr>
+          <td><strong>PBZPA — Santos Dumont</strong><br><span class="mono" style="font-size:12px;color:var(--ink-3)">DECEA</span></td>
+          <td>Limita altura de edificações no entorno do aeródromo. Em casos recentes em Niterói, projetos que excediam o plano seguiram para estudo aeronáutico, com obstáculo publicado e sinalização luminosa como mitigação.</td>
+          <td>Aplica-se só ao hotel. Não é veto automático; é processo federal paralelo, com prazo próprio.</td>
+          <td><span class="tag v">V</span></td>
+        </tr>
+        <tr>
+          <td><strong>CBMERJ · Vigilância Sanitária · NBR 9050</strong></td>
+          <td>Segurança contra incêndio e pânico, licenciamento sanitário de cozinhas, acessibilidade.</td>
+          <td>Food hall e academia reabrem o projeto de incêndio do pavimento; hotel reabre o do edifício inteiro.</td>
+          <td><span class="tag p">Escopo padrão</span></td>
+        </tr>
+        <tr>
+          <td><strong>Código Civil, condomínio</strong></td>
+          <td>Alteração da convenção e mudança de destinação do edifício exigem quórum agravado de condôminos.</td>
+          <td>Pode ser o obstáculo mais duro de todos, e é o mais barato de verificar.</td>
+          <td><span class="tag c">Confirmar com o jurídico</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 900 420" role="img" aria-label="Rota de aprovação em oito etapas. As duas primeiras, matrícula com convenção de condomínio e laudo estrutural, são portas de saída que podem encerrar o projeto. Seguem consulta prévia na Secretaria de Urbanismo, estudo de massa, outorga onerosa, estudo de impacto de vizinhança quando ultrapassa dezesseis pavimentos, análise do DECEA e por fim bombeiros, vigilância sanitária e licença de obra.">
+      <defs>
+        <marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <text x="30" y="30" class="mono" font-size="10.5" letter-spacing="1.4" fill="var(--signal)">▮ PORTA DE SAÍDA — BARATO DE TESTAR, LETAL SE FECHAR</text>
+
+      <rect x="30" y="58" width="180" height="82" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.8"/>
+      <text x="44" y="82" class="mono" font-size="10" letter-spacing="1" fill="var(--signal)">01</text>
+      <text x="44" y="104" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">Matrícula e convenção</text>
+      <text x="44" y="122" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">quem pode decidir</text>
+
+      <rect x="250" y="58" width="180" height="82" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.8"/>
+      <text x="264" y="82" class="mono" font-size="10" letter-spacing="1" fill="var(--signal)">02</text>
+      <text x="264" y="104" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">Laudo estrutural</text>
+      <text x="264" y="122" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">as-built · carga · fundação</text>
+
+      <rect x="470" y="58" width="180" height="82" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.2"/>
+      <text x="484" y="82" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">03</text>
+      <text x="484" y="104" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">Consulta prévia SMU</text>
+      <text x="484" y="122" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">zona · CA · gabarito · vagas</text>
+
+      <rect x="690" y="58" width="180" height="82" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.2"/>
+      <text x="704" y="82" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">04</text>
+      <text x="704" y="104" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">Estudo de massa</text>
+      <text x="704" y="122" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">quanta área nova cabe</text>
+
+      <line x1="212" y1="99" x2="248" y2="99" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+      <line x1="432" y1="99" x2="468" y2="99" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+      <line x1="652" y1="99" x2="688" y2="99" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+
+      <path d="M780,142 L780,176 L120,176 L120,236" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+      <text x="450" y="169" text-anchor="middle" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">SE A ÁREA PRETENDIDA SUPERA O COEFICIENTE BÁSICO</text>
+
+      <rect x="30" y="238" width="180" height="82" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.2"/>
+      <text x="44" y="262" class="mono" font-size="10" letter-spacing="1" fill="var(--accent-ink)">05</text>
+      <text x="44" y="284" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">Outorga onerosa</text>
+      <text x="44" y="302" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">PD art. 84 · fatores Fp e Fs</text>
+
+      <rect x="250" y="238" width="180" height="82" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.2"/>
+      <text x="264" y="262" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">06</text>
+      <text x="264" y="284" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">EIV</text>
+      <text x="264" y="302" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">só se passar de 16 pavimentos</text>
+
+      <rect x="470" y="238" width="180" height="82" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.2"/>
+      <text x="484" y="262" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">07</text>
+      <text x="484" y="284" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">DECEA · PBZPA</text>
+      <text x="484" y="302" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">só para o volume do hotel</text>
+
+      <rect x="690" y="238" width="180" height="82" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.2"/>
+      <text x="704" y="262" class="mono" font-size="10" letter-spacing="1" fill="var(--ink-3)">08</text>
+      <text x="704" y="284" font-family="Archivo, sans-serif" font-size="13" font-weight="600" fill="currentColor">CBMERJ · VISA · licença</text>
+      <text x="704" y="302" font-family="Archivo, sans-serif" font-size="12" fill="var(--ink-2)">e depois habite-se</text>
+
+      <line x1="212" y1="279" x2="248" y2="279" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+      <line x1="432" y1="279" x2="468" y2="279" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+      <line x1="652" y1="279" x2="688" y2="279" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar4)"/>
+
+      <line x1="30" y1="352" x2="870" y2="352" stroke="var(--rule)" stroke-width="1"/>
+      <text x="30" y="376" class="mono" font-size="10.5" letter-spacing="1.2" fill="var(--ink-3)">ETAPAS 01 A 03 VALEM PARA ACADEMIA E FOOD HALL TAMBÉM — SÓ QUE SEM AS ETAPAS 04 A 07</text>
+      <text x="30" y="398" class="mono" font-size="10.5" letter-spacing="1.2" fill="var(--accent-ink)">RETROFIT SEM ÁREA NOVA PULA DIRETO DA ETAPA 03 PARA A ETAPA 08</text>
+    </svg>
+    <figcaption><b>Por que os dois primeiros componentes andam rápido e os outros dois não.</b> Academia e food hall não criam área nova: saem da etapa 03 direto para a 08. O hotel percorre as oito, e as quatro do meio são as que têm prazo fora do controle do empreendedor.</figcaption>
+  </figure>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">11 / 13</div><div class="t"><h2>Riscos, em ordem de letalidade</h2>
+  <p class="subdek">Ordenados por quanto custa descobrir versus quanto custa descobrir tarde. Os três primeiros se resolvem com documento e telefone.</p></div></div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Risco</th><th>Por que é grave</th><th>Como se testa</th><th>Custo de testar</th><th>Mata qual componente</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Controle do condomínio</strong></td><td>Sem quórum, nenhuma obra estrutural ou mudança de destinação sai do papel.</td><td>Matrícula + convenção + ata das últimas assembleias</td><td class="n">Baixo</td><td>Hotel, e possivelmente tudo</td></tr>
+        <tr><td><strong>Capacidade estrutural</strong></td><td>Define se cabe hotel em cima e se cabe peso livre nos pisos.</td><td>As-built estrutural + parecer de engenheiro calculista</td><td class="n">Baixo</td><td>Hotel e academia</td></tr>
+        <tr><td><strong>Ausência de vaga</strong></td><td>Determina público, ticket e a aceitação da bandeira de academia. É dado verificado, não hipótese.</td><td>Reunião com a Allos sobre a garagem do Plaza</td><td class="n">Baixo</td><td>Academia, hotel</td></tr>
+        <tr><td><strong>Parâmetros do lote</strong></td><td>Coeficiente, gabarito e vagas exigidas podem inviabilizar o acréscimo antes de qualquer projeto.</td><td>Consulta prévia na Secretaria de Urbanismo</td><td class="n">Baixo</td><td>Hotel</td></tr>
+        <tr><td><strong>Prumada de exaustão</strong></td><td>Sem shaft até a cobertura não há food hall; e o shaft disputa espaço com a estrutura do hotel.</td><td>Levantamento de instalações + projeto preliminar</td><td class="n">Médio</td><td>Food hall</td></tr>
+        <tr><td><strong>Conflito de posicionamento</strong></td><td>Shopping popular de 200 stands no mesmo prédio de um hotel de bandeira internacional.</td><td>Decisão interna de mix + sondagem com a bandeira</td><td class="n">Médio</td><td>Hotel, food hall premium</td></tr>
+        <tr><td><strong>Mercado de escritório do Centro</strong></td><td>Vacância documentada na região e concorrente pronto a 200 m.</td><td>Pesquisa de absorção e preço pedido no Centro</td><td class="n">Médio</td><td>Lajes corporativas</td></tr>
+        <tr><td><strong>Restrição territorial da Accor</strong></td><td>A rede já opera na cidade; pode não poder abrir outra unidade próxima.</td><td>Contato com desenvolvimento imobiliário da Accor</td><td class="n">Baixo</td><td>Hotel padrão Novotel</td></tr>
+        <tr><td><strong>Gabarito aeronáutico</strong></td><td>Prazo federal fora do controle do empreendedor.</td><td>Consulta ao DECEA após o estudo de massa</td><td class="n">Médio</td><td>Hotel</td></tr>
+        <tr><td><strong>Obra com o prédio operando</strong></td><td>Renner e Torra estão pagando aluguel hoje. Retrofit pesado gera abatimento, atrito e eventual rescisão.</td><td>Plano de faseamento antes de qualquer negociação</td><td class="n">Médio</td><td>Todos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h4>A leitura da tabela</h4>
+    <p>Quatro dos cinco riscos mais letais custam <strong>baixo</strong> para testar. Isso é uma sorte rara em análise de ativo imobiliário e é exatamente o argumento para aprovar a Fase 0: por muito pouco dinheiro, o board compra a informação que decide se existe ou não um projeto de centenas de milhões.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">12 / 13</div><div class="t"><h2>Ordens de grandeza e roteiro de 90 dias</h2>
+  <p class="subdek">Nenhum número financeiro aparece aqui porque nenhum foi possível verificar. O que aparece são as áreas reais, as que precisam ser cotadas, e quem cota cada uma.</p></div></div>
+
+  <figure>
+    <svg viewBox="0 0 820 300" role="img" aria-label="Gráfico de barras comparando áreas em metros quadrados: expansão do Plaza de 2013 com 14.000, Plaza Corporate com 10.323, Via Center com 9.696 de ABL e o food hall Taste Lab do NorteShopping com 1.700.">
+      <line x1="270" y1="52" x2="270" y2="230" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="437" y1="52" x2="437" y2="230" stroke="var(--rule-soft)" stroke-width="1" stroke-dasharray="3 4"/>
+      <line x1="603" y1="52" x2="603" y2="230" stroke="var(--rule-soft)" stroke-width="1" stroke-dasharray="3 4"/>
+      <line x1="770" y1="52" x2="770" y2="230" stroke="var(--rule-soft)" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="270" y="248" text-anchor="middle" class="mono" font-size="10" fill="var(--ink-3)">0</text>
+      <text x="437" y="248" text-anchor="middle" class="mono" font-size="10" fill="var(--ink-3)">5.000</text>
+      <text x="603" y="248" text-anchor="middle" class="mono" font-size="10" fill="var(--ink-3)">10.000</text>
+      <text x="770" y="248" text-anchor="middle" class="mono" font-size="10" fill="var(--ink-3)">15.000</text>
+      <text x="520" y="272" text-anchor="middle" class="mono" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">METROS QUADRADOS</text>
+
+      <text x="258" y="30" text-anchor="end" class="mono" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">REFERÊNCIA</text>
+      <text x="282" y="30" class="mono" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">O QUE A MEDIDA SIGNIFICA</text>
+
+      <rect x="270" y="58" width="467" height="26" fill="var(--surface-2)" stroke="var(--rule)" stroke-width="1"/>
+      <text x="258" y="76" text-anchor="end" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Expansão do Plaza, 2013</text>
+      <text x="745" y="76" class="mono" font-size="11.5" font-weight="500" fill="currentColor">14.000</text>
+      <text x="280" y="76" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-3)">ABL adicionada em uma única obra ao lado</text>
+
+      <rect x="270" y="98" width="344" height="26" fill="var(--surface-2)" stroke="var(--rule)" stroke-width="1"/>
+      <text x="258" y="116" text-anchor="end" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Plaza Corporate &amp; Offices</text>
+      <text x="622" y="116" class="mono" font-size="11.5" font-weight="500" fill="currentColor">10.323</text>
+      <text x="280" y="116" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-3)">área do concorrente de escritório a 200 m</text>
+
+      <rect x="270" y="138" width="323" height="26" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+      <text x="258" y="156" text-anchor="end" font-family="Archivo, sans-serif" font-size="12.5" font-weight="600" fill="var(--accent-ink)">Via Center</text>
+      <text x="601" y="156" class="mono" font-size="11.5" font-weight="600" fill="var(--accent-ink)">9.696</text>
+      <text x="280" y="156" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-2)">ABL total a ser reposicionada</text>
+
+      <rect x="270" y="178" width="57" height="26" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.6"/>
+      <text x="258" y="196" text-anchor="end" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Taste Lab NorteShopping</text>
+      <text x="335" y="196" class="mono" font-size="11.5" font-weight="500" fill="var(--signal)">1.700</text>
+      <text x="385" y="196" font-family="Archivo, sans-serif" font-size="11.5" fill="var(--ink-3)">food hall com 18 operações — a referência do térreo</text>
+    </svg>
+    <figcaption><b>Calibragem de escala.</b> As quatro medidas não são do mesmo tipo — duas são ABL, uma é área de edifício e uma é área de food hall — e por isso cada barra traz o que ela mede. O ponto útil: o Via Center inteiro é menor que a última expansão que o vizinho fez em uma só obra, e o food hall inteiro cabe em 18% dele.</figcaption>
+  </figure>
+
+  <div class="cols">
+    <div>
+      <h3>O que precisa ser cotado, e por quem</h3>
+      <ul class="ticks">
+        <li><strong>CAPEX de retrofit por m²</strong> — construtora com experiência em retrofit de varejo em operação.</li>
+        <li><strong>Reforço estrutural e estrutura de transferência</strong> — calculista, a partir do as-built.</li>
+        <li><strong>Valor da outorga onerosa</strong> — cálculo pela fórmula do Plano Diretor com os fatores da Lei 3.905/2024, após a consulta prévia.</li>
+        <li><strong>Aluguel pedido por m² no Centro</strong>, por uso: varejo de rua, academia, A&amp;B, clínica, escritório — consultoria local de varejo.</li>
+        <li><strong>Custo da vaga</strong> — proposta comercial da garagem do Plaza ou de terceiros.</li>
+        <li><strong>Viabilidade hoteleira</strong> — diária média, ocupação e RevPAR de Niterói; dado de mercado pago, não estimativa.</li>
+        <li><strong>Perda de receita durante a obra</strong> — abatimentos e rescisões dos contratos vigentes.</li>
+      </ul>
+      <div class="panel flat" style="margin-top:20px">
+        <h4>Divisão de áreas proposta</h4>
+        <p class="mono" style="font-size:13px;line-height:1.9">Food hall (térreo) &nbsp;·&nbsp; 1.400–1.800 m²<br>
+        Academia (2 pisos) &nbsp;·&nbsp; 2.500–3.500 m²<br>
+        Varejo âncora mantido &nbsp;·&nbsp; ~3.000 m²<br>
+        Serviços, saúde e educação &nbsp;·&nbsp; 1.500–2.500 m²<br>
+        <span style="color:var(--accent-ink)">Total ≈ 9.700 m² — cabe na ABL verificada</span></p>
+        <p style="font-size:13.5px;color:var(--ink-3)">A divisão é proposta nossa <span class="tag p">Premissa</span>; a ABL de 9.696 m² é dado verificado.</p>
+      </div>
+    </div>
+    <div>
+      <ol class="steps" style="grid-template-columns:1fr">
+        <li>
+          <span class="when">Dias 0–30 · custo baixo · sem compromisso de capital</span>
+          <h3>Abrir ou fechar as portas de saída</h3>
+          <ul>
+            <li>Matrícula, convenção de condomínio e atas — jurídico</li>
+            <li>Consulta prévia na Secretaria de Urbanismo sobre o lote</li>
+            <li>Contratar levantamento cadastral e as-built arquitetônico e estrutural</li>
+            <li>Primeira conversa exploratória com a Allos sobre garagem e quarteirão</li>
+          </ul>
+        </li>
+        <li>
+          <span class="when">Dias 30–60 · só se a Fase 1 abrir</span>
+          <h3>Testar mercado e engenharia</h3>
+          <ul>
+            <li>Parecer estrutural sobre carga de piso e viabilidade de acréscimo</li>
+            <li>Sondagem formal com duas bandeiras de academia de alta performance</li>
+            <li>Pesquisa de aluguel pedido e absorção no Centro, por uso</li>
+            <li>Levantamento de instalações: exaustão, gás, efluentes, energia</li>
+          </ul>
+        </li>
+        <li>
+          <span class="when">Dias 60–90 · só se o hotel sobreviver às fases anteriores</span>
+          <h3>Dimensionar o acréscimo</h3>
+          <ul>
+            <li>Estudo de massa e cálculo do valor da outorga onerosa</li>
+            <li>Consulta ao DECEA sobre o PBZPA do Santos Dumont</li>
+            <li>Sondagem com Accor e ao menos duas bandeiras concorrentes</li>
+            <li>EVTE consolidado com os números já cotados, para decisão de investimento</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slidehead"><div class="slideno">13 / 13</div><div class="t"><h2>Fontes e nível de confiança</h2>
+  <p class="subdek">Toda afirmação marcada <span class="tag v">Verificado</span> neste dossiê vem de uma das fontes abaixo. As demais estão marcadas como a confirmar ou premissa.</p></div></div>
+
+  <div class="cols">
+    <div>
+      <h4>Sobre o ativo e o entorno</h4>
+      <div class="srcs">
+        <div class="src"><div><a href="https://www.axor.com.br/servicos/gestao-de-malls/via-center/">AXOR Consultoria e Gestão — Via Center</a><span class="what">ABL 9.696 m² · 6 lojas · 1 quiosque · sem estacionamento</span></div></div>
+        <div class="src"><div><a href="https://diariodorio.com/loja-leader-do-via-center-em-niteroi-fecha-as-portas-deixando-clientes-surpresos/">Diário do Rio — fechamento da Leader no Via Center</a><span class="what">galeria anexa ao Plaza, na Av. Visconde do Rio Branco</span></div></div>
+        <div class="src"><div><a href="https://diariodorio.com/lojas-torra-inaugurara-filial-no-local-da-antiga-leader-no-centro-de-niteroi/">Diário do Rio — Torra ocupa a antiga Leader</a><span class="what">abertura em agosto de 2024</span></div></div>
+        <div class="src"><div><a href="https://cidadedeniteroi.com/negocios/centro-de-niteroi-tera-novo-shopping-popular-com-mais-de-200-stands/">Cidade de Niterói — Espaço Fashion Mall</a><span class="what">200+ stands no 4º pavimento do Via Center</span></div></div>
+        <div class="src"><div><a href="https://allos.com.br/en/shopping/plaza-shopping-niteroi-2/">ALLOS — Plaza Shopping Niterói</a><span class="what">43–46 mil m² ABL · 300+ lojas · Cinemark</span></div></div>
+        <div class="src"><div><a href="https://plazaniteroi.com.br/sobre-o-shopping/">Plaza Niterói — sobre o shopping</a><span class="what">primeiro shopping da cidade, outubro de 1986</span></div></div>
+        <div class="src"><div><a href="https://abrasce.com.br/shopping/plaza-shopping-niteroi/">ABRASCE — Plaza Shopping Niterói</a><span class="what">expansão de 2013 · 14.000 m² · 310 vagas</span></div></div>
+        <div class="src"><div><a href="https://istoedinheiro.com.br/allos-expansoes-de-tijuca-mooca-plaza-niteroi-franca-e-taboao-estao-em-aprovacao/">IstoÉ Dinheiro — expansões da Allos em aprovação</a><span class="what">Plaza Niterói entre os projetos, sem data divulgada</span></div></div>
+        <div class="src"><div><a href="http://razaoengenharia.com.br/en/plaza-corporate-office/">Razão Engenharia — Plaza Corporate &amp; Office</a><span class="what">10.323 m² · 15 lajes · 139 salas · habite-se 2014</span></div></div>
+        <div class="src"><div><a href="https://diariodorio.com/com-mais-da-metade-das-lojas-vazias-tradicional-shopping-de-niteroi-tenta-reagir-para-recuperar-publico">Diário do Rio — vacância no Niterói Shopping</a><span class="what">69 de 109 lojas desocupadas, 63%</span></div></div>
+      </div>
+    </div>
+    <div>
+      <h4>Sobre operações de referência</h4>
+      <div class="srcs">
+        <div class="src"><div><a href="https://soumeier.com.br/todas-as-noticias/taste-lab-norteshopping-inaugura-espaco-gastronomico-inedito-no-rio/">Sou Méier — Taste Lab no NorteShopping</a><span class="what">food hall permanente · 18 operações · 1.700 m²</span></div></div>
+        <div class="src"><div><a href="https://embarquenaviagem.com/2022/05/12/taste-lab-festival-de-gastronomia-arte-e-entretenimento-tem-segunda-edicao-no-plaza-niteroi/">Embarque na Viagem — Taste Lab no Plaza Niterói</a><span class="what">marca do grupo brMalls, hoje Allos · entrada pelo terraço G6</span></div></div>
+        <div class="src"><div><a href="https://www.mercadoeeventos.com.br/noticias/hotelaria/accor-abre-combo-novotel-e-ibis-de-443-quartos-em-belo-horizonte/">Mercado &amp; Eventos — combo Novotel e ibis em BH</a><span class="what">portes variados de Novotel no Brasil</span></div></div>
+        <div class="src"><div><a href="https://www.revistahoteis.com.br/rede-accor-colocou-em-operacao-novotel-criciuma/">Revista Hotéis — Novotel Criciúma</a><span class="what">122 apartamentos — extremo inferior da faixa</span></div></div>
+      </div>
+
+      <h4 style="margin-top:28px">Sobre legislação</h4>
+      <div class="srcs">
+        <div class="src"><div><a href="https://urbanismo.niteroi.rj.gov.br/leiurbanistica.html">Prefeitura de Niterói — Lei Urbanística</a><span class="what">Lei 3.905/2024 · publicada 21/05/2024 · vigência 19/08/2024</span></div></div>
+        <div class="src"><div><a href="https://niteroi.rj.gov.br/prefeito-axel-grael-sanciona-nova-lei-urbanistica-de-niteroi/">Prefeitura de Niterói — sanção da lei</a><span class="what">EIV acima de 16 pavimentos · regra da cota de referência</span></div></div>
+        <div class="src"><div><a href="https://aseguirniteroi.com.br/noticias/agora-e-lei-as-mudancas-no-gabarito-de-niteroi/">A Seguir Niterói — mudanças no gabarito</a><span class="what">12 quadras no Caminho Niemeyer até 24 pavimentos</span></div></div>
+        <div class="src"><div><a href="https://aseguirniteroi.com.br/noticias/o-centro-de-niteroi-e-a-maior-das-centralidades-que-sera-fomentada-pela-nova-lei-de-ocupacao-do-solo-diz-secretario-de-urbanismo/">A Seguir Niterói — entrevista com o secretário de Urbanismo</a><span class="what">resgate do Centro como objetivo declarado · R$ 70 mi de outorga em 10 anos</span></div></div>
+        <div class="src"><div><a href="https://biblioteca.ibdu.org.br/direitourbanistico/article/view/755">IBDU — a outorga onerosa em Niterói</a><span class="what">coeficientes básicos de 1,0 a 2,0 em áreas centrais, até 5,0 em eixos arteriais · art. 84 do Plano Diretor</span></div></div>
+        <div class="src"><div><a href="https://www.decea.mil.br/?i=midia-e-informacao&amp;p=pg_noticia&amp;materia=decea-analisa-zonas-de-protecao-de-aerodromo-para-viabilizar-novos-empreendimentos-em-niteroi">DECEA — zonas de proteção de aeródromo em Niterói</a><span class="what">projetos acima do PBZPA do Santos Dumont · estudo aeronáutico e mitigação</span></div></div>
+        <div class="src"><div><a href="https://www.decea.mil.br/?i=midia-e-informacao&amp;p=pg_noticia&amp;materia=plano-basico-de-zona-de-protecao-de-aerodromo-garante-a-seguranca-do-espaco-aereo-nas-proximidades-dos-aeroportos">DECEA — o que é o PBZPA</a><span class="what">limites verticais no entorno de aeródromos</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confbox">
+    <h4>Nível de confiança desta análise</h4>
+    <div class="cols tight" style="margin-top:14px">
+      <div>
+        <div class="score">8<small> / 10</small></div>
+        <p style="margin-top:8px"><strong>Dados do ativo e do entorno.</strong> ABL, número de lojas, ausência de estacionamento, ligação com o Plaza, âncoras, Plaza Corporate, vacância no Centro — tudo com fonte pública citada. Perde ponto porque as fontes são secundárias, não documento de cartório.</p>
+      </div>
+      <div>
+        <div class="score">5<small> / 10</small></div>
+        <p style="margin-top:8px"><strong>Análise legal.</strong> O marco e os mecanismos estão certos; <em>os parâmetros do lote não foram lidos</em> porque o texto da lei estava inacessível. Qualquer conclusão sobre gabarito ou coeficiente aqui é direcional. Abaixo de 7 — sinalizado.</p>
+      </div>
+      <div>
+        <div class="score">4<small> / 10</small></div>
+        <p style="margin-top:8px"><strong>Avaliação da planta.</strong> Feita por inferência a partir de ABL e número de lojas. Não vi planta, corte, projeto estrutural nem visitei o imóvel. É a parte mais fraca do dossiê. Abaixo de 7 — sinalizado.</p>
+      </div>
+      <div>
+        <div class="score">7<small> / 10</small></div>
+        <p style="margin-top:8px"><strong>Recomendação estratégica.</strong> A conclusão — aprovar só a due diligence, priorizar academia e food hall, adiar hotel — é robusta justamente porque não depende dos dados que faltam. Ela existe para ir buscá-los.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Dossiê Via Center · estudo de viabilidade preliminar</span>
+  <span>Setembro de 2026 · documento de trabalho, não é parecer técnico nem jurídico</span>
+</footer>
+
+</div>

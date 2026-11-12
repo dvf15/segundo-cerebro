@@ -1,0 +1,49 @@
+{
+  "schema": "relatorio-plantao/v1",
+  "shopping": "Plaza Shopping Niterói",
+  "responsavel": "xxxx (Gerente de Marketing)",
+  "data": "2026-08-02",
+  "clima": "Dia de sol",
+  "comparativos": {
+    "ano_anterior": "2025-08-03",
+    "semana_anterior": "2026-07-26"
+  },
+  "fluxo": {
+    "pessoas":  {"atual": 40287, "ano_anterior": 27789, "semana_anterior": 39156},
+    "veiculos": {"atual": 2932,  "ano_anterior": 2627,  "semana_anterior": 2500},
+    "pagante":  {"atual": 2511,  "ano_anterior": 2149,  "semana_anterior": 2164},
+    "valet":    {"atual": 192,   "ano_anterior": 118,   "semana_anterior": 155},
+    "ocupacao_maxima_pct": {"atual": 71.84, "ano_anterior": 64.08, "semana_anterior": 62.88},
+    "ocupacao_pico_horario": "15h - 16h",
+    "receita":  {"atual": 87651, "ano_anterior": 68967, "semana_anterior": 75510},
+    "isencoes_app": {
+      "cat1":       {"atual": 44,       "ano_anterior": 113,      "semana_anterior": 30},
+      "cat2":       {"atual": 375,      "ano_anterior": 290,      "semana_anterior": 296},
+      "cat3":       {"atual": 257,      "ano_anterior": 347,      "semana_anterior": 208},
+      "valor_cat1": {"atual": 171.40,   "ano_anterior": 414.50,   "semana_anterior": 108.60},
+      "valor_cat2": {"atual": 7197.00,  "ano_anterior": 5284.50,  "semana_anterior": 5708.00},
+      "valor_cat3": {"atual": 13376.00, "ano_anterior": 14231.00, "semana_anterior": 10587.00}
+    }
+  },
+  "percepcao": {
+    "fluxo": "Excelente",
+    "vendas": "Excelente",
+    "comentario": "No final da tarde, lojas e corredores cheios com forte percepção de vendas."
+  },
+  "destaques": {
+    "lojas": ["Cafeterias", "Renner", "Centauro", "C&A", "Sephora", "Sorvete/gelatos"],
+    "gastronomia": ["Sardinha", "Balada Mix", "Abbraccio", "Coco Bambu", "Madero", "Mamma Jamma", "NOI", "Outback"],
+    "entretenimento": ["Cinemark (excelente)", "PKXD (excelente)", "World Games (moderado)", "Feira de Livros Bora Lê (razoável)"]
+  },
+  "eventos": {
+    "shopping": [
+      {"nome": "PKXD", "ingressos": 223, "faturamento": 10554.50},
+      {"nome": "Feira de Livros Bora Lê", "ingressos": null, "faturamento": null}
+    ],
+    "externos": ["Arraiá Harmonya de Piratininga", "Arraiá do Mercado Municipal"]
+  },
+  "ocorrencias": {
+    "houve": false,
+    "descricao": null
+  }
+}

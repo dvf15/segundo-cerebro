@@ -1,0 +1,17 @@
+{
+  "name": "Simulador de Remuneração Executiva",
+  "short_name": "Remuneração",
+  "description": "Compara pacote executivo PJ x CLT: fixo, PLR, ILP com matching, férias, 13º, plano de saúde e check-up.",
+  "start_url": "./simulador-remuneracao.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2f6f5",
+  "theme_color": "#1a2332",
+  "icons": [
+    { "src": "remuneracao-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "remuneracao-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "remuneracao-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "remuneracao-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
