@@ -1,12 +1,12 @@
 ---
 title: "Skills (SKILL.md)"
-generated: 2026-11-09
+generated: 2026-11-12
 count: 40
 tags: ["index"]
 ---
 # Skills (SKILL.md)
 
-_40 notas · gerado em 2026-11-09 por scripts/gerar-indices.mjs_
+_40 notas · gerado em 2026-11-12 por scripts/gerar-indices.mjs_
 
 | Nota | Descrição |
 | --- | --- |

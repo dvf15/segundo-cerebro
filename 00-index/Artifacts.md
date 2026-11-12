@@ -1,12 +1,12 @@
 ---
 title: "Artifacts"
-generated: 2026-11-09
+generated: 2026-11-12
 count: 22
 tags: ["index"]
 ---
 # Artifacts
 
-_22 notas · gerado em 2026-11-09 por scripts/gerar-indices.mjs_
+_22 notas · gerado em 2026-11-12 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Link |
 | --- | --- | --- |

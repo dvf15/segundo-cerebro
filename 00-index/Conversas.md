@@ -1,12 +1,12 @@
 ---
 title: "Conversas do claude.ai"
-generated: 2026-11-09
+generated: 2026-11-12
 count: 268
 tags: ["index"]
 ---
 # Conversas do claude.ai
 
-_268 notas · gerado em 2026-11-09 por scripts/gerar-indices.mjs_
+_268 notas · gerado em 2026-11-12 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Projeto |
 | --- | --- | --- |

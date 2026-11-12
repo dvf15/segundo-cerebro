@@ -1,6 +1,6 @@
 ---
 title: "Tags"
-generated: 2026-11-09
+generated: 2026-11-12
 tags: ["index"]
 ---
 # Tags
@@ -15,14 +15,15 @@ tags: ["index"]
 - **#artifact/html** (18): [[claude/artifacts/radar-bazin/radar-bazin|Radar Bazin]] · [[claude/artifacts/radar-de-auditoria/radar-de-auditoria|Radar de Auditoria]] · [[claude/artifacts/radar-de-renovacoes/radar-de-renovacoes|Radar de Renovações]] · [[claude/artifacts/regua-de-cobranca-shopping-center/regua-de-cobranca-shopping-center|Régua de Cobrança Shopping Center]] · [[claude/artifacts/radar-de-clausulas/radar-de-clausulas|Radar de Cláusulas]] · [[claude/artifacts/relatorio-fotografico-casa-4/relatorio-fotografico-casa-4|Relatório Fotográfico Casa 4]] · [[claude/artifacts/identidade-nutritreino/identidade-nutritreino|Identidade NutriTreino]] · [[claude/artifacts/bloco-de-retorno-8-semanas/bloco-de-retorno-8-semanas|Bloco de retorno: 8 semanas a partir de 09/11]] …
 - **#memoria/topics** (6): [[claude/memoria/arquivos/topics/fitness|fitness]] · [[claude/memoria/arquivos/topics/hobbies|hobbies]] · [[claude/memoria/arquivos/topics/investing|investing]] · [[claude/memoria/arquivos/topics/leadership-development|leadership-development]] · [[claude/memoria/arquivos/topics/personal-finance|personal-finance]] · [[claude/memoria/arquivos/topics/recent-work|recent-work]]
 - **#memoria/areas** (5): [[claude/memoria/arquivos/areas/claude-enterprise|claude-enterprise]] · [[claude/memoria/arquivos/areas/obra-casa|obra-casa]] · [[claude/memoria/arquivos/areas/allos-design-system|allos-design-system]] · [[claude/memoria/arquivos/areas/obsidian-knowledge-base|obsidian-knowledge-base]] · [[claude/memoria/arquivos/areas/shopping-inteligente|shopping-inteligente]]
+- **#codigo** (4): [[codigo/radarbazin1/_infra|radarbazin1 · infraestrutura (Vercel + Neon)]] · [[codigo/radarbazin/_repo|radarbazin]] · [[codigo/radarbazin1/_repo|radarbazin1]] · [[codigo/mundo-magico-do-tom/_repo|mundo-magico-do-tom]]
 - **#artifact/dados** (3): [[claude/artifacts/_dados/2efd8f2c-5d70-4a11-b23b-ba84e2ab1ff4|Dados do artifact 2efd8f2c]] · [[claude/artifacts/_dados/76782c87-3a60-4d19-b5fc-72728cbfb0a5|Dados do artifact 76782c87]] · [[claude/artifacts/_dados/faf935a7-965a-4054-b95a-9a174e69df00|Dados do artifact faf935a7]]
 - **#artifact/slides** (3): [[claude/artifacts/radar-de-varejo-consolidado-1-mes/radar-de-varejo-consolidado-1-mes|Radar de Varejo · Consolidado do 1º mês]] · [[claude/artifacts/plano-comercial-2026-template-allos/plano-comercial-2026-template-allos|Plano Comercial 2026 — Exemplo Template Allos]] · [[claude/artifacts/coco-bambu-base-de-negociacao/coco-bambu-base-de-negociacao|Coco Bambu – Base de Negociação]]
 - **#claude-code** (3): [[claude/claude-code-cloud/tarefas-agendadas|Tarefas agendadas do Claude Code]] · [[claude/sessoes-code/2026-10/2026-10-30_backup-claude_d2fb3e46|Backup Claude]] · [[claude/sessoes-code/COMO-EXPORTAR|Como exportar sessões do Claude Code]]
-- **#codigo** (3): [[codigo/radarbazin/_repo|radarbazin]] · [[codigo/radarbazin1/_repo|radarbazin1]] · [[codigo/mundo-magico-do-tom/_repo|mundo-magico-do-tom]]
 - **#github** (3): [[codigo/radarbazin/_repo|radarbazin]] · [[codigo/radarbazin1/_repo|radarbazin1]] · [[codigo/mundo-magico-do-tom/_repo|mundo-magico-do-tom]]
 - **#design** (2): [[claude/design-chats/2026-07-04_identidade-visual-para-psicologia_c5e56968|Identidade visual para psicologia]] · [[claude/design-chats/2026-06-07_design-system_574d9fbd|Design System]]
 - **#reflexao** (2): [[claude/reflexoes/2026-04_2026-09|Reflexão Abril–Setembro 2026]] · [[claude/reflexoes/2026-09|Reflexão Setembro de 2026]]
 - **#repo/radarbazin** (2): [[claude/sessoes-code/2026-10/2026-10-30_backup-claude_d2fb3e46|Backup Claude]] · [[codigo/radarbazin/_repo|radarbazin]]
+- **#repo/radarbazin1** (2): [[codigo/radarbazin1/_infra|radarbazin1 · infraestrutura (Vercel + Neon)]] · [[codigo/radarbazin1/_repo|radarbazin1]]
 - **#artifact/docs** (1): [[claude/artifacts/allos-2036-futurologia-ia/allos-2036-futurologia-ia|Allos 2036 — Futurologia sob a lente da IA]]
 - **#rotinas** (1): [[claude/claude-code-cloud/tarefas-agendadas|Tarefas agendadas do Claude Code]]
 - **#memoria/preferences.md** (1): [[claude/memoria/arquivos/preferences|preferences]]
@@ -37,7 +38,8 @@ tags: ["index"]
 - **#projeto/zona-norte-do-rj** (1): [[claude/memoria/projetos/zona-norte-do-rj_019e738c|Memória do projeto: Zona Norte do RJ]]
 - **#procedimento** (1): [[claude/sessoes-code/COMO-EXPORTAR|Como exportar sessões do Claude Code]]
 - **#repo/mundo-magico-do-tom** (1): [[codigo/mundo-magico-do-tom/_repo|mundo-magico-do-tom]]
-- **#repo/radarbazin1** (1): [[codigo/radarbazin1/_repo|radarbazin1]]
+- **#infra** (1): [[codigo/radarbazin1/_infra|radarbazin1 · infraestrutura (Vercel + Neon)]]
+- **#vercel** (1): [[codigo/radarbazin1/_infra|radarbazin1 · infraestrutura (Vercel + Neon)]]
 - **#radar-varejo** (1): [[codigo/radarbazin1/docs/docs/PESQUISA-EXECUTIVOS|PESQUISA-EXECUTIVOS]]
 - **#pesquisa** (1): [[codigo/radarbazin1/docs/docs/PESQUISA-EXECUTIVOS|PESQUISA-EXECUTIVOS]]
 - **#decisao** (1): [[codigo/radarbazin1/docs/docs/PESQUISA-EXECUTIVOS|PESQUISA-EXECUTIVOS]]

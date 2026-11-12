@@ -1,12 +1,12 @@
 ---
 title: "Início"
-generated: 2026-11-09
-total: 565
+generated: 2026-11-12
+total: 566
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_565 notas indexadas · gerado em 2026-11-09_
+_566 notas indexadas · gerado em 2026-11-12_
 
 ## Mapas de conteúdo
 
@@ -15,18 +15,19 @@ _565 notas indexadas · gerado em 2026-11-09_
 - [[00-index/Sessoes-Code|Sessões do Claude Code]] — 1
 - [[00-index/Artifacts|Artifacts]] — 22
 - [[00-index/Skills|Skills (SKILL.md)]] — 40
-- [[00-index/Codigo|Código e documentação dos repositórios]] — 3
+- [[00-index/Codigo|Código e documentação dos repositórios]] — 4
 - [[00-index/Memoria|Memória do Claude]] — 51
 - [[00-index/Design-Chats|Design chats]] — 2
 - [[00-index/Reflexoes|Reflexões (Anthropic)]] — 2
 - [[00-index/Rotinas|Tarefas agendadas e dados de artifacts]] — 4
 - [[00-index/Reunioes|Reuniões (Granola)]] — 0
-- [[00-index/Tags|Tags]] — 36
+- [[00-index/Tags|Tags]] — 38
 
 ## Recentes
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
+| 2026-11-12 | [[codigo/radarbazin1/_infra\|radarbazin1 · infraestrutura (Vercel + Neon)]] | github |
 | 2026-11-09 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-02 | [[claude/projetos/obra-casa-4/claude-prompt-modelo-3d-md_711c33d0\|claude/prompt-modelo-3d.md]] | claude-project-doc |
 | 2026-11-02 | [[claude/projetos/ir-pf-renata/_projeto\|IR PF Renata]] | claude-project |
@@ -66,7 +67,6 @@ _565 notas indexadas · gerado em 2026-11-09_
 | 2026-10-18 | [[claude/artifacts/regua-de-cobranca-shopping-center/regua-de-cobranca-shopping-center\|Régua de Cobrança Shopping Center]] | claude-artifact |
 | 2026-10-17 | [[claude/conversas/2026-10/2026-10-17_sistema-cobranca-inadimplencia-shopping_7aae8741\|Sistema cobrança inadimplência shopping]] | claude-chat |
 | 2026-10-17 | [[claude/conversas/2026-10/2026-10-17_skill-obsidian-junta-comercial_e2fe6d4d\|Skill Obsidian junta comercial]] | claude-chat |
-| 2026-10-15 | [[claude/conversas/2026-10/2026-10-15_allos-2034-pos-ia_55a87f97\|Allos 2034 pos IA]] | claude-chat |
 
 ## Como manter
 
