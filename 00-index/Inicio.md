@@ -29,7 +29,7 @@ _590 notas indexadas · gerado em 2026-11-12_
 | --- | --- | --- |
 | 2026-11-12 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-12 | [[codigo/radarbazin1/_infra\|radarbazin1 · infraestrutura (Vercel + Neon)]] | github |
-| 2026-11-09 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
+| 2026-11-12 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-02 | [[claude/projetos/obra-casa-4/claude-prompt-modelo-3d-md_711c33d0\|claude/prompt-modelo-3d.md]] | claude-project-doc |
 | 2026-11-02 | [[claude/projetos/ir-pf-renata/_projeto\|IR PF Renata]] | claude-project |
 | 2026-11-02 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
