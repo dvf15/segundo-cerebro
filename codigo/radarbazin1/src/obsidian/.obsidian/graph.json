@@ -1,0 +1,26 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    { "query": "path:Conceitos", "color": { "a": 1, "rgb": 3563887 } },
+    { "query": "path:Skills", "color": { "a": 1, "rgb": 15574868 } },
+    { "query": "path:Instruções", "color": { "a": 1, "rgb": 7128192 } },
+    { "query": "file:MOC", "color": { "a": 1, "rgb": 24943 } }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.5,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1
+}

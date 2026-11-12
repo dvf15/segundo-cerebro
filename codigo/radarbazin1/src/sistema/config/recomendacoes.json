@@ -1,0 +1,12 @@
+{
+  "_meta": "Matriz segmento×tipo. 'matriz' contém apenas OVERRIDES; quando um par (segmento,tipo) não está aqui, o motor usa o status_default da cláusula. Pode ser regenerada da planilha original via motor/carregar_planilha.py.",
+  "matriz": {
+    "Serviços Financeiros": {
+      "Cláusula Padrão": "Não Recomendado",
+      "Vendas Online": "Não Recomendado"
+    },
+    "Cinema, teatro e show": {
+      "Vendas Líquidas": "Recomendado com Ressalvas"
+    }
+  }
+}

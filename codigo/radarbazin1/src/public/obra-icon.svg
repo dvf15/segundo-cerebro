@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Otimizador de Obras">
+  <rect width="512" height="512" fill="#00616f"/>
+  <g transform="translate(65 51.2) scale(17)" fill="#ffffff">
+    <!-- unha (claw) -->
+    <path d="M7.8 3.9 3.6 4.9v1.3l3 .8-3 .8v1.3l4.2 1Z"/>
+    <!-- corpo da cabeca -->
+    <rect x="6.8" y="4.2" width="11.8" height="5.6" rx="1.4"/>
+    <!-- face de bater -->
+    <rect x="17.1" y="3.9" width="1.9" height="6.2" rx=".75"/>
+    <!-- cabo -->
+    <rect x="10" y="9.2" width="3.1" height="11.4" rx="1.55"/>
+  </g>
+</svg>

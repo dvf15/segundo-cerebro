@@ -1,0 +1,16 @@
+{
+  "name": "Radar Quiosques",
+  "short_name": "Quiosques",
+  "description": "Triagem e seleção de investidores de quiosque em shopping.",
+  "start_url": "./quiosques.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#00616f",
+  "theme_color": "#00616f",
+  "icons": [
+    { "src": "quiosque-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "quiosque-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "quiosque-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

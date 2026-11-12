@@ -1,0 +1,290 @@
+[
+  {
+    "tema": "Taxa de Transferência",
+    "tipo": "Isenção de Taxa de Transferência",
+    "classe": "A",
+    "peso": null,
+    "formula": "= valor integral da taxa",
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Taxa de Transferência",
+    "tipo": "Isenção 1ª Taxa de Transferência",
+    "classe": "A",
+    "peso": null,
+    "formula": "= valor da 1ª taxa",
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Taxa de Transferência",
+    "tipo": "Isenção TT mesmo Grupo Econômico",
+    "classe": "A",
+    "peso": null,
+    "formula": "= taxa, sem entrada de terceiro",
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Taxa de Transferência",
+    "tipo": "Redução da Taxa de Transferência",
+    "classe": "A",
+    "peso": null,
+    "formula": "= % reduzido × taxa",
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Reajuste",
+    "tipo": "Alteração de Índice de Reajuste",
+    "classe": "A",
+    "peso": null,
+    "formula": "= Δ índice × aluguel × prazo",
+    "risco": "Médio",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Reajuste",
+    "tipo": "Alteração de Prazo para Reajuste",
+    "classe": "A",
+    "peso": null,
+    "formula": "= aluguel × meses de postergação",
+    "risco": "Médio",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Alteração de Multa Rescisória",
+    "classe": "AB",
+    "peso": null,
+    "formula": "= P(rescisão) × Δ multa",
+    "risco": "Médio",
+    "status_default": "Recomendado com Ressalvas"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Isenção de Multa Rescisória",
+    "classe": "A",
+    "peso": null,
+    "formula": "= P(rescisão) × multa integral",
+    "risco": "Alto",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Redução de Multa Rescisória Fixa",
+    "classe": "A",
+    "peso": null,
+    "formula": "= P(resc) × (padrão − fixa)",
+    "risco": "Médio",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Redução de Multa Rescisória Gradual",
+    "classe": "A",
+    "peso": null,
+    "formula": "= Σ P(resc período) × multa abdicada",
+    "risco": "Médio",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Redução de Multa Rescisória Proporcional",
+    "classe": "A",
+    "peso": null,
+    "formula": "= P(resc) × (cheia − proporcional)",
+    "risco": "Médio",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Multa por Infração Contratual",
+    "classe": "B",
+    "peso": 3,
+    "formula": null,
+    "risco": "Médio",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Multa por Infração - Auditoria de Vendas",
+    "classe": "B",
+    "peso": 9,
+    "formula": null,
+    "risco": "Alto",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Multa",
+    "tipo": "Multa por Infração - Auditoria de Vendas (agravada)",
+    "classe": "B",
+    "peso": 9,
+    "formula": null,
+    "risco": "Alto",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Sistema de Inf de Vendas - NAPP",
+    "tipo": "Cláusula Padrão",
+    "classe": "Referencia",
+    "peso": 0,
+    "formula": null,
+    "risco": "Baixo",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Sistema de Inf de Vendas - NAPP",
+    "tipo": "Cláusula sem multa e custos",
+    "classe": "B",
+    "peso": 3,
+    "formula": null,
+    "risco": "Médio",
+    "status_default": "Recomendado com Ressalvas"
+  },
+  {
+    "tema": "Sistema de Inf de Vendas - NAPP",
+    "tipo": "Cláusula \"Fumaça\"",
+    "classe": "B",
+    "peso": 9,
+    "formula": null,
+    "risco": "Alto",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Sistema de Inf de Vendas - NAPP",
+    "tipo": "Proteção de Dados ref. ao Sistema",
+    "classe": "Limite",
+    "peso": null,
+    "formula": null,
+    "risco": "Crítico",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Vendas",
+    "tipo": "Vendas Líquidas",
+    "classe": "A",
+    "peso": null,
+    "formula": "= (bruta − líquida) × % aluguel",
+    "risco": "Alto",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Vendas",
+    "tipo": "Vendas Online",
+    "classe": "AB",
+    "peso": null,
+    "formula": "= vendas online não computadas × %",
+    "risco": "Médio",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Vendas",
+    "tipo": "Vendas Online - Fumaça",
+    "classe": "B",
+    "peso": 9,
+    "formula": null,
+    "risco": "Alto",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Vendas",
+    "tipo": "Vendas - Ship from Store / Click & Collect",
+    "classe": "AB",
+    "peso": null,
+    "formula": "= vendas omni não computadas × %",
+    "risco": "Médio",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Vendas",
+    "tipo": "Informe Mensal de Vendas",
+    "classe": "A",
+    "peso": 1,
+    "formula": null,
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Vendas",
+    "tipo": "Informe Mensal de Vendas - 3º d.ú.",
+    "classe": "A",
+    "peso": 1,
+    "formula": null,
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  },
+  {
+    "tema": "Compliance",
+    "tipo": "Confidencialidade",
+    "classe": "Limite",
+    "peso": null,
+    "formula": null,
+    "risco": "Alto",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Compliance",
+    "tipo": "Anticorrupção",
+    "classe": "Limite",
+    "peso": null,
+    "formula": null,
+    "risco": "Crítico",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Compliance",
+    "tipo": "PEP - Pessoa Exposta Politicamente",
+    "classe": "Limite",
+    "peso": null,
+    "formula": null,
+    "risco": "Crítico",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Compliance",
+    "tipo": "Proteção de Dados (LGPD)",
+    "classe": "Limite",
+    "peso": null,
+    "formula": null,
+    "risco": "Crítico",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Outros",
+    "tipo": "Remoção de Benfeitorias",
+    "classe": "AB",
+    "peso": null,
+    "formula": "= valor das benfeitorias não incorporadas",
+    "risco": "Médio",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Outros",
+    "tipo": "Perda de Benefícios",
+    "classe": "A",
+    "peso": null,
+    "formula": "= benefícios não revertidos",
+    "risco": "Médio",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Outros",
+    "tipo": "Renúncia ao Direito de Preferência/Vigência",
+    "classe": "B",
+    "peso": 9,
+    "formula": null,
+    "risco": "Alto",
+    "status_default": "Recomendado"
+  },
+  {
+    "tema": "Outros",
+    "tipo": "Comunicação",
+    "classe": "A",
+    "peso": 1,
+    "formula": null,
+    "risco": "Baixo",
+    "status_default": "Não Recomendado"
+  }
+]

@@ -1,0 +1,54 @@
+name: Atualizar cotações
+
+on:
+  schedule:
+    # Dias úteis, em UTC. B3 opera das 13h às 21h UTC (10h-18h BRT).
+        # Minutos fora do "cheio" da hora: o GitHub atrasa ou pula crons nos
+    # horários de pico. 21:23 e 21:38 garantem dado fresco antes da rotina
+    # de republicação do painel (21:45 UTC).
+    - cron: "23 13,17 * * 1-5"
+    - cron: "23 21 * * 1-5"
+    - cron: "38 21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cotacoes
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Buscar cotações
+        env:
+          # Opcional: crie o secret BRAPI_TOKEN para habilitar a brapi.dev
+          # como fonte alternativa dos ativos da B3.
+          BRAPI_TOKEN: ${{ secrets.BRAPI_TOKEN }}
+        run: node scripts/atualizar-cotacoes.mjs
+
+      - name: Buscar cadeia de opções (puts para dividendo sintético)
+        run: node scripts/opcoes.mjs
+
+      - name: Regerar o painel com os dados novos
+        run: node scripts/gerar-painel.mjs
+
+      - name: Commitar se houver mudança
+        run: |
+          if git diff --quiet -- data/cotacoes.json data/tecnica.json data/historico.json data/opcoes.json; then
+            echo "Sem alteração nas cotações."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cotacoes.json data/tecnica.json data/historico.json data/opcoes.json index.html artifact/painel.html
+          git commit -m "chore: atualiza cotações ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+          git push

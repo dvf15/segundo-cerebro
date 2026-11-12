@@ -1,12 +1,12 @@
 ---
 title: "Início"
 generated: 2026-11-12
-total: 566
+total: 590
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_566 notas indexadas · gerado em 2026-11-12_
+_590 notas indexadas · gerado em 2026-11-12_
 
 ## Mapas de conteúdo
 
@@ -21,16 +21,18 @@ _566 notas indexadas · gerado em 2026-11-12_
 - [[00-index/Reflexoes|Reflexões (Anthropic)]] — 2
 - [[00-index/Rotinas|Tarefas agendadas e dados de artifacts]] — 4
 - [[00-index/Reunioes|Reuniões (Granola)]] — 0
-- [[00-index/Tags|Tags]] — 38
+- [[00-index/Tags|Tags]] — 67
 
 ## Recentes
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
+| 2026-11-12 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-12 | [[codigo/radarbazin1/_infra\|radarbazin1 · infraestrutura (Vercel + Neon)]] | github |
 | 2026-11-09 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-02 | [[claude/projetos/obra-casa-4/claude-prompt-modelo-3d-md_711c33d0\|claude/prompt-modelo-3d.md]] | claude-project-doc |
 | 2026-11-02 | [[claude/projetos/ir-pf-renata/_projeto\|IR PF Renata]] | claude-project |
+| 2026-11-02 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
 | 2026-11-02 | [[claude/conversas/2026-11/2026-11-02_retificadora-do-ir-da-renata_4934e1db\|Retificadora do IR da Renata]] | claude-chat |
 | 2026-10-31 | [[claude/projetos/obra-casa-4/claude-plano-simulacao-3d-md_a13b8f08\|claude/plano-simulacao-3d.md]] | claude-project-doc |
 | 2026-10-31 | [[claude/conversas/2026-10/2026-10-31_resumo-de-curso_d355ece5\|Resumo de curso]] | claude-chat |
@@ -40,8 +42,6 @@ _566 notas indexadas · gerado em 2026-11-12_
 | 2026-10-30 | [[claude/sessoes-code/COMO-EXPORTAR\|Como exportar sessões do Claude Code]] | nota |
 | 2026-10-30 | [[claude/conversas/2026-10/2026-10-30_migracao-para-claude-enterprise_59f212bc\|Migração para Claude Enterprise]] | claude-chat |
 | 2026-10-30 | [[claude/artifacts/radar-bazin/radar-bazin\|Radar Bazin]] | claude-artifact |
-| 2026-10-30 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
-| 2026-10-30 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
 | 2026-10-30 | [[claude/memoria/arquivos/projects/regional-inteligente/areas/regional-inteligente\|regional-inteligente]] | claude-memory |
 | 2026-10-29 | [[claude/projetos/regional-inteligente/claude-plano-90-dias-regional-inteligente-md_753071c9\|claude/plano-90-dias-regional-inteligente.md]] | claude-project-doc |
 | 2026-10-29 | [[claude/conversas/2026-10/2026-10-29_plano-de-implantacao-regional-com-ia_cb41619d\|Plano de implantação regional com IA]] | claude-chat |

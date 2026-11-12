@@ -1,0 +1,40 @@
+name: Termômetro do dia
+
+on:
+  schedule:
+    # 10:05 UTC = 07:05 em Brasília (dias úteis). Ásia fechada, Europa aberta,
+    # futuros dos EUA negociando, B3 ainda por abrir.
+    - cron: "5 10 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: termometro
+  cancel-in-progress: false
+
+jobs:
+  termometro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Coletar indicadores de risco
+        run: node scripts/termometro.mjs
+      - name: Regerar o painel
+        run: node scripts/gerar-painel.mjs
+      - name: Commitar se houver mudança
+        run: |
+          if git diff --quiet -- data/termometro.json; then
+            echo "Sem alteração."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/termometro.json index.html artifact/painel.html
+          git commit -m "chore: termômetro do dia ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push

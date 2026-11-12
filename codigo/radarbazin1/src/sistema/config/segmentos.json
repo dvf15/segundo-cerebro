@@ -1,0 +1,56 @@
+{
+  "ramos": {
+    "Acessórios": [
+      "Cosméticos",
+      "Joias e Relógios",
+      "Ótica",
+      "Outros Acessórios"
+    ],
+    "Alimentação": [
+      "Café e lanches",
+      "Fast Food"
+    ],
+    "Conveniência & Serviços": [
+      "Academia de Ginástica",
+      "Agência de Viagens",
+      "Educação",
+      "Farmácia",
+      "Mantimentos",
+      "Outros Serviços",
+      "Saúde",
+      "Serviços de Beleza",
+      "Serviços Financeiros"
+    ],
+    "Diversos": [
+      "Brinquedos e Games",
+      "Papelaria e Livraria",
+      "Produtos Diversos"
+    ],
+    "Eletrodomésticos E Eletrônicos": [
+      "Eletrodomésticos e Eletrônicos",
+      "Telefonia"
+    ],
+    "Lar": [
+      "CAMEBA",
+      "Decoração e Construção"
+    ],
+    "Lazer": [
+      "Cinema, teatro e show",
+      "Lazer e Diversão"
+    ],
+    "Restaurantes": [
+      "Restaurantes"
+    ],
+    "Roupas E Calçados": [
+      "Calçados Femininos",
+      "Calçados Geral e Masculinos",
+      "Esportes",
+      "Lojas Departamento",
+      "Moda Íntima e Praia",
+      "Vestuário Feminino",
+      "Vestuário Geral",
+      "Vestuário Infantil",
+      "Vestuário Masculino"
+    ]
+  }
+}

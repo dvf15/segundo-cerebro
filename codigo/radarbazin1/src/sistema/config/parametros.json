@@ -1,0 +1,15 @@
+{
+  "_meta": "Parâmetros da lógica de alçadas (editáveis a posteriori).",
+  "desconto_max_pct": 50,
+  "max_pracas_diretor": 4,
+  "graus_somente_diretoria": ["A", "B"],
+  "graus": {"A": "Âncora", "B": "Alavancadora de posicionamento", "Padrao": "Padrão"},
+  "graus_criterio": {
+    "A": "Puxa fluxo e sustenta o corredor / co-tenancy",
+    "B": "Eleva o mix e o posicionamento do shopping",
+    "Padrao": "Demais marcas"
+  },
+  "ordem_alcadas": ["Superintendente", "Diretor de Portfólio", "Diretoria de Operações"],
+  "fator_peso_rs": {"0": 0.0, "1": 0.5, "3": 1.5, "9": 4.5},
+  "default_por_risco_pct": {"Baixo": 1.0, "Médio": 3.0, "Alto": 6.0, "Crítico": 6.0}
+}

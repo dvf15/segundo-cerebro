@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mundo Mágico do Tom</title>
+<meta name="description" content="Jogo de matemática com bloquinhos para crianças e jovens, inspirado no material dourado.">
+<meta name="theme-color" content="#0a0f2e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-tom.png">
+<link rel="apple-touch-icon" href="icon-tom.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="topo">
+  <button id="btn-voltar" class="btn-icone" aria-label="Voltar" hidden>◀</button>
+  <img id="logo-topo" src="icon-tom.png" alt="">
+  <div id="titulo-tela">Mundo Mágico do Tom</div>
+  <div id="hud">
+    <span id="hud-estrelas" aria-label="Estrelas conquistadas">⭐ <b id="total-estrelas">0</b></span>
+    <button id="btn-som" class="btn-icone" aria-label="Ligar ou desligar o som">🔊</button>
+  </div>
+</header>
+<main id="tela" tabindex="-1"></main>
+<div id="transicao" aria-hidden="true">
+  <div class="transicao-fundo"></div>
+  <div class="transicao-conteudo"><span class="transicao-emoji"></span><div class="transicao-nome"></div></div>
+</div>
+<div id="balao-camada" aria-live="polite"></div>
+<div id="leitor-avisos" class="sr-apenas" aria-live="polite"></div>
+<div id="confete-camada" aria-hidden="true"></div>
+<noscript><p style="padding:2rem;text-align:center">O Mundo Mágico do Tom precisa de JavaScript para funcionar.</p></noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

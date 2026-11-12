@@ -1,0 +1,16 @@
+name: Diagnóstico de opções
+on:
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Data de referência (AAAA-MM-DD), padrão ontem"
+        required: false
+        default: ""
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: node scripts/diagnostico-opcoes.mjs ${{ inputs.data }}

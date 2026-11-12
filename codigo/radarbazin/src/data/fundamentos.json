@@ -1,0 +1,588 @@
+{
+  "atualizadoEm": "2026-09-06",
+  "pesquisaFechadaEm": "2026-09-06",
+  "cambioRef": { "par": "USD/BRL", "valor": 5.1247, "data": "2026-09-05", "fonte": "Investing.com — USD/BRL" },
+  "bazin": {
+    "yieldMinimo": 0.06,
+    "faixas": { "compraForte": 0.80, "compra": 1.00, "neutro": 1.20 },
+    "nota": "Preço-teto = DPA / 6%. Faixas: até 80% do teto = compra forte (margem de segurança ≥ 20%); entre 80% e 100% = compra; entre 100% e 120% = manter; acima de 120% = reduzir/vender."
+  },
+  "ativos": {
+    "ALOS3": {
+      "nome": "Allos S.A.",
+      "setor": "Shopping centers / Real estate",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:ALOS3", "moeda": "BRL",
+      "precoRef": 28.81,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 3.48,
+        "dpa12mNota": "Guidance da própria companhia: ~R$ 0,29/ação por mês entre dez/2025 e dez/2026 (~R$ 1,9 bi no período, ~R$ 1,75 bi em 2026). 12 × 0,29 = R$ 3,48.",
+        "dpaRecorrente": 2.40,
+        "premissa": "Haircut de ~31% sobre o DPA de 12 meses. Justificativa: o FFO/ação do 2T26 foi R$ 0,66 (≈ R$ 2,64/ano anualizado) e a distribuição atual é sustentada em parte por venda de ativos não estratégicos e desalavancagem, não só por caixa operacional recorrente. R$ 2,40 ≈ 91% do FFO anualizado.",
+        "confianca": 6,
+        "confiancaNota": "DPA de 12m tem fonte primária boa (guidance). O DPA recorrente é premissa minha, não é número divulgado."
+      },
+      "indicadores": [
+        { "k": "Receita líquida 2T26", "v": "R$ 732,3 mi", "d": "+11,6% a/a" },
+        { "k": "EBITDA ajustado 2T26", "v": "R$ 525,4 mi", "d": "+10,5% a/a" },
+        { "k": "FFO 2T26", "v": "R$ 340,8 mi", "d": "+12,0% a/a · R$ 0,66/ação" },
+        { "k": "NOI 2T26", "v": "R$ 601 mi", "d": "+3,7% a/a · margem 91,8% (-1,5 p.p.)" },
+        { "k": "Lucro líquido 2T26", "v": "R$ 294 mi", "d": "+57,7% a/a" },
+        { "k": "Guidance EBITDA 2026", "v": "R$ 2,17–2,24 bi", "d": "mantido" },
+        { "k": "CapEx 2026 (guidance)", "v": "R$ 350–450 mi", "d": "abaixo dos R$ 450–550 mi de 2025" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Trimestre operacionalmente forte e acima do consenso: receita +11,6%, FFO +12% e lucro +57,7%. A margem NOI cedeu 1,5 p.p., mas a companhia manteve o guidance de EBITDA do ano. O resultado vazou antes da divulgação oficial e a Allos precisou publicar esclarecimento à CVM."
+      },
+      "destaques": [
+        "Maior posição da carteira: 47.763 ações, ~76,8% da carteira brasileira.",
+        "Política de proventos mensal (~R$ 0,29/ação) é o principal driver da tese — bancos projetam DY de até 13% para 2026.",
+        "Venda de ativos não estratégicos reduziu o portfólio, elevou a qualidade média dos shoppings e baixou a alavancagem.",
+        "Preço atual (R$ 28,81) já está 18,4% acima do preço médio da posição consolidada (R$ 24,34)."
+      ],
+      "riscos": [
+        "Boa parte do yield de 2026 vem de distribuição extraordinária ligada a reciclagem de portfólio — não é caixa recorrente perpétuo.",
+        "Selic alta pressiona custo de dívida e o valuation de ativos imobiliários.",
+        "Concentração: ~77% da carteira BR em um único papel."
+      ],
+      "noticias": [
+        { "data": "02/09/2026", "titulo": "Confirmado dividendo de R$ 0,291918/ação (3ª parcela dos intermediários)", "url": "https://euqueroinvestir.com/acoes/allos-alos3-dividendos-setembro-2026" },
+        { "data": "ago/2026", "titulo": "Balanço 2T26 'acima do esperado'; bancos veem dividendos de até 13%", "url": "https://www.moneytimes.com.br/allos-alos3-entrega-balanco-acima-do-esperado-no-2t26-dizem-analistas-bancos-veem-dividendos-de-ate-13-para-acao-igdl/" },
+        { "data": "ago/2026", "titulo": "Allos esclarece vazamento de informações do 2T26", "url": "https://financenews.com.br/2026/08/allos-alos3-divulga-esclarecimento-sobre-informacoes-relativas-aos-resultados-do-2t26/" },
+        { "data": "2026", "titulo": "XP: anúncio de dividendos foi o grande destaque; resultados em linha", "url": "https://conteudos.xpi.com.br/acoes/relatorios/allos-alos3-anuncio-de-dividendos-foi-o-grande-destaque-resultados-em-linha-com-as-estimativas/" }
+      ]
+    },
+
+    "TAEE11": {
+      "nome": "Taesa — Transmissora Aliança de Energia Elétrica",
+      "setor": "Transmissão de energia",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:TAEE11", "moeda": "BRL",
+      "precoRef": 41.53,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 2.96,
+        "dpa12mNota": "Total distribuído em 2025: R$ 2,9599/unit em 7 proventos (PlayInvest). DY de 12 meses apurado pelo Status Invest (data-com 04/09/2025 a 04/09/2026): 7,24%.",
+        "dpaRecorrente": 2.90,
+        "premissa": "Praticamente sem haircut: a Taesa distribui ~100% do lucro regulatório trimestral e projeções de mercado para 2026 vão de R$ 2,98 a R$ 3,31/unit. Usei R$ 2,90 (piso conservador).",
+        "confianca": 7,
+        "confiancaNota": "Histórico de proventos bem documentado e política de payout explícita. Boa confiança."
+      },
+      "indicadores": [
+        { "k": "Receita líquida regulatória 2T26", "v": "R$ 679,2 mi", "d": "+9,3% a/a" },
+        { "k": "EBITDA regulatório 2T26", "v": "R$ 577,2 mi", "d": "+10,6% a/a" },
+        { "k": "Lucro líquido 2T26", "v": "queda de 28,5% a/a", "d": "efeito financeiro/não caixa" },
+        { "k": "Dividendo aprovado no 2T26", "v": "R$ 206,7 mi", "d": "100% do lucro regulatório · pgto nov/2026" },
+        { "k": "DY 12m", "v": "~7,2%", "d": "Status Invest, base 04/09/2026" },
+        { "k": "Proventos 2026 até set", "v": "R$ 2,0681/unit", "d": "último: R$ 0,56 em 26/08/2026" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Operação bem: receita e EBITDA regulatórios crescendo perto de 10%. O lucro societário caiu 28,5% (pressão do resultado financeiro), mas a base de distribuição é o lucro regulatório, que sustentou payout de 100% no trimestre."
+      },
+      "destaques": [
+        "Receita contratada e indexada à inflação — o ativo mais previsível da carteira.",
+        "Payout de 100% do lucro regulatório trimestral mantido.",
+        "Posição pequena (260 units, R$ 10,8 mil) — hoje é mais watchlist do que exposição relevante."
+      ],
+      "riscos": [
+        "Crescimento depende de vencer leilões de transmissão com TIR apertada.",
+        "DY de ~7% deixa pouca folga sobre a NTN-B; papel é sensível à curva de juros longa."
+      ],
+      "noticias": [
+        { "data": "ago/2026", "titulo": "Genial — Resultado 2T26: 'Cadê o próximo capítulo?'", "url": "https://analisa.genialinvestimentos.com.br/acoes/TAEE11/taesa-taee11-resultado-2t26-cade-o-proximo-capitulo/" },
+        { "data": "2026", "titulo": "Projeções BBA: R$ 2,98–3,31/unit em dividendos em 2026 (DY 6,8%–7,5%)", "url": "https://www.suno.com.br/noticias/taesa-taee11-pagar-mais-dividendos-2026-projecao-bba-go/" },
+        { "data": "ago/2026", "titulo": "Por que o lucro caiu 28,5% no 2T26", "url": "https://www.ebc.com/pt/forex/taesa-taee11-lucro-cai-28-5-2t26" }
+      ]
+    },
+
+    "ITSA4": {
+      "nome": "Itaúsa S.A.",
+      "setor": "Holding (financeiro + infraestrutura/consumo)",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:ITSA4", "moeda": "BRL",
+      "precoRef": 13.95,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 1.19,
+        "dpa12mNota": "R$ 1,19/ação em 7 pagamentos nos últimos 12 meses (Redentia, DY 9,57% na cotação deles). ATENÇÃO: outras fontes apontam R$ 1,87/ação e DY entre 8,2% e 12% — a dispersão vem da inclusão ou não de proventos extraordinários de 2025.",
+        "dpaRecorrente": 1.00,
+        "premissa": "Premissa minha: excluir extraordinários e trabalhar com ~R$ 1,00/ação recorrente. Ancoragem: o JCP de R$ 2,8 bi pago em 28/08/2026 equivale a R$ 0,254/ação bruto referente ao 1º semestre.",
+        "confianca": 5,
+        "confiancaNota": "BAIXA. As fontes públicas divergem bastante (R$ 1,19 vs R$ 1,87). O preço-teto de ITSA4 é o número menos confiável deste painel — vale checar o extrato de proventos no seu home broker antes de agir."
+      },
+      "indicadores": [
+        { "k": "Lucro recorrente 2T26", "v": "R$ 4,3 bi", "d": "+7,1% a/a" },
+        { "k": "JCP pago em 28/08/2026", "v": "R$ 2,8 bi", "d": "R$ 0,254/ação bruto · R$ 0,20955 líquido (IR 17,5%)" },
+        { "k": "Segmento não financeiro 2T26", "v": "-26,7% a/a", "d": "Aegea, Alpargatas, Dexco" },
+        { "k": "Participação na Aegea", "v": "14,01%", "d": "de 13,27%; aporte de R$ 732 mi" },
+        { "k": "Valorização 12m", "v": "+50%", "d": "conforme reportagem de 2026" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Lucro recorrente de R$ 4,3 bi (+7,1%), praticamente todo vindo do Itaú Unibanco. O braço não financeiro caiu 26,7% a/a, com piora em NTS, Dexco e Aegea, e o resultado da própria holding recuou por maiores despesas tributárias."
+      },
+      "destaques": [
+        "2ª maior posição BR: 15.472 ações, R$ 215,8 mil, +38,8% sobre o PM de R$ 10,05.",
+        "Aumentou fatia na Aegea para 14,01% (R$ 732 mi) — aposta continuada em saneamento.",
+        "Estrutura de holding: você paga desconto sobre o Itaú, mas herda os ativos não financeiros mais fracos."
+      ],
+      "riscos": [
+        "Dependência quase total do Itaú Unibanco para gerar caixa de dividendos.",
+        "Alavancagem da Aegea subiu de 3,01x para 3,87x; Dexco e Alpargatas em ciclo fraco.",
+        "Desconto de holding pode não fechar."
+      ],
+      "noticias": [
+        { "data": "ago/2026", "titulo": "Itaúsa investe R$ 732 mi e eleva participação na Aegea para 14%", "url": "https://investidor10.com.br/noticias/itausa-itsa4-investe-r-732-mi-e-eleva-participacao-na-aegea-para-14-121893/" },
+        { "data": "ago/2026", "titulo": "Lucro de R$ 4,3 bi no 2T26 e JCP de R$ 2,8 bi pago em 28/08", "url": "https://investidor10.com.br/noticias/itausa-tem-lucro-de-r-4-3-bi-no-2t26-e-pagara-r-2-8-bi-em-jcp-em-28-de-agosto-121969/" },
+        { "data": "2026", "titulo": "Itaúsa recebe R$ 900 mi em dividendos extraordinários da Itautec", "url": "https://investidor10.com.br/noticias/itausa-itsa4-recebe-r-900-mi-em-dividendos-extraordinarios-da-itautec-121231/" }
+      ]
+    },
+
+    "BBSE3": {
+      "nome": "BB Seguridade Participações",
+      "setor": "Seguros e previdência",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:BBSE3", "moeda": "BRL",
+      "precoRef": 42.16,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 4.36,
+        "dpa12mNota": "Remuneração total referente a 2025: R$ 8,72 bi. Com ~2,0 bi de ações (o dividendo de R$ 3,85 bi equivaleu a R$ 1,90/ação, implicando 2,03 bi de ações), chega-se a ~R$ 4,36/ação. Fontes citam DY de 10,9% a 12%+ nos últimos 12 meses.",
+        "dpaRecorrente": 4.10,
+        "premissa": "Haircut leve de ~6%, refletindo o lucro de 2026 rodando abaixo de 2025 (2T26 -4% a/a) com payout mantido em 90–95%.",
+        "confianca": 7,
+        "confiancaNota": "Política de payout explícita e estável, dividendo semestral bem documentado. Boa confiança."
+      },
+      "indicadores": [
+        { "k": "Lucro líquido 2T26", "v": "R$ 2,15 bi", "d": "-4% a/a, acima do consenso" },
+        { "k": "Dividendos 1S26", "v": "R$ 3,85 bi", "d": "R$ 1,90/ação (pago R$ 1,98 em 03/09/2026)" },
+        { "k": "Payout histórico", "v": "90%–95%", "d": "política mantida pela diretoria" },
+        { "k": "Lucro 2025", "v": "R$ 9,1 bi", "d": "remuneração total R$ 8,72 bi" },
+        { "k": "DY 12m", "v": "~10,9%–12%", "d": "varia com a fonte e a data-base" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Lucro de R$ 2,15 bi, queda de 4% a/a mas acima do consenso. O recuo veio principalmente da redução de prêmios da BrasilSeg, com o seguro agrícola pressionado pelas condições do agronegócio."
+      },
+      "destaques": [
+        "POSIÇÃO ZERADA. Está no painel como watchlist — PM histórico de R$ 33,09 contra preço atual de R$ 42,16.",
+        "É o ativo com o maior desconto sobre o preço-teto Bazin de toda a lista.",
+        "Negócio asset-light: capta via rede do Banco do Brasil, quase não consome capital, converte lucro em dividendo."
+      ],
+      "riscos": [
+        "Seguro agrícola (BrasilSeg) exposto a quebra de safra e crédito rural.",
+        "Resultado financeiro cai junto com a Selic — parte relevante do lucro vem de float.",
+        "Controle estatal indireto via Banco do Brasil."
+      ],
+      "noticias": [
+        { "data": "ago/2026", "titulo": "Lucro de R$ 2,15 bi no 2T26, acima do consenso", "url": "https://www.suno.com.br/noticias/bbse3-resultado-2t26-lucro-acima-consenso-dividendos-go/" },
+        { "data": "2026", "titulo": "BB Seguridade pagará R$ 3,85 bi em dividendos, ou R$ 1,98 por ação", "url": "https://www.infomoney.com.br/mercados/bb-seguridade-bbse3-pagara-r-385-bilhoes-em-dividendos-ou-r-198-por-acao/" },
+        { "data": "2026", "titulo": "Quase R$ 5 bi distribuídos após lucro recorde de 2025", "url": "https://www.seudinheiro.com/2026/empresas/bb-seguridade-bbse3-vai-distribuir-quase-r-5-bilhoes-em-dividendos-apos-lucro-recorde-em-2025-lvgv/" }
+      ]
+    },
+
+    "BBDC4": {
+      "nome": "Banco Bradesco",
+      "setor": "Bancos",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:BBDC4", "moeda": "BRL",
+      "precoRef": 17.90,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 1.34,
+        "dpa12mNota": "R$ 1,34/ação nos últimos 12 meses com DY de 8,69% (Investidor10). Outras fontes: R$ 1,51 (Renova, DY 8,6%) e R$ 1,79 (Redentia). Adotei o número mais conservador.",
+        "dpaRecorrente": 1.20,
+        "premissa": "Haircut de ~10% sobre o menor DPA publicado, para descontar a parcela complementar de fim de exercício, que oscila com o payout discricionário.",
+        "confianca": 5,
+        "confiancaNota": "BAIXA-MÉDIA. Bradesco paga mensal + JCP + complementar, e os agregadores divergem em quase R$ 0,45/ação. Confira o extrato antes de usar o teto como gatilho."
+      },
+      "indicadores": [
+        { "k": "Lucro recorrente 2T26", "v": "R$ 7,05 bi", "d": "+16,2% a/a, acima do consenso" },
+        { "k": "ROE 2T26", "v": "16,2%", "d": "+1,6 p.p. a/a" },
+        { "k": "Sequência de alta", "v": "10º trimestre", "d": "consecutivo de crescimento de lucro" },
+        { "k": "Projeção de lucro 2026", "v": "~R$ 28 bi", "d": "e ~R$ 32 bi em 2027" },
+        { "k": "Payout", "v": "~50%", "d": "Investing.com" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Décimo trimestre consecutivo de melhora: lucro recorrente de R$ 7,05 bi (+16,2% a/a), acima do consenso da Bloomberg (R$ 6,9 bi), com ROE subindo 1,6 p.p. para 16,2%. A virada operacional do banco segue no trilho."
+      },
+      "destaques": [
+        "Posição de R$ 93,3 mil com PM de R$ 13,51 — ganho não realizado de +32,5%.",
+        "ROE de 16,2% ainda abaixo de Itaú e BB: é a tese de reprecificação, não de yield puro.",
+        "Fala-se em possível bonificação de ações."
+      ],
+      "riscos": [
+        "ROE ainda em recuperação; qualquer recaída na inadimplência trava a tese.",
+        "Tributação de dividendos a partir de 2026 muda o cálculo líquido de bancos com payout alto.",
+        "Concorrência de bancos digitais na base de varejo."
+      ],
+      "noticias": [
+        { "data": "ago/2026", "titulo": "Lucro recorrente de R$ 7,05 bi no 2T26, alta de 16%", "url": "https://www.infomoney.com.br/mercados/bradesco-bbdc4-resultados-segundo-trimestre-2026/" },
+        { "data": "ago/2026", "titulo": "Genial: décimo trimestre consecutivo de recuperação", "url": "https://analisa.genialinvestimentos.com.br/acoes/bradesco/bradesco-bbdc4-resultado-2t26-decimo-trimestre-consecutivo-de-recuperacao/" },
+        { "data": "2026", "titulo": "BBDC3 e BBDC4: dividendos fortes e alerta para possível bonificação", "url": "https://arevista.com.br/dividendos/bbdc3-e-bbdc4-em-2026-dividendos-fortes-e-alerta-para-possivel-bonificacao/" }
+      ]
+    },
+
+    "CMIG4": {
+      "nome": "Cemig — Companhia Energética de Minas Gerais",
+      "setor": "Energia elétrica (geração, transmissão e distribuição)",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:CMIG4", "moeda": "BRL",
+      "precoRef": 11.26,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 1.49,
+        "dpa12mNota": "R$ 1,49/ação distribuídos nos últimos 12 meses, DY de 11,38% na data-base da fonte (Investidor10). Último provento: R$ 0,34 em 30/06/2026.",
+        "dpaRecorrente": 1.00,
+        "premissa": "Haircut de ~33%. Justificativa: o payout estatutário mínimo é 50% do lucro; os R$ 1,49 dos últimos 12 meses incluem distribuições acima do mínimo, e o lucro de 2026 está caindo (2T26 -20,4%) com despesa financeira em forte alta.",
+        "confianca": 5,
+        "confiancaNota": "BAIXA-MÉDIA. O DPA de 12m tem fonte, mas o recorrente é premissa minha e a política de dividendos de estatal é discricionária e política."
+      },
+      "indicadores": [
+        { "k": "Lucro líquido 2T26", "v": "R$ 945,4 mi", "d": "-20,4% a/a" },
+        { "k": "Lucro ajustado 2T26", "v": "R$ 1,12 bi", "d": "" },
+        { "k": "Receita líquida 2T26", "v": "R$ 11,16 bi", "d": "+3,4% a/a" },
+        { "k": "EBITDA ajustado 2T26", "v": "R$ 2,47 bi", "d": "+9,3% a/a" },
+        { "k": "Resultado financeiro 2T26", "v": "-R$ 795,9 mi", "d": "despesa +154,6% a/a" },
+        { "k": "DY 12m", "v": "~11,4%", "d": "Investidor10, data-base da fonte" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "13/08/2026",
+        "resumo": "Operação evoluiu (EBITDA ajustado +9,3%), mas o lucro caiu 20,4% para R$ 945,4 mi, derrubado por uma despesa financeira líquida de R$ 795,9 mi — alta de 154,6% a/a. A alavancagem e a Selic são o problema, não o negócio."
+      },
+      "destaques": [
+        "Posição de R$ 30,9 mil com PM de R$ 7,69 — ganho não realizado de +46,4%, o melhor percentual da carteira BR junto com SAPR11.",
+        "Aparentemente o maior desconto sobre o teto Bazin da carteira — mas justamente o caso em que o teto é menos confiável.",
+        "Tese de privatização é recorrente e é o principal gatilho de reprecificação."
+      ],
+      "riscos": [
+        "Controle do governo de Minas Gerais: alocação de capital e dividendos sujeitos a decisão política.",
+        "Dívida quase dobrou em um ano; custo financeiro é o vetor de pressão sobre o lucro.",
+        "Privatização é hipótese, não plano em curso."
+      ],
+      "noticias": [
+        { "data": "13/08/2026", "titulo": "Lucro de R$ 945,44 mi no 2T26, queda de 20,44%", "url": "https://www.moneytimes.com.br/cemig-cmig4-registra-lucro-liquido-de-r-94544-milhoes-no-2o-trimestre-queda-de-2044-fets/" },
+        { "data": "ago/2026", "titulo": "Cemig reporta lucro ajustado de R$ 1,12 bi no 2T26", "url": "https://financenews.com.br/2026/08/cemig-reporta-lucro-ajustado-de-r-112-bilhao-no-2t26/" },
+        { "data": "2026", "titulo": "CMIG4 em 2026: análise, dividendos e privatização", "url": "https://leiturasingular.com.br/cmig4-analise-2026/" }
+      ]
+    },
+
+    "SAPR11": {
+      "nome": "Sanepar — Companhia de Saneamento do Paraná",
+      "setor": "Saneamento básico",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:SAPR11", "moeda": "BRL",
+      "precoRef": 34.95,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 1.96,
+        "dpa12mNota": "Último provento: R$ 1,96/unit pago em 26/06/2026 — pagamento anual concentrado. Os DYs publicados por agregadores (1,56%, 4,25%) são inconsistentes entre si e com esse valor; usei o provento efetivamente pago, que dá DY de ~5,6% sobre R$ 34,95.",
+        "dpaRecorrente": 1.96,
+        "premissa": "Sem haircut sobre o valor pago, mas com alerta: o prejuízo do 2T26 e a proposta da Agepar de repassar R$ 3,9 bi do precatório aos usuários colocam o próximo pagamento em risco.",
+        "confianca": 6,
+        "confiancaNota": "MÉDIA. O provento de R$ 1,96 tem fonte, mas os agregadores de DY estão claramente errados/desalinhados e a visibilidade do próximo dividendo é ruim."
+      },
+      "indicadores": [
+        { "k": "Resultado 2T26", "v": "Prejuízo de R$ 505,2 mi", "d": "vs. lucro de R$ 263,8 mi no 2T25" },
+        { "k": "Receita líquida 2T26", "v": "R$ 1,90 bi", "d": "+11,5% a/a" },
+        { "k": "EBITDA 2T26", "v": "R$ 540,3 mi", "d": "+0,8% a/a (estável)" },
+        { "k": "Lucro 1T26", "v": "R$ 352,7 mi", "d": "-70% a/a" },
+        { "k": "Último provento", "v": "R$ 1,96/unit", "d": "pago em 26/06/2026" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Prejuízo contábil de R$ 505,2 mi revertendo lucro de R$ 263,8 mi. A empresa atribui o resultado ao registro adicional de Passivo Regulatório ligado ao precatório de IRPJ e à ausência de apropriação do benefício fiscal do JCP no período. Operacionalmente, a receita cresceu 11,5% e o EBITDA ficou estável — o prejuízo é regulatório/contábil, não operacional."
+      },
+      "destaques": [
+        "Posição de R$ 44,7 mil com PM de R$ 21,17 — ganho não realizado de +65,1%, o maior da carteira BR.",
+        "O prejuízo do 2T26 é de origem regulatória e fiscal; o EBITDA seguiu estável.",
+        "3ª Revisão Tarifária Periódica (ciclo 2025–2028) em andamento, com a Base de Remuneração Regulatória ainda em fiscalização pela Agepar."
+      ],
+      "riscos": [
+        "Agepar propôs destinar R$ 3,9 bi do precatório de IRPJ à modicidade tarifária (100% em vez de 75%) — impacto direto no resultado e no dividendo.",
+        "Controle do governo do Paraná: tarifa e distribuição são decisões regulatórias e políticas.",
+        "Ativo negociando acima do preço-teto Bazin com o pagador sob incerteza."
+      ],
+      "noticias": [
+        { "data": "ago/2026", "titulo": "Sanepar reverte lucro e tem prejuízo de R$ 505,2 mi no 2T26", "url": "https://www.infomoney.com.br/mercados/sanepar-sapr11-resultados-segundo-trimestre-2026/" },
+        { "data": "2026", "titulo": "Ação cai até 7% após Agepar propor repasse de R$ 3,9 bi a usuários", "url": "https://www.seudinheiro.com/2026/empresas/sanepar-sapr11-agencia-reguladora-propoe-destinar-r-39-bilhoes-de-precatorio-a-usuarios-lvgb/" },
+        { "data": "2026", "titulo": "BTG: Sanepar pode subir dividend yield em 25%, até 8,0%", "url": "https://investidor10.com.br/noticias/sanepar-sapr11-pode-subir-dividend-yield-em-25-ate-2026-aponta-btg-112771/" }
+      ]
+    },
+
+    "KLBN4": {
+      "nome": "Klabin S.A. (PN)",
+      "setor": "Papel e celulose",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:KLBN4", "moeda": "BRL",
+      "precoRef": 3.85,
+      "bazin": {
+        "aplicavel": true,
+        "dpa12m": 0.22,
+        "dpa12mNota": "DY de 12 meses reportado entre 6,08% e 6,11% (data-com 02/09/2025 a 02/09/2026), que sobre R$ 3,85 dá ~R$ 0,23/ação. Uma fonte cita R$ 0,21 somando os pagamentos. Último provento: R$ 0,05 em 19/08/2026. Adotei R$ 0,22. Atenção: 1 Unit KLBN11 = 1 ON + 4 PN, então valores 'por unit' não são comparáveis diretamente.",
+        "dpaRecorrente": 0.22,
+        "premissa": "Sem haircut. A Klabin tem política de dividendo mínimo e o valor de 12m já é modesto.",
+        "confianca": 6,
+        "confiancaNota": "MÉDIA. Há uma fonte destoante (DY 8,79%) e a confusão unit vs. PN é uma armadilha comum nos agregadores."
+      },
+      "indicadores": [
+        { "k": "Receita líquida 2T26", "v": "R$ 5,15 bi", "d": "-2% a/a, +4% t/t" },
+        { "k": "EBITDA ajustado 2T26", "v": "R$ 1,962 bi", "d": "-4% a/a, +18% t/t · margem ~36,7%" },
+        { "k": "Lucro líquido 2T26", "v": "R$ 387 mi", "d": "-34% a/a" },
+        { "k": "Dividendos já aprovados 2026", "v": "R$ 0,182/ação", "d": "pagos ao longo do ano" },
+        { "k": "DY 12m", "v": "~6,1%", "d": "" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "ago/2026",
+        "resumo": "Recuperação sequencial (EBITDA +18% t/t) mas ainda em queda na comparação anual: receita -2%, EBITDA -4% e lucro -34% a/a. Margem EBITDA de ~36,7%. Ciclo de celulose e câmbio seguem mandando no resultado."
+      },
+      "destaques": [
+        "Única posição BR no prejuízo: PM de R$ 4,20 contra R$ 3,85 (-8,3%).",
+        "Dívida em trajetória de queda após o fim do ciclo pesado de CapEx (Projeto Puma II).",
+        "Preço praticamente colado no teto Bazin — não há margem de segurança pelo método."
+      ],
+      "riscos": [
+        "Commodity: preço da celulose em dólar dita o resultado, e o ciclo está fraco.",
+        "Exposição cambial em ambas as pontas (receita em dólar, dívida em dólar).",
+        "DY de ~6% é o piso exato do critério Bazin — qualquer corte tira o papel da tese."
+      ],
+      "noticias": [
+        { "data": "ago/2026", "titulo": "Klabin lucra R$ 387 mi no 2T26, queda anual de 34%", "url": "https://investidor10.com.br/noticias/klabin-klbn11-lucra-r-387-milhoes-no-2t26-queda-anual-de-34-121860/" },
+        { "data": "ago/2026", "titulo": "Suno: resultado melhora, mas ação acende alerta", "url": "https://www.suno.com.br/noticias/klabin-klbn11-resultados-2t26-analise-mt/" },
+        { "data": "2026", "titulo": "KLBN4 a R$ 3,86: dívida caindo e dividendos já marcados", "url": "https://arevista.com.br/acoes/klabin-klbn4-barata-em-2026-acao-a-r-386-divida-caindo-e-dividendos-ja-marcados/" }
+      ]
+    },
+
+    "AURE3": {
+      "nome": "Auren Energia S.A.",
+      "setor": "Geração e comercialização de energia",
+      "bolsa": "B3", "tvSymbol": "BMFBOVESPA:AURE3", "moeda": "BRL",
+      "precoRef": 12.00,
+      "bazin": {
+        "aplicavel": false,
+        "dpa12m": 0,
+        "dpa12mNota": "Dividend yield acumulado de 2026 é 0%. O último dividendo registrado foi de R$ 0,06/ação em 05/05/2025. Nos últimos 12 meses o DY é zero.",
+        "dpaRecorrente": 0,
+        "premissa": "Sem dividendo, o método Bazin simplesmente não se aplica — não existe preço-teto.",
+        "confianca": 8,
+        "confiancaNota": "ALTA quanto ao fato de não haver dividendo relevante nos últimos 12 meses."
+      },
+      "indicadores": [
+        { "k": "Resultado 2T26", "v": "Prejuízo de R$ 379,1 mi", "d": "-32,7% vs. prejuízo de R$ 562,9 mi no 2T25" },
+        { "k": "Receita líquida 2T26", "v": "R$ 3,055 bi", "d": "+5,9% a/a" },
+        { "k": "EBITDA ajustado 2T26", "v": "R$ 858,9 mi", "d": "-12,4% a/a · margem 28,1% (de 34,0%)" },
+        { "k": "Dívida líquida (jun/26)", "v": "R$ 18,9 bi", "d": "alavancagem 5,3x (de 4,8x)" },
+        { "k": "Dívida bruta consolidada", "v": "R$ 23,5 bi", "d": "-4,1% a/a · liquidez R$ 4,7 bi" },
+        { "k": "DY 12m", "v": "0%", "d": "" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "05/08/2026",
+        "resumo": "Prejuízo de R$ 379,1 mi — menor que o do 2T25, mas ainda prejuízo. EBITDA ajustado caiu 12,4% com comercialização mais fraca, recurso eólico abaixo do esperado e curtailment. Alavancagem subiu para 5,3x dívida líquida/EBITDA, herança da compra da AES Brasil."
+      },
+      "destaques": [
+        "POSIÇÃO ZERADA. Está no painel como watchlist (PM histórico de R$ 12,49).",
+        "ATENÇÃO — inconsistência na planilha de origem: a linha AURE3 traz 'Posição Valor' de R$ 10.798 com quantidade 0. Esse é exatamente o valor da posição de TAEE11 e parece ser célula duplicada. Por isso o total consolidado deste painel é R$ 1.791.139, e não R$ 1.801.937.",
+        "Aparece no radar de Luiz Barsi, mas hoje é caso de turnaround, não de dividendo."
+      ],
+      "riscos": [
+        "Alavancagem de 5,3x EBITDA com prejuízo recorrente.",
+        "Sem dividendo: fora do método Bazin por definição.",
+        "Curtailment eólico e preços de energia deprimidos no curto prazo."
+      ],
+      "noticias": [
+        { "data": "05/08/2026", "titulo": "Auren registra prejuízo de R$ 379 mi e EBITDA de R$ 859 mi no 2T26", "url": "https://visnoinvest.com.br/news/14584/auren-aure3-registra-prejuizo-de-r-379-mi-e-ebitda-de-r-859-mi-no-2t26" },
+        { "data": "ago/2026", "titulo": "Ação cai até 6% após resultados; ações nas mínimas", "url": "https://www.moneytimes.com.br/auren-aure3-nas-minimas-os-fatores-que-fizeram-acao-cair-ate-6-apos-resultados-rnda/" },
+        { "data": "2026", "titulo": "AURE3: dívida alta assusta, mas ação pode virar aposta de recuperação", "url": "https://arevista.com.br/acoes/aure3-divida-alta-assusta-mas-acao-pode-virar-aposta-de-recuperacao/" }
+      ]
+    },
+
+    "NVDA": {
+      "nome": "NVIDIA Corporation",
+      "setor": "Semicondutores / IA",
+      "bolsa": "NASDAQ", "tvSymbol": "NASDAQ:NVDA", "moeda": "USD",
+      "precoRef": 230.36,
+      "bazin": {
+        "aplicavel": false,
+        "dpa12m": 0,
+        "dpa12mNota": "NVIDIA paga dividendo simbólico (yield muito abaixo de 1%). Não pesquisei o valor exato porque é irrelevante para o método.",
+        "dpaRecorrente": 0,
+        "premissa": "Fora do método Bazin: é uma tese de crescimento, não de renda.",
+        "confianca": 8,
+        "confiancaNota": "ALTA quanto à inaplicabilidade do método."
+      },
+      "indicadores": [
+        { "k": "Receita 2T FY2027", "v": "US$ 96,2 bi", "d": "+106% a/a, +18% t/t" },
+        { "k": "Data Center", "v": "US$ 89,0 bi", "d": "+117% a/a" },
+        { "k": "Margem bruta", "v": "75,0%", "d": "GAAP e non-GAAP" },
+        { "k": "LPA diluído", "v": "US$ 2,46 GAAP / US$ 2,22 non-GAAP", "d": "consenso era ~US$ 2,09–2,10" },
+        { "k": "Guidance 3T", "v": "US$ 108 bi", "d": "" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T FY2027 (trimestre encerrado em 26/07/2026)", "data": "26/08/2026",
+        "resumo": "Receita de US$ 96,2 bi (+106% a/a) contra consenso de ~US$ 92,2 bi. Data Center em US$ 89,0 bi (+117%), margem bruta de 75% e guidance de US$ 108 bi para o 3º trimestre. Bateu receita e lucro."
+      },
+      "destaques": [
+        "Maior ganho percentual da carteira: PM de US$ 39,04 contra US$ 230,36 — cerca de +490%.",
+        "Posição de US$ 14.973 (65 ações).",
+        "O PM sugere compra antiga e/ou ajuste de desdobramento — vale conferir no extrato da Avenue."
+      ],
+      "riscos": [
+        "Concentração de receita em poucos hyperscalers.",
+        "Restrições de exportação e geopolítica com a China.",
+        "Múltiplo precifica continuidade do ciclo de CapEx de IA."
+      ],
+      "noticias": [
+        { "data": "26/08/2026", "titulo": "Release oficial 2T FY2027 (SEC Form 8-K)", "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm" },
+        { "data": "31/08/2026", "titulo": "Transcrição da teleconferência de resultados", "url": "https://www.fool.com/earnings/call-transcripts/2026/08/31/nvidia-nvda-q2-2027-earnings-call-transcript/" }
+      ]
+    },
+
+    "PLTR": {
+      "nome": "Palantir Technologies",
+      "setor": "Software / análise de dados e IA",
+      "bolsa": "NASDAQ", "tvSymbol": "NASDAQ:PLTR", "moeda": "USD",
+      "precoRef": 174.33,
+      "bazin": {
+        "aplicavel": false,
+        "dpa12m": 0,
+        "dpa12mNota": "A Palantir não paga dividendos.",
+        "dpaRecorrente": 0,
+        "premissa": "Fora do método Bazin.",
+        "confianca": 9,
+        "confiancaNota": "ALTA."
+      },
+      "indicadores": [
+        { "k": "Receita 2T26", "v": "US$ 1,94 bi", "d": "+93% a/a" },
+        { "k": "US Commercial", "v": "US$ 764 mi", "d": "+149% a/a" },
+        { "k": "US Government", "v": "US$ 809 mi", "d": "+90% a/a" },
+        { "k": "Lucro líquido 2T26", "v": "US$ 1,06 bi", "d": "US$ 0,41/ação diluída" },
+        { "k": "TCV fechado no trimestre", "v": "US$ 3,37 bi", "d": "+49% a/a" },
+        { "k": "Guidance 2026", "v": "US$ 8,15–8,16 bi", "d": "elevado de US$ 7,65–7,66 bi" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "03/08/2026",
+        "resumo": "Receita de US$ 1,94 bi (+93% a/a), US Commercial +149%, guidance anual elevado para US$ 8,15–8,16 bi (+82% a/a). A ação subiu até 12% após a divulgação."
+      },
+      "destaques": [
+        "Posição de US$ 19,6 mil com PM de US$ 22,96 — cerca de +659%, o maior múltiplo da carteira.",
+        "Nota: 112 × US$ 174,33 = US$ 19.524,96, e a planilha traz US$ 19.594,69 (diferença de ~US$ 70). Provavelmente preço de referência ligeiramente diferente."
+      ],
+      "riscos": [
+        "Múltiplo extremamente esticado — qualquer desaceleração é punida com força.",
+        "Dependência de contratos governamentais dos EUA.",
+        "Diluição por SBC (stock-based compensation) elevada."
+      ],
+      "noticias": [
+        { "data": "02/08/2026", "titulo": "Release oficial 2T26 (Business Wire)", "url": "https://www.businesswire.com/news/home/20260802523449/en/Palantir-Reports-Q2-2026-U.S.-Comm-Revenue-Growth-of-149-YY-and-Revenue-Growth-of-93-YY-Raises-FY-2026-Revenue-Guidance-to-82-YY-Growth-and-U.S.-Comm-Revenue-Guidance-to-134-YY-Crushing-Consensus-Expectations" },
+        { "data": "03/08/2026", "titulo": "CNBC — Palantir earnings Q2 2026", "url": "https://www.cnbc.com/2026/08/03/palantir-pltr-earnings-q2-2026.html" }
+      ]
+    },
+
+    "TSLA": {
+      "nome": "Tesla, Inc.",
+      "setor": "Veículos elétricos / energia",
+      "bolsa": "NASDAQ", "tvSymbol": "NASDAQ:TSLA", "moeda": "USD",
+      "precoRef": 354.08,
+      "bazin": {
+        "aplicavel": false,
+        "dpa12m": 0,
+        "dpa12mNota": "A Tesla não paga dividendos.",
+        "dpaRecorrente": 0,
+        "premissa": "Fora do método Bazin.",
+        "confianca": 9,
+        "confiancaNota": "ALTA."
+      },
+      "indicadores": [
+        { "k": "Receita 2T26", "v": "US$ 28,24 bi", "d": "+26% a/a · consenso US$ 25,71 bi" },
+        { "k": "Entregas 2T26", "v": "480.126 veículos", "d": "+25% a/a · melhor 2º tri da história" },
+        { "k": "LPA não-GAAP", "v": "US$ 0,33", "d": "consenso US$ 0,53 · -18% a/a" },
+        { "k": "Margem bruta", "v": "16,8%", "d": "de 17,2% · esperado 19,4%" },
+        { "k": "Margem operacional GAAP", "v": "1,4%", "d": "lucro operacional US$ 398 mi (-57% a/a)" },
+        { "k": "Armazenamento", "v": "13,5 GWh", "d": "+40% vs. 9,6 GWh no 2T25" }
+      ],
+      "ultimoResultado": {
+        "periodo": "2T26", "data": "22/07/2026",
+        "resumo": "Receita recorde de US$ 28,24 bi (+26%) e volta do crescimento de entregas após dois anos, mas a rentabilidade decepcionou feio: LPA não-GAAP de US$ 0,33 contra US$ 0,53 esperados, margem bruta de 16,8% e margem operacional de apenas 1,4%."
+      },
+      "destaques": [
+        "Posição de US$ 37,9 mil (a maior em dólar) com PM de US$ 328,52 — ganho de apenas ~+7,8%.",
+        "É a única posição americana sem ganho expressivo.",
+        "Nota: 107 × US$ 354,08 = US$ 37.886,56 e a planilha traz US$ 37.942,62 (diferença de ~US$ 56)."
+      ],
+      "riscos": [
+        "Compressão de margem: volume voltou a crescer às custas de preço.",
+        "Tese depende de robotáxi/FSD e energia, não do negócio automotivo atual.",
+        "Risco-chave de pessoa (Elon Musk) e ruído político."
+      ],
+      "noticias": [
+        { "data": "22/07/2026", "titulo": "Tesla Q2 2026: receita recorde, grande perda de lucro", "url": "https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/" },
+        { "data": "22/07/2026", "titulo": "CNBC — Tesla Q2 2026 earnings report", "url": "https://www.cnbc.com/2026/07/22/tesla-tsla-q2-2026-earnings-report.html" },
+        { "data": "2026", "titulo": "Q2 2026 Update (PDF oficial Tesla IR)", "url": "https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q2-2026-Update.pdf" }
+      ]
+    },
+
+    "SPY": {
+      "nome": "SPDR S&P 500 ETF Trust",
+      "setor": "ETF — índice S&P 500 (distribuidor, domicílio EUA)",
+      "bolsa": "NYSE Arca", "tvSymbol": "AMEX:SPY", "moeda": "USD",
+      "precoRef": 770.19,
+      "bazin": {
+        "aplicavel": false,
+        "dpa12m": 0,
+        "dpa12mNota": "Não pesquisei a distribuição do SPY — o método Bazin é para ações individuais, não para ETF de índice amplo.",
+        "dpaRecorrente": 0,
+        "premissa": "Fora do método Bazin.",
+        "confianca": 8,
+        "confiancaNota": "ALTA quanto à inaplicabilidade do método; nenhum dado de distribuição foi verificado."
+      },
+      "indicadores": [
+        { "k": "Posição", "v": "49,56 cotas", "d": "US$ 38.171,20" },
+        { "k": "Estrutura", "v": "Unit Investment Trust (EUA)", "d": "distribui dividendos em caixa" },
+        { "k": "Tributação", "v": "IR na fonte de 30% sobre dividendos para não residentes", "d": "regra geral dos EUA; confirme com seu contador" }
+      ],
+      "ultimoResultado": { "periodo": "n/a", "data": "", "resumo": "ETF de índice — não divulga resultado trimestral. Acompanhe o S&P 500." },
+      "destaques": [
+        "Junto com VUAA, você tem exposição duplicada ao mesmo índice (S&P 500) em dois veículos diferentes: US$ 45.930,64 no total.",
+        "Diferença prática entre os dois: SPY distribui dividendos e é domiciliado nos EUA (sujeito a estate tax americano acima de US$ 60 mil para não residentes); VUAA acumula e é irlandês."
+      ],
+      "riscos": [
+        "Domicílio EUA: exposição a estate tax americano para não residentes acima de US$ 60 mil — sua posição em ativos americanos (NVDA + PLTR + TSLA + SPY = ~US$ 110,7 mil) já está acima desse limiar.",
+        "Retenção de 30% sobre dividendos distribuídos."
+      ],
+      "noticias": []
+    },
+
+    "VUAA": {
+      "nome": "Vanguard S&P 500 UCITS ETF (USD) Accumulating",
+      "setor": "ETF — índice S&P 500 (acumulação, domicílio Irlanda)",
+      "bolsa": "LSE", "tvSymbol": "LSE:VUAA", "moeda": "USD",
+      "precoRef": 149.22,
+      "bazin": {
+        "aplicavel": false,
+        "dpa12m": 0,
+        "dpa12mNota": "ETF de acumulação: por construção não distribui dividendos, reinveste na data ex.",
+        "dpaRecorrente": 0,
+        "premissa": "Fora do método Bazin.",
+        "confianca": 9,
+        "confiancaNota": "ALTA."
+      },
+      "indicadores": [
+        { "k": "ISIN", "v": "IE00BFMXXD54", "d": "domicílio: Irlanda" },
+        { "k": "TER", "v": "0,07% a.a.", "d": "justETF" },
+        { "k": "Patrimônio", "v": "US$ 36,19 bi", "d": "em 04/09/2026" },
+        { "k": "Política de distribuição", "v": "Acumulação", "d": "dividendos reinvestidos no fundo" },
+        { "k": "Posição", "v": "52 cotas", "d": "US$ 7.759,44" }
+      ],
+      "ultimoResultado": { "periodo": "n/a", "data": "", "resumo": "ETF de índice — não divulga resultado trimestral. Acompanhe o S&P 500." },
+      "destaques": [
+        "Estrutura irlandesa: tratado EUA–Irlanda reduz a retenção sobre dividendos americanos de 30% para 15% dentro do fundo, e não há exposição a estate tax americano.",
+        "Acumulação: sem provento em caixa, o ganho é todo em preço — mais eficiente para quem não precisa de renda.",
+        "Sobreposição total com SPY."
+      ],
+      "riscos": [
+        "Mesma exposição do SPY — concentração no S&P 500 é a mesma, dobrada em dois veículos.",
+        "Liquidez em bolsa europeia e spread cambial na negociação."
+      ],
+      "noticias": [
+        { "data": "30/06/2026", "titulo": "Factsheet oficial Vanguard", "url": "https://fund-docs.vanguard.com/SandP_500_UCITS_ETF_USD_Accumulating_9694_EU_INT_EN.pdf" },
+        { "data": "2026", "titulo": "Perfil do ETF no justETF", "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BFMXXD54" }
+      ]
+    }
+  }
+}

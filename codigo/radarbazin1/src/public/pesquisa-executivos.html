@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#00616f">
+<title>Pesquisa de acompanhamento — Radar de Varejo</title>
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#ffffff; color:#0d454a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+        padding:16px; padding-top:calc(16px + env(safe-area-inset-top)); padding-bottom:calc(72px + env(safe-area-inset-bottom)); }
+  .wrap{ max-width:640px; margin:0 auto; }
+  h1{ font-size:22px; font-weight:800; color:#00616f; margin:0 0 4px; }
+  .sub{ font-size:14px; line-height:1.5; color:rgba(13,69,74,.78); margin:0 0 12px; }
+  .req{ color:#cd5151; font-weight:800; }
+  .banner{ font-size:13px; line-height:1.5; background:rgba(0,97,111,.08); border:1px solid rgba(54,140,130,.35); border-radius:10px; padding:10px 12px; color:#0d454a; margin-bottom:12px; }
+  .bar{ position:sticky; top:0; z-index:5; background:#fff; padding:8px 0 8px; margin:0 0 6px; }
+  .bar .track{ height:6px; background:#e5ded4; border-radius:99px; overflow:hidden; }
+  .bar .fill{ height:100%; width:0; background:#00616f; transition:width .25s; }
+  .bar .txt{ font-size:11px; color:rgba(13,69,74,.7); margin-top:5px; display:flex; justify-content:space-between; }
+  .lnk{ background:none; border:none; color:#00616f; text-decoration:underline; font-size:11px; font-weight:600; width:auto; padding:0; cursor:pointer; font-family:inherit; }
+  .card{ background:#e5ded4; border:1px solid #ccc5bc; border-radius:14px; padding:14px 14px 4px; margin-bottom:12px; scroll-margin-top:52px; }
+  .lblsec{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#00616f; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .lblsec .n{ background:rgba(0,97,111,.14); width:22px; height:22px; border-radius:99px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
+  .q{ margin-bottom:16px; scroll-margin-top:52px; border-radius:8px; }
+  .q.miss{ outline:2px solid #cd5151; outline-offset:6px; }
+  .ql{ display:block; font-size:14.5px; font-weight:700; line-height:1.4; margin-bottom:8px; }
+  .ql small{ display:block; font-weight:500; color:rgba(13,69,74,.65); font-size:12px; margin-top:2px; }
+  input[type=text], textarea{ width:100%; background:#fff; border:1px solid #ccc5bc; border-radius:10px; padding:11px 12px; color:#0d454a; font-size:16px; outline:none; font-family:inherit; }
+  input[type=text]:focus, textarea:focus{ border-color:#00616f; }
+  textarea{ min-height:76px; resize:vertical; }
+  .opts{ display:flex; flex-wrap:wrap; gap:7px; }
+  .opts.col{ flex-direction:column; gap:6px; }
+  button.opt{ background:#fff; border:1px solid #ccc5bc; border-radius:10px; padding:9px 12px; font:inherit; font-size:14px; line-height:1.3; color:#0d454a; cursor:pointer; width:auto; font-weight:400; -webkit-tap-highlight-color:transparent; }
+  .opts.col button.opt{ width:100%; text-align:left; padding:9px 12px; }
+  button.opt[aria-pressed="true"]{ background:#00616f; border-color:#00616f; color:#fff; font-weight:700; }
+  .scale{ display:grid; grid-template-columns:repeat(11,1fr); gap:4px; }
+  .scale button.opt{ padding:10px 0; text-align:center; font-weight:700; }
+  .scalehint{ display:flex; justify-content:space-between; font-size:11px; color:rgba(13,69,74,.65); margin-top:5px; }
+  .hrow{ margin-top:8px; }
+  .hrow .lt{ font-size:12px; font-weight:800; color:#00616f; margin-bottom:5px; }
+  .opts.g5{ display:grid; grid-template-columns:repeat(5,1fr); gap:5px; }
+  .g5 button.opt{ padding:9px 1px; font-size:12.5px; text-align:center; }
+  .likert{ padding:9px 0 0; margin-top:9px; border-top:1px solid #ccc5bc; }
+  .likert:first-of-type{ border-top:none; margin-top:0; padding-top:0; }
+  .likert .lt{ font-size:13.5px; line-height:1.4; margin-bottom:7px; }
+  .lk5{ display:grid; grid-template-columns:repeat(5,1fr); gap:5px; }
+  .lk5 button.opt{ text-align:center; padding:9px 2px; }
+  .lkkey{ display:flex; justify-content:space-between; font-size:11px; color:rgba(13,69,74,.65); margin:0 0 6px; }
+  button{ border:none; border-radius:12px; padding:14px; font-size:15px; font-weight:700; cursor:pointer; width:100%; font-family:inherit; }
+  .btn-go{ background:#00616f; color:#fff; }
+  .btn-wa{ background:#6cc680; color:#0d454a; }
+  .btn-gray{ background:#e5ded4; color:#0d454a; border:1px solid #ccc5bc; }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
+  .warn{ font-size:12.5px; color:#b5471f; margin:8px 0; }
+  pre.out{ white-space:pre-wrap; word-break:break-word; background:#fff; border:1px solid #ccc5bc; border-radius:10px; padding:12px; font-size:13px; line-height:1.5; font-family:inherit; margin:0 0 12px; }
+  .hidden{ display:none; }
+  .toast{ position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom)); transform:translateX(-50%) translateY(20px); background:#0d454a; color:#fff; padding:10px 16px; border-radius:99px; font-size:13px; opacity:0; transition:.25s; pointer-events:none; }
+  .toast.show{ opacity:1; transform:translateX(-50%); }
+  @media (prefers-reduced-motion:reduce){ .bar .fill,.toast{ transition:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Pesquisa de acompanhamento — Radar de Varejo</h1>
+  <p class="sub">Sua resposta orienta como a ferramenta evolui e onde ela passa a ser usada. São <b><span id="nq">21</span> perguntas, quase todas de toque</b>: cerca de 4 minutos. As marcadas com <span class="req">*</span> são obrigatórias. No final, você envia o resultado por WhatsApp. <b>Sinceridade ajuda mais que gentileza.</b></p>
+  <div class="banner"><b>Combinando as palavras.</b> <b>Potencial lojista/investidor</b> é quem demonstrou interesse em abrir loja ou quiosque no shopping (no app, “lead”). <b>Triar</b> é, nas primeiras conversas, descobrir o que a pessoa quer abrir, quanto pode investir e se o perfil encaixa — antes de gastar tempo com ponto e proposta.</div>
+
+  <div class="bar"><div class="track"><div class="fill" id="fill"></div></div><div class="txt"><span id="cnt"></span><span><span id="rest"></span> · <button type="button" class="lnk" id="limpa">Limpar respostas</button></span></div></div>
+
+  <form id="f" onsubmit="return false"><div id="qs"></div>
+    <div id="msgArea" class="hidden">
+      <div class="banner"><b>Quase lá.</b> Toque em <b>Enviar por WhatsApp</b> e escolha o contato de quem pediu a pesquisa. Se preferir, use <b>Copiar</b> e cole onde quiser.</div>
+      <pre class="out" id="out"></pre>
+      <div class="actions"><button type="button" class="btn-wa" id="wa">Enviar por WhatsApp</button><button type="button" class="btn-gray" id="copy">Copiar</button></div>
+    </div>
+    <div class="warn hidden" id="falta"></div>
+    <button type="button" class="btn-go" id="go" style="margin-top:6px;">Gerar minhas respostas ▸</button>
+  </form>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+/* Pesquisa de acompanhamento do Radar de Varejo, repetida de tempos em tempos. Sem servidor: o executivo responde,
+   a página monta um texto simples e ele envia por WhatsApp. Só o texto sai
+   daqui — nada é gravado fora do próprio aparelho, e o rascunho fica no
+   navegador até o envio.
+
+   As perguntas vêm de uma lista única (SECOES). O texto enviado por WhatsApp
+   é montado em monta() e mantém os mesmos rótulos de sempre: é ele que será
+   consolidado depois. */
+const KEY="pesquisaRadarVarejo.v1";
+
+const FAIXAS_T=[["menos de 5 min","< 5 min"],["5 a 15 min","5–15 min"],["15 a 30 min","15–30 min"],["30 a 60 min","30–60 min"],["mais de 1 hora","> 1 hora"]];
+const FAIXAS_H=[["menos de 1 h","< 1 h"],["1 a 3 h","1–3 h"],["3 a 5 h","3–5 h"],["5 a 10 h","5–10 h"],["mais de 10 h","> 10 h"]];
+const FAIXAS_I=[["Não acontece","Não acontece"],["menos de 30 min","< 30 min"],["30 min a 1 h","30 min–1 h"],["1 a 3 h","1–3 h"],["mais de 3 h","> 3 h"]];
+const igual=a=>a.map(x=>[x,x]);
+const SECOES=[
+ {t:"Quem é você",q:[
+  {k:"nome",ty:"text",l:"Nome e shopping",ph:"ex.: Ana Souza · Shopping Central",ac:"name"}]},
+ {t:"Como você usou",q:[
+  {k:"freq",ty:"one",req:1,l:"Nas últimas semanas, com que frequência você abriu o Radar de Varejo?",o:igual(["Todo dia","Algumas vezes por semana","Cerca de 1 vez por semana","Raramente","Quase não usei"])},
+  {k:"partes",ty:"multi",l:"O que você usou?",s:"Marque todas.",o:[["Enviar/receber ficha","Enviar / receber ficha"],["Triagem manual","Triagem manual"],["Leads (banco)","Aba Leads"],["Briefing da vacância","Briefing da vacância"],["Planejamento","Planejamento"],["Prompts de mapeamento","Prompts de mapeamento de varejistas"],["Backup do planejamento","Exportar / importar planejamento"],["Cruzamento","Cruzamento"],["Exportar Excel/planilha","Excel / planilha"]]},
+  {k:"util",ty:"one",l:"Qual parte foi a mais útil no seu dia a dia?",o:[["Ficha do lojista","Ficha do lojista"],["Triagem/enquadramento","Triagem e enquadramento"],["Leads","Aba Leads"],["Briefing","Briefing"],["Planejamento","Planejamento"],["Prompts de mapeamento","Prompts de mapeamento"],["Cruzamento","Cruzamento"],["Nenhuma","Nenhuma"]]},
+  {k:"antes",ty:"one",l:"Antes da ferramenta, como você organizava os contatos de potenciais lojistas e investidores?",o:[["Planilha própria","Planilha própria"],["WhatsApp e memória","WhatsApp e memória"],["CRM da empresa","CRM da empresa"],["Outlook ou Teams","Outlook / Teams (e-mail e agenda)"],["Outro","Outro"]]}]},
+ {t:"Tempo e reuniões",q:[
+  {k:"tempo",ty:"rows",req:1,l:"Quanto tempo você leva para triar um potencial lojista ou investidor — do primeiro contato até saber o que quer abrir, quanto pode investir e quais opções cabem?",rows:[["antes","Sem a ferramenta"],["hoje","Com a ferramenta"]],g5:1,o:FAIXAS_T},
+  {k:"reu_fmt",ty:"one",col:1,l:"Antes do app, como eram as conversas com potenciais lojistas e investidores até a proposta?",o:[["Sobretudo presenciais","Sobretudo reuniões presenciais"],["Sobretudo virtuais","Sobretudo reuniões virtuais"],["Ligação telefônica","Sobretudo ligação telefônica"],["Troca de WhatsApp","Sobretudo troca de mensagens no WhatsApp"],["Mistas","Um pouco de cada"]]},
+  {k:"horas",ty:"rows",req:1,l:"Quantas horas por semana você gasta em reuniões sobre potenciais lojistas/investidores e vagas?",s:"Some as com eles (presenciais ou virtuais) e as internas de acompanhamento.",rows:[["antes","Antes do app"],["hoje","Hoje, com o app"]],g5:1,o:FAIXAS_H},
+  {k:"reu_mudou",ty:"one",l:"A ficha, o briefing e o cruzamento substituíram reuniões que você fazia?",o:[["Sim, várias","Sim, várias"],["Sim, algumas","Sim, algumas"],["Não mudou","Não mudou"],["Aumentaram","Aumentaram as reuniões"]]},
+  {k:"indef",ty:"rows",req:1,l:"Alguns potenciais investidores ainda não sabem ao certo o que querem. Quanto tempo você gasta, em média, com um deles até perceber que ainda não é a hora?",s:"Some conversas, reuniões e mensagens. Se isso não acontece, marque “Não acontece”.",rows:[["antes","Antes do app"],["hoje","Hoje, com o app"]],o:FAIXAS_I},
+  {k:"indef_ajuda",ty:"multi",col:1,l:"Com quem ainda não sabia o que queria, a ferramenta ajudou em quê?",s:"Marque todas.",o:[["A ficha faz a pessoa pensar no que quer antes da conversa","A ficha faz a pessoa pensar no que quer antes da conversa"],["Mostra logo o formato que cabe no capital","Mostra logo o formato que cabe no capital dela"],["Identifico mais cedo quem ainda não está pronto","Identifico mais cedo quem ainda não está pronto"],["Deixo a pessoa no radar sem gastar tempo agora","Deixo a pessoa no radar sem gastar tempo agora"],["Chegam mais decididos à reunião","Chegam mais decididos à reunião"],["Não ajudou","Não ajudou"],["Ainda não tive esse caso","Ainda não tive esse caso"]]},
+  {k:"qtd",ty:"one",l:"Quantos potenciais lojistas/investidores você registrou no mês, aproximadamente?",o:[["0","0"],["1 a 5","1–5"],["6 a 15","6–15"],["16 a 30","16–30"],["mais de 30","30+"]]}]},
+ {t:"O que a ferramenta entregou",q:[
+  {k:"likert",ty:"likert",req:1,l:"O quanto você concorda?",it:[["rapido","Triagem mais rápida: chego a saber o que o potencial lojista/investidor quer em menos tempo."],["vaga","Decido melhor quem chamar para cada vaga."],["perde","Esqueço menos contatos e retornos (follow-ups)."],["ficha","A ficha do lojista reduz idas e vindas de conversa."],["brief","O briefing facilita meu acompanhamento com a liderança."]]},
+  {k:"ranking",ty:"one",l:"As marcas e vagas que a ferramenta indicou bateram com a sua leitura?",s:"Vale também a avaliação da marca do lojista que já tem marca própria.",o:igual(["Quase sempre","Às vezes","Raramente","Não cheguei a comparar"])},
+  {k:"prompts",ty:"one",col:1,l:"Os prompts de mapeamento de varejistas (fim da aba Planejamento) trouxeram marcas que você ainda não tinha no radar?",s:"Rua, raio, nativos digitais ou portfólio Allos, levados ao seu modelo de IA.",o:[["Sim, e já contatei alguma","Sim, e já contatei alguma"],["Sim, mas ainda não contatei","Sim, mas ainda não contatei"],["Só marcas que eu já conhecia","Só marcas que eu já conhecia"],["Marcas erradas ou que já estão no shopping","Marcas erradas ou que já estão no shopping"],["Ainda não usei","Ainda não usei"]]},
+  {k:"resultado",ty:"one",l:"Algum potencial lojista/investidor avançou (proposta ou fechamento) que, sem a ferramenta, teria demorado mais ou se perdido?",o:igual(["Sim","Não","Ainda é cedo"])}]},
+ {t:"O que atrapalhou",q:[
+  {k:"atrito",ty:"multi",col:1,max:2,l:"O que mais atrapalhou?",s:"Marque até 2.",o:[["Muito campo para preencher","Muito campo para preencher"],["Dados só no meu aparelho","Os dados ficam só no meu aparelho"],["Falta de integração com CRM","Não conversa com o CRM / sistema da empresa"],["Lojista desconfia de link sem endereço corporativo","Lojista/investidor receia abrir o link da ficha (sem endereço da empresa)"],["Base de marcas incompleta","Base de marcas incompleta"],["Recomendações não confiáveis","Recomendações que não fazem sentido"],["Difícil de aprender","Difícil de aprender"],["Lento ou com erro","Lento ou com erro"],["Nada relevante","Nada relevante"]]}]},
+ {t:"A decisão",q:[
+  {k:"nps",ty:"scale",req:1,l:"De 0 a 10, o quanto você recomendaria a ferramenta a um colega de outro shopping?",o:igual(["0","1","2","3","4","5","6","7","8","9","10"]),h:["não recomendaria","recomendaria muito"]},
+  {k:"falta",ty:"one",req:1,l:"Se a ferramenta deixasse de existir amanhã, como você se sentiria?",o:igual(["Muito decepcionado(a)","Um pouco decepcionado(a)","Indiferente"])},
+  {k:"cia",ty:"one",req:1,l:"Ela deveria ser adotada por todos os shoppings da companhia?",o:[["Sim, como está","Sim, como está"],["Sim, com melhorias antes","Sim, mas com melhorias antes"],["Não","Não"],["Não sei","Não sei dizer"]]}]},
+ {t:"Em suas palavras",q:[
+  {k:"melhoria",ty:"area",req:1,l:"Qual é a <b>uma</b> melhoria que traria mais valor para o seu dia a dia?",ph:"ex.: puxar os contatos direto do CRM…"},
+  {k:"livre",ty:"area",opc:1,l:"Algo a mais?",s:"O que tirar, o que faltou, um caso que funcionou. (opcional)"}]}
+];
+
+/* rótulos do texto enviado — NÃO mudar sem avisar quem consolida */
+const ROTULO={ freq:"Frequência de uso", partes:"Usou", util:"Mais útil", antes:"Antes usava", t_antes:"Tempo para triar um potencial lojista/investidor SEM a ferramenta", t_depois:"Tempo para triar um potencial lojista/investidor COM a ferramenta", qtd:"Potenciais lojistas/investidores registrados no mês", indef_ajuda:"Com quem estava indefinido, a ferramenta ajudou em", reu_fmt:"Conversas antes do app", reu_mudou:"App substituiu reuniões", ranking:"Indicações bateram com a leitura", prompts:"Prompts de mapeamento trouxeram marcas novas", resultado:"Potencial lojista/investidor avançou ou foi salvo por causa dela", atrito:"O que atrapalhou", nps:"Recomendaria (0-10)", falta:"Se acabasse amanhã", cia:"Adotar na companhia" };
+const LIK={ rapido:"Triagem mais rápida", vaga:"Decido melhor quem chamar por vaga", perde:"Esqueço menos contatos e retornos", ficha:"Ficha reduz idas e vindas", brief:"Briefing ajuda com a liderança" };
+const UTIL_PARTE={"Ficha do lojista":"Enviar/receber ficha","Triagem/enquadramento":"Triagem manual","Leads":"Leads (banco)","Briefing":"Briefing da vacância","Planejamento":"Planejamento","Prompts de mapeamento":"Prompts de mapeamento","Cruzamento":"Cruzamento"};
+const FALTA_TXT={freq:"frequência de uso",tempo:"tempo para triar, sem e com a ferramenta",horas:"horas de reunião antes e hoje",indef:"tempo com quem ainda não sabia o que queria, antes e hoje",likert:"as 5 frases de concordância",nps:"recomendação de 0 a 10",falta:"como se sentiria sem a ferramenta",cia:"adoção na companhia",melhoria:"a melhoria que mais valeria"};
+
+const st={ one:{}, multi:{}, likert:{}, tempo:{}, horas:{}, indef:{} };
+const TODAS=SECOES.flatMap(s=>s.q);
+const CONTADAS=TODAS.filter(q=>!q.opc);
+const TOTAL=CONTADAS.length;
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=id=>document.getElementById(id);
+function toast(m){ const t=$("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); }
+function val(id){ const e=$(id); return e?e.value.trim():""; }
+/* O rascunho vive só no navegador de quem responde. Para a pesquisa poder ser
+   repetida sem que respostas antigas reapareçam: tem data de validade, some
+   depois de enviado ou copiado, e pode ser apagado no botão "Limpar respostas". */
+const VALIDADE_MS=7*24*3600*1000;
+let enviado=false;
+function apagaRascunho(){ try{ localStorage.removeItem(KEY); }catch(e){} }
+function salva(){
+  if(enviado) return;
+  if(!CONTADAS.some(ok)&&!val("livre")){ apagaRascunho(); return; }
+  try{ localStorage.setItem(KEY,JSON.stringify({ts:Date.now(),st,nome:val("nome"),melhoria:val("melhoria"),livre:val("livre")})); }catch(e){}
+}
+
+/* ---------- montagem da tela ---------- */
+const btn=(v,l)=>`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="false">${esc(l)}</button>`;
+function qHtml(q){
+  const cab=`<span class="ql">${q.l}${q.req?' <span class="req">*</span>':""}${q.s?`<small>${esc(q.s)}</small>`:""}</span>`;
+  let corpo="";
+  if(q.ty==="text") corpo=`<input type="text" id="${q.k}" placeholder="${esc(q.ph||"")}" autocomplete="${q.ac||"off"}">`;
+  else if(q.ty==="area") corpo=`<textarea id="${q.k}" placeholder="${esc(q.ph||"")}"></textarea>`;
+  else if(q.ty==="one"||q.ty==="multi") corpo=`<div class="opts${q.col?" col":""}">${q.o.map(([v,l])=>btn(v,l)).join("")}</div>`;
+  else if(q.ty==="scale") corpo=`<div class="scale">${q.o.map(([v,l])=>btn(v,l)).join("")}</div><div class="scalehint"><span>${q.h[0]}</span><span>${q.h[1]}</span></div>`;
+  else if(q.ty==="rows") corpo=q.rows.map(([g,t])=>`<div class="hrow" data-h="${g}"><div class="lt">${esc(t)}</div><div class="opts${q.g5?" g5":""}">${q.o.map(([v,l])=>btn(v,l)).join("")}</div></div>`).join("");
+  else if(q.ty==="likert") corpo=`<div class="lkkey"><span>1 = discordo totalmente</span><span>5 = concordo totalmente</span></div>`+q.it.map(([g,t])=>`<div class="likert" data-l="${g}"><div class="lt">${esc(t)}</div><div class="lk5">${[1,2,3,4,5].map(n=>btn(String(n),String(n))).join("")}</div></div>`).join("");
+  return `<div class="q" data-k="${q.k}" data-t="${q.ty}">${cab}${corpo}</div>`;
+}
+$("qs").innerHTML=SECOES.map((s,i)=>`<div class="card"><div class="lblsec"><span class="n">${i+1}</span> ${esc(s.t)}</div>${s.q.map(qHtml).join("")}</div>`).join("");
+$("nq").textContent=TOTAL;
+
+/* ---------- estado → tela ---------- */
+function pinta(){
+  document.querySelectorAll(".q[data-t]").forEach(q=>{
+    const k=q.dataset.k, t=q.dataset.t;
+    const marca=(escopo,ligado)=>escopo.querySelectorAll(".opt").forEach(o=>o.setAttribute("aria-pressed",ligado(o.dataset.v)?"true":"false"));
+    if(t==="rows") q.querySelectorAll(".hrow").forEach(h=>marca(h,v=>st[k][h.dataset.h]===v));
+    else if(t==="likert") q.querySelectorAll(".likert").forEach(l=>marca(l,v=>st.likert[l.dataset.l]===v));
+    else if(t==="multi") marca(q,v=>(st.multi[k]||[]).includes(v));
+    else if(t==="one"||t==="scale") marca(q,v=>st.one[k]===v);
+  });
+}
+function ok(q){
+  const k=q.k;
+  if(q.ty==="text"||q.ty==="area") return !!val(k);
+  if(q.ty==="rows") return !!(st[k].antes&&st[k].hoje);
+  if(q.ty==="likert") return Object.keys(st.likert).length===5;
+  if(q.ty==="multi") return !!(st.multi[k]&&st.multi[k].length);
+  const v=st.one[k]; return v!=null&&v!=="";
+}
+function faltando(){ return TODAS.filter(q=>q.req&&!ok(q)).map(q=>q.k); }
+function atualiza(){
+  const n=CONTADAS.filter(ok).length;
+  $("fill").style.width=Math.round(n/TOTAL*100)+"%";
+  $("cnt").textContent=n+" de "+TOTAL+" respondidas";
+  $("rest").textContent=n>=TOTAL?"tudo respondido":"faltam "+(TOTAL-n);
+  const f=new Set(faltando());
+  document.querySelectorAll(".q.miss").forEach(q=>{ if(!f.has(q.dataset.k)) q.classList.remove("miss"); });
+  salva();
+}
+
+/* ---------- rolar para a próxima pergunta, só na primeira resposta ---------- */
+function avanca(qEl){
+  const todas=[...document.querySelectorAll(".q[data-k]")], nx=todas[todas.indexOf(qEl)+1];
+  if(!nx) return;
+  setTimeout(()=>{
+    if(nx.getBoundingClientRect().top<innerHeight*0.6) return; // já está à vista
+    const card=nx.closest(".card"), primeira=card&&card.querySelector(".q[data-k]")===nx;
+    (primeira?card:nx).scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  },260);
+}
+function confirma(qEl,primeira){ pinta(); atualiza(); if(primeira) avanca(qEl); }
+
+document.addEventListener("click",e=>{
+  const o=e.target.closest("button.opt"); if(!o) return;
+  const qEl=o.closest(".q"), k=qEl.dataset.k, ty=qEl.dataset.t, v=o.dataset.v;
+  if(ty==="rows"){ const g=o.closest(".hrow").dataset.h, tinha=st[k].antes&&st[k].hoje; st[k][g]=v; return confirma(qEl,!tinha&&st[k].antes&&st[k].hoje); }
+  if(ty==="likert"){ const tinha=Object.keys(st.likert).length===5; st.likert[o.closest(".likert").dataset.l]=v; return confirma(qEl,!tinha&&Object.keys(st.likert).length===5); }
+  if(ty==="multi"){
+    const a=st.multi[k]||(st.multi[k]=[]), i=a.indexOf(v);
+    if(i>=0) a.splice(i,1);
+    else { const q=TODAS.find(x=>x.k===k); if(q.max&&a.length>=q.max){ toast("Marque até "+q.max+" opções"); return; } a.push(v); }
+    return confirma(qEl,false);
+  }
+  const tinha=st.one[k]!=null&&st.one[k]!=="";
+  st.one[k]=(ty!=="scale"&&st.one[k]===v)?null:v;
+  /* a parte mais útil também é uma parte usada */
+  if(k==="util"&&st.one.util&&UTIL_PARTE[st.one.util]){ const a=st.multi.partes||(st.multi.partes=[]); if(!a.includes(UTIL_PARTE[st.one.util])) a.push(UTIL_PARTE[st.one.util]); }
+  confirma(qEl,!tinha&&st.one[k]!=null);
+});
+["nome","melhoria","livre"].forEach(id=>$(id).addEventListener("input",atualiza));
+
+/* ---------- o texto que sai por WhatsApp ---------- */
+function monta(){
+  const L=["PESQUISA DE ACOMPANHAMENTO · RADAR DE VAREJO","Data: "+new Date().toLocaleDateString("pt-BR"),""];
+  L.push("Nome/shopping: "+(val("nome")||"não informado"),"");
+  const v={ freq:st.one.freq, partes:(st.multi.partes||[]).length?st.multi.partes.join(", "):null, util:st.one.util, antes:st.one.antes, t_antes:st.tempo.antes, t_depois:st.tempo.hoje, reu_fmt:st.one.reu_fmt };
+  ["freq","partes","util","antes","t_antes","t_depois","reu_fmt"].forEach(k=>{ if(v[k]) L.push(ROTULO[k]+": "+v[k]); });
+  L.push("Horas/semana em reuniões sobre potenciais lojistas/investidores e vagas: antes "+(st.horas.antes||"—")+" → hoje "+(st.horas.hoje||"—"));
+  L.push("Tempo com quem ainda não sabia o que queria: antes "+(st.indef.antes||"—")+" → hoje "+(st.indef.hoje||"—"));
+  if((st.multi.indef_ajuda||[]).length) L.push(ROTULO.indef_ajuda+": "+st.multi.indef_ajuda.join("; "));
+  ["reu_mudou","qtd"].forEach(k=>{ if(st.one[k]) L.push(ROTULO[k]+": "+st.one[k]); });
+  L.push("");
+  L.push("Concordância (1 a 5):");
+  Object.keys(LIK).forEach(k=>{ if(st.likert[k]) L.push("• "+LIK[k]+": "+st.likert[k]); });
+  L.push("");
+  ["ranking","prompts","resultado"].forEach(k=>{ if(st.one[k]) L.push(ROTULO[k]+": "+st.one[k]); });
+  if((st.multi.atrito||[]).length) L.push(ROTULO.atrito+": "+st.multi.atrito.join("; "));
+  L.push("");
+  L.push("Recomendaria (0-10): "+(st.one.nps!=null?st.one.nps:"—"));
+  L.push(ROTULO.falta+": "+(st.one.falta||"—"));
+  L.push(ROTULO.cia+": "+(st.one.cia||"—"));
+  L.push("");
+  L.push("Melhoria que mais valeria: "+(val("melhoria")||"—"));
+  if(val("livre")) L.push("Comentário: "+val("livre"));
+  return L.join("\n");
+}
+
+$("go").onclick=()=>{
+  enviado=false;
+  const f=faltando(), w=$("falta");
+  if(f.length){
+    f.forEach(k=>document.querySelector(`.q[data-k="${k}"]`).classList.add("miss"));
+    w.textContent="Falta responder: "+f.map(k=>FALTA_TXT[k]).join("; ")+".";
+    w.classList.remove("hidden");
+    document.querySelector(`.q[data-k="${f[0]}"]`).scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  w.classList.add("hidden");
+  $("out").textContent=monta();
+  $("msgArea").classList.remove("hidden");
+  $("go").textContent="Atualizar minhas respostas ▸";
+  $("msgArea").scrollIntoView({behavior:"smooth",block:"start"});
+};
+$("copy").onclick=()=>{
+  const t=$("out").textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{ toast("Copiado"); enviado=true; apagaRascunho(); },()=>{ const r=document.createRange(); r.selectNodeContents($("out")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selecionado — copie"); });
+};
+$("wa").onclick=()=>{
+  /* o wa.me leva o texto na própria URL; acima de alguns milhares de caracteres
+     o navegador corta ou recusa. Melhor avisar do que mandar pela metade. */
+  const url="https://wa.me/?text="+encodeURIComponent($("out").textContent);
+  if(url.length>3500){ toast("Resposta longa: toque em Copiar e cole no WhatsApp"); return; }
+  window.open(url,"_blank","noopener");
+  enviado=true; apagaRascunho();
+};
+
+/* apaga as respostas deste aparelho e volta ao início */
+$("limpa").onclick=()=>{
+  if(!confirm("Apagar todas as respostas deste aparelho e começar de novo?")) return;
+  for(const g of Object.keys(st)) for(const k in st[g]) delete st[g][k];
+  ["nome","melhoria","livre"].forEach(id=>$(id).value="");
+  document.querySelectorAll(".q.miss").forEach(q=>q.classList.remove("miss"));
+  $("msgArea").classList.add("hidden"); $("falta").classList.add("hidden"); $("go").textContent="Gerar minhas respostas ▸";
+  enviado=false; apagaRascunho(); pinta(); atualiza();
+  window.scrollTo({top:0,behavior:"smooth"}); toast("Respostas apagadas");
+};
+
+/* ---------- rascunho: recupera se a pessoa saiu no meio ---------- */
+try{
+  const d=JSON.parse(localStorage.getItem(KEY)||"null");
+  /* rascunho sem data (versões antigas) ou com mais de 7 dias não volta */
+  if(d&&(!d.ts||Date.now()-d.ts>VALIDADE_MS)){ apagaRascunho(); }
+  else if(d&&d.st){
+    for(const g of ["one","multi","likert","tempo","horas","indef"]) Object.assign(st[g],d.st[g]||{});
+    if(d.nome) $("nome").value=d.nome; if(d.melhoria) $("melhoria").value=d.melhoria; if(d.livre) $("livre").value=d.livre;
+  }
+}catch(e){}
+pinta(); atualiza();
+</script>
+</body>
+</html>

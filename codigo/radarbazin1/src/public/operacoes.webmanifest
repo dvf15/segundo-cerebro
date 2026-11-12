@@ -1,0 +1,16 @@
+{
+  "name": "Radar de Varejo",
+  "short_name": "Radar Varejo",
+  "description": "Triagem de leads de shopping — loja ou quiosque pela área necessária e pelo capital disponível",
+  "start_url": "/operacoes.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#e5ded4",
+  "theme_color": "#00616f",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/operacoes-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/operacoes-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

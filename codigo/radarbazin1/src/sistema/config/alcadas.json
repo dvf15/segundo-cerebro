@@ -1,0 +1,17 @@
+[
+  {
+    "nivel": 1,
+    "nome": "Superintendente",
+    "descricao": "Caso simples: o copiloto recomenda e o superintendente decide."
+  },
+  {
+    "nivel": 2,
+    "nome": "Diretor de Portfólio",
+    "descricao": "Sobe um nível; a ressalva precisa ser atendida."
+  },
+  {
+    "nivel": 3,
+    "nome": "Diretoria de Operações",
+    "descricao": "Exceção: só passa com business case anexado (precedente sistêmico)."
+  }
+]

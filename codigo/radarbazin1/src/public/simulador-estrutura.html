@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#1a2332">
+<title>Simulador de Estrutura de Shoppings</title>
+<style>
+  :root{ color-scheme: light; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body{ margin:0; background:#f2f6f5; color:#223041; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:16px; padding-bottom:64px; }
+  .wrap{ max-width:900px; margin:0 auto; }
+  h1{ font-size:23px; font-weight:800; color:#1a2332; margin:0 0 2px; }
+  h2{ font-size:16px; font-weight:800; color:#1a2332; margin:0 0 8px; }
+  h3{ font-size:13px; font-weight:800; color:#3f5566; margin:14px 0 6px; text-transform:uppercase; letter-spacing:.4px; }
+  p.lead{ margin:4px 0 14px; color:#3f5566; font-size:14px; }
+  .card{ background:#fff; border:1px solid #d8e3e4; border-radius:12px; padding:14px 16px; margin-bottom:14px; box-shadow:0 1px 4px rgba(26,35,50,.05); }
+  table{ border-collapse:collapse; width:100%; font-size:13px; }
+  th,td{ text-align:left; padding:7px 8px; border-bottom:1px solid #e9f2f1; vertical-align:top; }
+  th{ color:#3f5566; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.4px; }
+  tbody tr:hover{ background:#f7faf9; }
+  .ok{ color:#0a7d43; font-weight:700; }
+  .fail{ color:#b3261e; font-weight:700; }
+  .pill{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:12px; font-weight:700; }
+  .pill.ok{ background:#e2f5ea; }
+  .pill.fail{ background:#fbe9e7; }
+  .pill.c1{ background:#e2f5ea; color:#0a7d43; }
+  .pill.c2{ background:#fff3d6; color:#8a6100; }
+  .pill.c3{ background:#ffe3cc; color:#a34700; }
+  .pill.c4{ background:#fbe9e7; color:#b3261e; }
+  .muted{ color:#6e8090; font-size:12px; }
+  pre{ background:#edf4f2; border-radius:8px; padding:10px 12px; font-size:12px; overflow-x:auto; }
+  ul{ margin:6px 0; padding-left:20px; font-size:13px; }
+  /* Abas */
+  .tabs{ display:flex; gap:6px; margin:14px 0; flex-wrap:wrap; }
+  .tabs button{ border:1px solid #d8e3e4; background:#fff; color:#1a2332; font-weight:700; font-size:13px; padding:8px 14px; border-radius:999px; cursor:pointer; transition:background .15s ease, border-color .15s ease; }
+  .tabs button:hover{ background:#e9f2f1; border-color:#a8dadc; }
+  .tabs button.ativa{ background:#1a2332; color:#f1faee; border-color:#1a2332; }
+  section.tab{ display:none; }
+  section.tab.ativa{ display:block; }
+  /* Formulários */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px 14px; }
+  .campo{ display:flex; flex-direction:column; gap:3px; }
+  .campo label{ font-size:12px; font-weight:700; color:#3f5566; }
+  .campo select,.campo input[type=text],.campo input[type=number]{ border:1px solid #c6d6d6; border-radius:8px; padding:8px 10px; font-size:13px; background:#fff; color:#223041; width:100%; }
+  .campo .nota{ font-size:11px; color:#6e8090; }
+  .check{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:#223041; padding:6px 0; }
+  .check input{ width:18px; height:18px; }
+  .linha-acoes{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+  .linha-acoes select{ flex:1; min-width:180px; border:1px solid #c6d6d6; border-radius:8px; padding:8px 10px; font-size:13px; }
+  .btn{ border:none; border-radius:8px; padding:9px 14px; font-size:13px; font-weight:700; cursor:pointer; background:#2d8b8b; color:#f1faee; transition:background .15s ease, transform .05s ease; }
+  .btn:hover{ background:#25716f; }
+  .btn:active{ transform:translateY(1px); }
+  .btn.sec{ background:#e9f2f1; color:#1a2332; }
+  .btn.sec:hover{ background:#dcebe9; }
+  .btn.perigo{ background:#fbe9e7; color:#b3261e; }
+  .btn.perigo:hover{ background:#f6dbd7; }
+  .destaque-5{ background:#fff6f5; }
+  .destaque-3{ background:#fffaf0; }
+  .barra-classe{ display:flex; gap:4px; margin:10px 0; }
+  .barra-classe span{ flex:1; text-align:center; font-size:11px; font-weight:700; padding:6px 2px; border-radius:6px; background:#e9f2f1; color:#6e8090; }
+  .barra-classe span.atual{ background:#1a2332; color:#f1faee; }
+  /* Cabeçalho executivo (tema Ocean Depths) */
+  .app-header{ background:linear-gradient(135deg,#1a2332 0%,#22394a 55%,#2d8b8b 160%); color:#f1faee;
+    border-radius:14px; padding:20px 22px 14px; box-shadow:0 2px 12px rgba(26,35,50,.22); margin-bottom:4px; }
+  .app-header h1{ color:#f1faee; letter-spacing:.2px; }
+  .app-header p.lead{ color:#a8dadc; margin-bottom:2px; }
+  .app-header strong{ color:#f1faee; }
+  /* Volumetria */
+  input.horas{ border:1px solid #c6d6d6; border-radius:6px; padding:5px 8px; font-size:13px; width:90px; text-align:right; }
+  input.horas.ajustada{ border-color:#a34700; background:#fff8f2; }
+  .kpis{ display:flex; gap:10px; flex-wrap:wrap; margin:10px 0; }
+  .kpi{ flex:1; min-width:150px; background:#edf4f2; border-radius:10px; padding:10px 12px; border-left:4px solid #2d8b8b; }
+  .kpi .valor{ font-size:22px; font-weight:800; color:#1a2332; }
+  .kpi .rotulo{ font-size:11px; font-weight:700; color:#6e8090; text-transform:uppercase; letter-spacing:.3px; }
+  /* Organograma */
+  .areas{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+  .area{ background:#f7faf9; border:1px solid #dde8e7; border-radius:10px; padding:10px 12px; }
+  .area h3{ margin:2px 0 8px; }
+  .no{ display:flex; align-items:center; gap:6px; padding:4px 6px; border-radius:6px; font-size:13px; }
+  .no .qtde{ font-weight:800; color:#1a2332; }
+  .no.gestao{ background:#e4ecef; font-weight:700; }
+  .no.grupo{ font-weight:700; color:#3f5566; font-size:12px; text-transform:uppercase; letter-spacing:.3px; margin-top:6px; }
+  .dot{ width:8px; height:8px; border-radius:50%; flex:none; }
+  .dot.gestao{ background:#1a2332; } .dot.base{ background:#0a7d43; }
+  .dot.analista_iii{ background:#8a6100; } .dot.produtos_digitais{ background:#a34700; }
+  .legenda{ display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:#3f5566; margin-top:10px; }
+  .legenda span{ display:flex; align-items:center; gap:5px; }
+  #btn-imprimir{ border:1px solid #d8e3e4; background:#fff; color:#1a2332; font-weight:700; font-size:13px; padding:8px 14px; border-radius:999px; cursor:pointer; }
+  /* Eficiência de processos */
+  .barra-h{ background:#e9f2f1; border-radius:6px; height:13px; overflow:hidden; min-width:120px; }
+  .barra-h span{ display:block; height:100%; background:#1a2332; border-radius:6px; }
+  tr.resultado .barra-h span{ background:#0a7d43; }
+  tr.acao td:first-child{ font-weight:700; }
+  tr.suporte.acao .barra-h span{ background:#a34700; }
+  .tag-pres, .tag-auto{ display:inline-block; font-size:10px; font-weight:800; border-radius:999px; padding:1px 8px; margin-left:6px; vertical-align:middle; }
+  .tag-pres{ background:#e2f5ea; color:#0a7d43; }
+  .tag-auto{ background:#ffe3cc; color:#a34700; }
+  .goal{ background:#eaf5f4; border:1px solid #a8dadc; border-radius:10px; padding:10px 14px; font-size:13px; margin-bottom:12px; }
+  #print-header{ display:none; }
+  /* Impressão limpa (Fase 5): relatório com resultado + premissas */
+  @media print{
+    body{ background:#fff; padding:0; color:#000; }
+    .tabs, .linha-acoes, .btn, #btn-imprimir, button{ display:none !important; }
+    p.lead{ display:none; }
+    .app-header{ background:none; color:#1a2332; box-shadow:none; padding:0; border-radius:0; }
+    .app-header h1{ color:#1a2332; }
+    .card{ box-shadow:none; }
+    tbody tr:hover{ background:none; }
+    #print-header{ display:block; font-size:12px; color:#3f5566; border-bottom:2px solid #1a2332; padding-bottom:6px; margin-bottom:12px; }
+    .card{ border:none; padding:6px 0; margin-bottom:8px; break-inside:avoid; }
+    input.horas, .campo select, .campo input{ border:none !important; background:transparent !important; padding:0 !important; }
+    .kpi{ border:1px solid #d8e3e4; background:#fff; }
+    /* Modo relatório: imprime resultado completo, oculta cadastro/config/testes */
+    body.relatorio section.tab{ display:block !important; }
+    body.relatorio #tab-shopping, body.relatorio #tab-motor, body.relatorio #card-salarios{ display:none !important; }
+    body.relatorio section.tab + section.tab{ page-break-before:always; }
+    body.relatorio #tab-criticidade{ page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app-header">
+    <h1>Simulador de Estrutura de Shoppings</h1>
+    <p class="lead">
+      <strong>Goal:</strong> a estrutura mais eficiente com base nos processos e na complexidade de cada ativo,
+      preservando tempo para as atividades core e maximizando o objetivo do shopping — metodologia da empresa de
+      shoppings. O resultado é o comparativo estrutura atual × proposta pelo modelo, preservando o que gera
+      resultado e automatizando o suporte. Tudo salvo neste navegador (localStorage).
+    </p>
+  </header>
+
+  <div class="tabs" id="tabs">
+    <button data-tab="shopping" class="ativa">1 · Shopping</button>
+    <button data-tab="criticidade">2 · Criticidade</button>
+    <button data-tab="volumetria">3 · Volumetria</button>
+    <button data-tab="organograma">4 · Organograma</button>
+    <button data-tab="qlp">5 · QLP &amp; Custos</button>
+    <button data-tab="rs">6 · Plano R&amp;S</button>
+    <button data-tab="premissas">7 · Premissas</button>
+    <button data-tab="motor">Motor &amp; testes</button>
+    <button id="btn-imprimir" title="Imprime criticidade, volumetria, organograma, QLP, R&amp;S e premissas" style="margin-left:auto">🖨 Imprimir relatório</button>
+  </div>
+  <div id="print-header"></div>
+
+  <!-- ================= ABA 1: SHOPPING ================= -->
+  <section class="tab ativa" id="tab-shopping">
+    <div class="card">
+      <h2>Empreendimento</h2>
+      <div class="linha-acoes">
+        <select id="sel-shopping" title="Shopping selecionado"></select>
+        <button class="btn" id="btn-novo">+ Novo</button>
+        <button class="btn perigo" id="btn-excluir">Excluir</button>
+      </div>
+      <div class="campo" style="max-width:420px">
+        <label for="inp-nome">Nome do shopping</label>
+        <input type="text" id="inp-nome" placeholder="Ex.: Shopping Centro-Sul">
+      </div>
+      <div class="linha-acoes" style="margin-top:10px">
+        <button class="btn sec" id="btn-backup">Exportar backup (JSON)</button>
+        <button class="btn sec" id="btn-importar">Importar backup</button>
+        <input type="file" id="inp-importar" accept=".json,application/json" style="display:none">
+      </div>
+      <p class="muted">Tudo é salvo automaticamente neste navegador. O backup JSON leva a base completa
+      (shoppings + salários) para outro navegador ou computador.</p>
+    </div>
+
+    <div class="card">
+      <h2>Matriz de criticidade — 12 variáveis</h2>
+      <p class="muted">Responda em linguagem de negócio; as notas (1/3/5) são atribuídas automaticamente.
+      Veja o resultado na aba <strong>Criticidade</strong>.</p>
+      <h3>Fatores core</h3>
+      <div class="grid" id="fatores-core"></div>
+      <h3>Fatores eletivos</h3>
+      <div class="grid" id="fatores-eletivos"></div>
+    </div>
+
+    <div class="card">
+      <h2>Ficha técnica (volumetria comercial)</h2>
+      <p class="muted">Valores pré-preenchidos com o shopping médio do estudo. Alimentam a aba Volumetria (Fase 3).</p>
+      <div class="grid" id="ficha-tecnica"></div>
+    </div>
+
+    <div class="card">
+      <h2>Características do empreendimento</h2>
+      <div class="grid">
+        <div>
+          <label class="check"><input type="checkbox" id="flag-retrofit"> Shopping em Retrofit</label>
+          <label class="check"><input type="checkbox" id="flag-eshopping"> Possui e-shopping</label>
+          <label class="check"><input type="checkbox" id="flag-praca"> Praça de retail (PR)</label>
+        </div>
+        <div>
+          <label class="check"><input type="checkbox" id="flag-ac"> Possui assistente de compras</label>
+          <label class="check" title="Premissa do modelo: vale para todos os shoppings">
+            <input type="checkbox" checked disabled> Programa de benefícios <span class="muted">(premissa: todos)</span></label>
+        </div>
+        <div class="campo">
+          <label for="flag-produtos">Produtos digitais implantados (qtde)</label>
+          <input type="number" id="flag-produtos" min="0" step="1">
+        </div>
+        <div class="campo">
+          <label for="flag-gmv">GMV médio do e-shopping (R$/mês)</label>
+          <input type="number" id="flag-gmv" min="0" step="1000">
+          <span class="nota">Acima de R$ 100 mil → 2 assistentes de compras (sem auxiliar).</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Processos institucionais</h2>
+      <p class="muted">Desmarque os processos que o shopping não executa — as horas correspondentes saem do
+      bloco Gestão da volumetria e a estrutura é recalculada.</p>
+      <div class="grid">
+        <label class="check"><input type="checkbox" id="proc-padrinhos"> Projeto Padrinhos</label>
+        <label class="check"><input type="checkbox" id="proc-matinal"> Matinal de mídia</label>
+        <label class="check"><input type="checkbox" id="proc-bigshots"> Big shots (discussões estratégicas)</label>
+      </div>
+    </div>
+
+    <div class="card">
+      <button class="btn" id="btn-confirmar">✓ Confirmar dados e calcular</button>
+      <span class="muted" id="msg-confirmar" style="margin-left:10px"></span>
+      <p class="muted" style="margin-top:8px">Os dados já são salvos automaticamente a cada alteração;
+      o botão confirma o cadastro, recalcula tudo e abre o resultado na aba Criticidade.</p>
+    </div>
+  </section>
+
+  <!-- ================= ABA 2: CRITICIDADE ================= -->
+  <section class="tab" id="tab-criticidade">
+    <div class="card" id="card-criticidade"></div>
+  </section>
+
+  <!-- ================= ABA 3: VOLUMETRIA ================= -->
+  <section class="tab" id="tab-volumetria">
+    <div class="card" id="card-volumetria"></div>
+    <div class="card" id="card-eficiencia"></div>
+  </section>
+
+  <!-- ================= ABA 4: ORGANOGRAMA ================= -->
+  <section class="tab" id="tab-organograma">
+    <div class="card" id="card-organograma"></div>
+  </section>
+
+  <!-- ================= ABA 5: QLP & CUSTOS ================= -->
+  <section class="tab" id="tab-qlp">
+    <div class="card" id="card-qlp"></div>
+    <div class="card" id="card-salarios"></div>
+  </section>
+
+  <!-- ================= ABA 6: PLANO R&S ================= -->
+  <section class="tab" id="tab-rs">
+    <div class="card" id="card-rs"></div>
+  </section>
+
+  <!-- ================= ABA 7: PREMISSAS & GOVERNANÇA ================= -->
+  <section class="tab" id="tab-premissas">
+    <div class="card">
+      <h2>Objetivo (goal)</h2>
+      <div class="goal">Ter a <strong>estrutura mais eficiente</strong> com base nos <strong>processos</strong> e na
+      <strong>complexidade de cada ativo</strong>, <strong>preservando tempo para as atividades core</strong> e
+      maximizando o objetivo do shopping.</div>
+      <blockquote style="font-size:13px; color:#3f5566; border-left:3px solid #1a2332; margin:10px 0; padding:4px 12px">
+        "O objetivo dos shoppings é trazer as melhores ofertas de lojas, serviços, entretenimento e gastronomia,
+        visando aumentar a frequência de visita e o ticket médio gasto nas lojas, com uma experiência qualificada,
+        gerando encantamento para seus consumidores e maximizando venda para seus lojistas e anunciantes — com isso,
+        maximizando o retorno sobre investimento aos empreendedores de shoppings a longo prazo."
+      </blockquote>
+      <p style="font-size:13px">Na prática: o resultado final é sempre o <strong>comparativo entre a estrutura atual e a
+      proposta pelo modelo</strong> (aba QLP &amp; Custos) + a análise de eficiência (aba Volumetria), em que
+      <strong>atividades que trazem resultado</strong> (recuperação de inadimplência, ganho de NOI, vendas, ocupação)
+      <strong>são preservadas</strong> e as de <strong>suporte</strong> são aprimoradas e/ou automatizadas.</p>
+    </div>
+    <div class="card">
+      <h2>Premissas do modelo</h2>
+      <ul>
+        <li><strong>Partir da otimização da estrutura</strong>: eliminar redundâncias e ineficiências de escopo antes de adicionar gente.</li>
+        <li><strong>Dados antes de feeling</strong>: o dimensionamento sai da matriz de criticidade e da volumetria de atividades, não de percepção.</li>
+        <li><strong>Manutenção da gestão</strong>: a camada de gestão (superintendente, gerentes e coordenadores) não muda na simulação — a evolução acontece apenas na equipe de base.</li>
+        <li><strong>Equilíbrio custo × estrutura × entregas</strong>: todo resultado mostra o Δ de headcount e o Δ de custo contra a estrutura atual.</li>
+        <li><strong>Jornadas</strong>: a evolução de longo prazo considera as jornadas do cliente e do lojista, com operações como suporte a ambas.</li>
+        <li><strong>Programa de benefícios</strong>: premissa — todos os shoppings participam do programa de benefícios; a estrutura já o considera, sem flag específica.</li>
+        <li><strong>Processos institucionais</strong>: Projeto Padrinhos, matinal de mídia e big shots são flags por shopping; quando desligados, as horas correspondentes saem do bloco Gestão da volumetria e a estrutura é recalculada.</li>
+        <li><strong>Assistente de compras</strong>: opcional por shopping; quando ausente, o time de compras (assistente + auxiliar) sai do organograma de marketing.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Metodologia (resumo)</h2>
+      <p style="font-size:13px"><strong>Matriz de criticidade</strong> — 12 fatores (10 core + 2 eletivos), cada um
+      pontuado em 1, 3 ou 5. A soma define a classe:</p>
+      <table style="max-width:420px"><thead><tr><th>Criticidade</th><th>Pontuação</th><th>Observação</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>20–35</td><td></td></tr>
+          <tr><td>2</td><td>36–42</td><td></td></tr>
+          <tr><td>3</td><td>43–50</td><td></td></tr>
+          <tr><td>4</td><td>51–60</td><td>Exclusiva para o maior empreendimento do portfólio</td></tr>
+        </tbody></table>
+      <p style="font-size:13px"><strong>Volumetria</strong> — horas mapeadas por bloco de escopo × 1,05 (margem de 5%
+      ≈ 25 min/dia/colaborador) ÷ 185 h/mês de capacidade por colaborador. A criticidade não altera o organograma de
+      Operações; o coordenador de obras existe apenas em shoppings com Retrofit; o time de omnicanalidade acompanha os
+      produtos digitais e o GMV.</p>
+      <p class="muted">Fonte: estudo de estrutura da empresa de shoppings —
+      <code>skill/simulador-estrutura-shoppings/referencia-dados.md</code>.</p>
+    </div>
+    <div class="card">
+      <h2>Governança</h2>
+      <ul>
+        <li>A área de <strong>G&amp;G é a guardiã</strong> da estrutura de cada empreendimento.</li>
+        <li><strong>Exceções</strong> à estrutura aprovada devem ser validadas com o diretor regional e o diretor executivo de operações, com apoio do time de G&amp;G.</li>
+        <li>Shoppings com espaço no orçamento implementam a estrutura proposta <strong>de imediato</strong>, conforme cronograma; todos preveem a estrutura definida no orçamento do ano seguinte.</li>
+        <li>Rollout em ondas: primeiro os cargos prioritários (produtos digitais), depois a adaptação para todos os shoppings.</li>
+        <li>Reduções são sempre tratadas como <strong>reaproveitamento</strong> de profissionais em funções compatíveis, avaliado por G&amp;G em conjunto com o shopping.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Evoluções previstas (backlog do modelo)</h2>
+      <ul>
+        <li>Volumetria por processo estruturado de <strong>tempos &amp; movimentos</strong> (a atual é empírica).</li>
+        <li>Pesagem e avaliação da estrutura de <strong>liderança</strong> (ex.: gerente de negócios unificando comercial e marketing).</li>
+        <li>Plano de remuneração e plano de carreira.</li>
+        <li>Simulação por <strong>jornadas</strong> (cliente e lojista) e retomada do foco em CX.</li>
+        <li>Rateios de estruturas compartilhadas entre empreendimentos.</li>
+        <li>Novas variáveis para Operações (quantidade de obras × analistas de projetos, responsável por POs).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ABA: MOTOR & TESTES (Fase 1) ================= -->
+  <section class="tab" id="tab-motor">
+    <div class="card">
+      <h2 style="margin-top:0">Autoteste <span id="resumo-teste"></span></h2>
+      <p class="muted">Roda automaticamente ao abrir a página (e no console: <code>Motor.autoteste()</code>).
+      Valida os números de calibração do estudo — shopping médio, ranges de criticidade e a regra de ouro (gestão Δ 0%).</p>
+      <table id="tabela-testes"><thead><tr><th>#</th><th>Teste</th><th>Resultado</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="card">
+      <h2 style="margin-top:0">Demonstração — shopping médio da ficha técnica</h2>
+      <div id="demo"></div>
+    </div>
+  </section>
+
+  <p class="muted">Simulador de Estrutura de Shoppings · v1.2 · tema Ocean Depths · metodologia da empresa de shoppings.
+  Regras: <code>skill/simulador-estrutura-shoppings/</code> · Orquestração: <code>docs/SIMULADOR-ESTRUTURA-SHOPPINGS.md</code>.
+  A estrutura de gestão nunca é alterada pela simulação. Dados ficam somente neste navegador — use o backup JSON para transportar.</p>
+</div>
+
+<script id="motor-js">
+/* =========================================================================
+ * Motor de cálculo — Simulador de Estrutura de Administração de Shoppings
+ * Fase 1 (docs/SIMULADOR-ESTRUTURA-SHOPPINGS.md §3-4)
+ * Fonte de verdade: skill/simulador-estrutura-shoppings/referencia-dados.md
+ * ========================================================================= */
+'use strict';
+
+const Motor = (() => {
+
+  const CONFIG = {
+    capacidadeHorasMes: 185,   // capacidade ≈ 185 h/mês por colaborador
+    margem: 0.05               // margem de 5% ≈ 25 min/dia/colaborador
+  };
+
+  // ---- Cargos canônicos (Fase 0) ------------------------------------------
+  // camadas: gestao | base | analista_iii | produtos_digitais
+  const CARGOS = {
+    'SUPER':            { nome: 'Superintendente',                       camada: 'gestao' },
+    // Comercial
+    'GCOM':             { nome: 'Gerente comercial',                     camada: 'gestao' },
+    'CCOM':             { nome: 'Coordenador(a) comercial',              camada: 'gestao' },
+    'GC':               { nome: 'Gerente de contas',                     camada: 'gestao' },
+    'EV':               { nome: 'Executivo de vendas',                   camada: 'base' },
+    'AN.COMERCIAL':     { nome: 'Analista comercial',                    camada: 'base' },
+    'AN.PERFORMANCE':   { nome: 'Analista de performance',               camada: 'base' },
+    'AS.PERFORMANCE':   { nome: 'Assistente de performance',             camada: 'base' },
+    'SUP.PERFORMANCE':  { nome: 'Supervisor de performance',             camada: 'base' },
+    'AN.RECEBIVEIS':    { nome: 'Analista de recebíveis',                camada: 'base' },
+    'AS.FIN.COM':       { nome: 'Assistente fin./com.',                  camada: 'base' },
+    'ESTAG.COM':        { nome: 'Estagiário comercial',                  camada: 'base' },
+    // Marketing
+    'GMKT':             { nome: 'Gerente de marketing',                  camada: 'gestao' },
+    'AN.MKT.III':       { nome: 'Analista MKT III',                      camada: 'analista_iii' },
+    'AN.COMUNICACAO':   { nome: 'Analista de comunicação',               camada: 'base' },
+    'AN.CM':            { nome: 'Analista community manager',            camada: 'base' },
+    'AN.CRM':           { nome: 'Analista de CRM',                       camada: 'base' },
+    'AN.TRADE':         { nome: 'Analista trade',                        camada: 'base' },
+    'AS.TRADE':         { nome: 'Assistente de trade',                   camada: 'base' },
+    'AC':               { nome: 'Assistente de compras',                 camada: 'produtos_digitais' },
+    'AUXILIAR.AC':      { nome: 'Auxiliar do assistente de compras',     camada: 'produtos_digitais' },
+    'AN.OMNI.ATIVACAO': { nome: 'Analista de omnicanalidade ativação',   camada: 'produtos_digitais' },
+    // Operações
+    'GEOP':             { nome: 'Gerente de operações',                  camada: 'gestao' },
+    'COORD.OP':         { nome: 'Coordenador(a) de operações',           camada: 'gestao' },
+    'COORD.EXP':        { nome: 'Coordenador(a) de experiência',         camada: 'gestao' },
+    'COORD.SEG':        { nome: 'Coordenador(a) de segurança',           camada: 'gestao' },
+    'COORD.OBRAS':      { nome: 'Coordenador(a) de obras',               camada: 'gestao' },
+    'AN.PROJETOS':      { nome: 'Analista de projetos',                  camada: 'base' },
+    'AN.OP':            { nome: 'Analista de operações',                 camada: 'base' },
+    'ESTAG.PROJETOS':   { nome: 'Estagiário de projetos',                camada: 'base' },
+    'ESTAG.OP':         { nome: 'Estagiário de operações',               camada: 'base' }
+  };
+
+  // ---- Referência: shopping médio (referencia-dados.md §3) -----------------
+  const REF = {
+    fichaTecnica: {
+      lojas: 170, lojasDisponiveis: 24, garantiasMes: 1, renovacoesMes: 1,
+      pontosMall: 11, comitePerformance: 5, rps: 7, matinalMidia: 8,
+      bigShots: 7, padrinhos: 26
+    },
+    blocosCore: {
+      'NOI': 435, 'Taxa de ocupação': 170, 'Inadimplência': 231,
+      'Vendas e SSS': 196, 'Gestão': 152, 'Relacionamento': 206,
+      'Sócios': 23, 'Outros': 175
+    },
+    blocosOmni: {
+      'Gestão omni': 112, 'Ativação': 121, 'Operação': 75, 'Comercial': 39
+    }
+  };
+
+  const FATORES_CRITICIDADE = [
+    'socio', 'atc', 'fluxoVeiculos', 'riscoTecnico', 'riscoSeguranca',
+    'idade', 'timeOrganico', 'numLojas', 'regularizacao', 'condominio',
+    'capex', 'produtosDigitais'
+  ];
+
+  const soma = obj => Object.values(obj).reduce((a, b) => a + b, 0);
+  const round1 = x => Math.round(x * 10) / 10;
+
+  // ---- 1. Criticidade -------------------------------------------------------
+  // notas: objeto com os 12 fatores, cada um valendo 1, 3 ou 5.
+  function calcularCriticidade(notas) {
+    const faltando = FATORES_CRITICIDADE.filter(f => !(f in notas));
+    if (faltando.length) throw new Error('Fatores faltando: ' + faltando.join(', '));
+    for (const f of FATORES_CRITICIDADE) {
+      if (![1, 3, 5].includes(notas[f])) throw new Error(`Nota inválida em "${f}": ${notas[f]} (use 1, 3 ou 5)`);
+    }
+    const total = FATORES_CRITICIDADE.reduce((a, f) => a + notas[f], 0);
+    let classe;
+    if (total <= 35) classe = 1;
+    else if (total <= 42) classe = 2;
+    else if (total <= 50) classe = 3;
+    else classe = 4; // 51-60: exclusiva para o maior empreendimento do portfólio
+    return {
+      total, classe,
+      excecaoPortfolio: classe === 4,
+      observacao: classe === 4
+        ? 'Criticidade 4 é exclusiva para o maior empreendimento do portfólio — validar com G&G.'
+        : null
+    };
+  }
+
+  // ---- 2. Volumetria (Comercial) --------------------------------------------
+  // Recebe blocos de horas (default: shopping médio). O mapeamento ficha
+  // técnica → horas é empírico no estudo; os blocos são editáveis (Fase 3).
+  function calcularVolumetria(entrada = {}) {
+    const blocosCore = entrada.blocosCore || { ...REF.blocosCore };
+    const blocosOmni = entrada.blocosOmni || { ...REF.blocosOmni };
+    const margem = entrada.margem ?? CONFIG.margem;
+    const capacidade = entrada.capacidadeHorasMes ?? CONFIG.capacidadeHorasMes;
+
+    const horasCore = soma(blocosCore);
+    const horasOmni = soma(blocosOmni);
+    const ajusta = h => Math.round(h * (1 + margem));
+    const hc = demanda => Math.round(demanda / capacidade);
+
+    const demandaCore = ajusta(horasCore);
+    const demandaOmni = ajusta(horasOmni);
+    const demandaTotal = ajusta(horasCore + horasOmni);
+
+    return {
+      blocosCore, blocosOmni, margem, capacidade,
+      horasCore, horasOmni, horasTotal: horasCore + horasOmni,
+      demandaCore, demandaOmni, demandaTotal,
+      hcCore: hc(demandaCore),
+      hcOmni: hc(demandaOmni),
+      hcTotal: hc(demandaTotal)
+    };
+  }
+
+  // ---- 2b. Estimativa dos blocos de horas a partir da ficha técnica ---------
+  // A volumetria do estudo é empírica (apurada com profissionais seniores).
+  // Na ferramenta, os blocos partem de uma estimativa proporcional ao shopping
+  // médio — cada bloco escala com um driver da ficha técnica — e podem ser
+  // ajustados manualmente na aba Volumetria (o ajuste prevalece).
+  const DRIVERS_BLOCOS = {
+    'NOI': 'lojas',
+    'Taxa de ocupação': 'lojasDisponiveis',
+    'Inadimplência': 'lojas',
+    'Vendas e SSS': 'lojas',
+    'Gestão': 'rituais',
+    'Relacionamento': 'lojas',
+    'Sócios': null,      // depende da composição societária, não da ficha
+    'Outros': null
+  };
+  const somaRituais = f =>
+    (f.comitePerformance || 0) + (f.rps || 0) + (f.matinalMidia || 0) + (f.bigShots || 0) + (f.padrinhos || 0);
+
+  // Processos institucionais que consomem horas de gestão na volumetria.
+  // Desligar um processo zera a variável correspondente da ficha técnica e a
+  // estrutura é recalculada (driver 'rituais' do bloco Gestão).
+  const PROCESSOS = ['padrinhos', 'matinalMidia', 'bigShots'];
+
+  function estimarBlocos(fichaTecnica = REF.fichaTecnica, flags = {}) {
+    const ref = REF.fichaTecnica;
+    const proc = { padrinhos: true, matinalMidia: true, bigShots: true, ...(flags.processos || {}) };
+    const ficha = { ...ref, ...fichaTecnica };
+    for (const p of PROCESSOS) if (!proc[p]) ficha[p] = 0;
+    const razao = driver => {
+      if (!driver) return 1;
+      if (driver === 'rituais') {
+        const base = somaRituais(ref);
+        return base ? somaRituais(ficha) / base : 1;
+      }
+      return ref[driver] ? (ficha[driver] ?? ref[driver]) / ref[driver] : 1;
+    };
+    const blocosCore = {};
+    for (const [bloco, horas] of Object.entries(REF.blocosCore)) {
+      blocosCore[bloco] = Math.round(horas * razao(DRIVERS_BLOCOS[bloco]));
+    }
+    // Escopo omni só existe onde há produtos digitais implantados
+    const temDigital = !!(flags.eShopping || (flags.produtosDigitaisQtde ?? 0) > 0);
+    const blocosOmni = {};
+    for (const [bloco, horas] of Object.entries(REF.blocosOmni)) {
+      blocosOmni[bloco] = temDigital ? horas : 0;
+    }
+    return { blocosCore, blocosOmni, temDigital };
+  }
+
+  // ---- 2c. Eficiência de processos -------------------------------------------
+  // Goal do modelo: a estrutura mais eficiente com base nos processos e na
+  // complexidade de cada ativo, PRESERVANDO tempo para as atividades core.
+  // Atividades que consomem tempo mas trazem resultado/retorno (recuperação
+  // de inadimplência, ganho de NOI, vendas, ocupação) devem ser MANTIDAS —
+  // automatiza-se apenas a parte transacional delas. Atividades de suporte
+  // são as candidatas a aprimoramento e/ou automação.
+  const BLOCOS_EFICIENCIA = {
+    'NOI':              { tipo: 'resultado', recomendacao: 'Manter — ganho de NOI traz retorno direto. Automatizar apenas a parte transacional (condomínio total: OBZ, caixa, CRD, orçamento; Capex pró-business) para liberar mais tempo às alavancas de NOI.' },
+    'Inadimplência':    { tipo: 'resultado', recomendacao: 'Manter — recuperação de inadimplência traz retorno direto. Automatizar o operacional (RC, NFs, pagamentos junto ao BO) para maximizar o tempo de negociação e recuperação.' },
+    'Taxa de ocupação': { tipo: 'resultado', recomendacao: 'Manter — comercializar vagas gera receita. Padronizar sistemas (CRM, plataforma de vendas, EPM) para dar mais tempo de prospecção e negociação.' },
+    'Vendas e SSS':     { tipo: 'resultado', recomendacao: 'Manter — alavanca direta de venda dos lojistas (frequência e ticket médio). Tornar os comitês de performance mais objetivos.' },
+    'Relacionamento':   { tipo: 'resultado', recomendacao: 'Manter — sustenta renovações, mix e experiência do lojista. Centralizar a régua de CRM para qualificar (não cortar) o contato.' },
+    'Gestão':           { tipo: 'suporte',   recomendacao: 'Aprimorar/automatizar — revisar a rotina de calls e alinhamentos (volume, duração e fóruns) e o custo dos processos institucionais flagados.' },
+    'Sócios':           { tipo: 'suporte',   recomendacao: 'Aprimorar — padronizar os reports para sócios.' },
+    'Outros':           { tipo: 'suporte',   recomendacao: 'Automatizar — eliminar processos redundantes; contas de consumo/insumos/medições via integração ERP + plataforma de medição (água, energia e gás).' },
+    'Gestão omni':      { tipo: 'suporte',   recomendacao: 'Aprimorar — redefinir escopo e skills das cadeiras digitais, reduzindo a sobreposição entre gestão core e omni.' },
+    'Ativação':         { tipo: 'resultado', recomendacao: 'Manter — ativação gera venda nos produtos digitais. Automatizar réguas e campanhas recorrentes.' },
+    'Operação':         { tipo: 'suporte',   recomendacao: 'Automatizar — rotinas operacionais do e-shopping.' },
+    'Comercial':        { tipo: 'resultado', recomendacao: 'Manter — funil comercial digital gera receita. Integrar ao CRM.' }
+  };
+
+  // resultado >= limiteResultado% → destacar como PRESERVAR;
+  // suporte  >= limiteSuporte%  → destacar como AUTOMATIZAR.
+  function analisarEficiencia(blocosCore = REF.blocosCore, blocosOmni = REF.blocosOmni,
+                              limiteResultado = 10, limiteSuporte = 5) {
+    const total = soma(blocosCore) + soma(blocosOmni);
+    const itens = [
+      ...Object.entries(blocosCore).map(([bloco, horas]) => ({ bloco, horas, escopo: 'core' })),
+      ...Object.entries(blocosOmni).map(([bloco, horas]) => ({ bloco, horas, escopo: 'omni' }))
+    ]
+      .filter(i => i.horas > 0)
+      .map(i => {
+        const def = BLOCOS_EFICIENCIA[i.bloco] || { tipo: 'suporte', recomendacao: 'Mapear atividades e tempo demandado (tempos & movimentos).' };
+        const pct = total ? Math.round(i.horas / total * 1000) / 10 : 0;
+        const acao = def.tipo === 'resultado'
+          ? (pct >= limiteResultado ? 'preservar' : null)
+          : (pct >= limiteSuporte ? 'automatizar' : null);
+        return { ...i, pct, tipo: def.tipo, recomendacao: def.recomendacao, acao };
+      })
+      .sort((a, b) => b.horas - a.horas);
+    const horasResultado = itens.filter(i => i.tipo === 'resultado').reduce((t, i) => t + i.horas, 0);
+    return {
+      total, limiteResultado, limiteSuporte, itens,
+      preservar: itens.filter(i => i.acao === 'preservar'),
+      automatizar: itens.filter(i => i.acao === 'automatizar'),
+      pctResultado: total ? Math.round(horasResultado / total * 1000) / 10 : 0
+    };
+  }
+
+  // ---- 3. Organograma proposto ----------------------------------------------
+  // shopping: { flags: { retrofit, eShopping, gmvMedio, produtosDigitaisQtde,
+  //                      pracaRetail }, volumetria?, criterioMkt? }
+  function montarOrganograma(shopping = {}) {
+    const flags = shopping.flags || {};
+    const vol = shopping.volumetria || calcularVolumetria();
+
+    // -- Comercial: cadeiras fixas da base + assistentes fin./com. variáveis
+    const fixasBaseComercial = ['EV', 'AN.COMERCIAL', 'AN.PERFORMANCE',
+      'AS.PERFORMANCE', 'SUP.PERFORMANCE', 'AN.RECEBIVEIS', 'ESTAG.COM'];
+    // 1 a 7 assistentes conforme a volumetria (hcCore - cadeiras fixas)
+    const assistentesFinCom = Math.min(7, Math.max(1, vol.hcCore - fixasBaseComercial.length));
+    const comercial = [
+      { cargo: 'SUPER', qtde: 1 }, { cargo: 'GCOM', qtde: 1 }, { cargo: 'CCOM', qtde: 1 },
+      { cargo: 'GC', qtde: 1 },
+      ...fixasBaseComercial.map(c => ({ cargo: c, qtde: 1 })),
+      { cargo: 'AS.FIN.COM', qtde: assistentesFinCom }
+    ];
+
+    // -- Marketing: critério 1/2/3 (referencia-dados.md §4.2)
+    const criterio = shopping.criterioMkt ??
+      (flags.eShopping || (flags.produtosDigitaisQtde ?? 0) >= 2 ? 1
+        : flags.pracaRetail ? 2 : 3);
+    const marketing = [
+      { cargo: 'GMKT', qtde: 1 },
+      { cargo: 'AN.COMUNICACAO', qtde: 1 }, { cargo: 'AN.CM', qtde: 1 },
+      { cargo: 'AN.TRADE', qtde: 1 }, { cargo: 'AN.CRM', qtde: 1 },
+      { cargo: 'AS.TRADE', qtde: 1 }
+    ];
+    if (criterio <= 2) marketing.push({ cargo: 'AN.MKT.III', qtde: 1 });
+    if (criterio === 1 && flags.eShopping) marketing.push({ cargo: 'AN.OMNI.ATIVACAO', qtde: 1 });
+    // Time de compras é opcional: só entra se o shopping possuir assistente de compras
+    if (flags.assistenteCompras !== false) {
+      // GMV médio > 100 mil converte assistente + auxiliar em 2 assistentes de compras
+      if (flags.eShopping && (flags.gmvMedio ?? 0) > 100000) {
+        marketing.push({ cargo: 'AC', qtde: 2 });
+      } else {
+        marketing.push({ cargo: 'AC', qtde: 1 }, { cargo: 'AUXILIAR.AC', qtde: 1 });
+      }
+    }
+
+    // -- Operações: estrutura única; obras somente em Retrofit
+    const operacoes = [
+      { cargo: 'GEOP', qtde: 1 }, { cargo: 'COORD.OP', qtde: 1 },
+      { cargo: 'COORD.EXP', qtde: 1 }, { cargo: 'COORD.SEG', qtde: 1 },
+      { cargo: 'AN.PROJETOS', qtde: 1 }, { cargo: 'AN.OP', qtde: 1 },
+      { cargo: 'ESTAG.PROJETOS', qtde: 1 }, { cargo: 'ESTAG.OP', qtde: 1 }
+    ];
+    if (flags.retrofit) operacoes.push({ cargo: 'COORD.OBRAS', qtde: 1 });
+
+    return { criterioMkt: criterio, assistentesFinCom, comercial, marketing, operacoes };
+  }
+
+  // ---- 4. QLP & custos --------------------------------------------------------
+  // atual/proposto: [{ cargo, qtde }] · salarios: { CODIGO: valor }
+  const CAMADAS = ['gestao', 'base', 'analista_iii', 'produtos_digitais'];
+
+  function agregar(estrutura, salarios = {}) {
+    const porCamada = {};
+    for (const c of CAMADAS) porCamada[c] = { hc: 0, custo: 0 };
+    for (const item of estrutura) {
+      const def = CARGOS[item.cargo];
+      if (!def) throw new Error('Cargo desconhecido: ' + item.cargo);
+      porCamada[def.camada].hc += item.qtde;
+      porCamada[def.camada].custo += item.qtde * (salarios[item.cargo] ?? 0);
+    }
+    return porCamada;
+  }
+
+  function calcularQlpCustos(atual, proposto, salarios = {}) {
+    const a = agregar(atual, salarios), p = agregar(proposto, salarios);
+    const pct = (de, para) => de === 0 ? (para === 0 ? 0 : null) : round1((para - de) / de * 100);
+    const porCamada = {};
+    for (const c of CAMADAS) {
+      porCamada[c] = {
+        hcAtual: a[c].hc, hcProposto: p[c].hc,
+        deltaHc: p[c].hc - a[c].hc, deltaHcPct: pct(a[c].hc, p[c].hc),
+        custoAtual: a[c].custo, custoProposto: p[c].custo,
+        deltaCusto: p[c].custo - a[c].custo, deltaCustoPct: pct(a[c].custo, p[c].custo)
+      };
+    }
+    const tot = k => CAMADAS.reduce((s, c) => s + porCamada[c][k], 0);
+    const total = {
+      hcAtual: tot('hcAtual'), hcProposto: tot('hcProposto'), deltaHc: tot('deltaHc'),
+      deltaHcPct: pct(tot('hcAtual'), tot('hcProposto')),
+      custoAtual: tot('custoAtual'), custoProposto: tot('custoProposto'),
+      deltaCusto: tot('deltaCusto'), deltaCustoPct: pct(tot('custoAtual'), tot('custoProposto'))
+    };
+    const alertas = [];
+    // Regra de ouro: a camada de gestão não muda na simulação.
+    if (porCamada.gestao.deltaHc !== 0) {
+      alertas.push('VIOLAÇÃO: a camada de gestão foi alterada (Δ ' +
+        porCamada.gestao.deltaHc + ' HC). A evolução deve acontecer apenas na equipe de base — validar com G&G.');
+    }
+    return { porCamada, total, alertas };
+  }
+
+  // ---- 5. Plano de R&S ---------------------------------------------------------
+  function planoRS(atual, proposto) {
+    const mapa = lista => lista.reduce((m, i) => (m[i.cargo] = (m[i.cargo] || 0) + i.qtde, m), {});
+    const a = mapa(atual), p = mapa(proposto);
+    const cargos = [...new Set([...Object.keys(a), ...Object.keys(p)])].sort();
+    const contrata = [], reduz = [], mantem = [];
+    for (const cargo of cargos) {
+      const qa = a[cargo] || 0, qp = p[cargo] || 0;
+      if (qp > qa) contrata.push({ cargo, qtde: qp - qa });
+      else if (qa > qp) reduz.push({ cargo, qtde: qa - qp, acao: 'reaproveitar em funções do novo organograma (avaliação G&G + shopping)' });
+      if (Math.min(qa, qp) > 0) mantem.push({ cargo, qtde: Math.min(qa, qp) });
+    }
+    return {
+      contrata, reduz, mantem,
+      resumo: {
+        mudancas: contrata.reduce((s, i) => s + i.qtde, 0) + reduz.reduce((s, i) => s + i.qtde, 0),
+        contratacoes: contrata.reduce((s, i) => s + i.qtde, 0),
+        reaproveitamentos: reduz.reduce((s, i) => s + i.qtde, 0)
+      }
+    };
+  }
+
+  // ---- Autoteste (critério de aceite da Fase 1) ---------------------------------
+  function autoteste() {
+    const testes = [];
+    const t = (nome, fn) => {
+      try { fn(); testes.push({ nome, ok: true }); }
+      catch (e) { testes.push({ nome, ok: false, erro: e.message }); }
+    };
+    const eq = (obtido, esperado, msg) => {
+      if (obtido !== esperado) throw new Error(`${msg}: esperado ${esperado}, obtido ${obtido}`);
+    };
+    // As horas de demanda do estudo têm arredondamento inconsistente na fonte
+    // (1.588×1,05=1.667,4 exibido como 1.668; 347×1,05=364,35 exibido como 364).
+    // Valida-se demanda com tolerância de ±1 h; o headcount é sempre exato.
+    const perto = (obtido, esperado, msg) => {
+      if (Math.abs(obtido - esperado) > 1) throw new Error(`${msg}: esperado ${esperado}±1, obtido ${obtido}`);
+    };
+
+    // Criticidade — ranges dos limites (referencia-dados.md §2)
+    const notasComTotal = total => {
+      // 12 fatores: distribui notas 1/3/5 para fechar no total desejado
+      const notas = {};
+      let resto = total - 12; // começa com tudo em 1
+      for (const f of FATORES_CRITICIDADE) {
+        const add = Math.min(4, resto - (resto % 2)); // incrementos de 2 ou 4 (1→3→5)
+        notas[f] = 1 + add;
+        resto -= add;
+      }
+      return notas;
+    };
+    t('Criticidade: soma 20 → classe 1', () => eq(calcularCriticidade(notasComTotal(20)).classe, 1, 'classe'));
+    // 12 notas ímpares somam sempre par: o teto testável da classe 1 (20-35) é 34
+    t('Criticidade: soma 34 → classe 1 (limite)', () => eq(calcularCriticidade(notasComTotal(34)).classe, 1, 'classe'));
+    t('Criticidade: soma 36 → classe 2', () => eq(calcularCriticidade(notasComTotal(36)).classe, 2, 'classe'));
+    t('Criticidade: soma 42 → classe 2 (limite)', () => eq(calcularCriticidade(notasComTotal(42)).classe, 2, 'classe'));
+    t('Criticidade: soma 44 → classe 3', () => eq(calcularCriticidade(notasComTotal(44)).classe, 3, 'classe'));
+    t('Criticidade: soma 50 → classe 3 (limite)', () => eq(calcularCriticidade(notasComTotal(50)).classe, 3, 'classe'));
+    t('Criticidade: soma 52 → classe 4 (exceção portfólio)', () => {
+      const r = calcularCriticidade(notasComTotal(52));
+      eq(r.classe, 4, 'classe'); eq(r.excecaoPortfolio, true, 'exceção');
+    });
+    t('Criticidade: nota inválida é rejeitada', () => {
+      const notas = notasComTotal(20); notas.socio = 2;
+      let lancou = false;
+      try { calcularCriticidade(notas); } catch { lancou = true; }
+      eq(lancou, true, 'deveria lançar erro');
+    });
+
+    // Volumetria — shopping médio (validação obrigatória, referencia-dados.md §3)
+    t('Volumetria: core 1.588 h → 1.668 h → 9 colaboradores', () => {
+      const v = calcularVolumetria();
+      eq(v.horasCore, 1588, 'horas core'); perto(v.demandaCore, 1668, 'demanda core'); eq(v.hcCore, 9, 'HC core');
+    });
+    t('Volumetria: omni 347 h → 364 h → 2 colaboradores', () => {
+      const v = calcularVolumetria();
+      eq(v.horasOmni, 347, 'horas omni'); eq(v.demandaOmni, 364, 'demanda omni'); eq(v.hcOmni, 2, 'HC omni');
+    });
+    t('Volumetria: total 1.935 h → 2.032 h → 11 colaboradores', () => {
+      const v = calcularVolumetria();
+      eq(v.horasTotal, 1935, 'horas total'); eq(v.demandaTotal, 2032, 'demanda total'); eq(v.hcTotal, 11, 'HC total');
+    });
+
+    // Organograma — regras condicionais (referencia-dados.md §4)
+    t('Organograma: shopping médio → 2 assistentes fin./com.', () => {
+      eq(montarOrganograma().assistentesFinCom, 2, 'assistentes fin./com.');
+    });
+    t('Organograma: assistentes fin./com. limitados a 1–7', () => {
+      const baixo = montarOrganograma({ volumetria: { hcCore: 5 } });
+      const alto = montarOrganograma({ volumetria: { hcCore: 30 } });
+      eq(baixo.assistentesFinCom, 1, 'mínimo'); eq(alto.assistentesFinCom, 7, 'máximo');
+    });
+    t('Organograma: Retrofit liga coordenador de obras', () => {
+      const sem = montarOrganograma({ flags: { retrofit: false } });
+      const com = montarOrganograma({ flags: { retrofit: true } });
+      eq(sem.operacoes.some(i => i.cargo === 'COORD.OBRAS'), false, 'sem retrofit');
+      eq(com.operacoes.some(i => i.cargo === 'COORD.OBRAS'), true, 'com retrofit');
+    });
+    t('Organograma MKT: critério 1 com e-shopping → 9 HC + gerente', () => {
+      const o = montarOrganograma({ flags: { eShopping: true, gmvMedio: 80000 } });
+      eq(o.criterioMkt, 1, 'critério');
+      const hcBase = o.marketing.filter(i => i.cargo !== 'GMKT').reduce((s, i) => s + i.qtde, 0);
+      eq(hcBase, 9, 'HC marketing');
+    });
+    t('Organograma MKT: critério 3 → 7 HC + gerente', () => {
+      const o = montarOrganograma({ flags: {} });
+      eq(o.criterioMkt, 3, 'critério');
+      const hcBase = o.marketing.filter(i => i.cargo !== 'GMKT').reduce((s, i) => s + i.qtde, 0);
+      eq(hcBase, 7, 'HC marketing');
+    });
+    t('Organograma MKT: GMV > 100 mil → 2 assistentes de compras, sem auxiliar', () => {
+      const o = montarOrganograma({ flags: { eShopping: true, gmvMedio: 150000 } });
+      eq(o.marketing.find(i => i.cargo === 'AC').qtde, 2, 'assistentes de compras');
+      eq(o.marketing.some(i => i.cargo === 'AUXILIAR.AC'), false, 'auxiliar');
+    });
+
+    // Estimativa de blocos pela ficha técnica (Fase 3)
+    t('Estimativa: ficha do shopping médio reproduz os blocos do estudo', () => {
+      const e = estimarBlocos(REF.fichaTecnica, { eShopping: true });
+      eq(soma(e.blocosCore), 1588, 'horas core'); eq(soma(e.blocosOmni), 347, 'horas omni');
+    });
+    t('Estimativa: dobrar as lojas dobra o NOI, sem mexer em Sócios', () => {
+      const e = estimarBlocos({ ...REF.fichaTecnica, lojas: 340 }, { eShopping: true });
+      eq(e.blocosCore['NOI'], 870, 'NOI'); eq(e.blocosCore['Sócios'], 23, 'Sócios');
+      eq(e.blocosCore['Taxa de ocupação'], 170, 'Taxa de ocupação (driver próprio)');
+    });
+    t('Estimativa: sem produtos digitais o escopo omni zera', () => {
+      const e = estimarBlocos(REF.fichaTecnica, {});
+      eq(soma(e.blocosOmni), 0, 'horas omni');
+      const v = calcularVolumetria({ blocosCore: e.blocosCore, blocosOmni: e.blocosOmni });
+      eq(v.hcOmni, 0, 'HC omni'); eq(v.hcCore, 9, 'HC core');
+    });
+
+    t('Estimativa: desligar Padrinhos/matinal/big shots reduz Gestão e o HC', () => {
+      const e = estimarBlocos(REF.fichaTecnica, { processos: { padrinhos: false, matinalMidia: false, bigShots: false } });
+      eq(e.blocosCore['Gestão'], 34, 'Gestão (12/53 rituais)');
+      const v = calcularVolumetria({ blocosCore: e.blocosCore, blocosOmni: e.blocosOmni });
+      eq(v.hcCore, 8, 'HC core recalculado');
+    });
+    t('Estimativa: processos ligados (padrão) mantêm a calibração', () => {
+      const e = estimarBlocos(REF.fichaTecnica, { processos: { padrinhos: true, matinalMidia: true, bigShots: true } });
+      eq(soma(e.blocosCore), 1588, 'horas core');
+    });
+
+    // Eficiência de processos (goal: preservar o core, automatizar o suporte)
+    t('Eficiência: NOI e Inadimplência trazem retorno → PRESERVAR, não cortar', () => {
+      const ef = analisarEficiencia();
+      eq(ef.itens[0].bloco, 'NOI', 'maior consumidor');
+      eq(ef.itens[0].pct, 22.5, '% do total');
+      eq(ef.itens[0].tipo, 'resultado', 'tipo do NOI');
+      eq(ef.itens[0].acao, 'preservar', 'ação do NOI');
+      const inad = ef.itens.find(i => i.bloco === 'Inadimplência');
+      eq(inad.acao, 'preservar', 'recuperação de inadimplência preservada');
+      eq(inad.recomendacao.includes('Manter'), true, 'recomendação de manter');
+    });
+    t('Eficiência: automatizar recai só sobre blocos de suporte', () => {
+      const ef = analisarEficiencia();
+      eq(ef.automatizar.every(i => i.tipo === 'suporte'), true, 'somente suporte');
+      eq(ef.automatizar.some(i => i.bloco === 'Gestão'), true, 'Gestão listada');
+      eq(ef.automatizar.some(i => i.bloco === 'Outros'), true, 'Outros listado');
+      eq(ef.preservar.every(i => i.tipo === 'resultado'), true, 'preservar só resultado');
+    });
+    t('Eficiência: 72,2% do tempo do shopping médio está em atividades de resultado', () => {
+      eq(analisarEficiencia().pctResultado, 72.2, '% em atividades core/resultado');
+    });
+
+    // Organograma — flag de assistente de compras
+    t('Organograma MKT: sem assistente de compras o time de compras sai', () => {
+      const o = montarOrganograma({ flags: { assistenteCompras: false, eShopping: true, gmvMedio: 150000 } });
+      eq(o.marketing.some(i => i.cargo === 'AC'), false, 'assistente de compras');
+      eq(o.marketing.some(i => i.cargo === 'AUXILIAR.AC'), false, 'auxiliar');
+    });
+
+    // QLP & custos — regra de ouro (gestão Δ 0%) e alerta de violação
+    t('QLP: gestão fecha em Δ 0% quando só a base evolui', () => {
+      const atual = [{ cargo: 'GCOM', qtde: 1 }, { cargo: 'AN.COMERCIAL', qtde: 1 }];
+      const proposto = [{ cargo: 'GCOM', qtde: 1 }, { cargo: 'AN.COMERCIAL', qtde: 1 }, { cargo: 'AS.FIN.COM', qtde: 2 }];
+      const r = calcularQlpCustos(atual, proposto, { GCOM: 20000, 'AN.COMERCIAL': 6000, 'AS.FIN.COM': 3500 });
+      eq(r.porCamada.gestao.deltaHc, 0, 'Δ gestão'); eq(r.alertas.length, 0, 'alertas');
+      eq(r.porCamada.base.deltaHc, 2, 'Δ base'); eq(r.total.deltaCusto, 7000, 'Δ custo');
+    });
+    t('QLP: alterar a gestão dispara alerta de violação', () => {
+      const r = calcularQlpCustos([{ cargo: 'GCOM', qtde: 1 }], [{ cargo: 'GCOM', qtde: 2 }]);
+      eq(r.alertas.length, 1, 'alertas');
+    });
+
+    // Plano de R&S — Contrata / Reduz-reaproveita / Mantém
+    t('R&S: classifica contrata, reduz (reaproveitar) e mantém', () => {
+      const atual = [{ cargo: 'AN.CM', qtde: 1 }, { cargo: 'AN.CRM', qtde: 1 }];
+      const proposto = [{ cargo: 'AN.CRM', qtde: 1 }, { cargo: 'AS.FIN.COM', qtde: 2 }];
+      const r = planoRS(atual, proposto);
+      eq(r.contrata.length, 1, 'contrata'); eq(r.contrata[0].qtde, 2, 'qtde contratada');
+      eq(r.reduz.length, 1, 'reduz'); eq(r.reduz[0].acao.includes('reaproveitar'), true, 'ação de reaproveitamento');
+      eq(r.mantem.length, 1, 'mantém'); eq(r.resumo.mudancas, 3, 'mudanças');
+    });
+
+    const ok = testes.filter(x => x.ok).length;
+    return { testes, ok, total: testes.length, passou: ok === testes.length };
+  }
+
+  return { CONFIG, CARGOS, REF, FATORES_CRITICIDADE, DRIVERS_BLOCOS,
+           calcularCriticidade, calcularVolumetria, estimarBlocos, analisarEficiencia,
+           montarOrganograma, calcularQlpCustos, planoRS, autoteste };
+})();
+
+if (typeof module !== 'undefined') module.exports = Motor; // permite testar via node
+</script>
+
+<script>
+/* =========================================================================
+ * Fase 2 — UI: abas Shopping e Criticidade com persistência em localStorage
+ * (docs/SIMULADOR-ESTRUTURA-SHOPPINGS.md §4, Fase 2)
+ * ========================================================================= */
+(function () {
+  if (typeof document === 'undefined') return;
+  'use strict';
+
+  // ---- Opções em linguagem de negócio (referencia-dados.md §2) ----
+  const FATORES_UI = [
+    { id: 'socio', label: 'Sócio', eletivo: false, opcoes: {
+      1: 'Shopping 100% empresa de shoppings', 3: 'Shopping com até 2 sócios', 5: 'Mais de 2 sócios e/ou fundações' } },
+    { id: 'atc', label: 'ATC — área total construída', eletivo: false, opcoes: {
+      1: 'Até 100.000 m²', 3: 'Entre 100 e 150 mil m²', 5: 'Mais de 150.000 m²' } },
+    { id: 'fluxoVeiculos', label: 'Fluxo de veículos', eletivo: false, opcoes: {
+      1: 'Até 100 mil/mês', 3: 'Entre 100 e 200 mil/mês', 5: 'Mais de 200 mil/mês' } },
+    { id: 'riscoTecnico', label: 'Risco técnico (laudo)', eletivo: false, opcoes: {
+      1: 'Baixo', 3: 'Médio', 5: 'Alto' } },
+    { id: 'riscoSeguranca', label: 'Risco de segurança', eletivo: false, opcoes: {
+      1: 'Baixo', 3: 'Médio', 5: 'Alto' } },
+    { id: 'idade', label: 'Idade do shopping', eletivo: false, opcoes: {
+      1: 'Menos de 10 anos', 3: 'Entre 10 e 20 anos', 5: 'Mais de 20 anos' } },
+    { id: 'timeOrganico', label: 'Time orgânico', eletivo: false, opcoes: {
+      1: 'Nenhuma disciplina', 3: 'Até 2 disciplinas', 5: 'Mais de 2 disciplinas' } },
+    { id: 'numLojas', label: 'Número de lojas', eletivo: false, opcoes: {
+      1: 'Até 100 lojas', 3: 'Entre 100 e 250 lojas', 5: 'Mais de 250 lojas' } },
+    { id: 'regularizacao', label: 'Regularização imobiliária', eletivo: false, opcoes: {
+      1: 'Regular', 3: 'Irregular — sem risco de fechamento', 5: 'Irregular — com risco de fechamento' } },
+    { id: 'condominio', label: 'Condomínio total (100%)', eletivo: false, opcoes: {
+      1: 'Até R$ 30 MM/ano', 3: 'Entre R$ 30 e 50 MM/ano', 5: 'Mais de R$ 50 MM/ano' } },
+    { id: 'capex', label: 'Capex (investimento)', eletivo: true, opcoes: {
+      1: 'Até R$ 20 MM/ano', 3: 'Entre R$ 20 e 30 MM/ano', 5: 'Mais de R$ 30 MM/ano' } },
+    { id: 'produtosDigitais', label: 'Produtos digitais', eletivo: true, opcoes: {
+      1: 'Nenhum', 3: 'Somente assistente de compras', 5: 'Produto completo' } }
+  ];
+
+  const FICHA_UI = [
+    { id: 'lojas', label: 'Lojas (sem quiosques)' },
+    { id: 'lojasDisponiveis', label: 'Lojas disponíveis p/ comercialização' },
+    { id: 'garantiasMes', label: 'Garantias a atualizar por mês' },
+    { id: 'renovacoesMes', label: 'Renovações trabalhadas no mês' },
+    { id: 'pontosMall', label: 'Pontos de mall disponíveis (média mensal)' },
+    { id: 'comitePerformance', label: 'Profissionais no comitê de performance' },
+    { id: 'rps', label: 'Profissionais em RPS' },
+    { id: 'matinalMidia', label: 'Profissionais na matinal de mídia' },
+    { id: 'bigShots', label: 'Profissionais nos big shots' },
+    { id: 'padrinhos', label: 'Profissionais no projeto Padrinhos' }
+  ];
+
+  const CLASSES_INFO = {
+    1: 'Estrutura padrão — menor complexidade do portfólio.',
+    2: 'Complexidade intermediária.',
+    3: 'Alta complexidade.',
+    4: 'Exceção — reservada ao maior empreendimento do portfólio. Validar com G&G.'
+  };
+
+  // ---- Estado + localStorage ----
+  const STORE_KEY = 'simuladorEstrutura.v1';
+  const uid = () => (crypto.randomUUID ? crypto.randomUUID() : 'id-' + Math.random().toString(36).slice(2));
+
+  function shoppingNovo(nome) {
+    const criticidade = {};
+    for (const f of FATORES_UI) criticidade[f.id] = 1;
+    return {
+      id: uid(),
+      nome: nome || 'Novo shopping',
+      criticidade,
+      fichaTecnica: { ...Motor.REF.fichaTecnica },
+      flags: { retrofit: false, eShopping: false, pracaRetail: false, gmvMedio: 0, produtosDigitaisQtde: 0,
+               assistenteCompras: true, programaBeneficios: true,
+               processos: { padrinhos: true, matinalMidia: true, bigShots: true } },
+      volumetriaAjustes: { core: {}, omni: {} },
+      estruturaAtual: [],
+      simulacoes: []
+    };
+  }
+
+  function carregar() {
+    try {
+      const bruto = localStorage.getItem(STORE_KEY);
+      if (bruto) return JSON.parse(bruto);
+    } catch (e) { console.warn('localStorage ilegível, começando vazio:', e); }
+    return null;
+  }
+  const salvar = () => localStorage.setItem(STORE_KEY, JSON.stringify(state));
+
+  let state = carregar();
+  if (!state || !Array.isArray(state.shoppings) || !state.shoppings.length) {
+    const s = shoppingNovo('Shopping exemplo (médio)');
+    state = { shoppings: [s], selecionadoId: s.id };
+    salvar();
+  }
+  // Migração de bases salvas em versões anteriores
+  for (const s of state.shoppings) {
+    s.volumetriaAjustes ??= { core: {}, omni: {} };
+    s.estruturaAtual ??= [];
+    s.flags.assistenteCompras ??= true;
+    s.flags.programaBeneficios = true; // premissa: todos os shoppings participam
+    s.flags.processos ??= { padrinhos: true, matinalMidia: true, bigShots: true };
+  }
+  state.config ??= {};
+  state.config.salarios ??= {};
+  const atual = () => state.shoppings.find(s => s.id === state.selecionadoId) || state.shoppings[0];
+
+  // ---- Helpers da Fase 4 ----
+  const fmtBRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  const CAMADA_LABEL = { gestao: 'Gestão', base: 'Base', analista_iii: 'Analista III', produtos_digitais: 'Produtos digitais' };
+
+  function propostaFlat(s) {
+    const org = Motor.montarOrganograma({ flags: s.flags, volumetria: volumetriaDoShopping(s).vol });
+    return [...org.comercial, ...org.marketing, ...org.operacoes];
+  }
+  const mapaQtde = lista => (lista || []).reduce((m, i) => (m[i.cargo] = (m[i.cargo] || 0) + i.qtde, m), {});
+  function setAtualCargo(s, cargo, qtde) {
+    const m = mapaQtde(s.estruturaAtual);
+    if (qtde > 0) m[cargo] = qtde; else delete m[cargo];
+    s.estruturaAtual = Object.entries(m).map(([c, q]) => ({ cargo: c, qtde: q }));
+  }
+  function baixarArquivo(nome, conteudo, tipo) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([conteudo], { type: tipo }));
+    a.download = nome;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // ---- Volumetria efetiva do shopping (estimativa + ajustes manuais) ----
+  function volumetriaDoShopping(s) {
+    const est = Motor.estimarBlocos(s.fichaTecnica, s.flags);
+    const aj = s.volumetriaAjustes;
+    const core = { ...est.blocosCore };
+    for (const b in aj.core) if (b in core) core[b] = aj.core[b];
+    const omni = { ...est.blocosOmni };
+    if (est.temDigital) for (const b in aj.omni) if (b in omni) omni[b] = aj.omni[b];
+    return { est, core, omni, vol: Motor.calcularVolumetria({ blocosCore: core, blocosOmni: omni }) };
+  }
+
+  // ---- Abas ----
+  document.getElementById('tabs').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-tab]');
+    if (!btn) return;
+    document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('ativa', b === btn));
+    document.querySelectorAll('section.tab').forEach(s =>
+      s.classList.toggle('ativa', s.id === 'tab-' + btn.dataset.tab));
+  });
+
+  // ---- Construção do formulário (uma vez) ----
+  function montarFatores() {
+    for (const f of FATORES_UI) {
+      const alvo = document.getElementById(f.eletivo ? 'fatores-eletivos' : 'fatores-core');
+      const div = document.createElement('div');
+      div.className = 'campo';
+      const opts = [1, 3, 5].map(n => `<option value="${n}">${f.opcoes[n]}</option>`).join('');
+      div.innerHTML = `<label for="fator-${f.id}">${f.label}</label>
+        <select id="fator-${f.id}" data-fator="${f.id}">${opts}</select>
+        <span class="nota" id="nota-${f.id}"></span>`;
+      alvo.appendChild(div);
+    }
+  }
+  function montarFicha() {
+    const alvo = document.getElementById('ficha-tecnica');
+    for (const c of FICHA_UI) {
+      const div = document.createElement('div');
+      div.className = 'campo';
+      div.innerHTML = `<label for="ficha-${c.id}">${c.label}</label>
+        <input type="number" min="0" step="1" id="ficha-${c.id}" data-ficha="${c.id}">`;
+      alvo.appendChild(div);
+    }
+  }
+
+  // ---- Renderização ----
+  function renderSeletor() {
+    const sel = document.getElementById('sel-shopping');
+    sel.innerHTML = state.shoppings.map(s =>
+      `<option value="${s.id}"${s.id === atual().id ? ' selected' : ''}>${s.nome}</option>`).join('');
+  }
+
+  function renderFormulario() {
+    const s = atual();
+    document.getElementById('inp-nome').value = s.nome;
+    for (const f of FATORES_UI) {
+      document.getElementById('fator-' + f.id).value = s.criticidade[f.id];
+      document.getElementById('nota-' + f.id).textContent = 'Nota ' + s.criticidade[f.id];
+    }
+    for (const c of FICHA_UI) document.getElementById('ficha-' + c.id).value = s.fichaTecnica[c.id] ?? 0;
+    document.getElementById('flag-retrofit').checked = !!s.flags.retrofit;
+    document.getElementById('flag-eshopping').checked = !!s.flags.eShopping;
+    document.getElementById('flag-praca').checked = !!s.flags.pracaRetail;
+    document.getElementById('flag-ac').checked = s.flags.assistenteCompras !== false;
+    document.getElementById('flag-produtos').value = s.flags.produtosDigitaisQtde ?? 0;
+    document.getElementById('flag-gmv').value = s.flags.gmvMedio ?? 0;
+    // Processos institucionais: checkbox + campo da ficha técnica correspondente
+    const proc = s.flags.processos;
+    const liga = (chk, fichaId, ativo) => {
+      document.getElementById(chk).checked = ativo;
+      const inp = document.getElementById(fichaId);
+      inp.disabled = !ativo;
+      inp.title = ativo ? '' : 'Processo desligado — zerado na volumetria';
+    };
+    liga('proc-padrinhos', 'ficha-padrinhos', proc.padrinhos !== false);
+    liga('proc-matinal', 'ficha-matinalMidia', proc.matinalMidia !== false);
+    liga('proc-bigshots', 'ficha-bigShots', proc.bigShots !== false);
+  }
+
+  function renderCriticidade() {
+    const s = atual();
+    const r = Motor.calcularCriticidade(s.criticidade);
+    const barra = [1, 2, 3, 4].map(c =>
+      `<span class="${c === r.classe ? 'atual' : ''}">Criticidade ${c}<br>${['20–35', '36–42', '43–50', '51–60'][c - 1]}</span>`).join('');
+
+    const linhas = FATORES_UI.map(f => {
+      const nota = s.criticidade[f.id];
+      const destaque = nota === 5 ? ' class="destaque-5"' : nota === 3 ? ' class="destaque-3"' : '';
+      return `<tr${destaque}><td>${f.label}${f.eletivo ? ' <span class="muted">(eletivo)</span>' : ''}</td>
+        <td>${f.opcoes[nota]}</td><td style="text-align:center"><strong>${nota}</strong></td></tr>`;
+    }).join('');
+
+    const puxam = FATORES_UI.filter(f => s.criticidade[f.id] === 5).map(f => f.label);
+    const limites = { 1: 36, 2: 43, 3: 51 };
+    let proximo = '';
+    if (r.classe < 4) {
+      proximo = `<p class="muted">Faltam <strong>${limites[r.classe] - r.total} pontos</strong> para a criticidade ${r.classe + 1}.</p>`;
+    }
+
+    document.getElementById('card-criticidade').innerHTML = `
+      <h2>${s.nome} — <span class="pill c${r.classe}">Criticidade ${r.classe}</span>
+        <span class="muted" style="font-weight:400">· ${r.total} pontos</span></h2>
+      <p class="muted">${CLASSES_INFO[r.classe]}</p>
+      <div class="barra-classe">${barra}</div>
+      ${r.excecaoPortfolio ? '<p class="fail">⚠ ' + r.observacao + '</p>' : ''}
+      ${puxam.length ? `<p style="font-size:13px"><strong>O que mais puxa a nota:</strong> ${puxam.join(' · ')}</p>` : ''}
+      ${proximo}
+      <table><thead><tr><th>Fator</th><th>Situação informada</th><th style="text-align:center">Nota</th></tr></thead>
+      <tbody>${linhas}</tbody></table>
+      <p class="muted">A criticidade não altera o organograma de Operações — é régua comparativa e insumo para Marketing.</p>`;
+  }
+
+  // ---- Aba 3: Volumetria ----
+  const DRIVER_LABEL = {
+    lojas: 'nº de lojas', lojasDisponiveis: 'lojas disponíveis',
+    rituais: 'rituais (comitês/RPS/mídia/big shots)'
+  };
+
+  function renderVolumetria() {
+    const s = atual();
+    const { est, core, omni, vol } = volumetriaDoShopping(s);
+    const aj = s.volumetriaAjustes;
+
+    const linha = (escopo, bloco, estimado, efetivo) => {
+      const driver = escopo === 'core' ? Motor.DRIVERS_BLOCOS[bloco] : null;
+      const ajustada = aj[escopo][bloco] != null && aj[escopo][bloco] !== estimado;
+      return `<tr><td>${bloco}</td>
+        <td class="muted">${escopo === 'core' ? (driver ? DRIVER_LABEL[driver] : 'fixo') : 'produtos digitais'}</td>
+        <td style="text-align:right">${estimado}</td>
+        <td style="text-align:right"><input class="horas${ajustada ? ' ajustada' : ''}" type="number" min="0" step="1"
+          data-escopo="${escopo}" data-bloco="${bloco}" value="${efetivo}"></td></tr>`;
+    };
+    const linhasCore = Object.entries(est.blocosCore).map(([b, h]) => linha('core', b, h, core[b])).join('');
+    const linhasOmni = est.temDigital
+      ? Object.entries(est.blocosOmni).map(([b, h]) => linha('omni', b, h, omni[b])).join('')
+      : '';
+    const temAjuste = Object.keys(aj.core).length || Object.keys(aj.omni).length;
+
+    document.getElementById('card-volumetria').innerHTML = `
+      <h2>${s.nome} — volumetria comercial</h2>
+      <div class="kpis">
+        <div class="kpi"><div class="valor">${vol.hcCore}</div><div class="rotulo">Core business</div></div>
+        <div class="kpi"><div class="valor">${vol.hcOmni}</div><div class="rotulo">Omnicanalidade</div></div>
+        <div class="kpi"><div class="valor">${vol.hcTotal}</div><div class="rotulo">Equipe comercial total</div></div>
+      </div>
+      <p class="muted">Fórmula: horas × 1,05 (margem de 5% ≈ 25 min/dia/colaborador) ÷ 185 h/mês de capacidade.
+      Demanda ajustada: core ${vol.demandaCore} h · omni ${vol.demandaOmni} h · total ${vol.demandaTotal} h.</p>
+      <table>
+        <thead><tr><th>Bloco de escopo</th><th>Driver da estimativa</th>
+          <th style="text-align:right">Estimado (h/mês)</th><th style="text-align:right">Horas usadas</th></tr></thead>
+        <tbody>
+          ${linhasCore}
+          ${est.temDigital
+            ? `<tr><th colspan="4">Canais digitais (omnicanalidade)</th></tr>${linhasOmni}`
+            : '<tr><td colspan="4" class="muted">Sem produtos digitais implantados — escopo omni zerado.</td></tr>'}
+        </tbody>
+      </table>
+      <p class="muted">A estimativa escala os blocos do shopping médio do estudo pelo driver indicado
+      (a volumetria do estudo é empírica). Edite as horas se tiver medição própria — o valor editado prevalece.</p>
+      ${temAjuste ? '<button class="btn sec" id="btn-restaurar-vol">Restaurar estimativas</button>' : ''}`;
+  }
+
+  // ---- Aba 3b: Eficiência de processos (goal) ----
+  function renderEficiencia() {
+    const s = atual();
+    const { core, omni } = volumetriaDoShopping(s);
+    const ef = Motor.analisarEficiencia(core, omni);
+    const maxPct = ef.itens.length ? ef.itens[0].pct : 1;
+
+    const linhas = ef.itens.map(i => `
+      <tr class="${i.tipo}${i.acao ? ' acao' : ''}">
+        <td>${i.bloco}${i.escopo === 'omni' ? ' <span class="muted">(omni)</span>' : ''}${
+          i.acao === 'preservar' ? '<span class="tag-pres">PRESERVAR</span>' :
+          i.acao === 'automatizar' ? '<span class="tag-auto">AUTOMATIZAR</span>' : ''}</td>
+        <td>${i.tipo === 'resultado' ? 'Gera resultado' : 'Suporte'}</td>
+        <td style="text-align:right">${i.horas} h</td>
+        <td style="text-align:right">${String(i.pct).replace('.', ',')}%</td>
+        <td><div class="barra-h"><span style="width:${Math.round(i.pct / maxPct * 100)}%"></span></div></td>
+      </tr>`).join('');
+
+    const li = itens => itens.map(i =>
+      `<li><strong>${i.bloco}</strong> (${String(i.pct).replace('.', ',')}% do tempo): ${i.recomendacao}</li>`).join('');
+
+    document.getElementById('card-eficiencia').innerHTML = `
+      <h2>Eficiência de processos — onde o tempo é consumido</h2>
+      <div class="goal"><strong>Goal:</strong> a estrutura mais eficiente com base nos processos e na
+      complexidade de cada ativo, <strong>preservando tempo para as atividades core</strong>. Atividades que
+      consomem tempo mas trazem resultado (recuperação de inadimplência, ganho de NOI, vendas, ocupação)
+      são <strong>mantidas</strong> — automatiza-se a parte transacional delas e as atividades de suporte,
+      liberando horas para maximizar o objetivo do shopping.</div>
+      <div class="kpis">
+        <div class="kpi"><div class="valor">${String(ef.pctResultado).replace('.', ',')}%</div>
+          <div class="rotulo">Tempo em atividades que geram resultado</div></div>
+        <div class="kpi"><div class="valor">${String(Math.round((100 - ef.pctResultado) * 10) / 10).replace('.', ',')}%</div>
+          <div class="rotulo">Tempo em suporte (alvo da automação)</div></div>
+      </div>
+      <table>
+        <thead><tr><th>Processo / bloco de escopo</th><th>Tipo</th><th style="text-align:right">Horas/mês</th>
+        <th style="text-align:right">% do total</th><th style="width:30%">Participação</th></tr></thead>
+        <tbody>${linhas}</tbody>
+      </table>
+      <h3>Preservar — consomem tempo, mas trazem retorno (≥ ${ef.limiteResultado}%)</h3>
+      <ul>${li(ef.preservar) || '<li class="muted">Nenhum bloco de resultado concentra ' + ef.limiteResultado + '% do tempo.</li>'}</ul>
+      <h3>Aprimorar e/ou automatizar — liberar tempo para o core (suporte ≥ ${ef.limiteSuporte}%)</h3>
+      <ul>${li(ef.automatizar) || '<li class="muted">Nenhum bloco de suporte concentra ' + ef.limiteSuporte + '% do tempo.</li>'}</ul>
+      <p class="muted">Frentes de otimização mapeadas no estudo da empresa de shoppings: sistemas comerciais
+      padronizados, automação de RC/NFs/pagamentos junto ao BO, gestão do condomínio total, Capex pró-business,
+      centralização da régua de CRM e revisão da rotina de calls e fóruns.</p>`;
+  }
+
+  // ---- Aba 4: Organograma ----
+  const ORG_LAYOUT = {
+    comercial: { titulo: 'Comercial', itens: [
+      ['GCOM', 0], ['CCOM', 1], ['AN.COMERCIAL', 2], ['AN.PERFORMANCE', 2], ['AS.PERFORMANCE', 2],
+      ['SUP.PERFORMANCE', 2], ['AN.RECEBIVEIS', 2], ['AS.FIN.COM', 2], ['ESTAG.COM', 2],
+      ['GC', 0], ['EV', 1] ] },
+    marketing: { titulo: 'Marketing', itens: [
+      ['GMKT', 0], ['AN.MKT.III', 1], ['AN.COMUNICACAO', 1], ['AN.CM', 1], ['AN.CRM', 1],
+      ['AN.TRADE', 1], ['AS.TRADE', 1],
+      ['#OMNI', 1], ['AN.OMNI.ATIVACAO', 2], ['AC', 2], ['AUXILIAR.AC', 2] ] },
+    operacoes: { titulo: 'Operações', itens: [
+      ['GEOP', 0], ['COORD.OP', 1], ['AN.PROJETOS', 2], ['AN.OP', 2], ['ESTAG.PROJETOS', 2],
+      ['ESTAG.OP', 2], ['COORD.EXP', 1], ['COORD.SEG', 1], ['COORD.OBRAS', 1] ] }
+  };
+
+  // Cargos na ordem de exibição do QLP/salários, com a área a que pertencem
+  const CARGOS_ORDENADOS = [['SUPER', 'Geral']].concat(
+    ['comercial', 'marketing', 'operacoes'].flatMap(a =>
+      ORG_LAYOUT[a].itens.filter(([c]) => c !== '#OMNI').map(([c]) => [c, ORG_LAYOUT[a].titulo]))
+  );
+
+  function renderOrganograma() {
+    const s = atual();
+    const { vol } = volumetriaDoShopping(s);
+    const org = Motor.montarOrganograma({ flags: s.flags, volumetria: vol });
+
+    const qtdes = area => org[area].reduce((m, i) => (m[i.cargo] = (m[i.cargo] || 0) + i.qtde, m), {});
+    const blocoArea = area => {
+      const q = qtdes(area);
+      const linhas = ORG_LAYOUT[area].itens.map(([cargo, nivel]) => {
+        if (cargo === '#OMNI') {
+          const temTime = ['AN.OMNI.ATIVACAO', 'AC', 'AUXILIAR.AC'].some(c => q[c]);
+          return temTime ? `<div class="no grupo" style="margin-left:${nivel * 16}px">Time de omnicanalidade / compras</div>` : '';
+        }
+        if (!q[cargo] || cargo === 'SUPER') return '';
+        const def = Motor.CARGOS[cargo];
+        return `<div class="no${def.camada === 'gestao' ? ' gestao' : ''}" style="margin-left:${nivel * 16}px">
+          <span class="dot ${def.camada}"></span>${def.nome}${q[cargo] > 1 ? ` <span class="qtde">× ${q[cargo]}</span>` : ''}</div>`;
+      }).join('');
+      const totalArea = org[area].filter(i => i.cargo !== 'SUPER').reduce((t, i) => t + i.qtde, 0);
+      return `<div class="area"><h3>${ORG_LAYOUT[area].titulo} · ${totalArea} profissionais</h3>${linhas}</div>`;
+    };
+
+    const totalGeral = 1 + ['comercial', 'marketing', 'operacoes']
+      .reduce((t, a) => t + org[a].filter(i => i.cargo !== 'SUPER').reduce((x, i) => x + i.qtde, 0), 0);
+
+    document.getElementById('card-organograma').innerHTML = `
+      <h2>${s.nome} — estrutura proposta</h2>
+      <div class="kpis">
+        <div class="kpi"><div class="valor">${totalGeral}</div><div class="rotulo">Total (com superintendente)</div></div>
+        <div class="kpi"><div class="valor">${org.assistentesFinCom}</div><div class="rotulo">Assistentes fin./com. (volumetria)</div></div>
+        <div class="kpi"><div class="valor">Critério ${org.criterioMkt}</div><div class="rotulo">Dimensionamento de marketing</div></div>
+      </div>
+      <div class="no gestao" style="max-width:280px"><span class="dot gestao"></span>Superintendente <span class="muted">(comum às três áreas)</span></div>
+      <div class="areas" style="margin-top:8px">
+        ${blocoArea('comercial')}${blocoArea('marketing')}${blocoArea('operacoes')}
+      </div>
+      <div class="legenda">
+        <span><span class="dot gestao"></span>Gestão (não muda na simulação)</span>
+        <span><span class="dot base"></span>Base</span>
+        <span><span class="dot analista_iii"></span>Analista III</span>
+        <span><span class="dot produtos_digitais"></span>Produtos digitais</span>
+      </div>
+      <p class="muted" style="margin-top:10px">
+        ${s.flags.retrofit ? 'Retrofit ativo → coordenador(a) de obras incluído.' : 'Sem Retrofit → sem coordenador(a) de obras.'}
+        ${s.flags.assistenteCompras === false ? ' Sem assistente de compras → time de compras fora do organograma.'
+          : s.flags.eShopping ? ((s.flags.gmvMedio ?? 0) > 100000
+            ? ' GMV > R$ 100 mil → 2 assistentes de compras (sem auxiliar).'
+            : ' e-shopping com GMV ≤ R$ 100 mil → assistente + auxiliar de compras.') : ''}
+        ${['padrinhos', 'matinalMidia', 'bigShots'].some(p => s.flags.processos[p] === false)
+          ? ' Processos institucionais desligados reduzem a volumetria de gestão.' : ''}
+        Exceções à estrutura exigem validação do diretor regional + diretor executivo de operações (G&G).</p>`;
+  }
+
+  // ---- Aba 5: QLP & Custos ----
+  function renderQlp() {
+    const s = atual();
+    const proposta = propostaFlat(s);
+    const temAtual = (s.estruturaAtual || []).length > 0;
+    const r = Motor.calcularQlpCustos(s.estruturaAtual || [], proposta, state.config.salarios);
+    const qA = mapaQtde(s.estruturaAtual), qP = mapaQtde(proposta);
+    const temSalarios = Object.values(state.config.salarios).some(v => v > 0);
+
+    let areaAnterior = null;
+    const linhasCargo = CARGOS_ORDENADOS.map(([cargo, area]) => {
+      const a = qA[cargo] || 0, p = qP[cargo] || 0;
+      if (!a && !p) return '';
+      const def = Motor.CARGOS[cargo];
+      const delta = p - a;
+      const cab = area !== areaAnterior ? `<tr><th colspan="4">${area}</th></tr>` : '';
+      areaAnterior = area;
+      return `${cab}<tr><td><span class="dot ${def.camada}" style="display:inline-block;margin-right:5px"></span>${def.nome}</td>
+        <td style="text-align:right"><input class="horas" type="number" min="0" step="1" data-atual="${cargo}" value="${a}"></td>
+        <td style="text-align:right">${p}</td>
+        <td style="text-align:right" class="${delta > 0 ? 'ok' : delta < 0 ? 'fail' : 'muted'}">${delta > 0 ? '+' : ''}${delta}</td></tr>`;
+    }).join('');
+
+    const pct = v => v == null ? '—' : (v > 0 ? '+' : '') + String(v).replace('.', ',') + '%';
+    const linhasCamada = Object.keys(CAMADA_LABEL).map(c => {
+      const d = r.porCamada[c];
+      if (!d.hcAtual && !d.hcProposto) return '';
+      return `<tr><td>${CAMADA_LABEL[c]}</td>
+        <td style="text-align:right">${d.hcAtual}</td><td style="text-align:right">${d.hcProposto}</td>
+        <td style="text-align:right">${d.deltaHc > 0 ? '+' : ''}${d.deltaHc}</td>
+        <td style="text-align:right">${temAtual ? pct(d.deltaHcPct) : '—'}</td>
+        ${temSalarios ? `<td style="text-align:right">${fmtBRL.format(d.custoAtual)}</td>
+        <td style="text-align:right">${fmtBRL.format(d.custoProposto)}</td>
+        <td style="text-align:right">${fmtBRL.format(d.deltaCusto)}</td>` : ''}</tr>`;
+    }).join('');
+    const tot = r.total;
+
+    const frase = !temAtual ? '' :
+      tot.deltaHc < 0 ? 'O modelo propõe uma estrutura mais enxuta que a atual — validar os reaproveitamentos com G&G.' :
+      tot.deltaHc > 0 ? 'O modelo propõe reforço na equipe de base para sustentar as entregas — a gestão permanece igual.' :
+      'A estrutura atual já está aderente ao modelo.';
+    const resumoGoal = !temAtual ? '' : `
+      <div class="kpis">
+        <div class="kpi"><div class="valor">${tot.hcAtual}</div><div class="rotulo">Estrutura atual (HC)</div></div>
+        <div class="kpi"><div class="valor">${tot.hcProposto}</div><div class="rotulo">Proposta do modelo (HC)</div></div>
+        <div class="kpi"><div class="valor">${tot.deltaHc > 0 ? '+' : ''}${tot.deltaHc}</div><div class="rotulo">Δ estrutura</div></div>
+        ${temSalarios ? `<div class="kpi"><div class="valor">${fmtBRL.format(tot.deltaCusto)}</div><div class="rotulo">Δ custo/mês</div></div>` : ''}
+      </div>
+      <div class="goal"><strong>Goal:</strong> a estrutura mais eficiente com base nos processos e na
+      complexidade do ativo, preservando tempo para as atividades core. ${frase} Consulte a análise de
+      eficiência (aba Volumetria): atividades que geram resultado se preservam; suporte se automatiza antes
+      de contratar.</div>`;
+
+    document.getElementById('card-qlp').innerHTML = `
+      <h2>${s.nome} — QLP atual × proposto</h2>
+      ${resumoGoal}
+      ${temAtual ? '' : `<p class="muted">Informe abaixo a <strong>estrutura atual</strong> do shopping
+        (quantidade por cargo) para liberar o comparativo e o plano de R&amp;S —
+        ou comece copiando a proposta.</p>`}
+      <div class="linha-acoes">
+        <button class="btn sec" id="btn-copiar-proposta">Copiar proposta → atual</button>
+        <button class="btn" id="btn-csv">Exportar relatório (CSV)</button>
+      </div>
+      ${r.alertas.length && temAtual ? r.alertas.map(a => `<p class="fail">⚠ ${a}</p>`).join('') : ''}
+      <h3>Resumo por camada</h3>
+      <table><thead><tr><th>Camada</th><th style="text-align:right">HC atual</th><th style="text-align:right">HC proposto</th>
+        <th style="text-align:right">Δ</th><th style="text-align:right">Δ%</th>
+        ${temSalarios ? '<th style="text-align:right">Custo atual</th><th style="text-align:right">Custo proposto</th><th style="text-align:right">Δ custo</th>' : ''}</tr></thead>
+      <tbody>${linhasCamada}
+        <tr style="font-weight:800"><td>Total</td>
+          <td style="text-align:right">${tot.hcAtual}</td><td style="text-align:right">${tot.hcProposto}</td>
+          <td style="text-align:right">${tot.deltaHc > 0 ? '+' : ''}${tot.deltaHc}</td>
+          <td style="text-align:right">${temAtual ? pct(tot.deltaHcPct) : '—'}</td>
+          ${temSalarios ? `<td style="text-align:right">${fmtBRL.format(tot.custoAtual)}</td>
+          <td style="text-align:right">${fmtBRL.format(tot.custoProposto)}</td>
+          <td style="text-align:right">${fmtBRL.format(tot.deltaCusto)}</td>` : ''}</tr></tbody></table>
+      ${temSalarios ? '' : '<p class="muted">Preencha os salários de referência no cartão abaixo para ver o comparativo de custos.</p>'}
+      <h3>Detalhe por cargo</h3>
+      <table><thead><tr><th>Cargo</th><th style="text-align:right">Atual (editável)</th>
+        <th style="text-align:right">Proposto</th><th style="text-align:right">Δ</th></tr></thead>
+      <tbody>${linhasCargo}</tbody></table>
+      <p class="muted">A camada de gestão não muda na simulação — diferenças em gestão indicam estrutura
+      atual fora do padrão e exigem validação com G&amp;G.</p>`;
+  }
+
+  function renderSalarios() {
+    const campos = CARGOS_ORDENADOS.map(([cargo, area], i) => {
+      const cab = (i === 0 || CARGOS_ORDENADOS[i - 1][1] !== area) ? `<h3 style="grid-column:1/-1">${area}</h3>` : '';
+      return `${cab}<div class="campo"><label>${Motor.CARGOS[cargo].nome}</label>
+        <input type="number" min="0" step="100" data-salario="${cargo}" value="${state.config.salarios[cargo] ?? 0}"></div>`;
+    }).join('');
+    document.getElementById('card-salarios').innerHTML = `
+      <h2>Salários de referência (R$/mês, com encargos)</h2>
+      <p class="muted">Parametrizáveis e válidos para todos os shoppings da base — usados no comparativo de custos acima.</p>
+      <div class="grid">${campos}</div>`;
+  }
+
+  // ---- Aba 6: Plano de R&S ----
+  function renderRS() {
+    const s = atual();
+    const temAtual = (s.estruturaAtual || []).length > 0;
+    if (!temAtual) {
+      document.getElementById('card-rs').innerHTML = `
+        <h2>${s.nome} — plano de R&amp;S</h2>
+        <p class="muted">Informe a <strong>estrutura atual</strong> na aba QLP &amp; Custos para gerar o plano
+        de Contrata / Reduz / Mantém.</p>`;
+      return;
+    }
+    const rs = Motor.planoRS(s.estruturaAtual, propostaFlat(s));
+    const bloco = (titulo, itens, extra) => `
+      <div class="area"><h3>${titulo} · ${itens.reduce((t, i) => t + i.qtde, 0)}</h3>
+        ${itens.length ? itens.map(i => `<div class="no"><span class="dot ${Motor.CARGOS[i.cargo].camada}"></span>
+          ${Motor.CARGOS[i.cargo].nome}${i.qtde > 1 ? ` <span class="qtde">× ${i.qtde}</span>` : ''}</div>`).join('')
+          : '<p class="muted">Nenhum cargo.</p>'}
+        ${extra || ''}</div>`;
+    document.getElementById('card-rs').innerHTML = `
+      <h2>${s.nome} — plano de R&amp;S</h2>
+      <div class="kpis">
+        <div class="kpi"><div class="valor">${rs.resumo.mudancas}</div><div class="rotulo">Mudanças no organograma</div></div>
+        <div class="kpi"><div class="valor">${rs.resumo.contratacoes}</div><div class="rotulo">Contratações</div></div>
+        <div class="kpi"><div class="valor">${rs.resumo.reaproveitamentos}</div><div class="rotulo">Reaproveitamentos</div></div>
+      </div>
+      <div class="areas">
+        ${bloco('Contrata', rs.contrata)}
+        ${bloco('Reduz — reaproveitar', rs.reduz,
+          '<p class="muted">Cadeiras incompatíveis com o novo organograma: <strong>reaproveitar</strong> os profissionais em funções compatíveis, em avaliação conjunta G&amp;G + shopping — nunca redução automática.</p>')}
+        ${bloco('Mantém', rs.mantem)}
+      </div>
+      <p class="muted" style="margin-top:10px">Governança: shoppings com espaço no orçamento implementam de imediato,
+      conforme cronograma; os demais preveem a estrutura no orçamento do ano seguinte. G&amp;G formaliza o
+      cronograma de contratações.</p>`;
+  }
+
+  // ---- Exportações ----
+  function exportarCsv() {
+    const s = atual();
+    const { vol } = volumetriaDoShopping(s);
+    const crit = Motor.calcularCriticidade(s.criticidade);
+    const proposta = propostaFlat(s);
+    const r = Motor.calcularQlpCustos(s.estruturaAtual || [], proposta, state.config.salarios);
+    const rs = Motor.planoRS(s.estruturaAtual || [], proposta);
+    const qA = mapaQtde(s.estruturaAtual), qP = mapaQtde(proposta);
+    const L = [];
+    L.push(['Simulador de Estrutura de Shoppings — ' + s.nome]);
+    L.push(['Criticidade', crit.classe, 'Pontuação', crit.total]);
+    L.push(['Volumetria comercial (HC)', 'core', vol.hcCore, 'omni', vol.hcOmni, 'total', vol.hcTotal]);
+    L.push([]);
+    L.push(['QLP por camada', 'HC atual', 'HC proposto', 'Delta HC', 'Custo atual', 'Custo proposto', 'Delta custo']);
+    for (const c of Object.keys(CAMADA_LABEL)) {
+      const d = r.porCamada[c];
+      L.push([CAMADA_LABEL[c], d.hcAtual, d.hcProposto, d.deltaHc, d.custoAtual, d.custoProposto, d.deltaCusto]);
+    }
+    L.push(['Total', r.total.hcAtual, r.total.hcProposto, r.total.deltaHc, r.total.custoAtual, r.total.custoProposto, r.total.deltaCusto]);
+    L.push([]);
+    L.push(['Detalhe por cargo', 'Atual', 'Proposto', 'Delta']);
+    for (const [cargo] of CARGOS_ORDENADOS) {
+      const a = qA[cargo] || 0, p = qP[cargo] || 0;
+      if (a || p) L.push([Motor.CARGOS[cargo].nome, a, p, p - a]);
+    }
+    L.push([]);
+    const { core: efCore, omni: efOmni } = volumetriaDoShopping(s);
+    const ef = Motor.analisarEficiencia(efCore, efOmni);
+    L.push(['Eficiência de processos', 'Tipo', 'Horas/mês', '% do total', 'Ação', 'Recomendação']);
+    for (const i of ef.itens) {
+      L.push([i.bloco, i.tipo === 'resultado' ? 'Gera resultado' : 'Suporte', i.horas, i.pct,
+        i.acao === 'preservar' ? 'PRESERVAR' : i.acao === 'automatizar' ? 'AUTOMATIZAR' : '-',
+        i.acao ? i.recomendacao : '']);
+    }
+    L.push(['% do tempo em atividades que geram resultado', ef.pctResultado + '%']);
+    L.push([]);
+    L.push(['Plano de R&S', 'Cargo', 'Qtde']);
+    for (const i of rs.contrata) L.push(['Contrata', Motor.CARGOS[i.cargo].nome, i.qtde]);
+    for (const i of rs.reduz) L.push(['Reduz (reaproveitar — G&G)', Motor.CARGOS[i.cargo].nome, i.qtde]);
+    for (const i of rs.mantem) L.push(['Mantém', Motor.CARGOS[i.cargo].nome, i.qtde]);
+    const csv = '\uFEFF' + L.map(l => l.join(';')).join('\r\n');
+    const slug = s.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'shopping';
+    baixarArquivo(`simulacao-${slug}.csv`, csv, 'text/csv;charset=utf-8');
+  }
+
+  const renderTudo = () => { renderSeletor(); renderFormulario(); renderCriticidade(); renderVolumetria(); renderEficiencia(); renderOrganograma(); renderQlp(); renderSalarios(); renderRS(); };
+
+  // ---- Eventos ----
+  document.getElementById('sel-shopping').addEventListener('change', e => {
+    state.selecionadoId = e.target.value; salvar(); renderTudo();
+  });
+  document.getElementById('btn-novo').addEventListener('click', () => {
+    const s = shoppingNovo('Novo shopping ' + (state.shoppings.length + 1));
+    state.shoppings.push(s); state.selecionadoId = s.id; salvar(); renderTudo();
+  });
+  document.getElementById('btn-excluir').addEventListener('click', () => {
+    if (state.shoppings.length === 1) { alert('Mantenha ao menos um shopping na base.'); return; }
+    if (!confirm(`Excluir "${atual().nome}"? Esta ação não pode ser desfeita.`)) return;
+    state.shoppings = state.shoppings.filter(s => s.id !== atual().id);
+    state.selecionadoId = state.shoppings[0].id; salvar(); renderTudo();
+  });
+  document.getElementById('inp-nome').addEventListener('input', e => {
+    atual().nome = e.target.value || 'Sem nome'; salvar(); renderSeletor(); renderCriticidade();
+  });
+  const renderDerivados = () => { renderVolumetria(); renderEficiencia(); renderOrganograma(); renderQlp(); renderRS(); };
+  document.addEventListener('change', e => {
+    const s = atual();
+    if (e.target.dataset.fator) {
+      s.criticidade[e.target.dataset.fator] = Number(e.target.value);
+      document.getElementById('nota-' + e.target.dataset.fator).textContent = 'Nota ' + e.target.value;
+      salvar(); renderCriticidade();
+    } else if (e.target.dataset.ficha) {
+      s.fichaTecnica[e.target.dataset.ficha] = Number(e.target.value) || 0;
+      salvar(); renderDerivados();
+    } else if (e.target.dataset.bloco) {
+      const escopo = e.target.dataset.escopo;
+      s.volumetriaAjustes[escopo][e.target.dataset.bloco] = Math.max(0, Number(e.target.value) || 0);
+      salvar(); renderDerivados();
+    } else if (e.target.dataset.atual) {
+      setAtualCargo(s, e.target.dataset.atual, Math.max(0, Number(e.target.value) || 0));
+      salvar(); renderQlp(); renderRS();
+    } else if (e.target.dataset.salario) {
+      state.config.salarios[e.target.dataset.salario] = Math.max(0, Number(e.target.value) || 0);
+      salvar(); renderQlp();
+    } else if (e.target.id === 'inp-importar') {
+      const arq = e.target.files[0];
+      if (!arq) return;
+      arq.text().then(txt => {
+        const dados = JSON.parse(txt);
+        if (!Array.isArray(dados.shoppings) || !dados.shoppings.length) throw new Error('formato inválido');
+        state = dados;
+        for (const sh of state.shoppings) {
+          sh.volumetriaAjustes ??= { core: {}, omni: {} };
+          sh.estruturaAtual ??= [];
+        }
+        state.config ??= {}; state.config.salarios ??= {};
+        state.selecionadoId = state.shoppings[0].id;
+        salvar(); renderTudo();
+        alert(`Backup importado: ${state.shoppings.length} shopping(s).`);
+      }).catch(err => alert('Não foi possível importar este arquivo: ' + err.message));
+      e.target.value = '';
+    }
+  });
+  document.addEventListener('click', e => {
+    if (e.target.id === 'btn-restaurar-vol') {
+      atual().volumetriaAjustes = { core: {}, omni: {} };
+      salvar(); renderDerivados();
+    } else if (e.target.id === 'btn-copiar-proposta') {
+      atual().estruturaAtual = propostaFlat(atual()).map(i => ({ ...i }));
+      salvar(); renderQlp(); renderRS();
+    } else if (e.target.id === 'btn-csv') {
+      exportarCsv();
+    } else if (e.target.id === 'btn-backup') {
+      baixarArquivo('simulador-estrutura-backup.json', JSON.stringify(state, null, 2), 'application/json');
+    } else if (e.target.id === 'btn-importar') {
+      document.getElementById('inp-importar').click();
+    }
+  });
+  const flag = (id, aplicar) => document.getElementById(id).addEventListener('change', e => {
+    aplicar(atual().flags, e.target); salvar(); renderDerivados();
+  });
+  flag('flag-retrofit', (f, el) => f.retrofit = el.checked);
+  flag('flag-eshopping', (f, el) => f.eShopping = el.checked);
+  flag('flag-praca', (f, el) => f.pracaRetail = el.checked);
+  flag('flag-ac', (f, el) => f.assistenteCompras = el.checked);
+  flag('flag-produtos', (f, el) => f.produtosDigitaisQtde = Number(el.value) || 0);
+  flag('flag-gmv', (f, el) => f.gmvMedio = Number(el.value) || 0);
+  const processo = (id, chave) => document.getElementById(id).addEventListener('change', e => {
+    atual().flags.processos[chave] = e.target.checked;
+    salvar(); renderFormulario(); renderDerivados();
+  });
+  processo('proc-padrinhos', 'padrinhos');
+  processo('proc-matinal', 'matinalMidia');
+  processo('proc-bigshots', 'bigShots');
+
+  // Botão de confirmação do cadastro: recalcula tudo e abre o resultado
+  document.getElementById('btn-confirmar').addEventListener('click', () => {
+    const s = atual();
+    if (!s.nome || s.nome === 'Sem nome') {
+      document.getElementById('msg-confirmar').textContent = 'Dê um nome ao shopping antes de confirmar.';
+      return;
+    }
+    s.confirmadoEm = new Date().toISOString();
+    salvar(); renderTudo();
+    document.getElementById('msg-confirmar').textContent =
+      `Dados de "${s.nome}" confirmados em ${new Date().toLocaleString('pt-BR')}. Abrindo o resultado…`;
+    setTimeout(() => document.querySelector('#tabs button[data-tab="criticidade"]').click(), 600);
+  });
+
+  // ---- Impressão do relatório (Fase 5) ----
+  document.getElementById('btn-imprimir').addEventListener('click', () => {
+    const s = atual();
+    const crit = Motor.calcularCriticidade(s.criticidade);
+    document.getElementById('print-header').innerHTML =
+      `<strong>${s.nome}</strong> — Simulação de estrutura de administração · Criticidade ${crit.classe} ` +
+      `(${crit.total} pontos) · ${new Date().toLocaleDateString('pt-BR')} · ` +
+      `Metodologia da empresa de shoppings — exceções exigem validação G&G`;
+    document.body.classList.add('relatorio');
+    window.print();
+  });
+  window.addEventListener('afterprint', () => document.body.classList.remove('relatorio'));
+
+  // ---- Inicialização ----
+  montarFatores();
+  montarFicha();
+  renderTudo();
+})();
+</script>
+
+<script>
+/* ---- Aba Motor & testes (Fase 1): autoteste + demonstração ---- */
+(function () {
+  if (typeof document === 'undefined') return;
+
+  const r = Motor.autoteste();
+  const tbody = document.querySelector('#tabela-testes tbody');
+  r.testes.forEach((t, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i + 1}</td><td>${t.nome}${t.ok ? '' : `<div class="muted">${t.erro}</div>`}</td>` +
+      `<td class="${t.ok ? 'ok' : 'fail'}">${t.ok ? 'PASSOU' : 'FALHOU'}</td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('resumo-teste').innerHTML =
+    `<span class="pill ${r.passou ? 'ok' : 'fail'}">${r.ok}/${r.total} ${r.passou ? '✓' : '✗'}</span>`;
+  console.log(`Autoteste do Motor: ${r.ok}/${r.total}`, r);
+
+  // Demonstração: shopping médio, com e-shopping (GMV 80 mil)
+  const vol = Motor.calcularVolumetria();
+  const org = Motor.montarOrganograma({ flags: { eShopping: true, gmvMedio: 80000, retrofit: false }, volumetria: vol });
+  const nome = c => Motor.CARGOS[c].nome;
+  const lista = itens => '<ul>' + itens.map(i => `<li>${nome(i.cargo)}${i.qtde > 1 ? ` × ${i.qtde}` : ''}</li>`).join('') + '</ul>';
+  document.getElementById('demo').innerHTML = `
+    <table>
+      <tr><th>Volumetria comercial</th>
+          <td>Core: ${vol.horasCore} h → ${vol.demandaCore} h (margem 5%) → <strong>${vol.hcCore} colaboradores</strong><br>
+              Omni: ${vol.horasOmni} h → ${vol.demandaOmni} h → <strong>${vol.hcOmni} colaboradores</strong><br>
+              Total: <strong>${vol.hcTotal} colaboradores</strong></td></tr>
+      <tr><th>Comercial</th><td>${lista(org.comercial)}</td></tr>
+      <tr><th>Marketing (critério ${org.criterioMkt})</th><td>${lista(org.marketing)}</td></tr>
+      <tr><th>Operações</th><td>${lista(org.operacoes)}</td></tr>
+    </table>
+    <p class="muted">Simulação de demonstração — usa o shopping médio fixo, independente do cadastro.</p>`;
+})();
+</script>
+</body>
+</html>

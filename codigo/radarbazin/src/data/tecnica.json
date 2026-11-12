@@ -1,0 +1,365 @@
+{
+  "atualizadoEm": "2026-11-12T02:29:02.863Z",
+  "metodo": "Volume Profile (POC, Value Area 70%, HVNs) + pivôs de swing (fractais de 5 barras) + MM21/MM200, sobre candles diários de 1 ano. Valores com origem 'manual' foram levantados em análises publicadas e são substituídos pelo cálculo automático na primeira execução do workflow.",
+  "ativos": {
+    "ALOS3": {
+      "preco": 27.48,
+      "suporte": 26.3,
+      "suporteBase": [
+        "pivô",
+        "VAL"
+      ],
+      "resistencia": 27.81,
+      "resistenciaBase": [
+        "pivô"
+      ],
+      "poc": 28.55,
+      "val": 26.29,
+      "vah": 31.73,
+      "mm21": 29.5,
+      "mm200": 29.26,
+      "max52": 36.26,
+      "min52": 0,
+      "tendencia": "lateral",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "ITSA4": {
+      "preco": 13.57,
+      "suporte": 13.45,
+      "suporteBase": [
+        "pivô"
+      ],
+      "resistencia": 13.69,
+      "resistenciaBase": [
+        "pivô",
+        "MM200"
+      ],
+      "poc": 13.51,
+      "val": 12.06,
+      "vah": 14.55,
+      "mm21": 14.12,
+      "mm200": 13.74,
+      "max52": 16.63,
+      "min52": 0,
+      "tendencia": "lateral",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "BBDC4": {
+      "preco": 14.33,
+      "suporte": 14.09,
+      "suporteBase": [
+        "HVN"
+      ],
+      "resistencia": 15.81,
+      "resistenciaBase": [
+        "HVN"
+      ],
+      "poc": 18.11,
+      "val": 17.25,
+      "vah": 21.27,
+      "mm21": 17.09,
+      "mm200": 18.65,
+      "max52": 23,
+      "min52": 0,
+      "tendencia": "baixa",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "CMIG4": {
+      "preco": 10.72,
+      "suporte": 10.5,
+      "suporteBase": [
+        "pivô",
+        "VAL"
+      ],
+      "resistencia": 11.04,
+      "resistenciaBase": [
+        "pivô"
+      ],
+      "poc": 11.27,
+      "val": 10.4,
+      "vah": 12.14,
+      "mm21": 10.93,
+      "mm200": 11.45,
+      "max52": 13.87,
+      "min52": 0,
+      "tendencia": "baixa",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "SAPR11": {
+      "preco": 33.2,
+      "suporte": 32.64,
+      "suporteBase": [
+        "VAL",
+        "pivô"
+      ],
+      "resistencia": 33.5,
+      "resistenciaBase": [
+        "HVN"
+      ],
+      "poc": 37.15,
+      "val": 32.89,
+      "vah": 43.85,
+      "mm21": 35.79,
+      "mm200": 38.92,
+      "max52": 48.72,
+      "min52": 0,
+      "tendencia": "baixa",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "KLBN4": {
+      "preco": 3.46,
+      "suporte": 3.43,
+      "suporteBase": [
+        "pivô",
+        "HVN",
+        "POC"
+      ],
+      "resistencia": 3.53,
+      "resistenciaBase": [
+        "pivô"
+      ],
+      "poc": 3.42,
+      "val": 3.37,
+      "vah": 3.89,
+      "mm21": 3.57,
+      "mm200": 3.65,
+      "max52": 4.21,
+      "min52": 0,
+      "tendencia": "baixa",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "TAEE11": {
+      "preco": 41.28,
+      "suporte": 39.68,
+      "suporteBase": [
+        "pivô"
+      ],
+      "resistencia": 42,
+      "resistenciaBase": [
+        "HVN",
+        "POC",
+        "pivô"
+      ],
+      "poc": 41.63,
+      "val": 38.7,
+      "vah": 44.56,
+      "mm21": 42.26,
+      "mm200": 41.38,
+      "max52": 46.91,
+      "min52": 0,
+      "tendencia": "lateral",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "BBSE3": {
+      "preco": 39.66,
+      "suporte": 38.45,
+      "suporteBase": [
+        "pivô",
+        "HVN"
+      ],
+      "resistencia": 40.01,
+      "resistenciaBase": [
+        "VAH",
+        "pivô"
+      ],
+      "poc": 34.92,
+      "val": 33.26,
+      "vah": 39.91,
+      "mm21": 41.09,
+      "mm200": 37.72,
+      "max52": 44.34,
+      "min52": 0,
+      "tendencia": "alta",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "AURE3": {
+      "preco": 11.8,
+      "suporte": 11.66,
+      "suporteBase": [
+        "HVN",
+        "POC"
+      ],
+      "resistencia": 12.2,
+      "resistenciaBase": [
+        "MM200",
+        "pivô"
+      ],
+      "poc": 11.66,
+      "val": 10.63,
+      "vah": 12.68,
+      "mm21": 12.86,
+      "mm200": 12.17,
+      "max52": 16.36,
+      "min52": 0,
+      "tendencia": "lateral",
+      "barras": 248,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 248 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "NVDA": {
+      "preco": 168.89,
+      "suporte": 164.27,
+      "suporteBase": [
+        "mínima 52s"
+      ],
+      "resistencia": 183.06,
+      "resistenciaBase": [
+        "HVN",
+        "POC"
+      ],
+      "poc": 183.06,
+      "val": 172.18,
+      "vah": 211.73,
+      "mm21": 207.25,
+      "mm200": 204.54,
+      "max52": 243.37,
+      "min52": 164.27,
+      "tendencia": "lateral",
+      "barras": 250,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 250 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "PLTR": {
+      "preco": 168.82,
+      "suporte": 164.55,
+      "suporteBase": [
+        "pivô"
+      ],
+      "resistencia": 171.64,
+      "resistenciaBase": [
+        "HVN"
+      ],
+      "poc": 134.34,
+      "val": 125.02,
+      "vah": 175.64,
+      "mm21": 187.21,
+      "mm200": 153.54,
+      "max52": 212.94,
+      "min52": 106.37,
+      "tendencia": "alta",
+      "barras": 250,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 250 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "TSLA": {
+      "preco": 379.78,
+      "suporte": 369.5,
+      "suporteBase": [
+        "HVN",
+        "pivô"
+      ],
+      "resistencia": 385.64,
+      "resistenciaBase": [
+        "MM200",
+        "pivô",
+        "HVN"
+      ],
+      "poc": 400.62,
+      "val": 357.81,
+      "vah": 438.39,
+      "mm21": 380.39,
+      "mm200": 383.23,
+      "max52": 498.83,
+      "min52": 297.38,
+      "tendencia": "baixa",
+      "barras": 250,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 250 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "SPY": {
+      "preco": 749.92,
+      "suporte": 733.79,
+      "suporteBase": [
+        "pivô",
+        "HVN",
+        "MM200"
+      ],
+      "resistencia": 760.24,
+      "resistenciaBase": [
+        "pivô",
+        "HVN"
+      ],
+      "poc": 680.69,
+      "val": 633.09,
+      "vah": 743.54,
+      "mm21": 761.51,
+      "mm200": 730.99,
+      "max52": 781.62,
+      "min52": 629.28,
+      "tendencia": "alta",
+      "barras": 250,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 250 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    },
+    "VUAA": {
+      "preco": 145.2,
+      "suporte": 143.07,
+      "suporteBase": [
+        "HVN",
+        "pivô",
+        "MM200"
+      ],
+      "resistencia": 147.11,
+      "resistenciaBase": [
+        "VAH",
+        "pivô",
+        "HVN"
+      ],
+      "poc": 131.05,
+      "val": 125.51,
+      "vah": 146.19,
+      "mm21": 148.15,
+      "mm200": 141.63,
+      "max52": 152.09,
+      "min52": 122.56,
+      "tendencia": "alta",
+      "barras": 253,
+      "origem": "calculado",
+      "fonte": "Yahoo Finance, 253 candles diários",
+      "confianca": 7,
+      "ts": "2026-11-12T02:29:02.863Z"
+    }
+  }
+}

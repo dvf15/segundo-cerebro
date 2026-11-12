@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.env
+.env.local
+*.db
+*.db-journal
+prisma/dev.db
+prisma/migrations/dev.db
+.DS_Store
+*.log
+
+sistema/**/__pycache__/
+sistema/**/*.pyc

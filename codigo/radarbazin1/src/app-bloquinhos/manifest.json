@@ -1,0 +1,17 @@
+{
+  "name": "Mundo Mágico do Tom",
+  "short_name": "Mundo do Tom",
+  "description": "Jogo de matemática com bloquinhos para crianças e jovens, inspirado no material dourado.",
+  "lang": "pt-BR",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0f2e",
+  "theme_color": "#0a0f2e",
+  "icons": [
+    { "src": "icon-tom.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-tom.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

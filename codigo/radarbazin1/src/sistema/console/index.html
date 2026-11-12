@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Console — Copiloto de Decisão de Cláusulas (ALLOS)</title>
+<style>
+  :root{
+    --petroleo:#00616F; --petroleo-d:#004a55; --verde:#0D454A; --teal:#368C82; --coral:#CD5151;
+    --menta:#6CC680; --ambar:#EDA754; --bege:#CCC5BC; --areia:#E5DED4;
+    --bg:#F4F2EC; --card:#FFFFFF; --card2:#FBFAF6; --txt:#123A3B; --muted:#5c6f6e;
+    --linha:#E4DFD3; --ring:rgba(54,140,130,.28); --shadow:0 1px 2px rgba(13,69,74,.05),0 2px 8px rgba(13,69,74,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0a272b; --card:#123A40; --card2:#0f333880; --txt:#EAE4D8; --muted:#9fb6b3; --linha:#1e4a50; --ring:rgba(108,198,128,.30); --shadow:0 1px 2px rgba(0,0,0,.25),0 4px 14px rgba(0,0,0,.28); }
+  }
+  :root[data-tema="dark"]{ --bg:#0a272b; --card:#123A40; --card2:#0f333880; --txt:#EAE4D8; --muted:#9fb6b3; --linha:#1e4a50; --ring:rgba(108,198,128,.30); --shadow:0 1px 2px rgba(0,0,0,.25),0 4px 14px rgba(0,0,0,.28); }
+  :root[data-tema="light"]{ --bg:#F4F2EC; --card:#FFFFFF; --card2:#FBFAF6; --txt:#123A3B; --muted:#5c6f6e; --linha:#E4DFD3; --ring:rgba(54,140,130,.28); --shadow:0 1px 2px rgba(13,69,74,.05),0 2px 8px rgba(13,69,74,.06); }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:var(--bg);color:var(--txt);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  header{background:linear-gradient(180deg,var(--petroleo),var(--petroleo-d));color:#fff;padding:18px 26px;border-bottom:3px solid var(--ambar)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .emblem{width:38px;height:38px;border-radius:11px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+  header h1{margin:0;font-size:18px;font-weight:700;letter-spacing:-.2px}
+  header p{margin:3px 0 0;font-size:12px;color:#bfe0db;letter-spacing:.2px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .tabbar{display:flex;gap:4px;padding:14px 26px 0;flex-wrap:wrap}
+  .tab{border:1px solid transparent;background:transparent;color:var(--muted);padding:9px 18px;border-radius:10px;cursor:pointer;font-weight:600;font-size:13.5px;transition:background .15s,color .15s}
+  .tab:hover{color:var(--petroleo)}
+  .tab.ativo{background:var(--card);color:var(--petroleo);border-color:var(--linha);box-shadow:var(--shadow)}
+  main{padding:22px 26px 48px;max-width:1120px;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}
+  h2{font-size:16px;color:var(--petroleo);margin:0 0 16px;font-weight:700;letter-spacing:-.1px}
+  h3{margin:0}
+  label{display:block;font-size:11px;color:var(--muted);margin:12px 0 5px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+  input,select{width:100%;padding:10px 12px;border:1px solid var(--linha);border-radius:10px;background:var(--card2);color:var(--txt);font-size:14px;font-family:inherit;transition:border-color .15s,box-shadow .15s}
+  input:hover,select:hover{border-color:var(--teal)}
+  input:focus,select:focus{outline:none;border-color:var(--petroleo);box-shadow:0 0 0 3px var(--ring)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  button{font-family:inherit}
+  button.acao{background:var(--petroleo);color:#fff;border:none;padding:11px 20px;border-radius:10px;font-weight:600;cursor:pointer;font-size:14px;transition:filter .15s,transform .05s;box-shadow:var(--shadow)}
+  button.acao:hover{filter:brightness(1.08)}
+  button.acao:active{transform:translateY(1px)}
+  button.sec{background:var(--card2);color:var(--verde);border:1px solid var(--linha);box-shadow:none}
+  :root[data-tema="dark"] button.sec{color:var(--areia)}
+  @media (prefers-color-scheme: dark){button.sec{color:var(--areia)}}
+  button:focus-visible,.tab:focus-visible,.lnk:focus-visible,.toggle:focus-visible{outline:2px solid var(--ambar);outline-offset:2px}
+  .res{margin-top:18px}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border-radius:999px;font-weight:700;color:#fff;font-size:13px;letter-spacing:.2px;box-shadow:var(--shadow)}
+  .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.85)}
+  .linhaKV{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--linha);font-size:14px}
+  .linhaKV:last-child{border-bottom:none}
+  .linhaKV span:first-child{color:var(--muted)}
+  .linhaKV span:last-child{text-align:right;font-weight:500;font-variant-numeric:tabular-nums}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--linha)}
+  tr:last-child td{border-bottom:none}
+  th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700}
+  tbody tr:hover td,table tr:hover td{background:var(--card2)}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+  .bc{background:linear-gradient(180deg,var(--verde),#0a383c);color:var(--areia);border-radius:13px;padding:18px;margin-top:18px;box-shadow:var(--shadow)}
+  .bc h3{margin:0 0 10px;color:var(--ambar);font-size:14px;font-weight:700;letter-spacing:.2px}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45}
+  .ajuda{font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.6}
+  .info{background:var(--card2);border:1px solid var(--linha);border-left:3px solid var(--teal);border-radius:11px;padding:14px 16px;margin-bottom:16px;font-size:13.5px;line-height:1.6;color:var(--txt)}
+  .info b{color:var(--petroleo)}
+  :root[data-tema="dark"] .info b{color:var(--menta)}
+  @media (prefers-color-scheme: dark){.info b{color:var(--menta)}}
+  .info ul{margin:8px 0 0;padding-left:18px}
+  .info li{margin-bottom:7px}
+  .lnk{background:none;border:none;color:var(--teal);cursor:pointer;font-weight:600;font-size:13px;padding:2px 8px 2px 0}
+  .lnk:hover{text-decoration:underline}
+  .del{color:var(--coral);cursor:pointer;font-weight:700;border:none;background:none;font-size:15px;line-height:1;padding:4px}
+  .del:hover{filter:brightness(1.1)}
+  .toggle{color:#eafffb;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);cursor:pointer;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:9px;transition:background .15s}
+  .toggle:hover{background:rgba(255,255,255,.2)}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="brand">
+      <div class="emblem">⚖️</div>
+      <div><h1>Copiloto de Decisão de Cláusulas</h1>
+      <p>ALLOS · apoio à decisão — o humano decide · parametrizável</p></div>
+    </div>
+    <button class="toggle" onclick="alternarTema()" aria-label="Alternar tema claro/escuro">◐ Tema</button>
+  </div>
+</header>
+<div class="tabbar">
+  <button class="tab ativo" data-t="avaliar" onclick="irPara('avaliar')">Avaliar cláusula</button>
+  <button class="tab" data-t="param" onclick="irPara('param')">Parametrização</button>
+</div>
+<main>
+  <!-- ABA AVALIAR -->
+  <section id="avaliar">
+    <div class="card">
+      <h2>Avaliar uma cláusula</h2>
+      <div class="grid">
+        <div><label>Tema</label><select id="tema" onchange="preencherTipos()"></select></div>
+        <div><label>Tipo de cláusula</label><select id="tipo" onchange="atualizarPainelQuant()"></select></div>
+        <div><label>Segmento</label><select id="segmento"></select></div>
+      </div>
+      <div class="grid">
+        <div><label>Marca (do cadastro)</label><select id="marca" onchange="aplicarMarca()"></select>
+          <div class="hint">o grau vem do cadastro da marca (aba Parametrização)</div></div>
+        <div><label>Nº de praças (pegada)</label><input id="pracas" type="number" min="1" value="1"></div>
+        <div><label>Todas as lojas no portfólio do Diretor?</label><select id="dentro"><option value="sim" selected>Sim</option><option value="nao">Não</option></select></div>
+      </div>
+      <div id="painelQuant"></div>
+      <div id="painelGenerico" class="grid">
+        <div><label>Desconto concedido (%) — para a regra de alçada</label><input id="desc_gen" type="number" step="0.1" placeholder="ex.: 40"></div>
+      </div>
+      <div class="btnrow"><button class="acao" onclick="avaliar()">Avaliar</button></div>
+      <div class="hint" id="dicaAvaliar">Sem os dados do contrato, o custo é estimado pelo nível de risco. Informe o % para cálculo exato.</div>
+      <div class="res" id="resultado"></div>
+    </div>
+  </section>
+
+  <!-- ABA PARAMETRIZAÇÃO -->
+  <section id="param" style="display:none">
+    <div class="card">
+      <h2>Marcas</h2>
+      <p class="ajuda">Cadastre as marcas. Grau <b>A (âncora)</b> e <b>B (alavancadora de posicionamento)</b> vão sempre à Diretoria de Operações. Para <b>Padrão</b>, a alçada depende do <b>nº de praças</b> e de estarem <b>dentro do portfólio</b> do Diretor.</p>
+      <div class="grid">
+        <div><label>Marca</label><input id="m_nome"></div>
+        <div><label>Segmento</label><select id="m_seg"></select></div>
+        <div><label>Grau estratégico</label><select id="m_grau"></select>
+          <div class="hint">A e B → sempre Diretoria · Padrão → alçada por praças/portfólio</div></div>
+        <div><label>Nº de praças</label><input id="m_pracas" type="number" min="1" value="1">
+          <div class="hint">em quantos shoppings a marca opera (1 · 2–3 · 4+)</div></div>
+      </div>
+      <div class="btnrow">
+        <button class="acao" id="btnMarca" onclick="addMarca()">Adicionar marca</button>
+        <button class="acao sec" onclick="limparFormMarca()">Limpar</button>
+      </div>
+      <label style="margin-top:16px">Filtrar</label>
+      <input id="fMarca" placeholder="filtrar por marca ou segmento…" oninput="renderMarcas()">
+      <table id="tblMarcas" style="margin-top:10px"></table>
+      <div class="btnrow">
+        <button class="acao sec" onclick="exportarConfig()">Exportar config (JSON)</button>
+        <button class="acao sec" onclick="document.getElementById('imp').click()">Importar config (JSON)</button>
+        <input id="imp" type="file" accept="application/json" style="display:none" onchange="importarConfig(event)">
+      </div>
+    </div>
+    <div class="card">
+      <h2>Regras de alçada</h2>
+      <div class="info">
+        <b>Como a alçada é definida</b>
+        <ul>
+          <li><b>Marca A (âncora)</b> ou <b>B (alavancadora de posicionamento)</b>: sempre <b>Diretoria de Operações</b>.</li>
+          <li><b>Marca Padrão, 1 praça (local):</b> <b>Superintendente</b> decide até o desconto máximo.</li>
+          <li><b>Marca Padrão, 2 a N praças, todas no portfólio:</b> <b>Diretor de Portfólio</b> decide até o desconto máximo.</li>
+          <li><b>Mais de N praças</b> ou <b>alguma loja fora do portfólio</b>: <b>Diretoria de Operações</b>.</li>
+          <li><b>Desconto acima do máximo:</b> sobe para a <b>Diretoria de Operações</b>.</li>
+        </ul>
+      </div>
+      <div class="grid">
+        <div><label>Desconto máximo das alçadas delegadas (%)</label><input id="p_dmax" type="number" step="1"><div class="hint">Superintendente e Diretor decidem até este desconto</div></div>
+        <div><label>Máx. de praças do Diretor de Portfólio</label><input id="p_maxp" type="number" step="1"><div class="hint">acima disso (ou loja fora do portfólio) → só Diretoria</div></div>
+      </div>
+      <h3 style="font-size:13px;color:var(--muted);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.4px">Graus estratégicos da marca</h3>
+      <div class="hint" style="margin-bottom:8px">Defina o rótulo e o critério de cada grau, e marque quais vão <b>sempre à Diretoria de Operações</b>.</div>
+      <div style="overflow-x:auto"><table>
+        <tr><th style="width:64px">Grau</th><th style="width:26%">Rótulo</th><th>Critério (definição)</th><th style="width:96px;text-align:center">Só Diretoria</th></tr>
+        <tr><td><b>A</b></td><td><input id="g_A_rot"></td><td><input id="g_A_cri"></td><td style="text-align:center"><input type="checkbox" id="g_A_dir" style="width:auto"></td></tr>
+        <tr><td><b>B</b></td><td><input id="g_B_rot"></td><td><input id="g_B_cri"></td><td style="text-align:center"><input type="checkbox" id="g_B_dir" style="width:auto"></td></tr>
+        <tr><td><b>Padrão</b></td><td><input id="g_P_rot"></td><td><input id="g_P_cri"></td><td style="text-align:center"><input type="checkbox" id="g_P_dir" style="width:auto"></td></tr>
+      </table></div>
+      <div class="btnrow"><button class="acao" onclick="salvarParams()">Salvar parâmetros</button><span id="statusParams" style="align-self:center;font-weight:600"></span></div>
+      <div class="hint">Aplicado na hora. Quando o navegador permite, fica salvo. Use Exportar/Importar (na aba Marcas) para levar entre máquinas.</div>
+    </div>
+  </section>
+</main>
+
+<script>
+// ===== Dados embutidos (default) — espelham config/*.json =====
+const CLAUSULAS = [
+ {tema:"Taxa de Transferência",tipo:"Isenção de Taxa de Transferência",classe:"A",peso:null,risco:"Baixo",status_default:"Não Recomendado"},
+ {tema:"Taxa de Transferência",tipo:"Isenção 1ª Taxa de Transferência",classe:"A",peso:null,risco:"Baixo",status_default:"Não Recomendado"},
+ {tema:"Taxa de Transferência",tipo:"Isenção TT mesmo Grupo Econômico",classe:"A",peso:null,risco:"Baixo",status_default:"Não Recomendado"},
+ {tema:"Taxa de Transferência",tipo:"Redução da Taxa de Transferência",classe:"A",peso:null,risco:"Baixo",status_default:"Não Recomendado"},
+ {tema:"Reajuste",tipo:"Alteração de Índice de Reajuste",classe:"A",peso:null,risco:"Médio",status_default:"Não Recomendado"},
+ {tema:"Reajuste",tipo:"Alteração de Prazo para Reajuste",classe:"A",peso:null,risco:"Médio",status_default:"Não Recomendado"},
+ {tema:"Multa",tipo:"Alteração de Multa Rescisória",classe:"AB",peso:null,risco:"Médio",status_default:"Recomendado com Ressalvas"},
+ {tema:"Multa",tipo:"Isenção de Multa Rescisória",classe:"A",peso:null,risco:"Alto",status_default:"Não Recomendado"},
+ {tema:"Multa",tipo:"Redução de Multa Rescisória Fixa",classe:"A",peso:null,risco:"Médio",status_default:"Não Recomendado"},
+ {tema:"Multa",tipo:"Redução de Multa Rescisória Gradual",classe:"A",peso:null,risco:"Médio",status_default:"Não Recomendado"},
+ {tema:"Multa",tipo:"Redução de Multa Rescisória Proporcional",classe:"A",peso:null,risco:"Médio",status_default:"Não Recomendado"},
+ {tema:"Multa",tipo:"Multa por Infração Contratual",classe:"B",peso:3,risco:"Médio",status_default:"Recomendado"},
+ {tema:"Multa",tipo:"Multa por Infração - Auditoria de Vendas",classe:"B",peso:9,risco:"Alto",status_default:"Recomendado"},
+ {tema:"Multa",tipo:"Multa por Infração - Auditoria de Vendas (agravada)",classe:"B",peso:9,risco:"Alto",status_default:"Não Recomendado"},
+ {tema:"Sistema de Inf de Vendas - NAPP",tipo:"Cláusula Padrão",classe:"Referencia",peso:0,risco:"Baixo",status_default:"Recomendado"},
+ {tema:"Sistema de Inf de Vendas - NAPP",tipo:"Cláusula sem multa e custos",classe:"B",peso:3,risco:"Médio",status_default:"Recomendado com Ressalvas"},
+ {tema:"Sistema de Inf de Vendas - NAPP",tipo:'Cláusula "Fumaça"',classe:"B",peso:9,risco:"Alto",status_default:"Não Recomendado"},
+ {tema:"Sistema de Inf de Vendas - NAPP",tipo:"Proteção de Dados ref. ao Sistema",classe:"Limite",peso:null,risco:"Crítico",status_default:"Não Recomendado"},
+ {tema:"Vendas",tipo:"Vendas Líquidas",classe:"A",peso:null,risco:"Alto",status_default:"Não Recomendado"},
+ {tema:"Vendas",tipo:"Vendas Online",classe:"AB",peso:null,risco:"Médio",status_default:"Recomendado"},
+ {tema:"Vendas",tipo:"Vendas Online - Fumaça",classe:"B",peso:9,risco:"Alto",status_default:"Não Recomendado"},
+ {tema:"Vendas",tipo:"Vendas - Ship from Store / Click & Collect",classe:"AB",peso:null,risco:"Médio",status_default:"Recomendado"},
+ {tema:"Vendas",tipo:"Informe Mensal de Vendas",classe:"A",peso:1,risco:"Baixo",status_default:"Não Recomendado"},
+ {tema:"Vendas",tipo:"Informe Mensal de Vendas - 3º d.ú.",classe:"A",peso:1,risco:"Baixo",status_default:"Não Recomendado"},
+ {tema:"Compliance",tipo:"Confidencialidade",classe:"Limite",peso:null,risco:"Alto",status_default:"Recomendado"},
+ {tema:"Compliance",tipo:"Anticorrupção",classe:"Limite",peso:null,risco:"Crítico",status_default:"Recomendado"},
+ {tema:"Compliance",tipo:"PEP - Pessoa Exposta Politicamente",classe:"Limite",peso:null,risco:"Crítico",status_default:"Recomendado"},
+ {tema:"Compliance",tipo:"Proteção de Dados (LGPD)",classe:"Limite",peso:null,risco:"Crítico",status_default:"Recomendado"},
+ {tema:"Outros",tipo:"Remoção de Benfeitorias",classe:"AB",peso:null,risco:"Médio",status_default:"Recomendado"},
+ {tema:"Outros",tipo:"Perda de Benefícios",classe:"A",peso:null,risco:"Médio",status_default:"Recomendado"},
+ {tema:"Outros",tipo:"Renúncia ao Direito de Preferência/Vigência",classe:"B",peso:9,risco:"Alto",status_default:"Recomendado"},
+ {tema:"Outros",tipo:"Comunicação",classe:"A",peso:1,risco:"Baixo",status_default:"Não Recomendado"},
+];
+const RAMOS = {
+ "Acessórios":["Cosméticos","Joias e Relógios","Ótica","Outros Acessórios"],
+ "Alimentação":["Café e lanches","Fast Food"],
+ "Conveniência & Serviços":["Academia de Ginástica","Agência de Viagens","Educação","Farmácia","Mantimentos","Outros Serviços","Saúde","Serviços de Beleza","Serviços Financeiros"],
+ "Diversos":["Brinquedos e Games","Papelaria e Livraria","Produtos Diversos"],
+ "Eletrodomésticos E Eletrônicos":["Eletrodomésticos e Eletrônicos","Telefonia"],
+ "Lar":["CAMEBA","Decoração e Construção"],
+ "Lazer":["Cinema, teatro e show","Lazer e Diversão"],
+ "Restaurantes":["Restaurantes"],
+ "Roupas E Calçados":["Calçados Femininos","Calçados Geral e Masculinos","Esportes","Lojas Departamento","Moda Íntima e Praia","Vestuário Feminino","Vestuário Geral","Vestuário Infantil","Vestuário Masculino"],
+};
+const SEGMENTOS = Object.values(RAMOS).flat();
+const PARAMS_DEFAULT = {
+  desconto_max:50, max_pracas:4,
+  graus_diretoria:["A","B"],
+  graus:{"A":"Âncora","B":"Alavancadora de posicionamento","Padrao":"Padrão"},
+  graus_criterio:{"A":"Puxa fluxo e sustenta o corredor / co-tenancy","B":"Eleva o mix e o posicionamento do shopping","Padrao":"Demais marcas"},
+  ordem:["Superintendente","Diretor de Portfólio","Diretoria de Operações"]
+};
+const OVERRIDES = {"Serviços Financeiros":{"Cláusula Padrão":"Não Recomendado","Vendas Online":"Não Recomendado"},"Cinema, teatro e show":{"Vendas Líquidas":"Recomendado com Ressalvas"}};
+
+// ===== Estado (localStorage) =====
+let PARAMS = (function(){var base=JSON.parse(JSON.stringify(PARAMS_DEFAULT));var s=carregar("copiloto_params",{});for(var k in base){if(s[k]!==undefined&&s[k]!==null)base[k]=s[k];}return base;})();
+let MARCAS = carregar("copiloto_marcas", [
+  {marca:"Marca Âncora Alfa",segmento:"Lojas Departamento",grau_estrategico:"A",num_pracas:14},
+  {marca:"Boutique Beta",segmento:"Vestuário Feminino",grau_estrategico:"Padrao",num_pracas:1},
+]);
+function carregar(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):JSON.parse(JSON.stringify(def));}catch(e){return JSON.parse(JSON.stringify(def));}}
+function salvar(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true;}catch(e){return false;}}
+function pf(id,fb){const el=document.getElementById(id);const v=el?parseFloat(el.value):NaN;return isNaN(v)?fb:v;}
+
+// ===== Motor (espelha engine.py) =====
+function statusDo(tipo,seg){if(OVERRIDES[seg]&&OVERRIDES[seg][tipo])return OVERRIDES[seg][tipo];const c=CLAUSULAS.find(x=>x.tipo===tipo);return c?c.status_default:"Não Recomendado";}
+const KIND={
+ "Redução da Taxa de Transferência":"taxa","Isenção de Taxa de Transferência":"taxa","Isenção 1ª Taxa de Transferência":"taxa","Isenção TT mesmo Grupo Econômico":"taxa",
+ "Alteração de Índice de Reajuste":"reajuste_indice","Alteração de Prazo para Reajuste":"reajuste_prazo",
+ "Alteração de Multa Rescisória":"multa","Isenção de Multa Rescisória":"multa","Redução de Multa Rescisória Fixa":"multa","Redução de Multa Rescisória Gradual":"multa","Redução de Multa Rescisória Proporcional":"multa"};
+function calcKind(t){return KIND[t]||null;}
+function nv(v){if(v===null||v===undefined||v==="")return null;const n=parseFloat(v);return isNaN(n)?null:n;}
+function aluguelAnual(ct){return nv(ct.aluguel_anual)!==null?nv(ct.aluguel_anual):(nv(ct.aluguel_mensal)!==null?nv(ct.aluguel_mensal)*12:null);}
+function custoPorLojaRS(tipo,ct){
+  const k=calcKind(tipo); const am=nv(ct.aluguel_mensal); if(!k||am===null)return null;
+  if(k==="taxa"){const tp=nv(ct.taxa_padrao_amm),tn=nv(ct.taxa_neg_amm)||0;if(tp===null)return null;return Math.max(0,tp-tn)*am;}
+  if(k==="reajuste_indice"){const rp=nv(ct.reajuste_padrao_pct),rn=nv(ct.reajuste_neg_pct),m=nv(ct.meses)||12;if(rp===null||rn===null)return null;return am*Math.max(0,rp-rn)/100*m;}
+  if(k==="reajuste_prazo"){const r=nv(ct.reajuste_pct),m=nv(ct.meses_postergacao);if(r===null||m===null)return null;return am*(r/100)*m;}
+  if(k==="multa"){const mp=nv(ct.multa_padrao_amm),mn=nv(ct.multa_neg_amm)||0;let p=nv(ct.prob_rescisao_pct);p=(p===null?100:p);if(mp===null)return null;return Math.max(0,mp-mn)*am*(p/100);}
+  return null;
+}
+function descontoPct(tipo,ct){
+  if(nv(ct.desconto_pct)!==null)return nv(ct.desconto_pct);
+  const k=calcKind(tipo);
+  if(k==="taxa"){const tp=nv(ct.taxa_padrao_amm),tn=nv(ct.taxa_neg_amm)||0;if(tp)return Math.round(Math.max(0,tp-tn)/tp*1000)/10;}
+  if(k==="multa"){const mp=nv(ct.multa_padrao_amm),mn=nv(ct.multa_neg_amm)||0;if(mp)return Math.round(Math.max(0,mp-mn)/mp*1000)/10;}
+  if(k==="reajuste_indice"){const rp=nv(ct.reajuste_padrao_pct),rn=nv(ct.reajuste_neg_pct);if(rp&&rn!==null)return Math.round(Math.max(0,rp-rn)/rp*1000)/10;}
+  return null;
+}
+function alcadaRule(grau,np,desc,dentro){
+  const dmax=PARAMS.desconto_max||50, maxp=PARAMS.max_pracas||4;
+  if((PARAMS.graus_diretoria||[]).indexOf(grau)>=0)return ["Diretoria de Operações","Marca "+grau+" ("+((PARAMS.graus||{})[grau]||grau)+") → alçada exclusiva da Diretoria de Operações."];
+  if(desc!==null&&desc>dmax)return ["Diretoria de Operações","Desconto de "+desc+"% acima do limite de "+dmax+"% das alçadas delegadas."];
+  if(np<=1)return ["Superintendente","Marca local (1 praça); desconto até "+dmax+"%."];
+  if(np<=maxp&&dentro)return ["Diretor de Portfólio","Marca em "+np+" praças, todas no portfólio (≤"+maxp+"); desconto até "+dmax+"%."];
+  let ms=[];if(np>maxp)ms.push("mais de "+maxp+" praças");if(!dentro)ms.push("loja fora do portfólio");
+  return ["Diretoria de Operações","Sem alçada delegada ("+(ms.join(" e ")||"regra de pegada")+")."];
+}
+function decidir(tipo,seg,marca,ct){
+  ct=ct||{};
+  const c=CLAUSULAS.find(x=>x.tipo===tipo); const status=statusDo(tipo,seg);
+  const grau=marca.grau_estrategico||"Padrao"; const grauRot=(PARAMS.graus||{})[grau]||grau;
+  const np=parseInt(marca.num_pracas)||1;
+  const dentro=(marca.dentro_portfolio===undefined||marca.dentro_portfolio===null)?true:!!marca.dentro_portfolio;
+  const rs=custoPorLojaRS(tipo,ct); const anual=aluguelAnual(ct);
+  let porLoja=null,total=null,clc=null;
+  if(rs!==null&&anual){porLoja=Math.round(rs*100)/100;total=Math.round(rs*np*100)/100;clc=Math.round(rs/anual*100*1000)/1000;}
+  const desc=descontoPct(tipo,ct);
+  let alcada,motivo,veredito;
+  if(c.classe==="Limite"){alcada="Diretoria de Operações";motivo="Compliance/LGPD — limite duro, inegociável.";veredito="INEGOCIÁVEL — limite duro (Compliance/LGPD).";}
+  else{const rr=alcadaRule(grau,np,desc,dentro);alcada=rr[0];motivo=rr[1];
+    veredito = status==="Não Recomendado"?"Exceção — requer business case (guia: Não Recomendado).":(status==="Recomendado com Ressalvas"?"Aprovar com ressalva.":"Aprovar (recomendado).");}
+  const r={tipo,seg,status,classe:c.classe,grau,grauRot,pracas:np,dentro,desconto:desc,porLoja,total,clc,alcada,motivo,veredito,marca,bc:null};
+  if(alcada==="Diretoria de Operações"&&c.classe!=="Limite")r.bc={clausula:c.tema+" → "+c.tipo,marca:marca.marca||"(marca)",grau,grauRot,pracas:np,dentro,status,desconto:desc,porLoja,total,motivo};
+  return r;
+}
+
+// ===== UI =====
+const corAlcada={"Superintendente":"var(--menta)","Diretor de Portfólio":"var(--ambar)","Diretoria de Operações":"var(--coral)"};
+function irPara(t){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('ativo',b.dataset.t===t));document.getElementById('avaliar').style.display=t==='avaliar'?'':'none';document.getElementById('param').style.display=t==='param'?'':'none';}
+function alternarTema(){const r=document.documentElement;const atual=r.getAttribute('data-tema');const novo=atual==='dark'?'light':(atual==='light'?'dark':(matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark'));r.setAttribute('data-tema',novo);}
+function opts(sel,arr,val){sel.innerHTML=arr.map(x=>`<option ${x===val?'selected':''}>${x}</option>`).join('');}
+
+function initAvaliar(){
+  opts(document.getElementById('tema'),[...new Set(CLAUSULAS.map(c=>c.tema))]);
+  preencherTipos();
+  opts(document.getElementById('segmento'),SEGMENTOS);
+  atualizarSelectMarcas();
+}
+function preencherTipos(){const tema=document.getElementById('tema').value;opts(document.getElementById('tipo'),CLAUSULAS.filter(c=>c.tema===tema).map(c=>c.tipo));atualizarPainelQuant();}
+function atualizarSelectMarcas(){const s=document.getElementById('marca');s.innerHTML='<option value="">— manual —</option>'+MARCAS.map(m=>`<option>${m.marca}</option>`).join('');const ms=document.getElementById('m_seg');if(ms)opts(ms,SEGMENTOS);}
+function aplicarMarca(){const nome=document.getElementById('marca').value;const m=MARCAS.find(x=>x.marca===nome);if(m){document.getElementById('pracas').value=m.num_pracas;const seg=document.getElementById('segmento');if([...seg.options].some(o=>o.value===m.segmento))seg.value=m.segmento;}}
+
+function val(id){const e=document.getElementById(id);return e?e.value:'';}
+function fmtBR(n){return (n===null||n===undefined)?"—":"R$ "+Number(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function atualizarPainelQuant(){
+  const tipo=document.getElementById('tipo').value; const k=calcKind(tipo);
+  const pg=document.getElementById('painelGenerico'), pq=document.getElementById('painelQuant'), dica=document.getElementById('dicaAvaliar');
+  if(!k){pq.innerHTML='';pg.style.display='';dica.textContent='Sem os dados do contrato, o custo é estimado pelo nível de risco. Informe o % para cálculo exato.';return;}
+  pg.style.display='none';
+  const campos={
+    taxa:[["q_p1","Taxa padrão (nº de aluguéis)","3"],["q_p2","Taxa negociada (nº de aluguéis)","1"]],
+    reajuste_indice:[["q_p1","Reajuste padrão (% a.a.)","4.5"],["q_p2","Reajuste negociado (% a.a.)","3.0"],["q_p3","Prazo restante (meses)","12"]],
+    reajuste_prazo:[["q_p1","Reajuste anual (%)","4.5"],["q_p2","Meses de postergação","6"],["q_p3","Desconto equivalente (%) — opcional",""]],
+    multa:[["q_p1","Multa padrão (nº de aluguéis)","3"],["q_p2","Multa negociada (nº de aluguéis)","2"],["q_p3","Prob. de rescisão (%)","100"]],
+  }[k];
+  let h=`<div class="info" style="border-left-color:var(--ambar)"><b>Cálculo quantitativo.</b> O custo é calculado <b>por loja</b> e multiplicado pelo <b>nº de praças</b> da marca para o total.</div>`;
+  h+=`<div class="grid"><div><label>Aluguel mensal (R$)</label><input id="q_mensal" type="number" placeholder="ex.: 20000"></div>`;
+  h+=campos.map(([id,lab,ph])=>`<div><label>${lab}</label><input id="${id}" type="number" step="0.01" placeholder="ex.: ${ph}"></div>`).join('');
+  h+=`</div>`;
+  pq.innerHTML=h;
+  dica.textContent='Preencha o aluguel mensal e os valores da concessão — o custo é calculado por loja e no total (× nº de praças).';
+}
+function avaliar(){
+  const tipo=document.getElementById('tipo').value, seg=document.getElementById('segmento').value;
+  const nomeMarca=document.getElementById('marca').value;
+  const cad=MARCAS.find(x=>x.marca===nomeMarca);
+  const marca={marca:nomeMarca,grau_estrategico:cad?cad.grau_estrategico:'Padrao',num_pracas:parseInt(document.getElementById('pracas').value)||1,dentro_portfolio:document.getElementById('dentro').value==='sim'};
+  const k=calcKind(tipo); let ct={};
+  if(k){
+    ct.aluguel_mensal=val('q_mensal');
+    if(k==='taxa'){ct.taxa_padrao_amm=val('q_p1');ct.taxa_neg_amm=val('q_p2');}
+    else if(k==='reajuste_indice'){ct.reajuste_padrao_pct=val('q_p1');ct.reajuste_neg_pct=val('q_p2');ct.meses=val('q_p3');}
+    else if(k==='reajuste_prazo'){ct.reajuste_pct=val('q_p1');ct.meses_postergacao=val('q_p2');ct.desconto_pct=val('q_p3');}
+    else if(k==='multa'){ct.multa_padrao_amm=val('q_p1');ct.multa_neg_amm=val('q_p2');ct.prob_rescisao_pct=val('q_p3');}
+  } else {
+    ct={desconto_pct:val('desc_gen')};
+  }
+  const r=decidir(tipo,seg,marca,ct);
+  const kv=(a,b)=>`<div class="linhaKV"><span>${a}</span><span>${b}</span></div>`;
+  let html=`<div class="card"><h2>Resultado</h2>`;
+  html+=`<div style="margin-bottom:10px"><span class="badge" style="background:${corAlcada[r.alcada]}">ALÇADA: ${r.alcada}</span></div>`;
+  html+=`<div class="linhaKV"><span>Por quê</span><span style="max-width:62%;text-align:right">${r.motivo}</span></div>`;
+  html+=kv("Grau da marca",r.grau+" — "+r.grauRot);
+  html+=kv("Praças / portfólio",r.pracas+" praça(s) · "+(r.dentro?"todas no portfólio":"há loja fora do portfólio"));
+  if(r.desconto!==null)html+=kv("Desconto concedido",r.desconto+"%");
+  if(r.porLoja!==null){
+    html+=kv("Custo por loja",fmtBR(r.porLoja)+(r.clc!==null?" ("+r.clc+"% do aluguel anual)":""));
+    html+=`<div class="linhaKV"><span>Custo total (× ${r.pracas} praças)</span><span><b>${fmtBR(r.total)}</b></span></div>`;
+  }
+  html+=kv("Status do guia",r.status);
+  html+=`<div class="linhaKV"><span>Veredito</span><span style="max-width:62%;text-align:right">${r.veredito}</span></div>`;
+  if(r.bc){
+    html+=`<div class="bc"><h3>📋 Business case — Diretoria de Operações</h3><div style="font-size:13px;line-height:1.7">`;
+    html+=`<b>Cláusula:</b> ${r.bc.clausula}<br><b>Marca:</b> ${r.bc.marca} · ${r.bc.grau} (${r.bc.grauRot}) · ${r.bc.pracas} praça(s)<br>`;
+    html+=`<b>Portfólio:</b> ${r.bc.dentro?"todas no portfólio":"há loja fora"} · <b>Status:</b> ${r.bc.status}`+(r.bc.desconto!==null?` · <b>Desconto:</b> ${r.bc.desconto}%`:``)+`<br>`;
+    if(r.bc.porLoja!==null)html+=`<b>Custo:</b> ${fmtBR(r.bc.porLoja)}/loja → <b>${fmtBR(r.bc.total)}</b> total<br>`;
+    html+=`<b>Motivo:</b> ${r.bc.motivo}<br><b>Decisão:</b> [ Aprovar ] [ Negar ] [ Aprovar com ajuste ] + justificativa</div></div>`;
+  }
+  html+=`</div>`;
+  document.getElementById('resultado').innerHTML=html;
+}
+
+// ===== Parametrização =====
+function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+function renderMarcas(){
+  const t=document.getElementById('tblMarcas');
+  const f=(document.getElementById('fMarca')?document.getElementById('fMarca').value:'').toLowerCase().trim();
+  const lista=MARCAS.filter(m=>!f||(m.marca||'').toLowerCase().includes(f)||(m.segmento||'').toLowerCase().includes(f));
+  let corpo=lista.map(m=>`<tr><td>${m.marca}</td><td>${m.segmento}</td><td>${m.grau_estrategico}</td><td>${m.num_pracas}</td>`+
+    `<td style="white-space:nowrap"><button class="lnk" data-n="${escAttr(m.marca)}" onclick="editarMarca(this.dataset.n)">editar</button>`+
+    `<button class="del" data-n="${escAttr(m.marca)}" onclick="delMarcaByNome(this.dataset.n)">✕</button></td></tr>`).join('');
+  if(!lista.length) corpo=`<tr><td colspan="5" style="color:var(--muted);padding:12px">Nenhuma marca ${f?'para este filtro':'cadastrada'}.</td></tr>`;
+  t.innerHTML=`<tr><th>Marca</th><th>Segmento</th><th>Grau</th><th>Praças</th><th>Ações</th></tr>`+corpo;
+}
+function editarMarca(nome){
+  const m=MARCAS.find(x=>x.marca===nome); if(!m)return;
+  document.getElementById('m_nome').value=m.marca;
+  const seg=document.getElementById('m_seg'); if([...seg.options].some(o=>o.value===m.segmento))seg.value=m.segmento;
+  document.getElementById('m_grau').value=m.grau_estrategico;
+  document.getElementById('m_pracas').value=m.num_pracas;
+  document.getElementById('btnMarca').textContent='Salvar alterações';
+  document.getElementById('m_nome').focus();
+  document.getElementById('m_nome').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function limparFormMarca(){
+  document.getElementById('m_nome').value='';document.getElementById('m_pracas').value='1';
+  document.getElementById('m_grau').value='Padrao';document.getElementById('btnMarca').textContent='Adicionar marca';
+}
+function addMarca(){
+  const m={marca:document.getElementById('m_nome').value.trim(),segmento:document.getElementById('m_seg').value,grau_estrategico:document.getElementById('m_grau').value,num_pracas:parseInt(document.getElementById('m_pracas').value)||1};
+  if(!m.marca){alert('Informe o nome da marca.');return;}
+  const i=MARCAS.findIndex(x=>x.marca===m.marca); if(i>=0)MARCAS[i]=m; else MARCAS.push(m);
+  salvar("copiloto_marcas",MARCAS); renderMarcas(); atualizarSelectMarcas(); limparFormMarca();
+}
+function delMarcaByNome(nome){
+  MARCAS=MARCAS.filter(x=>x.marca!==nome);salvar("copiloto_marcas",MARCAS);renderMarcas();atualizarSelectMarcas();
+}
+const GRAU_ID={A:'A',B:'B',Padrao:'P'};
+function preencherGraus(){
+  const html=Object.keys(PARAMS.graus||{}).map(g=>`<option value="${g}">${g} — ${PARAMS.graus[g]}</option>`).join('');
+  ['grau','m_grau'].forEach(id=>{const s=document.getElementById(id);if(!s)return;const cur=s.value;s.innerHTML=html;if([...s.options].some(o=>o.value===cur))s.value=cur;else s.value='Padrao';});
+}
+function initParams(){
+  const e=id=>document.getElementById(id), g=PARAMS.graus||{}, gc=PARAMS.graus_criterio||{}, gd=PARAMS.graus_diretoria||[];
+  if(e('p_dmax'))e('p_dmax').value=PARAMS.desconto_max;
+  if(e('p_maxp'))e('p_maxp').value=PARAMS.max_pracas;
+  Object.keys(GRAU_ID).forEach(code=>{const k=GRAU_ID[code];
+    if(e('g_'+k+'_rot'))e('g_'+k+'_rot').value=g[code]||'';
+    if(e('g_'+k+'_cri'))e('g_'+k+'_cri').value=gc[code]||'';
+    if(e('g_'+k+'_dir'))e('g_'+k+'_dir').checked=gd.indexOf(code)>=0;
+  });
+}
+function salvarParams(){
+  PARAMS.desconto_max=pf('p_dmax',PARAMS.desconto_max);
+  PARAMS.max_pracas=Math.round(pf('p_maxp',PARAMS.max_pracas));
+  const e=id=>document.getElementById(id);
+  PARAMS.graus=PARAMS.graus||{}; PARAMS.graus_criterio=PARAMS.graus_criterio||{}; const gd=[];
+  Object.keys(GRAU_ID).forEach(code=>{const k=GRAU_ID[code];
+    if(e('g_'+k+'_rot'))PARAMS.graus[code]=e('g_'+k+'_rot').value.trim()||code;
+    if(e('g_'+k+'_cri'))PARAMS.graus_criterio[code]=e('g_'+k+'_cri').value.trim();
+    if(e('g_'+k+'_dir')&&e('g_'+k+'_dir').checked)gd.push(code);
+  });
+  PARAMS.graus_diretoria=gd;
+  preencherGraus();
+  const ok=salvar("copiloto_params",PARAMS);
+  const st=document.getElementById('statusParams');
+  if(st){st.textContent=ok?'✓ Parâmetros salvos':'✓ Aplicados nesta sessão';st.style.color=ok?'var(--menta)':'var(--ambar)';setTimeout(()=>{if(st)st.textContent='';},4000);}
+}
+function exportarConfig(){
+  const blob=new Blob([JSON.stringify({params:PARAMS,marcas:MARCAS},null,2)],{type:"application/json"});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download="copiloto_config.json";a.click();
+}
+function importarConfig(e){
+  const f=e.target.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.params)PARAMS=d.params;if(d.marcas)MARCAS=d.marcas;salvar("copiloto_params",PARAMS);salvar("copiloto_marcas",MARCAS);initParams();renderMarcas();atualizarSelectMarcas();alert("Config importada.");}catch(err){alert("JSON inválido.");}};
+  r.readAsText(f);
+}
+
+// ===== Boot =====
+initParams(); preencherGraus(); initAvaliar(); renderMarcas();
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model Day {
+  id             String   @id @default(cuid())
+  date           String   @unique // "2026-06-12"
+  training_type  String   @default("rest") // rest | light | strength | legs | bjj | double
+  training_notes String?
+  closed         Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  supps_json     String? // nomes dos suplementos tomados no dia (JSON)
+  sauna_min      Int      @default(0) // minutos de sauna no dia (0 | 15 | 30)
+  weight_kg      Float? // peso corporal do dia (kg)
+  meals          Meal[]
+}
+
+model Meal {
+  id          String   @id @default(cuid())
+  day_id      String
+  day         Day      @relation(fields: [day_id], references: [id], onDelete: Cascade)
+  code        String // R1, R2, R3...
+  description String
+  photo_url   String?
+  kcal        Float
+  protein_g   Float
+  carb_g      Float
+  fat_g       Float
+  confidence  Int
+  flags       String? // JSON array serializado de flags da IA
+  notes       String?
+  micros_json String? // JSON dos micronutrientes estimados
+  time        String? // horário da refeição "HH:MM" (foto: +15min; manual: agora, editável)
+  createdAt   DateTime @default(now())
+
+  @@index([day_id])
+}
+
+model KnownFood {
+  id               String  @id @default(cuid())
+  name             String  @unique
+  serving_g        Float
+  kcal_per_serving Float
+  protein_g        Float
+  carb_g           Float
+  fat_g            Float
+  notes            String?
+}
+
+// Medições de pressão arterial (registro pessoal).
+model BpReading {
+  id        String   @id @default(cuid())
+  date      String // "2026-07-19"
+  time      String // "23:12"
+  sys       Int // sistólica (mmHg)
+  dia       Int // diastólica (mmHg)
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@index([date])
+}
+
+// Perfil único do usuário (id fixo "default"), editável pelo app.
+model Profile {
+  id                 String   @id @default("default")
+  name               String?
+  weight_kg          Float?
+  skeletal_muscle_kg Float?
+  body_fat_pct       Float?
+  tmb_kcal           Int?
+  goal               String?
+  ldl                Int?
+  hdl                Int?
+  triglycerides      Int?
+  exam_date          String?
+  notes              String? // diretrizes que a IA deve sempre considerar
+  science_ref        String? // referencial científico (racional de instruções)
+  phase              String? // fase atual: corte | manutencao | ganho
+  phase_set_at       String? // data (YYYY-MM-DD) da última revisão de fase/metas
+  fast_reset_at      String? // ISO: reinício manual do jejum ("comi agora")
+  targets_json       String? // override das metas por treino (JSON)
+  micro_targets_json String? // override das metas de micronutrientes (JSON)
+  supplements_json   String? // suplementos diários configurados (JSON)
+  updatedAt          DateTime @updatedAt
+}

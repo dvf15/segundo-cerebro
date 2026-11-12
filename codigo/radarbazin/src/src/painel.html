@@ -1,0 +1,1521 @@
+<title>Radar Bazin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --ground: #F1F4F3;
+  --surface: #FFFFFF;
+  --surface-2: #E7ECEA;
+  --surface-3: #DCE3E1;
+  --ink: #101E1C;
+  --ink-2: #465754;
+  --ink-3: #788885;
+  --line: #D3DCDA;
+  --line-strong: #B6C3C0;
+  --accent: #124559;
+  --accent-soft: #E3EDF1;
+  --bom: #10704A;
+  --bom-soft: #DFF0E7;
+  --atencao: #9A6710;
+  --atencao-soft: #F6EBD5;
+  --ruim: #A93A2C;
+  --ruim-soft: #F7E3DF;
+  --neutro: #66756F;
+  --neutro-soft: #E6EAE9;
+  --sombra: 0 1px 2px rgba(16, 30, 28, .05), 0 8px 24px -18px rgba(16, 30, 28, .35);
+  --r: 6px;
+  --sans: Arial, "Arimo", "Helvetica Neue", Helvetica, Roboto, sans-serif;
+  --serif: var(--sans);
+  --mono: var(--sans);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0C1413; --surface: #131D1B; --surface-2: #1A2624; --surface-3: #22302D;
+    --ink: #E7EDEB; --ink-2: #A6B4B0; --ink-3: #76847F;
+    --line: #263330; --line-strong: #374743;
+    --accent: #6FAFC7; --accent-soft: #16303A;
+    --bom: #48C08B; --bom-soft: #12332A;
+    --atencao: #DFAA45; --atencao-soft: #33290F;
+    --ruim: #E47964; --ruim-soft: #38211D;
+    --neutro: #8FA09B; --neutro-soft: #1E2A28;
+    --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -18px rgba(0, 0, 0, .9);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0C1413; --surface: #131D1B; --surface-2: #1A2624; --surface-3: #22302D;
+  --ink: #E7EDEB; --ink-2: #A6B4B0; --ink-3: #76847F;
+  --line: #263330; --line-strong: #374743;
+  --accent: #6FAFC7; --accent-soft: #16303A;
+  --bom: #48C08B; --bom-soft: #12332A;
+  --atencao: #DFAA45; --atencao-soft: #33290F;
+  --ruim: #E47964; --ruim-soft: #38211D;
+  --neutro: #8FA09B; --neutro-soft: #1E2A28;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -18px rgba(0, 0, 0, .9);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--sans); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.envelope { max-width: 1320px; margin: 0 auto; padding: 28px 20px 72px; }
+@media (max-width: 620px) { .envelope { padding: 16px 10px 56px; } }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px;
+}
+.num, .dado, .valor, .conta, .niveis, .legenda, .quando, .desc, .previa, .tk { font-variant-numeric: tabular-nums; }
+.rotulo {
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+}
+.rotulo.suave { letter-spacing: .02em; text-transform: none; }
+.pos { color: var(--bom); } .neg { color: var(--ruim); }
+
+/* ---------------------------------------------------------------- cabeçalho */
+header.topo {
+  display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-end; justify-content: space-between;
+  padding-bottom: 18px; margin-bottom: 22px; border-bottom: 2px solid var(--ink);
+}
+.marca h1 {
+  font-family: var(--sans); font-weight: 700; font-size: clamp(32px, 5vw, 44px);
+  margin: 0; letter-spacing: -.02em; line-height: 1;
+}
+.marca p { margin: 7px 0 0; color: var(--ink-2); max-width: 56ch; font-size: 16px; }
+.carimbo { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.carimbo .quando { font-family: var(--mono); font-size: 13.5px; color: var(--ink-2); }
+.pulso {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2);
+}
+.pulso::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--bom); box-shadow: 0 0 0 3px var(--bom-soft);
+}
+.pulso[data-estado="snapshot"]::before { background: var(--atencao); box-shadow: 0 0 0 3px var(--atencao-soft); }
+.pulso[data-estado="local"]::before { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+/* ------------------------------------------------------------ termômetro */
+.termometro { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px 18px; margin-bottom: 22px; }
+.termometro .topo-t { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.termometro h2 { font-size: 25px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+.termometro .quando-t { font-size: 13.5px; color: var(--ink-3); }
+.termometro .leitura-dia { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 18px 26px; align-items: center; }
+@media (max-width: 760px) { .termometro .leitura-dia { grid-template-columns: 1fr; } }
+.medidor-svg { width: 100%; max-width: 240px; height: auto; display: block; margin: 0 auto; }
+.medidor-svg text { font-family: var(--sans); }
+.nivel { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; border: 1px solid transparent; }
+.nivel .luz { width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+.nivel[data-cor="bom"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.nivel[data-cor="atencao"] { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.nivel[data-cor="ruim"] { color: var(--ruim); background: var(--ruim-soft); border-color: var(--ruim); }
+.nivel[data-cor="neutro"] { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+.frase-dia { font-size: 18px; font-weight: 600; margin: 10px 0 4px; color: var(--ink); max-width: 60ch; }
+.vies { font-size: 16px; margin: 0 0 12px; color: var(--ink-2); }
+.vies strong[data-v="alta"] { color: var(--bom); } .vies strong[data-v="baixa"] { color: var(--ruim); } .vies strong[data-v="indefinido"] { color: var(--atencao); }
+.motivos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 18px; font-size: 14px; }
+.motivos h5 { margin: 0 0 4px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; }
+.motivos h5.pos { color: var(--bom); } .motivos h5.neg { color: var(--ruim); } .motivos h5.neu { color: var(--ink-3); }
+.motivos ul { margin: 0; padding-left: 16px; color: var(--ink-2); }
+.motivos li { margin-bottom: 2px; }
+.grupo-ind { margin-top: 18px; }
+.grupo-ind h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; font-weight: 700; }
+.indicadores-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.ind { background: var(--surface-2); border: 1px solid var(--line); border-radius: 5px; padding: 9px 11px 8px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ind .nome { font-size: 12px; color: var(--ink-3); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ind .linha-v { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
+.ind .v { font-size: 19px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.ind .var { font-size: 12px; font-weight: 700; padding: 1px 6px; border-radius: 999px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ind .var.pos { background: var(--bom-soft); color: var(--bom); } .ind .var.neg { background: var(--ruim-soft); color: var(--ruim); } .ind .var.zero { background: var(--neutro-soft); color: var(--ink-2); }
+.ind svg.spark { width: 100%; height: 30px; display: block; }
+.ind .faixa { position: relative; height: 5px; background: var(--surface-3); border-radius: 3px; margin-top: 2px; }
+.ind .faixa i { position: absolute; top: -3px; width: 3px; height: 11px; border-radius: 2px; background: var(--accent); margin-left: -1px; }
+.ind .rodape { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ind[data-defasado="true"] { opacity: .65; }
+.acoes-t { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.manchetes { margin-top: 16px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface-2); padding: 10px 12px 8px; }
+.manchetes .cab { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.manchetes h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0; font-weight: 700; }
+.manchetes ol { margin: 0; padding-left: 22px; }
+.manchetes li { margin: 0 0 7px; font-size: 15.5px; line-height: 1.35; }
+.manchetes li a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.manchetes li a:hover { text-decoration: underline; color: var(--accent); }
+.manchetes .meta { display: block; font-size: 12px; color: var(--ink-3); }
+.fechar { font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 3px 9px; cursor: pointer; }
+.fechar:hover { border-color: var(--accent); color: var(--accent); }
+.termometro details { margin-top: 12px; font-size: 13.5px; color: var(--ink-3); }
+.termometro summary { cursor: pointer; color: var(--accent); }
+
+/* ------------------------------------------------------- faixa farol Bazin */
+.farol-topo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0 0 18px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.farol-topo .rotulo-f { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-right: 4px; }
+.farol-topo .bandeira { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.farol-topo .bandeira .luz { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.farol-topo .bandeira small { font-weight: 600; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; opacity: .9; }
+.farol-topo .bandeira[data-f="compra-forte"] { color: #fff; background: var(--bom); border-color: var(--bom); }
+.farol-topo .bandeira[data-f="compra"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.farol-topo .bandeira[data-f="manter"] { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.farol-topo .bandeira[data-f="reduzir"] { color: #fff; background: var(--ruim); border-color: var(--ruim); }
+.farol-topo .bandeira[data-f="fora"] { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+.farol-topo .legenda-f { font-size: 12px; color: var(--ink-3); margin-left: auto; }
+
+/* ----------------------------------------------------------- opções (puts) */
+.opcoes { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px 18px; margin-bottom: 34px; }
+.opcoes .topo-t { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.opcoes h2 { font-size: 25px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+.opcoes .quando-t { font-size: 13.5px; color: var(--ink-3); }
+.opcoes .resumo-op { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--ink-2); margin: 0 0 14px; }
+.opcoes .resumo-op b { color: var(--ink); }
+.cartoes-op { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 12px; }
+@media (max-width: 420px) { .cartoes-op { grid-template-columns: 1fr; } }
+.cartao-op { border: 1px solid var(--line); border-radius: 6px; background: var(--surface-2); padding: 12px 14px 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cartao-op .cab-op { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.cartao-op .cab-op .tk { font-size: 19px; font-weight: 700; letter-spacing: -.01em; display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cartao-op .cab-op .tk .farol { font-size: 12px; align-self: center; }
+.cartao-op .cab-op .spot { font-size: 14px; color: var(--ink-2); }
+.cartao-op .cab-op .spot b { font-size: 17px; color: var(--ink); }
+.cartao-op .meta-op { font-size: 12.5px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.melhor-put { border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); padding: 10px 12px; }
+.melhor-put .serie { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.melhor-put .serie .cod { font-size: 16px; font-weight: 700; }
+.melhor-put .serie .cod small { font-weight: 500; color: var(--ink-3); font-size: 12.5px; }
+.sinal { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid transparent; white-space: nowrap; }
+.sinal .luz { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.sinal[data-s="vender"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.sinal[data-s="limitar"] { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.sinal[data-s="sem-preco"] { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+.precos-put { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.precos-put div { background: var(--surface-2); border-radius: 4px; padding: 7px 10px; }
+.precos-put .rot { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+.precos-put .val { font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.precos-put .val.ideal { color: var(--accent); }
+.precos-put .sub { font-size: 12px; color: var(--ink-3); }
+.metricas-put { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 6px 10px; font-size: 13px; }
+.metricas-put dt { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.metricas-put dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.metricas-put dd small { font-weight: 400; color: var(--ink-3); }
+.nota-put { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; }
+.nota-put[data-c="boa"] { color: var(--bom); } .nota-put[data-c="aceitavel"] { color: var(--atencao); } .nota-put[data-c="evitar"] { color: var(--ruim); }
+.motivos-put { margin: 6px 0 0; padding-left: 16px; font-size: 12.5px; color: var(--ink-2); }
+table.alternativas { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+table.alternativas .sinal { font-size: 10px; padding: 1px 6px; }
+table.alternativas th { text-align: left; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; padding: 4px 6px 4px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.alternativas td { padding: 5px 6px 5px 0; border-bottom: 1px dotted var(--line); white-space: nowrap; }
+table.alternativas td.num, table.alternativas th.num { text-align: right; padding-right: 0; padding-left: 6px; }
+table.alternativas .cod { font-weight: 600; }
+.rolagem { overflow-x: auto; }
+.obs-op { font-size: 12.5px; color: var(--ink-2); background: var(--atencao-soft); border-left: 3px solid var(--atencao); padding: 6px 9px; border-radius: 0 4px 4px 0; margin: 0; }
+.sem-op { font-size: 13.5px; color: var(--ink-3); margin: 12px 0 0; }
+.opcoes details { margin-top: 12px; font-size: 13.5px; color: var(--ink-3); }
+.opcoes summary { cursor: pointer; color: var(--accent); }
+.opcoes details p { margin: 6px 0; }
+
+/* ------------------------------------------------------------------- tiles */
+.resumo {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); overflow: hidden; margin-bottom: 22px;
+}
+.tile { padding: 14px 16px 15px; display: flex; flex-direction: column; gap: 3px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tile .valor { font-family: var(--mono); font-size: 24px; font-weight: 500; letter-spacing: -.02em; }
+.tile .apoio { font-size: 13.5px; color: var(--ink-3); }
+
+/* ----------------------------------------------------------------- controles */
+.controles {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 12px 16px; margin-bottom: 22px;
+}
+.campo { display: flex; align-items: center; gap: 9px; }
+.campo label { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+input[type="range"] { width: 130px; accent-color: var(--accent); }
+select, button.acao, input.entrada {
+  font-family: var(--sans); font-size: 14.5px; color: var(--ink);
+  background: var(--surface-2); border: 1px solid var(--line-strong);
+  border-radius: 4px; padding: 5px 9px;
+}
+select, button.acao { cursor: pointer; }
+button.acao:hover, select:hover { border-color: var(--accent); }
+button.acao.primaria { background: var(--accent); color: var(--surface); border-color: var(--accent); font-weight: 600; }
+button.acao.primaria:hover { filter: brightness(1.1); }
+button.acao.perigo { color: var(--ruim); }
+input.entrada { font-family: var(--mono); font-variant-numeric: tabular-nums; width: 110px; }
+input.entrada[type="date"] { font-family: var(--sans); width: auto; }
+.leitura-yield { font-family: var(--mono); font-size: 16px; font-weight: 600; min-width: 46px; }
+.espaco { flex: 1; }
+
+/* -------------------------------------------------------------------- seção */
+section { margin-bottom: 34px; }
+.cabecalho-secao {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.cabecalho-secao h2 { font-family: var(--serif); font-size: 25px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
+.cabecalho-secao .nota { font-size: 14px; color: var(--ink-3); max-width: 62ch; }
+
+/* ------------------------------------------------------------------- linhas */
+.pilha { display: flex; flex-direction: column; gap: 8px; }
+.linha {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  border-left: 4px solid var(--faixa, var(--neutro)); box-shadow: var(--sombra); overflow: hidden;
+}
+.linha[data-farol="compra-forte"], .linha[data-farol="compra"] { --faixa: var(--bom); }
+.linha[data-farol="manter"]  { --faixa: var(--atencao); }
+.linha[data-farol="reduzir"] { --faixa: var(--ruim); }
+.linha[data-farol="fora"]    { --faixa: var(--neutro); }
+
+.linha > summary {
+  display: grid; align-items: center; gap: 10px 14px; padding: 12px 14px; cursor: pointer; list-style: none;
+  grid-template-columns: minmax(130px, 1.2fr) minmax(112px, 1fr) repeat(3, minmax(80px, .85fr)) minmax(118px, 1fr) minmax(118px, .9fr) minmax(190px, 1.5fr) 30px;
+}
+.linha > summary::-webkit-details-marker { display: none; }
+.linha > summary:hover { background: var(--surface-2); }
+@media (max-width: 1180px) {
+  .linha > summary { grid-template-columns: minmax(120px, 1.1fr) minmax(104px, 1fr) repeat(2, minmax(80px, 1fr)) minmax(118px, 1fr) minmax(180px, 1.4fr) 28px; }
+  .celula[data-opcional] { display: none; }
+}
+@media (max-width: 760px) {
+  .linha > summary { grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+  .celula[data-opcional] { display: flex; }
+  .celula.larga { grid-column: 1 / -1; }
+  .chevron { display: none; }
+}
+
+.identidade { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.identidade .tk { font-family: var(--mono); font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+.identidade .nm { font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.identidade .editada { font-size: 12px; color: var(--accent); font-weight: 600; }
+.celula { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.celula .dado { font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.celula .dado.grande { font-size: 17px; font-weight: 500; }
+.celula.cotacao .preco { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
+.celula.cotacao .var { display: inline-flex; align-items: center; gap: 4px; align-self: flex-start; font-size: 12.5px; font-weight: 700; padding: 1px 7px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.celula.cotacao .var.pos { background: var(--bom-soft); color: var(--bom); }
+.celula.cotacao .var.neg { background: var(--ruim-soft); color: var(--ruim); }
+.celula.cotacao .var.zero { background: var(--neutro-soft); color: var(--ink-2); }
+.celula.cotacao .fonte { font-size: 11px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* farol */
+.farol {
+  display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
+  padding: 4px 9px 4px 7px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+  border: 1px solid transparent; white-space: nowrap;
+}
+.farol .luz { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.farol[data-f="compra-forte"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.farol[data-f="compra"]       { color: var(--bom); background: transparent; border-color: var(--bom); }
+.farol[data-f="manter"]       { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.farol[data-f="reduzir"]      { color: var(--ruim); background: var(--ruim-soft); border-color: var(--ruim); }
+.farol[data-f="fora"]         { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+
+/* barra divergente */
+.medidor { display: flex; flex-direction: column; gap: 3px; }
+.trilho { position: relative; height: 9px; background: var(--surface-3); border-radius: 2px; overflow: hidden; }
+.trilho::after { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--line-strong); }
+.trilho .barra { position: absolute; top: 0; bottom: 0; border-radius: 2px; }
+.trilho .barra[data-lado="abaixo"] { background: var(--bom); }
+.trilho .barra[data-lado="acima"] { background: var(--ruim); }
+.medidor .legenda { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); white-space: nowrap; }
+
+/* leitura gráfica + recomendação */
+.grafico { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.grafico-topo { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.grafico-link {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; text-decoration: none;
+  color: var(--accent); background: var(--accent-soft); border: 1px solid transparent; border-radius: 4px;
+  padding: 4px 9px; white-space: nowrap;
+}
+.grafico-link:hover { border-color: var(--accent); }
+.niveis { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); white-space: nowrap; }
+.reco {
+  display: inline-flex; align-items: flex-start; gap: 6px; font-size: 13.5px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); padding: 3px 0;
+}
+.reco::before { content: ""; width: 3px; align-self: stretch; border-radius: 2px; background: var(--reco-cor, var(--neutro)); flex: none; }
+.reco[data-tom="bom"] { --reco-cor: var(--bom); }
+.reco[data-tom="atencao"] { --reco-cor: var(--atencao); }
+.reco[data-tom="ruim"] { --reco-cor: var(--ruim); }
+.reco[data-tom="neutro"] { --reco-cor: var(--neutro); color: var(--ink-2); font-weight: 500; }
+.chevron { color: var(--ink-3); transition: transform .18s ease; justify-self: end; }
+.linha[open] .chevron { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .chevron { transition: none; } }
+
+/* -------------------------------------------------------------- detalhe */
+.detalhe {
+  border-top: 1px solid var(--line); background: var(--surface-2); padding: 18px 16px 20px;
+  display: grid; gap: 20px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+}
+.detalhe .inteira { grid-column: 1 / -1; }
+@media (max-width: 860px) { .detalhe { grid-template-columns: 1fr; } }
+.detalhe h4 {
+  font-family: var(--sans); font-size: 12.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px;
+}
+.bloco + .bloco { margin-top: 18px; }
+.resultado-txt { margin: 0; font-size: 16px; color: var(--ink-2); max-width: 68ch; }
+.indicadores {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+}
+.indicadores div { padding: 8px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.indicadores dt { font-size: 12.5px; color: var(--ink-3); }
+.indicadores dd { margin: 1px 0 0; font-family: var(--mono); font-size: 14.5px; font-weight: 500; }
+.indicadores dd small { display: block; font-family: var(--sans); font-size: 12.5px; font-weight: 400; color: var(--ink-3); }
+ul.lista { margin: 0; padding-left: 17px; font-size: 15px; color: var(--ink-2); }
+ul.lista li { margin-bottom: 5px; }
+ul.lista li::marker { color: var(--ink-3); }
+ul.noticias { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+ul.noticias li { padding: 6px 0; border-bottom: 1px dotted var(--line-strong); }
+ul.noticias li:last-child { border-bottom: 0; }
+ul.noticias .data { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); display: block; }
+
+.memoria { border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); padding: 11px 13px; font-size: 14.5px; color: var(--ink-2); }
+.memoria p { margin: 0 0 8px; }
+.memoria p:last-child { margin-bottom: 0; }
+.memoria .conta { font-family: var(--mono); font-size: 14.5px; color: var(--ink); margin-bottom: 6px; }
+.confianca { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; }
+.pontos { display: inline-flex; gap: 2px; }
+.pontos i { width: 6px; height: 6px; border-radius: 50%; background: var(--line-strong); display: block; }
+.pontos i.on { background: var(--marcador, var(--ink-2)); }
+.confianca[data-nivel="alta"] { color: var(--bom); --marcador: var(--bom); }
+.confianca[data-nivel="media"] { color: var(--atencao); --marcador: var(--atencao); }
+.confianca[data-nivel="baixa"] { color: var(--ruim); --marcador: var(--ruim); }
+
+/* ajuste de posição */
+.ajuste {
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 12px 14px;
+  display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+}
+@media (max-width: 860px) { .ajuste { grid-template-columns: 1fr; } }
+.ajuste h5 { margin: 0 0 8px; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+.formulario { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: flex-end; }
+.formulario label { display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--ink-3); font-weight: 600; }
+.formulario .previa { font-family: var(--mono); font-size: 13.5px; color: var(--ink-2); width: 100%; margin-top: 2px; }
+.operacoes { list-style: none; margin: 8px 0 0; padding: 0; font-size: 14px; }
+.operacoes li { display: flex; gap: 10px; align-items: center; padding: 5px 0; border-bottom: 1px dotted var(--line-strong); }
+.operacoes li:last-child { border-bottom: 0; }
+.operacoes .tipo { font-weight: 700; font-size: 12.5px; letter-spacing: .05em; width: 54px; }
+.operacoes .tipo[data-t="compra"] { color: var(--bom); }
+.operacoes .tipo[data-t="venda"] { color: var(--ruim); }
+.operacoes .desc { font-family: var(--mono); color: var(--ink-2); flex: 1; }
+.operacoes button { font-size: 12.5px; background: none; border: 0; color: var(--ink-3); cursor: pointer; text-decoration: underline; }
+.leitura {
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 11px 13px; font-size: 14.5px; color: var(--ink-2);
+}
+.leitura .niveis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 6px 12px; margin: 8px 0 10px; }
+.leitura .niveis-grid div { display: flex; flex-direction: column; }
+.leitura .niveis-grid dt { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.leitura .niveis-grid dd { margin: 0; font-family: var(--mono); font-size: 14.5px; color: var(--ink); }
+.leitura p { margin: 0 0 8px; }
+.leitura p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------- rodapé */
+.painel-texto { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 22px; }
+.painel-texto h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0 0 8px; letter-spacing: -.01em; }
+.painel-texto h3:not(:first-child) { margin-top: 22px; }
+.painel-texto p, .painel-texto li { font-size: 16px; color: var(--ink-2); max-width: 74ch; }
+.painel-texto p { margin: 0 0 10px; }
+.colunas { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 22px; }
+.aviso { border-left: 3px solid var(--atencao); background: var(--atencao-soft); padding: 12px 15px; border-radius: 0 4px 4px 0; margin: 0 0 16px; }
+.aviso p { color: var(--ink); margin: 0; font-size: 15px; }
+.aviso p + p { margin-top: 7px; }
+table.faixas { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 6px; }
+table.faixas th, table.faixas td { text-align: left; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); }
+table.faixas th { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+table.faixas td:first-child { white-space: nowrap; }
+ol.passos { margin: 0; padding-left: 20px; }
+ol.passos li { margin-bottom: 6px; }
+footer.creditos {
+  margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: 13.5px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 18px;
+}
+.folha { border: 1px solid var(--line-strong); border-radius: var(--r); background: var(--surface); color: var(--ink); padding: 0; max-width: 560px; width: calc(100% - 32px); box-shadow: var(--sombra); }
+.folha::backdrop { background: rgba(0, 0, 0, .45); }
+.folha form { padding: 20px 22px; }
+.folha h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; }
+.folha p { margin: 0 0 10px; font-size: 15px; color: var(--ink-2); }
+.folha .folha-estado { font-size: 14px; color: var(--ink); background: var(--surface-2); border-radius: 4px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+.folha .miuda { font-size: 13px; color: var(--ink-3); }
+.folha-acoes { display: flex; justify-content: flex-end; margin-top: 6px; }
+.ocultos { font-size: 13px; color: var(--ink-3); padding: 6px 4px 0; }
+.ocultos button { font: inherit; font-size: 12.5px; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.toast {
+  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+  background: var(--ink); color: var(--ground); font-size: 14.5px; padding: 9px 14px; border-radius: 4px;
+  box-shadow: var(--sombra); opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.toast.visivel { opacity: 1; }
+</style>
+
+<!--/head-->
+
+<div class="envelope">
+  <header class="topo">
+    <div class="marca">
+      <h1>Radar Bazin</h1>
+      <p>Acompanhamento da carteira com farol de preço pelo método Décio Bazin, fundamentos do último trimestre, suporte e resistência por Volume Profile e uma recomendação por ativo.</p>
+    </div>
+    <div class="carimbo">
+      <button class="acao primaria" id="atualizar" type="button">Atualizar dados</button>
+      <span class="pulso" id="pulso" data-estado="snapshot">Snapshot</span>
+      <span class="quando" id="carimbo-quando">—</span>
+      <span class="quando" id="carimbo-cambio">—</span>
+      <span class="quando" id="carimbo-carteira">—</span>
+    </div>
+  </header>
+
+  <div class="farol-topo" id="farol-topo" aria-label="Farol Bazin da carteira"></div>
+
+  <section class="termometro" id="termometro" aria-label="Termômetro do dia"></section>
+
+  <div class="resumo" id="resumo"></div>
+
+  <div class="controles">
+    <div class="campo">
+      <label for="yield">Yield mínimo Bazin</label>
+      <input type="range" id="yield" min="4" max="12" step="0.5" value="8">
+      <span class="leitura-yield num" id="yield-valor">8,0%</span>
+    </div>
+    <div class="campo">
+      <label for="base">Base do dividendo</label>
+      <select id="base">
+        <option value="recorrente">DPA recorrente (com haircut)</option>
+        <option value="doze">DPA cheio dos últimos 12 meses</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label for="ordem">Ordenar por</label>
+      <select id="ordem">
+        <option value="valor">Tamanho da posição</option>
+        <option value="gap">Distância do teto</option>
+        <option value="resultado">Resultado não realizado</option>
+        <option value="ticker">Ticker</option>
+      </select>
+    </div>
+    <span class="espaco"></span>
+    <button class="acao" id="expandir" type="button">Abrir todos os detalhes</button>
+    <button class="acao" id="exportar" type="button" title="Copia a carteira atual no formato de data/carteira.json">Copiar carteira (JSON)</button>
+  </div>
+
+  <section>
+    <div class="cabecalho-secao">
+      <h2>Carteira brasileira</h2>
+      <p class="nota">Preço-teto = DPA ÷ yield mínimo. A barra mostra a distância até o teto: verde à esquerda é desconto, vermelho à direita é prêmio. A recomendação cruza o farol com suporte e resistência.</p>
+    </div>
+    <div class="pilha" id="lista-br"></div>
+  </section>
+
+  <section>
+    <div class="cabecalho-secao">
+      <h2>Carteira internacional</h2>
+      <p class="nota">Bazin não se aplica: são teses de crescimento sem dividendo relevante. Aqui a recomendação é só gráfica — tendência, suporte e resistência.</p>
+    </div>
+    <div class="pilha" id="lista-us"></div>
+  </section>
+
+  <section>
+    <div class="cabecalho-secao">
+      <h2>ETFs de índice</h2>
+      <p class="nota">Exposição ao S&amp;P 500 em dois veículos com tributação diferente.</p>
+    </div>
+    <div class="pilha" id="lista-etf"></div>
+  </section>
+
+  <section class="opcoes" id="opcoes" aria-label="Dividendos sintéticos com venda de put"></section>
+
+  <section class="painel-texto">
+    <h3>Como ler o farol</h3>
+    <p>Décio Bazin comprava ação como quem compra renda: se o dividendo pago dividido pelo preço não entregasse pelo menos 6% ao ano, o preço estava caro. O preço-teto sai de uma conta só — <strong>dividendo por ação ÷ 6%</strong> — e o resto é margem de segurança.</p>
+    <table class="faixas">
+      <thead><tr><th>Faixa</th><th>Regra</th><th>Leitura</th></tr></thead>
+      <tbody>
+        <tr><td><span class="farol" data-f="compra-forte"><span class="luz"></span>Compra forte</span></td><td>preço ≤ 80% do teto</td><td>Desconto de 20% ou mais sobre o teto. É a zona em que Bazin comprava.</td></tr>
+        <tr><td><span class="farol" data-f="compra"><span class="luz"></span>Compra</span></td><td>80% &lt; preço ≤ teto</td><td>Ainda entrega o yield mínimo, mas sem folga.</td></tr>
+        <tr><td><span class="farol" data-f="manter"><span class="luz"></span>Manter</span></td><td>teto &lt; preço ≤ 120% do teto</td><td>Yield abaixo do piso. Segura o que tem, não amplia.</td></tr>
+        <tr><td><span class="farol" data-f="reduzir"><span class="luz"></span>Reduzir</span></td><td>preço &gt; 120% do teto</td><td>Prêmio de mais de 20%. Pelo método, é gatilho de venda parcial.</td></tr>
+        <tr><td><span class="farol" data-f="fora"><span class="luz"></span>Fora do método</span></td><td>sem dividendo recorrente</td><td>Sem dividendo não existe teto. Avaliar por outro critério.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Os três filtros que vêm antes do preço</h3>
+    <p>O teto é o último passo, não o primeiro. Antes dele Bazin exigia: histórico de <strong>pelo menos cinco anos pagando dividendo sem interrupção</strong>; <strong>lucro consistente</strong>, não pontual; e <strong>dívida sob controle</strong>. Nesta carteira, SAPR11 (prejuízo no 2T26 e disputa regulatória), CMIG4 (dívida quase dobrou em um ano) e AURE3 (alavancagem de 5,3x e sem dividendo) tropeçam em pelo menos um desses filtros — o farol verde num papel assim vale menos do que parece.</p>
+
+    <div class="colunas">
+      <div>
+        <h3>Como a recomendação é montada</h3>
+        <p>A recomendação de cada linha cruza duas coisas: <strong>o que o Bazin diz sobre o preço</strong> (o farol) e <strong>onde o preço está no gráfico</strong> (suporte, resistência e tendência pela MM200). O farol decide <em>se</em> vale comprar ou vender; o gráfico decide <em>onde</em>. Regras:</p>
+        <ul class="lista">
+          <li><strong>Farol verde e preço encostado no suporte</strong> → comprar ali, com stop abaixo do suporte.</li>
+          <li><strong>Farol verde e preço no meio da faixa</strong> → comprar escalonado, deixando ordem no suporte.</li>
+          <li><strong>Farol verde mas preço encostado na resistência</strong> → esperar: recuo ao suporte ou rompimento com volume.</li>
+          <li><strong>Farol amarelo</strong> → manter; realizar parcial se estiver na resistência; atenção se perder o suporte.</li>
+          <li><strong>Farol vermelho</strong> → reduzir, de preferência na resistência.</li>
+          <li><strong>Sem Bazin</strong> (crescimento, ETF) → só gráfico: manter enquanto acima da MM200 e do suporte; reduzir se perder os dois.</li>
+        </ul>
+        <p>Abaixo da MM200 o papel está em tendência de baixa: a recomendação de compra vira "em parcelas menores", porque comprar contra a tendência exige mais paciência.</p>
+
+        <h3>Suporte e resistência por Volume Profile</h3>
+        <p>Não existe método gráfico infalível. O que existe é método com fundamento observável. O <strong>Volume Profile</strong> não desenha linha em cima de opinião: mostra em quais preços realmente houve volume negociado. Onde muita gente montou posição há oferta e demanda represadas — é isso que faz um nível segurar ou romper. O painel calcula, sobre um ano de candles diários:</p>
+        <ul class="lista">
+          <li><strong>POC</strong> (preço de maior volume) e <strong>Value Area</strong> (faixa com 70% do volume) — VAL e VAH são o suporte e a resistência estruturais.</li>
+          <li><strong>HVNs</strong> (nós de alto volume) — máximos locais do perfil.</li>
+          <li><strong>Pivôs de swing</strong> dos últimos seis meses — topos e fundos que o mercado já respeitou.</li>
+          <li><strong>MM21 e MM200</strong> — tendência curta e longa.</li>
+        </ul>
+        <p>Suporte é o candidato mais próximo abaixo do preço; resistência, o mais próximo acima. Quando dois candidatos caem a menos de 2% um do outro, viram um só e o painel marca a <em>confluência</em> — nível com mais de uma razão para existir vale mais. O link abre o TradingView no papel; adicione o indicador "Volume Profile Visible Range" para ver o mesmo perfil no gráfico.</p>
+      </div>
+      <div>
+        <h3>O que este painel não sabe</h3>
+        <div class="aviso">
+          <p><strong>Os dividendos por ação são o ponto fraco dos dados.</strong> Os agregadores brasileiros divergem entre si — em ITSA4 a diferença entre fontes chega a R$ 0,68 por ação. Cada ativo mostra a fonte e um nível de confiança no bloco de detalhe. Onde a confiança for baixa, confira o extrato de proventos no seu home broker antes de usar o teto como gatilho.</p>
+          <p><strong>Os níveis gráficos marcados como "manual" são provisórios.</strong> Foram tirados de análises publicadas, algumas com semanas de idade e preços diferentes do atual. Na primeira execução do workflow eles são substituídos pelo cálculo automático sobre o histórico real, e a origem muda para "calculado".</p>
+          <p><strong>O DPA recorrente é premissa minha, não dado divulgado.</strong> Aplico um haircut sobre o dividendo dos últimos 12 meses quando parte dele veio de evento não repetível. O critério de cada haircut está na memória de cálculo de cada linha.</p>
+          <p><strong>Divergência na planilha de origem.</strong> A linha de AURE3 trazia R$ 10.798 em "Posição Valor" com quantidade zero — o mesmo valor da posição de TAEE11. Tratei como célula duplicada.</p>
+        </div>
+
+        <h3>Dividendos sintéticos</h3>
+        <p>O painel <strong>Dividendos sintéticos</strong> lista, para cada papel, as puts que fazem sentido vender com caixa de cobertura: prazo de 15 a 60 dias, strike de 3% a 15% abaixo do preço e nunca acima do teto Bazin. Se o papel não cair, o prêmio fica; se cair, você compra abaixo do teto com o prêmio de desconto. O "preço ideal" é o limite da ordem (justo pela volatilidade recente ou o prêmio que, sozinho, rende o CDI sobre o caixa, o que for maior); o "último preço" é o que o mercado pagou por último. Só entram séries com pelo menos 10 negócios no dia; os papéis sem liquidez aparecem como "sem put recomendável". O painel cobre só os papéis nacionais.</p>
+
+        <h3>Ajustar a carteira</h3>
+        <p>Cada ativo tem, no detalhe, um bloco <strong>Ajustar posição</strong>: registre compra ou venda (quantidade e preço) e o painel recalcula quantidade, preço médio e o resultado realizado da venda. Também dá para corrigir quantidade e preço médio direto, ou excluir o ativo do painel (e restaurar depois, no fim da seção). Tudo fica salvo neste aparelho e, quando o painel roda dentro do claude.ai, sincroniza pela nuvem entre celular e computador. O botão <strong>Copiar carteira</strong> gera o JSON no formato de <code>data/carteira.json</code>, para quem quiser gravar no repositório.</p>
+
+        <h3>No celular</h3>
+        <ol class="passos">
+          <li><strong>iPhone (Safari):</strong> abra o link, toque em Compartilhar (quadrado com seta) e em <em>Adicionar à Tela de Início</em>.</li>
+          <li><strong>Android (Chrome):</strong> abra o link, toque no menu ⋮ e em <em>Adicionar à tela inicial</em> (ou <em>Instalar app</em>).</li>
+        </ol>
+        <p>O ícone abre o painel em tela cheia, como app. Os preços continuam vindo do repositório; os fundamentos, da última revisão.</p>
+
+        <h3>Dois pontos que valem uma conversa</h3>
+        <ul class="lista">
+          <li><strong>Concentração.</strong> ALOS3 é cerca de 77% da carteira brasileira. Qualquer decisão sobre esse papel é, na prática, uma decisão sobre a carteira inteira.</li>
+          <li><strong>Sobreposição e domicílio.</strong> SPY e VUAA seguem o mesmo índice. O SPY é domiciliado nos EUA: ativos americanos acima de US$ 60 mil expõem não residentes ao <em>estate tax</em> americano, e sua posição direta em NVDA, PLTR, TSLA e SPY já passa disso. O VUAA, irlandês e de acumulação, não tem esse problema. Vale conversar com seu contador.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Aviso</h3>
+    <p>Este painel é organização de informação pública, não recomendação de investimento no sentido regulatório. A "recomendação" de cada linha é a aplicação mecânica das regras acima — ela não conhece seu imposto, sua liquidez nem seu horizonte. Números de resultado e proventos foram levantados em 06/09/2026 nas fontes citadas; os preços e os níveis gráficos se atualizam sozinhos, os fundamentos não.</p>
+  </section>
+
+  <footer class="creditos">
+    <span>Radar Bazin</span>
+    <span id="rodape-quando">—</span>
+    <span>Fundamentos apurados em 06/09/2026</span>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="folha-atualizar" class="folha">
+  <form method="dialog">
+    <h3>Atualizar dados</h3>
+    <p id="folha-estado" class="folha-estado">—</p>
+    <p>O painel é republicado <strong>automaticamente em dias úteis às 7h15</strong> (termômetro do dia, com os mercados da Ásia fechados e os futuros dos EUA rodando) <strong>e às 18h45</strong> (fechamento da B3, com preços, câmbio e níveis gráficos recalculados), horário de Brasília. Para atualizar fora desses horários, use um dos dois caminhos:</p>
+    <ol class="passos">
+      <li><strong>Pelo Claude:</strong> abra a conversa <em>Painel Ações</em> no <a href="https://claude.ai/code" target="_blank" rel="noopener">claude.ai/code</a> e escreva <em>"atualiza o painel"</em>. Eu puxo os dados mais recentes do repositório, republico neste mesmo link e confirmo. Leva de 1 a 3 minutos.</li>
+      <li><strong>Só os dados, pelo GitHub:</strong> <a href="https://github.com/dvf15/radarbazin/actions/workflows/atualizar-cotacoes.yml" target="_blank" rel="noopener">abra o workflow "Atualizar cotações"</a> e toque em <em>Run workflow</em>. Isso atualiza o repositório; o painel só muda na próxima republicação.</li>
+    </ol>
+    <p class="miuda">A carteira que você edita aqui não participa disso: ela fica no banco privado deste painel e sobrevive a qualquer republicação.</p>
+    <div class="folha-acoes"><button class="acao" value="fechar">Fechar</button></div>
+  </form>
+</dialog>
+
+<script id="dados-embutidos" type="application/json">__DADOS__</script>
+<script>
+(() => {
+  "use strict";
+
+  const embutido = JSON.parse(document.getElementById("dados-embutidos").textContent);
+  const { carteira, fundamentos } = embutido;
+  let cotacoes = embutido.cotacoes;
+  let tecnica = embutido.tecnica ?? { ativos: {} };
+  let termometro = embutido.termometro ?? null;
+  let opcoes = embutido.opcoes ?? null;
+
+  /* ------------------------------------------------------------ formatos */
+  const fmt = {
+    BRL: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }),
+    BRLc: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2 }),
+    USD: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "USD", maximumFractionDigits: 0 }),
+    USDc: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "USD", minimumFractionDigits: 2 }),
+  };
+  const dinheiro = (v, moeda, cent) => fmt[moeda + (cent ? "c" : "")].format(v);
+  const curto = (v, moeda) => v === null || v === undefined ? "—" : (moeda === "USD" ? "US$ " : "R$ ") + v.toFixed(2).replace(".", ",");
+  const pct = (n, casas = 1) => (n >= 0 ? "+" : "−") + Math.abs(n).toFixed(casas).replace(".", ",") + "%";
+  const pctSimples = (n, casas = 1) => n.toFixed(casas).replace(".", ",") + "%";
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const hoje = () => new Date().toISOString().slice(0, 10);
+
+  const GRUPOS = {
+    br: ["ALOS3", "ITSA4", "BBDC4", "SAPR11", "CMIG4", "KLBN4", "TAEE11", "BBSE3", "AURE3"],
+    us: ["NVDA", "PLTR", "TSLA"],
+    etf: ["SPY", "VUAA"],
+  };
+
+  const estado = { yield: 0.08, base: "recorrente", ordem: "valor" };
+
+  /* ------------------------------------------------- carteira editável */
+  // Base: a planilha embutida, consolidada por ticker.
+  const basePlanilha = {};
+  for (const p of carteira.posicoes) {
+    const qtd = p.lotes.reduce((s, l) => s + l.qtd, 0);
+    const custo = p.lotes.reduce((s, l) => s + l.qtd * l.pm, 0);
+    const comPreco = p.lotes.filter((l) => l.pm > 0);
+    const pm = qtd ? custo / qtd : comPreco.length ? comPreco.reduce((s, l) => s + l.pm, 0) / comPreco.length : 0;
+    basePlanilha[p.ticker] = { qtd, pm: Number(pm.toFixed(4)), banco: p.banco };
+  }
+
+  // Estado editável: { versao, atualizadoEm, posicoes: {T: {qtd, pm}}, operacoes: [] }
+  let edicao = { versao: 1, atualizadoEm: null, posicoes: {}, operacoes: [], ocultos: [] };
+  let origemCarteira = "planilha"; // planilha | local | nuvem
+
+  const CHAVE = "radar-bazin.carteira.v1";
+  const local = {
+    ler() { try { const s = localStorage.getItem(CHAVE); return s ? JSON.parse(s) : null; } catch { return null; } },
+    gravar(d) { try { localStorage.setItem(CHAVE, JSON.stringify(d)); } catch { /* sem storage */ } },
+    limpar() { try { localStorage.removeItem(CHAVE); } catch { /* sem storage */ } },
+  };
+
+  let nuvem = null;            // ref do documento no db, quando disponível
+  let ignorarSnapshot = false; // evita eco do próprio write
+
+  function validaEdicao(d) {
+    return d && typeof d === "object" && d.posicoes && typeof d.posicoes === "object" && Array.isArray(d.operacoes ?? []);
+  }
+
+  function adotar(d, origem) {
+    if (!validaEdicao(d)) return;
+    edicao = { versao: 1, atualizadoEm: d.atualizadoEm ?? null, posicoes: { ...d.posicoes }, operacoes: [...(d.operacoes ?? [])], ocultos: [...(d.ocultos ?? [])] };
+    origemCarteira = origem;
+  }
+
+  async function persistir() {
+    edicao.atualizadoEm = new Date().toISOString();
+    local.gravar(edicao);
+    origemCarteira = nuvem ? "nuvem" : "local";
+    if (nuvem) {
+      try {
+        ignorarSnapshot = true;
+        await nuvem.set(edicao);
+      } catch (e) {
+        aviso(`Salvo neste aparelho; a nuvem recusou (${e?.code ?? "erro"}).`);
+        origemCarteira = "local";
+      } finally {
+        setTimeout(() => { ignorarSnapshot = false; }, 800);
+      }
+    }
+    desenhar();
+  }
+
+  function posicaoAtual(ticker) {
+    const b = basePlanilha[ticker] ?? { qtd: 0, pm: 0, banco: "" };
+    const e = edicao.posicoes[ticker];
+    return e ? { qtd: e.qtd, pm: e.pm, banco: b.banco, editada: true } : { ...b, editada: false };
+  }
+
+  function registrarOperacao(ticker, tipo, qtd, preco, data) {
+    const atual = posicaoAtual(ticker);
+    let novaQtd, novoPm, realizado = null;
+    if (tipo === "compra") {
+      novaQtd = atual.qtd + qtd;
+      novoPm = novaQtd ? (atual.qtd * atual.pm + qtd * preco) / novaQtd : 0;
+    } else {
+      if (qtd > atual.qtd + 1e-9) return { erro: `Você tem ${atual.qtd.toLocaleString("pt-BR")} — não dá para vender ${qtd.toLocaleString("pt-BR")}.` };
+      novaQtd = Math.max(0, atual.qtd - qtd);
+      novoPm = novaQtd ? atual.pm : atual.pm; // PM não muda na venda
+      realizado = qtd * (preco - atual.pm);
+    }
+    edicao.posicoes[ticker] = { qtd: Number(novaQtd.toFixed(4)), pm: Number(novoPm.toFixed(4)) };
+    edicao.operacoes.unshift({ id: Date.now().toString(36), ticker, tipo, qtd, preco, data, realizado, ts: new Date().toISOString() });
+    edicao.operacoes = edicao.operacoes.slice(0, 300);
+    return { ok: true, realizado };
+  }
+
+  function corrigirPosicao(ticker, qtd, pm) {
+    edicao.posicoes[ticker] = { qtd: Number(qtd.toFixed(4)), pm: Number(pm.toFixed(4)) };
+    edicao.operacoes.unshift({ id: Date.now().toString(36), ticker, tipo: "ajuste", qtd, preco: pm, data: hoje(), realizado: null, ts: new Date().toISOString() });
+  }
+
+  function restaurarTicker(ticker) {
+    delete edicao.posicoes[ticker];
+    edicao.operacoes = edicao.operacoes.filter((o) => o.ticker !== ticker);
+  }
+
+  /* ------------------------------------------------------------ cálculo */
+  function consolidar() {
+    const linhas = [];
+    for (const ticker of Object.keys(basePlanilha)) {
+      const f = fundamentos.ativos[ticker];
+      if (!f || edicao.ocultos.includes(ticker)) continue;
+      const pos = posicaoAtual(ticker);
+      const cot = cotacoes.cotacoes?.[ticker];
+      const preco = cot && cot.preco > 0 ? cot.preco : f.precoRef;
+      const custo = pos.qtd * pos.pm;
+      const valor = pos.qtd * preco;
+      const resultado = valor - custo;
+      const resultadoPct = custo > 0 ? (valor / custo - 1) * 100 : null;
+
+      const dpa = estado.base === "doze" ? f.bazin.dpa12m : f.bazin.dpaRecorrente;
+      const aplicavel = f.bazin.aplicavel && dpa > 0;
+      const teto = aplicavel ? dpa / estado.yield : null;
+      const gap = teto ? (preco / teto - 1) * 100 : null;
+      const dy = dpa > 0 ? (dpa / preco) * 100 : 0;
+
+      let farol = "fora";
+      if (teto) {
+        const r = preco / teto, fx = fundamentos.bazin.faixas;
+        farol = r <= fx.compraForte ? "compra-forte" : r <= fx.compra ? "compra" : r <= fx.neutro ? "manter" : "reduzir";
+      }
+
+      const t = tecnica.ativos?.[ticker] ?? null;
+      const linha = {
+        ticker, f, ...pos, preco, custo, valor, resultado, resultadoPct,
+        moeda: f.moeda, dpa, teto, gap, dy, farol, tecnica: t,
+        fonteCotacao: cot?.fonte ?? "referência da planilha",
+        defasado: Boolean(cot?.defasado),
+        rendaAno: aplicavel ? pos.qtd * dpa : 0,
+      };
+      linha.reco = recomendar(linha);
+      linhas.push(linha);
+    }
+    return linhas;
+  }
+
+  function ordenar(linhas) {
+    const c = {
+      valor: (a, b) => b.valor - a.valor,
+      ticker: (a, b) => a.ticker.localeCompare(b.ticker),
+      resultado: (a, b) => b.resultado - a.resultado,
+      gap: (a, b) => (a.gap ?? 1e9) - (b.gap ?? 1e9),
+    }[estado.ordem];
+    return [...linhas].sort(c);
+  }
+
+  /* -------------------------------------------------------- recomendação */
+  const PERTO = 0.03; // 3% = "encostado"
+
+  function recomendar(l) {
+    const t = l.tecnica;
+    const m = l.moeda;
+    const sup = t?.suporte ?? null, res = t?.resistencia ?? null, mm200 = t?.mm200 ?? null;
+    const noSuporte = sup !== null && l.preco <= sup * (1 + PERTO);
+    const naResistencia = res !== null && l.preco >= res * (1 - PERTO);
+    const abaixoMM200 = mm200 !== null && l.preco < mm200;
+    const tendencia = t?.tendencia ?? "lateral";
+    const semNiveis = sup === null && res === null;
+    const temPosicao = l.qtd > 0;
+
+    const stop = sup !== null ? ` Stop de atenção: fechamento abaixo de ${curto(sup, m)}.` : "";
+    let curta, longa, tom;
+
+    if (l.farol === "compra-forte" || l.farol === "compra") {
+      if (semNiveis) {
+        curta = "Comprar escalonado"; tom = "bom";
+        longa = `O Bazin libera a compra (${pctSimples(Math.abs(l.gap))} abaixo do teto), mas ainda não há suporte e resistência calculados para este papel. Compre em parcelas e reavalie quando o cálculo automático rodar.`;
+      } else if (noSuporte) {
+        curta = `Comprar no suporte ${curto(sup, m)}`; tom = "bom";
+        longa = `Preço encostado no suporte de ${curto(sup, m)} com farol verde: é a combinação que o método procura. Compre aqui, com stop abaixo do suporte.${abaixoMM200 ? " O papel está abaixo da MM200 — tendência de baixa —, então entre em parcelas menores." : ""}`;
+      } else if (naResistencia) {
+        curta = `Aguardar: encostado na resistência ${curto(res, m)}`; tom = "atencao";
+        longa = `O Bazin libera a compra, mas o preço está colado na resistência de ${curto(res, m)}. Comprar aqui é pagar o pior preço da faixa. Espere o recuo ao suporte${sup !== null ? ` de ${curto(sup, m)}` : ""} ou o rompimento da resistência com volume acima da média.`;
+      } else {
+        curta = `Comprar escalonado; ordem em ${curto(sup, m)}`; tom = "bom";
+        longa = `Farol verde e preço no meio da faixa (${curto(sup, m)} a ${res !== null ? curto(res, m) : "—"}). Compre uma parte agora e deixe ordem no suporte de ${curto(sup, m)}.${abaixoMM200 ? " Abaixo da MM200: prefira parcelas menores." : ""}${res !== null ? ` Alvo técnico: ${curto(res, m)}.` : ""}`;
+      }
+    } else if (l.farol === "manter") {
+      if (naResistencia && temPosicao) {
+        curta = `Realizar parcial em ${curto(res, m)}`; tom = "atencao";
+        longa = `Acima do teto Bazin (${pctSimples(l.gap)}) e encostado na resistência de ${curto(res, m)}: vender uma parte aqui melhora o preço médio da carteira sem sair da tese.${stop}`;
+      } else {
+        curta = temPosicao ? "Manter; sem compra pelo Bazin" : "Aguardar preço abaixo do teto"; tom = "atencao";
+        longa = `Preço ${pctSimples(l.gap)} acima do teto: o yield ficou abaixo do piso de ${pctSimples(estado.yield * 100)}. ${temPosicao ? "Segure o que tem, não amplie." : "Só entra quando o preço voltar para baixo do teto."}${stop}`;
+      }
+    } else if (l.farol === "reduzir") {
+      curta = temPosicao ? `Reduzir${naResistencia ? ` na resistência ${curto(res, m)}` : ""}` : "Não comprar: acima do teto"; tom = "ruim";
+      longa = `Preço ${pctSimples(l.gap)} acima do teto Bazin — prêmio de mais de 20%. ${temPosicao ? "Pelo método é gatilho de venda parcial" + (naResistencia ? `, e o preço está na resistência de ${curto(res, m)}, que é o melhor lugar para fazer isso.` : "; se quiser esperar um preço melhor, a resistência é " + (res !== null ? curto(res, m) : "desconhecida") + ".") : "Fora de ponto de entrada."}`;
+    } else {
+      // fora do método: leitura só gráfica
+      if (semNiveis) {
+        curta = temPosicao ? "Manter; leitura gráfica pendente" : "Sem posição"; tom = "neutro";
+        longa = `Sem dividendo recorrente o Bazin não dá teto. Ainda não há níveis calculados para este papel — ${t?.fonte ? esc(t.fonte) : "aguardando o cálculo automático."}`;
+      } else if (tendencia === "baixa" || (abaixoMM200 && noSuporte)) {
+        curta = temPosicao ? `Reduzir se perder ${curto(sup, m)}` : "Não entrar: tendência de baixa"; tom = "ruim";
+        longa = `Fora do Bazin. Tendência de baixa${mm200 !== null ? ` (abaixo da MM200 de ${curto(mm200, m)})` : ""}. ${temPosicao ? `Mantenha só enquanto o suporte de ${curto(sup, m)} segurar; fechamento abaixo dele é sinal de reduzir.` : "Sem posição: não é hora de iniciar."}`;
+      } else if (naResistencia) {
+        curta = temPosicao ? `Manter; realizar parte em ${curto(res, m)}` : "Aguardar recuo"; tom = "atencao";
+        longa = `Fora do Bazin. Preço testando a resistência de ${curto(res, m)}${tendencia === "alta" ? " em tendência de alta" : ""}. ${temPosicao ? "Realizar uma parte aqui é prudente; o resto fica com stop no suporte." : "Não é ponto de entrada: espere recuo ao suporte."}${stop}`;
+      } else {
+        curta = temPosicao ? `Manter; stop em ${curto(sup, m)}` : (tendencia === "alta" ? `Entrada só no suporte ${curto(sup, m)}` : "Aguardar"); tom = temPosicao ? "neutro" : "atencao";
+        longa = `Fora do Bazin. Tendência ${tendencia}${mm200 !== null ? `, MM200 em ${curto(mm200, m)}` : ""}. ${temPosicao ? `Manter enquanto acima de ${curto(sup, m)}${res !== null ? `; próxima resistência em ${curto(res, m)}` : ""}.` : `Se for entrar, é no suporte de ${curto(sup, m)}, nunca no meio da faixa.`}`;
+      }
+    }
+    return { curta, longa, tom, noSuporte, naResistencia, abaixoMM200 };
+  }
+
+  /* ------------------------------------------------------------ desenho */
+  const ROTULO_FAROL = { "compra-forte": "Compra forte", compra: "Compra", manter: "Manter", reduzir: "Reduzir", fora: "Fora do método" };
+
+  function medidor(gap) {
+    if (gap === null) return '<div class="medidor"><div class="trilho"></div><span class="legenda">sem preço-teto</span></div>';
+    const limite = 50, larg = Math.min(Math.abs(gap), limite) / limite * 50;
+    const lado = gap <= 0 ? "abaixo" : "acima";
+    const estilo = gap <= 0 ? `right:50%;width:${larg}%` : `left:50%;width:${larg}%`;
+    const texto = gap <= 0 ? `${pctSimples(Math.abs(gap))} abaixo do teto` : `${pctSimples(gap)} acima do teto`;
+    return `<div class="medidor"><div class="trilho"><div class="barra" data-lado="${lado}" style="${estilo}"></div></div><span class="legenda">${texto}</span></div>`;
+  }
+
+  const nivelConfianca = (n) => (n >= 7 ? "alta" : n >= 6 ? "media" : "baixa");
+  const pontos = (n) => '<span class="pontos">' + Array.from({ length: 10 }, (_, i) => `<i class="${i < n ? "on" : ""}"></i>`).join("") + "</span>";
+  const selo = (n) => `<span class="confianca" data-nivel="${nivelConfianca(n)}">${pontos(n)} confiança ${n}/10</span>`;
+
+  function blocoLeitura(l) {
+    const t = l.tecnica, m = l.moeda;
+    if (!t) return '<div class="leitura"><p>Sem leitura gráfica para este ativo.</p></div>';
+    const nivel = (v) => (v === null || v === undefined ? "—" : curto(v, m));
+    const base = (arr) => (arr && arr.length ? ` <small style="color:var(--ink-3)">(${arr.join(" + ")})</small>` : "");
+    const tend = { alta: "alta ↗", baixa: "baixa ↘", lateral: "lateral →" }[t.tendencia] ?? t.tendencia;
+    return `<div class="leitura">
+      <p><strong>${esc(l.reco.curta)}.</strong> ${l.reco.longa}</p>
+      <dl class="niveis-grid">
+        <div><dt>Suporte</dt><dd>${nivel(t.suporte)}${base(t.suporteBase)}</dd></div>
+        <div><dt>Resistência</dt><dd>${nivel(t.resistencia)}${base(t.resistenciaBase)}</dd></div>
+        <div><dt>Tendência</dt><dd>${tend}</dd></div>
+        <div><dt>MM21</dt><dd>${nivel(t.mm21)}</dd></div>
+        <div><dt>MM200</dt><dd>${nivel(t.mm200)}</dd></div>
+        <div><dt>POC</dt><dd>${nivel(t.poc)}</dd></div>
+        <div><dt>Value Area</dt><dd>${t.val != null ? `${nivel(t.val)} – ${nivel(t.vah)}` : "—"}</dd></div>
+        <div><dt>52 semanas</dt><dd>${t.min52 != null ? `${nivel(t.min52)} – ${nivel(t.max52)}` : "—"}</dd></div>
+      </dl>
+      <p>${selo(t.confianca ?? 3)} · origem <strong>${esc(t.origem ?? "—")}</strong>${t.ts ? ` · ${new Date(t.ts).toLocaleDateString("pt-BR")}` : ""}</p>
+      <p style="font-size: 14px">${esc(t.fonte ?? "")}</p>
+    </div>`;
+  }
+
+  function blocoAjuste(l) {
+    const m = l.moeda, tk = l.ticker;
+    const ops = edicao.operacoes.filter((o) => o.ticker === tk).slice(0, 8);
+    const listaOps = ops.length
+      ? `<ul class="operacoes">${ops.map((o) => `<li>
+          <span class="tipo" data-t="${o.tipo}">${o.tipo === "compra" ? "COMPRA" : o.tipo === "venda" ? "VENDA" : "AJUSTE"}</span>
+          <span class="desc">${o.tipo === "ajuste" ? `qtd ${o.qtd.toLocaleString("pt-BR")} · PM ${curto(o.preco, m)}` : `${o.qtd.toLocaleString("pt-BR")} × ${curto(o.preco, m)}`} · ${o.data}${o.realizado !== null && o.realizado !== undefined ? ` · realizado <span class="${o.realizado >= 0 ? "pos" : "neg"}">${dinheiro(o.realizado, m, true)}</span>` : ""}</span>
+        </li>`).join("")}</ul>`
+      : '<p style="margin:8px 0 0;font-size: 14px;color:var(--ink-3)">Nenhuma operação registrada. A posição vem da planilha.</p>';
+
+    return `<div class="ajuste" data-ajuste="${tk}">
+      <div>
+        <h5>Posição atual${l.editada ? " · editada" : " · planilha"}</h5>
+        <div class="formulario">
+          <label>Quantidade <input class="entrada" type="number" step="any" min="0" name="qtd" value="${l.qtd}"></label>
+          <label>Preço médio <input class="entrada" type="number" step="0.01" min="0" name="pm" value="${l.pm.toFixed(2)}"></label>
+          <button class="acao" type="button" data-acao="corrigir">Corrigir</button>
+          ${l.editada ? '<button class="acao perigo" type="button" data-acao="restaurar">Voltar à planilha</button>' : ""}
+          <button class="acao perigo" type="button" data-acao="excluir" data-passo="1">Excluir do painel</button>
+        </div>
+        ${listaOps}
+      </div>
+      <div>
+        <h5>Registrar operação</h5>
+        <div class="formulario">
+          <label>Tipo
+            <select name="tipo"><option value="compra">Compra</option><option value="venda">Venda</option></select>
+          </label>
+          <label>Quantidade <input class="entrada" type="number" step="any" min="0" name="opQtd" placeholder="0"></label>
+          <label>Preço <input class="entrada" type="number" step="0.01" min="0" name="opPreco" value="${l.preco.toFixed(2)}"></label>
+          <label>Data <input class="entrada" type="date" name="opData" value="${hoje()}"></label>
+          <button class="acao primaria" type="button" data-acao="registrar">Registrar</button>
+          <span class="previa" data-previa></span>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function detalhe(l) {
+    const f = l.f;
+    const ind = f.indicadores.map((i) => `<div><dt>${esc(i.k)}</dt><dd>${esc(i.v)}${i.d ? `<small>${esc(i.d)}</small>` : ""}</dd></div>`).join("");
+    const memoria = f.bazin.aplicavel
+      ? `<div class="memoria">
+          <div class="conta">${dinheiro(l.dpa, l.moeda, true)} ÷ ${pctSimples(estado.yield * 100)} = <strong>${l.teto ? dinheiro(l.teto, l.moeda, true) : "—"}</strong></div>
+          <p>${esc(f.bazin.dpa12mNota)}</p>
+          <p><strong>Base usada agora:</strong> ${estado.base === "doze" ? "DPA cheio dos últimos 12 meses" : "DPA recorrente"} — ${esc(f.bazin.premissa)}</p>
+          <p>${selo(f.bazin.confianca)}</p>
+          <p style="font-size: 14px">${esc(f.bazin.confiancaNota)}</p>
+        </div>`
+      : `<div class="memoria"><p>${esc(f.bazin.dpa12mNota)}</p><p><strong>${esc(f.bazin.premissa)}</strong></p></div>`;
+    const noticias = f.noticias.length
+      ? `<ul class="noticias">${f.noticias.map((n) => `<li><span class="data">${esc(n.data)}</span><a href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titulo)}</a></li>`).join("")}</ul>`
+      : '<p class="resultado-txt">Sem notícias específicas levantadas para este ativo.</p>';
+
+    return `<div class="detalhe">
+      <div class="inteira bloco" style="margin-top:0">
+        <h4>Ajustar posição</h4>
+        ${blocoAjuste(l)}
+      </div>
+      <div>
+        <div class="bloco" style="margin-top:0">
+          <h4>Leitura gráfica e recomendação</h4>
+          ${blocoLeitura(l)}
+        </div>
+        <div class="bloco">
+          <h4>Último resultado divulgado${f.ultimoResultado.periodo !== "n/a" ? ` — ${esc(f.ultimoResultado.periodo)}` : ""}${f.ultimoResultado.data ? ` · ${esc(f.ultimoResultado.data)}` : ""}</h4>
+          <p class="resultado-txt">${esc(f.ultimoResultado.resumo)}</p>
+        </div>
+        <div class="bloco">
+          <h4>Números do trimestre</h4>
+          <dl class="indicadores">${ind}</dl>
+        </div>
+      </div>
+      <div>
+        <div class="bloco" style="margin-top:0">
+          <h4>Memória do cálculo Bazin</h4>
+          ${memoria}
+        </div>
+        <div class="bloco">
+          <h4>Destaques</h4>
+          <ul class="lista">${f.destaques.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
+        </div>
+        <div class="bloco">
+          <h4>Riscos</h4>
+          <ul class="lista">${f.riscos.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
+        </div>
+        <div class="bloco">
+          <h4>Últimas notícias e fontes</h4>
+          ${noticias}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function linhaHTML(l, comBazin) {
+    const f = l.f, t = l.tecnica, m = l.moeda;
+    const semPosicao = l.qtd === 0;
+    const resCor = l.resultado > 0 ? "pos" : l.resultado < 0 ? "neg" : "";
+    const tv = `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(f.tvSymbol)}`;
+    const niveis = t && (t.suporte !== null || t.resistencia !== null)
+      ? `Sup ${t.suporte !== null ? curto(t.suporte, m) : "—"} · Res ${t.resistencia !== null ? curto(t.resistencia, m) : "—"}${t.origem === "manual" ? " · manual" : ""}`
+      : "níveis pendentes";
+
+    const cotDia = cotacoes.cotacoes?.[l.ticker];
+    const variacao = typeof cotDia?.variacao === "number" ? cotDia.variacao : null;
+    const varCls = variacao === null ? "zero" : variacao > 0 ? "pos" : variacao < 0 ? "neg" : "zero";
+    const fonteCurta = (l.fonteCotacao || "").replace(/\s*\(.*\)$/, "");
+    const colunaCotacao = `<div class="celula cotacao">
+        <span class="rotulo">Cotação</span>
+        <span class="dado preco">${dinheiro(l.preco, m, true)}</span>
+        ${variacao === null ? "" : `<span class="var ${varCls}">${pct(variacao, 2)} no dia</span>`}
+        <span class="fonte">${l.defasado ? "defasada · " : ""}${esc(fonteCurta)}</span>
+      </div>`;
+
+    const colunaPosicao = semPosicao
+      ? `<div class="celula"><span class="rotulo">Posição</span><span class="dado" style="color:var(--ink-3)">sem posição</span></div>`
+      : `<div class="celula"><span class="rotulo">Posição</span><span class="dado grande">${dinheiro(l.valor, m)}</span><span class="rotulo suave">${l.qtd.toLocaleString("pt-BR")} ações</span></div>`;
+    const colunaResultado = semPosicao
+      ? `<div class="celula" data-opcional><span class="rotulo">PM histórico</span><span class="dado">${l.pm > 0 ? dinheiro(l.pm, m, true) : "—"}</span></div>`
+      : `<div class="celula" data-opcional><span class="rotulo">Não realizado</span><span class="dado grande ${resCor}">${pct(l.resultadoPct)}</span><span class="rotulo suave">PM ${dinheiro(l.pm, m, true)}</span></div>`;
+    const colunaBazin = comBazin
+      ? `<div class="celula"><span class="rotulo">Teto Bazin</span><span class="dado grande">${l.teto ? dinheiro(l.teto, m, true) : "—"}</span><span class="rotulo suave">DY ${l.dpa > 0 ? pctSimples(l.dy) : "0%"}</span></div>
+         <div class="celula" data-opcional>${medidor(l.gap)}</div>`
+      : `<div class="celula"><span class="rotulo">Tendência</span><span class="dado grande">${{ alta: "alta ↗", baixa: "baixa ↘", lateral: "lateral →" }[t?.tendencia] ?? "—"}</span><span class="rotulo suave">${t?.mm200 != null ? `MM200 ${curto(t.mm200, m)}` : esc(f.setor)}</span></div>
+         <div class="celula" data-opcional><span class="rotulo">Setor</span><span class="dado" style="font-family:var(--sans);font-size: 14px">${esc(f.setor)}</span></div>`;
+
+    return `<details class="linha" data-farol="${l.farol}" data-ticker="${l.ticker}">
+      <summary>
+        <div class="identidade">
+          <span class="tk">${l.ticker}</span>
+          <span class="nm">${esc(f.nome)}</span>
+          ${l.editada ? '<span class="editada">posição editada</span>' : ""}
+        </div>
+        ${colunaCotacao}
+        ${colunaPosicao}
+        ${colunaResultado}
+        ${colunaBazin}
+        <div class="celula"><span class="farol" data-f="${l.farol}"><span class="luz"></span>${ROTULO_FAROL[l.farol]}</span></div>
+        <div class="celula larga grafico">
+          <div class="grafico-topo">
+            <a class="grafico-link" href="${tv}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 9.5 4 5.5l2.4 2L11 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Análise gráfica
+            </a>
+            <span class="niveis">${niveis}</span>
+          </div>
+          <span class="reco" data-tom="${l.reco.tom}">${esc(l.reco.curta)}</span>
+        </div>
+        <svg class="chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      ${detalhe(l)}
+    </details>`;
+  }
+
+  function tiles(linhas) {
+    const cambio = cotacoes.cambio?.USDBRL?.valor ?? fundamentos.cambioRef.valor;
+    const br = linhas.filter((l) => l.moeda === "BRL");
+    const us = linhas.filter((l) => l.moeda === "USD");
+    const valorBR = br.reduce((s, l) => s + l.valor, 0);
+    const custoBR = br.reduce((s, l) => s + l.custo, 0);
+    const acoesUS = us.filter((l) => GRUPOS.us.includes(l.ticker)).reduce((s, l) => s + l.valor, 0);
+    const etfUS = us.filter((l) => GRUPOS.etf.includes(l.ticker)).reduce((s, l) => s + l.valor, 0);
+    const rendaBR = br.reduce((s, l) => s + l.rendaAno, 0);
+    const resBR = valorBR - custoBR;
+    const resBRPct = custoBR > 0 ? (valorBR / custoBR - 1) * 100 : 0;
+    const total = valorBR + (acoesUS + etfUS) * cambio;
+    const realizado = edicao.operacoes.filter((o) => o.tipo === "venda" && GRUPOS.br.includes(o.ticker)).reduce((s, o) => s + (o.realizado ?? 0), 0);
+
+    const t = [
+      { r: "Carteira brasileira", v: fmt.BRL.format(valorBR), a: `${br.filter((l) => l.qtd > 0).length} ativos com posição` },
+      { r: "Resultado não realizado", v: pct(resBRPct), a: `${fmt.BRL.format(resBR)} sobre custo de ${fmt.BRL.format(custoBR)}`, cls: resBR >= 0 ? "pos" : "neg" },
+      { r: "Realizado em vendas (BR)", v: fmt.BRL.format(realizado), a: edicao.operacoes.length ? `${edicao.operacoes.length} operações registradas` : "nenhuma venda registrada", cls: realizado > 0 ? "pos" : realizado < 0 ? "neg" : "" },
+      { r: "Ações internacionais", v: fmt.USD.format(acoesUS), a: "NVDA · PLTR · TSLA" },
+      { r: "ETFs de índice", v: fmt.USD.format(etfUS), a: "SPY · VUAA — mesmo índice" },
+      { r: "Patrimônio consolidado", v: fmt.BRL.format(total), a: `a USD/BRL ${cambio.toFixed(4).replace(".", ",")}` },
+      { r: "Renda projetada 12m", v: fmt.BRL.format(rendaBR), a: `dividendos BR na base ${estado.base === "doze" ? "cheia" : "recorrente"}` },
+    ];
+    return t.map((x) => `<div class="tile"><span class="rotulo">${x.r}</span><span class="valor ${x.cls ?? ""}">${x.v}</span><span class="apoio">${x.a}</span></div>`).join("");
+  }
+
+  function carimbo() {
+    const d = new Date(cotacoes.atualizadoEm);
+    const legivel = Number.isNaN(d.getTime()) ? cotacoes.atualizadoEm : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+    const fontes = [...new Set(Object.values(cotacoes.cotacoes || {}).map((c) => c.fonte))];
+    const aoVivo = cotacoes.origem && cotacoes.origem !== "snapshot-inicial";
+    const pulso = document.getElementById("pulso");
+    pulso.dataset.estado = aoVivo ? "vivo" : "snapshot";
+    pulso.textContent = aoVivo ? "Cotações automáticas" : "Snapshot da planilha";
+    document.getElementById("carimbo-quando").textContent = `Preços de ${legivel} · ${fontes.join(", ")}`;
+    const c = cotacoes.cambio?.USDBRL;
+    document.getElementById("carimbo-cambio").textContent = c ? `USD/BRL ${c.valor.toFixed(4).replace(".", ",")} · ${c.fonte}` : "";
+    const n = Object.keys(edicao.posicoes).length + edicao.ocultos.length;
+    const quando = edicao.atualizadoEm ? new Date(edicao.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "";
+    document.getElementById("carimbo-carteira").textContent =
+      n === 0 ? "Carteira: planilha de 06/09/2026, sem edições"
+      : origemCarteira === "nuvem" ? `Carteira: ${n} posições editadas · sincronizada na nuvem · ${quando}`
+      : `Carteira: ${n} posições editadas · salva neste aparelho · ${quando}`;
+    document.getElementById("rodape-quando").textContent = `Preços de ${legivel}`;
+  }
+
+  const INVERSOS = new Set(["vix", "vxewz", "dxy", "us10", "brl"]); // alta = aversão a risco
+
+  function medidorSVG(score, cor) {
+    const min = -10, max = 10, cx = 120, cy = 112, r = 96;
+    const ang = (v) => Math.PI - ((v - min) / (max - min)) * Math.PI;
+    const pt = (v, rad) => `${(cx + rad * Math.cos(ang(v))).toFixed(1)},${(cy - rad * Math.sin(ang(v))).toFixed(1)}`;
+    const arco = (a, b, cls) => `<path d="M${pt(a, r)} A${r},${r} 0 0 1 ${pt(b, r)}" fill="none" stroke="var(--${cls})" stroke-width="14" stroke-linecap="butt"/>`;
+    const s = Math.max(min, Math.min(max, score));
+    const ponta = pt(s, r - 16).split(","), base1 = `${cx - 4},${cy}`, base2 = `${cx + 4},${cy}`;
+    return `<svg class="medidor-svg" viewBox="0 0 240 132" role="img" aria-label="Termômetro de risco: ${s} em escala de -10 a 10">
+      ${arco(-10, -2, "ruim")}${arco(-2, 2, "atencao")}${arco(2, 10, "bom")}
+      <text x="18" y="128" font-size="10" fill="var(--ink-3)">risk-off</text>
+      <text x="222" y="128" font-size="10" fill="var(--ink-3)" text-anchor="end">risk-on</text>
+      <polygon points="${base1} ${ponta[0]},${ponta[1]} ${base2}" fill="var(--ink)"/>
+      <circle cx="${cx}" cy="${cy}" r="6" fill="var(--ink)"/>
+      <text x="${cx}" y="${cy - 26}" font-size="30" font-weight="700" text-anchor="middle" fill="var(--${cor === "neutro" ? "ink-2" : cor})">${s > 0 ? "+" : ""}${s}</text>
+    </svg>`;
+  }
+
+  function sparkSVG(serie) {
+    if (!serie || serie.length < 2) return "";
+    const w = 100, h = 30, mn = Math.min(...serie), mx = Math.max(...serie), amp = mx - mn || 1;
+    const px = (i) => (i / (serie.length - 1)) * w, py = (v) => h - 3 - ((v - mn) / amp) * (h - 6);
+    const pts = serie.map((v, i) => `${px(i).toFixed(1)},${py(v).toFixed(1)}`).join(" ");
+    const ult = serie.at(-1);
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+      <circle cx="${px(serie.length - 1).toFixed(1)}" cy="${py(ult).toFixed(1)}" r="2.2" fill="var(--accent)"/>
+    </svg>`;
+  }
+
+  function fmtValor(i) {
+    const v = i.valor;
+    if (!Number.isFinite(v)) return "—";
+    const n = v.toLocaleString("pt-BR", { minimumFractionDigits: i.casas ?? 2, maximumFractionDigits: i.casas ?? 2 });
+    if (i.unidade === "%") return `${n}%`;
+    if (i.unidade === "% a.a.") return `${n}% a.a.`;
+    return i.unidade === "pts" ? n : `${i.unidade} ${n}`;
+  }
+
+  function tileInd(i) {
+    const v = i.variacaoPct;
+    const bomParaBolsa = Number.isFinite(v) ? (INVERSOS.has(i.id) ? -v : v) : 0;
+    const cls = !Number.isFinite(v) || Math.abs(v) < 0.005 ? "zero" : bomParaBolsa > 0 ? "pos" : "neg";
+    const varTxt = Number.isFinite(v) ? `${v >= 0 ? "+" : ""}${v.toFixed(2).replace(".", ",")}%` : "—";
+    const pct = Number.isFinite(i.percentil1a) ? i.percentil1a : null;
+    return `<div class="ind" data-defasado="${Boolean(i.defasado)}" title="${esc(i.nome)} · ${esc(i.simbolo)}${INVERSOS.has(i.id) ? " · alta = aversão a risco" : ""}">
+      <span class="nome">${esc(i.nome)}${INVERSOS.has(i.id) ? " ↑=risco" : ""}</span>
+      <div class="linha-v"><span class="v">${fmtValor(i)}</span><span class="var ${cls}">${varTxt}</span></div>
+      ${sparkSVG(i.serie30)}
+      ${pct !== null ? `<div class="faixa"><i style="left:${pct}%"></i></div><div class="rodape"><span>mín 1a</span><span>percentil ${pct}</span><span>máx 1a</span></div>` : ""}
+    </div>`;
+  }
+
+  function desenharTermometro() {
+    const el = document.getElementById("termometro");
+    const t = termometro;
+    if (!t || !t.indicadores || !t.indicadores.length) {
+      el.innerHTML = `<div class="topo-t"><h2>Termômetro do dia</h2><span class="quando-t">aguardando a primeira coleta das 7h</span></div>`;
+      return;
+    }
+    const d = new Date(t.atualizadoEm);
+    const quando = Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const grupo = (g, titulo) => `<div class="grupo-ind"><h3>${titulo}</h3><div class="indicadores-grid">${t.indicadores.filter((i) => i.grupo === g).map(tileInd).join("")}</div></div>`;
+    const lista = (arr) => arr.length ? `<ul>${arr.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>` : "<ul><li>—</li></ul>";
+    const defasados = t.indicadores.filter((i) => i.defasado).length;
+    const pref = (k, padrao) => { try { const v = localStorage.getItem(k); return v === null ? padrao : v === "1"; } catch { return padrao; } };
+    const mostrarGraficos = pref("radar-bazin.termometro.graficos", true);
+    const mostrarManchetes = pref("radar-bazin.termometro.manchetes", true);
+    const ms = t.manchetes ?? [];
+    const quandoM = (iso) => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }); };
+    const blocoManchetes = mostrarManchetes
+      ? `<div class="manchetes"><div class="cab"><h3>Manchetes internacionais${ms.some((m) => m.defasada) ? " (leitura anterior)" : ""}</h3><button type="button" class="fechar" data-toggle="manchetes">Fechar</button></div>
+          ${ms.length ? `<ol>${ms.map((m) => `<li><a href="${esc(m.link)}" target="_blank" rel="noopener noreferrer">${esc(m.titulo)}</a><span class="meta">${esc(m.fonte)}${m.publicadoEm ? ` · ${quandoM(m.publicadoEm)}` : ""}</span></li>`).join("")}</ol>` : `<p style="margin:0;font-size:14px;color:var(--ink-3)">Nenhuma manchete coletada nesta leitura.</p>`}</div>`
+      : "";
+    el.innerHTML = `
+      <div class="topo-t"><h2>Termômetro do dia</h2>
+        <div class="acoes-t"><span class="quando-t">leitura de ${quando}${defasados ? ` · ${defasados} indicador(es) com dado anterior` : ""}</span>
+          <button type="button" class="fechar" data-toggle="graficos">${mostrarGraficos ? "Fechar gráficos" : "Mostrar gráficos"}</button>
+          ${mostrarManchetes ? "" : `<button type="button" class="fechar" data-toggle="manchetes">Mostrar manchetes</button>`}
+        </div></div>
+      <div class="leitura-dia">
+        <div>${medidorSVG(t.score, t.cor)}</div>
+        <div>
+          <span class="nivel" data-cor="${esc(t.cor)}"><span class="luz"></span>${esc(t.nivel)}</span>
+          <p class="frase-dia">${esc(t.frase)}</p>
+          <p class="vies">Ibovespa na abertura: <strong data-v="${esc(t.vies?.ibovespa)}">${esc(t.vies?.ibovespa ?? "—")}</strong>. ${esc(t.vies?.texto ?? "")}<br>Wall Street na abertura: <strong data-v="${esc(t.vies?.eua ?? "indefinido")}">${esc(t.vies?.eua ?? "—")}</strong>. ${esc(t.vies?.textoEua ?? "")}</p>
+          <div class="motivos">
+            <div><h5 class="pos">A favor</h5>${lista(t.motivos?.positivos ?? [])}</div>
+            <div><h5 class="neg">Contra</h5>${lista(t.motivos?.negativos ?? [])}</div>
+            <div><h5 class="neu">Neutros</h5>${lista(t.motivos?.neutros ?? [])}</div>
+          </div>
+        </div>
+      </div>
+      ${blocoManchetes}
+      ${mostrarGraficos ? grupo("mundo", "Mundo") + grupo("brasil", "Brasil") : ""}
+      <details><summary>Como o termômetro é calculado</summary><p>${esc(t.metodo ?? "")}</p><p>Nos indicadores marcados com "↑=risco" (VIX, VXEWZ, DXY, Treasury, dólar/real), a etiqueta fica vermelha quando sobem, porque alta neles é aversão a risco. Nos demais, verde é alta. A linha é o histórico de 30 pregões; a barra mostra onde o valor de hoje está na faixa de 1 ano.</p></details>`;
+  }
+
+
+  /* --------------------------------------------------- faixa farol Bazin */
+  function desenharFarolTopo(linhas) {
+    const el = document.getElementById("farol-topo");
+    const ordemFarol = { "compra-forte": 0, compra: 1, manter: 2, reduzir: 3, fora: 4 };
+    const txt = { "compra-forte": "compra forte", compra: "compra", manter: "manter", reduzir: "reduzir / venda", fora: "fora do método" };
+    const br = linhas.filter((l) => GRUPOS.br.includes(l.ticker)).sort((a, b) => ordemFarol[a.farol] - ordemFarol[b.farol] || b.valor - a.valor);
+    if (!br.length) { el.innerHTML = ""; return; }
+    el.innerHTML = `<span class="rotulo-f">Farol Bazin</span>` +
+      br.map((l) => `<span class="bandeira" data-f="${l.farol}" title="${esc(l.f.nome)} · ${l.teto ? `teto ${curto(l.teto, l.moeda)} · preço ${curto(l.preco, l.moeda)} (${pct(l.gap, 0)} do teto)` : "sem teto"}"><span class="luz"></span>${l.ticker} <small>${txt[l.farol]}</small></span>`).join("") +
+      `<span class="legenda-f">verde = comprar · amarelo = manter · vermelho = reduzir</span>`;
+  }
+
+  /* ---------------------------------------------- dividendos sintéticos (puts) */
+  function desenharOpcoes(linhas) {
+    const el = document.getElementById("opcoes");
+    const o = opcoes;
+    const pref = (k, padrao) => { try { const v = localStorage.getItem(k); return v === null ? padrao : v === "1"; } catch { return padrao; } };
+    const aberto = pref("radar-bazin.opcoes.painel", true);
+    if (!o || !o.ativos) {
+      el.innerHTML = `<div class="topo-t"><h2>Dividendos sintéticos — venda de put</h2><span class="quando-t">aguardando a primeira coleta da cadeia de opções</span></div>`;
+      return;
+    }
+    const d = new Date(o.atualizadoEm);
+    const quando = Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const cab = `<div class="topo-t"><h2>Dividendos sintéticos — venda de put</h2>
+      <div class="acoes-t"><span class="quando-t">cadeia de ${quando}</span>
+        <button type="button" class="fechar" data-toggle-opcoes="painel">${aberto ? "Fechar painel" : "Mostrar painel"}</button></div></div>`;
+    if (!aberto) { el.innerHTML = cab; return; }
+
+    const porTicker = Object.fromEntries(linhas.map((l) => [l.ticker, l]));
+    const visiveis = Object.entries(o.ativos).filter(([t]) => porTicker[t] && GRUPOS.br.includes(t)); // só nacionais, respeitando exclusões
+    const comPut = visiveis.filter(([, a]) => a.candidatas?.length && a.melhor).sort((a, b) => (b[1].candidatas[0]?.nota ?? 0) - (a[1].candidatas[0]?.nota ?? 0));
+    const semPut = visiveis.filter(([, a]) => !(a.candidatas?.length && a.melhor));
+    const moedaDe = (t) => porTicker[t]?.moeda ?? "BRL";
+    const preco = (v, m) => v == null ? "—" : curto(v, m);
+    const dataBr = (iso) => { const [a, me, di] = iso.split("-"); return `${di}/${me}`; };
+    const sinalTxt = { vender: "vender", limitar: "só no limite", "sem-preco": "sem preço" };
+    const sinalCurto = { vender: "vender", limitar: "limite", "sem-preco": "teórico" };
+    const classeTxt = { boa: "boa", aceitavel: "aceitável", evitar: "evitar" };
+    const farolTxt = { "compra-forte": "compra forte", compra: "compra", manter: "manter", reduzir: "reduzir", fora: "fora do método" };
+    // séries dos EUA vêm como "NVDA 2026-10-30 P205": na tabela basta "P205"
+    const codCurto = (t, cod) => cod.startsWith(t + " ") ? cod.replace(t + " ", "").replace(/^\d{4}-\d{2}-\d{2} /, "") : cod;
+
+    const cartao = (t, a) => {
+      const m = moedaDe(t);
+      const l = porTicker[t];
+      const melhor = a.candidatas.find((c) => c.codigo === a.melhor) ?? a.candidatas[0];
+      const outras = a.candidatas.filter((c) => c !== melhor).slice(0, 5);
+      const ultimoTxt = melhor.ultimo == null ? "—" : curto(melhor.ultimo, m);
+      const refUltimo = melhor.ultimo == null ? "sem negócio recente" : (melhor.intradiario ? "negócio de hoje" : `último negócio${a.referencia?.negociacao ? ` (${dataBr(a.referencia.negociacao)})` : ""}`);
+      const midTxt = melhor.mid != null ? ` · book ${curto(melhor.bid, m)} / ${curto(melhor.ask, m)}` : "";
+      return `<div class="cartao-op">
+        <div class="cab-op"><span class="tk">${esc(t)} ${l ? `<span class="farol" data-f="${l.farol}"><span class="luz"></span>${farolTxt[l.farol] ?? l.farol}</span>` : ""}</span><span class="spot">à vista <b>${curto(a.spot, m)}</b></span></div>
+        <div class="meta-op">
+          <span>vol. 21d ${pctSimples(a.vol21, 0)}${a.vol63 ? ` (63d ${pctSimples(a.vol63, 0)})` : ""}</span>
+          ${a.teto ? `<span>teto Bazin ${curto(a.teto, m)}</span>` : ""}
+          ${a.suporte ? `<span>suporte ${curto(a.suporte, m)}</span>` : ""}
+          <span>taxa ${pctSimples(a.taxa, 2)} · meta ${pctSimples(melhor.alvoAnual, 1)} a.a.</span>
+        </div>
+        <div class="melhor-put">
+          <div class="serie">
+            <span class="cod">${esc(melhor.codigo)} <small>strike ${curto(melhor.strike, m)} (${pctSimples(melhor.otm, 1)} abaixo) · vence ${dataBr(melhor.vencimento)} (${melhor.dias} dias)</small></span>
+            <span class="sinal" data-s="${esc(melhor.sinal)}"><span class="luz"></span>${sinalTxt[melhor.sinal] ?? melhor.sinal}</span>
+          </div>
+          <div class="precos-put">
+            <div><div class="rot">Preço ideal de venda</div><div class="val ideal">${curto(melhor.ideal, m)}</div><div class="sub">limite da ordem · ${pctSimples(melhor.yieldIdealAnual, 1)} a.a. sobre o caixa</div></div>
+            <div><div class="rot">Último preço de mercado</div><div class="val">${ultimoTxt}</div><div class="sub">${esc(refUltimo)}${midTxt}</div></div>
+          </div>
+          <dl class="metricas-put">
+            <div><dt>Prêmio</dt><dd>${pctSimples(melhor.yieldPeriodo, 2)} <small>no período</small></dd></div>
+            <div><dt>Anualizado</dt><dd>${pctSimples(melhor.yieldAnual, 1)} <small>a.a.</small></dd></div>
+            <div><dt>Prob. exercício</dt><dd>${melhor.probExercicio == null ? "—" : pctSimples(melhor.probExercicio, 0)} <small>δ ${melhor.delta ?? "—"}</small></dd></div>
+            <div><dt>Caixa por lote</dt><dd>${dinheiro(melhor.caixaPorLote, m)} <small>${a.lote} ações</small></dd></div>
+            <div><dt>Prêmio por lote</dt><dd>${dinheiro(melhor.premioPorLote, m, true)}</dd></div>
+            <div><dt>Break-even</dt><dd>${curto(melhor.breakeven, m)}</dd></div>
+            <div><dt>Liquidez</dt><dd>${melhor.negocios != null ? `${melhor.negocios} neg.` : melhor.aberto != null ? `${melhor.aberto} aberto` : "—"}${melhor.volume != null && melhor.aberto != null ? ` <small>vol ${melhor.volume}</small>` : ""}</dd></div>
+            <div><dt>Nota</dt><dd><span class="nota-put" data-c="${esc(melhor.classe)}">${melhor.nota} · ${classeTxt[melhor.classe]}</span></dd></div>
+          </dl>
+          ${melhor.motivos?.length ? `<ul class="motivos-put">${melhor.motivos.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        </div>
+        ${outras.length ? `<div class="rolagem"><table class="alternativas">
+          <thead><tr><th>Série</th><th>Vence</th><th class="num">Strike</th><th class="num">Último</th><th class="num">Ideal</th><th>Sinal</th><th class="num">a.a.</th><th class="num">P(ex.)</th><th class="num">Neg.</th><th class="num">Nota</th></tr></thead>
+          <tbody>${outras.map((c) => `<tr><td class="cod">${esc(codCurto(t, c.codigo))}</td><td>${dataBr(c.vencimento)} <small>(${c.dias}d)</small></td><td class="num">${curto(c.strike, m)}</td><td class="num">${preco(c.ultimo, m)}</td><td class="num">${curto(c.ideal, m)}</td><td><span class="sinal" data-s="${esc(c.sinal)}">${sinalCurto[c.sinal] ?? c.sinal}</span></td><td class="num">${pctSimples(c.yieldAnual, 1)}</td><td class="num">${c.probExercicio == null ? "—" : pctSimples(c.probExercicio, 0)}</td><td class="num">${c.negocios ?? c.aberto ?? "—"}</td><td class="num"><span class="nota-put" data-c="${esc(c.classe)}">${c.nota}</span></td></tr>`).join("")}</tbody>
+        </table></div>` : ""}
+        ${a.obs ? `<p class="obs-op">${esc(a.obs)}</p>` : ""}
+        ${a.defasado ? `<p class="obs-op">Leitura anterior: a coleta de hoje falhou.</p>` : ""}
+      </div>`;
+    };
+
+    const taxaBR = o.taxas?.BR?.valor != null ? pctSimples(o.taxas.BR.valor * 100, 2) : "—";
+    el.innerHTML = cab + `
+      <p class="resumo-op"><span><b>Objetivo:</b> renda mensal vendendo put coberta por caixa em papel que você quer ter.</span><span><b>Taxa:</b> CDI ${taxaBR}</span><span><b>Meta:</b> prêmio ≥ taxa livre de risco sobre o caixa reservado (o caixa segue aplicado: a renda dobra)</span><span><b>Regras:</b> 15–60 dias · strike 3–15% abaixo · δ −0,10 a −0,35 · strike ≤ teto Bazin · ≥ 10 negócios no dia</span></p>
+      ${comPut.length ? `<div class="cartoes-op">${comPut.map(([t, a]) => cartao(t, a)).join("")}</div>` : `<p class="sem-op">Nenhuma put dentro das regras hoje.</p>`}
+      ${semPut.length ? `<p class="sem-op"><b>Sem put recomendável:</b> ${semPut.map(([t, a]) => `${esc(t)} (${esc(a.obs ?? (a.candidatas?.length ? "nenhuma série passa na liquidez mínima de 10 negócios" : "sem séries na janela"))})`).join(" · ")}</p>` : ""}
+      <details><summary>Como as puts são escolhidas e o que é o preço ideal</summary>
+        <p>${esc(o.objetivo ?? "")}</p>
+        <p><strong>Preço ideal de venda</strong> é o limite da sua ordem: ${esc(o.regras?.precoIdeal ?? "")}. <strong>Sinal</strong>: ${esc(o.regras?.sinal ?? "")}. O <strong>último preço de mercado</strong> é o último negócio da série (intradiário quando a B3 informa; senão o fechamento do dia de referência). A B3 não publica bid/ask de graça, então nas séries brasileiras o preço de mercado pode estar velho — confira o book no home broker antes de enviar a ordem.</p>
+        <p><strong>Nota (0–100)</strong>: retorno anualizado sobre o caixa frente à taxa (até 35), colchão até o strike (até 25), prazo (até 15), delta (até 10), liquidez (até 10) e coerência com a carteira (strike abaixo do teto Bazin e do suporte). Abaixo de 50 é "evitar". "Prob. exercício" é a probabilidade, pelo modelo, de o papel fechar abaixo do strike no vencimento — se acontecer, você compra as ações pelo strike, com o prêmio como desconto (break-even).</p>
+        <p><strong>Risco que o modelo não vê:</strong> a venda de put obriga a comprar 100 ações por lote se o papel cair abaixo do strike, mesmo num crash. Só venda o número de lotes que o caixa cobre por inteiro, em papel que você compraria de qualquer forma. Prêmio recebido é tributado como ganho de renda variável (opções não têm isenção de R$ 20 mil). Fontes: ${esc(Object.values(o.fontes ?? {}).join("; "))}; ${esc(o.taxas?.BR?.fonte ?? "")}.</p>
+      </details>`;
+  }
+
+  function desenhar() {
+    desenharTermometro();
+    const linhas = consolidar();
+    desenharFarolTopo(linhas);
+    desenharOpcoes(linhas);
+    document.getElementById("resumo").innerHTML = tiles(linhas);
+    const abertos = new Set([...document.querySelectorAll(".linha[open]")].map((e) => e.dataset.ticker));
+    const grupo = (chave, comBazin) => ordenar(linhas.filter((l) => GRUPOS[chave].includes(l.ticker))).map((l) => linhaHTML(l, comBazin)).join("");
+    const ocultosDe = (chave) => {
+      const lista = edicao.ocultos.filter((t) => GRUPOS[chave].includes(t) && basePlanilha[t]);
+      if (!lista.length) return "";
+      return `<div class="ocultos">Excluídos: ${lista.map((t) => `<span>${t} <button type="button" data-restaurar="${t}">restaurar</button></span>`).join(" · ")}</div>`;
+    };
+    document.getElementById("lista-br").innerHTML = grupo("br", true) + ocultosDe("br");
+    document.getElementById("lista-us").innerHTML = grupo("us", false) + ocultosDe("us");
+    document.getElementById("lista-etf").innerHTML = grupo("etf", false) + ocultosDe("etf");
+    for (const el of document.querySelectorAll(".linha")) if (abertos.has(el.dataset.ticker)) el.open = true;
+    carimbo();
+  }
+
+  /* ------------------------------------------------------------ eventos */
+  let toastTimer;
+  function aviso(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("visivel");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("visivel"), 2800);
+  }
+
+  const campoYield = document.getElementById("yield");
+  campoYield.addEventListener("input", () => {
+    estado.yield = Number(campoYield.value) / 100;
+    document.getElementById("yield-valor").textContent = pctSimples(Number(campoYield.value));
+    desenhar();
+  });
+  document.getElementById("base").addEventListener("change", (e) => { estado.base = e.target.value; desenhar(); });
+  document.getElementById("ordem").addEventListener("change", (e) => { estado.ordem = e.target.value; desenhar(); });
+  const botaoExpandir = document.getElementById("expandir");
+  botaoExpandir.addEventListener("click", () => {
+    const todos = [...document.querySelectorAll(".linha")];
+    const abrir = !todos.every((e) => e.open);
+    todos.forEach((e) => { e.open = abrir; });
+    botaoExpandir.textContent = abrir ? "Fechar todos os detalhes" : "Abrir todos os detalhes";
+  });
+
+  const folha = document.getElementById("folha-atualizar");
+  document.getElementById("atualizar").addEventListener("click", () => {
+    const d = new Date(cotacoes.atualizadoEm);
+    const quando = Number.isNaN(d.getTime()) ? cotacoes.atualizadoEm : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const calc = Object.values(tecnica.ativos ?? {}).filter((t) => t.origem === "calculado").length;
+    const total = Object.keys(tecnica.ativos ?? {}).length;
+    document.getElementById("folha-estado").textContent =
+      `Preços de ${quando} (${cotacoes.origem === "snapshot-inicial" ? "snapshot da planilha" : "coleta automática"}) · níveis gráficos calculados em ${calc} de ${total} ativos.`;
+    if (typeof folha.showModal === "function") folha.showModal(); else folha.setAttribute("open", "");
+  });
+
+  document.getElementById("exportar").addEventListener("click", async () => {
+    const posicoes = Object.keys(basePlanilha).filter((tk) => !edicao.ocultos.includes(tk)).map((tk) => {
+      const p = posicaoAtual(tk);
+      return { ticker: tk, banco: p.banco, lotes: [{ qtd: p.qtd, pm: p.pm }] };
+    });
+    const saida = { atualizadoEm: hoje(), moedaBase: "BRL", observacoes: ["Exportado do painel; posições consolidadas em um lote por ativo."], lockup: carteira.lockup, operacoes: edicao.operacoes, posicoes };
+    const texto = JSON.stringify(saida, null, 2);
+    try { await navigator.clipboard.writeText(texto); aviso("Carteira copiada. Cole em data/carteira.json."); }
+    catch { window.prompt("Copie o JSON abaixo:", texto); }
+  });
+
+  // Delegação: formulários de ajuste dentro de cada linha
+  document.addEventListener("click", async (ev) => {
+    const botao = ev.target.closest("button[data-acao]");
+    if (!botao) return;
+    const caixa = botao.closest("[data-ajuste]");
+    if (!caixa) return;
+    ev.preventDefault();
+    const tk = caixa.dataset.ajuste;
+    const v = (nome) => Number(caixa.querySelector(`[name="${nome}"]`).value);
+
+    if (botao.dataset.acao === "corrigir") {
+      const qtd = v("qtd"), pm = v("pm");
+      if (!(qtd >= 0) || !(pm >= 0)) return aviso("Quantidade e preço médio precisam ser números.");
+      corrigirPosicao(tk, qtd, pm);
+      await persistir();
+      aviso(`${tk}: posição corrigida.`);
+    } else if (botao.dataset.acao === "restaurar") {
+      restaurarTicker(tk);
+      await persistir();
+      aviso(`${tk}: de volta à planilha.`);
+    } else if (botao.dataset.acao === "excluir") {
+      if (botao.dataset.passo === "1") {
+        botao.dataset.passo = "2";
+        botao.textContent = "Confirmar exclusão";
+        setTimeout(() => { if (botao.isConnected) { botao.dataset.passo = "1"; botao.textContent = "Excluir do painel"; } }, 5000);
+        return;
+      }
+      if (!edicao.ocultos.includes(tk)) edicao.ocultos.push(tk);
+      await persistir();
+      aviso(`${tk} saiu do painel. Dá para restaurar no fim da seção.`);
+    } else if (botao.dataset.acao === "registrar") {
+      const tipo = caixa.querySelector('[name="tipo"]').value;
+      const qtd = v("opQtd"), preco = v("opPreco");
+      const data = caixa.querySelector('[name="opData"]').value || hoje();
+      if (!(qtd > 0) || !(preco > 0)) return aviso("Informe quantidade e preço maiores que zero.");
+      const r = registrarOperacao(tk, tipo, qtd, preco, data);
+      if (r.erro) return aviso(r.erro);
+      await persistir();
+      const m = fundamentos.ativos[tk].moeda;
+      aviso(tipo === "compra" ? `${tk}: compra registrada.` : `${tk}: venda registrada, resultado ${dinheiro(r.realizado, m, true)}.`);
+    }
+  });
+
+  document.addEventListener("click", (ev) => {
+    const b = ev.target.closest("button[data-toggle]");
+    if (!b) return;
+    const chave = `radar-bazin.termometro.${b.dataset.toggle}`;
+    let atual = true;
+    try { const v = localStorage.getItem(chave); atual = v === null ? true : v === "1"; } catch { /* sem storage */ }
+    try { localStorage.setItem(chave, atual ? "0" : "1"); } catch { /* sem storage */ }
+    desenharTermometro();
+  });
+
+  document.addEventListener("click", (ev) => {
+    const b = ev.target.closest("button[data-toggle-opcoes]");
+    if (!b) return;
+    const chave = `radar-bazin.opcoes.${b.dataset.toggleOpcoes}`;
+    let atual = true;
+    try { const v = localStorage.getItem(chave); atual = v === null ? true : v === "1"; } catch { /* sem storage */ }
+    try { localStorage.setItem(chave, atual ? "0" : "1"); } catch { /* sem storage */ }
+    desenharOpcoes(consolidar());
+  });
+
+  document.addEventListener("click", async (ev) => {
+    const b = ev.target.closest("button[data-restaurar]");
+    if (!b) return;
+    edicao.ocultos = edicao.ocultos.filter((t) => t !== b.dataset.restaurar);
+    await persistir();
+    aviso(`${b.dataset.restaurar} voltou ao painel.`);
+  });
+
+  // Prévia do novo PM enquanto digita
+  document.addEventListener("input", (ev) => {
+    const caixa = ev.target.closest("[data-ajuste]");
+    if (!caixa || !["opQtd", "opPreco", "tipo"].includes(ev.target.name)) return;
+    const tk = caixa.dataset.ajuste, m = fundamentos.ativos[tk].moeda;
+    const tipo = caixa.querySelector('[name="tipo"]').value;
+    const qtd = Number(caixa.querySelector('[name="opQtd"]').value), preco = Number(caixa.querySelector('[name="opPreco"]').value);
+    const previa = caixa.querySelector("[data-previa]");
+    if (!(qtd > 0) || !(preco > 0)) { previa.textContent = ""; return; }
+    const atual = posicaoAtual(tk);
+    if (tipo === "compra") {
+      const nq = atual.qtd + qtd, npm = (atual.qtd * atual.pm + qtd * preco) / nq;
+      previa.textContent = `→ ${nq.toLocaleString("pt-BR")} ações, PM ${curto(npm, m)} (custo ${dinheiro(qtd * preco, m)})`;
+    } else {
+      const nq = atual.qtd - qtd, real = qtd * (preco - atual.pm);
+      previa.textContent = nq < 0 ? `você só tem ${atual.qtd.toLocaleString("pt-BR")}` : `→ ${nq.toLocaleString("pt-BR")} ações, PM mantido; resultado ${dinheiro(real, m, true)}`;
+    }
+  });
+  document.addEventListener("change", (ev) => {
+    if (ev.target.name === "tipo" && ev.target.closest("[data-ajuste]")) ev.target.dispatchEvent(new Event("input", { bubbles: true }));
+  });
+
+  /* --------------------------------------------------- inicialização */
+  const salvo = local.ler();
+  if (validaEdicao(salvo)) adotar(salvo, "local");
+  desenhar();
+
+  // Nuvem (db do claude.ai), quando o painel roda dentro de um artifact
+  (async () => {
+    try {
+      const use = window.claude?.use;
+      if (typeof use !== "function") return;
+      const db = await window.claude.use("db");
+      if (!db) return;
+      nuvem = db.doc("carteira/atual");
+      const snap = await nuvem.get();
+      const remoto = snap.exists ? snap.data() : null;
+      const tLocal = edicao.atualizadoEm ? Date.parse(edicao.atualizadoEm) : 0;
+      const tRemoto = remoto?.atualizadoEm ? Date.parse(remoto.atualizadoEm) : 0;
+      if (validaEdicao(remoto) && tRemoto >= tLocal) {
+        adotar(remoto, "nuvem"); local.gravar(edicao); desenhar();
+      } else if (tLocal > 0) {
+        ignorarSnapshot = true;
+        await nuvem.set(edicao); origemCarteira = "nuvem"; desenhar();
+        setTimeout(() => { ignorarSnapshot = false; }, 800);
+      } else {
+        origemCarteira = "nuvem"; carimbo();
+      }
+      nuvem.onSnapshot((s) => {
+        if (ignorarSnapshot || !s.exists) return;
+        const d = s.data();
+        if (validaEdicao(d) && d.atualizadoEm && d.atualizadoEm !== edicao.atualizadoEm) {
+          adotar(d, "nuvem"); local.gravar(edicao); desenhar();
+        }
+      }, () => { /* assinatura morreu: seguimos com o local */ });
+    } catch { /* sem nuvem: fica o local */ }
+  })();
+
+  // Cotações e níveis técnicos do repositório (GitHub Pages)
+  async function sincronizar() {
+    const pegar = async (nome) => {
+      const r = await fetch(`data/${nome}?t=${Date.now()}`, { cache: "no-store" });
+      return r.ok ? r.json() : null;
+    };
+    let mudou = false;
+    try {
+      const novo = await pegar("cotacoes.json");
+      if (novo?.cotacoes && Object.keys(novo.cotacoes).length && novo.atualizadoEm !== cotacoes.atualizadoEm) { cotacoes = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    try {
+      const novo = await pegar("tecnica.json");
+      if (novo?.ativos && Object.keys(novo.ativos).length && novo.atualizadoEm !== tecnica.atualizadoEm) { tecnica = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    try {
+      const novo = await pegar("opcoes.json");
+      if (novo?.ativos && novo.atualizadoEm !== opcoes?.atualizadoEm) { opcoes = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    try {
+      const novo = await pegar("termometro.json");
+      if (novo?.indicadores?.length && novo.atualizadoEm !== termometro?.atualizadoEm) { termometro = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    if (mudou) desenhar();
+  }
+  sincronizar();
+  setInterval(sincronizar, 5 * 60 * 1000);
+})();
+</script>

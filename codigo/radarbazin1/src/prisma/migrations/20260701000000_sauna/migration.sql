@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Day" ADD COLUMN     "sauna_min" INTEGER NOT NULL DEFAULT 0;

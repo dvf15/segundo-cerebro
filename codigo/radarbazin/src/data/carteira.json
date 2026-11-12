@@ -1,0 +1,149 @@
+{
+  "atualizadoEm": "2026-09-06",
+  "moedaBase": "BRL",
+  "observacoes": [
+    "Lotes de ALOS3 com quantidade 0 foram descartados (linha de PM R$ 21,28).",
+    "A linha AURE3 da planilha original trazia 'Posição Valor' de R$ 10.798 com quantidade 0 — é o mesmo valor da posição de TAEE11 e foi tratada como duplicidade. Por isso o total consolidado aqui é R$ 1.791.139 e não R$ 1.801.937.",
+    "Lockup e matching são informados como no arquivo de origem, sem rateio por ativo.",
+    "AURE3 e BBSE3 (posições zeradas) foram retiradas do painel em 06/09/2026 a pedido. Os fundamentos continuam em fundamentos.json caso voltem."
+  ],
+  "lockup": {
+    "posicaoTotalBRL": 1801937,
+    "semLockupBRL": 1279468,
+    "matchingBRL": 256303
+  },
+  "posicoes": [
+    {
+      "ticker": "ALOS3",
+      "banco": "Itaú",
+      "lotes": [
+        {
+          "qtd": 29628,
+          "pm": 24.95
+        },
+        {
+          "qtd": 5451,
+          "pm": 23.76
+        },
+        {
+          "qtd": 8068,
+          "pm": 19.05
+        },
+        {
+          "qtd": 4616,
+          "pm": 30.37
+        }
+      ]
+    },
+    {
+      "ticker": "TAEE11",
+      "banco": "Itaú",
+      "lotes": [
+        {
+          "qtd": 260,
+          "pm": 34.77
+        }
+      ]
+    },
+    {
+      "ticker": "ITSA4",
+      "banco": "XP",
+      "lotes": [
+        {
+          "qtd": 15472,
+          "pm": 10.05
+        }
+      ]
+    },
+    {
+      "ticker": "KLBN4",
+      "banco": "XP",
+      "lotes": [
+        {
+          "qtd": 5074,
+          "pm": 4.2
+        }
+      ]
+    },
+    {
+      "ticker": "SAPR11",
+      "banco": "XP",
+      "lotes": [
+        {
+          "qtd": 1279,
+          "pm": 21.17
+        }
+      ]
+    },
+    {
+      "ticker": "CMIG4",
+      "banco": "XP",
+      "lotes": [
+        {
+          "qtd": 2748,
+          "pm": 7.69
+        }
+      ]
+    },
+    {
+      "ticker": "BBDC4",
+      "banco": "XP",
+      "lotes": [
+        {
+          "qtd": 5211,
+          "pm": 13.51
+        }
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "banco": "Avenue",
+      "lotes": [
+        {
+          "qtd": 65,
+          "pm": 39.04
+        }
+      ]
+    },
+    {
+      "ticker": "PLTR",
+      "banco": "Avenue",
+      "lotes": [
+        {
+          "qtd": 112,
+          "pm": 22.96
+        }
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "banco": "Avenue",
+      "lotes": [
+        {
+          "qtd": 107,
+          "pm": 328.52
+        }
+      ]
+    },
+    {
+      "ticker": "SPY",
+      "banco": "Avenue",
+      "lotes": [
+        {
+          "qtd": 49.56,
+          "pm": 0
+        }
+      ]
+    },
+    {
+      "ticker": "VUAA",
+      "banco": "Avenue",
+      "lotes": [
+        {
+          "qtd": 52,
+          "pm": 0
+        }
+      ]
+    }
+  ]
+}

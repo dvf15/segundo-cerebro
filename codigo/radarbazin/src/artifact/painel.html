@@ -1,0 +1,1521 @@
+<title>Radar Bazin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --ground: #F1F4F3;
+  --surface: #FFFFFF;
+  --surface-2: #E7ECEA;
+  --surface-3: #DCE3E1;
+  --ink: #101E1C;
+  --ink-2: #465754;
+  --ink-3: #788885;
+  --line: #D3DCDA;
+  --line-strong: #B6C3C0;
+  --accent: #124559;
+  --accent-soft: #E3EDF1;
+  --bom: #10704A;
+  --bom-soft: #DFF0E7;
+  --atencao: #9A6710;
+  --atencao-soft: #F6EBD5;
+  --ruim: #A93A2C;
+  --ruim-soft: #F7E3DF;
+  --neutro: #66756F;
+  --neutro-soft: #E6EAE9;
+  --sombra: 0 1px 2px rgba(16, 30, 28, .05), 0 8px 24px -18px rgba(16, 30, 28, .35);
+  --r: 6px;
+  --sans: Arial, "Arimo", "Helvetica Neue", Helvetica, Roboto, sans-serif;
+  --serif: var(--sans);
+  --mono: var(--sans);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0C1413; --surface: #131D1B; --surface-2: #1A2624; --surface-3: #22302D;
+    --ink: #E7EDEB; --ink-2: #A6B4B0; --ink-3: #76847F;
+    --line: #263330; --line-strong: #374743;
+    --accent: #6FAFC7; --accent-soft: #16303A;
+    --bom: #48C08B; --bom-soft: #12332A;
+    --atencao: #DFAA45; --atencao-soft: #33290F;
+    --ruim: #E47964; --ruim-soft: #38211D;
+    --neutro: #8FA09B; --neutro-soft: #1E2A28;
+    --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -18px rgba(0, 0, 0, .9);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0C1413; --surface: #131D1B; --surface-2: #1A2624; --surface-3: #22302D;
+  --ink: #E7EDEB; --ink-2: #A6B4B0; --ink-3: #76847F;
+  --line: #263330; --line-strong: #374743;
+  --accent: #6FAFC7; --accent-soft: #16303A;
+  --bom: #48C08B; --bom-soft: #12332A;
+  --atencao: #DFAA45; --atencao-soft: #33290F;
+  --ruim: #E47964; --ruim-soft: #38211D;
+  --neutro: #8FA09B; --neutro-soft: #1E2A28;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -18px rgba(0, 0, 0, .9);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--sans); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.envelope { max-width: 1320px; margin: 0 auto; padding: 28px 20px 72px; }
+@media (max-width: 620px) { .envelope { padding: 16px 10px 56px; } }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px;
+}
+.num, .dado, .valor, .conta, .niveis, .legenda, .quando, .desc, .previa, .tk { font-variant-numeric: tabular-nums; }
+.rotulo {
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+}
+.rotulo.suave { letter-spacing: .02em; text-transform: none; }
+.pos { color: var(--bom); } .neg { color: var(--ruim); }
+
+/* ---------------------------------------------------------------- cabeçalho */
+header.topo {
+  display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-end; justify-content: space-between;
+  padding-bottom: 18px; margin-bottom: 22px; border-bottom: 2px solid var(--ink);
+}
+.marca h1 {
+  font-family: var(--sans); font-weight: 700; font-size: clamp(32px, 5vw, 44px);
+  margin: 0; letter-spacing: -.02em; line-height: 1;
+}
+.marca p { margin: 7px 0 0; color: var(--ink-2); max-width: 56ch; font-size: 16px; }
+.carimbo { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.carimbo .quando { font-family: var(--mono); font-size: 13.5px; color: var(--ink-2); }
+.pulso {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2);
+}
+.pulso::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--bom); box-shadow: 0 0 0 3px var(--bom-soft);
+}
+.pulso[data-estado="snapshot"]::before { background: var(--atencao); box-shadow: 0 0 0 3px var(--atencao-soft); }
+.pulso[data-estado="local"]::before { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+/* ------------------------------------------------------------ termômetro */
+.termometro { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px 18px; margin-bottom: 22px; }
+.termometro .topo-t { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.termometro h2 { font-size: 25px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+.termometro .quando-t { font-size: 13.5px; color: var(--ink-3); }
+.termometro .leitura-dia { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 18px 26px; align-items: center; }
+@media (max-width: 760px) { .termometro .leitura-dia { grid-template-columns: 1fr; } }
+.medidor-svg { width: 100%; max-width: 240px; height: auto; display: block; margin: 0 auto; }
+.medidor-svg text { font-family: var(--sans); }
+.nivel { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; border: 1px solid transparent; }
+.nivel .luz { width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+.nivel[data-cor="bom"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.nivel[data-cor="atencao"] { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.nivel[data-cor="ruim"] { color: var(--ruim); background: var(--ruim-soft); border-color: var(--ruim); }
+.nivel[data-cor="neutro"] { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+.frase-dia { font-size: 18px; font-weight: 600; margin: 10px 0 4px; color: var(--ink); max-width: 60ch; }
+.vies { font-size: 16px; margin: 0 0 12px; color: var(--ink-2); }
+.vies strong[data-v="alta"] { color: var(--bom); } .vies strong[data-v="baixa"] { color: var(--ruim); } .vies strong[data-v="indefinido"] { color: var(--atencao); }
+.motivos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 18px; font-size: 14px; }
+.motivos h5 { margin: 0 0 4px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; }
+.motivos h5.pos { color: var(--bom); } .motivos h5.neg { color: var(--ruim); } .motivos h5.neu { color: var(--ink-3); }
+.motivos ul { margin: 0; padding-left: 16px; color: var(--ink-2); }
+.motivos li { margin-bottom: 2px; }
+.grupo-ind { margin-top: 18px; }
+.grupo-ind h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; font-weight: 700; }
+.indicadores-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.ind { background: var(--surface-2); border: 1px solid var(--line); border-radius: 5px; padding: 9px 11px 8px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ind .nome { font-size: 12px; color: var(--ink-3); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ind .linha-v { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
+.ind .v { font-size: 19px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.ind .var { font-size: 12px; font-weight: 700; padding: 1px 6px; border-radius: 999px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ind .var.pos { background: var(--bom-soft); color: var(--bom); } .ind .var.neg { background: var(--ruim-soft); color: var(--ruim); } .ind .var.zero { background: var(--neutro-soft); color: var(--ink-2); }
+.ind svg.spark { width: 100%; height: 30px; display: block; }
+.ind .faixa { position: relative; height: 5px; background: var(--surface-3); border-radius: 3px; margin-top: 2px; }
+.ind .faixa i { position: absolute; top: -3px; width: 3px; height: 11px; border-radius: 2px; background: var(--accent); margin-left: -1px; }
+.ind .rodape { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ind[data-defasado="true"] { opacity: .65; }
+.acoes-t { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.manchetes { margin-top: 16px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface-2); padding: 10px 12px 8px; }
+.manchetes .cab { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.manchetes h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0; font-weight: 700; }
+.manchetes ol { margin: 0; padding-left: 22px; }
+.manchetes li { margin: 0 0 7px; font-size: 15.5px; line-height: 1.35; }
+.manchetes li a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.manchetes li a:hover { text-decoration: underline; color: var(--accent); }
+.manchetes .meta { display: block; font-size: 12px; color: var(--ink-3); }
+.fechar { font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 3px 9px; cursor: pointer; }
+.fechar:hover { border-color: var(--accent); color: var(--accent); }
+.termometro details { margin-top: 12px; font-size: 13.5px; color: var(--ink-3); }
+.termometro summary { cursor: pointer; color: var(--accent); }
+
+/* ------------------------------------------------------- faixa farol Bazin */
+.farol-topo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0 0 18px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.farol-topo .rotulo-f { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-right: 4px; }
+.farol-topo .bandeira { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.farol-topo .bandeira .luz { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.farol-topo .bandeira small { font-weight: 600; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; opacity: .9; }
+.farol-topo .bandeira[data-f="compra-forte"] { color: #fff; background: var(--bom); border-color: var(--bom); }
+.farol-topo .bandeira[data-f="compra"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.farol-topo .bandeira[data-f="manter"] { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.farol-topo .bandeira[data-f="reduzir"] { color: #fff; background: var(--ruim); border-color: var(--ruim); }
+.farol-topo .bandeira[data-f="fora"] { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+.farol-topo .legenda-f { font-size: 12px; color: var(--ink-3); margin-left: auto; }
+
+/* ----------------------------------------------------------- opções (puts) */
+.opcoes { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px 18px; margin-bottom: 34px; }
+.opcoes .topo-t { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.opcoes h2 { font-size: 25px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+.opcoes .quando-t { font-size: 13.5px; color: var(--ink-3); }
+.opcoes .resumo-op { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--ink-2); margin: 0 0 14px; }
+.opcoes .resumo-op b { color: var(--ink); }
+.cartoes-op { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 12px; }
+@media (max-width: 420px) { .cartoes-op { grid-template-columns: 1fr; } }
+.cartao-op { border: 1px solid var(--line); border-radius: 6px; background: var(--surface-2); padding: 12px 14px 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cartao-op .cab-op { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.cartao-op .cab-op .tk { font-size: 19px; font-weight: 700; letter-spacing: -.01em; display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cartao-op .cab-op .tk .farol { font-size: 12px; align-self: center; }
+.cartao-op .cab-op .spot { font-size: 14px; color: var(--ink-2); }
+.cartao-op .cab-op .spot b { font-size: 17px; color: var(--ink); }
+.cartao-op .meta-op { font-size: 12.5px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.melhor-put { border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); padding: 10px 12px; }
+.melhor-put .serie { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.melhor-put .serie .cod { font-size: 16px; font-weight: 700; }
+.melhor-put .serie .cod small { font-weight: 500; color: var(--ink-3); font-size: 12.5px; }
+.sinal { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid transparent; white-space: nowrap; }
+.sinal .luz { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.sinal[data-s="vender"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.sinal[data-s="limitar"] { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.sinal[data-s="sem-preco"] { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+.precos-put { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.precos-put div { background: var(--surface-2); border-radius: 4px; padding: 7px 10px; }
+.precos-put .rot { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+.precos-put .val { font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.precos-put .val.ideal { color: var(--accent); }
+.precos-put .sub { font-size: 12px; color: var(--ink-3); }
+.metricas-put { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 6px 10px; font-size: 13px; }
+.metricas-put dt { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.metricas-put dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.metricas-put dd small { font-weight: 400; color: var(--ink-3); }
+.nota-put { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; }
+.nota-put[data-c="boa"] { color: var(--bom); } .nota-put[data-c="aceitavel"] { color: var(--atencao); } .nota-put[data-c="evitar"] { color: var(--ruim); }
+.motivos-put { margin: 6px 0 0; padding-left: 16px; font-size: 12.5px; color: var(--ink-2); }
+table.alternativas { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+table.alternativas .sinal { font-size: 10px; padding: 1px 6px; }
+table.alternativas th { text-align: left; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; padding: 4px 6px 4px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.alternativas td { padding: 5px 6px 5px 0; border-bottom: 1px dotted var(--line); white-space: nowrap; }
+table.alternativas td.num, table.alternativas th.num { text-align: right; padding-right: 0; padding-left: 6px; }
+table.alternativas .cod { font-weight: 600; }
+.rolagem { overflow-x: auto; }
+.obs-op { font-size: 12.5px; color: var(--ink-2); background: var(--atencao-soft); border-left: 3px solid var(--atencao); padding: 6px 9px; border-radius: 0 4px 4px 0; margin: 0; }
+.sem-op { font-size: 13.5px; color: var(--ink-3); margin: 12px 0 0; }
+.opcoes details { margin-top: 12px; font-size: 13.5px; color: var(--ink-3); }
+.opcoes summary { cursor: pointer; color: var(--accent); }
+.opcoes details p { margin: 6px 0; }
+
+/* ------------------------------------------------------------------- tiles */
+.resumo {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); overflow: hidden; margin-bottom: 22px;
+}
+.tile { padding: 14px 16px 15px; display: flex; flex-direction: column; gap: 3px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tile .valor { font-family: var(--mono); font-size: 24px; font-weight: 500; letter-spacing: -.02em; }
+.tile .apoio { font-size: 13.5px; color: var(--ink-3); }
+
+/* ----------------------------------------------------------------- controles */
+.controles {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 12px 16px; margin-bottom: 22px;
+}
+.campo { display: flex; align-items: center; gap: 9px; }
+.campo label { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+input[type="range"] { width: 130px; accent-color: var(--accent); }
+select, button.acao, input.entrada {
+  font-family: var(--sans); font-size: 14.5px; color: var(--ink);
+  background: var(--surface-2); border: 1px solid var(--line-strong);
+  border-radius: 4px; padding: 5px 9px;
+}
+select, button.acao { cursor: pointer; }
+button.acao:hover, select:hover { border-color: var(--accent); }
+button.acao.primaria { background: var(--accent); color: var(--surface); border-color: var(--accent); font-weight: 600; }
+button.acao.primaria:hover { filter: brightness(1.1); }
+button.acao.perigo { color: var(--ruim); }
+input.entrada { font-family: var(--mono); font-variant-numeric: tabular-nums; width: 110px; }
+input.entrada[type="date"] { font-family: var(--sans); width: auto; }
+.leitura-yield { font-family: var(--mono); font-size: 16px; font-weight: 600; min-width: 46px; }
+.espaco { flex: 1; }
+
+/* -------------------------------------------------------------------- seção */
+section { margin-bottom: 34px; }
+.cabecalho-secao {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.cabecalho-secao h2 { font-family: var(--serif); font-size: 25px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
+.cabecalho-secao .nota { font-size: 14px; color: var(--ink-3); max-width: 62ch; }
+
+/* ------------------------------------------------------------------- linhas */
+.pilha { display: flex; flex-direction: column; gap: 8px; }
+.linha {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  border-left: 4px solid var(--faixa, var(--neutro)); box-shadow: var(--sombra); overflow: hidden;
+}
+.linha[data-farol="compra-forte"], .linha[data-farol="compra"] { --faixa: var(--bom); }
+.linha[data-farol="manter"]  { --faixa: var(--atencao); }
+.linha[data-farol="reduzir"] { --faixa: var(--ruim); }
+.linha[data-farol="fora"]    { --faixa: var(--neutro); }
+
+.linha > summary {
+  display: grid; align-items: center; gap: 10px 14px; padding: 12px 14px; cursor: pointer; list-style: none;
+  grid-template-columns: minmax(130px, 1.2fr) minmax(112px, 1fr) repeat(3, minmax(80px, .85fr)) minmax(118px, 1fr) minmax(118px, .9fr) minmax(190px, 1.5fr) 30px;
+}
+.linha > summary::-webkit-details-marker { display: none; }
+.linha > summary:hover { background: var(--surface-2); }
+@media (max-width: 1180px) {
+  .linha > summary { grid-template-columns: minmax(120px, 1.1fr) minmax(104px, 1fr) repeat(2, minmax(80px, 1fr)) minmax(118px, 1fr) minmax(180px, 1.4fr) 28px; }
+  .celula[data-opcional] { display: none; }
+}
+@media (max-width: 760px) {
+  .linha > summary { grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+  .celula[data-opcional] { display: flex; }
+  .celula.larga { grid-column: 1 / -1; }
+  .chevron { display: none; }
+}
+
+.identidade { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.identidade .tk { font-family: var(--mono); font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+.identidade .nm { font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.identidade .editada { font-size: 12px; color: var(--accent); font-weight: 600; }
+.celula { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.celula .dado { font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.celula .dado.grande { font-size: 17px; font-weight: 500; }
+.celula.cotacao .preco { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
+.celula.cotacao .var { display: inline-flex; align-items: center; gap: 4px; align-self: flex-start; font-size: 12.5px; font-weight: 700; padding: 1px 7px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.celula.cotacao .var.pos { background: var(--bom-soft); color: var(--bom); }
+.celula.cotacao .var.neg { background: var(--ruim-soft); color: var(--ruim); }
+.celula.cotacao .var.zero { background: var(--neutro-soft); color: var(--ink-2); }
+.celula.cotacao .fonte { font-size: 11px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* farol */
+.farol {
+  display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
+  padding: 4px 9px 4px 7px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+  border: 1px solid transparent; white-space: nowrap;
+}
+.farol .luz { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.farol[data-f="compra-forte"] { color: var(--bom); background: var(--bom-soft); border-color: var(--bom); }
+.farol[data-f="compra"]       { color: var(--bom); background: transparent; border-color: var(--bom); }
+.farol[data-f="manter"]       { color: var(--atencao); background: var(--atencao-soft); border-color: var(--atencao); }
+.farol[data-f="reduzir"]      { color: var(--ruim); background: var(--ruim-soft); border-color: var(--ruim); }
+.farol[data-f="fora"]         { color: var(--neutro); background: var(--neutro-soft); border-color: var(--line-strong); }
+
+/* barra divergente */
+.medidor { display: flex; flex-direction: column; gap: 3px; }
+.trilho { position: relative; height: 9px; background: var(--surface-3); border-radius: 2px; overflow: hidden; }
+.trilho::after { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--line-strong); }
+.trilho .barra { position: absolute; top: 0; bottom: 0; border-radius: 2px; }
+.trilho .barra[data-lado="abaixo"] { background: var(--bom); }
+.trilho .barra[data-lado="acima"] { background: var(--ruim); }
+.medidor .legenda { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); white-space: nowrap; }
+
+/* leitura gráfica + recomendação */
+.grafico { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.grafico-topo { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.grafico-link {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; text-decoration: none;
+  color: var(--accent); background: var(--accent-soft); border: 1px solid transparent; border-radius: 4px;
+  padding: 4px 9px; white-space: nowrap;
+}
+.grafico-link:hover { border-color: var(--accent); }
+.niveis { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); white-space: nowrap; }
+.reco {
+  display: inline-flex; align-items: flex-start; gap: 6px; font-size: 13.5px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); padding: 3px 0;
+}
+.reco::before { content: ""; width: 3px; align-self: stretch; border-radius: 2px; background: var(--reco-cor, var(--neutro)); flex: none; }
+.reco[data-tom="bom"] { --reco-cor: var(--bom); }
+.reco[data-tom="atencao"] { --reco-cor: var(--atencao); }
+.reco[data-tom="ruim"] { --reco-cor: var(--ruim); }
+.reco[data-tom="neutro"] { --reco-cor: var(--neutro); color: var(--ink-2); font-weight: 500; }
+.chevron { color: var(--ink-3); transition: transform .18s ease; justify-self: end; }
+.linha[open] .chevron { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .chevron { transition: none; } }
+
+/* -------------------------------------------------------------- detalhe */
+.detalhe {
+  border-top: 1px solid var(--line); background: var(--surface-2); padding: 18px 16px 20px;
+  display: grid; gap: 20px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+}
+.detalhe .inteira { grid-column: 1 / -1; }
+@media (max-width: 860px) { .detalhe { grid-template-columns: 1fr; } }
+.detalhe h4 {
+  font-family: var(--sans); font-size: 12.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px;
+}
+.bloco + .bloco { margin-top: 18px; }
+.resultado-txt { margin: 0; font-size: 16px; color: var(--ink-2); max-width: 68ch; }
+.indicadores {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+}
+.indicadores div { padding: 8px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.indicadores dt { font-size: 12.5px; color: var(--ink-3); }
+.indicadores dd { margin: 1px 0 0; font-family: var(--mono); font-size: 14.5px; font-weight: 500; }
+.indicadores dd small { display: block; font-family: var(--sans); font-size: 12.5px; font-weight: 400; color: var(--ink-3); }
+ul.lista { margin: 0; padding-left: 17px; font-size: 15px; color: var(--ink-2); }
+ul.lista li { margin-bottom: 5px; }
+ul.lista li::marker { color: var(--ink-3); }
+ul.noticias { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+ul.noticias li { padding: 6px 0; border-bottom: 1px dotted var(--line-strong); }
+ul.noticias li:last-child { border-bottom: 0; }
+ul.noticias .data { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); display: block; }
+
+.memoria { border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); padding: 11px 13px; font-size: 14.5px; color: var(--ink-2); }
+.memoria p { margin: 0 0 8px; }
+.memoria p:last-child { margin-bottom: 0; }
+.memoria .conta { font-family: var(--mono); font-size: 14.5px; color: var(--ink); margin-bottom: 6px; }
+.confianca { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; }
+.pontos { display: inline-flex; gap: 2px; }
+.pontos i { width: 6px; height: 6px; border-radius: 50%; background: var(--line-strong); display: block; }
+.pontos i.on { background: var(--marcador, var(--ink-2)); }
+.confianca[data-nivel="alta"] { color: var(--bom); --marcador: var(--bom); }
+.confianca[data-nivel="media"] { color: var(--atencao); --marcador: var(--atencao); }
+.confianca[data-nivel="baixa"] { color: var(--ruim); --marcador: var(--ruim); }
+
+/* ajuste de posição */
+.ajuste {
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 12px 14px;
+  display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+}
+@media (max-width: 860px) { .ajuste { grid-template-columns: 1fr; } }
+.ajuste h5 { margin: 0 0 8px; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+.formulario { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: flex-end; }
+.formulario label { display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--ink-3); font-weight: 600; }
+.formulario .previa { font-family: var(--mono); font-size: 13.5px; color: var(--ink-2); width: 100%; margin-top: 2px; }
+.operacoes { list-style: none; margin: 8px 0 0; padding: 0; font-size: 14px; }
+.operacoes li { display: flex; gap: 10px; align-items: center; padding: 5px 0; border-bottom: 1px dotted var(--line-strong); }
+.operacoes li:last-child { border-bottom: 0; }
+.operacoes .tipo { font-weight: 700; font-size: 12.5px; letter-spacing: .05em; width: 54px; }
+.operacoes .tipo[data-t="compra"] { color: var(--bom); }
+.operacoes .tipo[data-t="venda"] { color: var(--ruim); }
+.operacoes .desc { font-family: var(--mono); color: var(--ink-2); flex: 1; }
+.operacoes button { font-size: 12.5px; background: none; border: 0; color: var(--ink-3); cursor: pointer; text-decoration: underline; }
+.leitura {
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 11px 13px; font-size: 14.5px; color: var(--ink-2);
+}
+.leitura .niveis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 6px 12px; margin: 8px 0 10px; }
+.leitura .niveis-grid div { display: flex; flex-direction: column; }
+.leitura .niveis-grid dt { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.leitura .niveis-grid dd { margin: 0; font-family: var(--mono); font-size: 14.5px; color: var(--ink); }
+.leitura p { margin: 0 0 8px; }
+.leitura p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------- rodapé */
+.painel-texto { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 22px; }
+.painel-texto h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0 0 8px; letter-spacing: -.01em; }
+.painel-texto h3:not(:first-child) { margin-top: 22px; }
+.painel-texto p, .painel-texto li { font-size: 16px; color: var(--ink-2); max-width: 74ch; }
+.painel-texto p { margin: 0 0 10px; }
+.colunas { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 22px; }
+.aviso { border-left: 3px solid var(--atencao); background: var(--atencao-soft); padding: 12px 15px; border-radius: 0 4px 4px 0; margin: 0 0 16px; }
+.aviso p { color: var(--ink); margin: 0; font-size: 15px; }
+.aviso p + p { margin-top: 7px; }
+table.faixas { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 6px; }
+table.faixas th, table.faixas td { text-align: left; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); }
+table.faixas th { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+table.faixas td:first-child { white-space: nowrap; }
+ol.passos { margin: 0; padding-left: 20px; }
+ol.passos li { margin-bottom: 6px; }
+footer.creditos {
+  margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: 13.5px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 18px;
+}
+.folha { border: 1px solid var(--line-strong); border-radius: var(--r); background: var(--surface); color: var(--ink); padding: 0; max-width: 560px; width: calc(100% - 32px); box-shadow: var(--sombra); }
+.folha::backdrop { background: rgba(0, 0, 0, .45); }
+.folha form { padding: 20px 22px; }
+.folha h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; }
+.folha p { margin: 0 0 10px; font-size: 15px; color: var(--ink-2); }
+.folha .folha-estado { font-size: 14px; color: var(--ink); background: var(--surface-2); border-radius: 4px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+.folha .miuda { font-size: 13px; color: var(--ink-3); }
+.folha-acoes { display: flex; justify-content: flex-end; margin-top: 6px; }
+.ocultos { font-size: 13px; color: var(--ink-3); padding: 6px 4px 0; }
+.ocultos button { font: inherit; font-size: 12.5px; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.toast {
+  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+  background: var(--ink); color: var(--ground); font-size: 14.5px; padding: 9px 14px; border-radius: 4px;
+  box-shadow: var(--sombra); opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.toast.visivel { opacity: 1; }
+</style>
+
+
+
+<div class="envelope">
+  <header class="topo">
+    <div class="marca">
+      <h1>Radar Bazin</h1>
+      <p>Acompanhamento da carteira com farol de preço pelo método Décio Bazin, fundamentos do último trimestre, suporte e resistência por Volume Profile e uma recomendação por ativo.</p>
+    </div>
+    <div class="carimbo">
+      <button class="acao primaria" id="atualizar" type="button">Atualizar dados</button>
+      <span class="pulso" id="pulso" data-estado="snapshot">Snapshot</span>
+      <span class="quando" id="carimbo-quando">—</span>
+      <span class="quando" id="carimbo-cambio">—</span>
+      <span class="quando" id="carimbo-carteira">—</span>
+    </div>
+  </header>
+
+  <div class="farol-topo" id="farol-topo" aria-label="Farol Bazin da carteira"></div>
+
+  <section class="termometro" id="termometro" aria-label="Termômetro do dia"></section>
+
+  <div class="resumo" id="resumo"></div>
+
+  <div class="controles">
+    <div class="campo">
+      <label for="yield">Yield mínimo Bazin</label>
+      <input type="range" id="yield" min="4" max="12" step="0.5" value="8">
+      <span class="leitura-yield num" id="yield-valor">8,0%</span>
+    </div>
+    <div class="campo">
+      <label for="base">Base do dividendo</label>
+      <select id="base">
+        <option value="recorrente">DPA recorrente (com haircut)</option>
+        <option value="doze">DPA cheio dos últimos 12 meses</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label for="ordem">Ordenar por</label>
+      <select id="ordem">
+        <option value="valor">Tamanho da posição</option>
+        <option value="gap">Distância do teto</option>
+        <option value="resultado">Resultado não realizado</option>
+        <option value="ticker">Ticker</option>
+      </select>
+    </div>
+    <span class="espaco"></span>
+    <button class="acao" id="expandir" type="button">Abrir todos os detalhes</button>
+    <button class="acao" id="exportar" type="button" title="Copia a carteira atual no formato de data/carteira.json">Copiar carteira (JSON)</button>
+  </div>
+
+  <section>
+    <div class="cabecalho-secao">
+      <h2>Carteira brasileira</h2>
+      <p class="nota">Preço-teto = DPA ÷ yield mínimo. A barra mostra a distância até o teto: verde à esquerda é desconto, vermelho à direita é prêmio. A recomendação cruza o farol com suporte e resistência.</p>
+    </div>
+    <div class="pilha" id="lista-br"></div>
+  </section>
+
+  <section>
+    <div class="cabecalho-secao">
+      <h2>Carteira internacional</h2>
+      <p class="nota">Bazin não se aplica: são teses de crescimento sem dividendo relevante. Aqui a recomendação é só gráfica — tendência, suporte e resistência.</p>
+    </div>
+    <div class="pilha" id="lista-us"></div>
+  </section>
+
+  <section>
+    <div class="cabecalho-secao">
+      <h2>ETFs de índice</h2>
+      <p class="nota">Exposição ao S&amp;P 500 em dois veículos com tributação diferente.</p>
+    </div>
+    <div class="pilha" id="lista-etf"></div>
+  </section>
+
+  <section class="opcoes" id="opcoes" aria-label="Dividendos sintéticos com venda de put"></section>
+
+  <section class="painel-texto">
+    <h3>Como ler o farol</h3>
+    <p>Décio Bazin comprava ação como quem compra renda: se o dividendo pago dividido pelo preço não entregasse pelo menos 6% ao ano, o preço estava caro. O preço-teto sai de uma conta só — <strong>dividendo por ação ÷ 6%</strong> — e o resto é margem de segurança.</p>
+    <table class="faixas">
+      <thead><tr><th>Faixa</th><th>Regra</th><th>Leitura</th></tr></thead>
+      <tbody>
+        <tr><td><span class="farol" data-f="compra-forte"><span class="luz"></span>Compra forte</span></td><td>preço ≤ 80% do teto</td><td>Desconto de 20% ou mais sobre o teto. É a zona em que Bazin comprava.</td></tr>
+        <tr><td><span class="farol" data-f="compra"><span class="luz"></span>Compra</span></td><td>80% &lt; preço ≤ teto</td><td>Ainda entrega o yield mínimo, mas sem folga.</td></tr>
+        <tr><td><span class="farol" data-f="manter"><span class="luz"></span>Manter</span></td><td>teto &lt; preço ≤ 120% do teto</td><td>Yield abaixo do piso. Segura o que tem, não amplia.</td></tr>
+        <tr><td><span class="farol" data-f="reduzir"><span class="luz"></span>Reduzir</span></td><td>preço &gt; 120% do teto</td><td>Prêmio de mais de 20%. Pelo método, é gatilho de venda parcial.</td></tr>
+        <tr><td><span class="farol" data-f="fora"><span class="luz"></span>Fora do método</span></td><td>sem dividendo recorrente</td><td>Sem dividendo não existe teto. Avaliar por outro critério.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Os três filtros que vêm antes do preço</h3>
+    <p>O teto é o último passo, não o primeiro. Antes dele Bazin exigia: histórico de <strong>pelo menos cinco anos pagando dividendo sem interrupção</strong>; <strong>lucro consistente</strong>, não pontual; e <strong>dívida sob controle</strong>. Nesta carteira, SAPR11 (prejuízo no 2T26 e disputa regulatória), CMIG4 (dívida quase dobrou em um ano) e AURE3 (alavancagem de 5,3x e sem dividendo) tropeçam em pelo menos um desses filtros — o farol verde num papel assim vale menos do que parece.</p>
+
+    <div class="colunas">
+      <div>
+        <h3>Como a recomendação é montada</h3>
+        <p>A recomendação de cada linha cruza duas coisas: <strong>o que o Bazin diz sobre o preço</strong> (o farol) e <strong>onde o preço está no gráfico</strong> (suporte, resistência e tendência pela MM200). O farol decide <em>se</em> vale comprar ou vender; o gráfico decide <em>onde</em>. Regras:</p>
+        <ul class="lista">
+          <li><strong>Farol verde e preço encostado no suporte</strong> → comprar ali, com stop abaixo do suporte.</li>
+          <li><strong>Farol verde e preço no meio da faixa</strong> → comprar escalonado, deixando ordem no suporte.</li>
+          <li><strong>Farol verde mas preço encostado na resistência</strong> → esperar: recuo ao suporte ou rompimento com volume.</li>
+          <li><strong>Farol amarelo</strong> → manter; realizar parcial se estiver na resistência; atenção se perder o suporte.</li>
+          <li><strong>Farol vermelho</strong> → reduzir, de preferência na resistência.</li>
+          <li><strong>Sem Bazin</strong> (crescimento, ETF) → só gráfico: manter enquanto acima da MM200 e do suporte; reduzir se perder os dois.</li>
+        </ul>
+        <p>Abaixo da MM200 o papel está em tendência de baixa: a recomendação de compra vira "em parcelas menores", porque comprar contra a tendência exige mais paciência.</p>
+
+        <h3>Suporte e resistência por Volume Profile</h3>
+        <p>Não existe método gráfico infalível. O que existe é método com fundamento observável. O <strong>Volume Profile</strong> não desenha linha em cima de opinião: mostra em quais preços realmente houve volume negociado. Onde muita gente montou posição há oferta e demanda represadas — é isso que faz um nível segurar ou romper. O painel calcula, sobre um ano de candles diários:</p>
+        <ul class="lista">
+          <li><strong>POC</strong> (preço de maior volume) e <strong>Value Area</strong> (faixa com 70% do volume) — VAL e VAH são o suporte e a resistência estruturais.</li>
+          <li><strong>HVNs</strong> (nós de alto volume) — máximos locais do perfil.</li>
+          <li><strong>Pivôs de swing</strong> dos últimos seis meses — topos e fundos que o mercado já respeitou.</li>
+          <li><strong>MM21 e MM200</strong> — tendência curta e longa.</li>
+        </ul>
+        <p>Suporte é o candidato mais próximo abaixo do preço; resistência, o mais próximo acima. Quando dois candidatos caem a menos de 2% um do outro, viram um só e o painel marca a <em>confluência</em> — nível com mais de uma razão para existir vale mais. O link abre o TradingView no papel; adicione o indicador "Volume Profile Visible Range" para ver o mesmo perfil no gráfico.</p>
+      </div>
+      <div>
+        <h3>O que este painel não sabe</h3>
+        <div class="aviso">
+          <p><strong>Os dividendos por ação são o ponto fraco dos dados.</strong> Os agregadores brasileiros divergem entre si — em ITSA4 a diferença entre fontes chega a R$ 0,68 por ação. Cada ativo mostra a fonte e um nível de confiança no bloco de detalhe. Onde a confiança for baixa, confira o extrato de proventos no seu home broker antes de usar o teto como gatilho.</p>
+          <p><strong>Os níveis gráficos marcados como "manual" são provisórios.</strong> Foram tirados de análises publicadas, algumas com semanas de idade e preços diferentes do atual. Na primeira execução do workflow eles são substituídos pelo cálculo automático sobre o histórico real, e a origem muda para "calculado".</p>
+          <p><strong>O DPA recorrente é premissa minha, não dado divulgado.</strong> Aplico um haircut sobre o dividendo dos últimos 12 meses quando parte dele veio de evento não repetível. O critério de cada haircut está na memória de cálculo de cada linha.</p>
+          <p><strong>Divergência na planilha de origem.</strong> A linha de AURE3 trazia R$ 10.798 em "Posição Valor" com quantidade zero — o mesmo valor da posição de TAEE11. Tratei como célula duplicada.</p>
+        </div>
+
+        <h3>Dividendos sintéticos</h3>
+        <p>O painel <strong>Dividendos sintéticos</strong> lista, para cada papel, as puts que fazem sentido vender com caixa de cobertura: prazo de 15 a 60 dias, strike de 3% a 15% abaixo do preço e nunca acima do teto Bazin. Se o papel não cair, o prêmio fica; se cair, você compra abaixo do teto com o prêmio de desconto. O "preço ideal" é o limite da ordem (justo pela volatilidade recente ou o prêmio que, sozinho, rende o CDI sobre o caixa, o que for maior); o "último preço" é o que o mercado pagou por último. Só entram séries com pelo menos 10 negócios no dia; os papéis sem liquidez aparecem como "sem put recomendável". O painel cobre só os papéis nacionais.</p>
+
+        <h3>Ajustar a carteira</h3>
+        <p>Cada ativo tem, no detalhe, um bloco <strong>Ajustar posição</strong>: registre compra ou venda (quantidade e preço) e o painel recalcula quantidade, preço médio e o resultado realizado da venda. Também dá para corrigir quantidade e preço médio direto, ou excluir o ativo do painel (e restaurar depois, no fim da seção). Tudo fica salvo neste aparelho e, quando o painel roda dentro do claude.ai, sincroniza pela nuvem entre celular e computador. O botão <strong>Copiar carteira</strong> gera o JSON no formato de <code>data/carteira.json</code>, para quem quiser gravar no repositório.</p>
+
+        <h3>No celular</h3>
+        <ol class="passos">
+          <li><strong>iPhone (Safari):</strong> abra o link, toque em Compartilhar (quadrado com seta) e em <em>Adicionar à Tela de Início</em>.</li>
+          <li><strong>Android (Chrome):</strong> abra o link, toque no menu ⋮ e em <em>Adicionar à tela inicial</em> (ou <em>Instalar app</em>).</li>
+        </ol>
+        <p>O ícone abre o painel em tela cheia, como app. Os preços continuam vindo do repositório; os fundamentos, da última revisão.</p>
+
+        <h3>Dois pontos que valem uma conversa</h3>
+        <ul class="lista">
+          <li><strong>Concentração.</strong> ALOS3 é cerca de 77% da carteira brasileira. Qualquer decisão sobre esse papel é, na prática, uma decisão sobre a carteira inteira.</li>
+          <li><strong>Sobreposição e domicílio.</strong> SPY e VUAA seguem o mesmo índice. O SPY é domiciliado nos EUA: ativos americanos acima de US$ 60 mil expõem não residentes ao <em>estate tax</em> americano, e sua posição direta em NVDA, PLTR, TSLA e SPY já passa disso. O VUAA, irlandês e de acumulação, não tem esse problema. Vale conversar com seu contador.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Aviso</h3>
+    <p>Este painel é organização de informação pública, não recomendação de investimento no sentido regulatório. A "recomendação" de cada linha é a aplicação mecânica das regras acima — ela não conhece seu imposto, sua liquidez nem seu horizonte. Números de resultado e proventos foram levantados em 06/09/2026 nas fontes citadas; os preços e os níveis gráficos se atualizam sozinhos, os fundamentos não.</p>
+  </section>
+
+  <footer class="creditos">
+    <span>Radar Bazin</span>
+    <span id="rodape-quando">—</span>
+    <span>Fundamentos apurados em 06/09/2026</span>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="folha-atualizar" class="folha">
+  <form method="dialog">
+    <h3>Atualizar dados</h3>
+    <p id="folha-estado" class="folha-estado">—</p>
+    <p>O painel é republicado <strong>automaticamente em dias úteis às 7h15</strong> (termômetro do dia, com os mercados da Ásia fechados e os futuros dos EUA rodando) <strong>e às 18h45</strong> (fechamento da B3, com preços, câmbio e níveis gráficos recalculados), horário de Brasília. Para atualizar fora desses horários, use um dos dois caminhos:</p>
+    <ol class="passos">
+      <li><strong>Pelo Claude:</strong> abra a conversa <em>Painel Ações</em> no <a href="https://claude.ai/code" target="_blank" rel="noopener">claude.ai/code</a> e escreva <em>"atualiza o painel"</em>. Eu puxo os dados mais recentes do repositório, republico neste mesmo link e confirmo. Leva de 1 a 3 minutos.</li>
+      <li><strong>Só os dados, pelo GitHub:</strong> <a href="https://github.com/dvf15/radarbazin/actions/workflows/atualizar-cotacoes.yml" target="_blank" rel="noopener">abra o workflow "Atualizar cotações"</a> e toque em <em>Run workflow</em>. Isso atualiza o repositório; o painel só muda na próxima republicação.</li>
+    </ol>
+    <p class="miuda">A carteira que você edita aqui não participa disso: ela fica no banco privado deste painel e sobrevive a qualquer republicação.</p>
+    <div class="folha-acoes"><button class="acao" value="fechar">Fechar</button></div>
+  </form>
+</dialog>
+
+<script id="dados-embutidos" type="application/json">{"carteira":{"atualizadoEm":"2026-09-06","moedaBase":"BRL","observacoes":["Lotes de ALOS3 com quantidade 0 foram descartados (linha de PM R$ 21,28).","A linha AURE3 da planilha original trazia 'Posição Valor' de R$ 10.798 com quantidade 0 — é o mesmo valor da posição de TAEE11 e foi tratada como duplicidade. Por isso o total consolidado aqui é R$ 1.791.139 e não R$ 1.801.937.","Lockup e matching são informados como no arquivo de origem, sem rateio por ativo.","AURE3 e BBSE3 (posições zeradas) foram retiradas do painel em 06/09/2026 a pedido. Os fundamentos continuam em fundamentos.json caso voltem."],"lockup":{"posicaoTotalBRL":1801937,"semLockupBRL":1279468,"matchingBRL":256303},"posicoes":[{"ticker":"ALOS3","banco":"Itaú","lotes":[{"qtd":29628,"pm":24.95},{"qtd":5451,"pm":23.76},{"qtd":8068,"pm":19.05},{"qtd":4616,"pm":30.37}]},{"ticker":"TAEE11","banco":"Itaú","lotes":[{"qtd":260,"pm":34.77}]},{"ticker":"ITSA4","banco":"XP","lotes":[{"qtd":15472,"pm":10.05}]},{"ticker":"KLBN4","banco":"XP","lotes":[{"qtd":5074,"pm":4.2}]},{"ticker":"SAPR11","banco":"XP","lotes":[{"qtd":1279,"pm":21.17}]},{"ticker":"CMIG4","banco":"XP","lotes":[{"qtd":2748,"pm":7.69}]},{"ticker":"BBDC4","banco":"XP","lotes":[{"qtd":5211,"pm":13.51}]},{"ticker":"NVDA","banco":"Avenue","lotes":[{"qtd":65,"pm":39.04}]},{"ticker":"PLTR","banco":"Avenue","lotes":[{"qtd":112,"pm":22.96}]},{"ticker":"TSLA","banco":"Avenue","lotes":[{"qtd":107,"pm":328.52}]},{"ticker":"SPY","banco":"Avenue","lotes":[{"qtd":49.56,"pm":0}]},{"ticker":"VUAA","banco":"Avenue","lotes":[{"qtd":52,"pm":0}]}]},"fundamentos":{"atualizadoEm":"2026-09-06","pesquisaFechadaEm":"2026-09-06","cambioRef":{"par":"USD/BRL","valor":5.1247,"data":"2026-09-05","fonte":"Investing.com — USD/BRL"},"bazin":{"yieldMinimo":0.06,"faixas":{"compraForte":0.8,"compra":1,"neutro":1.2},"nota":"Preço-teto = DPA / 6%. Faixas: até 80% do teto = compra forte (margem de segurança ≥ 20%); entre 80% e 100% = compra; entre 100% e 120% = manter; acima de 120% = reduzir/vender."},"ativos":{"ALOS3":{"nome":"Allos S.A.","setor":"Shopping centers / Real estate","bolsa":"B3","tvSymbol":"BMFBOVESPA:ALOS3","moeda":"BRL","precoRef":28.81,"bazin":{"aplicavel":true,"dpa12m":3.48,"dpa12mNota":"Guidance da própria companhia: ~R$ 0,29/ação por mês entre dez/2025 e dez/2026 (~R$ 1,9 bi no período, ~R$ 1,75 bi em 2026). 12 × 0,29 = R$ 3,48.","dpaRecorrente":2.4,"premissa":"Haircut de ~31% sobre o DPA de 12 meses. Justificativa: o FFO/ação do 2T26 foi R$ 0,66 (≈ R$ 2,64/ano anualizado) e a distribuição atual é sustentada em parte por venda de ativos não estratégicos e desalavancagem, não só por caixa operacional recorrente. R$ 2,40 ≈ 91% do FFO anualizado.","confianca":6,"confiancaNota":"DPA de 12m tem fonte primária boa (guidance). O DPA recorrente é premissa minha, não é número divulgado."},"indicadores":[{"k":"Receita líquida 2T26","v":"R$ 732,3 mi","d":"+11,6% a/a"},{"k":"EBITDA ajustado 2T26","v":"R$ 525,4 mi","d":"+10,5% a/a"},{"k":"FFO 2T26","v":"R$ 340,8 mi","d":"+12,0% a/a · R$ 0,66/ação"},{"k":"NOI 2T26","v":"R$ 601 mi","d":"+3,7% a/a · margem 91,8% (-1,5 p.p.)"},{"k":"Lucro líquido 2T26","v":"R$ 294 mi","d":"+57,7% a/a"},{"k":"Guidance EBITDA 2026","v":"R$ 2,17–2,24 bi","d":"mantido"},{"k":"CapEx 2026 (guidance)","v":"R$ 350–450 mi","d":"abaixo dos R$ 450–550 mi de 2025"}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Trimestre operacionalmente forte e acima do consenso: receita +11,6%, FFO +12% e lucro +57,7%. A margem NOI cedeu 1,5 p.p., mas a companhia manteve o guidance de EBITDA do ano. O resultado vazou antes da divulgação oficial e a Allos precisou publicar esclarecimento à CVM."},"destaques":["Maior posição da carteira: 47.763 ações, ~76,8% da carteira brasileira.","Política de proventos mensal (~R$ 0,29/ação) é o principal driver da tese — bancos projetam DY de até 13% para 2026.","Venda de ativos não estratégicos reduziu o portfólio, elevou a qualidade média dos shoppings e baixou a alavancagem.","Preço atual (R$ 28,81) já está 18,4% acima do preço médio da posição consolidada (R$ 24,34)."],"riscos":["Boa parte do yield de 2026 vem de distribuição extraordinária ligada a reciclagem de portfólio — não é caixa recorrente perpétuo.","Selic alta pressiona custo de dívida e o valuation de ativos imobiliários.","Concentração: ~77% da carteira BR em um único papel."],"noticias":[{"data":"02/09/2026","titulo":"Confirmado dividendo de R$ 0,291918/ação (3ª parcela dos intermediários)","url":"https://euqueroinvestir.com/acoes/allos-alos3-dividendos-setembro-2026"},{"data":"ago/2026","titulo":"Balanço 2T26 'acima do esperado'; bancos veem dividendos de até 13%","url":"https://www.moneytimes.com.br/allos-alos3-entrega-balanco-acima-do-esperado-no-2t26-dizem-analistas-bancos-veem-dividendos-de-ate-13-para-acao-igdl/"},{"data":"ago/2026","titulo":"Allos esclarece vazamento de informações do 2T26","url":"https://financenews.com.br/2026/08/allos-alos3-divulga-esclarecimento-sobre-informacoes-relativas-aos-resultados-do-2t26/"},{"data":"2026","titulo":"XP: anúncio de dividendos foi o grande destaque; resultados em linha","url":"https://conteudos.xpi.com.br/acoes/relatorios/allos-alos3-anuncio-de-dividendos-foi-o-grande-destaque-resultados-em-linha-com-as-estimativas/"}]},"TAEE11":{"nome":"Taesa — Transmissora Aliança de Energia Elétrica","setor":"Transmissão de energia","bolsa":"B3","tvSymbol":"BMFBOVESPA:TAEE11","moeda":"BRL","precoRef":41.53,"bazin":{"aplicavel":true,"dpa12m":2.96,"dpa12mNota":"Total distribuído em 2025: R$ 2,9599/unit em 7 proventos (PlayInvest). DY de 12 meses apurado pelo Status Invest (data-com 04/09/2025 a 04/09/2026): 7,24%.","dpaRecorrente":2.9,"premissa":"Praticamente sem haircut: a Taesa distribui ~100% do lucro regulatório trimestral e projeções de mercado para 2026 vão de R$ 2,98 a R$ 3,31/unit. Usei R$ 2,90 (piso conservador).","confianca":7,"confiancaNota":"Histórico de proventos bem documentado e política de payout explícita. Boa confiança."},"indicadores":[{"k":"Receita líquida regulatória 2T26","v":"R$ 679,2 mi","d":"+9,3% a/a"},{"k":"EBITDA regulatório 2T26","v":"R$ 577,2 mi","d":"+10,6% a/a"},{"k":"Lucro líquido 2T26","v":"queda de 28,5% a/a","d":"efeito financeiro/não caixa"},{"k":"Dividendo aprovado no 2T26","v":"R$ 206,7 mi","d":"100% do lucro regulatório · pgto nov/2026"},{"k":"DY 12m","v":"~7,2%","d":"Status Invest, base 04/09/2026"},{"k":"Proventos 2026 até set","v":"R$ 2,0681/unit","d":"último: R$ 0,56 em 26/08/2026"}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Operação bem: receita e EBITDA regulatórios crescendo perto de 10%. O lucro societário caiu 28,5% (pressão do resultado financeiro), mas a base de distribuição é o lucro regulatório, que sustentou payout de 100% no trimestre."},"destaques":["Receita contratada e indexada à inflação — o ativo mais previsível da carteira.","Payout de 100% do lucro regulatório trimestral mantido.","Posição pequena (260 units, R$ 10,8 mil) — hoje é mais watchlist do que exposição relevante."],"riscos":["Crescimento depende de vencer leilões de transmissão com TIR apertada.","DY de ~7% deixa pouca folga sobre a NTN-B; papel é sensível à curva de juros longa."],"noticias":[{"data":"ago/2026","titulo":"Genial — Resultado 2T26: 'Cadê o próximo capítulo?'","url":"https://analisa.genialinvestimentos.com.br/acoes/TAEE11/taesa-taee11-resultado-2t26-cade-o-proximo-capitulo/"},{"data":"2026","titulo":"Projeções BBA: R$ 2,98–3,31/unit em dividendos em 2026 (DY 6,8%–7,5%)","url":"https://www.suno.com.br/noticias/taesa-taee11-pagar-mais-dividendos-2026-projecao-bba-go/"},{"data":"ago/2026","titulo":"Por que o lucro caiu 28,5% no 2T26","url":"https://www.ebc.com/pt/forex/taesa-taee11-lucro-cai-28-5-2t26"}]},"ITSA4":{"nome":"Itaúsa S.A.","setor":"Holding (financeiro + infraestrutura/consumo)","bolsa":"B3","tvSymbol":"BMFBOVESPA:ITSA4","moeda":"BRL","precoRef":13.95,"bazin":{"aplicavel":true,"dpa12m":1.19,"dpa12mNota":"R$ 1,19/ação em 7 pagamentos nos últimos 12 meses (Redentia, DY 9,57% na cotação deles). ATENÇÃO: outras fontes apontam R$ 1,87/ação e DY entre 8,2% e 12% — a dispersão vem da inclusão ou não de proventos extraordinários de 2025.","dpaRecorrente":1,"premissa":"Premissa minha: excluir extraordinários e trabalhar com ~R$ 1,00/ação recorrente. Ancoragem: o JCP de R$ 2,8 bi pago em 28/08/2026 equivale a R$ 0,254/ação bruto referente ao 1º semestre.","confianca":5,"confiancaNota":"BAIXA. As fontes públicas divergem bastante (R$ 1,19 vs R$ 1,87). O preço-teto de ITSA4 é o número menos confiável deste painel — vale checar o extrato de proventos no seu home broker antes de agir."},"indicadores":[{"k":"Lucro recorrente 2T26","v":"R$ 4,3 bi","d":"+7,1% a/a"},{"k":"JCP pago em 28/08/2026","v":"R$ 2,8 bi","d":"R$ 0,254/ação bruto · R$ 0,20955 líquido (IR 17,5%)"},{"k":"Segmento não financeiro 2T26","v":"-26,7% a/a","d":"Aegea, Alpargatas, Dexco"},{"k":"Participação na Aegea","v":"14,01%","d":"de 13,27%; aporte de R$ 732 mi"},{"k":"Valorização 12m","v":"+50%","d":"conforme reportagem de 2026"}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Lucro recorrente de R$ 4,3 bi (+7,1%), praticamente todo vindo do Itaú Unibanco. O braço não financeiro caiu 26,7% a/a, com piora em NTS, Dexco e Aegea, e o resultado da própria holding recuou por maiores despesas tributárias."},"destaques":["2ª maior posição BR: 15.472 ações, R$ 215,8 mil, +38,8% sobre o PM de R$ 10,05.","Aumentou fatia na Aegea para 14,01% (R$ 732 mi) — aposta continuada em saneamento.","Estrutura de holding: você paga desconto sobre o Itaú, mas herda os ativos não financeiros mais fracos."],"riscos":["Dependência quase total do Itaú Unibanco para gerar caixa de dividendos.","Alavancagem da Aegea subiu de 3,01x para 3,87x; Dexco e Alpargatas em ciclo fraco.","Desconto de holding pode não fechar."],"noticias":[{"data":"ago/2026","titulo":"Itaúsa investe R$ 732 mi e eleva participação na Aegea para 14%","url":"https://investidor10.com.br/noticias/itausa-itsa4-investe-r-732-mi-e-eleva-participacao-na-aegea-para-14-121893/"},{"data":"ago/2026","titulo":"Lucro de R$ 4,3 bi no 2T26 e JCP de R$ 2,8 bi pago em 28/08","url":"https://investidor10.com.br/noticias/itausa-tem-lucro-de-r-4-3-bi-no-2t26-e-pagara-r-2-8-bi-em-jcp-em-28-de-agosto-121969/"},{"data":"2026","titulo":"Itaúsa recebe R$ 900 mi em dividendos extraordinários da Itautec","url":"https://investidor10.com.br/noticias/itausa-itsa4-recebe-r-900-mi-em-dividendos-extraordinarios-da-itautec-121231/"}]},"BBSE3":{"nome":"BB Seguridade Participações","setor":"Seguros e previdência","bolsa":"B3","tvSymbol":"BMFBOVESPA:BBSE3","moeda":"BRL","precoRef":42.16,"bazin":{"aplicavel":true,"dpa12m":4.36,"dpa12mNota":"Remuneração total referente a 2025: R$ 8,72 bi. Com ~2,0 bi de ações (o dividendo de R$ 3,85 bi equivaleu a R$ 1,90/ação, implicando 2,03 bi de ações), chega-se a ~R$ 4,36/ação. Fontes citam DY de 10,9% a 12%+ nos últimos 12 meses.","dpaRecorrente":4.1,"premissa":"Haircut leve de ~6%, refletindo o lucro de 2026 rodando abaixo de 2025 (2T26 -4% a/a) com payout mantido em 90–95%.","confianca":7,"confiancaNota":"Política de payout explícita e estável, dividendo semestral bem documentado. Boa confiança."},"indicadores":[{"k":"Lucro líquido 2T26","v":"R$ 2,15 bi","d":"-4% a/a, acima do consenso"},{"k":"Dividendos 1S26","v":"R$ 3,85 bi","d":"R$ 1,90/ação (pago R$ 1,98 em 03/09/2026)"},{"k":"Payout histórico","v":"90%–95%","d":"política mantida pela diretoria"},{"k":"Lucro 2025","v":"R$ 9,1 bi","d":"remuneração total R$ 8,72 bi"},{"k":"DY 12m","v":"~10,9%–12%","d":"varia com a fonte e a data-base"}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Lucro de R$ 2,15 bi, queda de 4% a/a mas acima do consenso. O recuo veio principalmente da redução de prêmios da BrasilSeg, com o seguro agrícola pressionado pelas condições do agronegócio."},"destaques":["POSIÇÃO ZERADA. Está no painel como watchlist — PM histórico de R$ 33,09 contra preço atual de R$ 42,16.","É o ativo com o maior desconto sobre o preço-teto Bazin de toda a lista.","Negócio asset-light: capta via rede do Banco do Brasil, quase não consome capital, converte lucro em dividendo."],"riscos":["Seguro agrícola (BrasilSeg) exposto a quebra de safra e crédito rural.","Resultado financeiro cai junto com a Selic — parte relevante do lucro vem de float.","Controle estatal indireto via Banco do Brasil."],"noticias":[{"data":"ago/2026","titulo":"Lucro de R$ 2,15 bi no 2T26, acima do consenso","url":"https://www.suno.com.br/noticias/bbse3-resultado-2t26-lucro-acima-consenso-dividendos-go/"},{"data":"2026","titulo":"BB Seguridade pagará R$ 3,85 bi em dividendos, ou R$ 1,98 por ação","url":"https://www.infomoney.com.br/mercados/bb-seguridade-bbse3-pagara-r-385-bilhoes-em-dividendos-ou-r-198-por-acao/"},{"data":"2026","titulo":"Quase R$ 5 bi distribuídos após lucro recorde de 2025","url":"https://www.seudinheiro.com/2026/empresas/bb-seguridade-bbse3-vai-distribuir-quase-r-5-bilhoes-em-dividendos-apos-lucro-recorde-em-2025-lvgv/"}]},"BBDC4":{"nome":"Banco Bradesco","setor":"Bancos","bolsa":"B3","tvSymbol":"BMFBOVESPA:BBDC4","moeda":"BRL","precoRef":17.9,"bazin":{"aplicavel":true,"dpa12m":1.34,"dpa12mNota":"R$ 1,34/ação nos últimos 12 meses com DY de 8,69% (Investidor10). Outras fontes: R$ 1,51 (Renova, DY 8,6%) e R$ 1,79 (Redentia). Adotei o número mais conservador.","dpaRecorrente":1.2,"premissa":"Haircut de ~10% sobre o menor DPA publicado, para descontar a parcela complementar de fim de exercício, que oscila com o payout discricionário.","confianca":5,"confiancaNota":"BAIXA-MÉDIA. Bradesco paga mensal + JCP + complementar, e os agregadores divergem em quase R$ 0,45/ação. Confira o extrato antes de usar o teto como gatilho."},"indicadores":[{"k":"Lucro recorrente 2T26","v":"R$ 7,05 bi","d":"+16,2% a/a, acima do consenso"},{"k":"ROE 2T26","v":"16,2%","d":"+1,6 p.p. a/a"},{"k":"Sequência de alta","v":"10º trimestre","d":"consecutivo de crescimento de lucro"},{"k":"Projeção de lucro 2026","v":"~R$ 28 bi","d":"e ~R$ 32 bi em 2027"},{"k":"Payout","v":"~50%","d":"Investing.com"}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Décimo trimestre consecutivo de melhora: lucro recorrente de R$ 7,05 bi (+16,2% a/a), acima do consenso da Bloomberg (R$ 6,9 bi), com ROE subindo 1,6 p.p. para 16,2%. A virada operacional do banco segue no trilho."},"destaques":["Posição de R$ 93,3 mil com PM de R$ 13,51 — ganho não realizado de +32,5%.","ROE de 16,2% ainda abaixo de Itaú e BB: é a tese de reprecificação, não de yield puro.","Fala-se em possível bonificação de ações."],"riscos":["ROE ainda em recuperação; qualquer recaída na inadimplência trava a tese.","Tributação de dividendos a partir de 2026 muda o cálculo líquido de bancos com payout alto.","Concorrência de bancos digitais na base de varejo."],"noticias":[{"data":"ago/2026","titulo":"Lucro recorrente de R$ 7,05 bi no 2T26, alta de 16%","url":"https://www.infomoney.com.br/mercados/bradesco-bbdc4-resultados-segundo-trimestre-2026/"},{"data":"ago/2026","titulo":"Genial: décimo trimestre consecutivo de recuperação","url":"https://analisa.genialinvestimentos.com.br/acoes/bradesco/bradesco-bbdc4-resultado-2t26-decimo-trimestre-consecutivo-de-recuperacao/"},{"data":"2026","titulo":"BBDC3 e BBDC4: dividendos fortes e alerta para possível bonificação","url":"https://arevista.com.br/dividendos/bbdc3-e-bbdc4-em-2026-dividendos-fortes-e-alerta-para-possivel-bonificacao/"}]},"CMIG4":{"nome":"Cemig — Companhia Energética de Minas Gerais","setor":"Energia elétrica (geração, transmissão e distribuição)","bolsa":"B3","tvSymbol":"BMFBOVESPA:CMIG4","moeda":"BRL","precoRef":11.26,"bazin":{"aplicavel":true,"dpa12m":1.49,"dpa12mNota":"R$ 1,49/ação distribuídos nos últimos 12 meses, DY de 11,38% na data-base da fonte (Investidor10). Último provento: R$ 0,34 em 30/06/2026.","dpaRecorrente":1,"premissa":"Haircut de ~33%. Justificativa: o payout estatutário mínimo é 50% do lucro; os R$ 1,49 dos últimos 12 meses incluem distribuições acima do mínimo, e o lucro de 2026 está caindo (2T26 -20,4%) com despesa financeira em forte alta.","confianca":5,"confiancaNota":"BAIXA-MÉDIA. O DPA de 12m tem fonte, mas o recorrente é premissa minha e a política de dividendos de estatal é discricionária e política."},"indicadores":[{"k":"Lucro líquido 2T26","v":"R$ 945,4 mi","d":"-20,4% a/a"},{"k":"Lucro ajustado 2T26","v":"R$ 1,12 bi","d":""},{"k":"Receita líquida 2T26","v":"R$ 11,16 bi","d":"+3,4% a/a"},{"k":"EBITDA ajustado 2T26","v":"R$ 2,47 bi","d":"+9,3% a/a"},{"k":"Resultado financeiro 2T26","v":"-R$ 795,9 mi","d":"despesa +154,6% a/a"},{"k":"DY 12m","v":"~11,4%","d":"Investidor10, data-base da fonte"}],"ultimoResultado":{"periodo":"2T26","data":"13/08/2026","resumo":"Operação evoluiu (EBITDA ajustado +9,3%), mas o lucro caiu 20,4% para R$ 945,4 mi, derrubado por uma despesa financeira líquida de R$ 795,9 mi — alta de 154,6% a/a. A alavancagem e a Selic são o problema, não o negócio."},"destaques":["Posição de R$ 30,9 mil com PM de R$ 7,69 — ganho não realizado de +46,4%, o melhor percentual da carteira BR junto com SAPR11.","Aparentemente o maior desconto sobre o teto Bazin da carteira — mas justamente o caso em que o teto é menos confiável.","Tese de privatização é recorrente e é o principal gatilho de reprecificação."],"riscos":["Controle do governo de Minas Gerais: alocação de capital e dividendos sujeitos a decisão política.","Dívida quase dobrou em um ano; custo financeiro é o vetor de pressão sobre o lucro.","Privatização é hipótese, não plano em curso."],"noticias":[{"data":"13/08/2026","titulo":"Lucro de R$ 945,44 mi no 2T26, queda de 20,44%","url":"https://www.moneytimes.com.br/cemig-cmig4-registra-lucro-liquido-de-r-94544-milhoes-no-2o-trimestre-queda-de-2044-fets/"},{"data":"ago/2026","titulo":"Cemig reporta lucro ajustado de R$ 1,12 bi no 2T26","url":"https://financenews.com.br/2026/08/cemig-reporta-lucro-ajustado-de-r-112-bilhao-no-2t26/"},{"data":"2026","titulo":"CMIG4 em 2026: análise, dividendos e privatização","url":"https://leiturasingular.com.br/cmig4-analise-2026/"}]},"SAPR11":{"nome":"Sanepar — Companhia de Saneamento do Paraná","setor":"Saneamento básico","bolsa":"B3","tvSymbol":"BMFBOVESPA:SAPR11","moeda":"BRL","precoRef":34.95,"bazin":{"aplicavel":true,"dpa12m":1.96,"dpa12mNota":"Último provento: R$ 1,96/unit pago em 26/06/2026 — pagamento anual concentrado. Os DYs publicados por agregadores (1,56%, 4,25%) são inconsistentes entre si e com esse valor; usei o provento efetivamente pago, que dá DY de ~5,6% sobre R$ 34,95.","dpaRecorrente":1.96,"premissa":"Sem haircut sobre o valor pago, mas com alerta: o prejuízo do 2T26 e a proposta da Agepar de repassar R$ 3,9 bi do precatório aos usuários colocam o próximo pagamento em risco.","confianca":6,"confiancaNota":"MÉDIA. O provento de R$ 1,96 tem fonte, mas os agregadores de DY estão claramente errados/desalinhados e a visibilidade do próximo dividendo é ruim."},"indicadores":[{"k":"Resultado 2T26","v":"Prejuízo de R$ 505,2 mi","d":"vs. lucro de R$ 263,8 mi no 2T25"},{"k":"Receita líquida 2T26","v":"R$ 1,90 bi","d":"+11,5% a/a"},{"k":"EBITDA 2T26","v":"R$ 540,3 mi","d":"+0,8% a/a (estável)"},{"k":"Lucro 1T26","v":"R$ 352,7 mi","d":"-70% a/a"},{"k":"Último provento","v":"R$ 1,96/unit","d":"pago em 26/06/2026"}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Prejuízo contábil de R$ 505,2 mi revertendo lucro de R$ 263,8 mi. A empresa atribui o resultado ao registro adicional de Passivo Regulatório ligado ao precatório de IRPJ e à ausência de apropriação do benefício fiscal do JCP no período. Operacionalmente, a receita cresceu 11,5% e o EBITDA ficou estável — o prejuízo é regulatório/contábil, não operacional."},"destaques":["Posição de R$ 44,7 mil com PM de R$ 21,17 — ganho não realizado de +65,1%, o maior da carteira BR.","O prejuízo do 2T26 é de origem regulatória e fiscal; o EBITDA seguiu estável.","3ª Revisão Tarifária Periódica (ciclo 2025–2028) em andamento, com a Base de Remuneração Regulatória ainda em fiscalização pela Agepar."],"riscos":["Agepar propôs destinar R$ 3,9 bi do precatório de IRPJ à modicidade tarifária (100% em vez de 75%) — impacto direto no resultado e no dividendo.","Controle do governo do Paraná: tarifa e distribuição são decisões regulatórias e políticas.","Ativo negociando acima do preço-teto Bazin com o pagador sob incerteza."],"noticias":[{"data":"ago/2026","titulo":"Sanepar reverte lucro e tem prejuízo de R$ 505,2 mi no 2T26","url":"https://www.infomoney.com.br/mercados/sanepar-sapr11-resultados-segundo-trimestre-2026/"},{"data":"2026","titulo":"Ação cai até 7% após Agepar propor repasse de R$ 3,9 bi a usuários","url":"https://www.seudinheiro.com/2026/empresas/sanepar-sapr11-agencia-reguladora-propoe-destinar-r-39-bilhoes-de-precatorio-a-usuarios-lvgb/"},{"data":"2026","titulo":"BTG: Sanepar pode subir dividend yield em 25%, até 8,0%","url":"https://investidor10.com.br/noticias/sanepar-sapr11-pode-subir-dividend-yield-em-25-ate-2026-aponta-btg-112771/"}]},"KLBN4":{"nome":"Klabin S.A. (PN)","setor":"Papel e celulose","bolsa":"B3","tvSymbol":"BMFBOVESPA:KLBN4","moeda":"BRL","precoRef":3.85,"bazin":{"aplicavel":true,"dpa12m":0.22,"dpa12mNota":"DY de 12 meses reportado entre 6,08% e 6,11% (data-com 02/09/2025 a 02/09/2026), que sobre R$ 3,85 dá ~R$ 0,23/ação. Uma fonte cita R$ 0,21 somando os pagamentos. Último provento: R$ 0,05 em 19/08/2026. Adotei R$ 0,22. Atenção: 1 Unit KLBN11 = 1 ON + 4 PN, então valores 'por unit' não são comparáveis diretamente.","dpaRecorrente":0.22,"premissa":"Sem haircut. A Klabin tem política de dividendo mínimo e o valor de 12m já é modesto.","confianca":6,"confiancaNota":"MÉDIA. Há uma fonte destoante (DY 8,79%) e a confusão unit vs. PN é uma armadilha comum nos agregadores."},"indicadores":[{"k":"Receita líquida 2T26","v":"R$ 5,15 bi","d":"-2% a/a, +4% t/t"},{"k":"EBITDA ajustado 2T26","v":"R$ 1,962 bi","d":"-4% a/a, +18% t/t · margem ~36,7%"},{"k":"Lucro líquido 2T26","v":"R$ 387 mi","d":"-34% a/a"},{"k":"Dividendos já aprovados 2026","v":"R$ 0,182/ação","d":"pagos ao longo do ano"},{"k":"DY 12m","v":"~6,1%","d":""}],"ultimoResultado":{"periodo":"2T26","data":"ago/2026","resumo":"Recuperação sequencial (EBITDA +18% t/t) mas ainda em queda na comparação anual: receita -2%, EBITDA -4% e lucro -34% a/a. Margem EBITDA de ~36,7%. Ciclo de celulose e câmbio seguem mandando no resultado."},"destaques":["Única posição BR no prejuízo: PM de R$ 4,20 contra R$ 3,85 (-8,3%).","Dívida em trajetória de queda após o fim do ciclo pesado de CapEx (Projeto Puma II).","Preço praticamente colado no teto Bazin — não há margem de segurança pelo método."],"riscos":["Commodity: preço da celulose em dólar dita o resultado, e o ciclo está fraco.","Exposição cambial em ambas as pontas (receita em dólar, dívida em dólar).","DY de ~6% é o piso exato do critério Bazin — qualquer corte tira o papel da tese."],"noticias":[{"data":"ago/2026","titulo":"Klabin lucra R$ 387 mi no 2T26, queda anual de 34%","url":"https://investidor10.com.br/noticias/klabin-klbn11-lucra-r-387-milhoes-no-2t26-queda-anual-de-34-121860/"},{"data":"ago/2026","titulo":"Suno: resultado melhora, mas ação acende alerta","url":"https://www.suno.com.br/noticias/klabin-klbn11-resultados-2t26-analise-mt/"},{"data":"2026","titulo":"KLBN4 a R$ 3,86: dívida caindo e dividendos já marcados","url":"https://arevista.com.br/acoes/klabin-klbn4-barata-em-2026-acao-a-r-386-divida-caindo-e-dividendos-ja-marcados/"}]},"AURE3":{"nome":"Auren Energia S.A.","setor":"Geração e comercialização de energia","bolsa":"B3","tvSymbol":"BMFBOVESPA:AURE3","moeda":"BRL","precoRef":12,"bazin":{"aplicavel":false,"dpa12m":0,"dpa12mNota":"Dividend yield acumulado de 2026 é 0%. O último dividendo registrado foi de R$ 0,06/ação em 05/05/2025. Nos últimos 12 meses o DY é zero.","dpaRecorrente":0,"premissa":"Sem dividendo, o método Bazin simplesmente não se aplica — não existe preço-teto.","confianca":8,"confiancaNota":"ALTA quanto ao fato de não haver dividendo relevante nos últimos 12 meses."},"indicadores":[{"k":"Resultado 2T26","v":"Prejuízo de R$ 379,1 mi","d":"-32,7% vs. prejuízo de R$ 562,9 mi no 2T25"},{"k":"Receita líquida 2T26","v":"R$ 3,055 bi","d":"+5,9% a/a"},{"k":"EBITDA ajustado 2T26","v":"R$ 858,9 mi","d":"-12,4% a/a · margem 28,1% (de 34,0%)"},{"k":"Dívida líquida (jun/26)","v":"R$ 18,9 bi","d":"alavancagem 5,3x (de 4,8x)"},{"k":"Dívida bruta consolidada","v":"R$ 23,5 bi","d":"-4,1% a/a · liquidez R$ 4,7 bi"},{"k":"DY 12m","v":"0%","d":""}],"ultimoResultado":{"periodo":"2T26","data":"05/08/2026","resumo":"Prejuízo de R$ 379,1 mi — menor que o do 2T25, mas ainda prejuízo. EBITDA ajustado caiu 12,4% com comercialização mais fraca, recurso eólico abaixo do esperado e curtailment. Alavancagem subiu para 5,3x dívida líquida/EBITDA, herança da compra da AES Brasil."},"destaques":["POSIÇÃO ZERADA. Está no painel como watchlist (PM histórico de R$ 12,49).","ATENÇÃO — inconsistência na planilha de origem: a linha AURE3 traz 'Posição Valor' de R$ 10.798 com quantidade 0. Esse é exatamente o valor da posição de TAEE11 e parece ser célula duplicada. Por isso o total consolidado deste painel é R$ 1.791.139, e não R$ 1.801.937.","Aparece no radar de Luiz Barsi, mas hoje é caso de turnaround, não de dividendo."],"riscos":["Alavancagem de 5,3x EBITDA com prejuízo recorrente.","Sem dividendo: fora do método Bazin por definição.","Curtailment eólico e preços de energia deprimidos no curto prazo."],"noticias":[{"data":"05/08/2026","titulo":"Auren registra prejuízo de R$ 379 mi e EBITDA de R$ 859 mi no 2T26","url":"https://visnoinvest.com.br/news/14584/auren-aure3-registra-prejuizo-de-r-379-mi-e-ebitda-de-r-859-mi-no-2t26"},{"data":"ago/2026","titulo":"Ação cai até 6% após resultados; ações nas mínimas","url":"https://www.moneytimes.com.br/auren-aure3-nas-minimas-os-fatores-que-fizeram-acao-cair-ate-6-apos-resultados-rnda/"},{"data":"2026","titulo":"AURE3: dívida alta assusta, mas ação pode virar aposta de recuperação","url":"https://arevista.com.br/acoes/aure3-divida-alta-assusta-mas-acao-pode-virar-aposta-de-recuperacao/"}]},"NVDA":{"nome":"NVIDIA Corporation","setor":"Semicondutores / IA","bolsa":"NASDAQ","tvSymbol":"NASDAQ:NVDA","moeda":"USD","precoRef":230.36,"bazin":{"aplicavel":false,"dpa12m":0,"dpa12mNota":"NVIDIA paga dividendo simbólico (yield muito abaixo de 1%). Não pesquisei o valor exato porque é irrelevante para o método.","dpaRecorrente":0,"premissa":"Fora do método Bazin: é uma tese de crescimento, não de renda.","confianca":8,"confiancaNota":"ALTA quanto à inaplicabilidade do método."},"indicadores":[{"k":"Receita 2T FY2027","v":"US$ 96,2 bi","d":"+106% a/a, +18% t/t"},{"k":"Data Center","v":"US$ 89,0 bi","d":"+117% a/a"},{"k":"Margem bruta","v":"75,0%","d":"GAAP e non-GAAP"},{"k":"LPA diluído","v":"US$ 2,46 GAAP / US$ 2,22 non-GAAP","d":"consenso era ~US$ 2,09–2,10"},{"k":"Guidance 3T","v":"US$ 108 bi","d":""}],"ultimoResultado":{"periodo":"2T FY2027 (trimestre encerrado em 26/07/2026)","data":"26/08/2026","resumo":"Receita de US$ 96,2 bi (+106% a/a) contra consenso de ~US$ 92,2 bi. Data Center em US$ 89,0 bi (+117%), margem bruta de 75% e guidance de US$ 108 bi para o 3º trimestre. Bateu receita e lucro."},"destaques":["Maior ganho percentual da carteira: PM de US$ 39,04 contra US$ 230,36 — cerca de +490%.","Posição de US$ 14.973 (65 ações).","O PM sugere compra antiga e/ou ajuste de desdobramento — vale conferir no extrato da Avenue."],"riscos":["Concentração de receita em poucos hyperscalers.","Restrições de exportação e geopolítica com a China.","Múltiplo precifica continuidade do ciclo de CapEx de IA."],"noticias":[{"data":"26/08/2026","titulo":"Release oficial 2T FY2027 (SEC Form 8-K)","url":"https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm"},{"data":"31/08/2026","titulo":"Transcrição da teleconferência de resultados","url":"https://www.fool.com/earnings/call-transcripts/2026/08/31/nvidia-nvda-q2-2027-earnings-call-transcript/"}]},"PLTR":{"nome":"Palantir Technologies","setor":"Software / análise de dados e IA","bolsa":"NASDAQ","tvSymbol":"NASDAQ:PLTR","moeda":"USD","precoRef":174.33,"bazin":{"aplicavel":false,"dpa12m":0,"dpa12mNota":"A Palantir não paga dividendos.","dpaRecorrente":0,"premissa":"Fora do método Bazin.","confianca":9,"confiancaNota":"ALTA."},"indicadores":[{"k":"Receita 2T26","v":"US$ 1,94 bi","d":"+93% a/a"},{"k":"US Commercial","v":"US$ 764 mi","d":"+149% a/a"},{"k":"US Government","v":"US$ 809 mi","d":"+90% a/a"},{"k":"Lucro líquido 2T26","v":"US$ 1,06 bi","d":"US$ 0,41/ação diluída"},{"k":"TCV fechado no trimestre","v":"US$ 3,37 bi","d":"+49% a/a"},{"k":"Guidance 2026","v":"US$ 8,15–8,16 bi","d":"elevado de US$ 7,65–7,66 bi"}],"ultimoResultado":{"periodo":"2T26","data":"03/08/2026","resumo":"Receita de US$ 1,94 bi (+93% a/a), US Commercial +149%, guidance anual elevado para US$ 8,15–8,16 bi (+82% a/a). A ação subiu até 12% após a divulgação."},"destaques":["Posição de US$ 19,6 mil com PM de US$ 22,96 — cerca de +659%, o maior múltiplo da carteira.","Nota: 112 × US$ 174,33 = US$ 19.524,96, e a planilha traz US$ 19.594,69 (diferença de ~US$ 70). Provavelmente preço de referência ligeiramente diferente."],"riscos":["Múltiplo extremamente esticado — qualquer desaceleração é punida com força.","Dependência de contratos governamentais dos EUA.","Diluição por SBC (stock-based compensation) elevada."],"noticias":[{"data":"02/08/2026","titulo":"Release oficial 2T26 (Business Wire)","url":"https://www.businesswire.com/news/home/20260802523449/en/Palantir-Reports-Q2-2026-U.S.-Comm-Revenue-Growth-of-149-YY-and-Revenue-Growth-of-93-YY-Raises-FY-2026-Revenue-Guidance-to-82-YY-Growth-and-U.S.-Comm-Revenue-Guidance-to-134-YY-Crushing-Consensus-Expectations"},{"data":"03/08/2026","titulo":"CNBC — Palantir earnings Q2 2026","url":"https://www.cnbc.com/2026/08/03/palantir-pltr-earnings-q2-2026.html"}]},"TSLA":{"nome":"Tesla, Inc.","setor":"Veículos elétricos / energia","bolsa":"NASDAQ","tvSymbol":"NASDAQ:TSLA","moeda":"USD","precoRef":354.08,"bazin":{"aplicavel":false,"dpa12m":0,"dpa12mNota":"A Tesla não paga dividendos.","dpaRecorrente":0,"premissa":"Fora do método Bazin.","confianca":9,"confiancaNota":"ALTA."},"indicadores":[{"k":"Receita 2T26","v":"US$ 28,24 bi","d":"+26% a/a · consenso US$ 25,71 bi"},{"k":"Entregas 2T26","v":"480.126 veículos","d":"+25% a/a · melhor 2º tri da história"},{"k":"LPA não-GAAP","v":"US$ 0,33","d":"consenso US$ 0,53 · -18% a/a"},{"k":"Margem bruta","v":"16,8%","d":"de 17,2% · esperado 19,4%"},{"k":"Margem operacional GAAP","v":"1,4%","d":"lucro operacional US$ 398 mi (-57% a/a)"},{"k":"Armazenamento","v":"13,5 GWh","d":"+40% vs. 9,6 GWh no 2T25"}],"ultimoResultado":{"periodo":"2T26","data":"22/07/2026","resumo":"Receita recorde de US$ 28,24 bi (+26%) e volta do crescimento de entregas após dois anos, mas a rentabilidade decepcionou feio: LPA não-GAAP de US$ 0,33 contra US$ 0,53 esperados, margem bruta de 16,8% e margem operacional de apenas 1,4%."},"destaques":["Posição de US$ 37,9 mil (a maior em dólar) com PM de US$ 328,52 — ganho de apenas ~+7,8%.","É a única posição americana sem ganho expressivo.","Nota: 107 × US$ 354,08 = US$ 37.886,56 e a planilha traz US$ 37.942,62 (diferença de ~US$ 56)."],"riscos":["Compressão de margem: volume voltou a crescer às custas de preço.","Tese depende de robotáxi/FSD e energia, não do negócio automotivo atual.","Risco-chave de pessoa (Elon Musk) e ruído político."],"noticias":[{"data":"22/07/2026","titulo":"Tesla Q2 2026: receita recorde, grande perda de lucro","url":"https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/"},{"data":"22/07/2026","titulo":"CNBC — Tesla Q2 2026 earnings report","url":"https://www.cnbc.com/2026/07/22/tesla-tsla-q2-2026-earnings-report.html"},{"data":"2026","titulo":"Q2 2026 Update (PDF oficial Tesla IR)","url":"https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q2-2026-Update.pdf"}]},"SPY":{"nome":"SPDR S&P 500 ETF Trust","setor":"ETF — índice S&P 500 (distribuidor, domicílio EUA)","bolsa":"NYSE Arca","tvSymbol":"AMEX:SPY","moeda":"USD","precoRef":770.19,"bazin":{"aplicavel":false,"dpa12m":0,"dpa12mNota":"Não pesquisei a distribuição do SPY — o método Bazin é para ações individuais, não para ETF de índice amplo.","dpaRecorrente":0,"premissa":"Fora do método Bazin.","confianca":8,"confiancaNota":"ALTA quanto à inaplicabilidade do método; nenhum dado de distribuição foi verificado."},"indicadores":[{"k":"Posição","v":"49,56 cotas","d":"US$ 38.171,20"},{"k":"Estrutura","v":"Unit Investment Trust (EUA)","d":"distribui dividendos em caixa"},{"k":"Tributação","v":"IR na fonte de 30% sobre dividendos para não residentes","d":"regra geral dos EUA; confirme com seu contador"}],"ultimoResultado":{"periodo":"n/a","data":"","resumo":"ETF de índice — não divulga resultado trimestral. Acompanhe o S&P 500."},"destaques":["Junto com VUAA, você tem exposição duplicada ao mesmo índice (S&P 500) em dois veículos diferentes: US$ 45.930,64 no total.","Diferença prática entre os dois: SPY distribui dividendos e é domiciliado nos EUA (sujeito a estate tax americano acima de US$ 60 mil para não residentes); VUAA acumula e é irlandês."],"riscos":["Domicílio EUA: exposição a estate tax americano para não residentes acima de US$ 60 mil — sua posição em ativos americanos (NVDA + PLTR + TSLA + SPY = ~US$ 110,7 mil) já está acima desse limiar.","Retenção de 30% sobre dividendos distribuídos."],"noticias":[]},"VUAA":{"nome":"Vanguard S&P 500 UCITS ETF (USD) Accumulating","setor":"ETF — índice S&P 500 (acumulação, domicílio Irlanda)","bolsa":"LSE","tvSymbol":"LSE:VUAA","moeda":"USD","precoRef":149.22,"bazin":{"aplicavel":false,"dpa12m":0,"dpa12mNota":"ETF de acumulação: por construção não distribui dividendos, reinveste na data ex.","dpaRecorrente":0,"premissa":"Fora do método Bazin.","confianca":9,"confiancaNota":"ALTA."},"indicadores":[{"k":"ISIN","v":"IE00BFMXXD54","d":"domicílio: Irlanda"},{"k":"TER","v":"0,07% a.a.","d":"justETF"},{"k":"Patrimônio","v":"US$ 36,19 bi","d":"em 04/09/2026"},{"k":"Política de distribuição","v":"Acumulação","d":"dividendos reinvestidos no fundo"},{"k":"Posição","v":"52 cotas","d":"US$ 7.759,44"}],"ultimoResultado":{"periodo":"n/a","data":"","resumo":"ETF de índice — não divulga resultado trimestral. Acompanhe o S&P 500."},"destaques":["Estrutura irlandesa: tratado EUA–Irlanda reduz a retenção sobre dividendos americanos de 30% para 15% dentro do fundo, e não há exposição a estate tax americano.","Acumulação: sem provento em caixa, o ganho é todo em preço — mais eficiente para quem não precisa de renda.","Sobreposição total com SPY."],"riscos":["Mesma exposição do SPY — concentração no S&P 500 é a mesma, dobrada em dois veículos.","Liquidez em bolsa europeia e spread cambial na negociação."],"noticias":[{"data":"30/06/2026","titulo":"Factsheet oficial Vanguard","url":"https://fund-docs.vanguard.com/SandP_500_UCITS_ETF_USD_Accumulating_9694_EU_INT_EN.pdf"},{"data":"2026","titulo":"Perfil do ETF no justETF","url":"https://www.justetf.com/en/etf-profile.html?isin=IE00BFMXXD54"}]}}},"cotacoes":{"atualizadoEm":"2026-11-12T02:29:02.863Z","origem":"scripts/atualizar-cotacoes.mjs","nota":"Valores iniciais copiados da planilha enviada em 06/09/2026. São substituídos automaticamente pelo workflow de atualização.","cambio":{"USDBRL":{"valor":5.5606,"fonte":"Banco Central (PTAX venda, 11/11/2026)","ts":"2026-11-12T02:29:02.863Z"}},"cotacoes":{"ALOS3":{"preco":27.48,"variacao":0.07,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"TAEE11":{"preco":41.28,"variacao":-0.24,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"AURE3":{"preco":11.8,"variacao":0.25,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"BBSE3":{"preco":39.66,"variacao":0.03,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"ITSA4":{"preco":13.57,"variacao":0.15,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"KLBN4":{"preco":3.46,"variacao":-0.29,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"SAPR11":{"preco":33.2,"variacao":0.76,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"CMIG4":{"preco":10.72,"variacao":-0.28,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"BBDC4":{"preco":14.33,"variacao":-0.49,"moeda":"BRL","fonte":"B3 (cotacao.b3.com.br)","ts":"2026-11-12T02:29:02.863Z"},"NVDA":{"preco":173.73,"variacao":2.87,"moeda":"USD","fonte":"Nasdaq (api.nasdaq.com)","ts":"2026-11-12T02:29:02.863Z"},"PLTR":{"preco":172.4,"variacao":2.12,"moeda":"USD","fonte":"Nasdaq (api.nasdaq.com)","ts":"2026-11-12T02:29:02.863Z"},"TSLA":{"preco":390.8163,"variacao":2.91,"moeda":"USD","fonte":"Nasdaq (api.nasdaq.com)","ts":"2026-11-12T02:29:02.863Z"},"SPY":{"preco":759.84,"variacao":1.32,"moeda":"USD","fonte":"Nasdaq (api.nasdaq.com)","ts":"2026-11-12T02:29:02.863Z"},"VUAA":{"preco":147.34,"variacao":1.21,"moeda":"USD","fonte":"Yahoo Finance","ts":"2026-11-12T02:29:02.863Z"}}},"tecnica":{"atualizadoEm":"2026-11-12T02:29:02.863Z","metodo":"Volume Profile (POC, Value Area 70%, HVNs) + pivôs de swing (fractais de 5 barras) + MM21/MM200, sobre candles diários de 1 ano. Valores com origem 'manual' foram levantados em análises publicadas e são substituídos pelo cálculo automático na primeira execução do workflow.","ativos":{"ALOS3":{"preco":27.48,"suporte":26.3,"suporteBase":["pivô","VAL"],"resistencia":27.81,"resistenciaBase":["pivô"],"poc":28.55,"val":26.29,"vah":31.73,"mm21":29.5,"mm200":29.26,"max52":36.26,"min52":0,"tendencia":"lateral","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"ITSA4":{"preco":13.57,"suporte":13.45,"suporteBase":["pivô"],"resistencia":13.69,"resistenciaBase":["pivô","MM200"],"poc":13.51,"val":12.06,"vah":14.55,"mm21":14.12,"mm200":13.74,"max52":16.63,"min52":0,"tendencia":"lateral","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"BBDC4":{"preco":14.33,"suporte":14.09,"suporteBase":["HVN"],"resistencia":15.81,"resistenciaBase":["HVN"],"poc":18.11,"val":17.25,"vah":21.27,"mm21":17.09,"mm200":18.65,"max52":23,"min52":0,"tendencia":"baixa","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"CMIG4":{"preco":10.72,"suporte":10.5,"suporteBase":["pivô","VAL"],"resistencia":11.04,"resistenciaBase":["pivô"],"poc":11.27,"val":10.4,"vah":12.14,"mm21":10.93,"mm200":11.45,"max52":13.87,"min52":0,"tendencia":"baixa","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"SAPR11":{"preco":33.2,"suporte":32.64,"suporteBase":["VAL","pivô"],"resistencia":33.5,"resistenciaBase":["HVN"],"poc":37.15,"val":32.89,"vah":43.85,"mm21":35.79,"mm200":38.92,"max52":48.72,"min52":0,"tendencia":"baixa","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"KLBN4":{"preco":3.46,"suporte":3.43,"suporteBase":["pivô","HVN","POC"],"resistencia":3.53,"resistenciaBase":["pivô"],"poc":3.42,"val":3.37,"vah":3.89,"mm21":3.57,"mm200":3.65,"max52":4.21,"min52":0,"tendencia":"baixa","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"TAEE11":{"preco":41.28,"suporte":39.68,"suporteBase":["pivô"],"resistencia":42,"resistenciaBase":["HVN","POC","pivô"],"poc":41.63,"val":38.7,"vah":44.56,"mm21":42.26,"mm200":41.38,"max52":46.91,"min52":0,"tendencia":"lateral","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"BBSE3":{"preco":39.66,"suporte":38.45,"suporteBase":["pivô","HVN"],"resistencia":40.01,"resistenciaBase":["VAH","pivô"],"poc":34.92,"val":33.26,"vah":39.91,"mm21":41.09,"mm200":37.72,"max52":44.34,"min52":0,"tendencia":"alta","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"AURE3":{"preco":11.8,"suporte":11.66,"suporteBase":["HVN","POC"],"resistencia":12.2,"resistenciaBase":["MM200","pivô"],"poc":11.66,"val":10.63,"vah":12.68,"mm21":12.86,"mm200":12.17,"max52":16.36,"min52":0,"tendencia":"lateral","barras":248,"origem":"calculado","fonte":"Yahoo Finance, 248 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"NVDA":{"preco":168.89,"suporte":164.27,"suporteBase":["mínima 52s"],"resistencia":183.06,"resistenciaBase":["HVN","POC"],"poc":183.06,"val":172.18,"vah":211.73,"mm21":207.25,"mm200":204.54,"max52":243.37,"min52":164.27,"tendencia":"lateral","barras":250,"origem":"calculado","fonte":"Yahoo Finance, 250 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"PLTR":{"preco":168.82,"suporte":164.55,"suporteBase":["pivô"],"resistencia":171.64,"resistenciaBase":["HVN"],"poc":134.34,"val":125.02,"vah":175.64,"mm21":187.21,"mm200":153.54,"max52":212.94,"min52":106.37,"tendencia":"alta","barras":250,"origem":"calculado","fonte":"Yahoo Finance, 250 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"TSLA":{"preco":379.78,"suporte":369.5,"suporteBase":["HVN","pivô"],"resistencia":385.64,"resistenciaBase":["MM200","pivô","HVN"],"poc":400.62,"val":357.81,"vah":438.39,"mm21":380.39,"mm200":383.23,"max52":498.83,"min52":297.38,"tendencia":"baixa","barras":250,"origem":"calculado","fonte":"Yahoo Finance, 250 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"SPY":{"preco":749.92,"suporte":733.79,"suporteBase":["pivô","HVN","MM200"],"resistencia":760.24,"resistenciaBase":["pivô","HVN"],"poc":680.69,"val":633.09,"vah":743.54,"mm21":761.51,"mm200":730.99,"max52":781.62,"min52":629.28,"tendencia":"alta","barras":250,"origem":"calculado","fonte":"Yahoo Finance, 250 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"},"VUAA":{"preco":145.2,"suporte":143.07,"suporteBase":["HVN","pivô","MM200"],"resistencia":147.11,"resistenciaBase":["VAH","pivô","HVN"],"poc":131.05,"val":125.51,"vah":146.19,"mm21":148.15,"mm200":141.63,"max52":152.09,"min52":122.56,"tendencia":"alta","barras":253,"origem":"calculado","fonte":"Yahoo Finance, 253 candles diários","confianca":7,"ts":"2026-11-12T02:29:02.863Z"}}},"termometro":{"atualizadoEm":"2026-11-11T17:50:13.502Z","origem":"scripts/termometro.mjs","score":1,"scoreMin":-10,"scoreMax":10,"nivel":"neutro","cor":"atencao","frase":"Sem direção clara no exterior: o Ibovespa tende a seguir o fluxo local e o noticiário.","vies":{"ibovespa":"alta","mediaSinais":0.59,"texto":"Viés de abertura positivo para o Ibovespa.","eua":"alta","mediaEua":1.62,"textoEua":"Futuros e Europa apontam abertura positiva em Wall Street."},"manchetes":[{"titulo":"Nvidia shares rebound as Jensen Huang faces scrutiny ahead of earnings","link":"https://www.cnbc.com/2026/11/11/nvidia-stock-jensen-huang-affair-china.html","fonte":"CNBC","publicadoEm":"2026-11-11T17:39:26.000Z"},{"titulo":"Has Nvidia flown too close to the sun? One analyst warns of major scrutiny ahead.","link":"https://www.marketwatch.com/story/has-nvidia-flown-too-close-to-the-sun-one-analyst-warns-of-major-scrutiny-ahead-a323c4dd?mod=mw_rss_topstories","fonte":"MarketWatch","publicadoEm":"2026-11-11T17:13:00.000Z"},{"titulo":"Fed's Goolsbee calls inflation report 'borderline disturbing' as central bank weighs more hikes","link":"https://www.cnbc.com/2026/11/11/goolsbee-october-inflation-fed-rates-disturbing-distressing.html","fonte":"CNBC","publicadoEm":"2026-11-11T16:49:02.000Z"},{"titulo":"Retirement Rules Spark Exit Date Debate for NY Fed’s Williams","link":"https://news.google.com/rss/articles/CBMisgFBVV95cUxPZ2NKVHZEelhYREk2aTlSSjgzbTdwdXdrWDd3NThIUUZ3bGhncVFOODdnLUE2SVY4Tkp4Wm5HSmdZdTZ2cHlhakFPZWxjYWp2MTQxMDIwLUdhWTRudUpjU05sRkFlalRWMlYtT3NfRGRxUmJka3llZmNMeE1mTW1rSWJlcklKNmgwdXVIcWhxeWhNb2Y1RHJLTWpIOUlzYlltRi0wR3hDQVVNOXo5MjhHcGdn?oc=5","fonte":"Bloomberg.com","publicadoEm":"2026-11-11T15:33:03.000Z"},{"titulo":"US Treasury Futures Retreat as Markets See More Fed Hikes","link":"https://news.google.com/rss/articles/CBMisgFBVV95cUxOa2hXVmxBejZuMktqMDMzbUNTcDA3ajBFdlE0MlpZc3AyU0ZPeHl0ZjJ3b3BhT2REdlRDVmRYWS05aFVhemtkZmVacFBnWFNXQlg5QjlmREo0VEdHRFFyTXNYR1FqV1VKUlhtVlNsT1ppUDRVQ0FVUTdGTW9FTXdVWWRVN0ZZMXpMNFo1dFBtMzJ4SzNRWHJkWnBlaGZId0x6dXJXSmU0ZW5tczhnc2pUM2Rn?oc=5","fonte":"Bloomberg.com","publicadoEm":"2026-11-11T11:42:53.000Z"}],"motivos":{"positivos":["VIX em 17.7 (normal)","S&P 500 futuro +1.51%","EWZ +0.75% na última sessão em NY","Europa (DAX/Stoxx) média +1.12%"],"negativos":["DXY +0.67%","Dólar a R$ 5.56 (+1.00%)","Vol. realizada do Ibovespa (20d) em 56% a.a. (alta)"],"neutros":["Treasury 10a em 5.00% (+2 bp)","Brent US$ 93 (+1.51%)","Ásia (Nikkei/Hang Seng) média +0.16%"]},"pontos":[{"id":"vix","pontos":1,"motivo":"VIX em 17.7 (normal)"},{"id":"spx","pontos":1,"motivo":"S&P 500 futuro +1.51%"},{"id":"us10","pontos":0,"motivo":"Treasury 10a em 5.00% (+2 bp)"},{"id":"dxy","pontos":-1,"motivo":"DXY +0.67%"},{"id":"brent","pontos":0,"motivo":"Brent US$ 93 (+1.51%)"},{"id":"ewz","pontos":1,"motivo":"EWZ +0.75% na última sessão em NY"},{"id":"brl","pontos":-1,"motivo":"Dólar a R$ 5.56 (+1.00%)"},{"id":"volibov","pontos":-1,"motivo":"Vol. realizada do Ibovespa (20d) em 56% a.a. (alta)"},{"id":"asia","pontos":0,"motivo":"Ásia (Nikkei/Hang Seng) média +0.16%"},{"id":"europa","pontos":1,"motivo":"Europa (DAX/Stoxx) média +1.12%"}],"metodo":"Soma de pontos por regra fixa: VIX por faixa (±2) e salto diário; S&P futuro, DXY, Treasury 10a, EWZ, dólar/real, Ásia e Europa (±1 cada quando cruzam limiares); volatilidade realizada do Ibovespa (20 pregões) por faixa. VXEWZ é exibido mas não pontua, porque o dado público dele é irregular. EWZ e S&P 500 da Hyperliquid (perps 24/7 da dex xyz, licenciados pela S&P DJI) também são exibidos mas não pontuam: servem para ver a tendência fora do horário de pregão dos EUA, quando o Yahoo ainda mostra o fechamento anterior. Escala de −10 a +10. Viés do Ibovespa = média de S&P futuro, EWZ, Europa e câmbio invertido. Viés de Wall Street = média de S&P e Nasdaq futuros, Europa e o movimento do VIX (invertido). Manchetes: itens das últimas 36h de CNBC, BBC, MarketWatch e Google News (Reuters, Bloomberg, FT), ranqueados por palavras-chave de mercado e posição no feed. É leitura de posicionamento na abertura, não previsão de fechamento.","indicadores":[{"id":"vix","grupo":"mundo","nome":"VIX (vol. S&P 500)","simbolo":"^VIX","unidade":"pts","casas":1,"valor":17.66,"anterior":19.459999084472656,"variacaoPct":-9.249738793199091,"percentil1a":58,"min1a":13.470000267028809,"max1a":31.049999237060547,"serie30":[16.39,15.31,15.52,15.01,15.08,15.41,14.84,15.21,15.27,16.87,16.46,19.99,18.44,17.31,16.68,19.03,19.45,18.39,17.52,16.91,17.2,19.42,21.15,20.83,16.61,28.18,25.64,19.92,19.46,17.66],"horaMercado":"2026-11-11T17:35:01.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"spx","grupo":"mundo","nome":"S&P 500 futuro","simbolo":"ES=F","unidade":"pts","casas":0,"valor":7658,"anterior":7544.25,"variacaoPct":1.5077708188355299,"percentil1a":78,"min1a":6388.25,"max1a":7874,"serie30":[7724,7777.25,7826.25,7874,7852.75,7816.25,7859.75,7858,7855.75,7770.25,7791,7704.25,7734.5,7755.25,7800.25,7704.5,7659.75,7714.5,7758.25,7783.25,7754.25,7614,7574.5,7596.75,7720.5,7383,7402,7574.25,7544.25,7658],"horaMercado":"2026-11-11T17:40:13.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"ndx","grupo":"mundo","nome":"Nasdaq 100 futuro","simbolo":"NQ=F","unidade":"pts","casas":0,"valor":28655.25,"anterior":27835.25,"variacaoPct":2.9459049227148926,"percentil1a":54,"min1a":23139.75,"max1a":31483.25,"serie30":[30760.5,31061.8,31317.8,31483.3,31402.3,30969.5,31108.8,30898.3,30791.5,30182.8,30143.8,29391.5,29722.5,29675.3,30007,29142,29117.8,29437.3,29812,29979.5,29562,28534,28127.5,28305.8,28566.8,26752,27085.3,28014.5,27835.3,28655.3],"horaMercado":"2026-11-11T17:40:15.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"us10","grupo":"mundo","nome":"Treasury 10 anos","simbolo":"^TNX","unidade":"%","casas":2,"valor":4.998,"anterior":4.982999801635742,"variacaoPct":0.3010274726347406,"percentil1a":90,"min1a":3.9619998931884766,"max1a":5.310999870300293,"serie30":[5.237,5.277,5.311,5.269,5.277,5.231,5.244,5.24,5.217,5.19,5.089,5.098,5.136,5.117,5.146,4.953,4.988,4.986,4.993,5.045,4.989,4.929,4.894,4.952,4.894,4.837,4.859,4.864,4.983,4.998],"horaMercado":"2026-11-11T17:35:14.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"dxy","grupo":"mundo","nome":"Dólar (DXY)","simbolo":"DX-Y.NYB","unidade":"pts","casas":2,"valor":102.913,"anterior":102.2300033569336,"variacaoPct":0.6680980344701215,"percentil1a":100,"min1a":96.22000122070312,"max1a":102.91300201416016,"serie30":[102.1,101.93,102.17,101.83,102.24,102.14,102.21,102.58,102.18,102.55,102,101.84,101.98,101.73,101.78,101.61,101.81,101.96,102.32,102.19,102.04,101.88,101.75,101.87,101.51,101.55,102.3,101.65,102.23,102.913],"horaMercado":"2026-11-11T17:40:19.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"brent","grupo":"mundo","nome":"Petróleo Brent","simbolo":"BZ=F","unidade":"US$","casas":2,"valor":92.87,"anterior":91.48999786376953,"variacaoPct":1.508363939723023,"percentil1a":54,"min1a":58.91999816894531,"max1a":118.3499984741211,"serie30":[102.31,102.25,100.32,100.58,100.2,104.28,104.72,106.65,105.69,106.06,105.92,109.86,109.55,108.79,108.82,113.17,116.72,115.81,113.88,115.32,114.88,117.64,104.77,103.6,94.62,98.29,98.32,92.57,91.49,92.87],"horaMercado":"2026-11-11T17:40:10.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"ouro","grupo":"mundo","nome":"Ouro","simbolo":"GC=F","unidade":"US$","casas":0,"valor":4008.7,"anterior":4030.199951171875,"variacaoPct":-0.5334710791613073,"percentil1a":3,"min1a":3898.89990234375,"max1a":5318.39990234375,"serie30":[4202.3,4162.3,4156.8,4187.1,4140.7,4157,4216.3,4190.6,4177.3,4107.9,4170.1,4181.1,4160.1,4142.6,4150,4060.4,4007.9,4038.4,4074.6,4051.6,4031.4,3898.9,3969.6,3940.4,4073,4113.5,4074.9,4114.5,4030.2,4008.7],"horaMercado":"2026-11-11T17:40:20.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"cobre","grupo":"mundo","nome":"Cobre","simbolo":"HG=F","unidade":"US$/lb","casas":2,"valor":6.296,"anterior":6.2195000648498535,"variacaoPct":1.2300013562584144,"percentil1a":60,"min1a":4.959499835968018,"max1a":6.803500175476074,"serie30":[6.482,6.492,6.5855,6.5945,6.5965,6.519,6.6425,6.6985,6.678,6.6115,6.5115,6.531,6.538,6.5665,6.543,6.3625,6.476,6.508,6.622,6.6415,6.581,6.4585,6.5435,6.3785,6.403,6.249,6.218,6.3285,6.2195,6.296],"horaMercado":"2026-11-11T17:40:17.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"nikkei","grupo":"mundo","nome":"Nikkei 225","simbolo":"^N225","unidade":"pts","casas":0,"valor":61248.59,"anterior":60459.578125,"variacaoPct":1.3050237852614721,"percentil1a":50,"min1a":48537.69921875,"max1a":72366.34375,"serie30":[65877.6,65481.3,66753.7,68956.7,68309.5,69946.9,70684,70035.7,69042.1,69030.9,67777.5,67744.3,64425.9,65324.3,64916.7,64075.4,64621.2,62907.8,62693.2,62189.6,63268.4,63954.2,64659.5,63290.1,63081.9,62188.6,61077.9,57434.8,58775.5,60459.6],"horaMercado":"2026-11-11T06:45:02.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"hsi","grupo":"mundo","nome":"Hang Seng","simbolo":"^HSI","unidade":"pts","casas":0,"valor":24315.92,"anterior":24557.0390625,"variacaoPct":-0.981873514499576,"percentil1a":16,"min1a":22671.859375,"max1a":27968.08984375,"serie30":[24642.5,24523.6,24613.3,23972.3,24040.3,24280.6,24130.5,23785.8,24211.3,24271.2,24345.2,24314.2,24062.7,24186.8,23867.7,23651.9,22934.7,23093.4,23211.8,23041.3,23094.8,22958.7,23294.4,23393.3,23526,23919.5,24797,24481.9,24448.9,24557],"horaMercado":"2026-11-11T08:08:28.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"dax","grupo":"mundo","nome":"DAX","simbolo":"^GDAXI","unidade":"pts","casas":0,"valor":26662.77,"anterior":26347.44921875,"variacaoPct":1.1967791592728538,"percentil1a":100,"min1a":22300.75,"max1a":26662.76953125,"serie30":[24939.3,25231.2,25254.2,25449.2,25104.4,24807,25087.3,25277.7,25259.9,25298.6,25382.6,25622.6,25319.8,25304.4,25645,25371.8,25181.7,25410.8,25590.8,25704,26039.7,25818.2,25981.1,25864.6,26437.7,26325,25820.4,26267.2,26347.4,26662.8],"horaMercado":"2026-11-11T17:00:00.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"stoxx","grupo":"mundo","nome":"Euro Stoxx 50","simbolo":"^STOXX50E","unidade":"pts","casas":0,"valor":6393.39,"anterior":6327.8701171875,"variacaoPct":1.0354176302471485,"percentil1a":90,"min1a":5501.27978515625,"max1a":6551.22021484375,"serie30":[6175.45,6238.5,6242.14,6272.23,6180.29,6126.73,6173.37,6201.21,6167.01,6190.37,6168.26,6204.23,6144.81,6121.66,6207.52,6087.01,6068.22,6116.23,6164.69,6167.81,6207.07,6131.31,6176.06,6144.56,6265.71,6231.54,6170.49,6290.45,6327.87,6393.39],"horaMercado":"2026-11-11T17:00:00.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"btc","grupo":"mundo","nome":"Bitcoin","simbolo":"BTC-USD","unidade":"US$","casas":0,"valor":74450.59,"anterior":73720.1171875,"variacaoPct":0.9908731027137518,"percentil1a":43,"min1a":58558.859375,"max1a":102997.46875,"serie30":[83095.1,81562.5,82141.5,81500.8,81382.1,82017.6,81853.5,82941,84012,81311.9,81074.2,80790.8,80024,80006.7,80805.1,81267.6,77775.1,77198.2,77434.8,78248.5,76677.3,77345,80405.3,75942.1,75746.9,75747.6,74584.6,75223.1,73720.1,74450.6],"horaMercado":"2026-11-11T17:50:28.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"ibov","grupo":"brasil","nome":"Ibovespa","simbolo":"^BVSP","unidade":"pts","casas":0,"valor":172383.92,"anterior":171337,"variacaoPct":0.6110297250448093,"percentil1a":35,"min1a":154770,"max1a":209067,"serie30":[183828,186340,187198,192115,206912,205835,204302,206220,209067,206888,206506,204324,205430,205079,208296,206495,204120,205083,176608,175710,171006,169186,167922,165529,167564,166192,168499,172236,171337,172384],"horaMercado":"2026-11-11T17:35:30.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"ewz","grupo":"brasil","nome":"EWZ (Brasil em NY)","simbolo":"EWZ","unidade":"US$","casas":2,"valor":32.39,"anterior":32.150001525878906,"variacaoPct":0.746495996051233,"percentil1a":9,"min1a":30.969999313354492,"max1a":43.540000915527344,"serie30":[37.14,38.19,42.98,43,42.37,42.59,43.54,43.54,42.87,42.6,41.58,41.83,41.93,42.94,42.51,41.85,42.59,34.15,34.3,33.62,33.14,32.46,32.16,31.73,32.25,31.76,31.98,32.61,32.15,32.3899],"horaMercado":"2026-11-11T17:50:30.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"brl","grupo":"brasil","nome":"Dólar / Real","simbolo":"BRL=X","unidade":"R$","casas":4,"valor":5.5636,"anterior":5.508600234985352,"variacaoPct":0.9984344963960723,"percentil1a":99,"min1a":4.906400203704834,"max1a":5.590000152587891,"serie30":[5.1791,5.2226,5.2231,4.9967,4.9814,5.0192,5.0177,4.9859,4.985,5.0258,5.0395,5.0966,5.0631,5.037,5.0227,5.02039,5.0499,4.9602,5.3726,5.3503,5.3459,5.3848,5.4351,5.4363,5.487,5.4587,5.5035,5.5034,5.5086,5.5636],"horaMercado":"2026-11-11T17:50:38.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"vxewz","grupo":"brasil","nome":"VXEWZ (vol. do Brasil)","simbolo":"^VXEWZ","unidade":"pts","casas":1,"valor":32.3,"anterior":33.65,"variacaoPct":-4.011887072808329,"percentil1a":null,"min1a":32.29999923706055,"max1a":32.29999923706055,"serie30":[32.3],"horaMercado":"2026-11-09T17:54:46.000Z","fonte":"Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"ewz_hl","grupo":"brasil","nome":"EWZ na Hyperliquid (24/7)","simbolo":"xyz:EWZ","unidade":"US$","casas":2,"valor":32.388,"anterior":32.067,"variacaoPct":1.0010290953316403,"percentil1a":5,"min1a":31.216,"max1a":45.267,"serie30":[42.959,41.808,41.986,42.077,42.473,43.044,42.192,43.15,42.524,41.927,42.853,45.267,40.456,34.173,34.162,33.418,32.86,32.621,32.467,32.386,32.32,31.832,32.207,31.216,32.197,32.179,32.125,32.673,32.123,32.383],"horaMercado":"2026-11-11T17:50:13.502Z","fonte":"Hyperliquid (perp xyz, 24/7)","ts":"2026-11-11T17:50:13.502Z"},{"id":"spx_hl","grupo":"mundo","nome":"S&P 500 na Hyperliquid (24/7)","simbolo":"xyz:SP500","unidade":"pts","casas":0,"valor":7631.6,"anterior":7486.5,"variacaoPct":1.9381553462899825,"percentil1a":67,"min1a":6322.6,"max1a":7827.5,"serie30":[7799.8,7697.9,7727.7,7640.8,7624.1,7693.2,7699,7732.3,7718.3,7663.8,7624.4,7630.8,7626.5,7686.3,7722.4,7716.8,7669.2,7588.5,7588.4,7612.7,7552.2,7574.1,7691.9,7326.9,7386.9,7372.5,7371.3,7556.8,7535.8,7631.7],"horaMercado":"2026-11-11T17:50:13.502Z","fonte":"Hyperliquid (perp xyz, 24/7)","ts":"2026-11-11T17:50:13.502Z"},{"id":"volibov","grupo":"brasil","nome":"Vol. realizada Ibovespa 20d","simbolo":"^BVSP (calc.)","unidade":"% a.a.","casas":1,"valor":55.7,"anterior":55.41,"variacaoPct":0.5284727806019074,"percentil1a":96,"min1a":10.782149193396638,"max1a":63.413566752337644,"serie30":[15.92,15.99,12.1,15.08,29.74,29.88,29.77,29.62,29.53,29.62,29.74,30.05,30.04,29.95,30.18,30.59,30.78,30.29,62.84,62.85,63.41,63.13,63.03,61.99,54.63,54.6,55.28,56.03,55.41,55.7],"horaMercado":"2026-11-11T17:35:30.000Z","fonte":"calculado sobre Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"},{"id":"volbrl","grupo":"brasil","nome":"Vol. realizada dólar/real 20d","simbolo":"BRL=X (calc.)","unidade":"% a.a.","casas":1,"valor":30.18,"anterior":30.15,"variacaoPct":0.09365491259611947,"percentil1a":96,"min1a":6.652304032592024,"max1a":34.85937164711619,"serie30":[7.89,8.33,8.21,18.05,17.88,18.07,18.07,18.15,17.99,18.3,18.33,18.77,18.85,18.82,18.83,18.17,18.21,19.12,34.84,34.84,34.78,34.76,34.86,30.3,30.22,30.41,30.39,30.17,30.15,30.18],"horaMercado":"2026-11-11T17:50:38.000Z","fonte":"calculado sobre Yahoo Finance","ts":"2026-11-11T17:50:13.502Z"}]},"opcoes":{"atualizadoEm":"2026-11-12T02:29:27.795Z","origem":"scripts/opcoes.mjs","objetivo":"Dividendo sintético para carteira previdenciária: vender put coberta por caixa em papel que se quer ter, com strike abaixo do preço, prazo curto e prêmio que, sozinho, renda pelo menos o CDI sobre o caixa reservado (que segue aplicado). Se exercido, compra o papel abaixo do teto Bazin; se não, embolsa o prêmio.","regras":{"prazoDias":"15 a 60 (ideal 25 a 45)","colchao":"strike 3% a 15% abaixo do preço (ideal 5% a 10%)","delta":"-0,10 a -0,35","liquidez":"≥ 10 negócios no dia (ou ≥ 300 contratos em aberto); abaixo disso a série é 'evitar'","coerencia":"strike no máximo no teto Bazin; bônus abaixo do suporte técnico","precoIdeal":"maior entre (a) preço justo Black-Scholes com a volatilidade realizada (média de 21 e 63 pregões) mais 5% de margem, (b) prêmio que faz a put render, sozinha, a taxa livre de risco no período sobre o caixa reservado (o caixa continua aplicado, então a renda dobra), (c) bid atual","sinal":"vender = mercado paga ≥ 97% do ideal; limitar = deixar ordem no ideal e esperar"},"taxas":{"BR":{"valor":0.1365,"fonte":"CDI anualizado (BCB SGS 4389, 10/11/2026)"},"US":{"valor":0.049980000000000004,"fonte":"Treasury 10 anos (termômetro)"}},"fontes":{"B3":"arquivos.b3.com.br (instrumentos 2026-11-11, negociação 2026-11-11) + cotacao.b3.com.br intradiário"},"ativos":{"ALOS3":{"spot":27.48,"moeda":"BRL","teto":40,"suporte":26.3,"vol21":110.6,"vol63":69.4,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":60,"comNegocio":20,"candidatas":[{"codigo":"ALOSX300","strike":26.46,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":3.71,"ultimo":0.61,"bid":null,"ask":null,"mid":null,"negocios":13,"aberto":null,"volume":54944,"justo":1.49,"ideal":2.49,"volUsada":63,"volImplicita":34.9,"delta":-0.36,"probExercicio":44,"yieldPeriodo":2.31,"yieldAnual":26,"yieldIdealAnual":149.1,"breakeven":25.85,"caixaPorLote":2646,"premioPorLote":61,"alvoAnual":13.7,"sinal":"limitar","nota":80,"classe":"boa","motivos":["prob. de exercício alta (44%)"]},{"codigo":"ALOSX297","strike":27.96,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":-1.75,"ultimo":1.15,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":115,"justo":2.22,"ideal":3.3,"volUsada":63,"volImplicita":31.8,"delta":-0.47,"probExercicio":55,"yieldPeriodo":4.11,"yieldAnual":50.5,"yieldIdealAnual":210.4,"breakeven":26.81,"caixaPorLote":2796,"premioPorLote":115,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (55%)","liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"ALOSW265W4","strike":26.71,"vencimento":"2026-11-27","dias":15,"diasUteis":11,"otm":2.8,"ultimo":0.43,"bid":null,"ask":null,"mid":null,"negocios":2,"aberto":null,"volume":132,"justo":0.96,"ideal":1.62,"volUsada":63,"volImplicita":37,"delta":-0.37,"probExercicio":42,"yieldPeriodo":1.61,"yieldAnual":47.5,"yieldIdealAnual":317.3,"breakeven":26.28,"caixaPorLote":2671,"premioPorLote":43,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["colchão menor que 3%","prob. de exercício alta (42%)","liquidez abaixo do mínimo (2 negócios no dia; exige 10)"]},{"codigo":"ALOSX291","strike":27.71,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":-0.84,"ultimo":1.08,"bid":null,"ask":null,"mid":null,"negocios":9,"aberto":null,"volume":27789,"justo":2.09,"ideal":3.16,"volUsada":63,"volImplicita":33.5,"delta":-0.45,"probExercicio":53,"yieldPeriodo":3.9,"yieldAnual":47.4,"yieldIdealAnual":199,"breakeven":26.63,"caixaPorLote":2771,"premioPorLote":108,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (53%)","liquidez abaixo do mínimo (9 negócios no dia; exige 10)"]},{"codigo":"ALOSX270","strike":27.21,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":0.98,"ultimo":0.84,"bid":null,"ask":null,"mid":null,"negocios":5,"aberto":null,"volume":10571,"justo":1.84,"ideal":2.88,"volUsada":63,"volImplicita":33.2,"delta":-0.41,"probExercicio":49,"yieldPeriodo":3.09,"yieldAnual":36.1,"yieldIdealAnual":177.7,"breakeven":26.37,"caixaPorLote":2721,"premioPorLote":84,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["colchão menor que 3%","prob. de exercício alta (49%)","liquidez abaixo do mínimo (5 negócios no dia; exige 10)"]},{"codigo":"ALOSW262W4","strike":26.21,"vencimento":"2026-11-27","dias":15,"diasUteis":11,"otm":4.62,"ultimo":0.29,"bid":null,"ask":null,"mid":null,"negocios":2,"aberto":null,"volume":342,"justo":0.77,"ideal":1.38,"volUsada":63,"volImplicita":37.4,"delta":-0.32,"probExercicio":36,"yieldPeriodo":1.11,"yieldAnual":30.7,"yieldIdealAnual":250,"breakeven":25.92,"caixaPorLote":2621,"premioPorLote":29,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (2 negócios no dia; exige 10)"]}],"melhor":"ALOSX300","fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":16},"obs":null,"ts":"2026-11-12T02:29:27.795Z"},"TAEE11":{"spot":41.28,"moeda":"BRL","teto":48.33,"suporte":39.68,"vol21":41.2,"vol63":30.2,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":69,"comNegocio":20,"candidatas":[{"codigo":"TAEEX398","strike":39.85,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":3.46,"ultimo":0.5,"bid":null,"ask":null,"mid":null,"negocios":10,"aberto":null,"volume":3267,"justo":0.52,"ideal":1.04,"volUsada":25,"volImplicita":24.6,"delta":-0.25,"probExercicio":28,"yieldPeriodo":1.25,"yieldAnual":13.5,"yieldIdealAnual":29.7,"breakeven":39.35,"caixaPorLote":3985,"premioPorLote":50,"alvoAnual":13.7,"sinal":"limitar","nota":78,"classe":"boa","motivos":[]},{"codigo":"TAEEX42","strike":42.1,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":-1.99,"ultimo":1.35,"bid":null,"ask":null,"mid":null,"negocios":12,"aberto":null,"volume":4409,"justo":1.43,"ideal":2.08,"volUsada":25,"volImplicita":23.5,"delta":-0.52,"probExercicio":55,"yieldPeriodo":3.21,"yieldAnual":37.7,"yieldIdealAnual":63.1,"breakeven":40.75,"caixaPorLote":4210,"premioPorLote":135,"alvoAnual":13.7,"sinal":"limitar","nota":65,"classe":"aceitavel","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (55%)"]},{"codigo":"TAEEX411","strike":41.1,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":0.44,"ultimo":0.9,"bid":null,"ask":null,"mid":null,"negocios":12,"aberto":null,"volume":15147,"justo":0.95,"ideal":1.56,"volUsada":25,"volImplicita":24,"delta":-0.39,"probExercicio":43,"yieldPeriodo":2.19,"yieldAnual":24.6,"yieldIdealAnual":45.9,"breakeven":40.2,"caixaPorLote":4110,"premioPorLote":90,"alvoAnual":13.7,"sinal":"limitar","nota":65,"classe":"aceitavel","motivos":["colchão menor que 3%","prob. de exercício alta (43%)"]},{"codigo":"TAEEX421","strike":41.6,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":-0.78,"ultimo":1.12,"bid":null,"ask":null,"mid":null,"negocios":6,"aberto":null,"volume":3371,"justo":1.17,"ideal":1.81,"volUsada":25,"volImplicita":23.9,"delta":-0.46,"probExercicio":49,"yieldPeriodo":2.69,"yieldAnual":30.9,"yieldIdealAnual":54,"breakeven":40.48,"caixaPorLote":4160,"premioPorLote":112,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (49%)","liquidez abaixo do mínimo (6 negócios no dia; exige 10)"]},{"codigo":"TAEEX406","strike":40.6,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":1.65,"ultimo":0.68,"bid":null,"ask":null,"mid":null,"negocios":5,"aberto":null,"volume":3772,"justo":0.75,"ideal":1.33,"volUsada":25,"volImplicita":23.4,"delta":-0.34,"probExercicio":37,"yieldPeriodo":1.67,"yieldAnual":18.3,"yieldIdealAnual":38.8,"breakeven":39.92,"caixaPorLote":4060,"premioPorLote":68,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["colchão menor que 3%","liquidez abaixo do mínimo (5 negócios no dia; exige 10)"]},{"codigo":"TAEEX401","strike":40.1,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":2.86,"ultimo":0.52,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":52,"justo":0.59,"ideal":1.13,"volUsada":25,"volImplicita":23.4,"delta":-0.28,"probExercicio":31,"yieldPeriodo":1.3,"yieldAnual":14,"yieldIdealAnual":32.6,"breakeven":39.58,"caixaPorLote":4010,"premioPorLote":52,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["colchão menor que 3%","liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]}],"melhor":"TAEEX398","fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":16},"obs":null,"ts":"2026-11-12T02:29:27.795Z"},"ITSA4":{"spot":13.57,"moeda":"BRL","teto":16.67,"suporte":13.45,"vol21":53.8,"vol63":42.8,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":49,"comNegocio":20,"candidatas":[{"codigo":"ITSAX128","strike":12.74,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":6.12,"ultimo":0.1,"bid":null,"ask":null,"mid":null,"negocios":13,"aberto":null,"volume":9708,"justo":0.19,"ideal":0.41,"volUsada":33.8,"volImplicita":26,"delta":-0.22,"probExercicio":25,"yieldPeriodo":0.78,"yieldAnual":8.2,"yieldIdealAnual":37.6,"breakeven":12.64,"caixaPorLote":1274,"premioPorLote":10,"alvoAnual":13.7,"sinal":"limitar","nota":82,"classe":"boa","motivos":[]},{"codigo":"ITSAX126","strike":12.49,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":7.96,"ultimo":0.06,"bid":null,"ask":null,"mid":null,"negocios":17,"aberto":null,"volume":1489,"justo":0.14,"ideal":0.33,"volUsada":33.8,"volImplicita":25.8,"delta":-0.17,"probExercicio":20,"yieldPeriodo":0.48,"yieldAnual":5,"yieldIdealAnual":30,"breakeven":12.43,"caixaPorLote":1249,"premioPorLote":6,"alvoAnual":13.7,"sinal":"limitar","nota":77,"classe":"boa","motivos":["prêmio anualizado (5.0%) abaixo de 60% da taxa"]},{"codigo":"ITSAX131","strike":12.99,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":4.27,"ultimo":0.13,"bid":null,"ask":null,"mid":null,"negocios":28,"aberto":null,"volume":1998,"justo":0.26,"ideal":0.5,"volUsada":33.8,"volImplicita":24.1,"delta":-0.28,"probExercicio":31,"yieldPeriodo":1,"yieldAnual":10.6,"yieldIdealAnual":46.7,"breakeven":12.86,"caixaPorLote":1299,"premioPorLote":13,"alvoAnual":13.7,"sinal":"limitar","nota":76,"classe":"boa","motivos":[]},{"codigo":"ITSAX123","strike":12.24,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":9.8,"ultimo":0.04,"bid":null,"ask":null,"mid":null,"negocios":22,"aberto":null,"volume":6672,"justo":0.09,"ideal":0.26,"volUsada":33.8,"volImplicita":26.7,"delta":-0.12,"probExercicio":15,"yieldPeriodo":0.33,"yieldAnual":3.4,"yieldIdealAnual":23.6,"breakeven":12.2,"caixaPorLote":1224,"premioPorLote":4,"alvoAnual":13.7,"sinal":"limitar","nota":74,"classe":"boa","motivos":["prêmio anualizado (3.4%) abaixo de 60% da taxa"]},{"codigo":"ITSAX135","strike":13.24,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":2.43,"ultimo":0.2,"bid":null,"ask":null,"mid":null,"negocios":27,"aberto":null,"volume":6656,"justo":0.35,"ideal":0.61,"volUsada":33.8,"volImplicita":24.2,"delta":-0.34,"probExercicio":38,"yieldPeriodo":1.51,"yieldAnual":16.4,"yieldIdealAnual":57.4,"breakeven":13.04,"caixaPorLote":1324,"premioPorLote":20,"alvoAnual":13.7,"sinal":"limitar","nota":71,"classe":"boa","motivos":["colchão menor que 3%"]},{"codigo":"ITSAX138","strike":13.74,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":-1.25,"ultimo":0.41,"bid":null,"ask":null,"mid":null,"negocios":28,"aberto":null,"volume":23099,"justo":0.57,"ideal":0.85,"volUsada":33.8,"volImplicita":24.5,"delta":-0.48,"probExercicio":52,"yieldPeriodo":2.98,"yieldAnual":34.7,"yieldIdealAnual":84.3,"breakeven":13.33,"caixaPorLote":1374,"premioPorLote":41,"alvoAnual":13.7,"sinal":"limitar","nota":65,"classe":"aceitavel","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (52%)"]}],"melhor":"ITSAX128","fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":16},"obs":null,"ts":"2026-11-12T02:29:27.795Z"},"KLBN4":{"spot":3.46,"moeda":"BRL","teto":3.67,"suporte":3.43,"vol21":31.8,"vol63":23.8,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":0,"comNegocio":0,"candidatas":[],"melhor":null,"fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":0},"obs":"a B3 não lista puts para este papel","ts":"2026-11-12T02:29:27.795Z"},"SAPR11":{"spot":33.2,"moeda":"BRL","teto":32.67,"suporte":32.64,"vol21":84.7,"vol63":60.5,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":28,"comNegocio":11,"candidatas":[{"codigo":"SAPRX325","strike":32.58,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":1.87,"ultimo":1.32,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":null,"justo":1.59,"ideal":2.59,"volUsada":50.8,"volImplicita":44,"delta":-0.39,"probExercicio":45,"yieldPeriodo":4.05,"yieldAnual":49.6,"yieldIdealAnual":117.2,"breakeven":31.26,"caixaPorLote":3258,"premioPorLote":132,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["colchão menor que 3%","prob. de exercício alta (45%)","liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"SAPRX318","strike":31.83,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":4.13,"ultimo":1.02,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":null,"justo":1.28,"ideal":2.23,"volUsada":50.8,"volImplicita":43.9,"delta":-0.33,"probExercicio":39,"yieldPeriodo":3.2,"yieldAnual":37.7,"yieldIdealAnual":98.5,"breakeven":30.81,"caixaPorLote":3183,"premioPorLote":102,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"SAPRX315","strike":31.58,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":4.88,"ultimo":0.9,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":null,"justo":1.19,"ideal":2.11,"volUsada":50.8,"volImplicita":43,"delta":-0.32,"probExercicio":38,"yieldPeriodo":2.85,"yieldAnual":33,"yieldIdealAnual":92.8,"breakeven":30.68,"caixaPorLote":3158,"premioPorLote":90,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"SAPRX313","strike":31.33,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":5.63,"ultimo":0.88,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":null,"justo":1.09,"ideal":2,"volUsada":50.8,"volImplicita":44.8,"delta":-0.3,"probExercicio":36,"yieldPeriodo":2.81,"yieldAnual":32.4,"yieldIdealAnual":87.3,"breakeven":30.45,"caixaPorLote":3133,"premioPorLote":88,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"SAPRX308","strike":30.83,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":7.14,"ultimo":0.68,"bid":null,"ask":null,"mid":null,"negocios":2,"aberto":null,"volume":null,"justo":0.93,"ideal":1.79,"volUsada":50.8,"volImplicita":43.4,"delta":-0.26,"probExercicio":32,"yieldPeriodo":2.21,"yieldAnual":24.8,"yieldIdealAnual":77.2,"breakeven":30.15,"caixaPorLote":3083,"premioPorLote":68,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (2 negócios no dia; exige 10)"]},{"codigo":"SAPRX303","strike":30.33,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":8.64,"ultimo":0.6,"bid":null,"ask":null,"mid":null,"negocios":3,"aberto":null,"volume":null,"justo":0.78,"ideal":1.59,"volUsada":50.8,"volImplicita":45,"delta":-0.23,"probExercicio":28,"yieldPeriodo":1.98,"yieldAnual":22,"yieldIdealAnual":68.1,"breakeven":29.73,"caixaPorLote":3033,"premioPorLote":60,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (3 negócios no dia; exige 10)"]}],"melhor":null,"fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":11},"obs":"há séries com negócio, mas nenhuma com 10 ou mais negócios no dia: liquidez insuficiente para a regra","ts":"2026-11-12T02:29:27.795Z"},"CMIG4":{"spot":10.72,"moeda":"BRL","teto":16.67,"suporte":10.5,"vol21":49.3,"vol63":35.8,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":53,"comNegocio":10,"candidatas":[{"codigo":"CMIGX103","strike":10.25,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":4.38,"ultimo":0.1,"bid":null,"ask":null,"mid":null,"negocios":19,"aberto":null,"volume":null,"justo":0.16,"ideal":0.32,"volUsada":29.8,"volImplicita":24.1,"delta":-0.25,"probExercicio":28,"yieldPeriodo":0.98,"yieldAnual":10.3,"yieldIdealAnual":36.4,"breakeven":10.15,"caixaPorLote":1025,"premioPorLote":10,"alvoAnual":13.7,"sinal":"limitar","nota":76,"classe":"boa","motivos":[]},{"codigo":"CMIGX105","strike":10.5,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":2.05,"ultimo":0.18,"bid":null,"ask":null,"mid":null,"negocios":16,"aberto":null,"volume":null,"justo":0.24,"ideal":0.42,"volUsada":29.8,"volImplicita":24.9,"delta":-0.34,"probExercicio":37,"yieldPeriodo":1.71,"yieldAnual":18.8,"yieldIdealAnual":48.8,"breakeven":10.32,"caixaPorLote":1050,"premioPorLote":18,"alvoAnual":13.7,"sinal":"limitar","nota":75,"classe":"boa","motivos":["colchão menor que 3%"]},{"codigo":"CMIGW108W4","strike":10.8,"vencimento":"2026-11-27","dias":15,"diasUteis":11,"otm":-0.75,"ultimo":0.26,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":null,"justo":0.27,"ideal":0.4,"volUsada":29.8,"volImplicita":28.8,"delta":-0.5,"probExercicio":52,"yieldPeriodo":2.41,"yieldAnual":78.4,"yieldIdealAnual":141.3,"breakeven":10.54,"caixaPorLote":1080,"premioPorLote":26,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (52%)","liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"CMIGX110","strike":10.8,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":-0.75,"ultimo":0.3,"bid":null,"ask":null,"mid":null,"negocios":9,"aberto":null,"volume":null,"justo":0.37,"ideal":0.56,"volUsada":29.8,"volImplicita":24.7,"delta":-0.46,"probExercicio":49,"yieldPeriodo":2.78,"yieldAnual":32,"yieldIdealAnual":67.7,"breakeven":10.5,"caixaPorLote":1080,"premioPorLote":30,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["strike acima do preço (ITM): não é renda, é compra","prob. de exercício alta (49%)","liquidez abaixo do mínimo (9 negócios no dia; exige 10)"]},{"codigo":"CMIGW103W4","strike":10.3,"vencimento":"2026-11-27","dias":15,"diasUteis":11,"otm":3.92,"ultimo":0.08,"bid":null,"ask":null,"mid":null,"negocios":1,"aberto":null,"volume":null,"justo":0.08,"ideal":0.18,"volUsada":29.8,"volImplicita":29.4,"delta":-0.22,"probExercicio":23,"yieldPeriodo":0.78,"yieldAnual":20.7,"yieldIdealAnual":52.3,"breakeven":10.22,"caixaPorLote":1030,"premioPorLote":8,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (1 negócios no dia; exige 10)"]},{"codigo":"CMIGX103W4","strike":10.3,"vencimento":"2026-12-23","dias":41,"diasUteis":29,"otm":3.92,"ultimo":0.12,"bid":null,"ask":null,"mid":null,"negocios":2,"aberto":null,"volume":null,"justo":0.19,"ideal":0.37,"volUsada":29.8,"volImplicita":23.8,"delta":-0.27,"probExercicio":31,"yieldPeriodo":1.17,"yieldAnual":10.9,"yieldIdealAnual":36.5,"breakeven":10.18,"caixaPorLote":1030,"premioPorLote":12,"alvoAnual":13.7,"sinal":"limitar","nota":49,"classe":"evitar","motivos":["liquidez abaixo do mínimo (2 negócios no dia; exige 10)"]}],"melhor":"CMIGX103","fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":10},"obs":null,"ts":"2026-11-12T02:29:27.795Z"},"BBDC4":{"spot":14.33,"moeda":"BRL","teto":20,"suporte":14.09,"vol21":90.8,"vol63":64.9,"volFonte":"Yahoo Finance, 1 ano","taxa":13.65,"lote":100,"universo":41,"comNegocio":29,"candidatas":[{"codigo":"BBDCX160","strike":13.41,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":6.42,"ultimo":0.15,"bid":null,"ask":null,"mid":null,"negocios":35,"aberto":null,"volume":32638,"justo":0.49,"ideal":0.9,"volUsada":54.5,"volImplicita":30.6,"delta":-0.29,"probExercicio":35,"yieldPeriodo":1.12,"yieldAnual":11.9,"yieldIdealAnual":93.9,"breakeven":13.26,"caixaPorLote":1341,"premioPorLote":15,"alvoAnual":13.7,"sinal":"limitar","nota":88,"classe":"boa","motivos":[]},{"codigo":"BBDCX143","strike":13.66,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":4.68,"ultimo":0.2,"bid":null,"ask":null,"mid":null,"negocios":45,"aberto":null,"volume":38836,"justo":0.58,"ideal":1.02,"volUsada":54.5,"volImplicita":29.8,"delta":-0.33,"probExercicio":39,"yieldPeriodo":1.46,"yieldAnual":15.9,"yieldIdealAnual":107.1,"breakeven":13.46,"caixaPorLote":1366,"premioPorLote":20,"alvoAnual":13.7,"sinal":"limitar","nota":85,"classe":"boa","motivos":[]},{"codigo":"BBDCX138","strike":13.16,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":8.16,"ultimo":0.11,"bid":null,"ask":null,"mid":null,"negocios":25,"aberto":null,"volume":10166,"justo":0.41,"ideal":0.8,"volUsada":54.5,"volImplicita":31.2,"delta":-0.25,"probExercicio":31,"yieldPeriodo":0.84,"yieldAnual":8.8,"yieldIdealAnual":81.9,"breakeven":13.05,"caixaPorLote":1316,"premioPorLote":11,"alvoAnual":13.7,"sinal":"limitar","nota":83,"classe":"boa","motivos":[]},{"codigo":"BBDCX136","strike":12.91,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":9.91,"ultimo":0.08,"bid":null,"ask":null,"mid":null,"negocios":11,"aberto":null,"volume":912,"justo":0.34,"ideal":0.7,"volUsada":54.5,"volImplicita":31.9,"delta":-0.22,"probExercicio":27,"yieldPeriodo":0.62,"yieldAnual":6.5,"yieldIdealAnual":71.2,"breakeven":12.83,"caixaPorLote":1291,"premioPorLote":8,"alvoAnual":13.7,"sinal":"limitar","nota":79,"classe":"boa","motivos":["prêmio anualizado (6.5%) abaixo de 60% da taxa"]},{"codigo":"BBDCM143","strike":13.59,"vencimento":"2027-01-15","dias":64,"diasUteis":46,"otm":5.16,"ultimo":0.25,"bid":null,"ask":null,"mid":null,"negocios":16,"aberto":null,"volume":4758,"justo":0.79,"ideal":1.37,"volUsada":54.5,"volImplicita":28.1,"delta":-0.33,"probExercicio":41,"yieldPeriodo":1.84,"yieldAnual":11,"yieldIdealAnual":73,"breakeven":13.34,"caixaPorLote":1359,"premioPorLote":25,"alvoAnual":13.7,"sinal":"limitar","nota":72,"classe":"boa","motivos":["vencimento longo demais (caixa preso)"]},{"codigo":"BBDCX146","strike":13.91,"vencimento":"2026-12-18","dias":36,"diasUteis":26,"otm":2.93,"ultimo":0.26,"bid":null,"ask":null,"mid":null,"negocios":59,"aberto":null,"volume":35284,"justo":0.68,"ideal":1.14,"volUsada":54.5,"volImplicita":28.8,"delta":-0.37,"probExercicio":43,"yieldPeriodo":1.87,"yieldAnual":20.7,"yieldIdealAnual":121.8,"breakeven":13.65,"caixaPorLote":1391,"premioPorLote":26,"alvoAnual":13.7,"sinal":"limitar","nota":68,"classe":"aceitavel","motivos":["colchão menor que 3%","prob. de exercício alta (43%)"]}],"melhor":"BBDCX160","fonte":"B3","referencia":{"instrumentos":"2026-11-11","negociacao":"2026-11-11","intradiarias":16},"obs":null,"ts":"2026-11-12T02:29:27.795Z"}}}}</script>
+<script>
+(() => {
+  "use strict";
+
+  const embutido = JSON.parse(document.getElementById("dados-embutidos").textContent);
+  const { carteira, fundamentos } = embutido;
+  let cotacoes = embutido.cotacoes;
+  let tecnica = embutido.tecnica ?? { ativos: {} };
+  let termometro = embutido.termometro ?? null;
+  let opcoes = embutido.opcoes ?? null;
+
+  /* ------------------------------------------------------------ formatos */
+  const fmt = {
+    BRL: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }),
+    BRLc: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2 }),
+    USD: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "USD", maximumFractionDigits: 0 }),
+    USDc: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "USD", minimumFractionDigits: 2 }),
+  };
+  const dinheiro = (v, moeda, cent) => fmt[moeda + (cent ? "c" : "")].format(v);
+  const curto = (v, moeda) => v === null || v === undefined ? "—" : (moeda === "USD" ? "US$ " : "R$ ") + v.toFixed(2).replace(".", ",");
+  const pct = (n, casas = 1) => (n >= 0 ? "+" : "−") + Math.abs(n).toFixed(casas).replace(".", ",") + "%";
+  const pctSimples = (n, casas = 1) => n.toFixed(casas).replace(".", ",") + "%";
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const hoje = () => new Date().toISOString().slice(0, 10);
+
+  const GRUPOS = {
+    br: ["ALOS3", "ITSA4", "BBDC4", "SAPR11", "CMIG4", "KLBN4", "TAEE11", "BBSE3", "AURE3"],
+    us: ["NVDA", "PLTR", "TSLA"],
+    etf: ["SPY", "VUAA"],
+  };
+
+  const estado = { yield: 0.08, base: "recorrente", ordem: "valor" };
+
+  /* ------------------------------------------------- carteira editável */
+  // Base: a planilha embutida, consolidada por ticker.
+  const basePlanilha = {};
+  for (const p of carteira.posicoes) {
+    const qtd = p.lotes.reduce((s, l) => s + l.qtd, 0);
+    const custo = p.lotes.reduce((s, l) => s + l.qtd * l.pm, 0);
+    const comPreco = p.lotes.filter((l) => l.pm > 0);
+    const pm = qtd ? custo / qtd : comPreco.length ? comPreco.reduce((s, l) => s + l.pm, 0) / comPreco.length : 0;
+    basePlanilha[p.ticker] = { qtd, pm: Number(pm.toFixed(4)), banco: p.banco };
+  }
+
+  // Estado editável: { versao, atualizadoEm, posicoes: {T: {qtd, pm}}, operacoes: [] }
+  let edicao = { versao: 1, atualizadoEm: null, posicoes: {}, operacoes: [], ocultos: [] };
+  let origemCarteira = "planilha"; // planilha | local | nuvem
+
+  const CHAVE = "radar-bazin.carteira.v1";
+  const local = {
+    ler() { try { const s = localStorage.getItem(CHAVE); return s ? JSON.parse(s) : null; } catch { return null; } },
+    gravar(d) { try { localStorage.setItem(CHAVE, JSON.stringify(d)); } catch { /* sem storage */ } },
+    limpar() { try { localStorage.removeItem(CHAVE); } catch { /* sem storage */ } },
+  };
+
+  let nuvem = null;            // ref do documento no db, quando disponível
+  let ignorarSnapshot = false; // evita eco do próprio write
+
+  function validaEdicao(d) {
+    return d && typeof d === "object" && d.posicoes && typeof d.posicoes === "object" && Array.isArray(d.operacoes ?? []);
+  }
+
+  function adotar(d, origem) {
+    if (!validaEdicao(d)) return;
+    edicao = { versao: 1, atualizadoEm: d.atualizadoEm ?? null, posicoes: { ...d.posicoes }, operacoes: [...(d.operacoes ?? [])], ocultos: [...(d.ocultos ?? [])] };
+    origemCarteira = origem;
+  }
+
+  async function persistir() {
+    edicao.atualizadoEm = new Date().toISOString();
+    local.gravar(edicao);
+    origemCarteira = nuvem ? "nuvem" : "local";
+    if (nuvem) {
+      try {
+        ignorarSnapshot = true;
+        await nuvem.set(edicao);
+      } catch (e) {
+        aviso(`Salvo neste aparelho; a nuvem recusou (${e?.code ?? "erro"}).`);
+        origemCarteira = "local";
+      } finally {
+        setTimeout(() => { ignorarSnapshot = false; }, 800);
+      }
+    }
+    desenhar();
+  }
+
+  function posicaoAtual(ticker) {
+    const b = basePlanilha[ticker] ?? { qtd: 0, pm: 0, banco: "" };
+    const e = edicao.posicoes[ticker];
+    return e ? { qtd: e.qtd, pm: e.pm, banco: b.banco, editada: true } : { ...b, editada: false };
+  }
+
+  function registrarOperacao(ticker, tipo, qtd, preco, data) {
+    const atual = posicaoAtual(ticker);
+    let novaQtd, novoPm, realizado = null;
+    if (tipo === "compra") {
+      novaQtd = atual.qtd + qtd;
+      novoPm = novaQtd ? (atual.qtd * atual.pm + qtd * preco) / novaQtd : 0;
+    } else {
+      if (qtd > atual.qtd + 1e-9) return { erro: `Você tem ${atual.qtd.toLocaleString("pt-BR")} — não dá para vender ${qtd.toLocaleString("pt-BR")}.` };
+      novaQtd = Math.max(0, atual.qtd - qtd);
+      novoPm = novaQtd ? atual.pm : atual.pm; // PM não muda na venda
+      realizado = qtd * (preco - atual.pm);
+    }
+    edicao.posicoes[ticker] = { qtd: Number(novaQtd.toFixed(4)), pm: Number(novoPm.toFixed(4)) };
+    edicao.operacoes.unshift({ id: Date.now().toString(36), ticker, tipo, qtd, preco, data, realizado, ts: new Date().toISOString() });
+    edicao.operacoes = edicao.operacoes.slice(0, 300);
+    return { ok: true, realizado };
+  }
+
+  function corrigirPosicao(ticker, qtd, pm) {
+    edicao.posicoes[ticker] = { qtd: Number(qtd.toFixed(4)), pm: Number(pm.toFixed(4)) };
+    edicao.operacoes.unshift({ id: Date.now().toString(36), ticker, tipo: "ajuste", qtd, preco: pm, data: hoje(), realizado: null, ts: new Date().toISOString() });
+  }
+
+  function restaurarTicker(ticker) {
+    delete edicao.posicoes[ticker];
+    edicao.operacoes = edicao.operacoes.filter((o) => o.ticker !== ticker);
+  }
+
+  /* ------------------------------------------------------------ cálculo */
+  function consolidar() {
+    const linhas = [];
+    for (const ticker of Object.keys(basePlanilha)) {
+      const f = fundamentos.ativos[ticker];
+      if (!f || edicao.ocultos.includes(ticker)) continue;
+      const pos = posicaoAtual(ticker);
+      const cot = cotacoes.cotacoes?.[ticker];
+      const preco = cot && cot.preco > 0 ? cot.preco : f.precoRef;
+      const custo = pos.qtd * pos.pm;
+      const valor = pos.qtd * preco;
+      const resultado = valor - custo;
+      const resultadoPct = custo > 0 ? (valor / custo - 1) * 100 : null;
+
+      const dpa = estado.base === "doze" ? f.bazin.dpa12m : f.bazin.dpaRecorrente;
+      const aplicavel = f.bazin.aplicavel && dpa > 0;
+      const teto = aplicavel ? dpa / estado.yield : null;
+      const gap = teto ? (preco / teto - 1) * 100 : null;
+      const dy = dpa > 0 ? (dpa / preco) * 100 : 0;
+
+      let farol = "fora";
+      if (teto) {
+        const r = preco / teto, fx = fundamentos.bazin.faixas;
+        farol = r <= fx.compraForte ? "compra-forte" : r <= fx.compra ? "compra" : r <= fx.neutro ? "manter" : "reduzir";
+      }
+
+      const t = tecnica.ativos?.[ticker] ?? null;
+      const linha = {
+        ticker, f, ...pos, preco, custo, valor, resultado, resultadoPct,
+        moeda: f.moeda, dpa, teto, gap, dy, farol, tecnica: t,
+        fonteCotacao: cot?.fonte ?? "referência da planilha",
+        defasado: Boolean(cot?.defasado),
+        rendaAno: aplicavel ? pos.qtd * dpa : 0,
+      };
+      linha.reco = recomendar(linha);
+      linhas.push(linha);
+    }
+    return linhas;
+  }
+
+  function ordenar(linhas) {
+    const c = {
+      valor: (a, b) => b.valor - a.valor,
+      ticker: (a, b) => a.ticker.localeCompare(b.ticker),
+      resultado: (a, b) => b.resultado - a.resultado,
+      gap: (a, b) => (a.gap ?? 1e9) - (b.gap ?? 1e9),
+    }[estado.ordem];
+    return [...linhas].sort(c);
+  }
+
+  /* -------------------------------------------------------- recomendação */
+  const PERTO = 0.03; // 3% = "encostado"
+
+  function recomendar(l) {
+    const t = l.tecnica;
+    const m = l.moeda;
+    const sup = t?.suporte ?? null, res = t?.resistencia ?? null, mm200 = t?.mm200 ?? null;
+    const noSuporte = sup !== null && l.preco <= sup * (1 + PERTO);
+    const naResistencia = res !== null && l.preco >= res * (1 - PERTO);
+    const abaixoMM200 = mm200 !== null && l.preco < mm200;
+    const tendencia = t?.tendencia ?? "lateral";
+    const semNiveis = sup === null && res === null;
+    const temPosicao = l.qtd > 0;
+
+    const stop = sup !== null ? ` Stop de atenção: fechamento abaixo de ${curto(sup, m)}.` : "";
+    let curta, longa, tom;
+
+    if (l.farol === "compra-forte" || l.farol === "compra") {
+      if (semNiveis) {
+        curta = "Comprar escalonado"; tom = "bom";
+        longa = `O Bazin libera a compra (${pctSimples(Math.abs(l.gap))} abaixo do teto), mas ainda não há suporte e resistência calculados para este papel. Compre em parcelas e reavalie quando o cálculo automático rodar.`;
+      } else if (noSuporte) {
+        curta = `Comprar no suporte ${curto(sup, m)}`; tom = "bom";
+        longa = `Preço encostado no suporte de ${curto(sup, m)} com farol verde: é a combinação que o método procura. Compre aqui, com stop abaixo do suporte.${abaixoMM200 ? " O papel está abaixo da MM200 — tendência de baixa —, então entre em parcelas menores." : ""}`;
+      } else if (naResistencia) {
+        curta = `Aguardar: encostado na resistência ${curto(res, m)}`; tom = "atencao";
+        longa = `O Bazin libera a compra, mas o preço está colado na resistência de ${curto(res, m)}. Comprar aqui é pagar o pior preço da faixa. Espere o recuo ao suporte${sup !== null ? ` de ${curto(sup, m)}` : ""} ou o rompimento da resistência com volume acima da média.`;
+      } else {
+        curta = `Comprar escalonado; ordem em ${curto(sup, m)}`; tom = "bom";
+        longa = `Farol verde e preço no meio da faixa (${curto(sup, m)} a ${res !== null ? curto(res, m) : "—"}). Compre uma parte agora e deixe ordem no suporte de ${curto(sup, m)}.${abaixoMM200 ? " Abaixo da MM200: prefira parcelas menores." : ""}${res !== null ? ` Alvo técnico: ${curto(res, m)}.` : ""}`;
+      }
+    } else if (l.farol === "manter") {
+      if (naResistencia && temPosicao) {
+        curta = `Realizar parcial em ${curto(res, m)}`; tom = "atencao";
+        longa = `Acima do teto Bazin (${pctSimples(l.gap)}) e encostado na resistência de ${curto(res, m)}: vender uma parte aqui melhora o preço médio da carteira sem sair da tese.${stop}`;
+      } else {
+        curta = temPosicao ? "Manter; sem compra pelo Bazin" : "Aguardar preço abaixo do teto"; tom = "atencao";
+        longa = `Preço ${pctSimples(l.gap)} acima do teto: o yield ficou abaixo do piso de ${pctSimples(estado.yield * 100)}. ${temPosicao ? "Segure o que tem, não amplie." : "Só entra quando o preço voltar para baixo do teto."}${stop}`;
+      }
+    } else if (l.farol === "reduzir") {
+      curta = temPosicao ? `Reduzir${naResistencia ? ` na resistência ${curto(res, m)}` : ""}` : "Não comprar: acima do teto"; tom = "ruim";
+      longa = `Preço ${pctSimples(l.gap)} acima do teto Bazin — prêmio de mais de 20%. ${temPosicao ? "Pelo método é gatilho de venda parcial" + (naResistencia ? `, e o preço está na resistência de ${curto(res, m)}, que é o melhor lugar para fazer isso.` : "; se quiser esperar um preço melhor, a resistência é " + (res !== null ? curto(res, m) : "desconhecida") + ".") : "Fora de ponto de entrada."}`;
+    } else {
+      // fora do método: leitura só gráfica
+      if (semNiveis) {
+        curta = temPosicao ? "Manter; leitura gráfica pendente" : "Sem posição"; tom = "neutro";
+        longa = `Sem dividendo recorrente o Bazin não dá teto. Ainda não há níveis calculados para este papel — ${t?.fonte ? esc(t.fonte) : "aguardando o cálculo automático."}`;
+      } else if (tendencia === "baixa" || (abaixoMM200 && noSuporte)) {
+        curta = temPosicao ? `Reduzir se perder ${curto(sup, m)}` : "Não entrar: tendência de baixa"; tom = "ruim";
+        longa = `Fora do Bazin. Tendência de baixa${mm200 !== null ? ` (abaixo da MM200 de ${curto(mm200, m)})` : ""}. ${temPosicao ? `Mantenha só enquanto o suporte de ${curto(sup, m)} segurar; fechamento abaixo dele é sinal de reduzir.` : "Sem posição: não é hora de iniciar."}`;
+      } else if (naResistencia) {
+        curta = temPosicao ? `Manter; realizar parte em ${curto(res, m)}` : "Aguardar recuo"; tom = "atencao";
+        longa = `Fora do Bazin. Preço testando a resistência de ${curto(res, m)}${tendencia === "alta" ? " em tendência de alta" : ""}. ${temPosicao ? "Realizar uma parte aqui é prudente; o resto fica com stop no suporte." : "Não é ponto de entrada: espere recuo ao suporte."}${stop}`;
+      } else {
+        curta = temPosicao ? `Manter; stop em ${curto(sup, m)}` : (tendencia === "alta" ? `Entrada só no suporte ${curto(sup, m)}` : "Aguardar"); tom = temPosicao ? "neutro" : "atencao";
+        longa = `Fora do Bazin. Tendência ${tendencia}${mm200 !== null ? `, MM200 em ${curto(mm200, m)}` : ""}. ${temPosicao ? `Manter enquanto acima de ${curto(sup, m)}${res !== null ? `; próxima resistência em ${curto(res, m)}` : ""}.` : `Se for entrar, é no suporte de ${curto(sup, m)}, nunca no meio da faixa.`}`;
+      }
+    }
+    return { curta, longa, tom, noSuporte, naResistencia, abaixoMM200 };
+  }
+
+  /* ------------------------------------------------------------ desenho */
+  const ROTULO_FAROL = { "compra-forte": "Compra forte", compra: "Compra", manter: "Manter", reduzir: "Reduzir", fora: "Fora do método" };
+
+  function medidor(gap) {
+    if (gap === null) return '<div class="medidor"><div class="trilho"></div><span class="legenda">sem preço-teto</span></div>';
+    const limite = 50, larg = Math.min(Math.abs(gap), limite) / limite * 50;
+    const lado = gap <= 0 ? "abaixo" : "acima";
+    const estilo = gap <= 0 ? `right:50%;width:${larg}%` : `left:50%;width:${larg}%`;
+    const texto = gap <= 0 ? `${pctSimples(Math.abs(gap))} abaixo do teto` : `${pctSimples(gap)} acima do teto`;
+    return `<div class="medidor"><div class="trilho"><div class="barra" data-lado="${lado}" style="${estilo}"></div></div><span class="legenda">${texto}</span></div>`;
+  }
+
+  const nivelConfianca = (n) => (n >= 7 ? "alta" : n >= 6 ? "media" : "baixa");
+  const pontos = (n) => '<span class="pontos">' + Array.from({ length: 10 }, (_, i) => `<i class="${i < n ? "on" : ""}"></i>`).join("") + "</span>";
+  const selo = (n) => `<span class="confianca" data-nivel="${nivelConfianca(n)}">${pontos(n)} confiança ${n}/10</span>`;
+
+  function blocoLeitura(l) {
+    const t = l.tecnica, m = l.moeda;
+    if (!t) return '<div class="leitura"><p>Sem leitura gráfica para este ativo.</p></div>';
+    const nivel = (v) => (v === null || v === undefined ? "—" : curto(v, m));
+    const base = (arr) => (arr && arr.length ? ` <small style="color:var(--ink-3)">(${arr.join(" + ")})</small>` : "");
+    const tend = { alta: "alta ↗", baixa: "baixa ↘", lateral: "lateral →" }[t.tendencia] ?? t.tendencia;
+    return `<div class="leitura">
+      <p><strong>${esc(l.reco.curta)}.</strong> ${l.reco.longa}</p>
+      <dl class="niveis-grid">
+        <div><dt>Suporte</dt><dd>${nivel(t.suporte)}${base(t.suporteBase)}</dd></div>
+        <div><dt>Resistência</dt><dd>${nivel(t.resistencia)}${base(t.resistenciaBase)}</dd></div>
+        <div><dt>Tendência</dt><dd>${tend}</dd></div>
+        <div><dt>MM21</dt><dd>${nivel(t.mm21)}</dd></div>
+        <div><dt>MM200</dt><dd>${nivel(t.mm200)}</dd></div>
+        <div><dt>POC</dt><dd>${nivel(t.poc)}</dd></div>
+        <div><dt>Value Area</dt><dd>${t.val != null ? `${nivel(t.val)} – ${nivel(t.vah)}` : "—"}</dd></div>
+        <div><dt>52 semanas</dt><dd>${t.min52 != null ? `${nivel(t.min52)} – ${nivel(t.max52)}` : "—"}</dd></div>
+      </dl>
+      <p>${selo(t.confianca ?? 3)} · origem <strong>${esc(t.origem ?? "—")}</strong>${t.ts ? ` · ${new Date(t.ts).toLocaleDateString("pt-BR")}` : ""}</p>
+      <p style="font-size: 14px">${esc(t.fonte ?? "")}</p>
+    </div>`;
+  }
+
+  function blocoAjuste(l) {
+    const m = l.moeda, tk = l.ticker;
+    const ops = edicao.operacoes.filter((o) => o.ticker === tk).slice(0, 8);
+    const listaOps = ops.length
+      ? `<ul class="operacoes">${ops.map((o) => `<li>
+          <span class="tipo" data-t="${o.tipo}">${o.tipo === "compra" ? "COMPRA" : o.tipo === "venda" ? "VENDA" : "AJUSTE"}</span>
+          <span class="desc">${o.tipo === "ajuste" ? `qtd ${o.qtd.toLocaleString("pt-BR")} · PM ${curto(o.preco, m)}` : `${o.qtd.toLocaleString("pt-BR")} × ${curto(o.preco, m)}`} · ${o.data}${o.realizado !== null && o.realizado !== undefined ? ` · realizado <span class="${o.realizado >= 0 ? "pos" : "neg"}">${dinheiro(o.realizado, m, true)}</span>` : ""}</span>
+        </li>`).join("")}</ul>`
+      : '<p style="margin:8px 0 0;font-size: 14px;color:var(--ink-3)">Nenhuma operação registrada. A posição vem da planilha.</p>';
+
+    return `<div class="ajuste" data-ajuste="${tk}">
+      <div>
+        <h5>Posição atual${l.editada ? " · editada" : " · planilha"}</h5>
+        <div class="formulario">
+          <label>Quantidade <input class="entrada" type="number" step="any" min="0" name="qtd" value="${l.qtd}"></label>
+          <label>Preço médio <input class="entrada" type="number" step="0.01" min="0" name="pm" value="${l.pm.toFixed(2)}"></label>
+          <button class="acao" type="button" data-acao="corrigir">Corrigir</button>
+          ${l.editada ? '<button class="acao perigo" type="button" data-acao="restaurar">Voltar à planilha</button>' : ""}
+          <button class="acao perigo" type="button" data-acao="excluir" data-passo="1">Excluir do painel</button>
+        </div>
+        ${listaOps}
+      </div>
+      <div>
+        <h5>Registrar operação</h5>
+        <div class="formulario">
+          <label>Tipo
+            <select name="tipo"><option value="compra">Compra</option><option value="venda">Venda</option></select>
+          </label>
+          <label>Quantidade <input class="entrada" type="number" step="any" min="0" name="opQtd" placeholder="0"></label>
+          <label>Preço <input class="entrada" type="number" step="0.01" min="0" name="opPreco" value="${l.preco.toFixed(2)}"></label>
+          <label>Data <input class="entrada" type="date" name="opData" value="${hoje()}"></label>
+          <button class="acao primaria" type="button" data-acao="registrar">Registrar</button>
+          <span class="previa" data-previa></span>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function detalhe(l) {
+    const f = l.f;
+    const ind = f.indicadores.map((i) => `<div><dt>${esc(i.k)}</dt><dd>${esc(i.v)}${i.d ? `<small>${esc(i.d)}</small>` : ""}</dd></div>`).join("");
+    const memoria = f.bazin.aplicavel
+      ? `<div class="memoria">
+          <div class="conta">${dinheiro(l.dpa, l.moeda, true)} ÷ ${pctSimples(estado.yield * 100)} = <strong>${l.teto ? dinheiro(l.teto, l.moeda, true) : "—"}</strong></div>
+          <p>${esc(f.bazin.dpa12mNota)}</p>
+          <p><strong>Base usada agora:</strong> ${estado.base === "doze" ? "DPA cheio dos últimos 12 meses" : "DPA recorrente"} — ${esc(f.bazin.premissa)}</p>
+          <p>${selo(f.bazin.confianca)}</p>
+          <p style="font-size: 14px">${esc(f.bazin.confiancaNota)}</p>
+        </div>`
+      : `<div class="memoria"><p>${esc(f.bazin.dpa12mNota)}</p><p><strong>${esc(f.bazin.premissa)}</strong></p></div>`;
+    const noticias = f.noticias.length
+      ? `<ul class="noticias">${f.noticias.map((n) => `<li><span class="data">${esc(n.data)}</span><a href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titulo)}</a></li>`).join("")}</ul>`
+      : '<p class="resultado-txt">Sem notícias específicas levantadas para este ativo.</p>';
+
+    return `<div class="detalhe">
+      <div class="inteira bloco" style="margin-top:0">
+        <h4>Ajustar posição</h4>
+        ${blocoAjuste(l)}
+      </div>
+      <div>
+        <div class="bloco" style="margin-top:0">
+          <h4>Leitura gráfica e recomendação</h4>
+          ${blocoLeitura(l)}
+        </div>
+        <div class="bloco">
+          <h4>Último resultado divulgado${f.ultimoResultado.periodo !== "n/a" ? ` — ${esc(f.ultimoResultado.periodo)}` : ""}${f.ultimoResultado.data ? ` · ${esc(f.ultimoResultado.data)}` : ""}</h4>
+          <p class="resultado-txt">${esc(f.ultimoResultado.resumo)}</p>
+        </div>
+        <div class="bloco">
+          <h4>Números do trimestre</h4>
+          <dl class="indicadores">${ind}</dl>
+        </div>
+      </div>
+      <div>
+        <div class="bloco" style="margin-top:0">
+          <h4>Memória do cálculo Bazin</h4>
+          ${memoria}
+        </div>
+        <div class="bloco">
+          <h4>Destaques</h4>
+          <ul class="lista">${f.destaques.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
+        </div>
+        <div class="bloco">
+          <h4>Riscos</h4>
+          <ul class="lista">${f.riscos.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
+        </div>
+        <div class="bloco">
+          <h4>Últimas notícias e fontes</h4>
+          ${noticias}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function linhaHTML(l, comBazin) {
+    const f = l.f, t = l.tecnica, m = l.moeda;
+    const semPosicao = l.qtd === 0;
+    const resCor = l.resultado > 0 ? "pos" : l.resultado < 0 ? "neg" : "";
+    const tv = `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(f.tvSymbol)}`;
+    const niveis = t && (t.suporte !== null || t.resistencia !== null)
+      ? `Sup ${t.suporte !== null ? curto(t.suporte, m) : "—"} · Res ${t.resistencia !== null ? curto(t.resistencia, m) : "—"}${t.origem === "manual" ? " · manual" : ""}`
+      : "níveis pendentes";
+
+    const cotDia = cotacoes.cotacoes?.[l.ticker];
+    const variacao = typeof cotDia?.variacao === "number" ? cotDia.variacao : null;
+    const varCls = variacao === null ? "zero" : variacao > 0 ? "pos" : variacao < 0 ? "neg" : "zero";
+    const fonteCurta = (l.fonteCotacao || "").replace(/\s*\(.*\)$/, "");
+    const colunaCotacao = `<div class="celula cotacao">
+        <span class="rotulo">Cotação</span>
+        <span class="dado preco">${dinheiro(l.preco, m, true)}</span>
+        ${variacao === null ? "" : `<span class="var ${varCls}">${pct(variacao, 2)} no dia</span>`}
+        <span class="fonte">${l.defasado ? "defasada · " : ""}${esc(fonteCurta)}</span>
+      </div>`;
+
+    const colunaPosicao = semPosicao
+      ? `<div class="celula"><span class="rotulo">Posição</span><span class="dado" style="color:var(--ink-3)">sem posição</span></div>`
+      : `<div class="celula"><span class="rotulo">Posição</span><span class="dado grande">${dinheiro(l.valor, m)}</span><span class="rotulo suave">${l.qtd.toLocaleString("pt-BR")} ações</span></div>`;
+    const colunaResultado = semPosicao
+      ? `<div class="celula" data-opcional><span class="rotulo">PM histórico</span><span class="dado">${l.pm > 0 ? dinheiro(l.pm, m, true) : "—"}</span></div>`
+      : `<div class="celula" data-opcional><span class="rotulo">Não realizado</span><span class="dado grande ${resCor}">${pct(l.resultadoPct)}</span><span class="rotulo suave">PM ${dinheiro(l.pm, m, true)}</span></div>`;
+    const colunaBazin = comBazin
+      ? `<div class="celula"><span class="rotulo">Teto Bazin</span><span class="dado grande">${l.teto ? dinheiro(l.teto, m, true) : "—"}</span><span class="rotulo suave">DY ${l.dpa > 0 ? pctSimples(l.dy) : "0%"}</span></div>
+         <div class="celula" data-opcional>${medidor(l.gap)}</div>`
+      : `<div class="celula"><span class="rotulo">Tendência</span><span class="dado grande">${{ alta: "alta ↗", baixa: "baixa ↘", lateral: "lateral →" }[t?.tendencia] ?? "—"}</span><span class="rotulo suave">${t?.mm200 != null ? `MM200 ${curto(t.mm200, m)}` : esc(f.setor)}</span></div>
+         <div class="celula" data-opcional><span class="rotulo">Setor</span><span class="dado" style="font-family:var(--sans);font-size: 14px">${esc(f.setor)}</span></div>`;
+
+    return `<details class="linha" data-farol="${l.farol}" data-ticker="${l.ticker}">
+      <summary>
+        <div class="identidade">
+          <span class="tk">${l.ticker}</span>
+          <span class="nm">${esc(f.nome)}</span>
+          ${l.editada ? '<span class="editada">posição editada</span>' : ""}
+        </div>
+        ${colunaCotacao}
+        ${colunaPosicao}
+        ${colunaResultado}
+        ${colunaBazin}
+        <div class="celula"><span class="farol" data-f="${l.farol}"><span class="luz"></span>${ROTULO_FAROL[l.farol]}</span></div>
+        <div class="celula larga grafico">
+          <div class="grafico-topo">
+            <a class="grafico-link" href="${tv}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 9.5 4 5.5l2.4 2L11 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Análise gráfica
+            </a>
+            <span class="niveis">${niveis}</span>
+          </div>
+          <span class="reco" data-tom="${l.reco.tom}">${esc(l.reco.curta)}</span>
+        </div>
+        <svg class="chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      ${detalhe(l)}
+    </details>`;
+  }
+
+  function tiles(linhas) {
+    const cambio = cotacoes.cambio?.USDBRL?.valor ?? fundamentos.cambioRef.valor;
+    const br = linhas.filter((l) => l.moeda === "BRL");
+    const us = linhas.filter((l) => l.moeda === "USD");
+    const valorBR = br.reduce((s, l) => s + l.valor, 0);
+    const custoBR = br.reduce((s, l) => s + l.custo, 0);
+    const acoesUS = us.filter((l) => GRUPOS.us.includes(l.ticker)).reduce((s, l) => s + l.valor, 0);
+    const etfUS = us.filter((l) => GRUPOS.etf.includes(l.ticker)).reduce((s, l) => s + l.valor, 0);
+    const rendaBR = br.reduce((s, l) => s + l.rendaAno, 0);
+    const resBR = valorBR - custoBR;
+    const resBRPct = custoBR > 0 ? (valorBR / custoBR - 1) * 100 : 0;
+    const total = valorBR + (acoesUS + etfUS) * cambio;
+    const realizado = edicao.operacoes.filter((o) => o.tipo === "venda" && GRUPOS.br.includes(o.ticker)).reduce((s, o) => s + (o.realizado ?? 0), 0);
+
+    const t = [
+      { r: "Carteira brasileira", v: fmt.BRL.format(valorBR), a: `${br.filter((l) => l.qtd > 0).length} ativos com posição` },
+      { r: "Resultado não realizado", v: pct(resBRPct), a: `${fmt.BRL.format(resBR)} sobre custo de ${fmt.BRL.format(custoBR)}`, cls: resBR >= 0 ? "pos" : "neg" },
+      { r: "Realizado em vendas (BR)", v: fmt.BRL.format(realizado), a: edicao.operacoes.length ? `${edicao.operacoes.length} operações registradas` : "nenhuma venda registrada", cls: realizado > 0 ? "pos" : realizado < 0 ? "neg" : "" },
+      { r: "Ações internacionais", v: fmt.USD.format(acoesUS), a: "NVDA · PLTR · TSLA" },
+      { r: "ETFs de índice", v: fmt.USD.format(etfUS), a: "SPY · VUAA — mesmo índice" },
+      { r: "Patrimônio consolidado", v: fmt.BRL.format(total), a: `a USD/BRL ${cambio.toFixed(4).replace(".", ",")}` },
+      { r: "Renda projetada 12m", v: fmt.BRL.format(rendaBR), a: `dividendos BR na base ${estado.base === "doze" ? "cheia" : "recorrente"}` },
+    ];
+    return t.map((x) => `<div class="tile"><span class="rotulo">${x.r}</span><span class="valor ${x.cls ?? ""}">${x.v}</span><span class="apoio">${x.a}</span></div>`).join("");
+  }
+
+  function carimbo() {
+    const d = new Date(cotacoes.atualizadoEm);
+    const legivel = Number.isNaN(d.getTime()) ? cotacoes.atualizadoEm : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+    const fontes = [...new Set(Object.values(cotacoes.cotacoes || {}).map((c) => c.fonte))];
+    const aoVivo = cotacoes.origem && cotacoes.origem !== "snapshot-inicial";
+    const pulso = document.getElementById("pulso");
+    pulso.dataset.estado = aoVivo ? "vivo" : "snapshot";
+    pulso.textContent = aoVivo ? "Cotações automáticas" : "Snapshot da planilha";
+    document.getElementById("carimbo-quando").textContent = `Preços de ${legivel} · ${fontes.join(", ")}`;
+    const c = cotacoes.cambio?.USDBRL;
+    document.getElementById("carimbo-cambio").textContent = c ? `USD/BRL ${c.valor.toFixed(4).replace(".", ",")} · ${c.fonte}` : "";
+    const n = Object.keys(edicao.posicoes).length + edicao.ocultos.length;
+    const quando = edicao.atualizadoEm ? new Date(edicao.atualizadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "";
+    document.getElementById("carimbo-carteira").textContent =
+      n === 0 ? "Carteira: planilha de 06/09/2026, sem edições"
+      : origemCarteira === "nuvem" ? `Carteira: ${n} posições editadas · sincronizada na nuvem · ${quando}`
+      : `Carteira: ${n} posições editadas · salva neste aparelho · ${quando}`;
+    document.getElementById("rodape-quando").textContent = `Preços de ${legivel}`;
+  }
+
+  const INVERSOS = new Set(["vix", "vxewz", "dxy", "us10", "brl"]); // alta = aversão a risco
+
+  function medidorSVG(score, cor) {
+    const min = -10, max = 10, cx = 120, cy = 112, r = 96;
+    const ang = (v) => Math.PI - ((v - min) / (max - min)) * Math.PI;
+    const pt = (v, rad) => `${(cx + rad * Math.cos(ang(v))).toFixed(1)},${(cy - rad * Math.sin(ang(v))).toFixed(1)}`;
+    const arco = (a, b, cls) => `<path d="M${pt(a, r)} A${r},${r} 0 0 1 ${pt(b, r)}" fill="none" stroke="var(--${cls})" stroke-width="14" stroke-linecap="butt"/>`;
+    const s = Math.max(min, Math.min(max, score));
+    const ponta = pt(s, r - 16).split(","), base1 = `${cx - 4},${cy}`, base2 = `${cx + 4},${cy}`;
+    return `<svg class="medidor-svg" viewBox="0 0 240 132" role="img" aria-label="Termômetro de risco: ${s} em escala de -10 a 10">
+      ${arco(-10, -2, "ruim")}${arco(-2, 2, "atencao")}${arco(2, 10, "bom")}
+      <text x="18" y="128" font-size="10" fill="var(--ink-3)">risk-off</text>
+      <text x="222" y="128" font-size="10" fill="var(--ink-3)" text-anchor="end">risk-on</text>
+      <polygon points="${base1} ${ponta[0]},${ponta[1]} ${base2}" fill="var(--ink)"/>
+      <circle cx="${cx}" cy="${cy}" r="6" fill="var(--ink)"/>
+      <text x="${cx}" y="${cy - 26}" font-size="30" font-weight="700" text-anchor="middle" fill="var(--${cor === "neutro" ? "ink-2" : cor})">${s > 0 ? "+" : ""}${s}</text>
+    </svg>`;
+  }
+
+  function sparkSVG(serie) {
+    if (!serie || serie.length < 2) return "";
+    const w = 100, h = 30, mn = Math.min(...serie), mx = Math.max(...serie), amp = mx - mn || 1;
+    const px = (i) => (i / (serie.length - 1)) * w, py = (v) => h - 3 - ((v - mn) / amp) * (h - 6);
+    const pts = serie.map((v, i) => `${px(i).toFixed(1)},${py(v).toFixed(1)}`).join(" ");
+    const ult = serie.at(-1);
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+      <circle cx="${px(serie.length - 1).toFixed(1)}" cy="${py(ult).toFixed(1)}" r="2.2" fill="var(--accent)"/>
+    </svg>`;
+  }
+
+  function fmtValor(i) {
+    const v = i.valor;
+    if (!Number.isFinite(v)) return "—";
+    const n = v.toLocaleString("pt-BR", { minimumFractionDigits: i.casas ?? 2, maximumFractionDigits: i.casas ?? 2 });
+    if (i.unidade === "%") return `${n}%`;
+    if (i.unidade === "% a.a.") return `${n}% a.a.`;
+    return i.unidade === "pts" ? n : `${i.unidade} ${n}`;
+  }
+
+  function tileInd(i) {
+    const v = i.variacaoPct;
+    const bomParaBolsa = Number.isFinite(v) ? (INVERSOS.has(i.id) ? -v : v) : 0;
+    const cls = !Number.isFinite(v) || Math.abs(v) < 0.005 ? "zero" : bomParaBolsa > 0 ? "pos" : "neg";
+    const varTxt = Number.isFinite(v) ? `${v >= 0 ? "+" : ""}${v.toFixed(2).replace(".", ",")}%` : "—";
+    const pct = Number.isFinite(i.percentil1a) ? i.percentil1a : null;
+    return `<div class="ind" data-defasado="${Boolean(i.defasado)}" title="${esc(i.nome)} · ${esc(i.simbolo)}${INVERSOS.has(i.id) ? " · alta = aversão a risco" : ""}">
+      <span class="nome">${esc(i.nome)}${INVERSOS.has(i.id) ? " ↑=risco" : ""}</span>
+      <div class="linha-v"><span class="v">${fmtValor(i)}</span><span class="var ${cls}">${varTxt}</span></div>
+      ${sparkSVG(i.serie30)}
+      ${pct !== null ? `<div class="faixa"><i style="left:${pct}%"></i></div><div class="rodape"><span>mín 1a</span><span>percentil ${pct}</span><span>máx 1a</span></div>` : ""}
+    </div>`;
+  }
+
+  function desenharTermometro() {
+    const el = document.getElementById("termometro");
+    const t = termometro;
+    if (!t || !t.indicadores || !t.indicadores.length) {
+      el.innerHTML = `<div class="topo-t"><h2>Termômetro do dia</h2><span class="quando-t">aguardando a primeira coleta das 7h</span></div>`;
+      return;
+    }
+    const d = new Date(t.atualizadoEm);
+    const quando = Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const grupo = (g, titulo) => `<div class="grupo-ind"><h3>${titulo}</h3><div class="indicadores-grid">${t.indicadores.filter((i) => i.grupo === g).map(tileInd).join("")}</div></div>`;
+    const lista = (arr) => arr.length ? `<ul>${arr.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>` : "<ul><li>—</li></ul>";
+    const defasados = t.indicadores.filter((i) => i.defasado).length;
+    const pref = (k, padrao) => { try { const v = localStorage.getItem(k); return v === null ? padrao : v === "1"; } catch { return padrao; } };
+    const mostrarGraficos = pref("radar-bazin.termometro.graficos", true);
+    const mostrarManchetes = pref("radar-bazin.termometro.manchetes", true);
+    const ms = t.manchetes ?? [];
+    const quandoM = (iso) => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }); };
+    const blocoManchetes = mostrarManchetes
+      ? `<div class="manchetes"><div class="cab"><h3>Manchetes internacionais${ms.some((m) => m.defasada) ? " (leitura anterior)" : ""}</h3><button type="button" class="fechar" data-toggle="manchetes">Fechar</button></div>
+          ${ms.length ? `<ol>${ms.map((m) => `<li><a href="${esc(m.link)}" target="_blank" rel="noopener noreferrer">${esc(m.titulo)}</a><span class="meta">${esc(m.fonte)}${m.publicadoEm ? ` · ${quandoM(m.publicadoEm)}` : ""}</span></li>`).join("")}</ol>` : `<p style="margin:0;font-size:14px;color:var(--ink-3)">Nenhuma manchete coletada nesta leitura.</p>`}</div>`
+      : "";
+    el.innerHTML = `
+      <div class="topo-t"><h2>Termômetro do dia</h2>
+        <div class="acoes-t"><span class="quando-t">leitura de ${quando}${defasados ? ` · ${defasados} indicador(es) com dado anterior` : ""}</span>
+          <button type="button" class="fechar" data-toggle="graficos">${mostrarGraficos ? "Fechar gráficos" : "Mostrar gráficos"}</button>
+          ${mostrarManchetes ? "" : `<button type="button" class="fechar" data-toggle="manchetes">Mostrar manchetes</button>`}
+        </div></div>
+      <div class="leitura-dia">
+        <div>${medidorSVG(t.score, t.cor)}</div>
+        <div>
+          <span class="nivel" data-cor="${esc(t.cor)}"><span class="luz"></span>${esc(t.nivel)}</span>
+          <p class="frase-dia">${esc(t.frase)}</p>
+          <p class="vies">Ibovespa na abertura: <strong data-v="${esc(t.vies?.ibovespa)}">${esc(t.vies?.ibovespa ?? "—")}</strong>. ${esc(t.vies?.texto ?? "")}<br>Wall Street na abertura: <strong data-v="${esc(t.vies?.eua ?? "indefinido")}">${esc(t.vies?.eua ?? "—")}</strong>. ${esc(t.vies?.textoEua ?? "")}</p>
+          <div class="motivos">
+            <div><h5 class="pos">A favor</h5>${lista(t.motivos?.positivos ?? [])}</div>
+            <div><h5 class="neg">Contra</h5>${lista(t.motivos?.negativos ?? [])}</div>
+            <div><h5 class="neu">Neutros</h5>${lista(t.motivos?.neutros ?? [])}</div>
+          </div>
+        </div>
+      </div>
+      ${blocoManchetes}
+      ${mostrarGraficos ? grupo("mundo", "Mundo") + grupo("brasil", "Brasil") : ""}
+      <details><summary>Como o termômetro é calculado</summary><p>${esc(t.metodo ?? "")}</p><p>Nos indicadores marcados com "↑=risco" (VIX, VXEWZ, DXY, Treasury, dólar/real), a etiqueta fica vermelha quando sobem, porque alta neles é aversão a risco. Nos demais, verde é alta. A linha é o histórico de 30 pregões; a barra mostra onde o valor de hoje está na faixa de 1 ano.</p></details>`;
+  }
+
+
+  /* --------------------------------------------------- faixa farol Bazin */
+  function desenharFarolTopo(linhas) {
+    const el = document.getElementById("farol-topo");
+    const ordemFarol = { "compra-forte": 0, compra: 1, manter: 2, reduzir: 3, fora: 4 };
+    const txt = { "compra-forte": "compra forte", compra: "compra", manter: "manter", reduzir: "reduzir / venda", fora: "fora do método" };
+    const br = linhas.filter((l) => GRUPOS.br.includes(l.ticker)).sort((a, b) => ordemFarol[a.farol] - ordemFarol[b.farol] || b.valor - a.valor);
+    if (!br.length) { el.innerHTML = ""; return; }
+    el.innerHTML = `<span class="rotulo-f">Farol Bazin</span>` +
+      br.map((l) => `<span class="bandeira" data-f="${l.farol}" title="${esc(l.f.nome)} · ${l.teto ? `teto ${curto(l.teto, l.moeda)} · preço ${curto(l.preco, l.moeda)} (${pct(l.gap, 0)} do teto)` : "sem teto"}"><span class="luz"></span>${l.ticker} <small>${txt[l.farol]}</small></span>`).join("") +
+      `<span class="legenda-f">verde = comprar · amarelo = manter · vermelho = reduzir</span>`;
+  }
+
+  /* ---------------------------------------------- dividendos sintéticos (puts) */
+  function desenharOpcoes(linhas) {
+    const el = document.getElementById("opcoes");
+    const o = opcoes;
+    const pref = (k, padrao) => { try { const v = localStorage.getItem(k); return v === null ? padrao : v === "1"; } catch { return padrao; } };
+    const aberto = pref("radar-bazin.opcoes.painel", true);
+    if (!o || !o.ativos) {
+      el.innerHTML = `<div class="topo-t"><h2>Dividendos sintéticos — venda de put</h2><span class="quando-t">aguardando a primeira coleta da cadeia de opções</span></div>`;
+      return;
+    }
+    const d = new Date(o.atualizadoEm);
+    const quando = Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const cab = `<div class="topo-t"><h2>Dividendos sintéticos — venda de put</h2>
+      <div class="acoes-t"><span class="quando-t">cadeia de ${quando}</span>
+        <button type="button" class="fechar" data-toggle-opcoes="painel">${aberto ? "Fechar painel" : "Mostrar painel"}</button></div></div>`;
+    if (!aberto) { el.innerHTML = cab; return; }
+
+    const porTicker = Object.fromEntries(linhas.map((l) => [l.ticker, l]));
+    const visiveis = Object.entries(o.ativos).filter(([t]) => porTicker[t] && GRUPOS.br.includes(t)); // só nacionais, respeitando exclusões
+    const comPut = visiveis.filter(([, a]) => a.candidatas?.length && a.melhor).sort((a, b) => (b[1].candidatas[0]?.nota ?? 0) - (a[1].candidatas[0]?.nota ?? 0));
+    const semPut = visiveis.filter(([, a]) => !(a.candidatas?.length && a.melhor));
+    const moedaDe = (t) => porTicker[t]?.moeda ?? "BRL";
+    const preco = (v, m) => v == null ? "—" : curto(v, m);
+    const dataBr = (iso) => { const [a, me, di] = iso.split("-"); return `${di}/${me}`; };
+    const sinalTxt = { vender: "vender", limitar: "só no limite", "sem-preco": "sem preço" };
+    const sinalCurto = { vender: "vender", limitar: "limite", "sem-preco": "teórico" };
+    const classeTxt = { boa: "boa", aceitavel: "aceitável", evitar: "evitar" };
+    const farolTxt = { "compra-forte": "compra forte", compra: "compra", manter: "manter", reduzir: "reduzir", fora: "fora do método" };
+    // séries dos EUA vêm como "NVDA 2026-10-30 P205": na tabela basta "P205"
+    const codCurto = (t, cod) => cod.startsWith(t + " ") ? cod.replace(t + " ", "").replace(/^\d{4}-\d{2}-\d{2} /, "") : cod;
+
+    const cartao = (t, a) => {
+      const m = moedaDe(t);
+      const l = porTicker[t];
+      const melhor = a.candidatas.find((c) => c.codigo === a.melhor) ?? a.candidatas[0];
+      const outras = a.candidatas.filter((c) => c !== melhor).slice(0, 5);
+      const ultimoTxt = melhor.ultimo == null ? "—" : curto(melhor.ultimo, m);
+      const refUltimo = melhor.ultimo == null ? "sem negócio recente" : (melhor.intradiario ? "negócio de hoje" : `último negócio${a.referencia?.negociacao ? ` (${dataBr(a.referencia.negociacao)})` : ""}`);
+      const midTxt = melhor.mid != null ? ` · book ${curto(melhor.bid, m)} / ${curto(melhor.ask, m)}` : "";
+      return `<div class="cartao-op">
+        <div class="cab-op"><span class="tk">${esc(t)} ${l ? `<span class="farol" data-f="${l.farol}"><span class="luz"></span>${farolTxt[l.farol] ?? l.farol}</span>` : ""}</span><span class="spot">à vista <b>${curto(a.spot, m)}</b></span></div>
+        <div class="meta-op">
+          <span>vol. 21d ${pctSimples(a.vol21, 0)}${a.vol63 ? ` (63d ${pctSimples(a.vol63, 0)})` : ""}</span>
+          ${a.teto ? `<span>teto Bazin ${curto(a.teto, m)}</span>` : ""}
+          ${a.suporte ? `<span>suporte ${curto(a.suporte, m)}</span>` : ""}
+          <span>taxa ${pctSimples(a.taxa, 2)} · meta ${pctSimples(melhor.alvoAnual, 1)} a.a.</span>
+        </div>
+        <div class="melhor-put">
+          <div class="serie">
+            <span class="cod">${esc(melhor.codigo)} <small>strike ${curto(melhor.strike, m)} (${pctSimples(melhor.otm, 1)} abaixo) · vence ${dataBr(melhor.vencimento)} (${melhor.dias} dias)</small></span>
+            <span class="sinal" data-s="${esc(melhor.sinal)}"><span class="luz"></span>${sinalTxt[melhor.sinal] ?? melhor.sinal}</span>
+          </div>
+          <div class="precos-put">
+            <div><div class="rot">Preço ideal de venda</div><div class="val ideal">${curto(melhor.ideal, m)}</div><div class="sub">limite da ordem · ${pctSimples(melhor.yieldIdealAnual, 1)} a.a. sobre o caixa</div></div>
+            <div><div class="rot">Último preço de mercado</div><div class="val">${ultimoTxt}</div><div class="sub">${esc(refUltimo)}${midTxt}</div></div>
+          </div>
+          <dl class="metricas-put">
+            <div><dt>Prêmio</dt><dd>${pctSimples(melhor.yieldPeriodo, 2)} <small>no período</small></dd></div>
+            <div><dt>Anualizado</dt><dd>${pctSimples(melhor.yieldAnual, 1)} <small>a.a.</small></dd></div>
+            <div><dt>Prob. exercício</dt><dd>${melhor.probExercicio == null ? "—" : pctSimples(melhor.probExercicio, 0)} <small>δ ${melhor.delta ?? "—"}</small></dd></div>
+            <div><dt>Caixa por lote</dt><dd>${dinheiro(melhor.caixaPorLote, m)} <small>${a.lote} ações</small></dd></div>
+            <div><dt>Prêmio por lote</dt><dd>${dinheiro(melhor.premioPorLote, m, true)}</dd></div>
+            <div><dt>Break-even</dt><dd>${curto(melhor.breakeven, m)}</dd></div>
+            <div><dt>Liquidez</dt><dd>${melhor.negocios != null ? `${melhor.negocios} neg.` : melhor.aberto != null ? `${melhor.aberto} aberto` : "—"}${melhor.volume != null && melhor.aberto != null ? ` <small>vol ${melhor.volume}</small>` : ""}</dd></div>
+            <div><dt>Nota</dt><dd><span class="nota-put" data-c="${esc(melhor.classe)}">${melhor.nota} · ${classeTxt[melhor.classe]}</span></dd></div>
+          </dl>
+          ${melhor.motivos?.length ? `<ul class="motivos-put">${melhor.motivos.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        </div>
+        ${outras.length ? `<div class="rolagem"><table class="alternativas">
+          <thead><tr><th>Série</th><th>Vence</th><th class="num">Strike</th><th class="num">Último</th><th class="num">Ideal</th><th>Sinal</th><th class="num">a.a.</th><th class="num">P(ex.)</th><th class="num">Neg.</th><th class="num">Nota</th></tr></thead>
+          <tbody>${outras.map((c) => `<tr><td class="cod">${esc(codCurto(t, c.codigo))}</td><td>${dataBr(c.vencimento)} <small>(${c.dias}d)</small></td><td class="num">${curto(c.strike, m)}</td><td class="num">${preco(c.ultimo, m)}</td><td class="num">${curto(c.ideal, m)}</td><td><span class="sinal" data-s="${esc(c.sinal)}">${sinalCurto[c.sinal] ?? c.sinal}</span></td><td class="num">${pctSimples(c.yieldAnual, 1)}</td><td class="num">${c.probExercicio == null ? "—" : pctSimples(c.probExercicio, 0)}</td><td class="num">${c.negocios ?? c.aberto ?? "—"}</td><td class="num"><span class="nota-put" data-c="${esc(c.classe)}">${c.nota}</span></td></tr>`).join("")}</tbody>
+        </table></div>` : ""}
+        ${a.obs ? `<p class="obs-op">${esc(a.obs)}</p>` : ""}
+        ${a.defasado ? `<p class="obs-op">Leitura anterior: a coleta de hoje falhou.</p>` : ""}
+      </div>`;
+    };
+
+    const taxaBR = o.taxas?.BR?.valor != null ? pctSimples(o.taxas.BR.valor * 100, 2) : "—";
+    el.innerHTML = cab + `
+      <p class="resumo-op"><span><b>Objetivo:</b> renda mensal vendendo put coberta por caixa em papel que você quer ter.</span><span><b>Taxa:</b> CDI ${taxaBR}</span><span><b>Meta:</b> prêmio ≥ taxa livre de risco sobre o caixa reservado (o caixa segue aplicado: a renda dobra)</span><span><b>Regras:</b> 15–60 dias · strike 3–15% abaixo · δ −0,10 a −0,35 · strike ≤ teto Bazin · ≥ 10 negócios no dia</span></p>
+      ${comPut.length ? `<div class="cartoes-op">${comPut.map(([t, a]) => cartao(t, a)).join("")}</div>` : `<p class="sem-op">Nenhuma put dentro das regras hoje.</p>`}
+      ${semPut.length ? `<p class="sem-op"><b>Sem put recomendável:</b> ${semPut.map(([t, a]) => `${esc(t)} (${esc(a.obs ?? (a.candidatas?.length ? "nenhuma série passa na liquidez mínima de 10 negócios" : "sem séries na janela"))})`).join(" · ")}</p>` : ""}
+      <details><summary>Como as puts são escolhidas e o que é o preço ideal</summary>
+        <p>${esc(o.objetivo ?? "")}</p>
+        <p><strong>Preço ideal de venda</strong> é o limite da sua ordem: ${esc(o.regras?.precoIdeal ?? "")}. <strong>Sinal</strong>: ${esc(o.regras?.sinal ?? "")}. O <strong>último preço de mercado</strong> é o último negócio da série (intradiário quando a B3 informa; senão o fechamento do dia de referência). A B3 não publica bid/ask de graça, então nas séries brasileiras o preço de mercado pode estar velho — confira o book no home broker antes de enviar a ordem.</p>
+        <p><strong>Nota (0–100)</strong>: retorno anualizado sobre o caixa frente à taxa (até 35), colchão até o strike (até 25), prazo (até 15), delta (até 10), liquidez (até 10) e coerência com a carteira (strike abaixo do teto Bazin e do suporte). Abaixo de 50 é "evitar". "Prob. exercício" é a probabilidade, pelo modelo, de o papel fechar abaixo do strike no vencimento — se acontecer, você compra as ações pelo strike, com o prêmio como desconto (break-even).</p>
+        <p><strong>Risco que o modelo não vê:</strong> a venda de put obriga a comprar 100 ações por lote se o papel cair abaixo do strike, mesmo num crash. Só venda o número de lotes que o caixa cobre por inteiro, em papel que você compraria de qualquer forma. Prêmio recebido é tributado como ganho de renda variável (opções não têm isenção de R$ 20 mil). Fontes: ${esc(Object.values(o.fontes ?? {}).join("; "))}; ${esc(o.taxas?.BR?.fonte ?? "")}.</p>
+      </details>`;
+  }
+
+  function desenhar() {
+    desenharTermometro();
+    const linhas = consolidar();
+    desenharFarolTopo(linhas);
+    desenharOpcoes(linhas);
+    document.getElementById("resumo").innerHTML = tiles(linhas);
+    const abertos = new Set([...document.querySelectorAll(".linha[open]")].map((e) => e.dataset.ticker));
+    const grupo = (chave, comBazin) => ordenar(linhas.filter((l) => GRUPOS[chave].includes(l.ticker))).map((l) => linhaHTML(l, comBazin)).join("");
+    const ocultosDe = (chave) => {
+      const lista = edicao.ocultos.filter((t) => GRUPOS[chave].includes(t) && basePlanilha[t]);
+      if (!lista.length) return "";
+      return `<div class="ocultos">Excluídos: ${lista.map((t) => `<span>${t} <button type="button" data-restaurar="${t}">restaurar</button></span>`).join(" · ")}</div>`;
+    };
+    document.getElementById("lista-br").innerHTML = grupo("br", true) + ocultosDe("br");
+    document.getElementById("lista-us").innerHTML = grupo("us", false) + ocultosDe("us");
+    document.getElementById("lista-etf").innerHTML = grupo("etf", false) + ocultosDe("etf");
+    for (const el of document.querySelectorAll(".linha")) if (abertos.has(el.dataset.ticker)) el.open = true;
+    carimbo();
+  }
+
+  /* ------------------------------------------------------------ eventos */
+  let toastTimer;
+  function aviso(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("visivel");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("visivel"), 2800);
+  }
+
+  const campoYield = document.getElementById("yield");
+  campoYield.addEventListener("input", () => {
+    estado.yield = Number(campoYield.value) / 100;
+    document.getElementById("yield-valor").textContent = pctSimples(Number(campoYield.value));
+    desenhar();
+  });
+  document.getElementById("base").addEventListener("change", (e) => { estado.base = e.target.value; desenhar(); });
+  document.getElementById("ordem").addEventListener("change", (e) => { estado.ordem = e.target.value; desenhar(); });
+  const botaoExpandir = document.getElementById("expandir");
+  botaoExpandir.addEventListener("click", () => {
+    const todos = [...document.querySelectorAll(".linha")];
+    const abrir = !todos.every((e) => e.open);
+    todos.forEach((e) => { e.open = abrir; });
+    botaoExpandir.textContent = abrir ? "Fechar todos os detalhes" : "Abrir todos os detalhes";
+  });
+
+  const folha = document.getElementById("folha-atualizar");
+  document.getElementById("atualizar").addEventListener("click", () => {
+    const d = new Date(cotacoes.atualizadoEm);
+    const quando = Number.isNaN(d.getTime()) ? cotacoes.atualizadoEm : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    const calc = Object.values(tecnica.ativos ?? {}).filter((t) => t.origem === "calculado").length;
+    const total = Object.keys(tecnica.ativos ?? {}).length;
+    document.getElementById("folha-estado").textContent =
+      `Preços de ${quando} (${cotacoes.origem === "snapshot-inicial" ? "snapshot da planilha" : "coleta automática"}) · níveis gráficos calculados em ${calc} de ${total} ativos.`;
+    if (typeof folha.showModal === "function") folha.showModal(); else folha.setAttribute("open", "");
+  });
+
+  document.getElementById("exportar").addEventListener("click", async () => {
+    const posicoes = Object.keys(basePlanilha).filter((tk) => !edicao.ocultos.includes(tk)).map((tk) => {
+      const p = posicaoAtual(tk);
+      return { ticker: tk, banco: p.banco, lotes: [{ qtd: p.qtd, pm: p.pm }] };
+    });
+    const saida = { atualizadoEm: hoje(), moedaBase: "BRL", observacoes: ["Exportado do painel; posições consolidadas em um lote por ativo."], lockup: carteira.lockup, operacoes: edicao.operacoes, posicoes };
+    const texto = JSON.stringify(saida, null, 2);
+    try { await navigator.clipboard.writeText(texto); aviso("Carteira copiada. Cole em data/carteira.json."); }
+    catch { window.prompt("Copie o JSON abaixo:", texto); }
+  });
+
+  // Delegação: formulários de ajuste dentro de cada linha
+  document.addEventListener("click", async (ev) => {
+    const botao = ev.target.closest("button[data-acao]");
+    if (!botao) return;
+    const caixa = botao.closest("[data-ajuste]");
+    if (!caixa) return;
+    ev.preventDefault();
+    const tk = caixa.dataset.ajuste;
+    const v = (nome) => Number(caixa.querySelector(`[name="${nome}"]`).value);
+
+    if (botao.dataset.acao === "corrigir") {
+      const qtd = v("qtd"), pm = v("pm");
+      if (!(qtd >= 0) || !(pm >= 0)) return aviso("Quantidade e preço médio precisam ser números.");
+      corrigirPosicao(tk, qtd, pm);
+      await persistir();
+      aviso(`${tk}: posição corrigida.`);
+    } else if (botao.dataset.acao === "restaurar") {
+      restaurarTicker(tk);
+      await persistir();
+      aviso(`${tk}: de volta à planilha.`);
+    } else if (botao.dataset.acao === "excluir") {
+      if (botao.dataset.passo === "1") {
+        botao.dataset.passo = "2";
+        botao.textContent = "Confirmar exclusão";
+        setTimeout(() => { if (botao.isConnected) { botao.dataset.passo = "1"; botao.textContent = "Excluir do painel"; } }, 5000);
+        return;
+      }
+      if (!edicao.ocultos.includes(tk)) edicao.ocultos.push(tk);
+      await persistir();
+      aviso(`${tk} saiu do painel. Dá para restaurar no fim da seção.`);
+    } else if (botao.dataset.acao === "registrar") {
+      const tipo = caixa.querySelector('[name="tipo"]').value;
+      const qtd = v("opQtd"), preco = v("opPreco");
+      const data = caixa.querySelector('[name="opData"]').value || hoje();
+      if (!(qtd > 0) || !(preco > 0)) return aviso("Informe quantidade e preço maiores que zero.");
+      const r = registrarOperacao(tk, tipo, qtd, preco, data);
+      if (r.erro) return aviso(r.erro);
+      await persistir();
+      const m = fundamentos.ativos[tk].moeda;
+      aviso(tipo === "compra" ? `${tk}: compra registrada.` : `${tk}: venda registrada, resultado ${dinheiro(r.realizado, m, true)}.`);
+    }
+  });
+
+  document.addEventListener("click", (ev) => {
+    const b = ev.target.closest("button[data-toggle]");
+    if (!b) return;
+    const chave = `radar-bazin.termometro.${b.dataset.toggle}`;
+    let atual = true;
+    try { const v = localStorage.getItem(chave); atual = v === null ? true : v === "1"; } catch { /* sem storage */ }
+    try { localStorage.setItem(chave, atual ? "0" : "1"); } catch { /* sem storage */ }
+    desenharTermometro();
+  });
+
+  document.addEventListener("click", (ev) => {
+    const b = ev.target.closest("button[data-toggle-opcoes]");
+    if (!b) return;
+    const chave = `radar-bazin.opcoes.${b.dataset.toggleOpcoes}`;
+    let atual = true;
+    try { const v = localStorage.getItem(chave); atual = v === null ? true : v === "1"; } catch { /* sem storage */ }
+    try { localStorage.setItem(chave, atual ? "0" : "1"); } catch { /* sem storage */ }
+    desenharOpcoes(consolidar());
+  });
+
+  document.addEventListener("click", async (ev) => {
+    const b = ev.target.closest("button[data-restaurar]");
+    if (!b) return;
+    edicao.ocultos = edicao.ocultos.filter((t) => t !== b.dataset.restaurar);
+    await persistir();
+    aviso(`${b.dataset.restaurar} voltou ao painel.`);
+  });
+
+  // Prévia do novo PM enquanto digita
+  document.addEventListener("input", (ev) => {
+    const caixa = ev.target.closest("[data-ajuste]");
+    if (!caixa || !["opQtd", "opPreco", "tipo"].includes(ev.target.name)) return;
+    const tk = caixa.dataset.ajuste, m = fundamentos.ativos[tk].moeda;
+    const tipo = caixa.querySelector('[name="tipo"]').value;
+    const qtd = Number(caixa.querySelector('[name="opQtd"]').value), preco = Number(caixa.querySelector('[name="opPreco"]').value);
+    const previa = caixa.querySelector("[data-previa]");
+    if (!(qtd > 0) || !(preco > 0)) { previa.textContent = ""; return; }
+    const atual = posicaoAtual(tk);
+    if (tipo === "compra") {
+      const nq = atual.qtd + qtd, npm = (atual.qtd * atual.pm + qtd * preco) / nq;
+      previa.textContent = `→ ${nq.toLocaleString("pt-BR")} ações, PM ${curto(npm, m)} (custo ${dinheiro(qtd * preco, m)})`;
+    } else {
+      const nq = atual.qtd - qtd, real = qtd * (preco - atual.pm);
+      previa.textContent = nq < 0 ? `você só tem ${atual.qtd.toLocaleString("pt-BR")}` : `→ ${nq.toLocaleString("pt-BR")} ações, PM mantido; resultado ${dinheiro(real, m, true)}`;
+    }
+  });
+  document.addEventListener("change", (ev) => {
+    if (ev.target.name === "tipo" && ev.target.closest("[data-ajuste]")) ev.target.dispatchEvent(new Event("input", { bubbles: true }));
+  });
+
+  /* --------------------------------------------------- inicialização */
+  const salvo = local.ler();
+  if (validaEdicao(salvo)) adotar(salvo, "local");
+  desenhar();
+
+  // Nuvem (db do claude.ai), quando o painel roda dentro de um artifact
+  (async () => {
+    try {
+      const use = window.claude?.use;
+      if (typeof use !== "function") return;
+      const db = await window.claude.use("db");
+      if (!db) return;
+      nuvem = db.doc("carteira/atual");
+      const snap = await nuvem.get();
+      const remoto = snap.exists ? snap.data() : null;
+      const tLocal = edicao.atualizadoEm ? Date.parse(edicao.atualizadoEm) : 0;
+      const tRemoto = remoto?.atualizadoEm ? Date.parse(remoto.atualizadoEm) : 0;
+      if (validaEdicao(remoto) && tRemoto >= tLocal) {
+        adotar(remoto, "nuvem"); local.gravar(edicao); desenhar();
+      } else if (tLocal > 0) {
+        ignorarSnapshot = true;
+        await nuvem.set(edicao); origemCarteira = "nuvem"; desenhar();
+        setTimeout(() => { ignorarSnapshot = false; }, 800);
+      } else {
+        origemCarteira = "nuvem"; carimbo();
+      }
+      nuvem.onSnapshot((s) => {
+        if (ignorarSnapshot || !s.exists) return;
+        const d = s.data();
+        if (validaEdicao(d) && d.atualizadoEm && d.atualizadoEm !== edicao.atualizadoEm) {
+          adotar(d, "nuvem"); local.gravar(edicao); desenhar();
+        }
+      }, () => { /* assinatura morreu: seguimos com o local */ });
+    } catch { /* sem nuvem: fica o local */ }
+  })();
+
+  // Cotações e níveis técnicos do repositório (GitHub Pages)
+  async function sincronizar() {
+    const pegar = async (nome) => {
+      const r = await fetch(`data/${nome}?t=${Date.now()}`, { cache: "no-store" });
+      return r.ok ? r.json() : null;
+    };
+    let mudou = false;
+    try {
+      const novo = await pegar("cotacoes.json");
+      if (novo?.cotacoes && Object.keys(novo.cotacoes).length && novo.atualizadoEm !== cotacoes.atualizadoEm) { cotacoes = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    try {
+      const novo = await pegar("tecnica.json");
+      if (novo?.ativos && Object.keys(novo.ativos).length && novo.atualizadoEm !== tecnica.atualizadoEm) { tecnica = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    try {
+      const novo = await pegar("opcoes.json");
+      if (novo?.ativos && novo.atualizadoEm !== opcoes?.atualizadoEm) { opcoes = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    try {
+      const novo = await pegar("termometro.json");
+      if (novo?.indicadores?.length && novo.atualizadoEm !== termometro?.atualizadoEm) { termometro = novo; mudou = true; }
+    } catch { /* fora do Pages */ }
+    if (mudou) desenhar();
+  }
+  sincronizar();
+  setInterval(sincronizar, 5 * 60 * 1000);
+})();
+</script>

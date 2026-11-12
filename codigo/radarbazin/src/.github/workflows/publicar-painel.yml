@@ -1,0 +1,33 @@
+# Publicação no GitHub Pages — DESATIVADA por padrão.
+# O repositório é privado e, no plano gratuito, Pages não publica repositório
+# privado (e o site publicado seria público de qualquer forma). O painel do dia
+# a dia é o Artifact no claude.ai, republicado pela rotina diária.
+# Este workflow fica só para acionamento manual, caso um dia o desenho mude.
+name: Publicar painel (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4

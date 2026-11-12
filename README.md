@@ -12,7 +12,7 @@ Vault do Obsidian e backup indexado, em Markdown, de tudo que foi feito no Claud
 | `claude/sessoes-code/AAAA-MM/` | Uma nota por sessão do Claude Code (local ou nuvem) | `.jsonl` + `npm run converter:sessao` |
 | `claude/artifacts/<slug>/` | `index.html` original + nota `.md` com texto extraído | `npm run importar:artifacts` |
 | `claude/skills/` | Pastas completas das skills (SKILL.md + referências) | copiadas de uma sessão do Claude Code |
-| `codigo/<repo>/` | `_repo.md` + todos os `.md` do repositório | `npm run importar:repos` |
+| `codigo/<repo>/` | `_repo.md` + **código-fonte completo** em `src/` (arquivos versionados do branch padrão; acima de 20 MB ficam só no GitHub) | `npm run importar:repos` |
 | `reunioes/` | Notas de reunião (Granola) | conector Granola |
 | `_raw/` | Fontes brutas e sem perdas: JSON do export, `.jsonl` das sessões, manifestos | você / scripts |
 
@@ -22,7 +22,7 @@ Toda nota tem frontmatter YAML com, no mínimo: `title`, `date`, `source`, `sour
 
 1. **Export do claude.ai (mensal, manual).** No claude.ai: Configurações → Privacidade → Exportar dados. Chega um e-mail com um `manifest-*.json` listando 9 zips (conversas, projetos, memória, design chats, dados de artifacts, tarefas agendadas, reflexões, metadados e frames). Baixe os zips pelos links do manifesto (expiram em 24 h, só logado) e coloque todos em `_raw/claude-export/AAAA-MM-DD/`. **Não suba `frames-*.zip`**: são capturas de tela com centenas de MB, acima do limite de 100 MB do GitHub; o `.gitignore` já os exclui. Faça commit; a Action converte tudo (ou rode `npm run converter:export`). O export **não** inclui transcrições das sessões do Claude Code, só as tarefas agendadas.
 2. **Sessões do Claude Code.** Veja `claude/sessoes-code/COMO-EXPORTAR.md`. Resumo: ao fim de cada sessão peça "exporte sua transcrição para o segundo-cerebro"; para sessões antigas, `claude --teleport <id>` e depois `npm run converter:sessao ~/.claude/projects/<pasta>/<id>.jsonl`.
-3. **Repositórios.** Liste-os em `codigo/repos.json`. A Action semanal copia os `.md` deles. Para repositórios privados, crie o secret `REPOS_TOKEN` (PAT fine-grained, só leitura de conteúdo).
+3. **Repositórios.** Liste-os em `codigo/repos.json`. A Action semanal espelha o código-fonte completo deles em `codigo/<repo>/src/`. Para repositórios privados, crie o secret `REPOS_TOKEN` (PAT fine-grained, só leitura de conteúdo).
 4. **Índices.** `npm run indices` regenera `00-index/`. A Action faz isso toda segunda-feira e em todo push em `_raw/`.
 
 ## Obsidian
