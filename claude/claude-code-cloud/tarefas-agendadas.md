@@ -1,6 +1,6 @@
 ---
 title: "Tarefas agendadas do Claude Code"
-date: 2026-11-12
+date: 2026-11-16
 source: "claude-routines"
 source_id: "claude_code_cloud"
 routines: 3

@@ -1,12 +1,12 @@
 ---
 title: "Código e documentação dos repositórios"
-generated: 2026-11-12
+generated: 2026-11-16
 count: 4
 tags: ["index"]
 ---
 # Código e documentação dos repositórios
 
-_4 notas · gerado em 2026-11-12 por scripts/gerar-indices.mjs_
+_4 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 
 | Data | Nota | URL |
 | --- | --- | --- |

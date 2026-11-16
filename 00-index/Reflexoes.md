@@ -1,12 +1,12 @@
 ---
 title: "Reflexões (Anthropic)"
-generated: 2026-11-12
+generated: 2026-11-16
 count: 2
 tags: ["index"]
 ---
 # Reflexões (Anthropic)
 
-_2 notas · gerado em 2026-11-12 por scripts/gerar-indices.mjs_
+_2 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 
 | Data | Nota |
 | --- | --- |

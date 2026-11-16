@@ -1,12 +1,12 @@
 ---
 title: "Início"
-generated: 2026-11-12
-total: 797
+generated: 2026-11-16
+total: 849
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_797 notas indexadas · gerado em 2026-11-12_
+_849 notas indexadas · gerado em 2026-11-16_
 
 ## Mapas de conteúdo
 
@@ -21,15 +21,15 @@ _797 notas indexadas · gerado em 2026-11-12_
 - [[00-index/Reflexoes|Reflexões (Anthropic)]] — 2
 - [[00-index/Rotinas|Tarefas agendadas e dados de artifacts]] — 4
 - [[00-index/Reunioes|Reuniões (Granola)]] — 0
-- [[00-index/Tags|Tags]] — 274
+- [[00-index/Tags|Tags]] — 311
 
 ## Recentes
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
+| 2026-11-16 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-12 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-12 | [[codigo/radarbazin1/_infra\|radarbazin1 · infraestrutura (Vercel + Neon)]] | github |
-| 2026-11-12 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-08 | [[claude/artifacts/radar-de-renovacoes/radar-de-renovacoes\|Radar de Renovações]] | claude-artifact |
 | 2026-11-05 | [[claude/artifacts/radar-bazin/radar-bazin\|Radar Bazin]] | claude-artifact |
 | 2026-11-02 | [[claude/projetos/obra-casa-4/claude-prompt-modelo-3d-md_711c33d0\|claude/prompt-modelo-3d.md]] | claude-project-doc |
