@@ -1,0 +1,12 @@
+{
+  "base": "config.json",
+  "titulo": "Nova América × NorteShopping",
+  "saida": "dist/nova-america-norteshopping.html",
+  "shoppings": ["norteshopping", "nova-america"],
+  "inicial": "nova-america",
+  "campos": [
+    {"chave": "setor", "rotulo": "Setor", "tipo": "texto", "agrupar": true, "fonte": "site"},
+    {"chave": "piso_fonte", "rotulo": "Origem do piso", "tipo": "texto"},
+    {"chave": "obs", "rotulo": "Observação", "tipo": "texto"}
+  ]
+}

@@ -1,0 +1,93 @@
+{
+ "empresa": "International Meal Company Alimentação S.A. (IMC)",
+ "ticker": "MEAL3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://www.infomoney.com.br/mercados/imc-meal3-resultados-quarto-trimestre-2025/",
+ "marcas": [
+  {
+   "marca": "Pizza Hut (master-franqueada no Brasil)",
+   "nomes_no_arquivo": [
+    "PIZZA HUT"
+   ],
+   "url": "https://www.infomoney.com.br/mercados/imc-meal3-resultados-quarto-trimestre-2025/",
+   "trecho": "O grupo, que controla redes de fastfood no Brasil como Pizza Hut e Frango Assado, teve queda na receita líquida de 5,4% para R$ 397,2 milhões"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 397200000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (KFC fora da base)",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/imc-meal3-resultados-quarto-trimestre-2025/",
+   "trecho": "teve queda na receita líquida de 5,4% para R$ 397,2 milhões"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "4T25 (dez/2025)",
+   "valor": 357,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada, sem KFC",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/imc-meal3-resultados-quarto-trimestre-2025/",
+   "trecho": "O grupo encerrou dezembro com 357 lojas em operação já excluindo as unidades do KFC da base consolidada, redução líquida de 26 unidades em relação ao mesmo período do ano anterior, segundo a companhia."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T26",
+   "valor": 356600000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://guiadoinvestidor.com.br/?p=384224",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A IMC reportou receita líquida de R$ 356,6 milhões, queda de 7,9%."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T26",
+   "valor": 44700000,
+   "unidade": "R$",
+   "escopo": "marca Pizza Hut",
+   "publicado": true,
+   "url": "https://guiadoinvestidor.com.br/?p=384224",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Por marca, a Frango Assado somou R$ 156,2 milhões (-4,4%) e a Pizza Hut R$ 44,7 milhões (+6,7%)."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "1T26",
+   "valor": 354,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada, sem KFC",
+   "publicado": true,
+   "url": "https://guiadoinvestidor.com.br/?p=384224",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A companhia fechou o trimestre com 354 lojas em operação, já excluindo as unidades do KFC da base consolidada."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 420000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://acionista.com.br/imc-meal3-resultados-do-2t26-desempenho-e-estrategias/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A receita líquida totalizou R$ 420 milhões, representando uma queda de 9% em relação ao 2T25."
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "KFC (nome 'KFC' presente no arquivo) NÃO deve ser cruzado com a IMC: em jun/2025 a IMC vendeu 58,3% da operação à Kentucky Foods Chile (JV Horizonte Restaurantes) e em dez/2025 anunciou a venda da participação total remanescente (R$ 137 milhões) - fontes: https://mercadoeconsumo.com.br/30/12/2025/foodservice/imc-vende-participacao-total-no-kfc-brasil-para-a-kentucky-foods-chile/ e https://gironews.com/food-service/kentucky-foods-chile-compra-a-participacao-total-no-kfc-brasil-da-imc-avaliada-em-r-137-milhoes/ (resumo de busca). A Kentucky Foods Chile não é listada.",
+  "Receita anual 2025: página de dados de mercado indica R$ 1,73 bi, que não bate com a soma dos trimestres (reclassificação do KFC); não gravada.",
+  "URL dos números do 1T26 é a mais provável entre os resultados da busca, não confirmada."
+ ],
+ "nao_encontrado": [
+  "Receita líquida anual de 2025 em fonte oficial",
+  "Resultado do 3T26 (não apareceu nas buscas)",
+  "Nº de lojas Pizza Hut (próprias e franqueadas)",
+  "SSS",
+  "Área de vendas / venda por m² (não localizado)",
+  "Frango Assado e Viena: nenhuma loja com esse nome no arquivo"
+ ]
+}

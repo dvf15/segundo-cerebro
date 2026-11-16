@@ -23,7 +23,7 @@ export default function TrainingSelector({
       value={value}
       disabled={disabled}
       onChange={(e) => onChange(e.target.value as TrainingType)}
-      className="rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-2 text-[15px] font-semibold text-white outline-none disabled:opacity-50"
+      className="rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-2 text-[16px] font-semibold text-white outline-none disabled:opacity-50"
     >
       {opts.map((o) => (
         <option key={o.value} value={o.value}>

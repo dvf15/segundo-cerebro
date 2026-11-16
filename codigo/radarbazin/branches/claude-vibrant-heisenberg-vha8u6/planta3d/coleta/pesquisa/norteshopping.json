@@ -1,0 +1,134 @@
+{
+  "id": "norteshopping",
+  "pisos": [
+    {
+      "nome": "Piso 1",
+      "uso": "Lojas e atrações (citado em divulgação do shopping; a praça de alimentação é citada junto a 'Piso 1 e 2')",
+      "url": "https://www.instagram.com/reel/C2vbw93LNbx/?hl=pt-br",
+      "trecho": "Piso 1 e 2 (praça de alimentação)"
+    },
+    {
+      "nome": "2º piso",
+      "uso": "Lojas (ex.: H&M) e praça de alimentação",
+      "url": "https://www.instagram.com/reel/C2vbw93LNbx/?hl=pt-br",
+      "trecho": "A H&M vai inaugurar no 2º piso do NorteShopping nesta quinta (17/09), às 11h"
+    },
+    {
+      "nome": "Pátio NorteShopping",
+      "uso": "Área de lazer, entretenimento e espaço ao ar livre (lifestyle center): cinema UCI Kinoplex de 10 salas, boliche, academia Bodytech, bares e restaurantes",
+      "url": "https://allos.com.br/shopping/norte-shopping/",
+      "trecho": "inaugurou o Pátio NorteShopping, área de 30.000 m² com operações de lazer, entretenimento e espaço ao ar livre, um lifestyle center"
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "ano de inauguração",
+      "valor": "1986, na antiga fábrica da Klabin",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "Inaugurado em 1986 na antiga fábrica da Klabin, ajudou a alavancar o setor imobiliário do chamado Grande Méier, em particular o bairro do Cachambi"
+    },
+    {
+      "item": "expansões: Pátio NorteShopping",
+      "valor": "2ª expansão, área de lazer e entretenimento; data: dezembro de 2006 segundo a Wikipédia, 2007 segundo a ALLOS; área: 32.500 m² (Wikipédia) ou 30.000 m² (ALLOS)",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "Inaugurou em dezembro de 2006 sua 2ª expansão, denominada Pátio NorteShopping, uma área de 32,500 mil m² dedicada ao lazer e entretenimento"
+    },
+    {
+      "item": "autor do projeto (Pátio NorteShopping)",
+      "valor": "Designcorp, escritório de design canadense",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "de autoria do escritório de design canadense Designcorp."
+    },
+    {
+      "item": "expansões: Torre NorteShopping",
+      "valor": "Expansão com torre de 10 andares de salas (mais de 30 por andar) e 4 elevadores; a Wikipédia não dá a data",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "o NorteShopping inaugurou mais uma expansão, a Torre NorteShopping, mais conhecida como a Torre, ela conta com 10 andares de espaços para alugar, cada andar possui mais de 30 salas."
+    },
+    {
+      "item": "características",
+      "valor": "Primeiro centro comercial de grande porte da Zona Norte; 71.336 m² de ABL, 103.000 m² de ABC, 3.573 vagas, 359 lojas (ALLOS)",
+      "url": "https://allos.com.br/shopping/norte-shopping/",
+      "trecho": "Inaugurado em 1986, o NorteShopping foi o primeiro centro comercial de grande porte da Zona Norte carioca"
+    },
+    {
+      "item": "características: entradas",
+      "valor": "Quatro entradas para pedestres e veículos: principal (Dom Helder Câmara), Pedras Altas, Gândavo e Fernão Cardim (esta com passagem de pedestres bloqueada em 25/11/2012)",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "O NorteShopping conta, ainda, com quatro entradas para pedestres e veículos: Entrada principal (Dom Helder Câmara), Pedras Altas, Gândavo e Fernão Cardim."
+    },
+    {
+      "item": "reforma",
+      "valor": "A administradora diz que o shopping 'segue se expandindo e revitalizando', sem detalhar",
+      "url": "https://allos.com.br/shopping/norte-shopping/",
+      "trecho": "O shopping segue se expandindo e revitalizando para proporcionar uma experiência ainda mais moderna e confortável aos clientes."
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Torre NorteShopping",
+      "descricao": "Torre de salas com 10 andares e 4 elevadores, com acesso interno pelo shopping e também pela Av. Dom Hélder Câmara. A fonte não informa o piso do acesso interno.",
+      "piso": null,
+      "acesso": "direto",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "Esta expansão conta com 4 elevadores, acesso interno pelo shopping, e pela Avenida Dom Hélder Câmara."
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Pátio NorteShopping",
+      "descricao": "Expansão do próprio shopping (lifestyle center de lazer e entretenimento com área ao ar livre). As fontes a tratam como parte do shopping, sem descrever piso ou forma de ligação com o mall original.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/shopping/norte-shopping/",
+      "trecho": "Em 2007, inaugurou o Pátio NorteShopping, área de 30.000 m² com operações de lazer, entretenimento e espaço ao ar livre"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Universidade Estácio (unidade no shopping)",
+      "descricao": "Faculdade dentro do complexo, listada pela administradora em 'Ensino', com Colégio Elite e Colégio Cel.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/shopping/norte-shopping/",
+      "trecho": "Ensino Universidade Estácio, Colégio Elite, Colégio Cel (creche ao ensino fundamental)"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Teatro Miguel Falabella",
+      "descricao": "Teatro de 442 lugares dentro do shopping.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/shopping/norte-shopping/",
+      "trecho": "Teatro Miguel Falabella (442 lugares)"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Centro médico",
+      "descricao": "A Wikipédia lista 1 centro médico entre as operações do complexo.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "1 centro médico, 1 teatro (Teatro Miguel Falabella), 1 faculdade (Estácio de Sá), 2 escolas (Centro Educacional da Lagoa e Sistema Elite de Ensino)."
+    },
+    {
+      "tipo": "outro",
+      "nome": "Av. Dom Hélder Câmara (entrada principal)",
+      "descricao": "Entrada principal do shopping e segundo acesso da Torre, pela avenida.",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "trecho": "Entrada principal (Dom Helder Câmara)"
+    }
+  ],
+  "nao_encontrado": [
+    "norteshopping.com.br recusa acesso automático (não contornado); só foi usado o trecho devolvido pela busca (página 'Sobre o Shopping')",
+    "Piso do acesso interno da Torre NorteShopping e data de inauguração da torre",
+    "Como o Pátio NorteShopping se liga ao mall original (piso, passarela, área aberta)",
+    "Autor do projeto arquitetônico original de 1986 e da torre",
+    "Lista oficial de pisos e uso de cada um (só menções a 'Piso 1' e '2º piso' em divulgação)",
+    "Estação de trem ou metrô próxima e eventual ligação: nenhuma fonte encontrada",
+    "Terminal de ônibus, hotel ou passarela ligados ao shopping: nenhuma fonte encontrada",
+    "Tombamento ou preservação de elementos da fábrica Klabin: nenhuma fonte encontrada",
+    "Divergência não resolvida: data do Pátio (dezembro de 2006 na Wikipédia, 2007 na ALLOS) e área (32.500 m² x 30.000 m²)"
+  ]
+}

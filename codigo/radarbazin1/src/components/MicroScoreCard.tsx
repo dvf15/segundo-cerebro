@@ -57,15 +57,15 @@ export default function MicroScoreCard({ day }: { day: DayDTO }) {
           <span className="text-2xl font-extrabold leading-none" style={{ color: scoreColor(score) }}>
             {score}%
           </span>
-          <span className="text-[13px] font-semibold text-slate-300">das metas do dia</span>
+          <span className="text-[14px] font-semibold text-slate-300">das metas do dia</span>
         </div>
-        <span className="text-[12px] font-semibold text-blue-400">
+        <span className="text-[13px] font-semibold text-blue-400">
           {open ? "▾ ocultar" : "▸ detalhes"}
         </span>
       </button>
 
       {/* Piores do dia — sempre visível, ao lado do agregado */}
-      <div className="mt-2 text-[12.5px] text-slate-300">
+      <div className="mt-2 text-[13.5px] text-slate-300">
         <span className="text-slate-400">Piores hoje: </span>
         {worst.map((w, i) => (
           <span key={w.label}>
@@ -89,8 +89,8 @@ export default function MicroScoreCard({ day }: { day: DayDTO }) {
               return (
                 <div key={d.key}>
                   <div className="flex items-baseline justify-between">
-                    <span className="text-[12px] font-semibold text-slate-200">{d.label}</span>
-                    <span className="text-[12px] text-slate-300">
+                    <span className="text-[13px] font-semibold text-slate-200">{d.label}</span>
+                    <span className="text-[13px] text-slate-300">
                       {v}
                       <span className="text-slate-400">{d.unit}</span>
                     </span>
@@ -101,14 +101,14 @@ export default function MicroScoreCard({ day }: { day: DayDTO }) {
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                  <div className="mt-0.5 text-[10px] text-slate-400">
+                  <div className="mt-0.5 text-[11px] text-slate-400">
                     {ref} {d.unit}
                   </div>
                 </div>
               );
             })}
           </div>
-          <div className="mt-3 text-[11px] text-slate-400">
+          <div className="mt-3 text-[12px] text-slate-400">
             Estimativa aproximada da IA — referência de qualidade, não medição exata.
           </div>
         </>

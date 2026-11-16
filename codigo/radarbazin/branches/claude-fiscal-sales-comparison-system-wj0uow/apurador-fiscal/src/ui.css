@@ -1,24 +1,14 @@
 :root{
-  --bg:#f4f6f8; --painel:#fff; --borda:#dfe4ea; --texto:#16202b; --fraco:#5d6b7a;
-  --acento:#0b5fa5; --acento-fraco:#e7f0fa;
-  --ok:#15803d; --ok-bg:#e8f6ed; --atencao:#a16207; --atencao-bg:#fdf5e2;
-  --erro:#b3261e; --erro-bg:#fbeae9; --neutro-bg:#eef1f4;
-  --fonte:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  /* paleta do template das ferramentas do radarbazin1 (Radar de Varejo, public/operacoes.html) */
+  color-scheme:light;
+  --bg:#e5ded4; --painel:#ffffff; --borda:#ccc5bc; --borda-suave:#e3dccf; --campo:#f1ece3;
+  --texto:#0d454a; --fraco:rgba(13,69,74,.62); --fraco2:rgba(13,69,74,.5);
+  --acento:#00616f; --acento2:#368c82; --acento-fraco:rgba(0,97,111,.08); --destaque:#6cc680;
+  --ok:#3f9e6a; --ok-bg:rgba(108,198,128,.18); --atencao:#c07d1e; --atencao-bg:rgba(237,167,84,.18);
+  --erro:#cd5151; --erro-bg:rgba(205,81,81,.12); --neutro-bg:#f1ece3;
+  --sombra:0 1px 2px rgba(13,69,74,.05), 0 12px 28px rgba(13,69,74,.06);
+  --fonte:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-tema="claro"]):not([data-theme="light"]){
-    --bg:#11161c; --painel:#1a222b; --borda:#2c3742; --texto:#e6ecf2; --fraco:#9aa8b6;
-    --acento:#5aa9f0; --acento-fraco:#17293c;
-    --ok:#6ee7a8; --ok-bg:#12291d; --atencao:#f0c05a; --atencao-bg:#2b2413;
-    --erro:#f1928c; --erro-bg:#2e1715; --neutro-bg:#212a34;
-  }
-}
-:root[data-tema="escuro"],:root[data-theme="dark"]{
-  --bg:#11161c; --painel:#1a222b; --borda:#2c3742; --texto:#e6ecf2; --fraco:#9aa8b6;
-  --acento:#5aa9f0; --acento-fraco:#17293c;
-  --ok:#6ee7a8; --ok-bg:#12291d; --atencao:#f0c05a; --atencao-bg:#2b2413;
-  --erro:#f1928c; --erro-bg:#2e1715; --neutro-bg:#212a34;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -100,14 +90,6 @@ mark{background:var(--atencao-bg);color:var(--atencao);padding:0 3px;border-radi
   --viz-acima:#e34948;    /* fonte acima da referência  */
   --viz-zero:#f0efec;     /* trilho neutro              */
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-tema="claro"]):not([data-theme="light"]){
-    --viz-abaixo:#3987e5; --viz-acima:#e66767; --viz-zero:#383835;
-  }
-}
-:root[data-tema="escuro"],:root[data-theme="dark"]{
-  --viz-abaixo:#3987e5; --viz-acima:#e66767; --viz-zero:#383835;
-}
 .desvios{display:flex;flex-direction:column;gap:3px;min-width:132px}
 .desvio{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--fraco);line-height:1}
 .desvio b{font-weight:700;width:26px;flex:none;text-align:right;color:var(--fraco)}
@@ -169,10 +151,9 @@ button.acao:disabled,button.leve:disabled{opacity:.45;cursor:not-allowed}
 .racional li{margin:2px 0}
 
 /* --- dashboard ----------------------------------------------------------- */
-/* séries validadas (paleta de referência, slots 1–3) nos dois temas */
-:root{ --serie-1:#2a78d6; --serie-2:#eb6834; --serie-3:#1baf7a }
-@media (prefers-color-scheme:dark){ :root:not([data-tema="claro"]){ --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70 } }
-:root[data-tema="escuro"],:root[data-theme="dark"]{ --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70 }
+/* séries: recebidos → apurados → cobrados são etapas em ordem, então um tom só, do claro ao
+   escuro (o verde-petróleo do template); contraste com o branco 3,3 · 7,1 · 10,7 : 1 */
+:root{ --serie-1:#4a9a8f; --serie-2:#00616f; --serie-3:#0d454a }
 .dash-cab{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px}
 .dash-cab h2{margin:0}
 .grade-dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;align-items:start}
@@ -229,3 +210,124 @@ dialog.pergunta .botoes{display:flex;gap:10px;justify-content:flex-end;flex-wrap
 .grade3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 td.maior{font-weight:700;background:color-mix(in srgb,var(--acento) 13%,transparent);box-shadow:inset 3px 0 0 var(--acento)}
 td.maior .rot-maior{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--acento)}
+
+/* ==========================================================================
+   Template das ferramentas do radarbazin1 (Radar de Varejo): areia, verde-
+   petróleo, cartões brancos arredondados, abas em pílula. Só tema claro.
+   ========================================================================== */
+body{background:var(--bg);color:var(--texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+h1{font-size:23px;font-weight:800;color:var(--acento);letter-spacing:-.3px;margin:0 0 2px}
+h2{font-size:16px;font-weight:800;color:var(--acento)}
+h3{font-size:13px;font-weight:800;color:var(--acento)}
+.sub{color:var(--fraco)}
+a{color:var(--acento)}
+svg.ic{width:17px;height:17px;display:inline-block;flex:0 0 auto;vertical-align:-3px;stroke-width:2}
+
+/* cabeçalho: selo + título, sem barra fixa (como no Radar de Varejo) */
+header.topo{background:transparent;border:0;position:static}
+header.topo .wrap{padding-top:calc(16px + env(safe-area-inset-top));padding-bottom:4px;gap:12px}
+.brand{display:flex;gap:12px;align-items:center;min-width:0;flex:1 1 320px}
+.brand > div{min-width:0}
+.brand .sub{overflow-wrap:anywhere}
+.brand .sub b{color:var(--texto)}
+.brandmark{width:42px;height:42px;border-radius:12px;background:var(--acento);color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 6px 16px rgba(0,97,111,.28)}
+.brandmark svg.ic{width:27px;height:27px}
+.selo{background:rgba(108,198,128,.22);color:var(--texto);border:1px solid rgba(108,198,128,.55);font-size:11.5px;font-weight:700}
+.selo svg.ic{width:13px;height:13px;vertical-align:-2px}
+
+/* abas em pílula; a ativa preenchida */
+nav.abas{gap:8px;border:0;margin:16px 0 18px}
+nav.abas button{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 142px;min-width:0;padding:9px 13px;border-radius:10px;
+  background:var(--painel);border:1px solid var(--borda);color:rgba(13,69,74,.72);font-size:13px;font-weight:700;white-space:nowrap;
+  box-shadow:0 1px 2px rgba(13,69,74,.05)}
+nav.abas button svg.ic{width:16px;height:16px;vertical-align:-2px}
+nav.abas button:hover{color:var(--texto);background:var(--painel);border-color:var(--acento)}
+nav.abas button[aria-selected="true"]{background:var(--acento);border-color:var(--acento);color:#fff;box-shadow:0 6px 16px rgba(0,97,111,.24)}
+nav.abas .cnt{background:var(--campo);color:rgba(13,69,74,.6);border-radius:99px;padding:0 7px;font-size:11px}
+nav.abas button[aria-selected="true"] .cnt{background:rgba(255,255,255,.28);color:#fff}
+nav.abas b.pendencia{background:var(--erro);margin-left:0}
+nav.subabas{gap:6px}
+nav.subabas button{background:var(--painel);border:1px solid var(--borda);color:var(--texto);border-radius:10px;padding:8px 13px;font-weight:600}
+nav.subabas button[aria-selected="true"]{background:rgba(0,97,111,.14);border-color:var(--acento);color:var(--acento)}
+
+/* cartões e painéis */
+section.painel{background:var(--painel);border:1px solid var(--borda);border-radius:16px;padding:18px;box-shadow:var(--sombra)}
+.card{background:var(--campo);border:1px solid var(--borda-suave);border-radius:12px;padding:12px 14px}
+.card .rot{font-size:10px;letter-spacing:.06em;color:var(--fraco2);font-weight:600}
+.card .val{font-size:20px;font-weight:800;color:var(--acento)}
+.card.ok .val{color:var(--ok)} .card.atencao .val{color:var(--atencao)} .card.erro .val{color:var(--erro)}
+.passo{background:rgba(0,97,111,.14);color:var(--acento);font-weight:800}
+
+/* botões */
+button.acao,a.botao.acao{background:var(--acento);color:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:700;box-shadow:0 6px 16px rgba(0,97,111,.22);transition:transform .05s ease,filter .15s ease}
+button.acao:hover{filter:brightness(1.07)}
+button.acao:active{transform:translateY(1px)}
+button.acao.perigo{background:var(--erro);box-shadow:none}
+button.leve,a.leve{background:var(--painel);color:var(--texto);border:1px solid var(--borda);border-radius:12px;padding:8px 12px;font-weight:700}
+button.leve:hover,a.leve:hover{background:var(--painel);border-color:var(--acento)}
+button.icone:hover{background:var(--campo)}
+
+/* campos */
+input,select{border:1px solid var(--borda);border-radius:10px;padding:9px 11px;background:var(--painel);color:var(--texto);transition:border-color .15s ease,box-shadow .15s ease}
+input:focus,select:focus{outline:none;border-color:var(--acento);box-shadow:0 0 0 3px rgba(0,97,111,.13)}
+label.campo{color:var(--fraco2);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+label.campo.check span{text-transform:none;letter-spacing:0;font-size:13px}
+
+/* tabelas */
+th,td{border-bottom:1px solid var(--borda-suave)}
+th{font-size:10px;letter-spacing:.06em;color:var(--fraco2)}
+td.num,th.num{font-family:var(--fonte);font-variant-numeric:tabular-nums}
+tbody tr:hover{background:var(--campo)}
+tr.grave td{background:rgba(205,81,81,.07)}
+td.maior{background:rgba(0,97,111,.10);box-shadow:inset 3px 0 0 var(--acento);color:var(--acento)}
+
+/* etiquetas de status, como as pílulas do template: texto escuro sobre o tom */
+.tag{font-size:10px;font-weight:800;padding:2px 9px}
+.tag.ok{background:rgba(108,198,128,.28);color:var(--texto)}
+.tag.atencao{background:rgba(237,167,84,.30);color:#7a4a0e}
+.tag.erro{background:rgba(205,81,81,.18);color:#8e2f2f}
+.tag.neutro{background:rgba(204,197,188,.45);color:rgba(13,69,74,.75)}
+.item-check{background:var(--campo);color:var(--fraco)}
+.item-check.feito{background:rgba(108,198,128,.28);color:var(--texto)}
+.etapa{background:var(--campo);color:var(--fraco)}
+.etapa.feita{background:rgba(237,167,84,.30);color:#7a4a0e}
+.etapa.multa{background:rgba(205,81,81,.18);color:#8e2f2f}
+
+/* faixas e avisos (banner do template) */
+.faixa-ciclo{background:rgba(0,97,111,.08);border:1px solid rgba(54,140,130,.35)}
+.faixa-ficticia{background:rgba(237,167,84,.16);border:1px solid rgba(237,167,84,.6)}
+ul.avisos li{background:rgba(237,167,84,.16);color:#7a4a0e;border-left-color:#eda754}
+ul.avisos li.info{background:rgba(0,97,111,.08);color:var(--texto);border-left-color:var(--acento)}
+.validacao{background:rgba(205,81,81,.08);border:1px solid rgba(205,81,81,.35)}
+.validacao.feita{background:var(--campo);border-color:var(--borda-suave)}
+mark{background:rgba(237,167,84,.30);color:#7a4a0e}
+
+/* arquivos, caixas de soltar, blocos internos */
+.drop{background:var(--campo);border:2px dashed var(--borda);border-radius:12px}
+.drop:hover,.drop.ativo{background:rgba(0,97,111,.08);border-color:var(--acento)}
+.arquivo{background:var(--campo);border:1px solid var(--borda-suave);border-radius:12px}
+.racional,.texto-notif,.grupo-pend,details.cfops table,.ficticia-box{background:var(--campo)}
+.grupo-pend{border-color:var(--borda-suave);border-radius:10px}
+.roteiro{border-radius:12px}
+.fechar{border-color:var(--borda);border-radius:12px}
+details.cfops summary{color:var(--acento);font-weight:700}
+.medidor-trilho,.bm-trilho{background:var(--campo)}
+.bm-barra{background:var(--acento)}
+.medidor-trilho i{background:var(--acento)}
+#dica-viz{background:var(--texto);color:#fff;box-shadow:0 8px 24px rgba(13,69,74,.28)}
+dialog.pergunta{border-radius:16px;box-shadow:0 12px 40px rgba(13,69,74,.28)}
+dialog.pergunta::backdrop{background:rgba(13,69,74,.45)}
+.nota code{background:var(--campo)}
+
+@media (max-width:520px){
+  .brandmark{width:38px;height:38px} .brandmark svg.ic{width:24px;height:24px}
+  h1{font-size:21px}
+  nav.abas{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  nav.abas button{font-size:12.5px;padding:8px 10px}
+}
+/* sobre o fundo areia, cartões e a faixa do ciclo são brancos (como os .card do template);
+   dentro de um painel branco, os cartões voltam ao tom de campo */
+.card{background:var(--painel);border-color:var(--borda);box-shadow:0 1px 2px rgba(13,69,74,.05),0 8px 20px rgba(13,69,74,.05)}
+section.painel .card{background:var(--campo);border-color:var(--borda-suave);box-shadow:none}
+.faixa-ciclo{background:var(--painel);border:1px solid var(--borda);box-shadow:inset 4px 0 0 var(--acento)}

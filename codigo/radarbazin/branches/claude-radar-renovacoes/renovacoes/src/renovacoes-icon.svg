@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Radar de Renovações">
+  <rect width="512" height="512" fill="#00616f"/>
+  <!-- contrato: folha com canto dobrado e linhas de texto -->
+  <path d="M132 92h168l72 72v188H132z" fill="#ffffff"/>
+  <path d="M300 92v72h72z" fill="#b9dadf"/>
+  <rect x="170" y="150" width="96" height="16" rx="8" fill="#00616f"/>
+  <rect x="170" y="190" width="160" height="16" rx="8" fill="#00616f"/>
+  <rect x="170" y="230" width="160" height="16" rx="8" fill="#00616f"/>
+  <rect x="170" y="270" width="104" height="16" rx="8" fill="#00616f"/>
+  <!-- selo de renovação: duas setas em ciclo -->
+  <circle cx="352" cy="352" r="96" fill="#00616f"/>
+  <circle cx="352" cy="352" r="84" fill="#ffffff"/>
+  <g fill="none" stroke="#00616f" stroke-width="18" stroke-linecap="round">
+    <path d="M305.0 334.9A50 50 0 0 1 390.3 319.9"/>
+    <path d="M399.0 369.1A50 50 0 0 1 313.7 384.1"/>
+  </g>
+  <path d="M405.7 338.2L376.0 329.3L402.0 307.4z" fill="#00616f"/>
+  <path d="M298.3 365.8L328.0 374.7L302.0 396.6z" fill="#00616f"/>
+</svg>

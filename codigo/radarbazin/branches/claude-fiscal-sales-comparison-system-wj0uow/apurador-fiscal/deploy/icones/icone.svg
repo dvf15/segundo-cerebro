@@ -1,15 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Livro aberto">
-  <defs>
-    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#00A868"/>
-      <stop offset="1" stop-color="#00754A"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" ry="112" fill="url(#fundo)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Livro fiscal sob a lupa">
+  <rect width="512" height="512" fill="#00616f"/>
   <g transform="translate(0.0 0.0) scale(1)">
-    <path d="M 250 200 C 210 174, 148 162, 88 182 L 88 332 C 148 312, 210 324, 250 352 Z"
-      fill="#FFFFFF" stroke="#FFFFFF" stroke-linejoin="round" stroke-linecap="round" stroke-width="10"/>
-    <path d="M 262 200 C 302 174, 364 162, 424 182 L 424 332 C 364 312, 302 324, 262 352 Z"
-      fill="#CDF2E1" stroke="#CDF2E1" stroke-linejoin="round" stroke-linecap="round" stroke-width="10"/>
+    <!-- a folha do livro -->
+    <path d="M 128 86 H 300 L 352 138 V 250 M 128 86 V 426 H 236" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="30"/>
+    <path d="M 176 168 H 268 M 176 228 H 252 M 176 288 H 214" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="26"/>
+    <!-- a lupa, com a venda (três barras) dentro da lente -->
+    <circle cx="334" cy="336" r="86" fill="#6cc680" stroke="#FFFFFF" stroke-width="30"/>
+    <path d="M 398 400 L 446 448" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="36"/>
+    <path d="M 300 368 V 344 M 334 368 V 308 M 368 368 V 328" stroke="#00616f" stroke-width="20" stroke-linecap="round" fill="none"/>
   </g>
 </svg>

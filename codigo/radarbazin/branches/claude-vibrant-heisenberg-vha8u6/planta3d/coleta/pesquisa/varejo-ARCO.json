@@ -1,0 +1,218 @@
+{
+ "empresa": "Arcos Dorados Holdings Inc.",
+ "ticker": "ARCO",
+ "bolsa": "NYSE",
+ "situacao": "listada",
+ "situacao_url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+ "marcas": [
+  {
+   "marca": "McDonald's (maior franqueada da marca na América Latina)",
+   "nomes_no_arquivo": [
+    "MC DONALD'S",
+    "MC DONALDS",
+    "MC DONALD´S"
+   ],
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Figure 3. As of Sep. 30, 2026 | Total Restaurants | Ownership: Company Operated / Franchised | McCafes | Dessert Centers | Brazil | 1,272 | 790 | 482 | 242 | 2,015"
+  },
+  {
+   "marca": "McCafé",
+   "nomes_no_arquivo": [
+    "MC CAFÉ"
+   ],
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "McCafes ... Brazil ... 242"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 4678259000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.sec.gov/Archives/edgar/data/0001508478/000162828026028950/arco-20251231.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] total 2025 revenues of $4,678,259 thousand, up 4.7% from 2024"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 1770301000,
+   "unidade": "US$",
+   "escopo": "Brasil",
+   "publicado": true,
+   "url": "https://www.sec.gov/Archives/edgar/data/0001508478/000162828026028950/arco-20251231.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Brazil contributed $1,770,301 thousand, up 0.1%, with company-operated sales of $1,632,177 thousand (down 0.2%) and franchised revenue of $138,124 thousand (up 4.4%)"
+  },
+  {
+   "indicador": "outro (vendas dos restaurantes próprios)",
+   "periodo": "2025",
+   "valor": 1632177000,
+   "unidade": "US$",
+   "escopo": "Brasil, só lojas próprias",
+   "publicado": true,
+   "url": "https://www.sec.gov/Archives/edgar/data/0001508478/000162828026028950/arco-20251231.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] company-operated sales of $1,632,177 thousand (down 0.2%)"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2025",
+   "valor": 13.0,
+   "unidade": "%",
+   "escopo": "companhia consolidada (systemwide comparable sales)",
+   "publicado": true,
+   "url": "https://seekingalpha.com/pr/20444229",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] systemwide comparable sales rose 13.0% for the full year 2025, in line with blended inflation, and 16.0% in Q4"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "dez/2025",
+   "valor": 1230,
+   "unidade": "lojas",
+   "escopo": "Brasil (próprias + franqueadas)",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil | 1,272 | 1,250 | 1,241 | 1,230 | 1,202 (Sep. 30, 2026 | Jun. 30, 2026 | Mar. 31, 2026 | Dec. 31, 2025 | Sep. 30, 2025)"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "dez/2025",
+   "valor": 2520,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "TOTAL | 2,582 | 2,548 | 2,536 | 2,520 | 2,479"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1328024000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "TOTAL | 1,328,024 | 1,192,828 | 11.3% | 17.6% (Revenues, three months, in thousands of U.S. dollars)"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 522271000,
+   "unidade": "US$",
+   "escopo": "Brasil",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil | 522,271 | 452,589 | 15.4% | 8.8%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 3849621000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "TOTAL ... 3,849,621 | 3,411,716 | 12.8% | 18.5% (nine months)"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 1514370000,
+   "unidade": "US$",
+   "escopo": "Brasil",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil ... 1,514,370 | 1,268,278 | 19.4% | 8.8% (nine months)"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "set/2026",
+   "valor": 1272,
+   "unidade": "lojas",
+   "escopo": "Brasil (próprias + franqueadas)",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil | 710 | 90 | 472 | 1,272 | 790 | 482 | 242 | 2,015"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "set/2026",
+   "valor": 790,
+   "unidade": "lojas",
+   "escopo": "Brasil, só lojas próprias",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil | 710 | 90 | 472 | 1,272 | 790 | 482 | 242 | 2,015 (Company Operated = 790)"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "set/2026",
+   "valor": 482,
+   "unidade": "lojas",
+   "escopo": "Brasil, só franqueadas",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil | 710 | 90 | 472 | 1,272 | 790 | 482 | 242 | 2,015 (Franchised = 482)"
+  },
+  {
+   "indicador": "outro (restaurantes em shopping/praça de alimentação: formato MS & FC)",
+   "periodo": "set/2026",
+   "valor": 472,
+   "unidade": "lojas",
+   "escopo": "Brasil",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Store Format: FS | IS | MS & FC - Brazil | 710 | 90 | 472"
+  },
+  {
+   "indicador": "outro (McCafés)",
+   "periodo": "set/2026",
+   "valor": 242,
+   "unidade": "lojas",
+   "escopo": "Brasil, marca McCafé",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Brazil ... McCafes 242 | Dessert Centers 2,015"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "set/2026",
+   "valor": 2582,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "TOTAL | 1,432 | 263 | 887 | 2,582 | 1,851 | 731 | 521 | 3,261"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 3.5,
+   "unidade": "%",
+   "escopo": "Brasil (systemwide comparable sales)",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "Systemwide Comparable Sales Growth, three months ended September 30: Brazil | 3.5% | 1.0%"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 15.5,
+   "unidade": "%",
+   "escopo": "companhia consolidada (systemwide comparable sales)",
+   "publicado": true,
+   "url": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+   "trecho": "TOTAL | 15.5% | 12.7%"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Os números de 2025 do 20-F vêm de resumo de busca (sec.gov inacessível nesta sessão)."
+ ],
+ "nao_encontrado": [
+  "SSS do Brasil no ano de 2025",
+  "Vendas do sistema (systemwide sales) em valor",
+  "Área de vendas / venda por m² (não publicado nas fontes lidas)"
+ ]
+}

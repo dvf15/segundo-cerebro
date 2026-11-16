@@ -1,0 +1,64 @@
+{
+ "empresa": "EssilorLuxottica S.A.",
+ "ticker": "EL",
+ "bolsa": "Euronext Paris",
+ "situacao": "listada",
+ "situacao_url": "https://www.essilorluxottica.com/cap/content/283060",
+ "marcas": [
+  {
+   "marca": "Sunglass Hut",
+   "nomes_no_arquivo": [
+    "SUNGLASS HUT"
+   ],
+   "url": "https://www.essilorluxottica.com/en/brands/direct-to-consumer",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] retail network includes regional chains in EMEA, Asia-Pacific and Latin America, plus global banners such as Sunglass Hut, Ray-Ban and Oakley. It lists MasVisión, GMO, Óticas Carol under Latin America."
+  },
+  {
+   "marca": "Ray-Ban",
+   "nomes_no_arquivo": [
+    "RAY-BAN"
+   ],
+   "url": "https://www.essilorluxottica.com/en/brands/direct-to-consumer",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] retail network includes regional chains in EMEA, Asia-Pacific and Latin America, plus global banners such as Sunglass Hut, Ray-Ban and Oakley. It lists MasVisión, GMO, Óticas Carol under Latin America."
+  },
+  {
+   "marca": "Oakley",
+   "nomes_no_arquivo": [
+    "OAKLEY"
+   ],
+   "url": "https://www.essilorluxottica.com/en/brands/direct-to-consumer",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] retail network includes regional chains in EMEA, Asia-Pacific and Latin America, plus global banners such as Sunglass Hut, Ray-Ban and Oakley. It lists MasVisión, GMO, Óticas Carol under Latin America."
+  },
+  {
+   "marca": "Óticas Carol (rede de franquias)",
+   "nomes_no_arquivo": [
+    "OTICAS CAROL",
+    "OTICAS CAROL CONCEPT",
+    "ÓTICAS CAROL"
+   ],
+   "url": "https://www.essilorluxottica.com/en/brands/direct-to-consumer",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] retail network includes regional chains in EMEA, Asia-Pacific and Latin America, plus global banners such as Sunglass Hut, Ray-Ban and Oakley. It lists MasVisión, GMO, Óticas Carol under Latin America."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 28491000000,
+   "unidade": "EUR",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.essilorluxottica.com/cap/content/283060",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] full-year 2025 revenue of €28,491 million, up 7.5% year over year and 11.2% at constant exchange rates"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Empresa acrescentada (não estava na lista de candidatas).",
+  "'GRANDVISION BY FOTOTICA' / 'GRANDVISION BY FOTÓTICA' (no arquivo): a GrandVision foi comprada pela EssilorLuxottica (fechamento em 2021), mas não achei fonte ligando a bandeira Fototica; não incluída em marcas.",
+  "Listagem (Euronext Paris: EL) aparece só como EPA:EL em página de dados."
+ ],
+ "nao_encontrado": [
+  "Dados do Brasil e nº de lojas por bandeira no Brasil"
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "empresa": "Zamp S.A.",
+ "ticker": "ZAMP3 (ações deixaram de negociar)",
+ "bolsa": "B3 (saiu)",
+ "situacao": "fechou capital: OPA da controladora Mubadala Capital em 09/09/2025 (R$ 3,50/ação) para conversão do registro na CVM de categoria A para B (só dívida); continua divulgando resultados trimestrais",
+ "situacao_url": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml",
+ "marcas": [
+  {
+   "marca": "Burger King",
+   "nomes_no_arquivo": [
+    "BURGER KING",
+    "BK QUIOSQUE"
+   ],
+   "url": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml",
+   "trecho": "In addition to Burger King, the company now operates Subway, Starbucks, and Popeyes in Brazil."
+  },
+  {
+   "marca": "Popeyes",
+   "nomes_no_arquivo": [
+    "POPEYES"
+   ],
+   "url": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml",
+   "trecho": "In addition to Burger King, the company now operates Subway, Starbucks, and Popeyes in Brazil."
+  },
+  {
+   "marca": "Starbucks (operação no Brasil)",
+   "nomes_no_arquivo": [
+    "STARBUCKS"
+   ],
+   "url": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml",
+   "trecho": "In addition to Burger King, the company now operates Subway, Starbucks, and Popeyes in Brazil."
+  },
+  {
+   "marca": "Subway (operação no Brasil)",
+   "nomes_no_arquivo": [
+    "SUBWAY"
+   ],
+   "url": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml",
+   "trecho": "In addition to Burger King, the company now operates Subway, Starbucks, and Popeyes in Brazil."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 5230000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://economicnewsbrasil.com.br/2026/03/09/lucro-zamp-4t25-resultados-2025/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] No ano, a receita líquida totalizou R$ 5,23 bilhões, alta de 14,8% em relação a 2024."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 1478900000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://economicnewsbrasil.com.br/2026/03/09/lucro-zamp-4t25-resultados-2025/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A receita operacional líquida da companhia atingiu R$ 1,4789 bilhão no trimestre, alta de 14% em relação ao quarto trimestre de 2024."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1550000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://trademap.com.br/noticias/news-8570549",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] receita líquida de R$ 1,55 bilhão, ante R$ 1,31 bilhão no 3T25 (alta de 18,5%)"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2024",
+   "valor": 4500000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml",
+   "trecho": "By 2024, revenue had surged to R$4.5 billion, losses widened to R$191 million, and the network grew to 2,700 outlets."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 2660,
+   "unidade": "lojas",
+   "escopo": "Brasil, todas as marcas (próprias + franqueadas)",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/10/08/2026/mc-capital/zamp-chega-a-655-da-receita-com-vendas-digitais-de-burger-king-popeyes-starbucks-e-subway/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 2.660 restaurantes no Brasil (2T26). Burger King tinha 986 unidades e Popeyes, 96."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 986,
+   "unidade": "lojas",
+   "escopo": "marca Burger King",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/10/08/2026/mc-capital/zamp-chega-a-655-da-receita-com-vendas-digitais-de-burger-king-popeyes-starbucks-e-subway/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Burger King tinha 986 unidades e Popeyes, 96."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 96,
+   "unidade": "lojas",
+   "escopo": "marca Popeyes",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/10/08/2026/mc-capital/zamp-chega-a-655-da-receita-com-vendas-digitais-de-burger-king-popeyes-starbucks-e-subway/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Burger King tinha 986 unidades e Popeyes, 96."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "data não identificada no trecho (provável 4T25)",
+   "valor": 894,
+   "unidade": "lojas",
+   "escopo": "só lojas próprias",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/zamp-zamp3-sai-do-prejuizo-e-lucra-r-31-4-milhoes-no-4t25-119086/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 894 unidades próprias e 1.751 operando no modelo de franquia"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "data não identificada no trecho (provável 4T25)",
+   "valor": 1751,
+   "unidade": "lojas",
+   "escopo": "só franqueadas",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/zamp-zamp3-sai-do-prejuizo-e-lucra-r-31-4-milhoes-no-4t25-119086/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 894 unidades próprias e 1.751 operando no modelo de franquia"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 21.6,
+   "unidade": "%",
+   "escopo": "marca Popeyes",
+   "publicado": true,
+   "url": "https://brapi.dev/news/zamp-reduz-prejuizo-em-67-3-no-3t-para-r-7-3-8ad06d1a",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] vendas em lojas comparáveis de 21,6% no Popeyes e 18,8% no Subway"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 18.8,
+   "unidade": "%",
+   "escopo": "marca Subway",
+   "publicado": true,
+   "url": "https://brapi.dev/news/zamp-reduz-prejuizo-em-67-3-no-3t-para-r-7-3-8ad06d1a",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] vendas em lojas comparáveis de 21,6% no Popeyes e 18,8% no Subway"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Receita 3T26: brapi.dev arredonda para R$ 1,6 bilhão; Trade Map dá R$ 1,55 bilhão.",
+  "URL exata de onde saiu '894 próprias / 1.751 franquias' não foi confirmada (resumo de busca)."
+ ],
+ "nao_encontrado": [
+  "Nº de lojas por marca de Starbucks e Subway",
+  "SSS de Burger King",
+  "Área de vendas e venda por m² (não localizado; aparentemente não publicado)",
+  "Release oficial 3T26 em ri.zamp.com.br (não acessado)",
+  "FIREHOUSE SUBS (nome presente no arquivo): não achei fonte ligando a operação brasileira à Zamp; não incluído em marcas"
+ ]
+}

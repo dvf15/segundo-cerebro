@@ -1,0 +1,172 @@
+{
+ "empresa": "Azzas 2154 S.A. (fusão Arezzo&Co + Grupo Soma, 2024)",
+ "ticker": "AZZA3",
+ "bolsa": "B3",
+ "situacao": "listada (AZZA3; resultado do 3T26 divulgado em novembro/2026)",
+ "situacao_url": "https://www.infomoney.com.br/mercados/azzas-2154-azza3-resultados-terceiro-trimestre-2026/",
+ "marcas": [
+  {
+   "marca": "Arezzo",
+   "nomes_no_arquivo": [
+    "AREZZO"
+   ],
+   "url": "https://www.seudinheiro.com/2026/empresas/em-reestruturacao-a-azzas-dona-da-arezzo-e-da-hering-ainda-nao-alcou-voos-veja-por-que-btg-e-santander-acreditam-que-ainda-vale-investir-kaes/",
+   "trecho": "Em reestruturação, a Azzas, dona da Arezzo e da Hering, ainda não alçou voos (título) [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Hering",
+   "nomes_no_arquivo": [
+    "HERING STORE",
+    "HERING MEGA"
+   ],
+   "url": "https://www.seudinheiro.com/2026/empresas/em-reestruturacao-a-azzas-dona-da-arezzo-e-da-hering-ainda-nao-alcou-voos-veja-por-que-btg-e-santander-acreditam-que-ainda-vale-investir-kaes/",
+   "trecho": "Em reestruturação, a Azzas, dona da Arezzo e da Hering, ainda não alçou voos (título) [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Schutz",
+   "nomes_no_arquivo": [
+    "SCHUTZ"
+   ],
+   "url": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/",
+   "trecho": "a Azzas 2154 ainda controla 34 marcas, incluindo Reserva, Schutz, Farm, Maria Filó, Hering, Anacapri e Animale [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Anacapri",
+   "nomes_no_arquivo": [
+    "ANACAPRI",
+    "ANA CAPRI"
+   ],
+   "url": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/",
+   "trecho": "a Azzas 2154 ainda controla 34 marcas, incluindo Reserva, Schutz, Farm, Maria Filó, Hering, Anacapri e Animale [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Reserva",
+   "nomes_no_arquivo": [
+    "RESERVA",
+    "RESERVA GO",
+    "CASA RESERVA"
+   ],
+   "url": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/",
+   "trecho": "a Azzas 2154 ainda controla 34 marcas, incluindo Reserva, Schutz, Farm, Maria Filó, Hering, Anacapri e Animale [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Farm",
+   "nomes_no_arquivo": [
+    "FARM"
+   ],
+   "url": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/",
+   "trecho": "a Azzas 2154 ainda controla 34 marcas, incluindo Reserva, Schutz, Farm, Maria Filó, Hering, Anacapri e Animale [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Animale",
+   "nomes_no_arquivo": [
+    "ANIMALE"
+   ],
+   "url": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/",
+   "trecho": "a Azzas 2154 ainda controla 34 marcas, incluindo Reserva, Schutz, Farm, Maria Filó, Hering, Anacapri e Animale [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Maria Filó",
+   "nomes_no_arquivo": [
+    "MARIA FILÓ"
+   ],
+   "url": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/",
+   "trecho": "a Azzas 2154 ainda controla 34 marcas, incluindo Reserva, Schutz, Farm, Maria Filó, Hering, Anacapri e Animale [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Foxton",
+   "nomes_no_arquivo": [
+    "FOXTON"
+   ],
+   "url": "https://mercadoeconsumo.com.br/14/08/2025/noticias-varejo/azzas-2154-muda-comando-da-shoes-bags-para-acelerar-resultados/",
+   "trecho": "a Foxton passará a compor a unidade de vestuário masculino [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_bruta",
+   "periodo": "4T25",
+   "valor": 4130000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://diariodocomercio.com.br/wp-content/uploads/2026/03/12-03-2026-P1.pdf",
+   "trecho": "Receita bruta de R$ 4,13 bilhões no trimestre, com recuo de 2,3% na comparação anual [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 3260000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/azzas-azza3-tem-lucro-liquido-recorrente-de-r-168-milhoes-no-4t25-queda-de-05/",
+   "trecho": "receita líquida de R$ 3,26 bilhões, queda de 4,1% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2025",
+   "valor": 4743700000,
+   "unidade": "R$",
+   "escopo": "só lojas próprias (canal)",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/azzas-2154-azza3-resultados-4t25/",
+   "trecho": "a receita de lojas próprias somou R$ 4.743,7 milhões em 2025, com alta de 11,8% sobre 2024 (pro forma) [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "outro (participação do canal na receita bruta)",
+   "periodo": "2025",
+   "valor": 37,
+   "unidade": "%",
+   "escopo": "lojas próprias",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/azzas-2154-azza3-resultados-4t25/",
+   "trecho": "próprias 37%, e-commerce 21%, multimarcas 18%, franquias 14% e internacional 9% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "outro (participação do canal na receita bruta)",
+   "periodo": "2025",
+   "valor": 14,
+   "unidade": "%",
+   "escopo": "franquias",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/azzas-2154-azza3-resultados-4t25/",
+   "trecho": "próprias 37%, e-commerce 21%, multimarcas 18%, franquias 14% e internacional 9% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 3351000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/acoes/azzas-2154-queda-do-sell-in-derruba-o-ebitda-no-2o-trimestre",
+   "trecho": "A receita bruta somou R$ 3,351 bilhões, 7,4% abaixo de um ano antes. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "3T26",
+   "valor": 56.8,
+   "unidade": "%",
+   "escopo": "companhia consolidada (recorrente)",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/mercados/azzas-2154-balanco-3t26-caixa-lucro",
+   "trecho": "Grupo elevou a margem bruta recorrente para 56,8% no trimestre [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Receita líquida de 2025: R$ 11,8 bilhões em um veículo e R$ 11,5 bilhões em outro (ambos +2,2%); não confirmado no release — por isso não gravado em indicadores.",
+  "Receita líquida do 3T26: o buscador devolveu 'R$ 3,26 bilhões, queda de 4,1%', idêntico ao número do 4T25 (provável confusão de período; no 3T25 a receita líquida foi R$ 2,84 bi) — não gravado.",
+  "Em 2026 foi noticiado plano de dividir o grupo em Arezzo&Co e Soma (meioemensagem.com.br/marketing/grupo-azzas-2154-sera-dividido-em-arezzoco-e-soma); não foi possível confirmar se é cisão societária/listagem separada — em 14/11/2026 a ação segue negociada como AZZA3.",
+  "Portfólio: fontes citam 34 ou 30 marcas após descontinuar Alme, Dzarm, Reversa, Simples e TROC e revender a Baw."
+ ],
+ "nao_encontrado": [
+  "Ligação marca-empresa SEM fonte lida nesta pesquisa (nomes existem no arquivo e são candidatos Azzas): VANS (licença/distribuição no Brasil pela antiga Arezzo&Co), CRIS BARROS, FÁBULA, OFICINA (Oficina Reserva — nome ambíguo)",
+  "Número de lojas (total, próprias, franquias, por marca) em 2025 e 3T26 — só achado 'mais de 2 mil lojas' sem fonte precisa",
+  "Área de vendas e venda por m²",
+  "SSS",
+  "Receita bruta/líquida do 3T26 e por unidade de negócio (Shoes & Bags, Fashion Women, Fashion Men, Basic)",
+  "Receita líquida consolidada exata de 2025"
+ ]
+}

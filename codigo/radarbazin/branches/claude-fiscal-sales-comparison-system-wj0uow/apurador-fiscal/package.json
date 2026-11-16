@@ -15,7 +15,8 @@
     "video:celular": "node scripts/gravar-video-celular.mjs",
     "voz": "node scripts/baixar-voz.mjs",
     "base": "node scripts/gerar-base-ficticia.mjs",
-    "video:novidades": "node scripts/gravar-video-novidades.mjs"
+    "video:novidades": "node scripts/gravar-video-novidades.mjs",
+    "exportar:radar": "node scripts/exportar-radar.mjs"
   },
   "license": "MIT"
 }

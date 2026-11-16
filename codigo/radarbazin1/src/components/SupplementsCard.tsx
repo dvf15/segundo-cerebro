@@ -65,7 +65,7 @@ export default function SupplementsCard({
       <div className="flex items-center justify-between gap-2">
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-300"
+          className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-wide text-slate-300"
         >
           <span>💊 Suplementos do dia</span>
           {supps.length > 0 && (
@@ -81,7 +81,7 @@ export default function SupplementsCard({
             <button
               onClick={() => setEdit(false)}
               disabled={busy}
-              className="text-xs font-semibold text-slate-400 disabled:opacity-50"
+              className="text-[13px] font-semibold text-slate-400 disabled:opacity-50"
             >
               Cancelar
             </button>
@@ -90,7 +90,7 @@ export default function SupplementsCard({
               <button
                 onClick={openEdit}
                 disabled={busy}
-                className="text-xs font-semibold text-blue-400 disabled:opacity-50"
+                className="text-[13px] font-semibold text-blue-400 disabled:opacity-50"
               >
                 ✎ Editar doses
               </button>
@@ -103,7 +103,7 @@ export default function SupplementsCard({
                   )
                 }
                 disabled={busy}
-                className="text-xs font-semibold text-blue-400 disabled:opacity-50"
+                className="text-[13px] font-semibold text-blue-400 disabled:opacity-50"
               >
                 {takenCount === supps.length ? "Limpar" : "Repetir todos"}
               </button>
@@ -112,7 +112,7 @@ export default function SupplementsCard({
       </div>
 
       {!open ? null : supps.length === 0 ? (
-        <div className="mt-2 text-[13px] text-slate-300">
+        <div className="mt-2 text-[14px] text-slate-300">
           Nenhum suplemento configurado.{" "}
           <Link href="/settings" className="font-semibold text-blue-400">
             Configurar no Perfil
@@ -127,9 +127,9 @@ export default function SupplementsCard({
                 key={s.name}
                 className="flex items-center justify-between gap-2 rounded-lg border border-[#3d3d43] bg-[#2c2c30] p-2"
               >
-                <span className="min-w-0 flex-1 truncate text-[14px] text-slate-100">
+                <span className="min-w-0 flex-1 truncate text-[15px] text-slate-100">
                   {s.name}
-                  <span className="text-[11px] text-slate-400"> · padrão {s.dose}</span>
+                  <span className="text-[12px] text-slate-400"> · padrão {s.dose}</span>
                 </span>
                 <div className="flex items-center gap-1.5">
                   <input
@@ -140,18 +140,18 @@ export default function SupplementsCard({
                       setDraft((p) => ({ ...p, [s.name]: e.target.value }))
                     }
                   />
-                  <span className="text-[12px] text-slate-400">cáps</span>
+                  <span className="text-[13px] text-slate-400">cáps</span>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-2 text-[11px] text-slate-400">
+          <p className="mt-2 text-[12px] text-slate-400">
             Nº de cápsulas tomadas hoje · 0 = não tomei
           </p>
           <button
             onClick={commitEdit}
             disabled={busy}
-            className="mt-3 w-full rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2.5 text-[15px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
+            className="mt-3 w-full rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2.5 text-[16px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
           >
             Salvar doses
           </button>
@@ -166,7 +166,7 @@ export default function SupplementsCard({
                 key={s.name}
                 onClick={() => toggle(s.name)}
                 disabled={busy}
-                className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold disabled:opacity-50 ${
+                className={`rounded-full border px-3 py-1.5 text-[14px] font-semibold disabled:opacity-50 ${
                   on
                     ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-300"
                     : "border-[#55555f] bg-[#42424a] text-slate-300"

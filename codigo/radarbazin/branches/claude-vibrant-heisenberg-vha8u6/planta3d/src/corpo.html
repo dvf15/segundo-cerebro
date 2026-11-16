@@ -1,0 +1,78 @@
+
+<header>
+  <h1 id="ttl"></h1>
+  <label class="filtro" id="filtroBox" for="filtroSel" hidden><span>Filtro</span><select id="filtroSel" aria-label="Filtro de comparação"></select></label>
+  <div class="seg" id="mallSel" role="group" aria-label="Shopping em análise" hidden></div>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<main>
+  <section class="stage" id="stage" aria-label="Maquete do shopping">
+    <canvas id="gl"></canvas>
+    <canvas id="ov"></canvas>
+    <nav class="levels" id="levels" aria-label="Pisos"></nav>
+    <div class="tools">
+      <div class="seg" id="viewSel" role="group" aria-label="Modo de visualização">
+        <button data-view="3d" aria-pressed="true">3D</button>
+        <button data-view="2d" aria-pressed="false">Planta 2D</button>
+        <button data-view="walk" aria-pressed="false">Passeio</button>
+      </div>
+      <button id="btLabels" aria-pressed="true">Nomes</button>
+      <button id="btKiosk" aria-pressed="false"><span class="dot" style="background:var(--kiosk)"></span>Só quiosques</button>
+      <button id="btMore" aria-expanded="false" aria-controls="more">Mais opções</button>
+    </div>
+    <div class="more" id="more" hidden>
+      <button id="btTour" aria-pressed="false">Tour pelos pisos</button>
+      <button id="btSeg" aria-pressed="false">Cores por segmento</button>
+      <button id="btCtx" aria-pressed="false">Prédios do entorno</button>
+      <button id="btTower" aria-pressed="false">Torre</button>
+      <button id="btFull" aria-pressed="false">Tela cheia</button>
+      <label for="rgExp"><span>Afastar pisos</span><input type="range" id="rgExp" min="6" max="36" value="20"></label>
+    </div>
+    <div class="walk" id="walk" hidden>
+      <button id="wkLeft" aria-label="Virar à esquerda">◀ Virar</button>
+      <button id="wkBack">▼ Recuar</button>
+      <button id="wkGo" class="go">▲ Avançar</button>
+      <button id="wkRight" aria-label="Virar à direita">Virar ▶</button>
+      <button id="wkDown">▼ Descer piso</button>
+      <button id="wkUp">▲ Subir piso</button>
+    </div>
+    <div class="zoom" id="zoom"><button id="zIn" aria-label="Aumentar o zoom" title="Aumentar o zoom">+</button><button id="zOut" aria-label="Diminuir o zoom" title="Diminuir o zoom">−</button></div>
+    <div class="caption" id="caption" hidden></div>
+    <div class="tip" id="tip" hidden></div>
+    <div class="empty" id="empty" hidden>
+      <b id="emptyT">Falta a lista de lojas</b>
+      <p>O prédio já está aqui com o contorno e as entradas do mapa. As lojas e os quiosques entram pela relação de lojas do shopping.</p>
+      <button class="btn pri" id="btGoImp">Colar a lista de lojas</button>
+    </div>
+    <div class="note"><span id="hint"></span><span class="lg" id="legend"></span></div>
+  </section>
+
+  <aside>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tb-resumo" aria-selected="true" data-tab="resumo">Resumo</button>
+      <button role="tab" id="tb-pb" aria-selected="false" data-tab="pb">Prospecção</button>
+      <button role="tab" id="tb-lojas" aria-selected="false" data-tab="lojas">Lojas</button>
+      <button role="tab" id="tb-mix" aria-selected="false" data-tab="mix">Mix</button>
+      <button role="tab" id="tb-cmp" aria-selected="false" data-tab="cmp" hidden>Comparar</button>
+      <button role="tab" id="tb-ficha" aria-selected="false" data-tab="ficha">Ficha</button>
+    </div>
+    <div class="pane" id="pane-resumo"></div>
+    <div class="pane" id="pane-pb" hidden></div>
+    <div class="pane" id="pane-lojas" hidden>
+      <div id="detail"></div>
+      <div id="impBox"></div>
+      <div class="search">
+        <input id="q" type="search" placeholder="Buscar loja ou categoria" aria-label="Buscar loja ou categoria">
+        <select id="selTipo" aria-label="Tipo de operação"><option value="">Todos os tipos</option></select>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="row"><div class="count" id="count"></div><button class="btn" id="btClear" hidden>Limpar filtros</button></div>
+      <ul class="list" id="list"></ul>
+    </div>
+    <div class="pane" id="pane-mix" hidden></div>
+    <div class="pane" id="pane-cmp" hidden></div>
+    <div class="pane" id="pane-ficha" hidden></div>
+  </aside>
+</main>
+

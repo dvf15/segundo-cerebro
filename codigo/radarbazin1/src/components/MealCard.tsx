@@ -64,16 +64,16 @@ export default function MealCard({
 
   const input =
     "w-full rounded-lg border border-[#55555f] bg-[#42424a] px-2 py-1.5 text-center text-white outline-none";
-  const smallLabel = "mb-0.5 block text-[10px] uppercase text-slate-400";
+  const smallLabel = "mb-0.5 block text-[11px] uppercase text-slate-400";
 
   if (editing) {
     return (
       <div className="rounded-xl border border-blue-500/40 bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
         <div className="mb-2 flex items-center gap-2">
-          <span className="rounded bg-[#42424a] px-1.5 py-0.5 text-[11px] font-bold text-slate-300">
+          <span className="rounded bg-[#42424a] px-1.5 py-0.5 text-[12px] font-bold text-slate-300">
             {meal.code}
           </span>
-          <span className="text-[12px] font-bold uppercase tracking-wide text-slate-300">
+          <span className="text-[13px] font-bold uppercase tracking-wide text-slate-300">
             Editar refeição
           </span>
         </div>
@@ -114,14 +114,14 @@ export default function MealCard({
           <button
             onClick={save}
             disabled={busy}
-            className="flex-1 rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2 text-[14px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
+            className="flex-1 rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2 text-[15px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
           >
             {busy ? "Salvando..." : "Salvar"}
           </button>
           <button
             onClick={() => setEditing(false)}
             disabled={busy}
-            className="rounded-xl border border-[#55555f] bg-[#42424a] px-4 py-2 text-[14px] font-bold text-slate-200 disabled:opacity-50"
+            className="rounded-xl border border-[#55555f] bg-[#42424a] px-4 py-2 text-[15px] font-bold text-slate-200 disabled:opacity-50"
           >
             Cancelar
           </button>
@@ -132,11 +132,11 @@ export default function MealCard({
             onReestimate(meal);
           }}
           disabled={busy}
-          className="mt-2 w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2 text-[14px] font-bold text-slate-200 disabled:opacity-50"
+          className="mt-2 w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2 text-[15px] font-bold text-slate-200 disabled:opacity-50"
         >
           🤖 Re-estimar por IA (foto/descrição)
         </button>
-        <p className="mt-1.5 text-[11px] text-slate-400">
+        <p className="mt-1.5 text-[12px] text-slate-400">
           Editar os macros ajusta os totais do dia. Os micronutrientes estimados são mantidos.
         </p>
       </div>
@@ -148,24 +148,24 @@ export default function MealCard({
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <span className="rounded bg-[#42424a] px-1.5 py-0.5 text-[11px] font-bold text-slate-300">
+            <span className="rounded bg-[#42424a] px-1.5 py-0.5 text-[12px] font-bold text-slate-300">
               {meal.code}
             </span>
             {meal.time && (
-              <span className="shrink-0 rounded bg-[#42424a] px-1.5 py-0.5 text-[11px] font-semibold text-slate-300">
+              <span className="shrink-0 rounded bg-[#42424a] px-1.5 py-0.5 text-[12px] font-semibold text-slate-300">
                 🕐 {meal.time}
               </span>
             )}
-            <span className="truncate text-[15px] font-semibold text-slate-100">
+            <span className="truncate text-[16px] font-semibold text-slate-100">
               {meal.description}
             </span>
           </div>
-          <div className="mt-1 text-[12px] text-slate-300">
+          <div className="mt-1 text-[13px] text-slate-300">
             P {Math.round(meal.protein_g)}g · C {Math.round(meal.carb_g)}g · G{" "}
             {Math.round(meal.fat_g)}g
           </div>
           {meal.confidence < 7 && (
-            <span className="mt-1 inline-block rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] font-bold text-amber-300">
+            <span className="mt-1 inline-block rounded-full bg-amber-500/15 px-2 py-0.5 text-[12px] font-bold text-amber-300">
               ⚠️ estimativa incerta ({meal.confidence}/10)
             </span>
           )}
@@ -176,7 +176,7 @@ export default function MealCard({
                 return (
                   <span
                     key={f}
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                    className={`rounded-full px-2 py-0.5 text-[12px] font-semibold ${
                       m?.tone === "good"
                         ? "bg-emerald-500/15 text-emerald-300"
                         : "bg-rose-500/15 text-rose-300"
@@ -196,7 +196,7 @@ export default function MealCard({
           <button
             onClick={open}
             aria-label="Editar refeição"
-            className="h-7 w-7 rounded-md border border-[#55555f] bg-[#242427] text-[12px] text-slate-300"
+            className="h-7 w-7 rounded-md border border-[#55555f] bg-[#242427] text-[13px] text-slate-300"
           >
             ✎
           </button>

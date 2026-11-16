@@ -45,7 +45,6 @@ const estado = {
     triAtencaoReais: 1000,
     triDiaReais: 100,
     overrides: {},
-    tema: 'auto',
   },
   fontePreferida: {},
   acomp: acompanhamentoVazio(),   // persistido: carteira, ciclos, fechamentos, textos das notificações
@@ -65,15 +64,10 @@ function carregarPrefs () {
     const s = localStorage.getItem(CHAVE_PREFS)
     if (s) Object.assign(estado.prefs, JSON.parse(s))
   } catch { /* localStorage pode estar bloqueado — segue com os padrões */ }
-  aplicarTema()
 }
 function salvarPrefs () {
   try { localStorage.setItem(CHAVE_PREFS, JSON.stringify(estado.prefs)) } catch { /* sem persistência */ }
 }
-function aplicarTema () {
-  document.documentElement.dataset.tema = estado.prefs.tema === 'auto' ? '' : estado.prefs.tema
-}
-
 function carregarAcomp () {
   try {
     const s = localStorage.getItem(CHAVE_ACOMP)
@@ -216,6 +210,22 @@ function calcular () {
 
 /* ---------------------------------------------------------------- render */
 
+/** Ícones das abas, no traço das ferramentas do radarbazin1 (Radar de Varejo). */
+const ic = (d) => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`
+const ICONE_ABA = {
+  dashboard: ic('<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'),
+  painel: ic('<path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/>'),
+  lojistas: ic('<path d="M3 9 4.5 4h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M10 20v-6h4v6"/>'),
+  notificacoes: ic('<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>'),
+  societario: ic('<circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/>'),
+  triangulacao: ic('<path d="M12 3 2.5 20h19z"/><circle cx="12" cy="3.5" r="1.2"/><circle cx="3" cy="19.5" r="1.2"/><circle cx="21" cy="19.5" r="1.2"/>'),
+  auditoria: ic('<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/>'),
+  tabela: ic('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>'),
+  ajuda: ic('<circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>'),
+}
+/** Contagem da aba, em pílula. */
+const cnt = (n) => n ? ` <span class="cnt">${n}</span>` : ''
+
 function renderizar () {
   const app = $('#app')
   if (!app) return
@@ -227,13 +237,13 @@ function renderizar () {
   const pendSoc = r.soc.aValidar.length + r.soc.pendentes.length
   app.innerHTML = `
     <nav class="abas" role="tablist">
-      ${[['dashboard', 'Dashboard'], ['painel', 'Painel'], ['lojistas', `Lojistas${estado.acomp.lojistas.length ? ` (${estado.acomp.lojistas.length})` : ''}`],
+      ${[['dashboard', 'Dashboard'], ['painel', 'Painel'], ['lojistas', `Lojistas${cnt(estado.acomp.lojistas.length)}`],
          ['notificacoes', `Notificações${pend ? ` <b class="pendencia">${pend}</b>` : ''}`],
          ['societario', `Societário${pendSoc ? ` <b class="pendencia">${pendSoc}</b>` : ''}`],
-         ['triangulacao', `Triangulação${r.tri.porMes.length ? ` (${r.tri.porMes.length})` : ''}`],
-         ['auditoria', `Auditoria fiscal${r.linhas.length ? ` (${r.linhas.length})` : ''}`],
+         ['triangulacao', `Triangulação${cnt(r.tri.porMes.length)}`],
+         ['auditoria', `Auditoria fiscal${cnt(r.linhas.length)}`],
          ['tabela', 'Tabela de códigos'], ['ajuda', 'Como funciona']]
-        .map(([k, t]) => `<button role="tab" data-aba="${k}" aria-selected="${estado.aba === k}">${t}</button>`).join('')}
+        .map(([k, t]) => `<button role="tab" data-aba="${k}" aria-selected="${estado.aba === k}">${ICONE_ABA[k]}${t}</button>`).join('')}
     </nav>
     <div id="progresso" class="progresso" style="display:none"></div>
     ${estado.acomp.ficticia ? `<div class="faixa-ficticia">🧪 <strong>Base fictícia de teste</strong> carregada em ${dataBR(estado.acomp.geradaEm)} — ${estado.acomp.lojistas.length} lojistas inventados.
@@ -1984,14 +1994,6 @@ const hoje = () => new Date().toISOString().slice(0, 10)
 export function iniciar () {
   carregarPrefs()
   carregarAcomp()
-  const bt = $('#tema')
-  if (bt) bt.onclick = () => {
-    const ordem = ['auto', 'claro', 'escuro']
-    estado.prefs.tema = ordem[(ordem.indexOf(estado.prefs.tema) + 1) % 3]
-    aplicarTema(); salvarPrefs()
-    bt.textContent = { auto: 'Tema: auto', claro: 'Tema: claro', escuro: 'Tema: escuro' }[estado.prefs.tema]
-  }
-  if (bt) bt.textContent = { auto: 'Tema: auto', claro: 'Tema: claro', escuro: 'Tema: escuro' }[estado.prefs.tema]
   renderizar()
 }
 

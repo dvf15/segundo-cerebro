@@ -11,33 +11,23 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icones/icone-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="icones/icone-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icones/apple-touch-icon.png">
-<meta name="theme-color" content="#00A868">
+<meta name="theme-color" content="#00616f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Radar">
 <meta name="application-name" content="Radar">
 <style>:root{
-  --bg:#f4f6f8; --painel:#fff; --borda:#dfe4ea; --texto:#16202b; --fraco:#5d6b7a;
-  --acento:#0b5fa5; --acento-fraco:#e7f0fa;
-  --ok:#15803d; --ok-bg:#e8f6ed; --atencao:#a16207; --atencao-bg:#fdf5e2;
-  --erro:#b3261e; --erro-bg:#fbeae9; --neutro-bg:#eef1f4;
-  --fonte:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  /* paleta do template das ferramentas do radarbazin1 (Radar de Varejo, public/operacoes.html) */
+  color-scheme:light;
+  --bg:#e5ded4; --painel:#ffffff; --borda:#ccc5bc; --borda-suave:#e3dccf; --campo:#f1ece3;
+  --texto:#0d454a; --fraco:rgba(13,69,74,.62); --fraco2:rgba(13,69,74,.5);
+  --acento:#00616f; --acento2:#368c82; --acento-fraco:rgba(0,97,111,.08); --destaque:#6cc680;
+  --ok:#3f9e6a; --ok-bg:rgba(108,198,128,.18); --atencao:#c07d1e; --atencao-bg:rgba(237,167,84,.18);
+  --erro:#cd5151; --erro-bg:rgba(205,81,81,.12); --neutro-bg:#f1ece3;
+  --sombra:0 1px 2px rgba(13,69,74,.05), 0 12px 28px rgba(13,69,74,.06);
+  --fonte:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-tema="claro"]):not([data-theme="light"]){
-    --bg:#11161c; --painel:#1a222b; --borda:#2c3742; --texto:#e6ecf2; --fraco:#9aa8b6;
-    --acento:#5aa9f0; --acento-fraco:#17293c;
-    --ok:#6ee7a8; --ok-bg:#12291d; --atencao:#f0c05a; --atencao-bg:#2b2413;
-    --erro:#f1928c; --erro-bg:#2e1715; --neutro-bg:#212a34;
-  }
-}
-:root[data-tema="escuro"],:root[data-theme="dark"]{
-  --bg:#11161c; --painel:#1a222b; --borda:#2c3742; --texto:#e6ecf2; --fraco:#9aa8b6;
-  --acento:#5aa9f0; --acento-fraco:#17293c;
-  --ok:#6ee7a8; --ok-bg:#12291d; --atencao:#f0c05a; --atencao-bg:#2b2413;
-  --erro:#f1928c; --erro-bg:#2e1715; --neutro-bg:#212a34;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -119,14 +109,6 @@ mark{background:var(--atencao-bg);color:var(--atencao);padding:0 3px;border-radi
   --viz-acima:#e34948;    /* fonte acima da referência  */
   --viz-zero:#f0efec;     /* trilho neutro              */
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-tema="claro"]):not([data-theme="light"]){
-    --viz-abaixo:#3987e5; --viz-acima:#e66767; --viz-zero:#383835;
-  }
-}
-:root[data-tema="escuro"],:root[data-theme="dark"]{
-  --viz-abaixo:#3987e5; --viz-acima:#e66767; --viz-zero:#383835;
-}
 .desvios{display:flex;flex-direction:column;gap:3px;min-width:132px}
 .desvio{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--fraco);line-height:1}
 .desvio b{font-weight:700;width:26px;flex:none;text-align:right;color:var(--fraco)}
@@ -188,10 +170,9 @@ button.acao:disabled,button.leve:disabled{opacity:.45;cursor:not-allowed}
 .racional li{margin:2px 0}
 
 /* --- dashboard ----------------------------------------------------------- */
-/* séries validadas (paleta de referência, slots 1–3) nos dois temas */
-:root{ --serie-1:#2a78d6; --serie-2:#eb6834; --serie-3:#1baf7a }
-@media (prefers-color-scheme:dark){ :root:not([data-tema="claro"]){ --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70 } }
-:root[data-tema="escuro"],:root[data-theme="dark"]{ --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70 }
+/* séries: recebidos → apurados → cobrados são etapas em ordem, então um tom só, do claro ao
+   escuro (o verde-petróleo do template); contraste com o branco 3,3 · 7,1 · 10,7 : 1 */
+:root{ --serie-1:#4a9a8f; --serie-2:#00616f; --serie-3:#0d454a }
 .dash-cab{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px}
 .dash-cab h2{margin:0}
 .grade-dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;align-items:start}
@@ -248,18 +229,143 @@ dialog.pergunta .botoes{display:flex;gap:10px;justify-content:flex-end;flex-wrap
 .grade3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 td.maior{font-weight:700;background:color-mix(in srgb,var(--acento) 13%,transparent);box-shadow:inset 3px 0 0 var(--acento)}
 td.maior .rot-maior{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--acento)}
+
+/* ==========================================================================
+   Template das ferramentas do radarbazin1 (Radar de Varejo): areia, verde-
+   petróleo, cartões brancos arredondados, abas em pílula. Só tema claro.
+   ========================================================================== */
+body{background:var(--bg);color:var(--texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+h1{font-size:23px;font-weight:800;color:var(--acento);letter-spacing:-.3px;margin:0 0 2px}
+h2{font-size:16px;font-weight:800;color:var(--acento)}
+h3{font-size:13px;font-weight:800;color:var(--acento)}
+.sub{color:var(--fraco)}
+a{color:var(--acento)}
+svg.ic{width:17px;height:17px;display:inline-block;flex:0 0 auto;vertical-align:-3px;stroke-width:2}
+
+/* cabeçalho: selo + título, sem barra fixa (como no Radar de Varejo) */
+header.topo{background:transparent;border:0;position:static}
+header.topo .wrap{padding-top:calc(16px + env(safe-area-inset-top));padding-bottom:4px;gap:12px}
+.brand{display:flex;gap:12px;align-items:center;min-width:0;flex:1 1 320px}
+.brand > div{min-width:0}
+.brand .sub{overflow-wrap:anywhere}
+.brand .sub b{color:var(--texto)}
+.brandmark{width:42px;height:42px;border-radius:12px;background:var(--acento);color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 6px 16px rgba(0,97,111,.28)}
+.brandmark svg.ic{width:27px;height:27px}
+.selo{background:rgba(108,198,128,.22);color:var(--texto);border:1px solid rgba(108,198,128,.55);font-size:11.5px;font-weight:700}
+.selo svg.ic{width:13px;height:13px;vertical-align:-2px}
+
+/* abas em pílula; a ativa preenchida */
+nav.abas{gap:8px;border:0;margin:16px 0 18px}
+nav.abas button{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 142px;min-width:0;padding:9px 13px;border-radius:10px;
+  background:var(--painel);border:1px solid var(--borda);color:rgba(13,69,74,.72);font-size:13px;font-weight:700;white-space:nowrap;
+  box-shadow:0 1px 2px rgba(13,69,74,.05)}
+nav.abas button svg.ic{width:16px;height:16px;vertical-align:-2px}
+nav.abas button:hover{color:var(--texto);background:var(--painel);border-color:var(--acento)}
+nav.abas button[aria-selected="true"]{background:var(--acento);border-color:var(--acento);color:#fff;box-shadow:0 6px 16px rgba(0,97,111,.24)}
+nav.abas .cnt{background:var(--campo);color:rgba(13,69,74,.6);border-radius:99px;padding:0 7px;font-size:11px}
+nav.abas button[aria-selected="true"] .cnt{background:rgba(255,255,255,.28);color:#fff}
+nav.abas b.pendencia{background:var(--erro);margin-left:0}
+nav.subabas{gap:6px}
+nav.subabas button{background:var(--painel);border:1px solid var(--borda);color:var(--texto);border-radius:10px;padding:8px 13px;font-weight:600}
+nav.subabas button[aria-selected="true"]{background:rgba(0,97,111,.14);border-color:var(--acento);color:var(--acento)}
+
+/* cartões e painéis */
+section.painel{background:var(--painel);border:1px solid var(--borda);border-radius:16px;padding:18px;box-shadow:var(--sombra)}
+.card{background:var(--campo);border:1px solid var(--borda-suave);border-radius:12px;padding:12px 14px}
+.card .rot{font-size:10px;letter-spacing:.06em;color:var(--fraco2);font-weight:600}
+.card .val{font-size:20px;font-weight:800;color:var(--acento)}
+.card.ok .val{color:var(--ok)} .card.atencao .val{color:var(--atencao)} .card.erro .val{color:var(--erro)}
+.passo{background:rgba(0,97,111,.14);color:var(--acento);font-weight:800}
+
+/* botões */
+button.acao,a.botao.acao{background:var(--acento);color:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:700;box-shadow:0 6px 16px rgba(0,97,111,.22);transition:transform .05s ease,filter .15s ease}
+button.acao:hover{filter:brightness(1.07)}
+button.acao:active{transform:translateY(1px)}
+button.acao.perigo{background:var(--erro);box-shadow:none}
+button.leve,a.leve{background:var(--painel);color:var(--texto);border:1px solid var(--borda);border-radius:12px;padding:8px 12px;font-weight:700}
+button.leve:hover,a.leve:hover{background:var(--painel);border-color:var(--acento)}
+button.icone:hover{background:var(--campo)}
+
+/* campos */
+input,select{border:1px solid var(--borda);border-radius:10px;padding:9px 11px;background:var(--painel);color:var(--texto);transition:border-color .15s ease,box-shadow .15s ease}
+input:focus,select:focus{outline:none;border-color:var(--acento);box-shadow:0 0 0 3px rgba(0,97,111,.13)}
+label.campo{color:var(--fraco2);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+label.campo.check span{text-transform:none;letter-spacing:0;font-size:13px}
+
+/* tabelas */
+th,td{border-bottom:1px solid var(--borda-suave)}
+th{font-size:10px;letter-spacing:.06em;color:var(--fraco2)}
+td.num,th.num{font-family:var(--fonte);font-variant-numeric:tabular-nums}
+tbody tr:hover{background:var(--campo)}
+tr.grave td{background:rgba(205,81,81,.07)}
+td.maior{background:rgba(0,97,111,.10);box-shadow:inset 3px 0 0 var(--acento);color:var(--acento)}
+
+/* etiquetas de status, como as pílulas do template: texto escuro sobre o tom */
+.tag{font-size:10px;font-weight:800;padding:2px 9px}
+.tag.ok{background:rgba(108,198,128,.28);color:var(--texto)}
+.tag.atencao{background:rgba(237,167,84,.30);color:#7a4a0e}
+.tag.erro{background:rgba(205,81,81,.18);color:#8e2f2f}
+.tag.neutro{background:rgba(204,197,188,.45);color:rgba(13,69,74,.75)}
+.item-check{background:var(--campo);color:var(--fraco)}
+.item-check.feito{background:rgba(108,198,128,.28);color:var(--texto)}
+.etapa{background:var(--campo);color:var(--fraco)}
+.etapa.feita{background:rgba(237,167,84,.30);color:#7a4a0e}
+.etapa.multa{background:rgba(205,81,81,.18);color:#8e2f2f}
+
+/* faixas e avisos (banner do template) */
+.faixa-ciclo{background:rgba(0,97,111,.08);border:1px solid rgba(54,140,130,.35)}
+.faixa-ficticia{background:rgba(237,167,84,.16);border:1px solid rgba(237,167,84,.6)}
+ul.avisos li{background:rgba(237,167,84,.16);color:#7a4a0e;border-left-color:#eda754}
+ul.avisos li.info{background:rgba(0,97,111,.08);color:var(--texto);border-left-color:var(--acento)}
+.validacao{background:rgba(205,81,81,.08);border:1px solid rgba(205,81,81,.35)}
+.validacao.feita{background:var(--campo);border-color:var(--borda-suave)}
+mark{background:rgba(237,167,84,.30);color:#7a4a0e}
+
+/* arquivos, caixas de soltar, blocos internos */
+.drop{background:var(--campo);border:2px dashed var(--borda);border-radius:12px}
+.drop:hover,.drop.ativo{background:rgba(0,97,111,.08);border-color:var(--acento)}
+.arquivo{background:var(--campo);border:1px solid var(--borda-suave);border-radius:12px}
+.racional,.texto-notif,.grupo-pend,details.cfops table,.ficticia-box{background:var(--campo)}
+.grupo-pend{border-color:var(--borda-suave);border-radius:10px}
+.roteiro{border-radius:12px}
+.fechar{border-color:var(--borda);border-radius:12px}
+details.cfops summary{color:var(--acento);font-weight:700}
+.medidor-trilho,.bm-trilho{background:var(--campo)}
+.bm-barra{background:var(--acento)}
+.medidor-trilho i{background:var(--acento)}
+#dica-viz{background:var(--texto);color:#fff;box-shadow:0 8px 24px rgba(13,69,74,.28)}
+dialog.pergunta{border-radius:16px;box-shadow:0 12px 40px rgba(13,69,74,.28)}
+dialog.pergunta::backdrop{background:rgba(13,69,74,.45)}
+.nota code{background:var(--campo)}
+
+@media (max-width:520px){
+  .brandmark{width:38px;height:38px} .brandmark svg.ic{width:24px;height:24px}
+  h1{font-size:21px}
+  nav.abas{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  nav.abas button{font-size:12.5px;padding:8px 10px}
+}
+/* sobre o fundo areia, cartões e a faixa do ciclo são brancos (como os .card do template);
+   dentro de um painel branco, os cartões voltam ao tom de campo */
+.card{background:var(--painel);border-color:var(--borda);box-shadow:0 1px 2px rgba(13,69,74,.05),0 8px 20px rgba(13,69,74,.05)}
+section.painel .card{background:var(--campo);border-color:var(--borda-suave);box-shadow:none}
+.faixa-ciclo{background:var(--painel);border:1px solid var(--borda);box-shadow:inset 4px 0 0 var(--acento)}
 </style>
 </head>
 <body>
 <header class="topo"><div class="wrap">
-  <h1>📡 Radar de Auditoria <small class="versao">2.1 · acelerador de auditoria de lojistas</small></h1>
-  <span class="selo" title="Nenhum arquivo sai deste navegador">🔒 processamento local</span>
-  <span class="espaco"></span>
-  <button class="leve" id="tema">Tema: auto</button>
+  <div class="brand">
+    <div class="brandmark" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M8 13.5v-2M11 13.5V8.5M14 13.5v-3.5"/></svg></div>
+    <div>
+      <h1>Radar de Auditoria</h1>
+      <p class="sub">Auditoria de vendas de lojistas — <b>triangulação</b>, auditoria fiscal anual e societário · versão 2.1</p>
+    </div>
+  </div>
+  <span class="selo" title="Nenhum arquivo sai deste navegador"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>processamento local</span>
 </div></header>
 <main class="wrap"><div id="app"></div></main>
 <footer class="wrap"><p class="nota">
-  Versão 2026-10-27 · bibliotecas: pdf.js 3.11.174 e SheetJS 0.18.5 (Apache-2.0).
+  Versão 2026-11-16 · bibliotecas: pdf.js 3.11.174 e SheetJS 0.18.5 (Apache-2.0).
   Ferramenta de triagem: aponta onde conferir, não substitui a análise do seu contador.
 </p></footer>
 
@@ -4320,7 +4426,6 @@ const estado = {
     triAtencaoReais: 1000,
     triDiaReais: 100,
     overrides: {},
-    tema: 'auto',
   },
   fontePreferida: {},
   acomp: acompanhamentoVazio(),   // persistido: carteira, ciclos, fechamentos, textos das notificações
@@ -4340,15 +4445,10 @@ function carregarPrefs () {
     const s = localStorage.getItem(CHAVE_PREFS)
     if (s) Object.assign(estado.prefs, JSON.parse(s))
   } catch { /* localStorage pode estar bloqueado — segue com os padrões */ }
-  aplicarTema()
 }
 function salvarPrefs () {
   try { localStorage.setItem(CHAVE_PREFS, JSON.stringify(estado.prefs)) } catch { /* sem persistência */ }
 }
-function aplicarTema () {
-  document.documentElement.dataset.tema = estado.prefs.tema === 'auto' ? '' : estado.prefs.tema
-}
-
 function carregarAcomp () {
   try {
     const s = localStorage.getItem(CHAVE_ACOMP)
@@ -4491,6 +4591,22 @@ function calcular () {
 
 /* ---------------------------------------------------------------- render */
 
+/** Ícones das abas, no traço das ferramentas do radarbazin1 (Radar de Varejo). */
+const ic = (d) => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`
+const ICONE_ABA = {
+  dashboard: ic('<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'),
+  painel: ic('<path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/>'),
+  lojistas: ic('<path d="M3 9 4.5 4h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M10 20v-6h4v6"/>'),
+  notificacoes: ic('<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>'),
+  societario: ic('<circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/>'),
+  triangulacao: ic('<path d="M12 3 2.5 20h19z"/><circle cx="12" cy="3.5" r="1.2"/><circle cx="3" cy="19.5" r="1.2"/><circle cx="21" cy="19.5" r="1.2"/>'),
+  auditoria: ic('<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/>'),
+  tabela: ic('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>'),
+  ajuda: ic('<circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>'),
+}
+/** Contagem da aba, em pílula. */
+const cnt = (n) => n ? ` <span class="cnt">${n}</span>` : ''
+
 function renderizar () {
   const app = $('#app')
   if (!app) return
@@ -4502,13 +4618,13 @@ function renderizar () {
   const pendSoc = r.soc.aValidar.length + r.soc.pendentes.length
   app.innerHTML = `
     <nav class="abas" role="tablist">
-      ${[['dashboard', 'Dashboard'], ['painel', 'Painel'], ['lojistas', `Lojistas${estado.acomp.lojistas.length ? ` (${estado.acomp.lojistas.length})` : ''}`],
+      ${[['dashboard', 'Dashboard'], ['painel', 'Painel'], ['lojistas', `Lojistas${cnt(estado.acomp.lojistas.length)}`],
          ['notificacoes', `Notificações${pend ? ` <b class="pendencia">${pend}</b>` : ''}`],
          ['societario', `Societário${pendSoc ? ` <b class="pendencia">${pendSoc}</b>` : ''}`],
-         ['triangulacao', `Triangulação${r.tri.porMes.length ? ` (${r.tri.porMes.length})` : ''}`],
-         ['auditoria', `Auditoria fiscal${r.linhas.length ? ` (${r.linhas.length})` : ''}`],
+         ['triangulacao', `Triangulação${cnt(r.tri.porMes.length)}`],
+         ['auditoria', `Auditoria fiscal${cnt(r.linhas.length)}`],
          ['tabela', 'Tabela de códigos'], ['ajuda', 'Como funciona']]
-        .map(([k, t]) => `<button role="tab" data-aba="${k}" aria-selected="${estado.aba === k}">${t}</button>`).join('')}
+        .map(([k, t]) => `<button role="tab" data-aba="${k}" aria-selected="${estado.aba === k}">${ICONE_ABA[k]}${t}</button>`).join('')}
     </nav>
     <div id="progresso" class="progresso" style="display:none"></div>
     ${estado.acomp.ficticia ? `<div class="faixa-ficticia">🧪 <strong>Base fictícia de teste</strong> carregada em ${dataBR(estado.acomp.geradaEm)} — ${estado.acomp.lojistas.length} lojistas inventados.
@@ -4678,15 +4794,19 @@ const CAMPOS_MAPA = [
   ['cfop', 'CFOP'], ['livro', 'Entrada/Saída'], ['valorContabil', 'Valor contábil'],
   ['baseCalculo', 'Base de cálculo'], ['icms', 'ICMS'], ['valorInformado', 'Venda informada'],
 ]
+/** Planilha diária da triangulação (o NAPP): as colunas são outras. */
+const CAMPOS_MAPA_MOV = [['data', 'Data'], ['valor', 'Valor da venda'], ['cnpj', 'CNPJ'], ['luc', 'Número da loja (LUC)']]
 
 function mapeamento (e, tipo) {
   const aba = (e.lido.abas || []).find(a => a.nome === e.opts.aba) || (e.lido.abas || [])[0]
   if (!aba || !aba.linhas.length) return ''
-  const { i, mapa: auto } = acharCabecalho(aba.linhas)
+  const ehMov = ehTri(tipo)
+  const { i, mapa: auto } = acharCabecalho(aba.linhas, ehMov ? SINONIMOS_MOV : undefined)
   if (i === -1) return ''
   const cabecalho = aba.linhas[i].map(c => String(c ?? ''))
   const mapa = e.opts.mapa || auto
-  const campos = tipo === 'planilha'
+  const campos = ehMov ? CAMPOS_MAPA_MOV
+    : tipo === 'planilha'
     ? CAMPOS_MAPA.filter(c => ['cnpj', 'empresa', 'competencia', 'valorInformado'].includes(c[0]))
     : CAMPOS_MAPA.filter(c => c[0] !== 'valorInformado')
   return `<details class="cfops" style="margin-top:8px"><summary>Mapeamento de colunas</summary>
@@ -4839,7 +4959,7 @@ function viewTriangulacao (r) {
     <p class="nota">O <em>declarado</em> vem da ficha de vendas informadas (Auditoria fiscal → Dados → Vendas informadas).
       Linhas do mesmo dia são somadas, então relatório quebrado por caixa ou por forma de pagamento entra direto.
       O NAPP sem CNPJ é ligado ao lojista pelo número da loja (LUC) da carteira. Foto passa por OCR: confira os valores lidos antes de fechar o mês.</p>
-    <details class="cfops"><summary>Limites da leitura em R$ — mês: até ${fmt(lim.coerente)} coerente, até ${fmt(lim.atencao)} atenção; dia: até ${fmt(lim.dia)}</summary>
+    <details class="cfops" id="limites-tri" ${estado.limitesTriAbertos ? 'open' : ''}><summary>Limites da leitura em R$ — mês: até ${fmt(lim.coerente)} coerente, até ${fmt(lim.atencao)} atenção; dia: até ${fmt(lim.dia)}</summary>
       <div class="opcoes" style="margin-top:8px">
         <label class="campo">Mês: coerente até (R$)<input type="number" id="p-tri-coerente" step="10" min="0" value="${lim.coerente}"></label>
         <label class="campo">Mês: atenção até (R$)<input type="number" id="p-tri-atencao" step="10" min="0" value="${lim.atencao}"></label>
@@ -5676,8 +5796,9 @@ function natAtual (c) {
 function viewAjuda () {
   return `<section class="painel" id="painel-video" style="position:absolute;left:-99999px;top:0">
     <h2>Vídeos: o passo a passo</h2>
-    <p class="sub">Com dados fictícios, sem áudio e com legendas na tela. Um no computador, do carregamento dos arquivos à leitura
-      das divergências; outro no celular, da ficha do lojista ao cruzamento final, passando por todas as abas.</p>
+    <p class="sub">Com dados fictícios e legendas na tela. Um no computador, sem áudio, do carregamento dos arquivos à leitura
+      das divergências; o passo a passo completo no celular, narrado, passando por todas as abas; e um curto, também narrado,
+      só com as novidades mais recentes.</p>
     <div class="videos">
       <figure data-video>
         <video controls preload="metadata" playsinline>
@@ -5691,6 +5812,12 @@ function viewAjuda () {
           <source src="apurador-fiscal-celular.mp4" type="video/mp4">
         </video>
         <figcaption>No celular · da ficha do lojista ao cruzamento final</figcaption>
+      </figure>
+      <figure data-video class="vertical">
+        <video controls preload="metadata" playsinline>
+          <source src="radar-novidades.mp4" type="video/mp4">
+        </video>
+        <figcaption>Novidades · triangulação com NAPP, maior valor e leitura em R$</figcaption>
       </figure>
     </div>
   </section>
@@ -6059,6 +6186,10 @@ function ligarEventos (r) {
   const bf = $('#baixar-ficticia')
   if (bf) bf.onclick = () => baixar('lojistas-base-ficticia.csv', lojistasFicticiosCsv(gerarBaseFicticia(new Date())), 'text/csv')
 
+  // limites da triangulação: o bloco continua aberto enquanto o time ajusta os valores
+  const lt = $('#limites-tri')
+  if (lt) lt.ontoggle = () => { estado.limitesTriAbertos = lt.open }
+
   // dashboard
   const rt = $('#roteiro')
   if (rt) rt.ontoggle = () => { estado.roteiroAberto = rt.open }
@@ -6244,14 +6375,6 @@ const hoje = () => new Date().toISOString().slice(0, 10)
 function iniciar () {
   carregarPrefs()
   carregarAcomp()
-  const bt = $('#tema')
-  if (bt) bt.onclick = () => {
-    const ordem = ['auto', 'claro', 'escuro']
-    estado.prefs.tema = ordem[(ordem.indexOf(estado.prefs.tema) + 1) % 3]
-    aplicarTema(); salvarPrefs()
-    bt.textContent = { auto: 'Tema: auto', claro: 'Tema: claro', escuro: 'Tema: escuro' }[estado.prefs.tema]
-  }
-  if (bt) bt.textContent = { auto: 'Tema: auto', claro: 'Tema: claro', escuro: 'Tema: escuro' }[estado.prefs.tema]
   renderizar()
 }
 

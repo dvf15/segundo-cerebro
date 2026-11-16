@@ -1,0 +1,1424 @@
+{
+ "lido_em": "14/11/2026",
+ "empresas": [
+  {
+   "empresa": "Alpargatas",
+   "ticker": "ALPA4",
+   "bolsa": "B3",
+   "situacao": "listada (ALPA4 e ALPA3; resultado do 3T26 divulgado em novembro/2026)",
+   "marcas": [
+    {
+     "marca": "Havaianas",
+     "nomes": [
+      "HAVAIANAS"
+     ],
+     "fonte": "https://www.moneytimes.com.br/alpargatas-alpa4-dona-da-havaianas-dispara-na-b3-apos-balanco-e-hora-de-comprar-lils/"
+    }
+   ],
+   "receita": {
+    "valor": 4564000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/11962/alpargatas-alpa4-registra-lucro-de-r-197-mi-no-4t25",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "Americanas",
+   "ticker": "AMER3",
+   "bolsa": "B3",
+   "situacao": "listada (AMER3); em recuperação judicial desde 2023 — pediu o encerramento em março/2026 e MP e administrador judicial deram parecer favorável; encerramento não confirmado em 14/11/2026",
+   "marcas": [
+    {
+     "marca": "Americanas",
+     "nomes": [
+      "AMERICANAS",
+      "LOJAS AMERICANAS"
+     ],
+     "fonte": "https://mercadoeconsumo.com.br/27/03/2026/noticias-varejo/americanas-descarta-fechamentos-massivos-e-aposta-em-lojas-como-hubs-de-entrega/amp/"
+    }
+   ],
+   "receita": {
+    "valor": 12300000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.jb.com.br/economia/marcas/2026/03/1059092-americanas-tem-prejuizo-de-rs-44-mi-no-4-trimestre-de-2025-reducao-de-925-em-um-ano.html",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 1470,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "total de lojas ativas",
+    "fonte": "https://mercadoeconsumo.com.br/27/03/2026/noticias-varejo/americanas-descarta-fechamentos-massivos-e-aposta-em-lojas-como-hubs-de-entrega/amp/",
+    "conf": true
+   },
+   "sss": {
+    "valor": 8.7,
+    "periodo": "9M26",
+    "recorte": "lojas físicas (fonte única)",
+    "escopo": "lojas físicas (fonte única)",
+    "fonte": "https://visnoinvest.com.br/news/16450/americanas-amer3-registra-prejuizo-de-r-955-mi-no-3t26-e-9m26",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "União Pet Participações",
+   "ticker": "AUAU3",
+   "bolsa": "B3",
+   "situacao": "listada; fusão Petz-Cobasi concluída em janeiro de 2026 — a Cobasi (União Pet) incorporou a Petz, PETZ3 deixou de ser negociada e o grupo passou a negociar como AUAU3",
+   "marcas": [
+    {
+     "marca": "Zee.Dog",
+     "nomes": [
+      "ZEE DOG"
+     ],
+     "fonte": "https://mercadoeconsumo.com.br/20/08/2026/noticias-varejo/cobasi-amplia-portfolio-com-a-zee-dog-e-passa-a-vender-acessorios-premium-em-lojas-site-e-app/"
+    }
+   ],
+   "receita": {
+    "valor": 1700000000,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor arredondado pela imprensa)",
+    "fonte": "https://www.infomoney.com.br/mercados/resultados-petz-cobasi-auau3-terceiro-trimestre-2026/",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 521,
+    "periodo": "2026",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://quartr.com/events/uniao-pet-participacoes-s-a-auau3-corporate-presentation_3Pcs2D7I",
+    "conf": false
+   },
+   "area": {
+    "valor": 221500,
+    "periodo": "1T26",
+    "recorte": "marca Petz",
+    "escopo": "marca Petz",
+    "fonte": "https://mercadoeconsumo.com.br/08/05/2026/mc-capital/petz-registra-salto-de-942-no-lucro-impulsionada-por-vendas-digitais-e-lojas-fisicas/",
+    "conf": false
+   },
+   "sss": {
+    "valor": 7.1,
+    "periodo": "2T26",
+    "recorte": "mesmas lojas, grupo (Petz 7,4%; Cobasi 6,6%)",
+    "escopo": "mesmas lojas, grupo (Petz 7,4%; Cobasi 6,6%)",
+    "fonte": "https://www.spacemoney.com.br/investimentos/acoes/lucro-petz-cobasi-2t26/",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Azzas 2154",
+   "ticker": "AZZA3",
+   "bolsa": "B3",
+   "situacao": "listada (AZZA3; resultado do 3T26 divulgado em novembro/2026)",
+   "marcas": [
+    {
+     "marca": "Arezzo",
+     "nomes": [
+      "AREZZO"
+     ],
+     "fonte": "https://www.seudinheiro.com/2026/empresas/em-reestruturacao-a-azzas-dona-da-arezzo-e-da-hering-ainda-nao-alcou-voos-veja-por-que-btg-e-santander-acreditam-que-ainda-vale-investir-kaes/"
+    },
+    {
+     "marca": "Hering",
+     "nomes": [
+      "HERING STORE",
+      "HERING MEGA"
+     ],
+     "fonte": "https://www.seudinheiro.com/2026/empresas/em-reestruturacao-a-azzas-dona-da-arezzo-e-da-hering-ainda-nao-alcou-voos-veja-por-que-btg-e-santander-acreditam-que-ainda-vale-investir-kaes/"
+    },
+    {
+     "marca": "Schutz",
+     "nomes": [
+      "SCHUTZ"
+     ],
+     "fonte": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/"
+    },
+    {
+     "marca": "Anacapri",
+     "nomes": [
+      "ANACAPRI",
+      "ANA CAPRI"
+     ],
+     "fonte": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/"
+    },
+    {
+     "marca": "Reserva",
+     "nomes": [
+      "RESERVA",
+      "RESERVA GO",
+      "CASA RESERVA"
+     ],
+     "fonte": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/"
+    },
+    {
+     "marca": "Farm",
+     "nomes": [
+      "FARM"
+     ],
+     "fonte": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/"
+    },
+    {
+     "marca": "Animale",
+     "nomes": [
+      "ANIMALE"
+     ],
+     "fonte": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/"
+    },
+    {
+     "marca": "Maria Filó",
+     "nomes": [
+      "MARIA FILÓ"
+     ],
+     "fonte": "https://www.nordinvestimentos.com.br/blog/amp/azzas-revisa-portfolio/"
+    },
+    {
+     "marca": "Foxton",
+     "nomes": [
+      "FOXTON"
+     ],
+     "fonte": "https://mercadoeconsumo.com.br/14/08/2025/noticias-varejo/azzas-2154-muda-comando-da-shoes-bags-para-acelerar-resultados/"
+    }
+   ],
+   "receita": {
+    "valor": 4743700000,
+    "periodo": "2025",
+    "recorte": "só lojas próprias (canal)",
+    "escopo": "só lojas próprias (canal)",
+    "fonte": "https://www.nordinvestimentos.com.br/blog/azzas-2154-azza3-resultados-4t25/",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita bruta, só lojas próprias (canal)"
+   }
+  },
+  {
+   "empresa": "C&A Modas",
+   "ticker": "CEAB3",
+   "bolsa": "B3",
+   "situacao": "listada (CEAB3; release do 3T26 divulgado em 04/11/2026)",
+   "marcas": [
+    {
+     "marca": "C&A",
+     "nomes": [
+      "C&A"
+     ],
+     "fonte": "https://www.infomoney.com.br/mercados/ca-ceab3-resultados-terceiro-trimestre-2026/"
+    }
+   ],
+   "receita": {
+    "valor": 7980000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://investidor10.com.br/noticias/c-a-modas-ceab3-bate-recorde-e-lucra-r-470-7-milhoes-em-2025-118806/",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "area": {
+    "valor": 637900,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "área de vendas média, total",
+    "fonte": "https://investidor10.com.br/acoes/link_comunicado/CEAB3/51746/",
+    "conf": true
+   },
+   "sss": {
+    "valor": 1.0,
+    "periodo": "3T26",
+    "recorte": "vestuário",
+    "escopo": "vestuário",
+    "fonte": "https://www.infomoney.com.br/mercados/ca-ceab3-resultados-terceiro-trimestre-2026/",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "CVC Brasil Operadora e Agência de Viagens",
+   "ticker": "CVCB3",
+   "bolsa": "B3",
+   "situacao": "listada (empresa acrescentada: serviços/turismo, não estava na lista de candidatas)",
+   "marcas": [
+    {
+     "marca": "CVC",
+     "nomes": [
+      "CVC",
+      "CVC TURISMO",
+      "CVC VIAGENS"
+     ],
+     "fonte": "https://www.infomoney.com.br/mercados/cvc-cvcb3-divulga-balanco-e-indica-menor-abertura-de-lojas-acao-cai-8-apos-salto-na-terca/"
+    }
+   ],
+   "receita": {
+    "valor": 382400000,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/16432/cvc-cvcb3-registra-lucro-liquido-ajustado-de-r-37-mi-no-3t26",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 1597,
+    "periodo": "3T25",
+    "recorte": "Brasil + Argentina (majoritariamente franquias)",
+    "escopo": "Brasil + Argentina (majoritariamente franquias)",
+    "fonte": "https://www.suno.com.br/noticias/?p=631970",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "d1000 Varejo Farma Participações",
+   "ticker": "DMVF3",
+   "bolsa": "B3",
+   "situacao": "listada (empresa acrescentada: não estava na lista de candidatas)",
+   "marcas": [
+    {
+     "marca": "Drogasmil",
+     "nomes": [
+      "DROGASMIL"
+     ],
+     "fonte": "https://investimentos.com.br/ativo/dmvf3/"
+    },
+    {
+     "marca": "Farmalife",
+     "nomes": [
+      "FARMALIFE"
+     ],
+     "fonte": "https://investimentos.com.br/ativo/dmvf3/"
+    }
+   ],
+   "receita": {
+    "valor": 2591900000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/dd6103ac-e9a2-bb8e-156e-a3c35d624412?origin=2",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita bruta"
+   },
+   "lojas": {
+    "valor": 312,
+    "periodo": "2T26",
+    "recorte": null,
+    "escopo": "companhia consolidada (4 bandeiras)",
+    "fonte": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/1de7026e-4211-cbf9-0c8f-1265e00200de?origin=2",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "MPM Corpóreos",
+   "ticker": "ESPA3",
+   "bolsa": "B3",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Espaçolaser",
+     "nomes": [
+      "ESPAÇO LASER",
+      "ESPAÇOLASER"
+     ],
+     "fonte": "https://visnoinvest.com.br/news/16435/espacolaser-espa3-registra-lucro-ajustado-de-r-16-mi-no-3t26"
+    }
+   ],
+   "receita": {
+    "valor": 1110000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/12051/espacolaser-espa3-registra-lucro-de-r-132-mi-em-2025",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 811,
+    "periodo": "3T26",
+    "recorte": "Brasil (563 próprias + 248 franquias)",
+    "escopo": "Brasil (563 próprias + 248 franquias)",
+    "fonte": "https://visnoinvest.com.br/news/16435/espacolaser-espa3-registra-lucro-ajustado-de-r-16-mi-no-3t26",
+    "conf": false
+   },
+   "sss": {
+    "valor": -0.4,
+    "periodo": "2T26",
+    "recorte": "mesmas lojas",
+    "escopo": "mesmas lojas",
+    "fonte": "https://investidor10.com.br/acoes/link_comunicado/ESPA3/47402/",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Grendene",
+   "ticker": "GRND3",
+   "bolsa": "B3",
+   "situacao": "listada (GRND3) — não foi achada notícia do 3T26; última evidência é o resultado do 4T25 (março/2026)",
+   "marcas": [
+    {
+     "marca": "Melissa",
+     "nomes": [
+      "MELISSA",
+      "CLUBE MELISSA"
+     ],
+     "fonte": "https://diariodonordeste.verdesmares.com.br/negocios/lucro-da-grendene-cai-245-no-4-trimestre-apos-queda-nas-vendas-de-pares-1.3747977"
+    }
+   ],
+   "receita": {
+    "valor": 705100000,
+    "periodo": "4T25",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.infomoney.com.br/?p=3238748",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "Lojas Renner",
+   "ticker": "LREN3",
+   "bolsa": "B3",
+   "situacao": "listada (LREN3; release do 3T26 divulgado em 05/11/2026)",
+   "marcas": [
+    {
+     "marca": "Renner",
+     "nomes": [
+      "RENNER",
+      "LOJAS RENNER"
+     ],
+     "fonte": "https://static.poder360.com.br/2026/03/renner-4T25.pdf"
+    },
+    {
+     "marca": "Camicado",
+     "nomes": [
+      "CAMICADO"
+     ],
+     "fonte": "https://static.poder360.com.br/2026/03/renner-4T25.pdf"
+    },
+    {
+     "marca": "Youcom",
+     "nomes": [
+      "YOUCOM"
+     ],
+     "fonte": "https://static.poder360.com.br/2026/03/renner-4T25.pdf"
+    },
+    {
+     "marca": "Ashua",
+     "nomes": [
+      "ASHUA"
+     ],
+     "fonte": "https://static.poder360.com.br/2026/03/renner-4T25.pdf"
+    }
+   ],
+   "receita": {
+    "valor": 15800000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor arredondado)",
+    "fonte": "https://www.lojasrennersa.com.br/wp-content/uploads/2026/04/Lojas-Renner-Relatorio-Anual2025.pdf",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 717,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "total (Renner+Camicado+Youcom+Ashua)",
+    "fonte": "https://www.lojasrennersa.com.br/wp-content/uploads/2026/04/Lojas-Renner-Relatorio-Anual2025.pdf",
+    "conf": true
+   },
+   "area": {
+    "valor": 826300,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "área de vendas média do trimestre, total",
+    "fonte": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+    "conf": true
+   },
+   "venda_m2": {
+    "valor": 17200,
+    "periodo": "2025",
+    "recorte": "só varejo (receita líquida de varejo por m²)",
+    "escopo": "só varejo (receita líquida de varejo por m²)",
+    "fonte": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+    "conf": true,
+    "unidade": "R$/m²/ano",
+    "origem": "publicado"
+   },
+   "sss": {
+    "valor": -2.5,
+    "periodo": "3T26",
+    "recorte": "só varejo",
+    "escopo": "só varejo",
+    "fonte": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "International Meal Company Alimentação",
+   "ticker": "MEAL3",
+   "bolsa": "B3",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Pizza Hut",
+     "nomes": [
+      "PIZZA HUT"
+     ],
+     "fonte": "https://www.infomoney.com.br/mercados/imc-meal3-resultados-quarto-trimestre-2025/"
+    }
+   ],
+   "receita": {
+    "valor": 420000000,
+    "periodo": "2T26",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://acionista.com.br/imc-meal3-resultados-do-2t26-desempenho-e-estrategias/",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 354,
+    "periodo": "1T26",
+    "recorte": null,
+    "escopo": "companhia consolidada, sem KFC",
+    "fonte": "https://guiadoinvestidor.com.br/?p=384224",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Magazine Luiza",
+   "ticker": "MGLU3",
+   "bolsa": "B3",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Magazine Luiza",
+     "nomes": [
+      "MAGAZINE LUIZA"
+     ],
+     "fonte": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA=="
+    }
+   ],
+   "receita": {
+    "valor": 38700000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.moneytimes.com.br/magazine-luiza-mglu3-lucra-r-1247-milhoes-no-4t25-estamos-crescendo-em-um-mercado-que-nao-cresce-diz-gerente-de-ri-lmrs/",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 1238,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+    "conf": true
+   },
+   "area": {
+    "valor": 678507,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+    "conf": true
+   },
+   "sss": {
+    "valor": 9.5,
+    "periodo": "3T26",
+    "recorte": "só lojas físicas",
+    "escopo": "só lojas físicas",
+    "fonte": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Movida Participações",
+   "ticker": "MOVI3",
+   "bolsa": "B3",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Movida",
+     "nomes": [
+      "MOVIDA ALUGUEL DE CARROS"
+     ],
+     "fonte": "https://investidor10.com.br/noticias/movida-movi3-lucra-r-152-1-mi-e-supera-guidance-no-3t26-123202/"
+    }
+   ],
+   "receita": {
+    "valor": 14672000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/12257/movida-movi3-registra-lucro-de-r-318-mi-em-2025",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "Natura Cosméticos",
+   "ticker": "NATU3",
+   "bolsa": "B3",
+   "situacao": "listada; ticker mudou de NTCO3 para NATU3 após a incorporação da holding Natura &Co; venda da Avon International concluída (notícia de 02/01/2026)",
+   "marcas": [
+    {
+     "marca": "Natura",
+     "nomes": [
+      "NATURA"
+     ],
+     "fonte": "https://economicnewsbrasil.com.br/2026/08/10/lojas-natura-vendas-segundo-trimestre-2026/"
+    }
+   ],
+   "receita": {
+    "valor": 22200000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/12121/natura-natu3-registra-lucro-de-r-463-mi-em-2025",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 1098,
+    "periodo": "2T26",
+    "recorte": "marca Natura, Brasil (lojas próprias + franquias)",
+    "escopo": "marca Natura, Brasil (lojas próprias + franquias)",
+    "fonte": "https://economicnewsbrasil.com.br/2026/08/10/lojas-natura-vendas-segundo-trimestre-2026/",
+    "conf": false
+   },
+   "sss": {
+    "valor": -4.3,
+    "periodo": "2T26",
+    "recorte": "lojas Natura (varejo), Brasil",
+    "escopo": "lojas Natura (varejo), Brasil",
+    "fonte": "https://economicnewsbrasil.com.br/2026/08/10/lojas-natura-vendas-segundo-trimestre-2026/",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "RD Saúde",
+   "ticker": "RADL3",
+   "bolsa": "B3",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Droga Raia",
+     "nomes": [
+      "DROGA RAIA"
+     ],
+     "fonte": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt"
+    },
+    {
+     "marca": "Drogasil",
+     "nomes": [
+      "DROGASIL"
+     ],
+     "fonte": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt"
+    }
+   ],
+   "receita": {
+    "valor": 44250449000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=g7X94kZQjAEd+Jvly2aqPg==",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 3770,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.instagram.com/p/DfUkXjtDC1f/",
+    "conf": true
+   },
+   "sss": {
+    "valor": 8.4,
+    "periodo": "3T26",
+    "recorte": "lojas maduras (MSSS), varejo",
+    "escopo": "lojas maduras (MSSS), varejo",
+    "fonte": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=ctFTIYl/MzWQkto4qObCNA==",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Localiza Rent a Car",
+   "ticker": "RENT3",
+   "bolsa": "B3",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Localiza",
+     "nomes": [
+      "LOCALIZA"
+     ],
+     "fonte": "https://visnoinvest.com.br/news/16279/localiza-rent3-registra-lucro-liquido-de-r-11-bi-no-3t26"
+    }
+   ],
+   "receita": {
+    "valor": 41800000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor arredondado)",
+    "fonte": "https://visnoinvest.com.br/news/11843/localiza-rent3-registra-lucro-ajustado-de-r-34-bi-em-2025",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 593,
+    "periodo": "2T26",
+    "recorte": "Brasil, agências de aluguel de carros (próprias + franqueadas)",
+    "escopo": "Brasil, agências de aluguel de carros (próprias + franqueadas)",
+    "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08f327aa-e610-4d9d-b683-8ff0f7caae07/017f322c-ee1a-5926-d744-308f267da076?origin=2",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Guararapes Confecções",
+   "ticker": "RIAA3",
+   "bolsa": "B3",
+   "situacao": "listada; ticker mudou de GUAR3 para RIAA3 (fontes divergem sobre a data: dezembro/2025 ou 05/02/2026)",
+   "marcas": [
+    {
+     "marca": "Riachuelo",
+     "nomes": [
+      "RIACHUELO"
+     ],
+     "fonte": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/"
+    },
+    {
+     "marca": "Casa Riachuelo",
+     "nomes": [
+      "CASA RIACHUELO"
+     ],
+     "fonte": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/"
+    },
+    {
+     "marca": "Carter's",
+     "nomes": [
+      "CARTER'S",
+      "CARTER´S"
+     ],
+     "fonte": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/"
+    }
+   ],
+   "receita": {
+    "valor": 10000000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor aproximado: \"cerca de\")",
+    "fonte": "https://www.portalin.com.br/?p=740259",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 444,
+    "periodo": "2T25",
+    "recorte": null,
+    "escopo": "total do grupo",
+    "fonte": "https://www.bloomberglinea.com.br/negocios/riachuelo-espera-bom-crescimento-com-novas-lojas-apos-resultados-recordes-diz-ceo/",
+    "conf": true
+   },
+   "area": {
+    "valor": 717000,
+    "periodo": "2T25 ou 2T26",
+    "recorte": null,
+    "escopo": "total",
+    "fonte": "https://investidor10.com.br/acoes/link_comunicado/GUAR3/46905/",
+    "conf": true
+   },
+   "sss": {
+    "valor": 6.5,
+    "periodo": "3T26",
+    "recorte": "vestuário",
+    "escopo": "vestuário",
+    "fonte": "https://brapi.dev/news/riachuelo-recua-9-4-e-sbf-cai-13-5-mesmo-com-balancos-bbf016c8",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Grupo SBF",
+   "ticker": "SBFG3",
+   "bolsa": "B3",
+   "situacao": "listada (SBFG3; resultado do 3T26 divulgado em 09/11/2026)",
+   "marcas": [
+    {
+     "marca": "Centauro",
+     "nomes": [
+      "CENTAURO"
+     ],
+     "fonte": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/"
+    },
+    {
+     "marca": "Nike",
+     "nomes": [
+      "NIKE",
+      "NIKE UNITE NOVA AMERICA"
+     ],
+     "fonte": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/"
+    }
+   ],
+   "receita": {
+    "valor": 7736000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/12011/grupo-sbf-sbfg3-registra-lucro-ajustado-de-r-4276-mi-em-2025",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 53,
+    "periodo": "3T26",
+    "recorte": "lojas Nike operadas pela Fisia",
+    "escopo": "lojas Nike operadas pela Fisia",
+    "fonte": "https://maquinadoesporte.com.br/?p=247709",
+    "conf": true
+   },
+   "sss": {
+    "valor": 6.8,
+    "periodo": "3T26",
+    "recorte": "Centauro (inclui online)",
+    "escopo": "Centauro (inclui online)",
+    "fonte": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Track & Field Co",
+   "ticker": "TFCO4",
+   "bolsa": "B3",
+   "situacao": "listada (TFCO4; resultado do 3T26 divulgado em 12/11/2026)",
+   "marcas": [
+    {
+     "marca": "Track & Field",
+     "nomes": [
+      "TRACK & FIELD",
+      "TRACK&FIELD"
+     ],
+     "fonte": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/"
+    }
+   ],
+   "receita": {
+    "valor": 279700000,
+    "periodo": "2T26",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 448,
+    "periodo": "2T26",
+    "recorte": null,
+    "escopo": "total",
+    "fonte": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+    "conf": true
+   },
+   "sss": {
+    "valor": 15.9,
+    "periodo": "2T26",
+    "recorte": "rede",
+    "escopo": "rede",
+    "fonte": "https://euqueroinvestir.com/acoes/track-field-corte-de-despesas-segura-a-margem-ebitda-aponta-btg",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Vivara Participações",
+   "ticker": "VIVA3",
+   "bolsa": "B3",
+   "situacao": "listada (VIVA3; resultado do 3T26 divulgado em novembro/2026)",
+   "marcas": [
+    {
+     "marca": "Vivara",
+     "nomes": [
+      "VIVARA"
+     ],
+     "fonte": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/"
+    },
+    {
+     "marca": "Life",
+     "nomes": [
+      "VIVARA LIFE",
+      "LIFE BY VIVARA"
+     ],
+     "fonte": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/"
+    }
+   ],
+   "receita": {
+    "valor": 3800000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://visnoinvest.com.br/news/12168/vivara-viva3-registra-lucro-de-r-6195-mi-em-2025",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita bruta"
+   },
+   "lojas": {
+    "valor": 533,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "total de pontos de venda",
+    "fonte": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+    "conf": true
+   },
+   "area": {
+    "valor": 41500,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "total",
+    "fonte": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-4t25/",
+    "conf": true
+   },
+   "venda_m2": {
+    "valor": 7630.5,
+    "unidade": "R$/m²/mês",
+    "periodo": "2025",
+    "origem": "calculado",
+    "fonte": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-4t25/",
+    "conf": true,
+    "escopo": "receita bruta ÷ área de vendas de 41.500 m² (total) ÷ 12"
+   },
+   "sss": {
+    "valor": 4.4,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada (inclui digital)",
+    "fonte": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Veste Estilo",
+   "ticker": "VSTE3",
+   "bolsa": "B3",
+   "situacao": "listada (VSTE3)",
+   "marcas": [
+    {
+     "marca": "Le Lis",
+     "nomes": [
+      "LE LIS",
+      "LE LIS BLANC"
+     ],
+     "fonte": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/"
+    },
+    {
+     "marca": "Dudalina",
+     "nomes": [
+      "DUDALINA"
+     ],
+     "fonte": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/"
+    }
+   ],
+   "receita": {
+    "valor": 1230948000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (dado de agregador)",
+    "fonte": "https://investimentos.com.br/ativo/vste3/resultados/",
+    "conf": true,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 193,
+    "periodo": "2T26",
+    "recorte": null,
+    "escopo": "total incluindo franquias e Estoque (outlet)",
+    "fonte": "https://fashionunited.com/news/business/veste-reports-highest-q2-net-income-in-seven-years/2026081274022",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Samsonite Group",
+   "ticker": "1910",
+   "bolsa": "HKEX (Bolsa de Hong Kong)",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Samsonite",
+     "nomes": [
+      "SAMSONITE"
+     ],
+     "fonte": "https://www.placera.se/pressmeddelanden/samsonite-group-s-a-announces-results-for-the-year-ended-december-31-2025-20260320"
+    }
+   ],
+   "receita": {
+    "valor": 3497600000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.placera.se/pressmeddelanden/samsonite-group-s-a-announces-results-for-the-year-ended-december-31-2025-20260320",
+    "conf": false,
+    "moeda": "US$",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "adidas",
+   "ticker": "ADS",
+   "bolsa": "Xetra / Bolsa de Frankfurt",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "adidas",
+     "nomes": [
+      "ADIDAS",
+      "ADIDAS DO BRASIL"
+     ],
+     "fonte": "https://www.adidas-group.com/en/media/press-releases/adidas-reports-record-revenues-in-2025-and-launches-share-buyback"
+    }
+   ],
+   "receita": {
+    "valor": 24811000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://report.adidas-group.com/2025/en/group-management-report-financial-review/business-performance/income-statement.html",
+    "conf": false,
+    "moeda": "EUR",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "Arcos Dorados",
+   "ticker": "ARCO",
+   "bolsa": "NYSE",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "McDonald's",
+     "nomes": [
+      "MC DONALD'S",
+      "MC DONALDS",
+      "MC DONALD´S"
+     ],
+     "fonte": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html"
+    },
+    {
+     "marca": "McCafé",
+     "nomes": [
+      "MC CAFÉ"
+     ],
+     "fonte": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html"
+    }
+   ],
+   "receita": {
+    "valor": 4678259000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.sec.gov/Archives/edgar/data/0001508478/000162828026028950/arco-20251231.htm",
+    "conf": false,
+    "moeda": "US$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 2582,
+    "periodo": "set/2026",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+    "conf": true
+   },
+   "sss": {
+    "valor": 15.5,
+    "periodo": "3T26",
+    "recorte": null,
+    "escopo": "companhia consolidada (systemwide comparable sales)",
+    "fonte": "https://finance.yahoo.com/markets/stocks/articles/arcos-dorados-reports-third-quarter-121500790.html",
+    "conf": true
+   }
+  },
+  {
+   "empresa": "Bloomin' Brands",
+   "ticker": "BLMN",
+   "bolsa": "Nasdaq",
+   "situacao": "listada; no Brasil é minoritária: vendeu 67% da operação brasileira (Outback, Abbraccio, Aussie) à Vinci Partners (acordo de nov/2024) e ficou com 33%",
+   "marcas": [
+    {
+     "marca": "Outback Steakhouse",
+     "nomes": [
+      "OUTBACK",
+      "OUTBACK STEAK HOUSE",
+      "OUTBACK STEAKHOUSE"
+     ],
+     "fonte": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/"
+    },
+    {
+     "marca": "Abbraccio",
+     "nomes": [
+      "ABBRACCIO",
+      "ABBRACCIO-CUCINA ITALIANA"
+     ],
+     "fonte": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/"
+    }
+   ],
+   "receita": {
+    "valor": 3956000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (Brasil não consolidado)",
+    "fonte": "https://stockanalysis.com/stocks/blmn/financials/income-statement/",
+    "conf": false,
+    "moeda": "US$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 174,
+    "periodo": "nov/2024",
+    "recorte": "Brasil, marca Outback",
+    "escopo": "Brasil, marca Outback",
+    "fonte": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Cinemark",
+   "ticker": "CNK",
+   "bolsa": "NYSE",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Cinemark",
+     "nomes": [
+      "CINEMARK",
+      "CINEMARK DIAMONDMALL"
+     ],
+     "fonte": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm"
+    }
+   ],
+   "receita": {
+    "valor": 3115000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm",
+    "conf": false,
+    "moeda": "US$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 496,
+    "periodo": "dez/2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (cinemas/complexos)",
+    "fonte": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "EssilorLuxottica",
+   "ticker": "EL",
+   "bolsa": "Euronext Paris",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Sunglass Hut",
+     "nomes": [
+      "SUNGLASS HUT"
+     ],
+     "fonte": "https://www.essilorluxottica.com/en/brands/direct-to-consumer"
+    },
+    {
+     "marca": "Ray-Ban",
+     "nomes": [
+      "RAY-BAN"
+     ],
+     "fonte": "https://www.essilorluxottica.com/en/brands/direct-to-consumer"
+    },
+    {
+     "marca": "Oakley",
+     "nomes": [
+      "OAKLEY"
+     ],
+     "fonte": "https://www.essilorluxottica.com/en/brands/direct-to-consumer"
+    },
+    {
+     "marca": "Óticas Carol",
+     "nomes": [
+      "OTICAS CAROL",
+      "OTICAS CAROL CONCEPT",
+      "ÓTICAS CAROL"
+     ],
+     "fonte": "https://www.essilorluxottica.com/en/brands/direct-to-consumer"
+    }
+   ],
+   "receita": {
+    "valor": 28491000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.essilorluxottica.com/cap/content/283060",
+    "conf": false,
+    "moeda": "EUR",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "H & M Hennes & Mauritz",
+   "ticker": "HM B",
+   "bolsa": "Nasdaq Stockholm",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "H&M",
+     "nomes": [
+      "H&M"
+     ],
+     "fonte": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/"
+    }
+   ],
+   "receita": {
+    "valor": 228285000000,
+    "periodo": "exercício 2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/",
+    "conf": false,
+    "moeda": "SEK",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 4100,
+    "periodo": "nov/2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (aprox.: 2.392 Europa + 769 Américas + 940 Ásia/Oceania/África)",
+    "fonte": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Industria de Diseño Textil",
+   "ticker": "ITX",
+   "bolsa": "BME (Bolsa de Madrid)",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Zara",
+     "nomes": [
+      "ZARA"
+     ],
+     "fonte": "https://fashionunited.uk/news/business/inditex-posts-6-22-billion-euro-profit-in-2025-and-3-19-percent-sales-growth/2026031186780"
+    },
+    {
+     "marca": "Zara Home",
+     "nomes": [
+      "ZARA HOME"
+     ],
+     "fonte": "https://fashionunited.uk/news/business/inditex-posts-6-22-billion-euro-profit-in-2025-and-3-19-percent-sales-growth/2026031186780"
+    }
+   ],
+   "receita": {
+    "valor": 39860000000,
+    "periodo": "exercício 2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://www.sgieurope.com/financial-results/inditex-posts-record-sales-and-profits-in-fy25/120163.article",
+    "conf": false,
+    "moeda": "EUR",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 5460,
+    "periodo": "jan/2026",
+    "recorte": null,
+    "escopo": "companhia consolidada (global)",
+    "fonte": "https://www.fibre2fashion.com/news/latest-fashion-reports-news/spain-s-inditex-fy25-sales-rise-3-2-to-46-28-bn-amid-strong-demand-308947-newsdetails.htm",
+    "conf": false
+   },
+   "area": {
+    "valor": 4720000,
+    "periodo": "jan/2026",
+    "recorte": null,
+    "escopo": "companhia consolidada (global)",
+    "fonte": "https://www.fibre2fashion.com/news/latest-fashion-reports-news/spain-s-inditex-fy25-sales-rise-3-2-to-46-28-bn-amid-strong-demand-308947-newsdetails.htm",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "LVMH Moët Hennessy Louis Vuitton",
+   "ticker": "MC",
+   "bolsa": "Euronext Paris",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Sephora",
+     "nomes": [
+      "SEPHORA"
+     ],
+     "fonte": "https://fashionunited.in/news/business/goodbye-dfs-hello-sephora-lvmhs-major-strategic-shift-an-analysis-of-the-2025-financial-year/2026012752990"
+    }
+   ],
+   "receita": {
+    "valor": 80800000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor arredondado)",
+    "fonte": "https://www.theindustry.fashion/lvmh-navigates-challenging-2025-as-fashion-shows-second-half-recovery/",
+    "conf": false,
+    "moeda": "EUR",
+    "rotulo": "Receita líquida"
+   }
+  },
+  {
+   "empresa": "Pandora",
+   "ticker": "PNDORA",
+   "bolsa": "Nasdaq Copenhagen",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Pandora",
+     "nomes": [
+      "PANDORA"
+     ],
+     "fonte": "https://investor.pandoragroup.com/node/27811"
+    }
+   ],
+   "receita": {
+    "valor": 32500000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor arredondado)",
+    "fonte": "https://investor.pandoragroup.com/node/27811",
+    "conf": false,
+    "moeda": "DKK",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 2800,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada, concept stores (mais de 2.800)",
+    "fonte": "https://investor.pandoragroup.com/node/27811",
+    "conf": false
+   },
+   "sss": {
+    "valor": 2,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada (like-for-like)",
+    "fonte": "https://investor.pandoragroup.com/node/27811",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Starbucks Corporation",
+   "ticker": "SBUX",
+   "bolsa": "Nasdaq",
+   "situacao": "listada",
+   "marcas": [
+    {
+     "marca": "Starbucks",
+     "nomes": [
+      "STARBUCKS"
+     ],
+     "fonte": "https://www.reuters.com/business/retail-consumer/mubadala-backed-zamp-buy-starbucks-brand-rights-stores-brazil-2024-06-06/"
+    }
+   ],
+   "receita": {
+    "valor": 37900000000,
+    "periodo": "ano fiscal 2026",
+    "recorte": null,
+    "escopo": "companhia consolidada (valor arredondado)",
+    "fonte": "https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Reports-Q4-and-Full-Fiscal-Year-2026-Results/default.aspx",
+    "conf": false,
+    "moeda": "US$",
+    "rotulo": "Receita líquida"
+   },
+   "sss": {
+    "valor": 6.2,
+    "periodo": "ano fiscal 2026",
+    "recorte": null,
+    "escopo": "companhia consolidada (global comparable sales)",
+    "fonte": "https://www.fastcasual.com/news/starbucks-closes-fiscal-2026-with-79-north-america-comp-gain/",
+    "conf": false
+   }
+  },
+  {
+   "empresa": "Zamp",
+   "ticker": "ZAMP3",
+   "bolsa": "B3 (saiu)",
+   "situacao": "fechou capital: OPA da controladora Mubadala Capital em 09/09/2025 (R$ 3,50/ação) para conversão do registro na CVM de categoria A para B (só dívida); continua divulgando resultados trimestrais",
+   "marcas": [
+    {
+     "marca": "Burger King",
+     "nomes": [
+      "BURGER KING",
+      "BK QUIOSQUE"
+     ],
+     "fonte": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml"
+    },
+    {
+     "marca": "Popeyes",
+     "nomes": [
+      "POPEYES"
+     ],
+     "fonte": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml"
+    },
+    {
+     "marca": "Subway",
+     "nomes": [
+      "SUBWAY"
+     ],
+     "fonte": "https://valorinternational.globo.com/business/news/2025/09/09/mubadala-takes-zamp-private-with-overwhelming-shareholder-support.ghtml"
+    }
+   ],
+   "receita": {
+    "valor": 5230000000,
+    "periodo": "2025",
+    "recorte": null,
+    "escopo": "companhia consolidada",
+    "fonte": "https://economicnewsbrasil.com.br/2026/03/09/lucro-zamp-4t25-resultados-2025/",
+    "conf": false,
+    "moeda": "R$",
+    "rotulo": "Receita líquida"
+   },
+   "lojas": {
+    "valor": 2660,
+    "periodo": "2T26",
+    "recorte": "Brasil, todas as marcas (próprias + franqueadas)",
+    "escopo": "Brasil, todas as marcas (próprias + franqueadas)",
+    "fonte": "https://mercadoeconsumo.com.br/10/08/2026/mc-capital/zamp-chega-a-655-da-receita-com-vendas-digitais-de-burger-king-popeyes-starbucks-e-subway/",
+    "conf": false
+   },
+   "sss": {
+    "valor": 21.6,
+    "periodo": "3T26",
+    "recorte": "marca Popeyes",
+    "escopo": "marca Popeyes",
+    "fonte": "https://brapi.dev/news/zamp-reduz-prejuizo-em-67-3-no-3t-para-r-7-3-8ad06d1a",
+    "conf": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "empresa": "Pandora A/S",
+ "ticker": "PNDORA",
+ "bolsa": "Nasdaq Copenhagen",
+ "situacao": "listada",
+ "situacao_url": "https://investor.pandoragroup.com/node/27811",
+ "marcas": [
+  {
+   "marca": "Pandora",
+   "nomes_no_arquivo": [
+    "PANDORA"
+   ],
+   "url": "https://investor.pandoragroup.com/node/27811",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Pandora sells jewellery in more than 100 countries through 7,000 points of sale, including more than 2,800 concept stores. It is listed on the Nasdaq Copenhagen stock exchange, and the ticker is PNDORA."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 32500000000,
+   "unidade": "DKK",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://investor.pandoragroup.com/node/27811",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Pandora reported 2025 revenue of DKK 32.5 billion, up from DKK 31.7 billion in 2024. Organic growth was 6%, made up of 2% like-for-like growth and 4% from network expansion"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2025",
+   "valor": 2,
+   "unidade": "%",
+   "escopo": "companhia consolidada (like-for-like)",
+   "publicado": true,
+   "url": "https://investor.pandoragroup.com/node/27811",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Organic growth was 6%, made up of 2% like-for-like growth and 4% from network expansion"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 2800,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada, concept stores (mais de 2.800)",
+   "publicado": true,
+   "url": "https://investor.pandoragroup.com/node/27811",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 7,000 points of sale, including more than 2,800 concept stores"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Unidade DKK (coroa dinamarquesa) não está na lista de unidades do esquema.",
+  "América Latina = 6% da receita (sem abertura do Brasil)."
+ ],
+ "nao_encontrado": [
+  "Dados do Brasil"
+ ]
+}

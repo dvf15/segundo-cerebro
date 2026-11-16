@@ -1,0 +1,120 @@
+{
+ "empresa": "MPM Corpóreos S.A. (Espaçolaser)",
+ "ticker": "ESPA3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://visnoinvest.com.br/news/16435/espacolaser-espa3-registra-lucro-ajustado-de-r-16-mi-no-3t26",
+ "marcas": [
+  {
+   "marca": "Espaçolaser",
+   "nomes_no_arquivo": [
+    "ESPAÇO LASER",
+    "ESPAÇOLASER"
+   ],
+   "url": "https://visnoinvest.com.br/news/16435/espacolaser-espa3-registra-lucro-ajustado-de-r-16-mi-no-3t26",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A Espaçolaser registrou lucro líquido ajustado de R$ 1,6 mi no terceiro trimestre de 2026 [...] Ao fim do 3T26, a rede no Brasil tinha 811 lojas: 248 franquias e 563 próprias."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 811,
+   "unidade": "lojas",
+   "escopo": "Brasil (563 próprias + 248 franquias)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16435/espacolaser-espa3-registra-lucro-ajustado-de-r-16-mi-no-3t26",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Ao fim do 3T26, a rede no Brasil tinha 811 lojas: 248 franquias e 563 próprias."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 563,
+   "unidade": "lojas",
+   "escopo": "Brasil, lojas próprias",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16435/espacolaser-espa3-registra-lucro-ajustado-de-r-16-mi-no-3t26",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] 811 lojas: 248 franquias e 563 próprias"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 861,
+   "unidade": "lojas",
+   "escopo": "grupo (Brasil + internacional)",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/ESPA3/47402/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Número de lojas do grupo: 861, ante 879 no 2T25. A rede internacional caiu de 73 para 50 unidades."
+  },
+  {
+   "indicador": "outro (system-wide sales, SWS)",
+   "periodo": "2T26",
+   "valor": 384900000,
+   "unidade": "R$",
+   "escopo": "rede (próprias + franquias)",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/ESPA3/47402/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] SWS do trimestre: R$ 384,9 mi, praticamente estável (+0,1%)."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2T26",
+   "valor": -0.4,
+   "unidade": "%",
+   "escopo": "mesmas lojas",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/ESPA3/47402/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] SSS do trimestre: -0,4%, contra +7,7% no 2T25. No semestre, SSS ficou em +0,7%."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 1110000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12051/espacolaser-espa3-registra-lucro-de-r-132-mi-em-2025",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Ano de 2025: a receita líquida somou R$ 1,11 bilhão, alta de 7,7%."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2025",
+   "valor": 5.4,
+   "unidade": "%",
+   "escopo": "mesmas lojas",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12051/espacolaser-espa3-registra-lucro-de-r-132-mi-em-2025",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] O same-store sales avançaram 1,6% no 4T25 e 5,4% no acumulado de 2025."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 294400000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (receita líquida ajustada)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12051/espacolaser-espa3-registra-lucro-de-r-132-mi-em-2025",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A receita líquida ajustada atingiu R$ 294,4 mi, alta de 8,0% sobre o mesmo período de 2024"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T26",
+   "valor": 290200000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (receita líquida ajustada)",
+   "publicado": true,
+   "url": "https://acionista.com.br/resultados-expressivos-no-1t26-da-espacolaser/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] No 1T26, a receita líquida ajustada foi de R$ 290,2 milhões, alta de 0,2%."
+  }
+ ],
+ "divergencias": [
+  "SWS: R$ 384,9 mi no 2T26 x R$ 527,4 mi no 1T26 no resumo de busca — ordens de grandeza inconsistentes entre trimestres; conferir no release.",
+  "Receita líquida do 2T26 de R$ 257,5 mi (-0,7%) aparece em uma única fonte (euqueroinvestir) e não foi incluída."
+ ],
+ "nao_encontrado": [
+  "Receita líquida, SWS e SSS do 3T26.",
+  "Número de lojas em dez/2025 (último dado achado: 872 lojas em dez/2024, sendo 806 no Brasil).",
+  "Área de vendas m²; venda por m² ou por loja.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

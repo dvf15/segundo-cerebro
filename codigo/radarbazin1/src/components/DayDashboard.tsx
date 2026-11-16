@@ -19,8 +19,8 @@ function SectionTitle({ title, hint, accent }: { title: string; hint?: string; a
   return (
     <div className="mb-2 mt-1 flex items-center gap-2">
       <span className="h-2 w-2 rounded-full" style={{ background: accent }} />
-      <span className="text-[12px] font-bold uppercase tracking-[0.12em] text-slate-200">{title}</span>
-      {hint && <span className="text-[12px] font-medium text-slate-400">· {hint}</span>}
+      <span className="text-[13px] font-bold uppercase tracking-[0.12em] text-slate-200">{title}</span>
+      {hint && <span className="text-[13px] font-medium text-slate-400">· {hint}</span>}
     </div>
   );
 }
@@ -217,7 +217,7 @@ export default function DayDashboard() {
             <h1 className="text-2xl font-extrabold tracking-tight text-white">
               {process.env.NEXT_PUBLIC_APP_NAME || "Nu.tre"}
             </h1>
-            <p className="text-[13px] text-slate-400">
+            <p className="text-[14px] text-slate-400">
               Diário{day?.owner_name ? ` · ${day.owner_name}` : ""}
             </p>
           </div>
@@ -232,10 +232,10 @@ export default function DayDashboard() {
             <div className="flex items-center gap-2">
               <span className="text-xl">⏳</span>
               <div>
-                <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">
+                <div className="text-[12px] font-bold uppercase tracking-wide text-slate-400">
                   Jejum atual
                 </div>
-                <div className="text-[12px] text-slate-400">
+                <div className="text-[13px] text-slate-400">
                   {f ? `desde ${f.since}` : "nenhuma refeição registrada"}
                 </div>
               </div>
@@ -251,7 +251,7 @@ export default function DayDashboard() {
                 onClick={resetFast}
                 disabled={!day}
                 aria-label="Reiniciar jejum"
-                className="rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-[13px] font-semibold text-slate-200 active:bg-[#4c4c57] disabled:opacity-50"
+                className="rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-[14px] font-semibold text-slate-200 active:bg-[#4c4c57] disabled:opacity-50"
               >
                 ↺ Reiniciar
               </button>
@@ -269,7 +269,7 @@ export default function DayDashboard() {
           >
             ‹
           </button>
-          <div className="flex-1 text-center text-[15px] font-bold text-white">{labelFor(date)}</div>
+          <div className="flex-1 text-center text-[16px] font-bold text-white">{labelFor(date)}</div>
           <button
             onClick={() => !isToday && setDate(shift(date, 1))}
             disabled={isToday}
@@ -279,7 +279,7 @@ export default function DayDashboard() {
           </button>
         </div>
         <div className="mt-3 flex items-center justify-between gap-2">
-          <span className="text-xs text-slate-300">Treino do dia</span>
+          <span className="text-[13px] text-slate-300">Treino do dia</span>
           <TrainingSelector
             value={day?.training_type ?? "rest"}
             onChange={setTraining}
@@ -288,7 +288,7 @@ export default function DayDashboard() {
           />
         </div>
         <div className="mt-3 flex items-center justify-between gap-2">
-          <span className="text-xs text-slate-300">
+          <span className="text-[13px] text-slate-300">
             Sauna
             {day && day.sauna_kcal > 0 && (
               <span className="ml-1 text-emerald-400">+{day.sauna_kcal} kcal</span>
@@ -306,7 +306,7 @@ export default function DayDashboard() {
                   key={o.m}
                   onClick={() => setSauna(o.m)}
                   disabled={loading || !day}
-                  className={`rounded-lg border px-2.5 py-1.5 text-[13px] font-semibold disabled:opacity-50 ${
+                  className={`rounded-lg border px-2.5 py-1.5 text-[14px] font-semibold disabled:opacity-50 ${
                     on
                       ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-300"
                       : "border-[#55555f] bg-[#42424a] text-slate-300"
@@ -319,7 +319,7 @@ export default function DayDashboard() {
           </div>
         </div>
         <div className="mt-3 flex items-center justify-between gap-2">
-          <span className="text-xs text-slate-300">Peso (kg)</span>
+          <span className="text-[13px] text-slate-300">Peso (kg)</span>
           <div className="flex items-center gap-2">
             <input
               value={weightInput}
@@ -328,12 +328,12 @@ export default function DayDashboard() {
               inputMode="decimal"
               placeholder="0,0"
               disabled={!day}
-              className="w-24 rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-center text-[15px] font-semibold text-white outline-none disabled:opacity-50"
+              className="w-24 rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-center text-[16px] font-semibold text-white outline-none disabled:opacity-50"
             />
             <button
               onClick={saveWeight}
               disabled={!day || savingWeight}
-              className="rounded-lg bg-emerald-600 px-3.5 py-1.5 text-[14px] font-semibold text-white disabled:opacity-50"
+              className="rounded-lg bg-emerald-600 px-3.5 py-1.5 text-[15px] font-semibold text-white disabled:opacity-50"
             >
               Salvar
             </button>
@@ -343,7 +343,7 @@ export default function DayDashboard() {
 
       {/* Aviso de meta/fase desatualizada */}
       {day?.meta_alert && (
-        <div className="animate-in mb-4 flex items-center justify-between gap-2 rounded-xl border border-blue-500/40 bg-blue-500/10 px-3 py-2 text-[14px] text-blue-200">
+        <div className="animate-in mb-4 flex items-center justify-between gap-2 rounded-xl border border-blue-500/40 bg-blue-500/10 px-3 py-2 text-[15px] text-blue-200">
           <span>{day.meta_alert}</span>
           <Link href="/settings" className="shrink-0 font-semibold text-blue-300">
             Perfil →
@@ -368,12 +368,12 @@ export default function DayDashboard() {
 
       {/* Saldo */}
       {day && (
-        <div className="mb-4 rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3 text-[15px]">
+        <div className="mb-4 rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3 text-[16px]">
           <div className="flex justify-between py-0.5">
             <span className="text-slate-300">Restante até o teto</span>
             <span className="font-bold text-white">{Math.round(day.remaining.kcal)} kcal</span>
           </div>
-          <div className="text-[12px] text-slate-300">
+          <div className="text-[13px] text-slate-300">
             P {Math.round(day.remaining.protein_g)}g · C {Math.round(day.remaining.carb_g)}g · G{" "}
             {Math.round(day.remaining.fat_g)}g · meta {day.targets.kcal[0]}–{day.targets.kcal[1]} kcal
             ({TRAINING_LABELS[day.training_type]})
@@ -395,7 +395,7 @@ export default function DayDashboard() {
           {flags.map((f, i) => (
             <div
               key={i}
-              className={`animate-in rounded-xl border px-3 py-2 text-[15px] ${
+              className={`animate-in rounded-xl border px-3 py-2 text-[16px] ${
                 f.type === "success"
                   ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
                   : "border-amber-500/40 bg-amber-500/10 text-amber-200"
@@ -437,14 +437,14 @@ export default function DayDashboard() {
       {/* Refeições */}
       {day && day.meals.length > 0 && (
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-[12px] font-bold uppercase tracking-[0.12em] text-slate-200">
+          <span className="text-[13px] font-bold uppercase tracking-[0.12em] text-slate-200">
             Refeições <span className="font-medium normal-case tracking-normal text-slate-400">· {day.meals.length}</span>
           </span>
           <button
             type="button"
             onClick={() => setShowMeals((v) => !v)}
             aria-expanded={showMeals}
-            className="rounded-full border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-[13px] font-semibold text-slate-200"
+            className="rounded-full border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-[14px] font-semibold text-slate-200"
           >
             {showMeals ? "▾ Ocultar" : "▸ Mostrar"}
           </button>
@@ -452,12 +452,12 @@ export default function DayDashboard() {
       )}
       <div className="space-y-2" hidden={!showMeals && !!day && day.meals.length > 0}>
         {loading && !day && (
-          <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4 text-center text-[15px] text-slate-300">
+          <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4 text-center text-[16px] text-slate-300">
             Carregando...
           </div>
         )}
         {day && day.meals.length === 0 && (
-          <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4 text-center text-[15px] text-slate-300">
+          <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4 text-center text-[16px] text-slate-300">
             Nenhuma refeição registrada neste dia.
           </div>
         )}
@@ -495,7 +495,7 @@ export default function DayDashboard() {
       {day && day.meals.length >= 3 && (
         <button
           onClick={closeDay}
-          className={`mt-4 w-full rounded-2xl py-3 text-[15px] font-bold ${
+          className={`mt-4 w-full rounded-2xl py-3 text-[16px] font-bold ${
             day.closed
               ? "border border-[#55555f] bg-[#42424a] text-slate-200"
               : "bg-blue-600 text-white"
@@ -506,7 +506,7 @@ export default function DayDashboard() {
       )}
 
       {toast && (
-        <div className="animate-in fixed inset-x-0 bottom-24 z-50 mx-auto w-fit rounded-full bg-emerald-600 px-4 py-2 text-[15px] font-semibold text-white shadow-lg">
+        <div className="animate-in fixed inset-x-0 bottom-24 z-50 mx-auto w-fit rounded-full bg-emerald-600 px-4 py-2 text-[16px] font-semibold text-white shadow-lg">
           {toast}
         </div>
       )}

@@ -262,16 +262,16 @@ export default function ProfileForm() {
   }
 
   const input = "w-full rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-2 text-white outline-none";
-  const label = "mb-1 block text-[12px] uppercase tracking-wide text-slate-300";
+  const label = "mb-1 block text-[13px] uppercase tracking-wide text-slate-300";
 
   if (loading) {
-    return <div className="py-8 text-center text-[15px] text-slate-300">Carregando...</div>;
+    return <div className="py-8 text-center text-[16px] text-slate-300">Carregando...</div>;
   }
 
   return (
     <div className="space-y-4">
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Dados pessoais
         </div>
         <div className="mb-3">
@@ -303,7 +303,7 @@ export default function ProfileForm() {
       </div>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Fase & metas
         </div>
         <div className="flex items-end gap-3">
@@ -323,12 +323,12 @@ export default function ProfileForm() {
           <button
             onClick={confirmPhase}
             disabled={saving || !phase}
-            className="shrink-0 rounded-xl border border-[#55555f] bg-[#42424a] px-4 py-2 text-[14px] font-bold text-slate-200 disabled:opacity-50"
+            className="shrink-0 rounded-xl border border-[#55555f] bg-[#42424a] px-4 py-2 text-[15px] font-bold text-slate-200 disabled:opacity-50"
           >
             ✔ Revisei as metas
           </button>
         </div>
-        <p className="mt-2 text-[12px] text-slate-300">
+        <p className="mt-2 text-[13px] text-slate-300">
           {phaseSetAt
             ? `Última revisão de metas: ${phaseSetAt}.`
             : "Defina a fase para acompanhar quando as metas foram revisadas."}{" "}
@@ -337,7 +337,7 @@ export default function ProfileForm() {
       </div>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Exames (lipídico)
         </div>
         <div className="grid grid-cols-3 gap-3">
@@ -361,7 +361,7 @@ export default function ProfileForm() {
       </div>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Diretrizes para a IA
         </div>
         <textarea
@@ -370,22 +370,22 @@ export default function ProfileForm() {
           onChange={set("notes")}
           placeholder="Ex.: priorizar proteína magra e ômega-3; reduzir gordura saturada; ..."
         />
-        <p className="mt-2 text-[12px] text-slate-300">
+        <p className="mt-2 text-[13px] text-slate-300">
           Tudo isto é usado nas estimativas por foto e nas sugestões de refeição.
         </p>
       </div>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Referencial científico (IA)
         </div>
         <textarea
-          className={`${input} min-h-[160px] text-[13px]`}
+          className={`${input} min-h-[160px] text-[14px]`}
           value={f.science_ref}
           onChange={set("science_ref")}
           placeholder="Referencial científico e ordem de prioridade de autores que a IA deve seguir..."
         />
-        <p className="mt-2 text-[12px] text-slate-300">
+        <p className="mt-2 text-[13px] text-slate-300">
           Racional de instruções (ordem de prioridade de autores e fontes). A IA segue esta
           hierarquia ao justificar as sugestões e evita biohacks sem evidência.
         </p>
@@ -394,7 +394,7 @@ export default function ProfileForm() {
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
         <button
           onClick={() => setShowTargets((v) => !v)}
-          className="flex w-full items-center justify-between text-xs font-bold uppercase tracking-wide text-slate-300"
+          className="flex w-full items-center justify-between text-[13px] font-bold uppercase tracking-wide text-slate-300"
         >
           <span>Metas por treino (macros)</span>
           <span className="text-blue-400">{showTargets ? "▾ ocultar" : "▸ editar"}</span>
@@ -403,31 +403,31 @@ export default function ProfileForm() {
           <div className="mt-3 space-y-3">
             {TRAINING_TYPES.filter((tt) => tgts[tt]).map((tt) => (
               <div key={tt} className="rounded-lg border border-[#3d3d43] bg-[#2c2c30] p-2.5">
-                <div className="mb-2 text-[13px] font-bold text-slate-100">{TRAINING_LABELS[tt]}</div>
+                <div className="mb-2 text-[14px] font-bold text-slate-100">{TRAINING_LABELS[tt]}</div>
                 <div className="space-y-1.5">
                   {TGT_MACROS.map((m) => (
                     <div key={m.key} className="flex items-center gap-2">
-                      <span className="w-24 shrink-0 text-[12px] text-slate-300">{m.label}</span>
+                      <span className="w-24 shrink-0 text-[13px] text-slate-300">{m.label}</span>
                       <input
-                        className="w-16 rounded-lg border border-[#55555f] bg-[#42424a] px-2 py-1.5 text-center text-[14px] text-white outline-none"
+                        className="w-16 rounded-lg border border-[#55555f] bg-[#42424a] px-2 py-1.5 text-center text-[15px] text-white outline-none"
                         inputMode="numeric"
                         value={tgts[tt][m.key][0]}
                         onChange={(e) => setTgt(tt, m.key, 0, e.target.value)}
                       />
                       <span className="text-slate-400">–</span>
                       <input
-                        className="w-16 rounded-lg border border-[#55555f] bg-[#42424a] px-2 py-1.5 text-center text-[14px] text-white outline-none"
+                        className="w-16 rounded-lg border border-[#55555f] bg-[#42424a] px-2 py-1.5 text-center text-[15px] text-white outline-none"
                         inputMode="numeric"
                         value={tgts[tt][m.key][1]}
                         onChange={(e) => setTgt(tt, m.key, 1, e.target.value)}
                       />
-                      <span className="text-[12px] text-slate-400">{m.unit}</span>
+                      <span className="text-[13px] text-slate-400">{m.unit}</span>
                     </div>
                   ))}
                 </div>
               </div>
             ))}
-            <p className="text-[12px] text-slate-300">
+            <p className="text-[13px] text-slate-300">
               Faixa mín.–máx. por tipo de treino. As metas do dia seguem o treino selecionado.
             </p>
           </div>
@@ -435,7 +435,7 @@ export default function ProfileForm() {
       </div>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Metas de micronutrientes
         </div>
         <div className="grid grid-cols-3 gap-3">
@@ -455,17 +455,17 @@ export default function ProfileForm() {
             </div>
           ))}
         </div>
-        <p className="mt-2 text-[12px] text-slate-300">
+        <p className="mt-2 text-[13px] text-slate-300">
           Pré‑preenchidas por referência (sódio é teto). Ajuste conforme seus exames/orientação.
         </p>
       </div>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Suplementos (diários)
         </div>
         {supps.length === 0 ? (
-          <div className="text-[13px] text-slate-300">Nenhum suplemento. Adicione abaixo.</div>
+          <div className="text-[14px] text-slate-300">Nenhum suplemento. Adicione abaixo.</div>
         ) : (
           <div className="space-y-2">
             {supps.map((sp, i) => (
@@ -474,13 +474,13 @@ export default function ProfileForm() {
                 className="flex items-start justify-between gap-2 rounded-lg border border-[#3d3d43] bg-[#2c2c30] p-2"
               >
                 <div className="min-w-0">
-                  <div className="text-[14px] font-semibold text-slate-100">
+                  <div className="text-[15px] font-semibold text-slate-100">
                     {sp.name}
-                    <span className="text-[11px] font-normal text-slate-400">
+                    <span className="text-[12px] font-normal text-slate-400">
                       {" "}· {sp.dose} cáps/dia
                     </span>
                   </div>
-                  <div className="text-[11px] text-slate-300">
+                  <div className="text-[12px] text-slate-300">
                     {MICROS.filter((d) => (sp.micros[d.key] || 0) > 0)
                       .map((d) => `${d.label} ${sp.micros[d.key]}${d.unit}`)
                       .join(" · ") || "sem micros"}
@@ -488,7 +488,7 @@ export default function ProfileForm() {
                 </div>
                 <button
                   onClick={() => setSupps(supps.filter((_, j) => j !== i))}
-                  className="shrink-0 rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[12px] text-slate-300"
+                  className="shrink-0 rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[13px] text-slate-300"
                 >
                   remover
                 </button>
@@ -516,13 +516,13 @@ export default function ProfileForm() {
               />
             </div>
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[12px] text-slate-400">
             Informe os micros para a dose padrão (nº de cápsulas) acima.
           </p>
           <div className="mt-2 grid grid-cols-3 gap-2">
             {MICROS.map((d) => (
               <div key={d.key}>
-                <label className="block text-[10px] uppercase text-slate-400">
+                <label className="block text-[11px] uppercase text-slate-400">
                   {d.label} ({d.unit})
                 </label>
                 <input
@@ -539,12 +539,12 @@ export default function ProfileForm() {
           <button
             onClick={addSupp}
             disabled={!draftName.trim()}
-            className="mt-3 w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2.5 text-[15px] font-bold text-slate-200 disabled:opacity-50"
+            className="mt-3 w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2.5 text-[16px] font-bold text-slate-200 disabled:opacity-50"
           >
             + Adicionar suplemento
           </button>
         </div>
-        <p className="mt-2 text-[12px] text-slate-300">
+        <p className="mt-2 text-[13px] text-slate-300">
           Configure uma vez. No diário, toque em “Repetir todos” ou marque os que tomou. Salve o
           perfil para aplicar.
         </p>
@@ -553,43 +553,43 @@ export default function ProfileForm() {
       <button
         onClick={save}
         disabled={saving}
-        className="w-full rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-3 text-[15px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
+        className="w-full rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-3 text-[16px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
       >
         {saving ? "Salvando..." : "Salvar perfil"}
       </button>
 
       <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
-        <div className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-2 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Importar do resumo (skill)
         </div>
-        <p className="mb-2 text-[12px] text-slate-300">
+        <p className="mb-2 text-[13px] text-slate-300">
           Cole aqui o JSON gerado pela skill do seu projeto fitness — atualiza tudo de uma vez
           (perfil, exames, metas e alimentos).
         </p>
         <textarea
-          className={`${input} min-h-[96px] font-mono text-[13px]`}
+          className={`${input} min-h-[96px] font-mono text-[14px]`}
           value={importText}
           onChange={(e) => setImportText(e.target.value)}
           placeholder='{"weight_kg":110.4,"exams":{"ldl":120,...}}'
         />
-        {importErr && <div className="mt-2 text-[15px] text-rose-400">{importErr}</div>}
+        {importErr && <div className="mt-2 text-[16px] text-rose-400">{importErr}</div>}
         <button
           onClick={importJson}
           disabled={saving || !importText.trim()}
-          className="mt-3 w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2.5 text-[15px] font-bold text-slate-200 disabled:opacity-50"
+          className="mt-3 w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2.5 text-[16px] font-bold text-slate-200 disabled:opacity-50"
         >
           Importar JSON
         </button>
       </div>
 
       <div className="pt-2 text-center">
-        <Link href="/" className="text-[15px] font-semibold text-blue-400">
+        <Link href="/" className="text-[16px] font-semibold text-blue-400">
           ← Voltar ao diário
         </Link>
       </div>
 
       {toast && (
-        <div className="fixed inset-x-0 bottom-6 mx-auto w-fit rounded-full bg-emerald-600 px-4 py-2 text-[15px] font-semibold text-white shadow-lg">
+        <div className="fixed inset-x-0 bottom-6 mx-auto w-fit rounded-full bg-emerald-600 px-4 py-2 text-[16px] font-semibold text-white shadow-lg">
           {toast}
         </div>
       )}

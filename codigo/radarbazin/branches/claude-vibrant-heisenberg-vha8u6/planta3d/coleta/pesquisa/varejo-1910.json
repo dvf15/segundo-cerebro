@@ -1,0 +1,36 @@
+{
+ "empresa": "Samsonite Group S.A.",
+ "ticker": "1910",
+ "bolsa": "HKEX (Bolsa de Hong Kong)",
+ "situacao": "listada",
+ "situacao_url": "https://www.placera.se/pressmeddelanden/samsonite-group-s-a-announces-results-for-the-year-ended-december-31-2025-20260320",
+ "marcas": [
+  {
+   "marca": "Samsonite",
+   "nomes_no_arquivo": [
+    "SAMSONITE"
+   ],
+   "url": "https://www.placera.se/pressmeddelanden/samsonite-group-s-a-announces-results-for-the-year-ended-december-31-2025-20260320",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Samsonite Group S.A. Announces Results for the Year Ended December 31, 2025"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 3497600000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.placera.se/pressmeddelanden/samsonite-group-s-a-announces-results-for-the-year-ended-december-31-2025-20260320",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Consolidated net sales were US$3,497.6 million, a decrease of 2.5% (-2.6% on a constant currency basis) year-over-year."
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar."
+ ],
+ "nao_encontrado": [
+  "Nº de lojas próprias",
+  "Dados do Brasil"
+ ]
+}

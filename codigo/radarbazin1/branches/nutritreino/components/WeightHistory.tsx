@@ -137,7 +137,7 @@ export default function WeightHistory() {
   }
 
   if (loading) {
-    return <div className="py-8 text-center text-[15px] text-slate-300">Carregando...</div>;
+    return <div className="py-8 text-center text-[16px] text-slate-300">Carregando...</div>;
   }
 
   return (
@@ -145,13 +145,13 @@ export default function WeightHistory() {
       {/* Gráfico */}
       <div className={card}>
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-          <div className="text-xs font-bold uppercase text-slate-300">Peso (kg)</div>
+          <div className="text-[13px] font-bold uppercase text-slate-300">Peso (kg)</div>
           <div className="flex flex-wrap gap-1.5">
             {PERIODS.map((p) => (
               <button
                 key={p.key}
                 onClick={() => setPeriod(p.key)}
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold ${
+                className={`rounded-full px-3 py-1.5 text-[13px] font-semibold ${
                   period === p.key
                     ? "bg-blue-600 text-white"
                     : "border border-[#55555f] bg-[#42424a] text-slate-300"
@@ -164,7 +164,7 @@ export default function WeightHistory() {
         </div>
         {/* Barra de tempo: calibra quantos meses olhar para trás */}
         <div className="mb-3 rounded-xl border border-[#4c4c57] bg-[#2e2e36] px-3 py-2.5">
-          <div className="flex items-baseline justify-between gap-2 text-[13px]">
+          <div className="flex items-baseline justify-between gap-2 text-[14px]">
             <span className="font-semibold text-white">Últimos {monthsLabel(months)}</span>
             <span className="text-slate-400 tabular-nums">
               {filtered.length} registros
@@ -184,14 +184,14 @@ export default function WeightHistory() {
             aria-label="Período em meses"
             className="mt-2 w-full accent-emerald-500"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[12px] text-slate-400">
             <span>1 mês</span>
             <span>{cutoff ? `desde ${fmtDate(cutoff)}` : "todo o histórico"}</span>
             <span>{monthsLabel(maxMonths)}</span>
           </div>
         </div>
         {chartData.length === 0 ? (
-          <div className="py-8 text-center text-[15px] text-slate-300">Sem registros no período.</div>
+          <div className="py-8 text-center text-[16px] text-slate-300">Sem registros no período.</div>
         ) : (
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={chartData} margin={{ left: -8, right: 8, top: 6 }}>
@@ -204,7 +204,7 @@ export default function WeightHistory() {
           </ResponsiveContainer>
         )}
         {first && last && (
-          <div className="mt-1 text-[11px] text-slate-400">
+          <div className="mt-1 text-[12px] text-slate-400">
             {first.date} → {last.date} ·{" "}
             <span className={delta <= 0 ? "text-emerald-400" : "text-rose-400"}>
               {delta > 0 ? "+" : ""}
@@ -218,16 +218,16 @@ export default function WeightHistory() {
       {/* Lista + exportar */}
       <div className={card}>
         <div className="mb-2 flex items-center justify-between gap-2">
-          <div className="text-xs font-bold uppercase text-slate-300">
+          <div className="text-[13px] font-bold uppercase text-slate-300">
             Registros ({points.length})
           </div>
           <div className="flex gap-2">
-            <button onClick={exportCsv} className="text-xs font-semibold text-blue-400">
+            <button onClick={exportCsv} className="text-[13px] font-semibold text-blue-400">
               ⬇ exportar peso
             </button>
             <button
               onClick={() => setShowList((v) => !v)}
-              className="text-xs font-semibold text-blue-400"
+              className="text-[13px] font-semibold text-blue-400"
             >
               {showList ? "▾ ocultar" : "▸ mostrar"}
             </button>
@@ -240,9 +240,9 @@ export default function WeightHistory() {
               .reverse()
               .map((p) => (
                 <div key={p.date} className="flex items-center justify-between gap-2 py-2">
-                  <span className="text-[13px] text-slate-300">{p.date}</span>
+                  <span className="text-[14px] text-slate-300">{p.date}</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-[15px] font-bold text-white">{p.weight_kg} kg</span>
+                    <span className="text-[16px] font-bold text-white">{p.weight_kg} kg</span>
                     <button
                       onClick={() => {
                         const v = prompt(`Peso em ${p.date} (kg). Vazio para remover.`, String(p.weight_kg));
@@ -250,7 +250,7 @@ export default function WeightHistory() {
                         save(p.date, v.trim().replace(",", "."));
                       }}
                       disabled={busy}
-                      className="rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[12px] text-slate-200"
+                      className="rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[13px] text-slate-200"
                     >
                       editar
                     </button>
@@ -260,9 +260,9 @@ export default function WeightHistory() {
           </div>
         )}
         {points.length === 0 && (
-          <div className="py-4 text-center text-[13px] text-slate-400">Nenhum peso registrado ainda.</div>
+          <div className="py-4 text-center text-[14px] text-slate-400">Nenhum peso registrado ainda.</div>
         )}
-        <div className="mt-2 text-[11px] text-slate-400">
+        <div className="mt-2 text-[12px] text-slate-400">
           Novos pesos são registrados na tela inicial (campo <b>Peso</b> do dia). Aqui você acompanha e ajusta os
           pontos — os históricos (2011–2026) são aproximados do gráfico de longo prazo.
         </div>

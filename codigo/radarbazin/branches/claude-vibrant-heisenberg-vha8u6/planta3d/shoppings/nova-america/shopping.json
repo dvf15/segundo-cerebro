@@ -1,0 +1,382 @@
+{
+  "id": "nova-america",
+  "nome": "Shopping Nova América",
+  "curto": "NOVA AMÉRICA",
+  "papel": "concorrente",
+  "subtitulo": "Av. Pastor Martin Luther King Jr., 126 · Del Castilho · Ancar Ivanhoe",
+  "coleta": "14/11/2026",
+  "origem_lista": "diretório público do site",
+  "resumo_nota": "Nome, segmento, piso e LUC são do site do shopping. O tipo de operação é deduzido do código e do segmento. A posição de cada loja dentro do piso é esquemática. O site não publica área: os m² mostrados são só a referência de desenho por tipo de operação, não uma medida.",
+  "link_loja": "https://www.novaamerica.com.br/{slug}",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    {
+      "rotulo": "Âncoras + megalojas",
+      "chaves": [
+        "ancoras",
+        "megalojas"
+      ]
+    },
+    "vagas",
+    "consumidores_mes",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "endereco",
+      "rotulo": "Endereço",
+      "valor": "Av. Pastor Martin Luther King Jr., 126 · Del Castilho · CEP 20765-000"
+    },
+    {
+      "chave": "administradora",
+      "rotulo": "Administradora",
+      "valor": "Ancar Ivanhoe"
+    },
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "1995"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 84448,
+      "unidade": "m²"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída",
+      "valor": 315000,
+      "unidade": "m²",
+      "nota": "o site informa \"315 mil m²\""
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 326
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": 11
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 9
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Restaurantes",
+      "valor": 21
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Cinema",
+      "valor": "Kinoplex · 7 salas, sendo 2 em 3D"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas",
+      "valor": 3100,
+      "nota": "a página de serviços do mesmo site fala em \"mais de 4 mil vagas\""
+    },
+    {
+      "chave": "estacionamento",
+      "rotulo": "Estacionamento",
+      "valor": "2 edifícios-garagem de 6 andares cada e 3 áreas ao ar livre"
+    },
+    {
+      "chave": "consumidores_mes",
+      "rotulo": "Consumidores por mês",
+      "curto": "Consumidores / mês",
+      "valor": "+ 1,7 milhão"
+    },
+    {
+      "chave": "carros_mes",
+      "rotulo": "Carros por mês",
+      "valor": "+ 386 mil"
+    },
+    {
+      "chave": "rua_do_rio",
+      "rotulo": "Rua do Rio",
+      "valor": "área gastronômica ao ar livre aberta em 2002 · 17 bares e restaurantes · capacidade para 2.600 pessoas"
+    },
+    {
+      "chave": "empresarial",
+      "rotulo": "Empresarial",
+      "valor": "3 torres comerciais (Offices 1000, 2000 e 3000, 914 salas) · lajes corporativas · Centro Empresarial com 154 salas",
+      "nota": "o site cita \"19 lajes corporativas\" nos números e \"três lajes corporativas\" no texto"
+    },
+    {
+      "chave": "hotelaria",
+      "rotulo": "Hotelaria",
+      "valor": "2 hotéis, com mais de 420 quartos"
+    },
+    {
+      "chave": "metro",
+      "rotulo": "Metrô",
+      "valor": "acesso direto à estação Nova América/Del Castilho; os Correios, no 2º piso, ficam junto à saída do metrô"
+    },
+    {
+      "chave": "origem_predio",
+      "rotulo": "Origem do prédio",
+      "valor": "fábrica da Companhia de Tecidos Nova América, inaugurada em 1925 e desativada em 1991"
+    },
+    {
+      "chave": "arquitetura",
+      "rotulo": "Arquitetura",
+      "valor": "preserva parte das instalações da fábrica, em tijolos ingleses; tombado pelo patrimônio histórico"
+    },
+    {
+      "chave": "expansao",
+      "rotulo": "Expansão",
+      "valor": "2012 (virou complexo multiuso)"
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · ano de inauguração",
+      "valor": "31 de outubro de 1995, no lugar da Fábrica de Tecidos Nova América (1925, fechada em 1991)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · tombamento",
+      "valor": "Tombado pelo patrimônio histórico; preserva parte das instalações da fábrica, com tijolos ingleses e a chaminé",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · expansões",
+      "valor": "Segunda expansão inaugurada em outubro de 2012 (mais 130 lojas em 2013), com Nova América Offices, Nova América Corporate e dois hotéis; a Wikipédia fala em 'expansão em 2014' para o complexo multiuso",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · autor do projeto (torres Nova América Offices)",
+      "valor": "De Fournier Arquitetos Associados; paisagismo de Burle Marx & Cia (material de lançamento do empreendimento)",
+      "fonte": "pt.slideshare.net"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · características",
+      "valor": "Complexo multiuso: três torres comerciais, três lajes corporativas, academia e dois hotéis com mais de 420 quartos (descrição do site oficial)",
+      "fonte": "novaamerica.com.br"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · características: fachada",
+      "valor": "Fachada de tijolinhos da antiga fábrica preservada",
+      "fonte": "pt.slideshare.net"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · características: área e vagas",
+      "valor": "Área construída 315.000 m², ABL 84.448 m², 4.200 vagas (Wikipédia)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_8",
+      "rotulo": "Projeto · incêndio",
+      "valor": "Incêndio de grandes proporções em 16 de fevereiro de 2015",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso 4 pisos (contagem)",
+      "valor": "A Wikipédia, citando a Abrasce, informa 4 pisos; não nomeia os pisos",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso 1º Piso e 2º Piso",
+      "valor": "Tese da UFRJ traz plantas do 1º e do 2º piso do shopping (só o índice de figuras foi lido)",
+      "fonte": "objdig.ufrj.br"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso 2º andar",
+      "valor": "Piso de lojas (o incêndio de 16/02/2015 teria começado numa loja da Lupo no 2º andar)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso Rua do Rio",
+      "valor": "Área gastronômica ao ar livre com 17 bares e restaurantes, aberta em 2002",
+      "fonte": "pt.wikipedia.org"
+    }
+  ],
+  "vendas": [],
+  "vendas_nota": "Sem venda por shopping em fonte de empresa listada. A Ancar Ivanhoe não é listada e a pesquisa não identificou fundo imobiliário com cotas na B3 que seja sócio do shopping (busca não exaustiva). A imprensa só traz a venda da carteira inteira da Ancar em 2025 (R$ 19,2 bilhões na Exame; R$ 20 bilhões no Valor), que não é número do Nova América.",
+  "niveis": [
+    {
+      "id": "SS",
+      "nome": "SS · Subsolo",
+      "uso": "Subsolo da expansão: serviços e locadoras de veículos"
+    },
+    {
+      "id": "L1",
+      "nome": "1º Piso (L1)",
+      "uso": "Lojas, âncoras e Rua do Rio (LUCs de 3 dígitos)"
+    },
+    {
+      "id": "L2",
+      "nome": "2º Piso (L2)",
+      "uso": "Lojas, Correios e saída do metrô (LUCs de 4 dígitos)"
+    },
+    {
+      "id": "L3",
+      "nome": "3º Piso (L3)",
+      "uso": "Poucas operações no diretório (LUCs 3xx)"
+    },
+    {
+      "id": "EST",
+      "nome": "EST · Estacionamento",
+      "uso": "Operações no estacionamento e áreas externas"
+    }
+  ],
+  "contorno": [[-173.3,32],[39.2,-87.4],[110.8,-124.4],[173.3,-8.3],[46.7,59.8],[48.4,63.1],[36,69.9],[18,38],[8.5,43.2],[23.2,70.9],[19.9,72.8],[20.8,74.4],[-13.4,92.1],[-15.4,88.3],[-83.8,124.4],[-90.1,111.3],[-68.7,99],[-73.9,89.8],[-92.1,98.6],[-115.5,54.4],[-118,55.8],[-118.6,54.5],[-125.7,58.2],[-125,59.9],[-123.1,58.9],[-99.5,103.3],[-125.6,117.6],[-149.9,73.3],[-148.2,71.7],[-149.8,69.1],[-157.6,73.3],[-160.7,67.9],[-156.6,65.6],[-157.8,63.5],[-168.6,68.7],[-171.1,64.4]],
+  "metodo": [
+    {
+      "tag": "oficial",
+      "texto": "Nome, segmento, piso e LUC de cada operação: diretório do site ({com_codigo} de {ops} operações têm LUC publicado). Ficha técnica: página institucional do site."
+    },
+    {
+      "tag": "oficial",
+      "texto": "Quiosques: {quiosques} operações com código iniciado em Q ou com \"quiosque\" no nome. O site não publica o total de quiosques."
+    },
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio: OpenStreetMap, way 30105685 (bloco principal do shopping). Dois blocos menores mapeados à parte (ways 632251686 e 632251687), as torres, os hotéis e os edifícios-garagem não entram no contorno."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Tipo de operação (loja, âncora, restaurante, serviço, lazer): deduzido do segmento do site e da lista de restaurantes da Rua do Rio. O site não diz quais são as 11 âncoras e as 9 megalojas; só as operações com segmento \"Loja de departamentos\" e \"Hipermercado\" foram marcadas como âncora."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Piso de 10 operações sem localização no site: deduzido do LUC. Outras 12 não têm piso nem LUC que permita deduzir e foram desenhadas no 1º piso; o detalhe da loja indica."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Desenho de cada piso: esquemático (fileira externa, corredor com quiosques, ilha central e átrio), na ordem do LUC. Não é a planta real: o prédio é um galpão fabril com alas e a Rua do Rio é uma rua aberta."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Área de cada operação: não é publicada. Os m² são a referência de desenho por tipo de operação, multiplicada pelo número de LUCs unidos. A participação por área no Mix deve ser lida como ordem de grandeza do desenho, não como ABL."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Piso do shopping em que chega a passarela do metrô (nenhuma fonte informa); Piso e forma de ligação das torres Offices 1000/2000/3000, do Corporate, do Centro Empresarial, dos hotéis e da Estácio com o mall (fontes dizem só 'integrado' ou 'dentro do complexo'); Autor do projeto arquitetônico do shopping de 1995 (conversão da fábrica) e da expansão de 2012; Órgão e data do tombamento (a Wikipédia diz só 'tombado pelo patrimônio histórico'); Nomes oficiais dos 4 pisos e o uso de cada um; Páginas institucionais: www.ancar.com.br/shoppings/nova-america e www.novaamerica.com.br/o-shopping devolveram 404; a página da Abrasce não trouxe texto legível; Página do MetrôRio sobre a estação não foi lida; o nome atual da estação vem da Wikipédia (Del Castilho desde agosto de 2022); Ligação com trem (SuperVia) ou terminal de ônibus: nenhuma fonte encontrada; linhas de ônibus gratuitas do shopping para Méier e Maria da Graça aparecem na Wikipédia no passado ('disponibilizava')."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 30105685 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "novaamerica.com.br/lojas e /alimentacao (diretório: nome, segmento, localização e LUC), lido em 14/11/2026",
+    "novaamerica.com.br/shopping-nova-america (números, história e arquitetura), lido em 14/11/2026",
+    "novaamerica.com.br/rua-do-rio, /servicos e /centro-empresarial (Rua do Rio, estacionamento, metrô e torres), lido em 14/11/2026",
+    "ancar.com.br/portfolio/shoppings/shopping-nova-america (ABL e número de lojas, coerentes com o site do shopping), lido via busca em 14/11/2026",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: all.accor.com, novaamerica.com.br, objdig.ufrj.br, pt.slideshare.net, pt.wikipedia.org"
+  ],
+  "conexoes": [
+    {
+      "tipo": "metrô",
+      "nome": "Estação Del Castilho da Linha 2 (chamada Nova América/Del Castilho até agosto de 2022)",
+      "descricao": "Estação ligada ao shopping por passarela; o material do empreendimento fala em 'acesso direto pela Estação [...] dentro do próprio shopping'. O Acesso A da estação chama-se 'Shopping Nova América'. Nenhuma fonte informa o piso do shopping em que a passarela chega.",
+      "piso": null,
+      "acesso": "direto",
+      "fonte": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "osm": "Del Castilho",
+      "x": -2.5,
+      "y": -111.1,
+      "d": 41,
+      "osm_nome": "Del Castilho"
+    },
+    {
+      "tipo": "passarela",
+      "nome": "Passarela shopping - estação Del Castilho",
+      "descricao": "Passarela que liga o shopping à estação do metrô (e, segundo a Wikipédia, à Linha Amarela).",
+      "piso": null,
+      "acesso": "direto",
+      "fonte": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Nova América Offices — Office 1000, Office 2000 e Office 3000",
+      "descricao": "Três torres de conjuntos comerciais com 914 unidades, integradas ao shopping segundo o material de lançamento. Office 1000 e 2000: 13 pavimentos; Office 3000: 16 pavimentos (1º e 2º de áreas comuns). O material não diz o piso nem a forma da ligação com o mall.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "osm": "Office",
+      "x": 169.2,
+      "y": -138.7,
+      "d": 58,
+      "osm_nome": "Nova América Offices"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Nova América Corporate (lajes corporativas)",
+      "descricao": "Três edifícios corporativos com 24.161 m² de área privativa, capacidade para até 21 empresas; o site oficial fala em 'três lajes corporativas'.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Centro Empresarial (CENA)",
+      "descricao": "Centro empresarial/comercial com 154 salas dentro do complexo.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica"
+    },
+    {
+      "tipo": "hotel",
+      "nome": "ibis Rio de Janeiro Shopping Nova América",
+      "descricao": "Hotel da Accor dentro do complexo do shopping, ao lado da estação Del Castilho; endereço do hotel indica Bloco 11, Torre 4 no mesmo número do shopping. A fonte diz 'dentro do complexo', não descreve a ligação nem o piso.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://all.accor.com/hotel/9449/index.en.shtml",
+      "osm": "ibis",
+      "x": 113.2,
+      "y": 121.3,
+      "d": 86,
+      "osm_nome": "Hotel Ibis Nova América"
+    },
+    {
+      "tipo": "hotel",
+      "nome": "ibis budget Rio de Janeiro Shopping Nova América",
+      "descricao": "Segundo hotel da Accor no complexo, em Del Castilho.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://all.accor.com/hotel/9558/index.pt.shtml"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Universidade Estácio de Sá — campus Nova América",
+      "descricao": "Campus universitário dentro do shopping ('Possui um campus'); material de 2010 falava em mais de 6.100 alunos.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "osm": "Est[aá]cio"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Linha Amarela",
+      "descricao": "Acesso de carro pela Linha Amarela; a Wikipédia menciona a passarela ligando também à Linha Amarela.",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica"
+    }
+  ]
+}

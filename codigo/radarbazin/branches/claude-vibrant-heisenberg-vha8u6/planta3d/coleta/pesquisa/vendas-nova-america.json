@@ -1,0 +1,44 @@
+{
+  "id": "nova-america",
+  "empresa": "nenhuma listada",
+  "ticker": null,
+  "vendas": [],
+  "outros_indicadores": [
+    {
+      "indicador": "vendas totais da CARTEIRA Ancar (23 shoppings; não é do Nova América) — imprensa",
+      "periodo": "2025",
+      "valor": "R$ 19,2 bilhões (+5%)",
+      "url": "https://exame.com/negocios/o-kpi-principal-e-a-venda-diz-ceo-da-ancar-apos-r-192-bi-em-vendas-e-aquisicao/",
+      "trecho": "No último ano, a Ancar registrou vendas totais de R$ 19,2 bilhões, crescimento de 5%. [...] Entre as principais unidades estão Iguatemi Porto Alegre, Shopping Metrô Itaquera e Shopping Nova América. (Exame, 23/01/2026)"
+    },
+    {
+      "indicador": "vendas totais da CARTEIRA Ancar (não é do Nova América) — imprensa",
+      "periodo": "2025",
+      "valor": "R$ 20 bilhões",
+      "url": "https://valor.globo.com/publicacoes/especiais/shopping-centers/noticia/2026/07/31/operadoras-de-shoppings-diversificam-as-receitas-e-apostam-em-experiencias.ghtml",
+      "trecho": "a companhia - com 23 shoppings, 200 milhões de visitantes e R$ 20 bilhões em vendas em 2025 - transformou áreas pouco aproveitadas em 14 espaços de convivência externos. (Valor, 31/07/2026)"
+    },
+    {
+      "indicador": "composição societária — imprensa",
+      "periodo": "jul/2025",
+      "valor": "Ancar Ivanhoe com 32% (podendo ir a 42% comprando a fatia da Participa)",
+      "url": "https://fusoesaquisicoes.com/acontece-no-setor/ancar-ivanhoe-compra-mais-um-pedaco-do-shopping-nova-america/",
+      "trecho": "O ativo, localizado em Del Castilho, Zona Norte do Rio, já é administrado pela Ancar Ivanhoe, que possui hoje 32% do shopping. Quem está vendendo sua fatia é a Participa, veículo de investimentos de Miguel Ethel Sobrinho [...] (reproduz O Globo, 10/07/2025)"
+    },
+    {
+      "indicador": "ABL (dado antigo, de prospecto de fundo vizinho; só o trecho retornado pela busca foi lido)",
+      "periodo": "2017/2018",
+      "valor": "82.617 m²",
+      "url": "https://www.caixa.gov.br/Downloads/Alianza-Prospecto-Definitivo.pdf",
+      "trecho": "Shopping Nova América, administrado pela Ancar Ivanhoe, com 82.617 m2 de área bruta locável (ABL)"
+    }
+  ],
+  "divergencias": [
+    "Vendas da carteira Ancar em 2025: R$ 19,2 bilhões (Exame, jan/2026) x R$ 20 bilhões (Valor, jul/2026) — provável arredondamento ou inclusão do Midway Mall; nenhum dos dois é número do Nova América."
+  ],
+  "nao_encontrado": [
+    "Vendas do Shopping Nova América (total e por m²): não encontradas em nenhum veículo listado na B3. A Ancar Ivanhoe não é listada; os sócios identificados (Ancar Ivanhoe e Participa) são fechados (https://fusoesaquisicoes.com/acontece-no-setor/ancar-ivanhoe-compra-mais-um-pedaco-do-shopping-nova-america/).",
+    "Nenhum fundo imobiliário com cotas na B3 foi identificado como sócio do Nova América nas buscas feitas (termos: Nova América + FII, XPML11, VISC11, HGBS11, Ancar IC/ANCR11). O único FII que cita o shopping (Alianza Trust Renda Imobiliária, ALZR11) apenas o menciona como ponto de interesse vizinho a um imóvel do fundo, sem participação e sem dados de vendas. Busca não exaustiva: a composição societária completa do shopping (os ~58% restantes) não foi confirmada em fonte primária.",
+    "A imprensa só traz vendas da carteira Ancar (não do shopping); registradas em outros_indicadores."
+  ]
+}

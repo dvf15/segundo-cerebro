@@ -1,0 +1,212 @@
+{
+  "id": "analia-franco",
+  "empresa": "Multiplan",
+  "ticker": "MULT3",
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1848400000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 3113,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 51677,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ShoppingAnáliaFranco | 609.2 M | 574.7 M | +6.0% | 1,848.4 M | 1,734.8 M | +6.5% || Portfolio (2025): ShoppingAnáliaFranco | 1999 | SP | 30.0% | 51,677 sq.m | 3,113 R$/sq.m | 267 R$/sq.m | 98.3%"
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1734800000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": null,
+      "abl_fonte_url": null,
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ShoppingAnáliaFranco | 609.2 M | 574.7 M | +6.0% | 1,848.4 M | 1,734.8 M | +6.5% (coluna comparativa 2024 do release do 4T25)"
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 609200000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51677,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ShoppingAnáliaFranco | 609.2 M | 574.7 M | +6.0% | 1,848.4 M | 1,734.8 M | +6.5%"
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 410100000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 2713,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 51677,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 1T26 | 1T25 | Var. % | mar/26 (12M) | mar/25 (12M) | Var.% || ShoppingAnáliaFranco | 410,1 M | 364,5 M | +12,5% | 1.894,0 M | 1.742,5 M | +8,7% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || ShoppingAnáliaFranco | 30,0% | 51.677 m2 | 2.713 R$/m2 | 254 R$/m2 | 98,3%"
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 484100000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 3195,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 51677,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 2T26 | 2T25 | Var. % | 1S26 | 1S25 | Var. % || ShoppingAnáliaFranco | 484,1 M | 443,3 M | +9,2% | 894,2 M | 807,8 M | +10,7% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 3.195 R$/m2 | 259 R$/m2 | 98,8%"
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 452100000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 2964,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 51677,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 3T26 | 3T25 | Var.% | 9M26 | 9M25 | Var.% || ShoppingAnáliaFranco | 452,1 M | 431,4 M | +4,8% | 1.346,3 M | 1.239,2 M | +8,6% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 2.964 R$/m2 | 257 R$/m2 | 98,8%"
+    },
+    {
+      "periodo": "12 meses até mar/26",
+      "tipo_periodo": "12 meses",
+      "vendas_reais": 1894000000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51677,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 1T26 | 1T25 | Var. % | mar/26 (12M) | mar/25 (12M) | Var.% || ShoppingAnáliaFranco | 410,1 M | 364,5 M | +12,5% | 1.894,0 M | 1.742,5 M | +8,7%"
+    }
+  ],
+  "outros_indicadores": [
+    {
+      "indicador": "vendas dos lojistas acumuladas 9M26 (100%)",
+      "periodo": "9M26 (jan-set/2026)",
+      "valor": "R$ 1346,3 milhões (9M25: R$ 1239,2 milhões)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 3T26 | 3T25 | Var.% | 9M26 | 9M25 | Var.% || ShoppingAnáliaFranco | 452,1 M | 431,4 M | +4,8% | 1.346,3 M | 1.239,2 M | +8,6%"
+    },
+    {
+      "indicador": "vendas dos lojistas 4T24 (100%)",
+      "periodo": "4T24",
+      "valor": "R$ 574,7 milhões",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ShoppingAnáliaFranco | 609.2 M | 574.7 M | +6.0% | 1,848.4 M | 1,734.8 M | +6.5%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "2025",
+      "valor": "R$ 267/m²/mês",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30.0% | 51,677 sq.m | 3,113 R$/sq.m | 267 R$/sq.m | 98.3%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "2025",
+      "valor": "98,3%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30.0% | 51,677 sq.m | 3,113 R$/sq.m | 267 R$/sq.m | 98.3%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "1T26",
+      "valor": "R$ 254/m²/mês",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "ShoppingAnáliaFranco | 30,0% | 51.677 m2 | 2.713 R$/m2 | 254 R$/m2 | 98,3%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "1T26",
+      "valor": "98,3%",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "ShoppingAnáliaFranco | 30,0% | 51.677 m2 | 2.713 R$/m2 | 254 R$/m2 | 98,3%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "2T26",
+      "valor": "R$ 259/m²/mês",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 3.195 R$/m2 | 259 R$/m2 | 98,8%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "2T26",
+      "valor": "98,8%",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 3.195 R$/m2 | 259 R$/m2 | 98,8%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "3T26",
+      "valor": "R$ 257/m²/mês",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 2.964 R$/m2 | 257 R$/m2 | 98,8%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "3T26",
+      "valor": "98,8%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 2.964 R$/m2 | 257 R$/m2 | 98,8%"
+    },
+    {
+      "indicador": "receita de locação do shopping (R$)",
+      "periodo": "3T26 / 9M26",
+      "valor": "3T26 R$ 12,7 M (3T25 R$ 12,5 M, +1,9%); 9M26 R$ 37,9 M (9M25 R$ 36,0 M, +5,3%)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Receita de locação (R$) | 3T26 | 3T25 | Var. % | 9M26 | 9M25 | Var. % || ShoppingAnáliaFranco | 12,7 M | 12,5 M | +1,9% | 37,9 M | 36,0 M | +5,3%"
+    },
+    {
+      "indicador": "participação da Multiplan no shopping",
+      "periodo": "3T26",
+      "valor": "30,0%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "ShoppingAnáliaFranco | 1999 | SP | 30,0% | 51.677 m2 | 2.964 R$/m2 | 257 R$/m2 | 98,8%"
+    },
+    {
+      "indicador": "critério da venda/m² publicada",
+      "periodo": "2T26 (nota de rodapé da tabela Portfólio)",
+      "valor": "considera apenas a ABL de lojas âncoras e satélites que reportam vendas; exclui quiosques (não é venda total ÷ ABL total)",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Vendas por m2: o cálculo de vendas/m2 considera apenas a ABL de lojas âncoras e satélites que reportam vendas. e exclui as vendas de quiosques. pois estas operações não estão incluídas na ABL total."
+    },
+    {
+      "indicador": "taxa de ocupação (destaque)",
+      "periodo": "2025",
+      "valor": "98,3% (+112 p.b.), maior nível desde 2014",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "ShoppingAnáliaFranco: +112 b.p., totaling 98.3%, the highest level since 2014;"
+    }
+  ],
+  "divergencias": [
+    "Venda/m² publicada (tabela Portfólio) usa como denominador só a ABL de lojas âncoras e satélites que reportam vendas e exclui quiosques; por isso NÃO bate com vendas totais ÷ ABL total ÷ meses. Não misturar com valor 'calculado'.",
+    "Tabela Portfólio do release 4T25 (versão em inglês): a extração devolveu o cabeçalho como 'Sales (year)' / 'Rent (year)', mas a ordem de grandeza (milhares de R$/m²) é de média MENSAL, igual às tabelas trimestrais 'Vendas (mês)'. Registrado como R$/m²/mês; conferir o cabeçalho no PDF antes de publicar.",
+    "Valores de venda vêm dos releases arredondados a R$ 0,1 milhão (vendas_reais = valor x 1.000.000). A Planilha de Fundamentos 3T26 (https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/6792a854-1d37-41c1-b1ab-82fc8d0268e7) traz a série em R$ mil; a leitura automática da planilha misturou linhas de shoppings e não foi usada como fonte primária.",
+    "Conferência interna: 1S26 = 1T26 + 2T26, 9M26 = 1T26+2T26+3T26 e 12M mar/26 = 2025 - 1T25 + 1T26 fecham com os valores publicados (diferenças só de arredondamento).",
+    "Multiplan detém só 30,0% do ShoppingAnáliaFranco: vendas são 100% do shopping, mas a receita de locação informada é a parcela da Multiplan."
+  ],
+  "nao_encontrado": [
+    "Venda/m² e ABL de 2024 por shopping: o release do 4T24 não foi localizado/lido (vendas de 2024 vêm da coluna comparativa do release do 4T25).",
+    "Versão em português do release do 4T25: não localizada (página 'Central de Resultados' só carregou 2026 na leitura automática); usada a versão oficial em inglês hospedada no mesmo repositório de RI.",
+    "Página institucional multiplan.com.br do shopping com vendas do ano: URL tentada retornou 404; não explorada além disso.",
+    "SSS (vendas mesmas lojas) e custo de ocupação POR SHOPPING: a Multiplan só divulga consolidado (3T26: SSS 3,1%, custo de ocupação 13,0%).",
+    "Leitura dos PDFs feita por extração automática (Firecrawl, modo consulta) em 14/11/2026; os 'trechos' são linhas de tabela reconstituídas pela ferramenta, não cópia de tela."
+  ]
+}

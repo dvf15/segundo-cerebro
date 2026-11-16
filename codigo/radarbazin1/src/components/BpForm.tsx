@@ -78,7 +78,7 @@ export default function BpForm({
 
   const input =
     "w-full rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-2 text-white outline-none";
-  const label = "mb-1 block text-[12px] uppercase tracking-wide text-slate-300";
+  const label = "mb-1 block text-[13px] uppercase tracking-wide text-slate-300";
   const preview =
     sys && dia ? classifyBp(Math.round(Number(sys)), Math.round(Number(dia))) : null;
 
@@ -124,16 +124,16 @@ export default function BpForm({
         />
       </div>
       {preview && (
-        <div className="mt-2 text-[13px] text-slate-300">
+        <div className="mt-2 text-[14px] text-slate-300">
           Classificação: <b style={{ color: preview.color }}>{preview.label}</b>
         </div>
       )}
-      {err && <div className="mt-2 text-[15px] text-rose-400">{err}</div>}
+      {err && <div className="mt-2 text-[16px] text-rose-400">{err}</div>}
       <div className="mt-3 flex gap-2">
         <button
           onClick={save}
           disabled={busy}
-          className="flex-1 rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2.5 text-[15px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
+          className="flex-1 rounded-xl bg-gradient-to-b from-emerald-500 to-emerald-600 py-2.5 text-[16px] font-bold text-white shadow-lg shadow-emerald-950/40 ring-1 ring-inset ring-white/10 active:to-emerald-700 disabled:opacity-50"
         >
           {busy ? "Salvando..." : editing ? "Salvar alteração" : "Salvar medição"}
         </button>
@@ -141,7 +141,7 @@ export default function BpForm({
           <button
             onClick={onCancel}
             disabled={busy}
-            className="rounded-xl border border-[#55555f] bg-[#42424a] px-4 py-2.5 text-[15px] font-bold text-slate-200 disabled:opacity-50"
+            className="rounded-xl border border-[#55555f] bg-[#42424a] px-4 py-2.5 text-[16px] font-bold text-slate-200 disabled:opacity-50"
           >
             Cancelar
           </button>

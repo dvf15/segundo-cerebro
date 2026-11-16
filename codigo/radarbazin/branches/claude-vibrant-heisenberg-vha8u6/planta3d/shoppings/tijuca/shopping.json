@@ -1,0 +1,342 @@
+{
+  "id": "tijuca",
+  "nome": "Shopping Tijuca",
+  "curto": "TIJUCA",
+  "papel": "meu shopping",
+  "subtitulo": "Av. Maracanã, 987 · Tijuca · ALLOS · contorno e acessos do OpenStreetMap",
+  "coleta": null,
+  "origem_lista": "relação colada na página",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    {
+      "rotulo": "Âncoras + megalojas",
+      "chaves": [
+        "ancoras",
+        "megalojas"
+      ]
+    },
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "endereco",
+      "rotulo": "Endereço",
+      "valor": "Av. Maracanã, 987 · Tijuca"
+    },
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "1996"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 35885,
+      "unidade": "m²"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas (site do shopping)",
+      "curto": "Lojas (site)",
+      "valor": 248
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": 6
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 8
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Cinema",
+      "valor": "Kinoplex - 6 salas"
+    },
+    {
+      "chave": "pavimentos",
+      "rotulo": "Pavimentos (OpenStreetMap)",
+      "valor": "9 pavimentos e 1 subsolo"
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · ano de inauguração",
+      "valor": "1996 (novembro de 1996 na ficha da BRMalls)",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · expansões",
+      "valor": "1 expansão (ficha técnica BRMalls 2012); a fonte não dá a data",
+      "fonte": "extapps.mz-ir.com"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · características",
+      "valor": "Complexo com shopping e três torres comerciais com cerca de 200 salas",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · características: entradas",
+      "valor": "Entradas pela Av. Maracanã e pela Rua Eng. Enaldo Cravo Peixoto; esta última é a mais usada por quem chega a pé da Praça Saens Peña",
+      "fonte": "natijuca.com"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · projeto 2012/2015 (escritório de arquitetura)",
+      "valor": "O currículo do arquiteto Ivan Rezende lista 'Shopping Tijuca / Brmalls' em 2012/2015; o trecho não diz a natureza do trabalho (não é o autor do projeto original)",
+      "fonte": "ivanrezendearquitetura.com.br"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso Pisos de lojas (4)",
+      "valor": "Quatro pisos de lojas, segundo a ficha técnica do relatório anual 2012 da BRMalls (antiga administradora); a fonte não nomeia os pisos",
+      "fonte": "extapps.mz-ir.com"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso 1º piso",
+      "valor": "Piso de onde se acessa a Torre Comercial 2, em frente à entrada da Av. Maracanã (segundo anúncio de loja da torre)",
+      "fonte": "instagram.com"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso G1",
+      "valor": "Espaço Cliente / central de estacionamento (trecho de busca do site oficial, que recusa acesso automático)",
+      "fonte": "shoppingtijuca.com"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso G2, G3, G4, G5 e G6",
+      "valor": "Pisos com guichês de pagamento automático de estacionamento (trecho de busca do site oficial)",
+      "fonte": "shoppingtijuca.com"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1313702000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 3096.1,
+      "abl": 35359,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 1223584000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2888.5,
+      "abl": 35301,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 254003000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2241.0,
+      "abl": 37781,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 233295000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2071.9,
+      "abl": 37533,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 139259000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1312.8,
+      "abl": 35359,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 388397000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 3661.5,
+      "abl": 35359,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    },
+    {
+      "periodo": "3T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 314828000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2967.9,
+      "abl": 35359,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.75
+    },
+    {
+      "periodo": "2T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 323163000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 3046.5,
+      "abl": 35359,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.5
+    },
+    {
+      "periodo": "1T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 287314000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2708.5,
+      "abl": 35359,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.25
+    }
+  ],
+  "vendas_empresa": "ALLOS (ALOS3)",
+  "vendas_nota": "Fonte: Planilha de Fundamentos 3T26 da ALLOS, tabela de vendas totais por shopping a 100%, lida por extração automática em 14/11/2026. A ALLOS não publica venda por m² por shopping, só a da carteira (R$ 2.017 por m² ao mês no 3T26). As vendas de 2026 não são comparáveis com 2025: a pesquisa registra um incêndio no shopping em 02/01/2026, com vendas de R$ 139,3 mi no 1T26 contra R$ 287,3 mi no 1T25 e ocupação de 98,8% no 4T25 para 92,1% no 3T26. A ABL da planilha passou de 35.359 m² (4T25) para 37.781 m² (3T26).",
+  "niveis": [
+    {
+      "id": "SS",
+      "nome": "SS · Subsolo",
+      "uso": "Subsolo"
+    },
+    {
+      "id": "L1",
+      "nome": "1º Piso (L1)",
+      "uso": "Lojas"
+    },
+    {
+      "id": "L2",
+      "nome": "2º Piso (L2)",
+      "uso": "Lojas"
+    },
+    {
+      "id": "L3",
+      "nome": "3º Piso (L3)",
+      "uso": "Lojas"
+    },
+    {
+      "id": "G1",
+      "nome": "G1 · Garagem",
+      "uso": "Estacionamento"
+    },
+    {
+      "id": "G2",
+      "nome": "G2 · Garagem",
+      "uso": "Estacionamento"
+    },
+    {
+      "id": "G3",
+      "nome": "G3 · Garagem",
+      "uso": "Estacionamento e alimentação"
+    },
+    {
+      "id": "G4",
+      "nome": "G4 · Garagem",
+      "uso": "Estacionamento"
+    },
+    {
+      "id": "G5",
+      "nome": "G5 · Garagem",
+      "uso": "Estacionamento"
+    },
+    {
+      "id": "G6",
+      "nome": "G6 · Garagem",
+      "uso": "Estacionamento"
+    }
+  ],
+  "contorno": [[2.4,-82.3],[8.6,-80.7],[13.9,-78.3],[18.5,-75.6],[20.1,-74.2],[23.3,-71.4],[30.8,-61.8],[37.2,-51.7],[41.6,-43],[43.6,-39.6],[44.8,-37.5],[48.5,-31.3],[50.9,-20],[51.1,-19.1],[51.3,-15.7],[52.6,1.8],[52.5,2.6],[52.1,5.5],[51.7,8],[49.9,20.1],[49.6,22.7],[39.3,55.4],[36.9,59.9],[34.2,62.8],[29.7,66.9],[12.1,75.6],[10.1,76],[7.6,75],[-0.8,79.2],[-3.1,81.4],[-5.9,82.4],[-9.3,82.7],[-12.9,82],[-16.3,80.2],[-19.1,77.2],[-21,73.5],[-25.6,62.1],[-30.7,51.6],[-35.4,39.8],[-38.5,29.6],[-41.4,18.5],[-42.5,11.2],[-44,0.5],[-44.9,-5.4],[-45.4,-9.2],[-49.7,-39.5],[-52.6,-59],[-52.6,-63.9],[-51.4,-68.6],[-49.3,-72.5],[-45.5,-75.7],[-36.3,-78.1],[-13.2,-81.4],[-10.4,-81.8],[-8.4,-82.1],[-5,-82.5],[-2.6,-82.7]],
+  "metodo": [
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio, entradas e ruas: OpenStreetMap."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Números da ficha: páginas públicas do shopping e da ALLOS, lidas por busca em 12/11/2026. Confira com a base interna."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pisos SS, L1 a L3 e G1 a G6: montados pelo número de pavimentos do mapa e pelas menções do site. A relação importada cria os pisos que faltarem."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Desenho de cada piso: esquemático (fileira externa, corredor com quiosques, ilha central e átrio). Com a planta de LUCs, o desenho passa a ser o real."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: shoppingtijuca.com recusa acesso automático (não contornado); só foi usado o trecho devolvido pela busca; Wikipédia em português não tem artigo 'Shopping Tijuca' (404); Autor do projeto arquitetônico original (1996) e autor/data da expansão; Nomes e usos dos quatro pisos de lojas (ex.: piso da praça de alimentação e do cinema Kinoplex); Como as torres 1 e 3 se ligam ao shopping, número de andares das torres e confirmação oficial de acesso direto pelo mall; Distância ou tempo a pé até a estação Uruguai do metrô; nenhuma fonte fala de ligação física com o metrô; Hotel, passarela, terminal de ônibus ou trem ligados ao shopping: nenhuma fonte encontrada; Tombamento ou uso anterior do terreno: nenhuma fonte encontrada."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 49857332 (contorno do prédio e número de pavimentos) © colaboradores do OpenStreetMap, ODbL",
+    "shoppingtijuca.com/sobre-o-shopping (248 lojas, 6 âncoras e 8 megalojas), lido via busca em 12/11/2026",
+    "allos.co, página do Shopping Tijuca (ABL e inauguração), lido via busca em 12/11/2026",
+    "Lista de lojas e quiosques: relação colada pelo usuário neste navegador (o site oficial bloqueia leitura automática)",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: allos.com.br, extapps.mz-ir.com, imovelweb.com.br, instagram.com, ivanrezendearquitetura.com.br, natijuca.com, shoppingtijuca.com"
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Três torres comerciais do Shopping Tijuca",
+      "descricao": "O empreendimento tem três torres comerciais com cerca de 200 salas. A administradora não diz por onde se entra nelas.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/shopping/shopping-tijuca/"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torre Comercial 2",
+      "descricao": "Anúncio de loja instalada na torre informa que o acesso é pelo 1º piso, em frente à entrada da Av. Maracanã. A fonte não é a administradora e não diz textualmente 'acesso direto'.",
+      "piso": "1º piso",
+      "acesso": "a confirmar",
+      "fonte": "https://www.instagram.com/p/DUjHeTRE21L/"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torre 3",
+      "descricao": "Existência de uma 'torre 3' confirmada por anúncio imobiliário de sala; sem informação de acesso.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.imovelweb.com.br/comerciais-conjunto-comercial-sala-venda-maracana-rio-de-janeiro-perto-de-iw-dubom-gourmet-rua-morais-e-silva-107.html"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Saens Peña (Praça Saens Peña)",
+      "descricao": "Sem ligação física: o shopping fica a 5 minutos a pé da Praça Saens Peña; o fluxo de pedestres vem da praça pela Rua General Roca até a entrada da Rua Eng. Enaldo Cravo Peixoto. A fonte da BRMalls cita a praça, não a estação; a estação Saens Peña é citada como referência por loja da torre.",
+      "piso": "entrada da Rua Eng. Enaldo Cravo Peixoto",
+      "acesso": "pela rua",
+      "fonte": "http://extapps.mz-ir.com/BRMalls/RAO/2012/default/en/show5e31.html?IdCanal=Mm3J9RO7Q+s01xQSeOgM2g=="
+    },
+    {
+      "tipo": "outro",
+      "nome": "Fluxo de pedestres Praça Saens Peña - Shopping",
+      "descricao": "70% dos frequentadores chegam a pé; mais de 60 mil pessoas por dia no trecho entre a Praça Saens Peña e o shopping, pela Rua General Roca.",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "http://natijuca.com/Grande-Tijuca/importancia-do-shopping-tijuca-na-revitalizacao-do-bairro.html"
+    }
+  ]
+}

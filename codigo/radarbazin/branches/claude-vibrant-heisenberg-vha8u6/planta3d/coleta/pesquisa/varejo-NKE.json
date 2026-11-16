@@ -1,0 +1,47 @@
+{
+ "empresa": "NIKE, Inc.",
+ "ticker": "NKE",
+ "bolsa": "NYSE",
+ "situacao": "listada",
+ "situacao_url": "https://about.nike.com/newsroom/releases/nike-inc-reports-fiscal-2026-fourth-quarter-and-full-year-results",
+ "marcas": [
+  {
+   "marca": "Nike (lojas no Brasil operadas pela Fisia, do Grupo SBF - SBFG3/B3)",
+   "nomes_no_arquivo": [
+    "NIKE",
+    "NIKE UNITE NOVA AMERICA"
+   ],
+   "url": "https://economicnewsbrasil.com.br/2026/08/28/nike-no-grupo-sbf-contrato-2034/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Fisia is the exclusive distributor of Nike products ... in Brazil, and also runs the brand's e-commerce operation and is the main operator of Nike physical stores. Contrato estendido até 31/05/2034."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "ano fiscal 2026 (encerrado em 31/mai/2026)",
+   "valor": 46400000000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://about.nike.com/newsroom/releases/nike-inc-reports-fiscal-2026-fourth-quarter-and-full-year-results",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Full-year revenue was about $46.4 billion, roughly flat on a reported basis and down 2% on a currency-neutral basis"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 50,
+   "unidade": "lojas",
+   "escopo": "Brasil, lojas Nike operadas pelo Grupo SBF (Fisia)",
+   "publicado": true,
+   "url": "https://economicnewsbrasil.com.br/2026/08/28/nike-no-grupo-sbf-contrato-2034/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] in 2025, Grupo SBF expanded its Nike store network from 46 to 50 units, while Centauro went from 227 to 230 stores"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Para o cruzamento no Brasil, a empresa operadora das lojas Nike é a Fisia (Grupo SBF, SBFG3 na B3, também dono da Centauro - nome 'CENTAURO' no arquivo); os números do Grupo SBF pertencem ao grupo de esportes/moda e não foram levantados aqui."
+ ],
+ "nao_encontrado": [
+  "Receita da Fisia em valor"
+ ]
+}

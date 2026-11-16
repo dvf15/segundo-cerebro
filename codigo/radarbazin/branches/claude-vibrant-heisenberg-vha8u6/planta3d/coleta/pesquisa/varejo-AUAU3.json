@@ -1,0 +1,109 @@
+{
+ "empresa": "União Pet Participações S.A. (Grupo Petz Cobasi)",
+ "ticker": "AUAU3",
+ "bolsa": "B3",
+ "situacao": "listada; fusão Petz-Cobasi concluída em janeiro de 2026 — a Cobasi (União Pet) incorporou a Petz, PETZ3 deixou de ser negociada e o grupo passou a negociar como AUAU3",
+ "situacao_url": "https://investidor10.com.br/noticias/petz-petz3-tem-guinada-para-baixo-e-negociacao-vira-leilao-106492/",
+ "marcas": [
+  {
+   "marca": "Zee.Dog",
+   "nomes_no_arquivo": [
+    "ZEE DOG"
+   ],
+   "url": "https://mercadoeconsumo.com.br/20/08/2026/noticias-varejo/cobasi-amplia-portfolio-com-a-zee-dog-e-passa-a-vender-acessorios-premium-em-lojas-site-e-app/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] a Zee.Dog foi adquirida pela Petz em 2021 e passou a integrar o Grupo Petz Cobasi"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1700000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor arredondado pela imprensa)",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/resultados-petz-cobasi-auau3-terceiro-trimestre-2026/",
+   "trecho": "[snippet de busca Firecrawl, página não aberta] Petz Cobasi (AUAU3) tem alta de 31% no lucro no 3º trimestre a R$ 96,1 milhões. Receita líquida chegou a R$ 1,7 bilhão, alta de 2,2%"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 2100000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (arredondado)",
+   "publicado": true,
+   "url": "https://www.petworldwide.net/content-1/news/2026/08/20/plus/petz-cobasi-grows-7-8-and-starts-closing-stores.html",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A receita bruta do grupo cresceu 7,8% na comparação anual, para R$ 2,1 bilhões, e a rede começou a fechar as primeiras lojas dentro de um programa de racionalização."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 1142000000,
+   "unidade": "R$",
+   "escopo": "marca Petz",
+   "publicado": true,
+   "url": "https://www.petworldwide.net/content-1/news/2026/08/20/plus/petz-cobasi-grows-7-8-and-starts-closing-stores.html",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Por bandeira, a Cobasi subiu 8,6%, para R$ 965,6 milhões, e a Petz 7,2%, para R$ 1.142,0 milhões."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 965600000,
+   "unidade": "R$",
+   "escopo": "marca Cobasi",
+   "publicado": true,
+   "url": "https://www.petworldwide.net/content-1/news/2026/08/20/plus/petz-cobasi-grows-7-8-and-starts-closing-stores.html",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Por bandeira, a Cobasi subiu 8,6%, para R$ 965,6 milhões, e a Petz 7,2%, para R$ 1.142,0 milhões."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2T26",
+   "valor": 7.1,
+   "unidade": "%",
+   "escopo": "mesmas lojas, grupo (Petz 7,4%; Cobasi 6,6%)",
+   "publicado": true,
+   "url": "https://www.spacemoney.com.br/investimentos/acoes/lucro-petz-cobasi-2t26/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] No 2T26, as vendas mesmas lojas cresceram 7,1%, com 7,4% na Petz e 6,6% na Cobasi."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2026 (apresentação institucional, data não confirmada)",
+   "valor": 521,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://quartr.com/events/uniao-pet-participacoes-s-a-auau3-corporate-presentation_3Pcs2D7I",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] O grupo opera 521 lojas em 23 estados mais o Distrito Federal, segundo a apresentação institucional"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "1T26",
+   "valor": 265,
+   "unidade": "lojas",
+   "escopo": "marca Petz",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/08/05/2026/mc-capital/petz-registra-salto-de-942-no-lucro-impulsionada-por-vendas-digitais-e-lojas-fisicas/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A Petz terminou o trimestre com 265 lojas e 221,5 mil metros quadrados de área de vendas, mantendo presença em 24 Estados."
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "1T26",
+   "valor": 221500,
+   "unidade": "m²",
+   "escopo": "marca Petz",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/08/05/2026/mc-capital/petz-registra-salto-de-942-no-lucro-impulsionada-por-vendas-digitais-e-lojas-fisicas/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A Petz terminou o trimestre com 265 lojas e 221,5 mil metros quadrados de área de vendas"
+  }
+ ],
+ "divergencias": [
+  "Número de lojas do grupo: 521 x 520 em duas apresentações institucionais (Quartr). O Cade exigiu a venda de 26 lojas em SP e o grupo iniciou fechamentos em 2026.",
+  "Comparações com 2025 são pro forma gerenciais e não auditadas, segundo o release do 2T26."
+ ],
+ "nao_encontrado": [
+  "Lojas PETZ e COBASI não aparecem em marcas.txt (só ZEE DOG, no RioSul).",
+  "3T26: receita bruta, nº de lojas, área de vendas e SSS.",
+  "Receita e lojas do ano de 2025 em base consolidada; área de vendas do grupo; venda por m²; nº de lojas Zee.Dog.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

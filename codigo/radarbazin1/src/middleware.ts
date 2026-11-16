@@ -23,7 +23,9 @@ import type { NextRequest } from "next/server";
 /* Páginas e recursos que podem ser abertos por qualquer pessoa. */
 const PUBLICO: RegExp[] = [
   // ferramentas comerciais
-  /^\/(operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas)\.html$/,
+  /^\/(operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas|renovacoes)\.html$/,
+  // vídeos do passo a passo do Radar de Renovações (aba Como usar)
+  /^\/renovacoes-[a-z0-9-]+\.mp4$/,
   // manifests e ícones dessas ferramentas
   /^\/[a-z0-9-]+\.webmanifest$/,
   /^\/[a-z0-9-]+-icon(-\d+)?\.(png|svg)$/,

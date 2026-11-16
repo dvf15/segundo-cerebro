@@ -1,0 +1,48 @@
+{
+ "empresa": "adidas AG",
+ "ticker": "ADS",
+ "bolsa": "Xetra / Bolsa de Frankfurt",
+ "situacao": "listada",
+ "situacao_url": "https://report.adidas-group.com/2025/en/group-management-report-financial-review/business-performance/income-statement.html",
+ "marcas": [
+  {
+   "marca": "adidas",
+   "nomes_no_arquivo": [
+    "ADIDAS",
+    "ADIDAS DO BRASIL"
+   ],
+   "url": "https://www.adidas-group.com/en/media/press-releases/adidas-reports-record-revenues-in-2025-and-launches-share-buyback",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] adidas reports record revenues in 2025 and launches share buyback"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 24811000000,
+   "unidade": "EUR",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://report.adidas-group.com/2025/en/group-management-report-financial-review/business-performance/income-statement.html",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Total net sales 24,811 23,683 (€ milhões; +5% em euros, +13% em moeda constante)"
+  },
+  {
+   "indicador": "outro (crescimento da receita do varejo próprio)",
+   "periodo": "2025",
+   "valor": 13,
+   "unidade": "%",
+   "escopo": "companhia consolidada, só lojas próprias",
+   "publicado": true,
+   "url": "https://report.adidas-group.com/2025/en/group-management-report-financial-review/business-performance/income-statement.html",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] own retail revenues were up 13%, driven by strong like-for-like growth in the company's global fleet of own stores"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Listagem (Xetra: ADS) não confirmada por trecho de fonte nesta leitura."
+ ],
+ "nao_encontrado": [
+  "Dados do Brasil",
+  "Nº de lojas próprias"
+ ]
+}

@@ -1,0 +1,190 @@
+{
+ "empresa": "Vivara Participações S.A.",
+ "ticker": "VIVA3",
+ "bolsa": "B3",
+ "situacao": "listada (VIVA3; resultado do 3T26 divulgado em novembro/2026)",
+ "situacao_url": "https://www.dgabc.com.br/Noticia/4367163/vivara-registra-lucro-liquido-ajustado-de-r-119-9-milhoes-no-3tri26-recuo-de-22-2",
+ "marcas": [
+  {
+   "marca": "Vivara",
+   "nomes_no_arquivo": [
+    "VIVARA"
+   ],
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "A companhia encerrou o 3T26 com 533 pontos de venda, incluindo 272 lojas Vivara e 250 lojas Life. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Life (Life by Vivara)",
+   "nomes_no_arquivo": [
+    "VIVARA LIFE",
+    "LIFE BY VIVARA"
+   ],
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "A companhia encerrou o 3T26 com 533 pontos de venda, incluindo 272 lojas Vivara e 250 lojas Life. [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2025",
+   "valor": 3800000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12168/vivara-viva3-registra-lucro-de-r-6195-mi-em-2025",
+   "trecho": "A receita bruta atingiu R$ 3,8 bi, crescimento de 16,2% em relação a 2024, apoiada em vendas mesmas lojas (SSS) de 11,8% no ano e na abertura de 42 novas lojas. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2025",
+   "valor": 11.8,
+   "unidade": "%",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12168/vivara-viva3-registra-lucro-de-r-6195-mi-em-2025",
+   "trecho": "vendas mesmas lojas (SSS) de 11,8% no ano e na abertura de 42 novas lojas [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 498,
+   "unidade": "lojas",
+   "escopo": "total de pontos de venda (lojas Vivara, Life e quiosques)",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-4t25/",
+   "trecho": "a empresa encerrou o ano com 498 pontos de venda (+9% a/a), totalizando 41,5 mil metros quadrados [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "2025",
+   "valor": 41500,
+   "unidade": "m²",
+   "escopo": "total",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-4t25/",
+   "trecho": "a empresa encerrou o ano com 498 pontos de venda (+9% a/a), totalizando 41,5 mil metros quadrados [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 1000000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (arredondado)",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-4t25/",
+   "trecho": "No 4T25, a receita líquida consolidada foi de R$ 1 bilhão, crescimento de +16% a/a [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 692900000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.dgabc.com.br/Noticia/4367163/vivara-registra-lucro-liquido-ajustado-de-r-119-9-milhoes-no-3tri26-recuo-de-22-2",
+   "trecho": "A receita operacional líquida totalizou R$ 692,9 milhões, alta de 4,3%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T26",
+   "valor": 867400000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (líquida de devoluções)",
+   "publicado": true,
+   "url": "https://www.dgabc.com.br/Noticia/4367163/vivara-registra-lucro-liquido-ajustado-de-r-119-9-milhoes-no-3tri26-recuo-de-22-2",
+   "trecho": "Considerando a receita bruta líquida de devoluções, o montante atingiu R$ 867,4 milhões, alta de 7,7% sobre os R$ 805,4 milhões de igual intervalo do ano anterior. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T26",
+   "valor": 529500000,
+   "unidade": "R$",
+   "escopo": "só lojas Vivara",
+   "publicado": true,
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "[receita das lojas Vivara] ficou em R$ 529,5 milhões, redução de 0,5% em relação ao mesmo período do ano passado [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 533,
+   "unidade": "lojas",
+   "escopo": "total de pontos de venda",
+   "publicado": true,
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "A companhia encerrou o 3T26 com 533 pontos de venda, incluindo 272 lojas Vivara e 250 lojas Life. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 272,
+   "unidade": "lojas",
+   "escopo": "marca Vivara",
+   "publicado": true,
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "A companhia encerrou o 3T26 com 533 pontos de venda, incluindo 272 lojas Vivara e 250 lojas Life. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 250,
+   "unidade": "lojas",
+   "escopo": "marca Life",
+   "publicado": true,
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "A companhia encerrou o 3T26 com 533 pontos de venda, incluindo 272 lojas Vivara e 250 lojas Life. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 4.4,
+   "unidade": "%",
+   "escopo": "companhia consolidada (inclui digital)",
+   "publicado": true,
+   "url": "https://acionista.com.br/vivara-viva3-resultados-do-3t26-revelam-crescimento-sustentavel/",
+   "trecho": "same store sales (vendas em mesmas lojas, incluindo digital) foi de 4,4% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 833100000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/06/08/2026/mc-capital/vivara-tem-lucro-liquido-de-r-1567-milhoes-no-2o-trimestre-alta-de-09-na-comparacao-anual/amp/",
+   "trecho": "A receita operacional líquida da companhia totalizou R$ 833,1 milhões no trimestre, um crescimento de 9,5% ante o segundo trimestre de 2025. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "1T26",
+   "valor": 268,
+   "unidade": "lojas",
+   "escopo": "marca Vivara",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-1t26/",
+   "trecho": "A companhia encerrou o 1T26 com 503 pontos de venda, sendo 268 lojas Vivara e 224 Life [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "1T26",
+   "valor": 224,
+   "unidade": "lojas",
+   "escopo": "marca Life",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/vivara-viva3-resultados-1t26/",
+   "trecho": "A companhia encerrou o 1T26 com 503 pontos de venda, sendo 268 lojas Vivara e 224 Life [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "SSS do 3T26: 4,4% em uma fonte (inclui digital) e 5,3% em outra, sem detalhar a base.",
+  "Pontos de venda: 498 no fim de 2025 (Nord) x 503 no 1T26 'mantendo o número do 4T25' — conferir.",
+  "A receita de R$ 529,5 mi das lojas Vivara no 3T26 não teve a base (bruta/líquida) explicitada no trecho."
+ ],
+ "nao_encontrado": [
+  "Receita líquida do ano de 2025 em valor absoluto (só +17%)",
+  "Venda por m² (não localizada)",
+  "Área de vendas no 3T26 e por marca",
+  "Lojas por marca no fim de 2025"
+ ]
+}

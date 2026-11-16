@@ -1,0 +1,89 @@
+{
+ "empresa": "Movida Participações S.A.",
+ "ticker": "MOVI3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://investidor10.com.br/noticias/movida-movi3-lucra-r-152-1-mi-e-supera-guidance-no-3t26-123202/",
+ "marcas": [
+  {
+   "marca": "Movida",
+   "nomes_no_arquivo": [
+    "MOVIDA ALUGUEL DE CARROS"
+   ],
+   "url": "https://investidor10.com.br/noticias/movida-movi3-lucra-r-152-1-mi-e-supera-guidance-no-3t26-123202/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A Movida (MOVI3) registrou lucro líquido de R$ 152,1 milhões no terceiro trimestre de 2026, crescimento de 117,4% em relação ao mesmo período do ano passado."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 14672000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12257/movida-movi3-registra-lucro-de-r-318-mi-em-2025",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] receita líquida consolidada de R$ 14,672 bi, crescimento de 8,8% sobre 2024"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 3500000000,
+   "unidade": "R$",
+   "escopo": "divisão RAC (aluguel de carros), valor arredondado",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12257/movida-movi3-registra-lucro-de-r-318-mi-em-2025",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] No RAC, a receita líquida foi de R$ 3,5 bi em 2025, crescimento de 15,4%."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 3660000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://www.nordinvestimentos.com.br/blog/movida-movi3-resultados-4t25/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A receita líquida ficou perto de R$ 3,66 bilhões, alta de 12,6% frente ao 4T24."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 3870000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/movida-movi3-lucra-r-152-1-mi-e-supera-guidance-no-3t26-123202/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A receita líquida alcançou R$ 3,870 bilhões entre julho e setembro, avanço de 2,8% na comparação anual."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T26",
+   "valor": 2700000000,
+   "unidade": "R$",
+   "escopo": "locação (RAC + GTF), valor arredondado",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/movida-movi3-lucra-r-152-1-mi-e-supera-guidance-no-3t26-123202/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] receita bruta de locação de R$ 2,7 bilhões, um recorde para a Movida, com crescimento de 19% em relação ao 3T25"
+  },
+  {
+   "indicador": "outro (lojas de Seminovos / Auto Shopping)",
+   "periodo": "1T26",
+   "valor": 122,
+   "unidade": "lojas",
+   "escopo": "lojas de seminovos",
+   "publicado": true,
+   "url": "https://bpmoney.com.br/?p=400934",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] a rede de Auto Shopping totalizou 122 unidades"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Receita 2025: R$ 14,672 bi (+8,8%) em uma fonte x 'R$ 14,6 bilhões, crescimento de 19%' em outra.",
+  "A apresentação do 3T26 foi reapresentada em 03/11/2026 (retirada de menção à margem EBITDA), sem alterar outros números."
+ ],
+ "nao_encontrado": [
+  "Nº de lojas/pontos de atendimento de aluguel de carros (RAC) - não apareceu em nenhuma fonte acessível",
+  "Receita 9M26",
+  "Receita por loja / venda por m²"
+ ]
+}

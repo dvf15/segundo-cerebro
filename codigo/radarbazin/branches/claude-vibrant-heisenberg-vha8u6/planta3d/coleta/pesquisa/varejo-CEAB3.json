@@ -1,0 +1,129 @@
+{
+ "empresa": "C&A Modas S.A.",
+ "ticker": "CEAB3",
+ "bolsa": "B3",
+ "situacao": "listada (CEAB3; release do 3T26 divulgado em 04/11/2026)",
+ "situacao_url": "https://www.infomoney.com.br/mercados/ca-ceab3-resultados-terceiro-trimestre-2026/",
+ "marcas": [
+  {
+   "marca": "C&A",
+   "nomes_no_arquivo": [
+    "C&A"
+   ],
+   "url": "https://www.infomoney.com.br/mercados/ca-ceab3-resultados-terceiro-trimestre-2026/",
+   "trecho": "C&A (CEAB3) tem lucro líquido de R$ 56,5 mi no 3º tri, queda anual de 23,3%"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 7980000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/c-a-modas-ceab3-bate-recorde-e-lucra-r-470-7-milhoes-em-2025-118806/",
+   "trecho": "no acumulado do ano, o indicador expandiu +4,5%, ao passar de R$ 7,63 bilhões em 2024 para R$ 7,98 bilhões em 2025 [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 2470000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/ca-ceab3-lucra-r-3132-milhoes-no-4t25-alta-de-229-com-avanco-de-margem-e-queda-do-resultado-financeiro-vtra/",
+   "trecho": "A receita operacional líquida totalizou R$ 2,47 bilhões no trimestre, queda de 3,2% na comparação anual [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 2250000000,
+   "unidade": "R$",
+   "escopo": "só varejo de vestuário",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/ca-ceab3-lucra-r-3132-milhoes-no-4t25-alta-de-229-com-avanco-de-margem-e-queda-do-resultado-financeiro-vtra/",
+   "trecho": "No principal segmento da empresa, o varejo de vestuário, a receita ficou praticamente estável, em R$ 2,25 bilhões, com leve alta de 0,6% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "4T25",
+   "valor": -0.3,
+   "unidade": "%",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/ca-ceab3-lucra-r-3132-milhoes-no-4t25-alta-de-229-com-avanco-de-margem-e-queda-do-resultado-financeiro-vtra/",
+   "trecho": "O crescimento de vendas mesmas lojas (SSS) em vestuário desacelerou para queda de 0,3% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1883000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/CEAB3/51746/",
+   "trecho": "Receita líquida consolidada 1.883,0 1.840,9 2,3% 5.584,9 5.511,4 1,3% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 5584900000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/CEAB3/51746/",
+   "trecho": "Receita líquida consolidada 1.883,0 1.840,9 2,3% 5.584,9 5.511,4 1,3% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1690900000,
+   "unidade": "R$",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/CEAB3/51746/",
+   "trecho": "Receita líquida de vestuário 1.690,9 1.648,7 2,6% 5.034,7 4.807,9 4,7% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 5034700000,
+   "unidade": "R$",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/CEAB3/51746/",
+   "trecho": "Receita líquida de vestuário 1.690,9 1.648,7 2,6% 5.034,7 4.807,9 4,7% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 1.0,
+   "unidade": "%",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/ca-ceab3-resultados-terceiro-trimestre-2026/",
+   "trecho": "Já as vendas em mesmas lojas (SSS) da operação de vestuário cresceram 1% no período, desacelerando em relação à expansão de 8,1% registrada no terceiro trimestre de 2025."
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "3T26",
+   "valor": 637900,
+   "unidade": "m²",
+   "escopo": "área de vendas média, total",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/CEAB3/51746/",
+   "trecho": "área de vendas média foi de 637,9 mil m², alta de 2,5% sobre os 622,1 mil m² do 3T25 [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Release oficial do 3T26 (PDF do RI): https://filemanager-cdn.mziq.com/published/402adf94-e9a7-4c66-9bd9-3d0ec018abd5/bab592a1-7439-489c-9b91-4d2c898ff487 — só o cabeçalho pôde ser lido; os números do 3T26 vêm de reprodução do release no Investidor10."
+ ],
+ "nao_encontrado": [
+  "Número de lojas (2025 e 3T26)",
+  "Área de vendas de fim de período em 2025",
+  "Venda/receita por m² (não localizada; não confirmado se a companhia publica)",
+  "Receita líquida de vestuário do ano de 2025"
+ ]
+}

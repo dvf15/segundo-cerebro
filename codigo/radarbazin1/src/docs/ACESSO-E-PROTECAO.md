@@ -40,7 +40,8 @@ projeto.
 
 - `operacoes.html`, `quiosques.html`, `midia.html`, `obras.html`,
   `apresentacao.html`, `simulador-estrutura.html`, `simulador-remuneracao.html`,
-  `clausulas.html`
+  `clausulas.html`, `renovacoes.html`
+- os vídeos do passo a passo do Radar de Renovações (`renovacoes-*.mp4`)
 - manifests (`*.webmanifest`), ícones (`*-icon-*.png|svg`), service workers
   (`sw-*.js`) e as planilhas em `exemplos/`
 
@@ -166,3 +167,4 @@ cair na tela de senha, digitar e chegar ao diário.
 
 - [[RADAR-VAREJO|Radar de Varejo]]
 - [[RADAR-QUIOSQUES|Radar Quiosques]]
+- [[RADAR-RENOVACOES|Radar de Renovações]]

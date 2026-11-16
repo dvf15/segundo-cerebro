@@ -1,0 +1,399 @@
+{
+  "id": "ID_DA_PASTA",
+  "nome": "Shopping Anália Franco",
+  "curto": "ANÁLIA FRANCO",
+  "papel": "concorrente",
+  "subtitulo": "Av. Regente Feijó, 1.739 – Jardim Anália Franco / Tatuapé, São Paulo – SP · Multiplan",
+  "coleta": "14/11/2026",
+  "origem_lista": "páginas de loja do site do shopping",
+  "link_loja": "https://www.shoppinganaliafranco.com.br/{slug}/",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "09/11/1999",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 51590,
+      "unidade": "m²",
+      "nota": "Site do shopping informa 51.677 m² (ver divergencias)",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 405,
+      "nota": "Site do shopping informa 406 (ver divergencias)",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Opções gastronômicas",
+      "valor": 43,
+      "nota": "Total de opções gastronômicas, não só restaurantes",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Cinema",
+      "valor": "UCI (com sala IMAX)",
+      "nota": "Número de salas não encontrado em fonte oficial",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "visitas_ano",
+      "rotulo": "Tráfego anual",
+      "valor": 12500000,
+      "unidade": "visitas/ano",
+      "nota": "Ano-base 2024; site do shopping informa 12,7 milhões (ver divergencias). Fluxo mensal não publicado",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil do público",
+      "valor": "91% classes A e B; 56% mulheres",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "expansoes",
+      "rotulo": "Expansões",
+      "valor": 1,
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "participacao_multiplan",
+      "rotulo": "Participação Multiplan",
+      "valor": 30,
+      "unidade": "%",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "empregos",
+      "rotulo": "Empregos",
+      "valor": 3825,
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "vendas_2024",
+      "rotulo": "Vendas em 2024",
+      "valor": "R$ 1.734,8 milhões",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "vagas_carro_eletrico",
+      "rotulo": "Vagas de recarga para carros elétricos",
+      "valor": 6,
+      "nota": "Não é o total de vagas do estacionamento",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": null
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": null
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · ano",
+      "valor": "Inaugurado em 1999",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · expansões",
+      "valor": "Uma expansão: anunciada em 2007 para inaugurar em abril de 2009, +11.786 m² de ABL (cerca de +30%), no 3º pavimento, com 89 novas lojas, sendo 2 âncoras",
+      "fonte": "rad.cvm.gov.br"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · expansões (ABL)",
+      "valor": "11.786 m² adicionados à ABL",
+      "fonte": "rad.cvm.gov.br"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · características",
+      "valor": "Pracinha do Anália: espaço de lazer ao ar livre para famílias e pets, quase 2 mil m²",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · características",
+      "valor": "Descrição oficial genérica da arquitetura (sem autor)",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso Lírio",
+      "valor": "Cinema UCI (IMAX, 'Nível Lírio'); ponto de empréstimo de scooters ao lado da saída para o estacionamento; quiosque Animal Tour (aluguel de carrinhos de bebê)",
+      "fonte": "imax.com"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso Orquídea",
+      "valor": "Praça de Eventos",
+      "fonte": "pequenospelobrasil.com.br"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso Acácia",
+      "valor": "Caixas eletrônicos 24h (próximo ao Valet, atrás do elevador panorâmico); Laboratório Fleury",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso Tulipa",
+      "valor": "Vila Trampolim; Drogasil; banheiro com trocador adulto",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "piso_5",
+      "rotulo": "Piso Jasmim",
+      "valor": "SAC, Fraldário/Sala de Regulação Sensorial, Lounge Multi, Centro Ecumênico",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "piso_6",
+      "rotulo": "Piso G1 (estacionamento interno)",
+      "valor": "Estacionamento; ambulatório; bicicletário; vagas de recarga para carros elétricos",
+      "fonte": "shoppinganaliafranco.com.br"
+    },
+    {
+      "chave": "piso_7",
+      "rotulo": "Piso G2",
+      "valor": "Estacionamento; bicicletário",
+      "fonte": "shoppinganaliafranco.com.br"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "12 meses até mar/26",
+      "tipo_periodo": "12 meses",
+      "vendas": 1894000000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "m2": 3054.2,
+      "abl": 51677,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1848400000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "m2_pub": 3113.0,
+      "m2": 2980.7,
+      "abl": 51677,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 1734800000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 452100000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "m2_pub": 2964.0,
+      "m2": 2916.2,
+      "abl": 51677,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 484100000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "m2_pub": 3195.0,
+      "m2": 3122.6,
+      "abl": 51677,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 410100000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "m2_pub": 2713.0,
+      "m2": 2645.3,
+      "abl": 51677,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 609200000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "m2": 3929.5,
+      "abl": 51677,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    }
+  ],
+  "vendas_empresa": "Multiplan (MULT3)",
+  "vendas_nota": "Fonte: releases de resultados da Multiplan (4T25, 1T26, 2T26 e 3T26), lidos por extração automática dos PDFs em 14/11/2026; valores arredondados a R$ 0,1 milhão. A venda por m² publicada usa só a ABL das âncoras e satélites que reportam venda, sem quiosques. A venda por m² e a ABL de 2024 não foram lidas (release do 4T24 não localizado), por isso 2024 não tem a conta por ABL.",
+  "niveis": [
+    {
+      "id": "LAC",
+      "nome": "Piso Acácia",
+      "uso": "Valet, caixas eletrônicos, laboratório e academia"
+    },
+    {
+      "id": "LOR",
+      "nome": "Piso Orquídea",
+      "uso": "Lojas; Praça de Eventos"
+    },
+    {
+      "id": "LTU",
+      "nome": "Piso Tulipa",
+      "uso": "Lojas; Vila Trampolim"
+    },
+    {
+      "id": "LLI",
+      "nome": "Piso Lírio",
+      "uso": "Lojas; cinema UCI"
+    },
+    {
+      "id": "G5",
+      "nome": "G5 · Garagem",
+      "uso": "Estacionamento"
+    }
+  ],
+  "contorno": [[-66.9,93.8],[-75.2,77],[-122,65.4],[-140.5,21.5],[-102.9,2.8],[-100,10.3],[1.6,-23.4],[-6.3,-44.7],[64.9,-78.6],[78.3,-93.8],[140.5,-38.1],[132.1,-26.6],[133.7,-16.7],[124.2,-14.2],[117.3,-11.2],[128.3,12.3],[138.7,47.6],[137.1,53.9],[132.6,59.2],[126.4,61.9],[120.7,62],[115.7,58.8],[109,41.4],[106.5,41.8],[103,34.7]],
+  "metodo": [
+    {
+      "tag": "oficial",
+      "texto": "Nome, categorias, piso, LUC e situação de cada operação: páginas de loja do site do shopping, listadas no sitemap ({com_codigo} de {ops} com LUC). O site não publica área nem tipo de operação."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Quiosques: {quiosques} operações. O site identifica algumas pelo nome (\"quiosque\"); as demais foram marcadas porque o LUC segue o mesmo padrão delas (P + sigla do piso). O total oficial não é publicado."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Tipo de operação: deduzido do código, da seção do site e da categoria. Área: não é publicada; os m² são a referência de desenho por tipo de operação, multiplicada pelo número de LUCs. Desenho do piso: esquemático, na ordem do LUC; não é a planta real."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pisos: os nomes (Acácia, Orquídea, Tulipa, Lírio) são do site; a ordem vertical entre eles não foi encontrada em fonte pública e a do modelo é provisória. O site cita ainda o piso Jasmim (SAC e fraldário) e garagens G1 e G2, sem lojas no diretório."
+    },
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio, entradas e ruas: OpenStreetMap."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: ABL: 51.590 m².multiplan.com.br/shoppings/shoppinganaliafranco/) x 51.677 m².shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Lojas: 405.multiplan.com.br/shoppings/shoppinganaliafranco/) x 406 / 'mais de 400'.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Tráfego: 12,5 milhões de visitas em 2024.multiplan.com.br/shoppings/shoppinganaliafranco/) x 12,7 milhões de visitas por ano.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Hospital vizinho: Wikipedia cita 'Hospital Vitória'.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco); guia imobiliário cita 'Hospital São Luiz (Rede D'Or)'.rpcimob.com.br/guia/analia-franco-alto-padrao-ceret) – pode ser o mesmo hospital rebatizado, não confirmado"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Número do endereço: 1.739 (trechos de imprensa/Facebook) x 1759.imax.com/theatre/uci-analia-franco-imax)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Autor do projeto arquitetônico e prêmios de arquitetura (site Multiplan e site do shopping não citam); Área construída e área do terreno; Número total de vagas de estacionamento (páginas /estacionamento/ e /como-chegar/ do site oficial retornam 404); Número de âncoras, megalojas e quiosques atuais; Número de salas de cinema (só a marca UCI e a existência de IMAX/4DX); Fluxo mensal de consumidores (só tráfego anual); Número de pisos de lojas e a ordem vertical dos pisos (Lírio, Orquídea, Acácia, Tulipa, Jasmim aparecem por nome, sem ordem); piso da praça de alimentação; Torres comerciais/residenciais, hotel ou passarela ligados fisicamente ao shopping: nenhuma fonte encontrada; Piso do shopping que dará acesso ao metrô e se haverá entrada direta dentro do mall; Artigo da Wikipedia sobre o shopping (não existe em pt.wikipedia.org; 404); Terminal de ônibus próximo."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 38693422 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "www.shoppinganaliafranco.com.br (sitemap e páginas de loja: nome, categorias, piso, LUC e situação), lido em 14/11/2026",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: imax.com, metrocptm.com.br, multiplan.com.br, pequenospelobrasil.com.br, pt.wikipedia.org, rad.cvm.gov.br, rpcimob.com.br, shoppinganaliafranco.com.br"
+  ],
+  "conexoes": [
+    {
+      "tipo": "metrô",
+      "nome": "Estação Anália Franco (Linha 2-Verde) – em obras, previsão 2027",
+      "descricao": "Passagem sob a av. Eduardo Cotching ligará a estação às proximidades do shopping; a saída fica ao lado do centro comercial. A fonte não afirma entrada dentro do shopping.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.metrocptm.com.br/estacao-analia-franco-da-linha-2-ja-mostra-acesso-ao-shopping-vizinho/"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Linha 16-Violeta (futura integração na estação Anália Franco)",
+      "descricao": "As obras da estação já contemplam futura integração com a Linha 16-Violeta",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.metrocptm.com.br/estacao-analia-franco-da-linha-2-ja-mostra-acesso-ao-shopping-vizinho/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Hospital Vitória",
+      "descricao": "Hospital vizinho ao shopping, no centro do Jardim Anália Franco; a estação de metrô é construída atrás dele",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "osm": "Vit[oó]ria"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Universidade Cruzeiro do Sul – campus Anália Franco",
+      "descricao": "Campus no bairro, aberto em 2000; vizinhança do shopping",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "osm": "Cruzeiro do Sul"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Leroy Merlin",
+      "descricao": "Unidade instalada nos arredores do shopping",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "osm": "Leroy"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Parque CERET",
+      "descricao": "Parque de 286.000 m² no bairro, citado junto ao shopping em guia imobiliário",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.rpcimob.com.br/guia/analia-franco-alto-padrao-ceret",
+      "osm": "CERET"
+    }
+  ],
+  "resumo_nota": "Nome, categoria, piso e LUC são do site do shopping. O tipo de operação é deduzido. A posição de cada loja dentro do piso é esquemática. O site não publica área: os m² mostrados são só a referência de desenho por tipo de operação, não uma medida."
+}

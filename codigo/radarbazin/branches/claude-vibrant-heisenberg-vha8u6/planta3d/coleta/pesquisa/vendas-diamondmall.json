@@ -1,0 +1,212 @@
+{
+  "id": "diamondmall",
+  "empresa": "Multiplan",
+  "ticker": "MULT3",
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1042900000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 3838,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 24191,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || DiamondMall | 314.3 M | 285.7 M | +10.0% | 1,042.9 M | 850.6 M | +22.6% || Portfolio (2025): DiamondMall | 1996 | MG | 90.0% | 24,191 sq.m | 3,838 R$/sq.m | 312 R$/sq.m | 94.3%"
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas_reais": 850600000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": null,
+      "abl_fonte_url": null,
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || DiamondMall | 314.3 M | 285.7 M | +10.0% | 1,042.9 M | 850.6 M | +22.6% (coluna comparativa 2024 do release do 4T25)"
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 314300000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 24191,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || DiamondMall | 314.3 M | 285.7 M | +10.0% | 1,042.9 M | 850.6 M | +22.6%"
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 238600000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 3542,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 24191,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 1T26 | 1T25 | Var. % | mar/26 (12M) | mar/25 (12M) | Var.% || DiamondMall | 238,6 M | 217,9 M | +9,5% | 1.063,6 M | 895,3 M | +18,8% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || DiamondMall | 90,0% | 24.191 m2 | 3.542 R$/m2 | 297 R$/m2 | 92,9%"
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 268500000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 3977,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 24191,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 2T26 | 2T25 | Var. % | 1S26 | 1S25 | Var. % || DiamondMall | 268,5 M | 254,7 M | +5,4% | 507,1 M | 472,7 M | +7,3% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.977 R$/m2 | 303 R$/m2 | 92,2%"
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 262300000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 3941,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 24191,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 3T26 | 3T25 | Var.% | 9M26 | 9M25 | Var.% || DiamondMall | 262,3 M | 256,0 M | +2,5% | 769,4 M | 728,6 M | +5,6% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.941 R$/m2 | 304 R$/m2 | 93,0%"
+    },
+    {
+      "periodo": "12 meses até mar/26",
+      "tipo_periodo": "12 meses",
+      "vendas_reais": 1063600000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 24191,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 1T26 | 1T25 | Var. % | mar/26 (12M) | mar/25 (12M) | Var.% || DiamondMall | 238,6 M | 217,9 M | +9,5% | 1.063,6 M | 895,3 M | +18,8%"
+    }
+  ],
+  "outros_indicadores": [
+    {
+      "indicador": "vendas dos lojistas acumuladas 9M26 (100%)",
+      "periodo": "9M26 (jan-set/2026)",
+      "valor": "R$ 769,4 milhões (9M25: R$ 728,6 milhões)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 3T26 | 3T25 | Var.% | 9M26 | 9M25 | Var.% || DiamondMall | 262,3 M | 256,0 M | +2,5% | 769,4 M | 728,6 M | +5,6%"
+    },
+    {
+      "indicador": "vendas dos lojistas 4T24 (100%)",
+      "periodo": "4T24",
+      "valor": "R$ 285,7 milhões",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || DiamondMall | 314.3 M | 285.7 M | +10.0% | 1,042.9 M | 850.6 M | +22.6%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "2025",
+      "valor": "R$ 312/m²/mês",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "DiamondMall | 1996 | MG | 90.0% | 24,191 sq.m | 3,838 R$/sq.m | 312 R$/sq.m | 94.3%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "2025",
+      "valor": "94,3%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "DiamondMall | 1996 | MG | 90.0% | 24,191 sq.m | 3,838 R$/sq.m | 312 R$/sq.m | 94.3%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "1T26",
+      "valor": "R$ 297/m²/mês",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "DiamondMall | 90,0% | 24.191 m2 | 3.542 R$/m2 | 297 R$/m2 | 92,9%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "1T26",
+      "valor": "92,9%",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "DiamondMall | 90,0% | 24.191 m2 | 3.542 R$/m2 | 297 R$/m2 | 92,9%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "2T26",
+      "valor": "R$ 303/m²/mês",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.977 R$/m2 | 303 R$/m2 | 92,2%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "2T26",
+      "valor": "92,2%",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.977 R$/m2 | 303 R$/m2 | 92,2%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "3T26",
+      "valor": "R$ 304/m²/mês",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.941 R$/m2 | 304 R$/m2 | 93,0%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "3T26",
+      "valor": "93,0%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.941 R$/m2 | 304 R$/m2 | 93,0%"
+    },
+    {
+      "indicador": "receita de locação do shopping (R$)",
+      "periodo": "3T26 / 9M26",
+      "valor": "3T26 R$ 19,3 M (3T25 R$ 19,5 M, -1,3%); 9M26 R$ 57,9 M (9M25 R$ 56,8 M, +2,0%)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Receita de locação (R$) | 3T26 | 3T25 | Var. % | 9M26 | 9M25 | Var. % || DiamondMall | 19,3 M | 19,5 M | -1,3% | 57,9 M | 56,8 M | +2,0%"
+    },
+    {
+      "indicador": "participação da Multiplan no shopping",
+      "periodo": "3T26",
+      "valor": "90,0%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "DiamondMall | 1996 | MG | 90,0% | 24.191 m2 | 3.941 R$/m2 | 304 R$/m2 | 93,0%"
+    },
+    {
+      "indicador": "critério da venda/m² publicada",
+      "periodo": "2T26 (nota de rodapé da tabela Portfólio)",
+      "valor": "considera apenas a ABL de lojas âncoras e satélites que reportam vendas; exclui quiosques (não é venda total ÷ ABL total)",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Vendas por m2: o cálculo de vendas/m2 considera apenas a ABL de lojas âncoras e satélites que reportam vendas. e exclui as vendas de quiosques. pois estas operações não estão incluídas na ABL total."
+    },
+    {
+      "indicador": "destaque de crescimento de vendas",
+      "periodo": "2025",
+      "valor": "+22,6% vs 2024 (shopping de maior crescimento do portfólio)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "The top performing malls during 2025 were DiamondMall (+22.6%), ParkShoppingBarigüi (+19.2%), and New York City Center (+14.8%), all of which recently benefited from expansion and/or renovation projects."
+    }
+  ],
+  "divergencias": [
+    "Venda/m² publicada (tabela Portfólio) usa como denominador só a ABL de lojas âncoras e satélites que reportam vendas e exclui quiosques; por isso NÃO bate com vendas totais ÷ ABL total ÷ meses. Não misturar com valor 'calculado'.",
+    "Tabela Portfólio do release 4T25 (versão em inglês): a extração devolveu o cabeçalho como 'Sales (year)' / 'Rent (year)', mas a ordem de grandeza (milhares de R$/m²) é de média MENSAL, igual às tabelas trimestrais 'Vendas (mês)'. Registrado como R$/m²/mês; conferir o cabeçalho no PDF antes de publicar.",
+    "Valores de venda vêm dos releases arredondados a R$ 0,1 milhão (vendas_reais = valor x 1.000.000). A Planilha de Fundamentos 3T26 (https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/6792a854-1d37-41c1-b1ab-82fc8d0268e7) traz a série em R$ mil; a leitura automática da planilha misturou linhas de shoppings e não foi usada como fonte primária.",
+    "Conferência interna: 1S26 = 1T26 + 2T26, 9M26 = 1T26+2T26+3T26 e 12M mar/26 = 2025 - 1T25 + 1T26 fecham com os valores publicados (diferenças só de arredondamento).",
+    "ABL do DiamondMall mudou com a expansão: a Planilha de Fundamentos 3T26 indica ABL total final de 21.357 m² em 2023 e 24.191 m² a partir do 4T24 (ABL média de 2024: 21.827 m²). Dividir as vendas de 2024 por 24.191 m² subestima a produtividade; crescimento de vendas 2025/2024 (+22,6%) reflete a expansão."
+  ],
+  "nao_encontrado": [
+    "Venda/m² e ABL de 2024 por shopping: o release do 4T24 não foi localizado/lido (vendas de 2024 vêm da coluna comparativa do release do 4T25).",
+    "Versão em português do release do 4T25: não localizada (página 'Central de Resultados' só carregou 2026 na leitura automática); usada a versão oficial em inglês hospedada no mesmo repositório de RI.",
+    "Página institucional multiplan.com.br do shopping com vendas do ano: URL tentada retornou 404; não explorada além disso.",
+    "SSS (vendas mesmas lojas) e custo de ocupação POR SHOPPING: a Multiplan só divulga consolidado (3T26: SSS 3,1%, custo de ocupação 13,0%).",
+    "Leitura dos PDFs feita por extração automática (Firecrawl, modo consulta) em 14/11/2026; os 'trechos' são linhas de tabela reconstituídas pela ferramenta, não cópia de tela."
+  ]
+}

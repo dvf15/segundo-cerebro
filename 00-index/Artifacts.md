@@ -1,21 +1,24 @@
 ---
 title: "Artifacts"
 generated: 2026-11-16
-count: 22
+count: 26
 tags: ["index"]
 ---
 # Artifacts
 
-_22 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
+_26 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Link |
 | --- | --- | --- |
+| 2026-11-16 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas — Gestão e Aprovação]] | https://claude.ai/artifact/CPsSPhCanFUYRWuGS3Er93 |
+| 2026-11-16 | [[claude/artifacts/radar-de-renovacoes-mobile/radar-de-renovacoes-mobile\|Radar de Renovações Mobile]] | https://claude.ai/artifact/MTP5pLH3BSEoRFUZrE4kNG |
+| 2026-11-14 | [[claude/artifacts/nova-america-x-norteshopping/nova-america-x-norteshopping\|Nova América × NorteShopping]] | https://claude.ai/artifact/S7WBWYC8bp8kM7LRCxzqsk |
+| 2026-11-14 | [[claude/artifacts/planta-3d-shoppings/planta-3d-shoppings\|Planta 3D Shoppings]] | https://claude.ai/artifact/HSfNvHABZQHKbPGMWm4XLm |
 | 2026-11-08 | [[claude/artifacts/radar-de-renovacoes/radar-de-renovacoes\|Radar de Renovações]] | https://claude.ai/artifact/LRWuWeSVYUsk5TRpNn1GiF |
 | 2026-11-05 | [[claude/artifacts/radar-bazin/radar-bazin\|Radar Bazin]] | https://claude.ai/artifact/FdVKxBQsqC71pkbaZMXAvp |
 | 2026-10-27 | [[claude/artifacts/radar-de-auditoria/radar-de-auditoria\|Radar de Auditoria]] | https://claude.ai/artifact/48fdWBsfrUtjskRz54FP33 |
 | 2026-10-18 | [[claude/artifacts/regua-de-cobranca-shopping-center/regua-de-cobranca-shopping-center\|Régua de Cobrança Shopping Center]] | https://claude.ai/artifact/6oYtazhbTfU8wRgkomwJwd |
 | 2026-10-15 | [[claude/artifacts/allos-2036-futurologia-ia/allos-2036-futurologia-ia\|Allos 2036 — Futurologia sob a lente da IA]] | https://claude.ai/artifact/3wX2kbcLdQ3mGcJRKUYjuW |
-| 2026-10-14 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas]] | https://claude.ai/artifact/CPsSPhCanFUYRWuGS3Er93 |
 | 2026-10-13 | [[claude/artifacts/radar-de-varejo-consolidado-1-mes/radar-de-varejo-consolidado-1-mes\|Radar de Varejo · Consolidado do 1º mês]] | https://claude.ai/artifact/XtrnHMkgJrXUjJtVTPcPZw |
 | 2026-10-04 | [[claude/artifacts/relatorio-fotografico-casa-4/relatorio-fotografico-casa-4\|Relatório Fotográfico Casa 4]] | https://claude.ai/artifact/XzVeaZ3eyUfF5ZgwjhZcwR |
 | 2026-09-23 | [[claude/artifacts/identidade-nutritreino/identidade-nutritreino\|Identidade NutriTreino]] | https://claude.ai/artifact/RQyYUgryRbUVS2CFQSTxVT |
@@ -32,3 +35,4 @@ _22 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 | 2026-07-18 | [[claude/artifacts/copiloto-decisao-clausulas-allos/copiloto-decisao-clausulas-allos\|Copiloto de Decisão de Cláusulas — ALLOS]] | https://claude.ai/artifact/JnMByn2SfYa3KG8Vq9C5Ug |
 | 2026-07-03 | [[claude/artifacts/radar-quiosques/radar-quiosques\|radar-quiosques]] | https://claude.ai/artifact/H1HVKTVQmJ2yJjGf3igf7o |
 |  | [[claude/artifacts/radar-de-shopping-centers-compartilhado/radar-de-shopping-centers-compartilhado\|Radar de Shopping Centers (compartilhado comigo)]] | https://claude.ai/artifact/R18r9kqoNYxvWLqkrtEVUQ |
+|  | [[claude/artifacts/riosul-planta-3d-compartilhado/riosul-planta-3d-compartilhado\|RIOSUL Planta 3D (compartilhado comigo)]] | https://claude.ai/artifact/TkGEQQiTVg2Ggk1T8rqR6S |

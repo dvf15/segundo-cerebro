@@ -1,7 +1,8 @@
 {
-  "_nota": "PROVISÓRIO — não é o hex oficial da Allos. Não consegui verificar: o proxy deste ambiente bloqueia allos.co, ri.allos.co e os agregadores de marca. O verde abaixo é escolha minha, coerente com a cor institucional verde da marca. Troque os valores aqui e rode `npm run icones`; nada mais precisa mudar.",
-  "verde": "#00A868",
-  "verdeProfundo": "#00754A",
+  "_nota": "Paleta do template das ferramentas do radarbazin1 (Radar de Varejo, public/operacoes.html): os hex vêm de lá. Troque aqui e rode `npm run icones` e `npm run build`.",
+  "verde": "#00616f",
+  "verdeProfundo": "#0d454a",
+  "destaque": "#6cc680",
   "papel": "#FFFFFF",
-  "papelSombra": "#CDF2E1"
+  "fundo": "#e5ded4"
 }

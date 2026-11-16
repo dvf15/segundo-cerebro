@@ -1,0 +1,47 @@
+{
+ "empresa": "H & M Hennes & Mauritz AB (H&M Group)",
+ "ticker": "HM B",
+ "bolsa": "Nasdaq Stockholm",
+ "situacao": "listada",
+ "situacao_url": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/",
+ "marcas": [
+  {
+   "marca": "H&M",
+   "nomes_no_arquivo": [
+    "H&M"
+   ],
+   "url": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] H & M Hennes & Mauritz AB Full-year report 2025 ... expanding mostly in growth markets – including Brazil and other parts of Latin America"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "exercício 2025 (dez/2024 a nov/2025)",
+   "valor": 228285000000,
+   "unidade": "SEK",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Full-year net sales were SEK 228,285 m (234,478), and local-currency sales rose 2 percent in the financial year 2025."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "nov/2025",
+   "valor": 4100,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada (aprox.: 2.392 Europa + 769 Américas + 940 Ásia/Oceania/África)",
+   "publicado": true,
+   "url": "https://hmgroup.com/news/h-m-hennes-mauritz-ab-full-year-report-2025/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] roughly 4,100 stores at year-end, with 2,392 in Europe, 769 in the Americas and 940 in Asia, Oceania and Africa"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Unidade SEK (coroa sueca) não está na lista de unidades do esquema.",
+  "Ticker 'HM B' na Nasdaq Stockholm não confirmado por trecho; página de dados usa HM-B.ST."
+ ],
+ "nao_encontrado": [
+  "Nº de lojas no Brasil"
+ ]
+}

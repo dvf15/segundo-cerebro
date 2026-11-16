@@ -1,0 +1,75 @@
+{
+ "empresa": "Industria de Diseño Textil, S.A. (Inditex)",
+ "ticker": "ITX",
+ "bolsa": "BME (Bolsa de Madrid)",
+ "situacao": "listada",
+ "situacao_url": "https://fashionunited.uk/news/business/inditex-posts-6-22-billion-euro-profit-in-2025-and-3-19-percent-sales-growth/2026031186780",
+ "marcas": [
+  {
+   "marca": "Zara",
+   "nomes_no_arquivo": [
+    "ZARA"
+   ],
+   "url": "https://fashionunited.uk/news/business/inditex-posts-6-22-billion-euro-profit-in-2025-and-3-19-percent-sales-growth/2026031186780",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Zara, Zara Home and Lefties together generated annual sales of 28.05 billion euros."
+  },
+  {
+   "marca": "Zara Home",
+   "nomes_no_arquivo": [
+    "ZARA HOME"
+   ],
+   "url": "https://fashionunited.uk/news/business/inditex-posts-6-22-billion-euro-profit-in-2025-and-3-19-percent-sales-growth/2026031186780",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Zara, Zara Home and Lefties together generated annual sales of 28.05 billion euros."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "exercício 2025 (1/fev/2025 a 31/jan/2026)",
+   "valor": 39860000000,
+   "unidade": "EUR",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.sgieurope.com/financial-results/inditex-posts-record-sales-and-profits-in-fy25/120163.article",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Net sales were about €39.9bn, up 3.2% reported and 7% at constant currency. One source gives the exact figure as €39.86bn."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "exercício 2025",
+   "valor": 28050000000,
+   "unidade": "EUR",
+   "escopo": "marcas Zara + Zara Home + Lefties",
+   "publicado": true,
+   "url": "https://fashionunited.uk/news/business/inditex-posts-6-22-billion-euro-profit-in-2025-and-3-19-percent-sales-growth/2026031186780",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Zara, Zara Home and Lefties together generated annual sales of 28.05 billion euros."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "jan/2026",
+   "valor": 5460,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada (global)",
+   "publicado": true,
+   "url": "https://www.fibre2fashion.com/news/latest-fashion-reports-news/spain-s-inditex-fy25-sales-rise-3-2-to-46-28-bn-amid-strong-demand-308947-newsdetails.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] The company operated 5,460 stores globally at the end of FY2025, while total selling space increased 5.3 per cent to 4.72 million square metres."
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "jan/2026",
+   "valor": 4720000,
+   "unidade": "m²",
+   "escopo": "companhia consolidada (global)",
+   "publicado": true,
+   "url": "https://www.fibre2fashion.com/news/latest-fashion-reports-news/spain-s-inditex-fy25-sales-rise-3-2-to-46-28-bn-amid-strong-demand-308947-newsdetails.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] total selling space increased 5.3 per cent to 4.72 million square metres"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Bolsa/ticker (BME: ITX) não confirmados por trecho de fonte nesta leitura; uma fonte lista o ticker ITX."
+ ],
+ "nao_encontrado": [
+  "Dados do Brasil (lojas, vendas)",
+  "Venda por m² (não publicada nas fontes lidas; não calculada)"
+ ]
+}

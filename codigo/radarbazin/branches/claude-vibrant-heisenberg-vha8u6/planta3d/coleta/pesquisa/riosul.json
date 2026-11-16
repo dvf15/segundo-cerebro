@@ -1,0 +1,150 @@
+{
+  "id": "riosul",
+  "pisos": [
+    {
+      "nome": "1º piso",
+      "uso": "Balcão de Informações, Achados e Perdidos, acesso aos pontos de táxi, empréstimo de carrinhos de bebê e cadeiras de rodas",
+      "url": "https://iguatemi.com.br/riosul/faq",
+      "trecho": "você poderá acessar nosso balcão de informações, localizado no 1° piso. [...] A localização de acesso aos pontos de táxi é no 1º piso."
+    },
+    {
+      "nome": "2º Piso",
+      "uso": "Lojas (ex.: FARM, LACOSTE)",
+      "url": "https://iguatemi.com.br/riosul",
+      "trecho": "FARM 2º Piso"
+    },
+    {
+      "nome": "3º Piso",
+      "uso": "Lojas (ex.: AREZZO, SEPHORA, ANIMALE, ADCOS)",
+      "url": "https://iguatemi.com.br/riosul",
+      "trecho": "SEPHORA 3º Piso"
+    },
+    {
+      "nome": "4º Piso",
+      "uso": "Lojas (ex.: FUTTEBOL)",
+      "url": "https://iguatemi.com.br/riosul",
+      "trecho": "FUTTEBOL 4º Piso"
+    },
+    {
+      "nome": "G1, G2, G3, G4 e G5",
+      "uso": "Pisos citados pela administradora com elevadores; cadeiras de rodas perto dos elevadores; fraldário no G4. A fonte não diz o uso principal desses pisos; diz que G2, G3 e G4 receberam adequações arquitetônicas",
+      "url": "https://iguatemi.com.br/riosul/faq",
+      "trecho": "As cadeiras de rodas manuais estão disponíveis no 1º piso (Balcão de Informações), G1, G2, G3, G4 e G5 (perto dos elevadores)"
+    },
+    {
+      "nome": "quatro pavimentos (contagem da Wikipédia)",
+      "uso": "Mix de lojas em quatro pavimentos, home center, duas praças de alimentação e terraço com eventos, restaurantes e academia BodyTech",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Rio_Sul",
+      "trecho": "Conta com um variado mix de lojas espalhadas por quatro pavimentos, além de ter um home center com mais de 26 lojas de decoração, duas praças de alimentação e terraço com espaço para eventos, restaurantes e uma unidade da academia de ginástica BodyTech."
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "autor do projeto",
+      "valor": "Ulysses Burlamaqui (arquiteto), com cálculos estruturais de Bruno Contarini — autoria declarada para o condomínio da Torre, que tem o shopping no embasamento",
+      "url": "https://www.torreriosul.com.br/",
+      "trecho": "Seus projetos foram desenvolvidos pelo arquiteto Ulysses Burlamaqui, com cálculos estruturais de Bruno Contarini, e as obras foram concluídas em 1982."
+    },
+    {
+      "item": "autor do projeto (coautor citado pela Wikipédia)",
+      "valor": "Ulysses Burlamaqui e Alexandre Chan",
+      "url": "https://pt.wikipedia.org/wiki/Rio_Sul_Center",
+      "trecho": "Foi projetado pelos arquitetos Ulysses Burlamaqui e Alexandre Chan."
+    },
+    {
+      "item": "ano de inauguração do shopping",
+      "valor": "28 de abril de 1980",
+      "url": "https://iguatemi.com.br/riosul/sobre",
+      "trecho": "Inaugurado em 28 de abril de 1980, o RIOSUL se destaca como uma referência em moda na cidade do Rio de Janeiro."
+    },
+    {
+      "item": "período de construção / conclusão da torre",
+      "valor": "Construção iniciada no fim da década de 70 (Wikipédia: 1976-1982); obras concluídas em 1982",
+      "url": "https://www.torreriosul.com.br/",
+      "trecho": "A construção do condomínio do edifício da Torre do RIOSUL começou no fim da década de 70 [...] e as obras foram concluídas em 1982."
+    },
+    {
+      "item": "características",
+      "valor": "Fachada de concreto, treliças aparentes e muito vidro; a Wikipédia categoriza como arquitetura brutalista",
+      "url": "https://www.torreriosul.com.br/",
+      "trecho": "Seu design, arrojado para a época – com fachada de concreto, treliças aparentes e muito vidro –, fez da Torre um empreendimento moderno"
+    },
+    {
+      "item": "reforma",
+      "valor": "Revitalização iniciada no início de 2006, prevista para terminar no fim de 2007, com nova fachada",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Rio_Sul",
+      "trecho": "No início de 2006, foi iniciado o projeto de revitalização do shopping, com previsão de término para o fim de 2007. Além de uma nova fachada, a obra modernizou diversas características."
+    },
+    {
+      "item": "reforma (descrição da administradora, sem data no trecho)",
+      "valor": "Nova fachada de vidro, modernização do átrio em três andares, iluminação, paisagismo, mobiliário e banheiros",
+      "url": "https://iguatemi.com.br/riosul/sobre",
+      "trecho": "A reforma incluiu uma nova fachada de vidro, modernização do átrio em três andares, e novos projetos de iluminação, paisagismo, mobiliário e banheiros."
+    },
+    {
+      "item": "reforma (atualmente)",
+      "valor": "Novo polo gastronômico na Alameda Gourmet, entrada de luz natural e adequações arquitetônicas nos pisos G2, G3 e G4",
+      "url": "https://iguatemi.com.br/riosul/sobre",
+      "trecho": "criação de novo polo gastronômico na Alameda Gourmet, melhoria das sinalizações de mall, modernização da iluminação, abertura de áreas para entrada de luz natural, e adequações arquitetônicas nos pisos G2, G3 e G4."
+    },
+    {
+      "item": "contratante / construtora (Wikipédia)",
+      "valor": "Novonor (ex-Odebrecht)",
+      "url": "https://pt.wikipedia.org/wiki/Rio_Sul_Center",
+      "trecho": "Contratante | Novonor"
+    },
+    {
+      "item": "divergência de fontes: pavimentos da torre",
+      "valor": "Administradora e site da Torre: 164 m e 40 pavimentos; Wikipédia: 164 m e 48 andares",
+      "url": "https://pt.wikipedia.org/wiki/Rio_Sul_Center",
+      "trecho": "é um arranha-céu de 48 andares de 164 m (538.058 ft) de altura"
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Torre do RIOSUL (Rio Sul Center)",
+      "descricao": "Condomínio empresarial de 164 m e 40 pavimentos, 298 unidades e uma cobertura; o shopping fica no embasamento da torre e a administradora diz que a torre é 'integrada ao shopping'. Nenhuma fonte informa o piso da ligação nem usa a expressão 'acesso direto'.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://iguatemi.com.br/riosul/sobre",
+      "trecho": "A Torre do RIOSUL é um dos maiores condomínios empresariais do Brasil, com 164 metros de altura e 40 pavimentos. [...] A torre é integrada ao shopping e traz inúmeras oportunidades àqueles que ocupam uma unidade."
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torre do RIOSUL — shopping no embasamento (site do condomínio)",
+      "descricao": "O site do condomínio diz que o Shopping RIOSUL está incorporado ao empreendimento, no embasamento. Administração da Torre fica no 2º Subsolo; garagem em dois subsolos e um térreo.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.torreriosul.com.br/",
+      "trecho": "Tem incorporado ao empreendimento, em seu embasamento, o Shopping RIOSUL, que traz inúmeras oportunidades, lojas e serviços disponíveis àqueles que ocupam uma unidade da Torre."
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Conexão-Metrô (RIOSUL x Cardeal Arcoverde)",
+      "descricao": "Não há estação no shopping: a ligação com o metrô é um serviço de transporte 'Conexão-Metrô' entre o RIOSUL e a estação Cardeal Arcoverde, com embarque e desembarque na Entrada Principal, saídas de meia em meia hora (seg-sáb 10h-22h30; dom e feriados 12h-21h).",
+      "piso": "Entrada Principal",
+      "acesso": "pela rua",
+      "url": "https://iguatemi.com.br/riosul/servicos/conexao-metro",
+      "trecho": "Conexão-Metrô (RIOSUL X Cardeal Arcoverde) Ponto de embarque e desembarque: Entrada Principal [...] Saídas de meia em meia hora."
+    },
+    {
+      "tipo": "outro",
+      "nome": "Ponto de táxi (cooperativa Sul Táxi)",
+      "descricao": "Ponto de táxi em parceria com a cooperativa Sul Táxi, com acesso pelo 1º piso.",
+      "piso": "1º piso",
+      "acesso": "a confirmar",
+      "url": "https://iguatemi.com.br/riosul/faq",
+      "trecho": "O Shopping RIOSUL, em parceria com a cooperativa Sul Táxi [...] A localização de acesso aos pontos de táxi é no 1º piso."
+    }
+  ],
+  "nao_encontrado": [
+    "Piso exato em que a Torre do RIOSUL se liga ao shopping e se o acesso é direto pelo mall (as fontes dizem só 'integrada' e 'no embasamento')",
+    "Significado oficial dos pisos G1 a G5 (garagem ou pisos de mall) e o uso de cada piso em fonte pública; página 'o-shopping' de iguatemi.com.br/riosul devolve 'Página não encontrada'",
+    "Mapa/planta de pisos do shopping em fonte pública",
+    "Seção 'Como chegar' do site (linhas de ônibus, estação de metrô Botafogo): não lida; nenhuma fonte encontrada sobre ligação a pé com a estação Botafogo",
+    "Data e autor do projeto da reforma da fachada de vidro no site da administradora (a data 2006-2007 vem só da Wikipédia)",
+    "Tombamento: nenhuma fonte encontrada",
+    "Hotel, passarela ou terminal de ônibus ligados ao shopping: nenhuma fonte encontrada (há menção a um 'Free Bus RIOSUL x Hotéis' na década de 2010, sem dizer se ainda existe)"
+  ]
+}

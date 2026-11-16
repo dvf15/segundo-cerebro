@@ -1,0 +1,277 @@
+{
+  "id": "analia-franco",
+  "nome": "Shopping Anália Franco",
+  "administradora": "Multiplan",
+  "endereco": "Av. Regente Feijó, 1.739 – Jardim Anália Franco / Tatuapé, São Paulo – SP (endereço conforme trechos de busca; página 'como chegar' do site oficial não localizada)",
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "09/11/1999",
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Inauguração: 09/11/1999"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 51590,
+      "unidade": "m²",
+      "nota": "Site do shopping informa 51.677 m² (ver divergencias)",
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Área Bruta Locável (ABL) total: 51.590 m²"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 405,
+      "unidade": null,
+      "nota": "Site do shopping informa 406 (ver divergencias)",
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Número de lojas: 405"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Opções gastronômicas",
+      "valor": 43,
+      "unidade": null,
+      "nota": "Total de opções gastronômicas, não só restaurantes",
+      "url": "https://www.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/",
+      "trecho": "43 opções gastronômicas"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Cinema",
+      "valor": "UCI (com sala IMAX)",
+      "unidade": null,
+      "nota": "Número de salas não encontrado em fonte oficial",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "Veja os melhores lançamentos do cinema com todo o conforto e o melhor da tecnologia com a UCI do Shopping Anália Franco."
+    },
+    {
+      "chave": "visitas_ano",
+      "rotulo": "Tráfego anual",
+      "valor": 12500000,
+      "unidade": "visitas/ano",
+      "nota": "Ano-base 2024; site do shopping informa 12,7 milhões (ver divergencias). Fluxo mensal não publicado",
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Tráfego em 2024: 12,5 milhões de visitas"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil do público",
+      "valor": "91% classes A e B; 56% mulheres",
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Perfil do público: 91% classes A e B; 56% mulheres"
+    },
+    {
+      "chave": "expansoes",
+      "rotulo": "Expansões",
+      "valor": 1,
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Expansões: 1"
+    },
+    {
+      "chave": "participacao_multiplan",
+      "rotulo": "Participação Multiplan",
+      "valor": 30,
+      "unidade": "%",
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Participação Multiplan: 30%"
+    },
+    {
+      "chave": "empregos",
+      "rotulo": "Empregos",
+      "valor": 3825,
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Empregos: 3.825"
+    },
+    {
+      "chave": "vendas_2024",
+      "rotulo": "Vendas em 2024",
+      "valor": "R$ 1.734,8 milhões",
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Vendas em 2024: R$ 1.734,8 milhões"
+    },
+    {
+      "chave": "vagas_carro_eletrico",
+      "rotulo": "Vagas de recarga para carros elétricos",
+      "valor": 6,
+      "unidade": "vagas",
+      "nota": "Não é o total de vagas do estacionamento",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "Temos 6 vagas para recarga de carros elétricos localizadas no piso G1 interno."
+    }
+  ],
+  "pisos": [
+    {
+      "nome": "Piso Lírio",
+      "uso": "Cinema UCI (IMAX, 'Nível Lírio'); ponto de empréstimo de scooters ao lado da saída para o estacionamento; quiosque Animal Tour (aluguel de carrinhos de bebê)",
+      "url": "https://www.imax.com/theatre/uci-analia-franco-imax",
+      "trecho": "Avenida Regente Feijó 1759 - Quadra A - Loja 40 - Nível Lírio, São Paulo"
+    },
+    {
+      "nome": "Piso Orquídea",
+      "uso": "Praça de Eventos",
+      "url": "https://pequenospelobrasil.com.br/programacao-infantil-de-outubro-de-2026-em-sao-paulo/",
+      "trecho": "Local: Praça de Eventos, Piso Orquídea — Shopping Anália Franco"
+    },
+    {
+      "nome": "Piso Acácia",
+      "uso": "Caixas eletrônicos 24h (próximo ao Valet, atrás do elevador panorâmico); Laboratório Fleury",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "Localização: Piso Acácia (próximo ao Valet, atrás do elevador panorâmico)."
+    },
+    {
+      "nome": "Piso Tulipa",
+      "uso": "Vila Trampolim; Drogasil; banheiro com trocador adulto",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "banheiro com trocador adulto, localizado no piso Tulipa, no corredor entre a Drogasil e a Vila Trampolim"
+    },
+    {
+      "nome": "Piso Jasmim",
+      "uso": "SAC, Fraldário/Sala de Regulação Sensorial, Lounge Multi, Centro Ecumênico",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "Localização: piso Jasmim, ao lado do SAC."
+    },
+    {
+      "nome": "Piso G1 (estacionamento interno)",
+      "uso": "Estacionamento; ambulatório; bicicletário; vagas de recarga para carros elétricos",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "Localização: Piso G1 (estacionamento interno)"
+    },
+    {
+      "nome": "G2",
+      "uso": "Estacionamento; bicicletário",
+      "url": "https://www.shoppinganaliafranco.com.br/",
+      "trecho": "Localização: Estacionamento G1 (interno) e G2."
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "ano",
+      "valor": "Inaugurado em 1999",
+      "url": "https://www.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/",
+      "trecho": "Inaugurado em 1999, o Anália já faz parte da história da Zona Leste paulistana."
+    },
+    {
+      "item": "expansões",
+      "valor": "Uma expansão: anunciada em 2007 para inaugurar em abril de 2009, +11.786 m² de ABL (cerca de +30%), no 3º pavimento, com 89 novas lojas, sendo 2 âncoras",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=136830&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "O projeto será desenvolvido no 3º pavimento do shopping e será composto por 89 novas lojas, sendo 2 âncoras"
+    },
+    {
+      "item": "expansões (ABL)",
+      "valor": "11.786 m² adicionados à ABL",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=136830&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "a inauguração desta expansão será em abril de 2009, adicionando novos 11.786 m² à ABL"
+    },
+    {
+      "item": "características",
+      "valor": "Pracinha do Anália: espaço de lazer ao ar livre para famílias e pets, quase 2 mil m²",
+      "url": "https://www.multiplan.com.br/shoppings/shoppinganaliafranco/",
+      "trecho": "Com quase 2 mil m², o mais novo destaque é a Pracinha do Anália, um espaço lúdico e gratuito de lazer ao ar livre para famílias e pets."
+    },
+    {
+      "item": "características",
+      "valor": "Descrição oficial genérica da arquitetura (sem autor)",
+      "url": "https://www.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/",
+      "trecho": "A arquitetura única e sofisticada, foi pensada para maior conforto durante sua visita."
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "metrô",
+      "nome": "Estação Anália Franco (Linha 2-Verde) – em obras, previsão 2027",
+      "descricao": "Passagem sob a av. Eduardo Cotching ligará a estação às proximidades do shopping; a saída fica ao lado do centro comercial. A fonte não afirma entrada dentro do shopping.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.metrocptm.com.br/estacao-analia-franco-da-linha-2-ja-mostra-acesso-ao-shopping-vizinho/",
+      "trecho": "a passagem que haverá abaixo da avenida Eduardo Cotching que ligará a estação às proximidades do Shopping Anália Franco. A saída, ao lado do centro comercial, já começa a ganhar formato."
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Linha 16-Violeta (futura integração na estação Anália Franco)",
+      "descricao": "As obras da estação já contemplam futura integração com a Linha 16-Violeta",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.metrocptm.com.br/estacao-analia-franco-da-linha-2-ja-mostra-acesso-ao-shopping-vizinho/",
+      "trecho": "As obras da estação também já contemplam a futura integração com a Linha 16-Violeta"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Anália Franco – situação e localização",
+      "descricao": "Estação em obras 'diante do shopping', construída atrás do Hospital Vitória; inauguração prevista para 2027",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "trecho": "a estação diante do shopping sendo novamente chamada de Anália Franco"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Hospital Vitória",
+      "descricao": "Hospital vizinho ao shopping, no centro do Jardim Anália Franco; a estação de metrô é construída atrás dele",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "trecho": "À esquerda, o Shopping Center Anália Franco e à direita o Hospital Vitória. A estação Anália Franco está sendo construída atrás do hospital."
+    },
+    {
+      "tipo": "outro",
+      "nome": "Universidade Cruzeiro do Sul – campus Anália Franco",
+      "descricao": "Campus no bairro, aberto em 2000; vizinhança do shopping",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "trecho": "a implantação do Shopping Anália Franco (1999) e do campus Anália Franco da Universidade Cruzeiro do Sul (2000)"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Leroy Merlin",
+      "descricao": "Unidade instalada nos arredores do shopping",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco",
+      "trecho": "Outros polos geradores de tráfego de pedestres e veículos como o Hospital Vitória e uma unidade da Leroy Merlin se instalaram nos arredores do Shopping"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Parque CERET",
+      "descricao": "Parque de 286.000 m² no bairro, citado junto ao shopping em guia imobiliário",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.rpcimob.com.br/guia/analia-franco-alto-padrao-ceret",
+      "trecho": "Reunindo o Parque CERET com 286.000 m² de área verde, o Shopping Anália Franco, o complexo médico do Hospital São Luiz (Rede D'Or) e a futura Estação Anália"
+    }
+  ],
+  "divergencias": [
+    "ABL: 51.590 m² (https://www.multiplan.com.br/shoppings/shoppinganaliafranco/) x 51.677 m² (https://www.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/)",
+    "Lojas: 405 (https://www.multiplan.com.br/shoppings/shoppinganaliafranco/) x 406 / 'mais de 400' (https://www.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/)",
+    "Tráfego: 12,5 milhões de visitas em 2024 (https://www.multiplan.com.br/shoppings/shoppinganaliafranco/) x 12,7 milhões de visitas por ano (https://www.shoppinganaliafranco.com.br/o-shopping/o-shoppinganaliafranco/)",
+    "Hospital vizinho: Wikipedia cita 'Hospital Vitória' (https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_An%C3%A1lia_Franco); guia imobiliário cita 'Hospital São Luiz (Rede D'Or)' (https://www.rpcimob.com.br/guia/analia-franco-alto-padrao-ceret) – pode ser o mesmo hospital rebatizado, não confirmado",
+    "Número do endereço: 1.739 (trechos de imprensa/Facebook) x 1759 (https://www.imax.com/theatre/uci-analia-franco-imax)"
+  ],
+  "nao_encontrado": [
+    "Autor do projeto arquitetônico e prêmios de arquitetura (site Multiplan e site do shopping não citam)",
+    "Área construída e área do terreno",
+    "Número total de vagas de estacionamento (páginas /estacionamento/ e /como-chegar/ do site oficial retornam 404)",
+    "Número de âncoras, megalojas e quiosques atuais",
+    "Número de salas de cinema (só a marca UCI e a existência de IMAX/4DX)",
+    "Fluxo mensal de consumidores (só tráfego anual)",
+    "Número de pisos de lojas e a ordem vertical dos pisos (Lírio, Orquídea, Acácia, Tulipa, Jasmim aparecem por nome, sem ordem); piso da praça de alimentação",
+    "Torres comerciais/residenciais, hotel ou passarela ligados fisicamente ao shopping: nenhuma fonte encontrada",
+    "Piso do shopping que dará acesso ao metrô e se haverá entrada direta dentro do mall",
+    "Artigo da Wikipedia sobre o shopping (não existe em pt.wikipedia.org; 404)",
+    "Terminal de ônibus próximo"
+  ]
+}

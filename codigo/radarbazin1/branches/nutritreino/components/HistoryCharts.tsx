@@ -258,7 +258,7 @@ export default function HistoryCharts() {
             <button
               key={v}
               onClick={() => setView(v)}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold ${
+              className={`rounded-full px-3 py-1.5 text-[13px] font-semibold ${
                 view === v ? "bg-emerald-600 text-white" : "border border-[#55555f] bg-[#42424a] text-slate-300"
               }`}
             >
@@ -270,14 +270,14 @@ export default function HistoryCharts() {
           <button
             onClick={exportPdf}
             disabled={exportingPdf}
-            className="rounded-full border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-xs font-semibold text-slate-200 disabled:opacity-50"
+            className="rounded-full border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-[13px] font-semibold text-slate-200 disabled:opacity-50"
           >
             {exportingPdf ? "..." : "⬇ PDF"}
           </button>
           <button
             onClick={exportAll}
             disabled={exporting}
-            className="rounded-full border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-xs font-semibold text-slate-200 disabled:opacity-50"
+            className="rounded-full border border-[#55555f] bg-[#42424a] px-3 py-1.5 text-[13px] font-semibold text-slate-200 disabled:opacity-50"
           >
             {exporting ? "..." : "⬇ CSV"}
           </button>
@@ -296,21 +296,21 @@ export default function HistoryCharts() {
       ) : view === "peso" ? (
         <WeightHistory />
       ) : loading ? (
-        <div className="py-8 text-center text-[15px] text-slate-300">Carregando...</div>
+        <div className="py-8 text-center text-[16px] text-slate-300">Carregando...</div>
       ) : allRows.length === 0 ? (
-        <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-6 text-center text-[15px] text-slate-300">
+        <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-6 text-center text-[16px] text-slate-300">
           Sem dias registrados ainda.
         </div>
       ) : rows.length === 0 ? (
-        <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-6 text-center text-[15px] text-slate-300">
+        <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-6 text-center text-[16px] text-slate-300">
           Sem dias registrados no período.
         </div>
       ) : view === "macros" ? (
         <>
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
             <div className="mb-2 flex items-baseline justify-between gap-2">
-              <span className="text-xs font-bold uppercase text-slate-300">Calorias vs meta</span>
-              <span className="text-[12px] text-slate-300 tabular-nums">
+              <span className="text-[13px] font-bold uppercase text-slate-300">Calorias vs meta</span>
+              <span className="text-[13px] text-slate-300 tabular-nums">
                 média <b style={{ color: COLORS.kcal }}>{avg("kcal")}</b> / {avg("meta_kcal")} kcal
               </span>
             </div>
@@ -325,13 +325,13 @@ export default function HistoryCharts() {
                 <Bar dataKey="meta_kcal" fill={COLORS.meta} radius={[4, 4, 0, 0]} name="Meta" />
               </BarChart>
             </ResponsiveContainer>
-            <div className="mt-1 text-[11px] text-slate-400">
+            <div className="mt-1 text-[12px] text-slate-400">
               {kcalInMeta} de {rows.length} dias até 10% acima da meta.
             </div>
           </div>
 
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
-            <div className="mb-2 text-xs font-bold uppercase text-slate-300">Macros ao longo do tempo (g)</div>
+            <div className="mb-2 text-[13px] font-bold uppercase text-slate-300">Macros ao longo do tempo (g)</div>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={rows}>
                 <CartesianGrid stroke="#474750" vertical={false} />
@@ -347,7 +347,7 @@ export default function HistoryCharts() {
           </div>
 
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
-            <div className="mb-2 text-xs font-bold uppercase text-slate-300">
+            <div className="mb-2 text-[13px] font-bold uppercase text-slate-300">
               Realizado vs meta por macro (média {periodLabel})
             </div>
             <ResponsiveContainer width="100%" height={200}>
@@ -364,16 +364,16 @@ export default function HistoryCharts() {
           </div>
 
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
-            <div className="mb-2 text-xs font-bold uppercase text-slate-300">Dias</div>
+            <div className="mb-2 text-[13px] font-bold uppercase text-slate-300">Dias</div>
             <div className="divide-y divide-[#474750]">
               {rows
                 .slice()
                 .reverse()
                 .map((r) => (
-                  <div key={r.date} className="flex items-center justify-between py-2 text-[15px]">
+                  <div key={r.date} className="flex items-center justify-between py-2 text-[16px]">
                     <div>
                       <span className="text-slate-200">{r.label}</span>{" "}
-                      <span className="text-[12px] text-slate-300">
+                      <span className="text-[13px] text-slate-300">
                         {r.training_type}
                         {r.weight_kg != null ? ` · ${r.weight_kg} kg` : ""}
                         {r.closed ? " · fechado" : ""}
@@ -383,7 +383,7 @@ export default function HistoryCharts() {
                       <span className="font-bold" style={{ color: COLORS.kcal }}>
                         {r.kcal}
                       </span>{" "}
-                      <span className="text-[12px] text-slate-300">
+                      <span className="text-[13px] text-slate-300">
                         P{r.protein_g}/C{r.carb_g}/G{r.fat_g}
                       </span>
                     </div>
@@ -396,8 +396,8 @@ export default function HistoryCharts() {
         <>
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
             <div className="mb-2 flex items-baseline justify-between">
-              <span className="text-xs font-bold uppercase text-slate-300">Score micro ao longo do tempo</span>
-              <span className="text-[12px] text-slate-300">
+              <span className="text-[13px] font-bold uppercase text-slate-300">Score micro ao longo do tempo</span>
+              <span className="text-[13px] text-slate-300">
                 média{" "}
                 <span className="font-bold" style={{ color: scoreColor(avgMicroScore) }}>
                   {avgMicroScore}%
@@ -416,7 +416,7 @@ export default function HistoryCharts() {
           </div>
 
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
-            <div className="mb-2 text-xs font-bold uppercase text-slate-300">
+            <div className="mb-2 text-[13px] font-bold uppercase text-slate-300">
               % da meta por micronutriente (média {periodLabel})
             </div>
             <ResponsiveContainer width="100%" height={Math.max(260, microCmp.length * 26)}>
@@ -436,22 +436,22 @@ export default function HistoryCharts() {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-            <div className="mt-1 text-[11px] text-slate-400">
+            <div className="mt-1 text-[12px] text-slate-400">
               Verde ≥ 80% da meta · amarelo ≥ 50% · vermelho abaixo. Sódio é teto (verde = dentro do limite).
             </div>
           </div>
 
           <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
-            <div className="mb-2 text-xs font-bold uppercase text-slate-300">Dias · score micro</div>
+            <div className="mb-2 text-[13px] font-bold uppercase text-slate-300">Dias · score micro</div>
             <div className="divide-y divide-[#474750]">
               {rows
                 .slice()
                 .reverse()
                 .map((r) => (
-                  <div key={r.date} className="flex items-center justify-between py-2 text-[15px]">
+                  <div key={r.date} className="flex items-center justify-between py-2 text-[16px]">
                     <div>
                       <span className="text-slate-200">{r.label}</span>{" "}
-                      <span className="text-[12px] text-slate-300">
+                      <span className="text-[13px] text-slate-300">
                         {r.training_type}
                         {r.closed ? " · fechado" : ""}
                       </span>

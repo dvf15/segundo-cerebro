@@ -1,0 +1,210 @@
+{
+ "empresa": "Magazine Luiza S.A.",
+ "ticker": "MGLU3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://www.infomoney.com.br/mercados/resultados-magazine-luiza-mglu3-terceiro-trimestre-2026/",
+ "marcas": [
+  {
+   "marca": "Magazine Luiza (Magalu)",
+   "nomes_no_arquivo": [
+    "MAGAZINE LUIZA"
+   ],
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] No 3T26, as vendas totais do Magalu foram de R$14,6 bilhões [...] reflexo do crescimento de 10,0% nas lojas físicas (release 3T26 do Magazine Luiza)"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 8943600000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Receita Líquida | 8.943,6 | 9.026,7 | -0,9% | 27.048,1 | 27.550,3 | -1,8% |"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 27048100000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Receita Líquida | 8.943,6 | 9.026,7 | -0,9% | 27.048,1 | 27.550,3 | -1,8% |"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T26",
+   "valor": 11267400000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Receita Bruta | 11.267,4 | 11.318,6 | -0,5% | 33.800,9 | 34.316,8 | -1,5% |"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "9M26",
+   "valor": 33800900000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Receita Bruta | 11.267,4 | 11.318,6 | -0,5% | 33.800,9 | 34.316,8 | -1,5% |"
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "3T26",
+   "valor": 14555300000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (lojas físicas + e-commerce 1P + marketplace 3P)",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Vendas Totais1 (incluindo marketplace) | 14.555,3 | 15.098,5 | -3,6% | 44.223,8 | 46.443,8 | -4,8% |"
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "9M26",
+   "valor": 44223800000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Vendas Totais1 (incluindo marketplace) | 14.555,3 | 15.098,5 | -3,6% | 44.223,8 | 46.443,8 | -4,8% |"
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "3T26",
+   "valor": 5200000000,
+   "unidade": "R$",
+   "escopo": "só lojas físicas",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] As lojas físicas foram mais uma vez destaque, com vendas de 5,2 bilhões de reais e crescimento de 10%"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26 (set/26)",
+   "valor": 1238,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Quantidade de Lojas - Final do período | 1.238 | 1.245 | -7 lojas | 1.238 | 1.245 | -7 lojas |"
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "3T26 (set/26)",
+   "valor": 678507,
+   "unidade": "m²",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Área de Vendas - Final do Período (M2) | 678.507 | 680.338 | -0,3% | 678.507 | 680.338 | -0,3% |"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T25 (set/25)",
+   "valor": 1245,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Quantidade de Lojas - Final do período | 1.238 | 1.245 | -7 lojas |"
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "3T25 (set/25)",
+   "valor": 680338,
+   "unidade": "m²",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Área de Vendas - Final do Período (M2) | 678.507 | 680.338 | -0,3% |"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 9.5,
+   "unidade": "%",
+   "escopo": "só lojas físicas",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Crescimento nas Vendas Mesmas Lojas Físicas | 9,5% | 5,2% | - | 8,6% | 5,3% | - |"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "9M26",
+   "valor": 8.6,
+   "unidade": "%",
+   "escopo": "só lojas físicas",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Crescimento nas Vendas Mesmas Lojas Físicas | 9,5% | 5,2% | - | 8,6% | 5,3% | - |"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "3T26",
+   "valor": 31.6,
+   "unidade": "%",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.magazineluiza.com.br/Download.aspx?Arquivo=gNnNtRxMqMRXnX/gy4M1sA==",
+   "trecho": "[lido na página] | Margem Bruta | 31,6% | 31,5% | 0,1 pp | 31,0% | 30,9% | 0,1 pp |"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 38700000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/magazine-luiza-mglu3-lucra-r-1247-milhoes-no-4t25-estamos-crescendo-em-um-mercado-que-nao-cresce-diz-gerente-de-ri-lmrs/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] O EBITDA ajustado do ano foi de R$ 3,1 bi, com margem de 7,9%, sobre uma receita líquida de R$ 38,7 bi."
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "4T25",
+   "valor": 18200000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/magazine-luiza-mglu3-lucra-r-131-6-milhoes-no-4t25-queda-de-55-119178/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] as vendas totais ficaram em R$ 18,2 bi, queda de 1,1% ante o 4T24, resultado de alta de 8,7% nas lojas físicas, crescimento de 8,4% no conceito mesmas lojas, e recuo de 5,3% no e-commerce total."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "4T25",
+   "valor": 8.4,
+   "unidade": "%",
+   "escopo": "só lojas físicas",
+   "publicado": true,
+   "url": "https://investidor10.com.br/noticias/magazine-luiza-mglu3-lucra-r-131-6-milhoes-no-4t25-queda-de-55-119178/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] alta de 8,7% nas lojas físicas, crescimento de 8,4% no conceito mesmas lojas"
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "2025",
+   "valor": 20000000000,
+   "unidade": "R$",
+   "escopo": "só lojas físicas (valor é piso: 'superaram R$ 20 bilhões')",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/13/03/2026/noticias-varejo/magazine-luiza-mantem-lucro-em-2025-com-foco-em-lojas-fisicas-e-rentabilidade/amp/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] as vendas nas lojas físicas superaram R$ 20 bilhões em 2025"
+  }
+ ],
+ "divergencias": [
+  "Receita líquida do 4T25: R$ 11,1 bi x R$ 11,2 bi entre veículos (resumo de busca).",
+  "Vendas de lojas físicas em 2025: fonte só diz 'superaram R$ 20 bilhões' (não é valor exato)."
+ ],
+ "nao_encontrado": [
+  "Venda por m²: a empresa publica vendas de lojas físicas e área de vendas, mas não o quociente (não calculado aqui).",
+  "Número de lojas e área de vendas em dez/2025 (o release 3T26 só traz set/26 e set/25).",
+  "Número de lojas por formato (convencional, virtual, quiosque) e lojas físicas KaBuM!.",
+  "KaBuM! e Época Cosméticos não aparecem em marcas.txt.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

@@ -23,17 +23,17 @@ interface Plan {
 function MealBlock({ m }: { m: Rec }) {
   return (
     <div>
-      <div className="text-[15px] font-bold text-white">
+      <div className="text-[16px] font-bold text-white">
         {m.meal_code} · {m.titulo}
       </div>
-      {m.descricao && <div className="mt-1 text-[15px] text-slate-300">{m.descricao}</div>}
-      <div className="mt-1.5 text-[13px] font-semibold" style={{ color: "#a78bfa" }}>
+      {m.descricao && <div className="mt-1 text-[16px] text-slate-300">{m.descricao}</div>}
+      <div className="mt-1.5 text-[14px] font-semibold" style={{ color: "#a78bfa" }}>
         ~{m.kcal} kcal{" "}
         <span className="font-normal text-slate-300">
           · P {m.protein_g}g · C {m.carb_g}g · G {m.fat_g}g
         </span>
       </div>
-      {m.justificativa && <div className="mt-1 text-[13px] text-slate-300">{m.justificativa}</div>}
+      {m.justificativa && <div className="mt-1 text-[14px] text-slate-300">{m.justificativa}</div>}
     </div>
   );
 }
@@ -92,16 +92,16 @@ export default function NextMealCard({ day }: { day: DayDTO }) {
   }
 
   const btn =
-    "w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2.5 text-[14px] font-bold text-slate-200 disabled:opacity-50";
+    "w-full rounded-xl border border-[#55555f] bg-[#42424a] py-2.5 text-[15px] font-bold text-slate-200 disabled:opacity-50";
 
   return (
     <div className="mb-4 rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-3">
-      <div className="text-xs font-bold uppercase tracking-wide text-slate-300">
+      <div className="text-[13px] font-bold uppercase tracking-wide text-slate-300">
         🍽️ Sugestões de refeição
       </div>
 
       {/* Próxima refeição: 4 estilos (temperatura ou sabor predominante) */}
-      <div className="mt-3 text-[13px] font-semibold text-slate-200">Sugerir próxima refeição</div>
+      <div className="mt-3 text-[14px] font-semibold text-slate-200">Sugerir próxima refeição</div>
       <div className="mt-2 grid grid-cols-4 gap-2">
         {STYLES.map((st) => {
           const active = rec?.style === st.key;
@@ -111,7 +111,7 @@ export default function NextMealCard({ day }: { day: DayDTO }) {
               type="button"
               onClick={() => generateRec(st.key)}
               disabled={loadingRec !== null}
-              className={`flex flex-col items-center gap-0.5 rounded-xl border py-2 text-[13px] font-bold disabled:opacity-50 ${
+              className={`flex flex-col items-center gap-0.5 rounded-xl border py-2 text-[14px] font-bold disabled:opacity-50 ${
                 active
                   ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-300"
                   : "border-[#55555f] bg-[#42424a] text-slate-200"
@@ -127,7 +127,7 @@ export default function NextMealCard({ day }: { day: DayDTO }) {
       {rec && (
         <div className="mt-2 rounded-xl border border-[#3d3d43] bg-[#2c2c30] p-2.5">
           {rec.style && (
-            <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.1em] text-emerald-300">
+            <div className="mb-1 text-[12px] font-bold uppercase tracking-[0.1em] text-emerald-300">
               {STYLES.find((x) => x.key === rec.style)?.icon} {STYLES.find((x) => x.key === rec.style)?.label} · toque de novo para outra opção
             </div>
           )}
@@ -144,7 +144,7 @@ export default function NextMealCard({ day }: { day: DayDTO }) {
             : "Sugerir cardápio do dia"}
       </button>
 
-      {err && <div className="mt-2 text-[15px] text-rose-400">{err}</div>}
+      {err && <div className="mt-2 text-[16px] text-rose-400">{err}</div>}
 
       {plan && (
         <div className="mt-2 space-y-2">
@@ -154,7 +154,7 @@ export default function NextMealCard({ day }: { day: DayDTO }) {
             </div>
           ))}
           {plan.meals.length > 0 && (
-            <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-2.5 text-[13px]">
+            <div className="rounded-xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-2.5 text-[14px]">
               <div className="font-semibold text-slate-200">
                 Soma do cardápio: ~{plan.totals.kcal} kcal · P {plan.totals.protein_g}g · C{" "}
                 {plan.totals.carb_g}g · G {plan.totals.fat_g}g

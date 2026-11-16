@@ -1,0 +1,200 @@
+{
+ "empresa": "Guararapes Confecções S.A. (nome de pregão Riachuelo; controladora da Lojas Riachuelo)",
+ "ticker": "RIAA3",
+ "bolsa": "B3",
+ "situacao": "listada; ticker mudou de GUAR3 para RIAA3 (fontes divergem sobre a data: dezembro/2025 ou 05/02/2026)",
+ "situacao_url": "https://acionista.com.br/guar3-se-torna-riaa3-mudanca-e-lucro-surpreendentes-no-horizonte/",
+ "marcas": [
+  {
+   "marca": "Riachuelo",
+   "nomes_no_arquivo": [
+    "RIACHUELO"
+   ],
+   "url": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/",
+   "trecho": "a inauguração de 21 novas lojas ao longo do ano, incluindo unidades da Riachuelo, Carter's e Casa Riachuelo [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Casa Riachuelo",
+   "nomes_no_arquivo": [
+    "CASA RIACHUELO"
+   ],
+   "url": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/",
+   "trecho": "a inauguração de 21 novas lojas ao longo do ano, incluindo unidades da Riachuelo, Carter's e Casa Riachuelo [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "marca": "Carter's",
+   "nomes_no_arquivo": [
+    "CARTER'S",
+    "CARTER´S"
+   ],
+   "url": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/",
+   "trecho": "a inauguração de 21 novas lojas ao longo do ano, incluindo unidades da Riachuelo, Carter's e Casa Riachuelo [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 10000000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor aproximado: \"cerca de\")",
+   "publicado": true,
+   "url": "https://www.portalin.com.br/?p=740259",
+   "trecho": "A receita líquida consolidada somou cerca de R$ 10 bilhões, com crescimento de 9% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 3200000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/12/02/2026/noticias-varejo/riachuelo-tem-lucro-liquido-de-r-322-mi-no-4o-trimestre-de-2025/",
+   "trecho": "A receita líquida consolidada somou R$ 3,2 bilhões no 4T25, crescimento de 5,9% frente ao 4T24. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2025",
+   "valor": 10.3,
+   "unidade": "%",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/",
+   "trecho": "o indicador de vendas em mesmas lojas (SSS) de vestuário cresceu 10,3% em 2025, completando dez trimestres consecutivos de expansão [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "2025",
+   "valor": 56.7,
+   "unidade": "%",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/",
+   "trecho": "a margem bruta de Vestuário ficou em 56,7%, expansão de 2,4 pontos percentuais na comparação anual [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "outro (lojas inauguradas no ano)",
+   "periodo": "2025",
+   "valor": 21,
+   "unidade": "lojas",
+   "escopo": "Riachuelo + Carter's + Casa Riachuelo",
+   "publicado": true,
+   "url": "https://timesbrasil.com.br/empresas-e-negocios/riachuelo-registra-lucro-recorde-de-r-512-milhoes-em-2025/",
+   "trecho": "a inauguração de 21 novas lojas ao longo do ano, incluindo unidades da Riachuelo, Carter's e Casa Riachuelo [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T25 (período a confirmar)",
+   "valor": 444,
+   "unidade": "lojas",
+   "escopo": "total do grupo",
+   "publicado": true,
+   "url": "https://www.bloomberglinea.com.br/negocios/riachuelo-espera-bom-crescimento-com-novas-lojas-apos-resultados-recordes-diz-ceo/",
+   "trecho": "o grupo encerrou o trimestre com 444 lojas: 342 Riachuelo, 81 Carter's, 13 Casa Riachuelo e 8 Fanlab [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T25 (período a confirmar)",
+   "valor": 342,
+   "unidade": "lojas",
+   "escopo": "marca Riachuelo",
+   "publicado": true,
+   "url": "https://www.bloomberglinea.com.br/negocios/riachuelo-espera-bom-crescimento-com-novas-lojas-apos-resultados-recordes-diz-ceo/",
+   "trecho": "o grupo encerrou o trimestre com 444 lojas: 342 Riachuelo, 81 Carter's, 13 Casa Riachuelo e 8 Fanlab [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T25 (período a confirmar)",
+   "valor": 81,
+   "unidade": "lojas",
+   "escopo": "marca Carter's",
+   "publicado": true,
+   "url": "https://www.bloomberglinea.com.br/negocios/riachuelo-espera-bom-crescimento-com-novas-lojas-apos-resultados-recordes-diz-ceo/",
+   "trecho": "o grupo encerrou o trimestre com 444 lojas: 342 Riachuelo, 81 Carter's, 13 Casa Riachuelo e 8 Fanlab [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T25 (período a confirmar)",
+   "valor": 13,
+   "unidade": "lojas",
+   "escopo": "marca Casa Riachuelo",
+   "publicado": true,
+   "url": "https://www.bloomberglinea.com.br/negocios/riachuelo-espera-bom-crescimento-com-novas-lojas-apos-resultados-recordes-diz-ceo/",
+   "trecho": "o grupo encerrou o trimestre com 444 lojas: 342 Riachuelo, 81 Carter's, 13 Casa Riachuelo e 8 Fanlab [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "2T25 ou 2T26 (período a confirmar)",
+   "valor": 717000,
+   "unidade": "m²",
+   "escopo": "total",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/GUAR3/46905/",
+   "trecho": "A área de vendas era de 717 mil m², ante 706 mil m² [um ano antes]; 444 lojas ante 436 [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 2500000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/riachuelo-riaa3-resultados-terceiro-trimestre-2026/",
+   "trecho": "A receita líquida somou R$ 2,5 bilhões, alta de 3,5% na comparação anual."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1600000000,
+   "unidade": "R$",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/riachuelo-riaa3-resultados-terceiro-trimestre-2026/",
+   "trecho": "A receita líquida de vestuário cresceu 8%, para R$ 1,6 bilhão."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 6.5,
+   "unidade": "%",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://brapi.dev/news/riachuelo-recua-9-4-e-sbf-cai-13-5-mesmo-com-balancos-bbf016c8",
+   "trecho": "As vendas mesmas lojas do vestuário cresceram 6,5% no 3T26, acima de C&A (+1%) e Renner (-1,8%), segundo o Santander. A margem bruta da divisão chegou a 58,1%, recorde para um terceiro trimestre. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "3T26",
+   "valor": 58.1,
+   "unidade": "%",
+   "escopo": "vestuário",
+   "publicado": true,
+   "url": "https://brapi.dev/news/riachuelo-recua-9-4-e-sbf-cai-13-5-mesmo-com-balancos-bbf016c8",
+   "trecho": "A margem bruta da divisão chegou a 58,1%, recorde para um terceiro trimestre. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 2690000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/mercados/riachuelo-riaa3-resultados-segundo-trimestre-2026/",
+   "trecho": "receita líquida do 2T26 de R$ 2,69 bilhões, alta de 3,3% [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Receita líquida de 2025: um veículo cita 'cerca de R$ 10 bilhões' e outro R$ 10,5 bilhões (ambos +9%); valor exato não confirmado no release.",
+  "Contagem de 444 lojas e 717 mil m²: o buscador atribuiu ao 2T26 (ante 436 lojas e 706 mil m²), mas o detalhamento por marca (342 Riachuelo, 81 Carter's, 13 Casa Riachuelo, 8 Fanlab) é do 2T25 e o documento está arquivado sob o ticker antigo GUAR3 — tratar como 2T25 até conferir.",
+  "Fanlab (8 lojas) foi encerrada em julho/2025, segundo a mesma fonte.",
+  "Nome da companhia: site de RI aparece como 'Guararapes Riachuelo RI' e a ADVFN ainda lista 'Guararapes Confecções' sob RIAA3; denominação social atual não confirmada em documento oficial.",
+  "Data da troca de ticker GUAR3→RIAA3: dezembro/2025 em uma fonte, 05/02/2026 em outra."
+ ],
+ "nao_encontrado": [
+  "Número de lojas e área de vendas no fim de 2025 e no 3T26",
+  "Venda/receita por m²",
+  "Receita por marca (Carter's, Casa Riachuelo)",
+  "Receita líquida de mercadorias do ano de 2025"
+ ]
+}

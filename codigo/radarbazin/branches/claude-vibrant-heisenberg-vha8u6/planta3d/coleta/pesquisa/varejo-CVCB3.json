@@ -1,0 +1,59 @@
+{
+ "empresa": "CVC Brasil Operadora e Agência de Viagens S.A. (CVC Corp)",
+ "ticker": "CVCB3",
+ "bolsa": "B3",
+ "situacao": "listada (empresa acrescentada: serviços/turismo, não estava na lista de candidatas)",
+ "situacao_url": "https://visnoinvest.com.br/news/16432/cvc-cvcb3-registra-lucro-liquido-ajustado-de-r-37-mi-no-3t26",
+ "marcas": [
+  {
+   "marca": "CVC",
+   "nomes_no_arquivo": [
+    "CVC",
+    "CVC TURISMO",
+    "CVC VIAGENS"
+   ],
+   "url": "https://www.infomoney.com.br/mercados/cvc-cvcb3-divulga-balanco-e-indica-menor-abertura-de-lojas-acao-cai-8-apos-salto-na-terca/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] CVC divulga balanço e indica menor abertura de lojas — no 3T25, a companhia atingiu 1.597 lojas no Brasil e na Argentina, o maior número da história do grupo."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 382400000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16432/cvc-cvcb3-registra-lucro-liquido-ajustado-de-r-37-mi-no-3t26",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Receita líquida: somou R$ 382,4 mi, alta de 1,5% sobre o 3T25, com take rate de 8,1%"
+  },
+  {
+   "indicador": "outro (reservas confirmadas)",
+   "periodo": "3T26",
+   "valor": 4459600000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (Brasil + Argentina)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16432/cvc-cvcb3-registra-lucro-liquido-ajustado-de-r-37-mi-no-3t26",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Reservas confirmadas: totalizaram R$ 4.459,6 mi (+4,9%). No Brasil, o avanço foi de 7,2%"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T25",
+   "valor": 1597,
+   "unidade": "lojas",
+   "escopo": "Brasil + Argentina (majoritariamente franquias)",
+   "publicado": true,
+   "url": "https://www.suno.com.br/noticias/?p=631970",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] No 3T25, a companhia atingiu 1.597 lojas no Brasil e na Argentina, o maior número da história do grupo."
+  }
+ ],
+ "divergencias": [
+  "Receita líquida do 3T25: R$ 376,8 mi x R$ 377 mi entre fontes."
+ ],
+ "nao_encontrado": [
+  "Receita líquida de 2025; nº de lojas em dez/2025 e no 3T26; receita/reservas do canal lojas; área; venda por loja.",
+  "Outras listadas de serviços com marca em marcas.txt fora deste arquivo: LOCALIZA (RENT3) e MOVIDA (MOVI3) já têm arquivo próprio nesta pasta, gerado por outra frente; ESTÁCIO DE SÁ (Yduqs, YDUQ3) não foi pesquisada.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

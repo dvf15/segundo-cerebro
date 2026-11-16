@@ -1,0 +1,46 @@
+{
+ "empresa": "LVMH Moët Hennessy Louis Vuitton SE",
+ "ticker": "MC",
+ "bolsa": "Euronext Paris",
+ "situacao": "listada",
+ "situacao_url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/02/lvmh-post-earnings-review-2025-results-beat-forecast-2026-outlook-cloudier",
+ "marcas": [
+  {
+   "marca": "Sephora",
+   "nomes_no_arquivo": [
+    "SEPHORA"
+   ],
+   "url": "https://fashionunited.in/news/business/goodbye-dfs-hello-sephora-lvmhs-major-strategic-shift-an-analysis-of-the-2025-financial-year/2026012752990",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] selective retailing, which includes DFS and Sephora, generated sales of €18.3 billion and a 10% margin in 2025"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 80800000000,
+   "unidade": "EUR",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://www.theindustry.fashion/lvmh-navigates-challenging-2025-as-fashion-shows-second-half-recovery/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] LVMH reported revenue of €80.8 billion for the fiscal year ended December 31, 2025, down 5 percent from the prior year."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 18348000000,
+   "unidade": "EUR",
+   "escopo": "divisão Selective Retailing (Sephora + DFS)",
+   "publicado": true,
+   "url": "https://www.fashionbi.com/insights/lvmh-fy-2025-revenue-drops-despite-normalisation-in-the-market",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Selective Retailing €18.3 billion (uma fonte lista 18.348, em € milhões); reported revenue flat, organic growth 4%"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar."
+ ],
+ "nao_encontrado": [
+  "Receita da Sephora isolada e dados do Brasil",
+  "Outras marcas do grupo LVMH não foram procuradas no arquivo de forma exaustiva"
+ ]
+}

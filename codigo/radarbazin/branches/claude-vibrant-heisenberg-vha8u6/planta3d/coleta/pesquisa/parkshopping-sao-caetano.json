@@ -1,0 +1,298 @@
+{
+  "id": "parkshopping-sao-caetano",
+  "nome": "ParkShopping São Caetano",
+  "administradora": "Multiplan",
+  "endereco": "Alameda Terracota, 545 – Espaço Cerâmica, São Caetano do Sul – SP, CEP 09531-190",
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "09/11/2011",
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Inauguração: 09/11/2011"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 39252,
+      "unidade": "m²",
+      "nota": "Site do shopping informa 39.251 m²",
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Área Bruta Locável (ABL) total: 39.252 m²"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 252,
+      "unidade": null,
+      "nota": "Projeto do arquiteto falava em 350 lojas (ver divergencias)",
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Número de lojas: 252"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Opções gastronômicas",
+      "valor": "+50",
+      "unidade": null,
+      "nota": "Total de opções gastronômicas, não só restaurantes",
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "+50 Opções Gastronômicas"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 7,
+      "unidade": "salas",
+      "nota": "Cinemark; opções 3D, XD e DBOX (trecho de busca do site oficial)",
+      "url": "https://www.parkshoppingsaocaetano.com.br/cinema/",
+      "trecho": "O cinema ParkShopping São Caetano possui sete salas amplas e confortáveis, contando com as opções de 3D, XD e DBOX."
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 2240,
+      "unidade": "vagas",
+      "nota": null,
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "2.240 Vagas de estacionamento"
+    },
+    {
+      "chave": "visitas_ano",
+      "rotulo": "Tráfego anual",
+      "valor": 4900000,
+      "unidade": "visitas/ano",
+      "nota": "Ano-base 2024; fluxo mensal não publicado",
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Tráfego em 2024: 4,9 milhões de visitas"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil do público",
+      "valor": "87% classes A e B",
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Perfil do público: 87% classes A e B"
+    },
+    {
+      "chave": "participacao_multiplan",
+      "rotulo": "Participação Multiplan",
+      "valor": 100,
+      "unidade": "%",
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Participação Multiplan: 100%"
+    },
+    {
+      "chave": "empregos",
+      "rotulo": "Empregos",
+      "valor": 1733,
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Empregos: 1.733"
+    },
+    {
+      "chave": "vendas_2024",
+      "rotulo": "Vendas em 2024",
+      "valor": "R$ 1.021,0 milhões",
+      "unidade": null,
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Vendas em 2024: R$ 1.021,0 milhões"
+    },
+    {
+      "chave": "expansao_futura_abl_m2",
+      "rotulo": "Expansão futura prevista (ABL)",
+      "valor": 13411,
+      "unidade": "m²",
+      "nota": null,
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "já nasceu sob o conceito multiuso, com a previsão de expansão futura de 13.411 m² de ABL"
+    }
+  ],
+  "pisos": [
+    {
+      "nome": "Piso L1",
+      "uso": "Espaço Família, Banheiro Família e banheiro adaptado (ao lado da Clínica Oriental); eventos próximos à Hering",
+      "url": "https://www.parkshoppingsaocaetano.com.br/",
+      "trecho": "Localização: Piso L1 (ao lado da Clínica Oriental)"
+    },
+    {
+      "nome": "Piso L2 (2º piso)",
+      "uso": "Multiplan Hall – centro de eventos multiuso",
+      "url": "https://www.parkshoppingsaocaetano.com.br/multiplan-hall-parkshoppingsaocaetano/",
+      "trecho": "Está localizado no segundo piso (L2) e conta com uma área de aproximadamente 1.185 m² com pé direito de 12 metros."
+    },
+    {
+      "nome": "Pavimento térreo",
+      "uso": "Calçadas e praças que integram o shopping às demais edificações do complexo (descrição do projeto)",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "todas as edificações se integram nos pavimentos de estacionamento, áreas de calçadas e praças do pavimento térreo"
+    },
+    {
+      "nome": "Pavimentos de estacionamento",
+      "uso": "Estacionamento compartilhado/integrador do complexo (descrição do projeto)",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "todas as edificações se integram nos pavimentos de estacionamento"
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "autor do projeto",
+      "valor": "Paulo Baruki (Paulo Baruki Arquitetura)",
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "O projeto arquitetônico do ParkShopping São Caetano, projetado por Paulo Baruki, destaca-se por sua arquitetura integrada ao entorno"
+    },
+    {
+      "item": "ano",
+      "valor": "Projeto 2008 | conclusão 2011",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "ParkShopping São Caetano São Paulo, Brasil 2008 | 2011"
+    },
+    {
+      "item": "características",
+      "valor": "Arquitetura integrada ao entorno, painéis de vidro para iluminação natural, corredores amplos",
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "com painéis de vidro que proporcionam iluminação natural. O shopping possui corredores amplos"
+    },
+    {
+      "item": "características",
+      "valor": "Circulações internas integradas às calçadas por átrios envidraçados; conceito 'lifestyle' com terraços de restaurantes voltados para fora",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "apresenta circulações internas integradas com calçadas externas através de átrios envidraçados e o conceito “lifestyle”, através dos terraços dos restaurantes voltados para o exterior"
+    },
+    {
+      "item": "características (implantação)",
+      "valor": "Shopping no centro do conjunto, torres na periferia, acessos independentes e construção em etapas",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "A implantação privilegiou a independência do centro comercial, posicionado no centro do conjunto, em relação às torres empresariais, posicionadas na linha periférica"
+    },
+    {
+      "item": "programa do complexo (projeto)",
+      "valor": "Shopping regional com 350 lojas, 5 torres empresariais com 920 unidades comerciais e centro de convenções",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "O complexo compreende um shopping center regional com 350 lojas, 5 torres empresariais contento um total de 920 unidades comerciais e um centro de convenções para eventos de grande porte"
+    },
+    {
+      "item": "prêmios",
+      "valor": "Escritório descreve o shopping como 'premiado' (a página exibe selo de imagem ICSC 2013 gold, sem texto; categoria a confirmar)",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "como você poderá perceber no premiado ParkShopping São Caetano"
+    },
+    {
+      "item": "reforma / novo equipamento",
+      "valor": "Multiplan Hall: centro de eventos multiuso no piso L2, ~1.185 m², pé-direito de 12 m (ABRASCE: cerca de 1.800 m², 906 pessoas sentadas)",
+      "url": "https://www.parkshoppingsaocaetano.com.br/multiplan-hall-parkshoppingsaocaetano/",
+      "trecho": "conta com uma área de aproximadamente 1.185 m² com pé direito de 12 metros"
+    },
+    {
+      "item": "expansões",
+      "valor": "Expansão futura prevista de 13.411 m² de ABL",
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "com a previsão de expansão futura de 13.411 m² de ABL"
+    },
+    {
+      "item": "área do terreno (bairro)",
+      "valor": "Espaço Cerâmica: 300 mil m², antiga Cerâmica São Caetano, urbanização Sobloco com contribuições de RTKL e Beame Architectural; paisagismo de Neusa Nakata",
+      "url": "https://www.soblococonstrutora.com.br/projetos/espaco-ceramica",
+      "trecho": "A Sobloco transformou o terreno de 300 mil m² da antiga Cerâmica São Caetano em uma moderna área urbana"
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "empreendimento",
+      "nome": "Espaço Cerâmica (bairro planejado, Sobloco)",
+      "descricao": "O shopping está inserido no bairro planejado multiuso de 300 mil m², pensado para o pedestre, com grande área destinada ao shopping center",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "O ParkShopping São Caetano fica localizado no espaço cerâmica e, além do shopping, o espaço possui torres comerciais e condomínios residenciais de alto padrão."
+    },
+    {
+      "tipo": "torre",
+      "nome": "5 torres empresariais do complexo multiuso (projeto Paulo Baruki, 920 unidades)",
+      "descricao": "No projeto, torres na periferia do conjunto, com acessos independentes, integradas ao shopping pelos pavimentos de estacionamento, calçadas e praças do térreo. A fonte descreve o projeto; não confirma quantas torres foram construídas.",
+      "piso": "pavimentos de estacionamento e térreo (segundo o projeto)",
+      "acesso": "a confirmar",
+      "url": "https://paulobaruki.com/pt/parkshopping-sao-caetano/",
+      "trecho": "Contudo, todas as edificações se integram nos pavimentos de estacionamento, áreas de calçadas e praças do pavimento térreo."
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torres comerciais e condomínios residenciais do Espaço Cerâmica",
+      "descricao": "Edifícios do mesmo bairro planejado; ligação física com o shopping não descrita",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "além do shopping, o espaço possui torres comerciais e condomínios residenciais de alto padrão"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Hub&Line Corporate",
+      "descricao": "Edifício corporativo no Espaço Cerâmica, a 150 m do shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://www.instagram.com/reel/DOCL8yhkeVu/",
+      "trecho": "Espaço Cerâmica, em São Caetano do Sul, 150m do Park Shopping, Próximo ao Hospital São Luiz"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Hospital São Luiz (São Caetano)",
+      "descricao": "Hospital inaugurado no bairro em 2018; ligação física com o shopping não descrita",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "trecho": "em 2018 foi inaugurado o Parque Tom Jobim, como também o Hospital São Luiz, o mais moderno centro de saúde da região"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Parque Tom Jobim",
+      "descricao": "Parque de 14 mil m² entregue pelo shopping/Multiplan à cidade em 2018; o shopping realiza eventos culturais no local",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "trecho": "Com uma área de 14 mil m² e um imenso espaço verde, o shopping realiza diversos eventos culturais no local."
+    },
+    {
+      "tipo": "outro",
+      "nome": "Multiplan Hall (centro de eventos)",
+      "descricao": "Centro de eventos dentro do shopping",
+      "piso": "Piso L2",
+      "acesso": "direto",
+      "url": "https://www.parkshoppingsaocaetano.com.br/multiplan-hall-parkshoppingsaocaetano/",
+      "trecho": "Está localizado no segundo piso (L2)"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Forno da antiga Cerâmica São Caetano (centro cultural)",
+      "descricao": "Patrimônio preservado no bairro, restaurado e transformado em ponto turístico e de eventos",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.soblococonstrutora.com.br/projetos/espaco-ceramica",
+      "trecho": "um forno da antiga indústria que foi restaurado e transformado em ponto turístico e de eventos"
+    }
+  ],
+  "divergencias": [
+    "ABL: 39.252 m² (https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/) x 39.251 m² (https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/)",
+    "Lojas: 252 (https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/ e https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/) x 350 lojas no programa do projeto (https://paulobaruki.com/pt/parkshopping-sao-caetano/)",
+    "Área do Multiplan Hall: ~1.185 m² (https://www.parkshoppingsaocaetano.com.br/multiplan-hall-parkshoppingsaocaetano/) x cerca de 1.800 m² (https://abrasce.com.br/espaco-do-associado/inauguracoes/parkshopping-sao-caetano-inaugura-o-multiplan-hall/)",
+    "Parque Tom Jobim: Multiplan escreve 'em parceria com a Prefeitura de São Paulo' (https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/); site do shopping diz presente 'para a cidade' de São Caetano (https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/)",
+    "Localização na ficha Multiplan aparece como 'São Paulo (SP)' (https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/), mas o endereço é São Caetano do Sul (https://www.parkshoppingsaocaetano.com.br/)",
+    "Parques públicos do bairro: 'mais de 23 mil m²' x 'somam 24 mil m²' na mesma página (https://www.soblococonstrutora.com.br/projetos/espaco-ceramica)"
+  ],
+  "nao_encontrado": [
+    "Área construída e área do terreno do shopping (só a do bairro, 300 mil m²)",
+    "Número de âncoras, megalojas e quiosques",
+    "Fluxo mensal de consumidores (só tráfego anual de 2024)",
+    "Número de pisos de lojas e nomes completos dos pisos (achados apenas L1, L2 e térreo); piso do cinema e da praça de alimentação",
+    "Quantas das 5 torres empresariais do projeto foram construídas, seus nomes e por qual piso se ligam ao shopping",
+    "Passarela ou acesso direto a torre, hospital ou condomínio: nenhuma fonte afirma",
+    "Estação de trem/CPTM, metrô ou terminal de ônibus próximo e distância (página /como-chegar/ do site oficial retorna 404)",
+    "Hotel ou universidade ligados ao shopping",
+    "Nome e ano exatos do prêmio (página do arquiteto mostra só imagem de selo ICSC 2013)",
+    "Artigo da Wikipedia sobre o shopping (não existe em pt.wikipedia.org; 404)"
+  ]
+}

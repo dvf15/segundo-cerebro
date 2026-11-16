@@ -79,11 +79,11 @@ export default function BpHistory() {
   const chartData = filtered.map((r) => ({ label: r.date.slice(5), sys: r.sys, dia: r.dia }));
 
   if (loading) {
-    return <div className="py-8 text-center text-[15px] text-slate-300">Carregando...</div>;
+    return <div className="py-8 text-center text-[16px] text-slate-300">Carregando...</div>;
   }
   if (readings.length === 0) {
     return (
-      <div className={`${card} text-center text-[15px] text-slate-300`}>
+      <div className={`${card} text-center text-[16px] text-slate-300`}>
         Nenhuma medição de pressão ainda. Registre em <b>🩺 Pressão</b>.
       </div>
     );
@@ -94,7 +94,7 @@ export default function BpHistory() {
       {/* Edição inline */}
       {editing && (
         <div className={card}>
-          <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+          <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
             Editar medição
           </div>
           <BpForm
@@ -111,7 +111,7 @@ export default function BpHistory() {
       {/* Gráfico */}
       <div className={card}>
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-          <div className="text-xs font-bold uppercase text-slate-300">Pressão (mmHg)</div>
+          <div className="text-[13px] font-bold uppercase text-slate-300">Pressão (mmHg)</div>
           <PeriodButtons value={period} onChange={setPeriod} presets={PERIODS} />
         </div>
         {/* Barra de tempo: calibra quantos dias olhar para trás */}
@@ -125,7 +125,7 @@ export default function BpHistory() {
           />
         </div>
         {chartData.length === 0 ? (
-          <div className="py-8 text-center text-[15px] text-slate-300">Sem medições no período.</div>
+          <div className="py-8 text-center text-[16px] text-slate-300">Sem medições no período.</div>
         ) : (
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={chartData} margin={{ left: -8, right: 8, top: 6 }}>
@@ -141,7 +141,7 @@ export default function BpHistory() {
             </LineChart>
           </ResponsiveContainer>
         )}
-        <div className="mt-1 text-[11px] text-slate-400">
+        <div className="mt-1 text-[12px] text-slate-400">
           Linhas tracejadas: limiar residencial {BP_REF_SYS}/{BP_REF_DIA} (DBH/SBC).
         </div>
       </div>
@@ -149,12 +149,12 @@ export default function BpHistory() {
       {/* Lista */}
       <div className={card}>
         <div className="mb-2 flex items-center justify-between gap-2">
-          <div className="text-xs font-bold uppercase text-slate-300">
+          <div className="text-[13px] font-bold uppercase text-slate-300">
             Medições ({readings.length})
           </div>
           <button
             onClick={() => setShowList((v) => !v)}
-            className="text-xs font-semibold text-blue-400"
+            className="text-[13px] font-semibold text-blue-400"
           >
             {showList ? "▾ ocultar" : "▸ mostrar"}
           </button>
@@ -170,17 +170,17 @@ export default function BpHistory() {
                   <div key={r.id} className="flex items-center justify-between gap-2 py-2">
                     <div className="min-w-0">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-[15px] font-bold text-white">
+                        <span className="text-[16px] font-bold text-white">
                           {r.sys}/{r.dia}
                         </span>
                         <span
-                          className="rounded-full px-2 py-0.5 text-[11px] font-semibold"
+                          className="rounded-full px-2 py-0.5 text-[12px] font-semibold"
                           style={{ color: c.color, background: `${c.color}22` }}
                         >
                           {c.label}
                         </span>
                       </div>
-                      <div className="text-[12px] text-slate-400">
+                      <div className="text-[13px] text-slate-400">
                         {r.date.slice(5)} · {r.time}
                         {r.note ? ` · ${r.note}` : ""}
                       </div>
@@ -192,14 +192,14 @@ export default function BpHistory() {
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                         disabled={busy}
-                        className="rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[12px] text-slate-200"
+                        className="rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[13px] text-slate-200"
                       >
                         editar
                       </button>
                       <button
                         onClick={() => del(r.id)}
                         disabled={busy}
-                        className="rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[12px] text-slate-300"
+                        className="rounded-md border border-[#55555f] bg-[#42424a] px-2 py-1 text-[13px] text-slate-300"
                       >
                         excluir
                       </button>

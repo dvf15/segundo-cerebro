@@ -108,7 +108,7 @@ const blocoIcones = !icones ? '' : `
       name: 'Radar de Auditoria', short_name: 'Radar', lang: 'pt-BR',
       description: 'Acelerador de auditoria de vendas: triangulação mensal (redução Z, PDV, declarado) e auditoria fiscal anual dos lojistas, com o acompanhamento do recebimento dos livros.',
       display: 'standalone', orientation: 'any',
-      background_color: ${JSON.stringify(paleta.verdeProfundo)},
+      background_color: ${JSON.stringify(paleta.fundo || paleta.verdeProfundo)},
       theme_color: ${JSON.stringify(paleta.verde)},
       icons: [
         { src: ${JSON.stringify(icones.i192)}, sizes: '192x192', type: 'image/png', purpose: 'any' },
@@ -137,10 +137,14 @@ ${blocoIcones}
 </head>
 <body>
 <header class="topo"><div class="wrap">
-  <h1>📡 Radar de Auditoria <small class="versao">2.1 · acelerador de auditoria de lojistas</small></h1>
-  <span class="selo" title="Nenhum arquivo sai deste navegador">🔒 processamento local</span>
-  <span class="espaco"></span>
-  <button class="leve" id="tema">Tema: auto</button>
+  <div class="brand">
+    <div class="brandmark" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M8 13.5v-2M11 13.5V8.5M14 13.5v-3.5"/></svg></div>
+    <div>
+      <h1>Radar de Auditoria</h1>
+      <p class="sub">Auditoria de vendas de lojistas — <b>triangulação</b>, auditoria fiscal anual e societário · versão 2.1</p>
+    </div>
+  </div>
+  <span class="selo" title="Nenhum arquivo sai deste navegador"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>processamento local</span>
 </div></header>
 <main class="wrap"><div id="app"></div></main>
 <footer class="wrap"><p class="nota">

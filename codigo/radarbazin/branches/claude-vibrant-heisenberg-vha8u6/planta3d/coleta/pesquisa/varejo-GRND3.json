@@ -1,0 +1,93 @@
+{
+ "empresa": "Grendene S.A.",
+ "ticker": "GRND3",
+ "bolsa": "B3",
+ "situacao": "listada (GRND3) — não foi achada notícia do 3T26; última evidência é o resultado do 4T25 (março/2026)",
+ "situacao_url": "https://www.infomoney.com.br/?p=3238748",
+ "marcas": [
+  {
+   "marca": "Melissa",
+   "nomes_no_arquivo": [
+    "MELISSA",
+    "CLUBE MELISSA"
+   ],
+   "url": "https://diariodonordeste.verdesmares.com.br/negocios/lucro-da-grendene-cai-245-no-4-trimestre-apos-queda-nas-vendas-de-pares-1.3747977",
+   "trecho": "A Melissa registrou crescimento de 36,7% na receita bruta em 2025, puxada principalmente pelo aumento do preço médio dos produtos. [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T25",
+   "valor": 563800000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mais.opovo.com.br/jornal/economia/2025/05/09/com-alta-de-82-no-1-trimestre-grendene-tem-resultado-liquido-recorrente-de-rs-1598-mi.html",
+   "trecho": "receita líquida de R$ 563,8 milhões no trimestre, alta de 4,5% anual [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T25",
+   "valor": 555300000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mais.opovo.com.br/jornal/economia/2025/08/08/grendene-registra-rs-1436-mi-no-2-tri-e-observa-efeito-de-tarifaco.html",
+   "trecho": "A receita líquida atingiu R$ 555,3 milhões, alta de 15,6%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T25",
+   "valor": 760100000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mais.opovo.com.br/jornal/economia/2025/11/07/grendene-avanca-14-em-receita-liquida-no-3-trimestre.html",
+   "trecho": "obteve receita líquida de R$ 760,1 milhões no terceiro trimestre de 2025, avanço de 1,4% ante igual período do ano passado [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T25",
+   "valor": 1020000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mais.opovo.com.br/jornal/economia/2025/11/07/grendene-avanca-14-em-receita-liquida-no-3-trimestre.html",
+   "trecho": "a receita bruta da Grendene foi de R$ 1,02 bilhão no terceiro trimestre de 2025, alta de 10,6% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 705100000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.infomoney.com.br/?p=3238748",
+   "trecho": "receita líquida em R$ 705,1 milhões no 4T25, queda de 18% na comparação ao 4T24 [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "outro (crescimento da receita bruta da marca)",
+   "periodo": "2025",
+   "valor": 36.7,
+   "unidade": "%",
+   "escopo": "marca Melissa",
+   "publicado": true,
+   "url": "https://diariodonordeste.verdesmares.com.br/negocios/lucro-da-grendene-cai-245-no-4-trimestre-apos-queda-nas-vendas-de-pares-1.3747977",
+   "trecho": "A Melissa registrou crescimento de 36,7% na receita bruta em 2025 [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Receita líquida anual de 2025 não foi achada publicada; só os quatro trimestres (não somados aqui, por regra).",
+  "Lucro do 4T25: R$ 249,4 mi (líquido) x R$ 286,1 mi (recorrente) conforme o veículo.",
+  "Grendene é fabricante; Clubes Melissa são franquias — receita da companhia não é faturamento das lojas."
+ ],
+ "nao_encontrado": [
+  "Resultado do 3T26 e acumulado de 2026",
+  "Receita líquida/bruta do ano de 2025",
+  "Número de lojas Clube Melissa / Galeria Melissa",
+  "Receita da marca Melissa em R$",
+  "Área de vendas, venda por m², SSS"
+ ]
+}

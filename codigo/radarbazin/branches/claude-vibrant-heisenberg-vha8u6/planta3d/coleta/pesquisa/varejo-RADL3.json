@@ -1,0 +1,167 @@
+{
+ "empresa": "RD Saúde (Raia Drogasil S.A.)",
+ "ticker": "RADL3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+ "marcas": [
+  {
+   "marca": "Droga Raia",
+   "nomes_no_arquivo": [
+    "DROGA RAIA"
+   ],
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] Total: 3.687 farmácias Raia: 1.515 Drogasil: 2.172 CDs: 16 (release 2T26 da RD Saúde, Raia Drogasil S.A. – B3: RADL3)"
+  },
+  {
+   "marca": "Drogasil",
+   "nomes_no_arquivo": [
+    "DROGASIL"
+   ],
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] Total: 3.687 farmácias Raia: 1.515 Drogasil: 2.172 CDs: 16"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T26",
+   "valor": 13163000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=ctFTIYl/MzWQkto4qObCNA==",
+   "trecho": "[lido na página] | 3T26 | 13163 | (Receita bruta consolidada, R$ milhões) / Receita Bruta de R$ 13,2 bi, incremento de R$ +1,8 bi (+16,0%)"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 8.4,
+   "unidade": "%",
+   "escopo": "lojas maduras (MSSS), varejo",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=ctFTIYl/MzWQkto4qObCNA==",
+   "trecho": "[lido na página] R$ 13,2 bilhões, crescimento de 16,0% e incremento de R$ 1,8 bilhão; MSSS de +8,4%, +5,6 pp acima do reajuste da CMED"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 3770,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.instagram.com/p/DfUkXjtDC1f/",
+   "trecho": "[snippet de busca Firecrawl, página não aberta] A RD Saúde apresentou resultados sólidos no 3T26, com destaque para a Receita Bruta de R$ 13,2 bilhões, 92 novas farmácias, totalizando 3.770 ..."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 12777743000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (ex-4Bio)",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] | # de farmácias | 3.371 | 3.453 | 3.547 | 3.614 | 3.687 | / | Receita bruta | 10.803.986 | 11.347.942 | 12.186.767 | 11.979.521 | 12.777.743 | (Em R$ mil; colunas 2T25, 3T25, 4T25, 1T26, 2T26)"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 3687,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] FARMÁCIAS: 3.687 unidades em operação, com 76 aberturas e 3 encerramentos no trimestre"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 1515,
+   "unidade": "lojas",
+   "escopo": "marca Droga Raia",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] Total: 3.687 farmácias Raia: 1.515 Drogasil: 2.172"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 2172,
+   "unidade": "lojas",
+   "escopo": "marca Drogasil",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] Total: 3.687 farmácias Raia: 1.515 Drogasil: 2.172"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2T26",
+   "valor": 12.5,
+   "unidade": "%",
+   "escopo": "mesmas lojas, varejo",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] observamos um crescimento médio de +12,5% nas mesmas lojas no 2T26. Considerando as lojas maduras [...] registramos um crescimento médio de +10,9%"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "2T26",
+   "valor": 28.9,
+   "unidade": "% da receita bruta",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] O lucro bruto totalizou R$ 3.696,1 milhões no 2T26, equivalente a uma margem bruta de 28,9%."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025 (dez/25)",
+   "valor": 3547,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] | # de farmácias | 3.371 | 3.453 | 3.547 | 3.614 | 3.687 | / | Receita bruta | 10.803.986 | 11.347.942 | 12.186.767 | 11.979.521 | 12.777.743 | (Em R$ mil; colunas 2T25, 3T25, 4T25, 1T26, 2T26)"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 44250449000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=g7X94kZQjAEd+Jvly2aqPg==",
+   "trecho": "[snippet de busca Firecrawl, página não aberta] Encerramos 2025 com R$ 44.250.449 mil de receita liquida, um aumento ... foram encerradas, resultando em um total de 3.547 farmácias em operação."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2025",
+   "valor": 47600000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (inclui 4Bio, conforme divulgado à época)",
+   "publicado": true,
+   "url": "https://panoramafarmaceutico.com.br/rd-saude-cresce-dois-digitos-e-fecha-2025-com-r-476-bi-em-receita/",
+   "trecho": "[snippet de busca Firecrawl, página não aberta] RD Saúde cresce dois dígitos e fecha 2025 com R$ 47,6 bi em receita"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "4T25",
+   "valor": 12186767000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (ex-4Bio, reapresentado no release 2T26)",
+   "publicado": true,
+   "url": "https://ri.rdsaude.com.br/Download.aspx?Arquivo=mkRRUYR4kE+VDWWbKdYBJw==&linguagem=pt",
+   "trecho": "[lido na página] | # de farmácias | 3.371 | 3.453 | 3.547 | 3.614 | 3.687 | / | Receita bruta | 10.803.986 | 11.347.942 | 12.186.767 | 11.979.521 | 12.777.743 | (Em R$ mil; colunas 2T25, 3T25, 4T25, 1T26, 2T26)"
+  }
+ ],
+ "divergencias": [
+  "Receita bruta do 4T25: R$ 12.186.767 mil na série do release 2T26 (ex-4Bio, vendida) x R$ 13,0 bilhões no release original do 4T25 (https://ri.rdsaude.com.br/Download.aspx?Arquivo=5qQVLymU2JrA/iPP5ZJdWg==&linguagem=pt). O total de 2025 de R$ 47,6 bi é da base original (com 4Bio).",
+  "3T26: a apresentação traz SSS do varejo em gráfico empilhado (CMED 2,8 + real 7,3) e lojas maduras (2,8 + 5,6 = MSSS 8,4%); só o MSSS de 8,4% aparece escrito por extenso."
+ ],
+ "nao_encontrado": [
+  "Área de vendas em m² e venda por m²: não constam nos releases 2T26 e apresentação 3T26 lidos (empresa não publica nesses documentos).",
+  "Número de lojas por bandeira (Raia/Drogasil) no 3T26 e em dez/2025.",
+  "Receita bruta 9M26 em valor único (não lida).",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

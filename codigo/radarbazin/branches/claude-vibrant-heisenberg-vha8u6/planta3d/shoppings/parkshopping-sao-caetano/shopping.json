@@ -1,0 +1,426 @@
+{
+  "id": "ID_DA_PASTA",
+  "nome": "ParkShopping São Caetano",
+  "curto": "PARKSHOPPING SÃO CAETANO",
+  "papel": "concorrente",
+  "subtitulo": "Alameda Terracota, 545 – Espaço Cerâmica, São Caetano do Sul – SP, CEP 09531-190 · Multiplan",
+  "coleta": "14/11/2026",
+  "origem_lista": "páginas de loja do site do shopping",
+  "link_loja": "https://www.parkshoppingsaocaetano.com.br/{slug}/",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    "vagas",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "09/11/2011",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 39252,
+      "unidade": "m²",
+      "nota": "Site do shopping informa 39.251 m²",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 252,
+      "nota": "Projeto do arquiteto falava em 350 lojas (ver divergencias)",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Opções gastronômicas",
+      "valor": "+50",
+      "nota": "Total de opções gastronômicas, não só restaurantes",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 7,
+      "nota": "Cinemark; opções 3D, XD e DBOX (trecho de busca do site oficial)",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 2240,
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "visitas_ano",
+      "rotulo": "Tráfego anual",
+      "valor": 4900000,
+      "unidade": "visitas/ano",
+      "nota": "Ano-base 2024; fluxo mensal não publicado",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil do público",
+      "valor": "87% classes A e B",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "participacao_multiplan",
+      "rotulo": "Participação Multiplan",
+      "valor": 100,
+      "unidade": "%",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "empregos",
+      "rotulo": "Empregos",
+      "valor": 1733,
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "vendas_2024",
+      "rotulo": "Vendas em 2024",
+      "valor": "R$ 1.021,0 milhões",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "expansao_futura_abl_m2",
+      "rotulo": "Expansão futura prevista (ABL)",
+      "valor": 13411,
+      "unidade": "m²",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": null
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": null
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · autor do projeto",
+      "valor": "Paulo Baruki (Paulo Baruki Arquitetura)",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · ano",
+      "valor": "Projeto 2008 | conclusão 2011",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · características",
+      "valor": "Arquitetura integrada ao entorno, painéis de vidro para iluminação natural, corredores amplos",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · características",
+      "valor": "Circulações internas integradas às calçadas por átrios envidraçados; conceito 'lifestyle' com terraços de restaurantes voltados para fora",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · características (implantação)",
+      "valor": "Shopping no centro do conjunto, torres na periferia, acessos independentes e construção em etapas",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · programa do complexo (projeto)",
+      "valor": "Shopping regional com 350 lojas, 5 torres empresariais com 920 unidades comerciais e centro de convenções",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · prêmios",
+      "valor": "Escritório descreve o shopping como 'premiado' (a página exibe selo de imagem ICSC 2013 gold, sem texto; categoria a confirmar)",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_8",
+      "rotulo": "Projeto · reforma / novo equipamento",
+      "valor": "Multiplan Hall: centro de eventos multiuso no piso L2, ~1.185 m², pé-direito de 12 m (ABRASCE: cerca de 1.800 m², 906 pessoas sentadas)",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "arq_9",
+      "rotulo": "Projeto · expansões",
+      "valor": "Expansão futura prevista de 13.411 m² de ABL",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "arq_10",
+      "rotulo": "Projeto · área do terreno (bairro)",
+      "valor": "Espaço Cerâmica: 300 mil m², antiga Cerâmica São Caetano, urbanização Sobloco com contribuições de RTKL e Beame Architectural; paisagismo de Neusa Nakata",
+      "fonte": "soblococonstrutora.com.br"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso L1",
+      "valor": "Espaço Família, Banheiro Família e banheiro adaptado (ao lado da Clínica Oriental); eventos próximos à Hering",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso L2 (2º piso)",
+      "valor": "Multiplan Hall – centro de eventos multiuso",
+      "fonte": "parkshoppingsaocaetano.com.br"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso Pavimento térreo",
+      "valor": "Calçadas e praças que integram o shopping às demais edificações do complexo (descrição do projeto)",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso Pavimentos de estacionamento",
+      "valor": "Estacionamento compartilhado/integrador do complexo (descrição do projeto)",
+      "fonte": "paulobaruki.com"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "12 meses até mar/26",
+      "tipo_periodo": "12 meses",
+      "vendas": 1121100000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "m2": 2380.1,
+      "abl": 39252,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1101400000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "m2_pub": 2468.0,
+      "m2": 2338.3,
+      "abl": 39252,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 1021000000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 270700000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "m2_pub": 2423.0,
+      "m2": 2298.8,
+      "abl": 39252,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 292400000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "m2_pub": 2632.0,
+      "m2": 2483.1,
+      "abl": 39252,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 244800000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "m2_pub": 2197.0,
+      "m2": 2078.9,
+      "abl": 39252,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 353400000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "m2": 3001.1,
+      "abl": 39252,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    }
+  ],
+  "vendas_empresa": "Multiplan (MULT3)",
+  "vendas_nota": "Fonte: releases de resultados da Multiplan (4T25, 1T26, 2T26 e 3T26), lidos por extração automática dos PDFs em 14/11/2026; valores arredondados a R$ 0,1 milhão. A venda por m² publicada usa só a ABL das âncoras e satélites que reportam venda, sem quiosques. A venda por m² e a ABL de 2024 não foram lidas (release do 4T24 não localizado), por isso 2024 não tem a conta por ABL.",
+  "niveis": [
+    {
+      "id": "SS",
+      "nome": "SS · Subsolo",
+      "uso": "Subsolo, com poucas operações"
+    },
+    {
+      "id": "L1",
+      "nome": "Piso L1",
+      "uso": "Lojas; Espaço Família"
+    },
+    {
+      "id": "L2",
+      "nome": "Piso L2",
+      "uso": "Lojas; Multiplan Hall; cinema"
+    },
+    {
+      "id": "L3",
+      "nome": "3º Piso (L3)",
+      "uso": "Uma operação no diretório"
+    }
+  ],
+  "contorno": [[-75.2,53.1],[-81.6,36.7],[-82.4,20],[-99.8,19.5],[-105.6,12.8],[-106.2,-25.7],[-97.2,-41.1],[-88.5,-52.5],[-77.8,-62.5],[-65.9,-72.3],[-50.7,-82],[-41.9,-86.2],[-28.4,-90.8],[-20.7,-92.6],[-20.7,-82.8],[30.2,-83.4],[30.8,-93.1],[50,-90],[56.6,-88.4],[71.9,-82.3],[89.7,-69.2],[89.8,-59.8],[100.4,-59.6],[100.9,-49.2],[104.8,-49.1],[106.2,5.8],[89.6,5.9],[89.8,14.6],[87.8,24],[86,63],[72.8,75.9],[61.6,82],[47.7,87],[26.4,92.1],[6.3,93.1],[-18.1,89],[-37.2,82.6],[-60.3,67.9]],
+  "metodo": [
+    {
+      "tag": "oficial",
+      "texto": "Nome, categorias, piso, LUC e situação de cada operação: páginas de loja do site do shopping, listadas no sitemap ({com_codigo} de {ops} com LUC). O site não publica área nem tipo de operação."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Quiosques: {quiosques} operações. O site identifica algumas pelo nome (\"quiosque\"); as demais foram marcadas porque o LUC segue o mesmo padrão delas (P + sigla do piso). O total oficial não é publicado."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Tipo de operação: deduzido do código, da seção do site e da categoria. Área: não é publicada; os m² são a referência de desenho por tipo de operação, multiplicada pelo número de LUCs. Desenho do piso: esquemático, na ordem do LUC; não é a planta real."
+    },
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio, entradas e ruas: OpenStreetMap."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: ABL: 39.252 m².multiplan.com.br/shoppings/parkshoppingsaocaetano/) x 39.251 m².parkshoppingsaocaetano.com.br/o-parksaocaetano/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Lojas: 252.multiplan.com.br/shoppings/parkshoppingsaocaetano/ e.parkshoppingsaocaetano.com.br/o-parksaocaetano/) x 350 lojas no programa do projeto.com/pt/parkshopping-sao-caetano/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Área do Multiplan Hall: ~1.185 m².parkshoppingsaocaetano.com.br/multiplan-hall-parkshoppingsaocaetano/) x cerca de 1.800 m².com.br/espaco-do-associado/inauguracoes/parkshopping-sao-caetano-inaugura-o-multiplan-hall/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Parque Tom Jobim: Multiplan escreve 'em parceria com a Prefeitura de São Paulo'.multiplan.com.br/shoppings/parkshoppingsaocaetano/); site do shopping diz presente 'para a cidade' de São Caetano.parkshoppingsaocaetano.com.br/o-parksaocaetano/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Localização na ficha Multiplan aparece como 'São Paulo (SP)'.multiplan.com.br/shoppings/parkshoppingsaocaetano/), mas o endereço é São Caetano do Sul.parkshoppingsaocaetano.com.br/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Parques públicos do bairro: 'mais de 23 mil m²' x 'somam 24 mil m²' na mesma página.soblococonstrutora.com.br/projetos/espaco-ceramica)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Área construída e área do terreno do shopping (só a do bairro, 300 mil m²); Número de âncoras, megalojas e quiosques; Fluxo mensal de consumidores (só tráfego anual de 2024); Número de pisos de lojas e nomes completos dos pisos (achados apenas L1, L2 e térreo); piso do cinema e da praça de alimentação; Quantas das 5 torres empresariais do projeto foram construídas, seus nomes e por qual piso se ligam ao shopping; Passarela ou acesso direto a torre, hospital ou condomínio: nenhuma fonte afirma; Estação de trem/CPTM, metrô ou terminal de ônibus próximo e distância (página /como-chegar/ do site oficial retorna 404); Hotel ou universidade ligados ao shopping; Nome e ano exatos do prêmio (página do arquiteto mostra só imagem de selo ICSC 2013); Artigo da Wikipedia sobre o shopping (não existe em pt.wikipedia.org; 404)."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 167086608 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "www.parkshoppingsaocaetano.com.br (sitemap e páginas de loja: nome, categorias, piso, LUC e situação), lido em 14/11/2026",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: instagram.com, multiplan.com.br, parkshoppingsaocaetano.com.br, paulobaruki.com, soblococonstrutora.com.br"
+  ],
+  "conexoes": [
+    {
+      "tipo": "empreendimento",
+      "nome": "Espaço Cerâmica (bairro planejado, Sobloco)",
+      "descricao": "O shopping está inserido no bairro planejado multiuso de 300 mil m², pensado para o pedestre, com grande área destinada ao shopping center",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/"
+    },
+    {
+      "tipo": "torre",
+      "nome": "5 torres empresariais do complexo multiuso (projeto Paulo Baruki, 920 unidades)",
+      "descricao": "No projeto, torres na periferia do conjunto, com acessos independentes, integradas ao shopping pelos pavimentos de estacionamento, calçadas e praças do térreo. A fonte descreve o projeto; não confirma quantas torres foram construídas.",
+      "piso": "pavimentos de estacionamento e térreo (segundo o projeto)",
+      "acesso": "a confirmar",
+      "fonte": "https://paulobaruki.com/pt/parkshopping-sao-caetano/"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torres comerciais e condomínios residenciais do Espaço Cerâmica",
+      "descricao": "Edifícios do mesmo bairro planejado; ligação física com o shopping não descrita",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Hub&Line Corporate",
+      "descricao": "Edifício corporativo no Espaço Cerâmica, a 150 m do shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://www.instagram.com/reel/DOCL8yhkeVu/",
+      "osm": "Hub"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Hospital São Luiz (São Caetano)",
+      "descricao": "Hospital inaugurado no bairro em 2018; ligação física com o shopping não descrita",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.parkshoppingsaocaetano.com.br/o-parksaocaetano/",
+      "osm": "S[aã]o Luiz",
+      "x": 46.1,
+      "y": -345.7,
+      "d": 253,
+      "osm_nome": "Hospital e Maternidade São Luiz, São Caetano"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Parque Tom Jobim",
+      "descricao": "Parque de 14 mil m² entregue pelo shopping/Multiplan à cidade em 2018; o shopping realiza eventos culturais no local",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.multiplan.com.br/shoppings/parkshoppingsaocaetano/",
+      "osm": "Tom Jobim"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Multiplan Hall (centro de eventos)",
+      "descricao": "Centro de eventos dentro do shopping",
+      "piso": "Piso L2",
+      "acesso": "direto",
+      "fonte": "https://www.parkshoppingsaocaetano.com.br/multiplan-hall-parkshoppingsaocaetano/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Forno da antiga Cerâmica São Caetano (centro cultural)",
+      "descricao": "Patrimônio preservado no bairro, restaurado e transformado em ponto turístico e de eventos",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://www.soblococonstrutora.com.br/projetos/espaco-ceramica"
+    }
+  ],
+  "resumo_nota": "Nome, categoria, piso e LUC são do site do shopping. O tipo de operação é deduzido. A posição de cada loja dentro do piso é esquemática. O site não publica área: os m² mostrados são só a referência de desenho por tipo de operação, não uma medida."
+}

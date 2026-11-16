@@ -24,6 +24,9 @@ renovacoes/
   src/painel.src.html    fonte do painel (o motor e o exemplo são embutidos na geração)
   gerar.mjs              gera radar-renovacoes.html
   radar-renovacoes.html  o painel pronto (abrir no navegador ou publicar como Artifact)
+  radar-renovacoes-mobile.html  edição no modelo do Radar de Varejo: arquivo HTML único e autossuficiente
+                         (sem dependência externa, SheetJS embutido), coluna de 720 px, cartões, abas em pílulas
+  src/app.src.html       fonte da edição mobile · src/icones-varejo.js ícones · vendor/xlsx.mini.min.js SheetJS 0.18.5
   modelo-importacao.xlsx modelo de planilha com as abas Lojas, Parametros e Instrucoes
   radar-renovacoes-como-usar.mp4 / .webm       vídeo no computador: preenchimento e análises (gravar-como-usar.cjs)
   radar-renovacoes-celular.mp4                 vídeo vertical "tela de celular" (gravar-celular.cjs + moldura-celular.py)
@@ -101,6 +104,14 @@ Salton Leites, 2025). Marcado `[PERÍCIA]` no código; não é regra do Book.
   o excedente, a receita em risco em 60 meses e a perda esperada ponderada. O LSR não muda; limiares em Parâmetros.
 - **Checklist técnico da perícia** (15 pontos) na análise de lojas com risco médio ou alto ou com
   renovatória ajuizada, e na nota Obsidian.
+
+## Duas edições, um motor
+
+`gerar.mjs` produz as duas a partir do mesmo `motor.mjs`, do mesmo exemplo e das mesmas funções de gráfico:
+a edição completa (`radar-renovacoes.html`, tabelas largas, pensada para computador) e a edição no modelo
+do Radar de Varejo (`radar-renovacoes-mobile.html`): visual ALLOS claro, coluna única, lista de lojas em
+cartões, ícones SVG monocromáticos, Backup/Importar/CSV por arquivo, e nenhuma chamada externa, de modo
+que o arquivo abre direto do computador ou de qualquer hospedagem. O backup JSON é o mesmo nas duas.
 
 ## Abas do painel
 

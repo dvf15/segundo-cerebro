@@ -1,0 +1,169 @@
+{
+  "id": "riosul",
+  "empresa": "Iguatemi",
+  "ticker": "IGTI11",
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas_reais": 2007882000,
+      "base": "100% do shopping (tabela 'VENDAS (R$MIL) (ativos a 100%)')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/ano",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51870,
+      "abl_fonte_url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "trecho": "Release 4T25, 'VENDAS (R$MIL) (ativos a 100%)', colunas 4T25 | 2025: | Rio Sul | 588.790 | 2.007.882 | | ABL (tabela 'Portfólio Iguatemi', coluna 'ABL Total Média m2'): | Shopping Rio Sul | Rio de Janeiro | 51.870 | 51.870 | 16,63% | 8.626 | 97,8% |"
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 501334000,
+      "base": "100% do shopping (tabela 'VENDAS (R$MIL) (ativos a 100%)')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51839,
+      "abl_fonte_url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "Release 3T26, 'VENDAS (R$MIL) (ativos a 100%)', colunas 3T26 | 09M26: | Rio Sul | 501.334 | 1.497.266 | | ABL (tabela 'Portfólio Iguatemi', coluna 'ABL Total Média m2'): | Shopping Rio Sul | Rio de Janeiro | 51.839 | 51.839 | 16,63% | 8.621 | 99,1% |"
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 510844000,
+      "base": "100% do shopping (tabela 'VENDAS (R$MIL) (ativos a 100%)')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51812,
+      "abl_fonte_url": "https://content.btgpactual.com/research/files/file/hf-news/3440612.pdf",
+      "url": "https://content.btgpactual.com/research/files/file/hf-news/3440612.pdf",
+      "trecho": "Release 2T26, 'VENDAS (R$MIL) (ativos a 100%)', colunas 2T26 | 06M26: | Rio Sul | 510.844 | 995.933 | | ABL (tabela 'Portfólio Iguatemi', coluna 'ABL Total Média m2'): | Shopping Rio Sul | Rio de Janeiro | 51.812 | 51.812 | 16,63% | 8.616 | 99,1% |"
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 485089000,
+      "base": "100% do shopping (tabela 'VENDAS (R$MIL) (ativos a 100%)')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51858,
+      "abl_fonte_url": "https://2xsrxj8qfm3wamcc.public.blob.vercel-storage.com/atlas/conteudo/63bc1f21882e46bd6001a08e63114f84cee4ed8e1dfeb7e01ee2f8e79bb5fbe8.pdf",
+      "url": "https://2xsrxj8qfm3wamcc.public.blob.vercel-storage.com/atlas/conteudo/63bc1f21882e46bd6001a08e63114f84cee4ed8e1dfeb7e01ee2f8e79bb5fbe8.pdf",
+      "trecho": "Release 1T26, 'VENDAS (R$MIL) (ativos a 100%)', coluna 1T26: | Rio Sul | 485.089 | | ABL (tabela 'Portfólio Iguatemi', coluna 'ABL Total Média m2'): | Shopping Rio Sul | Rio de Janeiro | 51.858 | 51.858 | 16,63% | 8.624 | 99,0% |"
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 588790000,
+      "base": "100% do shopping (tabela 'VENDAS (R$MIL) (ativos a 100%)')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 51870,
+      "abl_fonte_url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "trecho": "Release 4T25, 'VENDAS (R$MIL) (ativos a 100%)', colunas 4T25 | 2025: | Rio Sul | 588.790 | 2.007.882 | | ABL (tabela 'Portfólio Iguatemi', coluna 'ABL Total Média m2'): | Shopping Rio Sul | Rio de Janeiro | 51.870 | 51.870 | 16,63% | 8.626 | 97,8% |"
+    }
+  ],
+  "outros_indicadores": [
+    {
+      "indicador": "vendas acumuladas do shopping @100% (R$ mil)",
+      "periodo": "9M26 (jan-set/2026)",
+      "valor": "1.497.266",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "| Rio Sul | 501.334 | 1.497.266 | (colunas 3T26 | 09M26)"
+    },
+    {
+      "indicador": "vendas acumuladas do shopping @100% (R$ mil)",
+      "periodo": "6M26 (jan-jun/2026)",
+      "valor": "995.933",
+      "url": "https://content.btgpactual.com/research/files/file/hf-news/3440612.pdf",
+      "trecho": "| Rio Sul | 510.844 | 995.933 | (colunas 2T26 | 06M26)"
+    },
+    {
+      "indicador": "receita de aluguel mínimo + aluguel percentual + locação temporária do shopping @100% (R$ mil)",
+      "periodo": "3T26 / 3T25 / 9M26 / 9M25",
+      "valor": "41.951 / 40.306 / 123.475 / 120.940",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "| Rio Sul | 41.951 | 40.306 | 4,1% | 123.475 | 120.940 | 2,1% |"
+    },
+    {
+      "indicador": "receita de aluguel mínimo + aluguel percentual + locação temporária do shopping @100% (R$ mil)",
+      "periodo": "4T25 / 4T24 / 2025 / 2024",
+      "valor": "51.767 / 49.088 / 172.707 / 49.088 (2024 só contém o 4T24)",
+      "url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "trecho": "| Rio Sul | 51.767 | 49.088 | 5,5% | 172.707 | 49.088 | 251,8% |"
+    },
+    {
+      "indicador": "receita de estacionamento do shopping @100% (R$ mil)",
+      "periodo": "3T26 / 3T25 / 9M26 / 9M25",
+      "valor": "5.758 / 4.736 / 16.625 / 13.675",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "| Rio Sul | 5.758 | 4.736 | 21,6% | 16.625 | 13.675 | 21,6% |"
+    },
+    {
+      "indicador": "receita de estacionamento do shopping @100% (R$ mil)",
+      "periodo": "4T25 / 2025",
+      "valor": "5.877 / 19.952",
+      "url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "trecho": "| Rio Sul | 5.877 | 4.423 | 32,9% | 19.952 | 4.423 | 351,1% |"
+    },
+    {
+      "indicador": "taxa de ocupação do shopping e participação da Iguatemi",
+      "periodo": "3T26",
+      "valor": "99,1% de ocupação; participação 16,63% (ABL Iguatemi 8.621 m²)",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "| Shopping Rio Sul | Rio de Janeiro | 51.839 | 51.839 | 16,63% | 8.621 | 99,1% |"
+    },
+    {
+      "indicador": "taxa de ocupação do shopping",
+      "periodo": "4T25",
+      "valor": "97,8%",
+      "url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "trecho": "| Shopping Rio Sul | Rio de Janeiro | 51.870 | 51.870 | 16,63% | 8.626 | 97,8% |"
+    },
+    {
+      "indicador": "venda/m² da CARTEIRA Iguatemi (shoppings; não é do RIOSUL; R$/m² no período inteiro, não por mês)",
+      "periodo": "3T26 / 9M26",
+      "valor": "R$ 8.871 no trimestre / R$ 26.724 em 9 meses",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "| Venda/m2 - Shoppings(3) | 8.871 | 8.739 | 1,5% | 26.724 | 26.130 | 2,3% | — (3) Considera vendas e receita de aluguel dos shoppings e ABL total shoppings (exclui torres, outlets e Power Center Iguatemi Campinas)."
+    },
+    {
+      "indicador": "venda/m² da CARTEIRA Iguatemi (shoppings; não é do RIOSUL; R$/m² no período inteiro)",
+      "periodo": "4T25 / 2025",
+      "valor": "R$ 11.483 no trimestre / R$ 38.892 no ano",
+      "url": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "trecho": "| Venda/m2 - Shoppings (2) | 11.483 | 10.727 | 7,0% | 38.892 | 33.442 | 16,3% |"
+    },
+    {
+      "indicador": "vendas totais da CARTEIRA Iguatemi @100% (R$ mil)",
+      "periodo": "3T26 / 9M26",
+      "valor": "6.092.931 / 18.368.133",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "| Total | 6.092.931 | 18.368.133 |"
+    },
+    {
+      "indicador": "vendas/m² mensal calculada por TERCEIRO (J.P. Morgan, via Bloomberg Línea) — não é número publicado pela Iguatemi",
+      "periodo": "4T25",
+      "valor": "R$ 3.784/m²/mês",
+      "url": "https://www.bloomberglinea.com.br/negocios/jp-morgan-revela-ranking-dos-shoppings-com-mais-vendas-por-metro-quadrado-do-brasil/",
+      "trecho": "13. Rio Sul (Iguatemi): R$ 3.784/m² — 'Confira os 15 maiores shoppings do Brasil por vendas mensais por m², com dados do 4º trimestre de 2025. Os valores consideram o faturamento total de cada empreendimento, não a fatia de cada operadora.'"
+    }
+  ],
+  "divergencias": [
+    "Hospedagem: os releases 1T26 e 2T26 foram lidos em cópias hospedadas por terceiros (blob público e BTG Pactual), não no site de RI; 4T25 veio de ri.iguatemi.com.br e 3T26 da CVM. Conferência cruzada: 1T26 (485.089) + 2T26 (510.844) = 995.933 (06M26) e 995.933 + 3T26 (501.334) = 1.497.267, contra 1.497.266 no 09M26 do release 3T26 (diferença de arredondamento).",
+    "ABL total do RIOSUL varia levemente entre releases (ABL média): 51.870 m² (4T25), 51.858 (1T26), 51.812 (2T26), 51.839 (3T26).",
+    "Ranking J.P. Morgan/Bloomberg Línea: R$ 3.784/m²/mês no 4T25; a conta direta com os números do release (588.790 mil ÷ 3 ÷ 51.870 m²) dá cerca de R$ 3.784 — coerente."
+  ],
+  "nao_encontrado": [
+    "Venda por m² do RIOSUL: a Iguatemi não publica vendas/m² por shopping, só a da carteira (e em R$/m² do período, não por mês) — ver release 3T26 (https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1). Precisa ser calculada.",
+    "Vendas do RIOSUL em 2024 e trimestres de 2025 anteriores ao 4T25: não encontradas. A Iguatemi passou a abrir vendas por shopping no release do 4T25 (segundo a Bloomberg Línea: 'após o Iguatemi ter reportado, junto com os resultados do quarto trimestre de 2025, dados de vendas divididos por propriedade'), e a tabela traz só 4T25 e 2025, sem comparativo.",
+    "Vendas mensais do RIOSUL: não divulgadas.",
+    "Não foi verificado em fonte primária se/desde quando a Iguatemi administra o RIOSUL; o release mostra participação de 16,63%. O outro sócio citado em comunicado (BBIG FII, 33,3%) não foi pesquisado."
+  ]
+}

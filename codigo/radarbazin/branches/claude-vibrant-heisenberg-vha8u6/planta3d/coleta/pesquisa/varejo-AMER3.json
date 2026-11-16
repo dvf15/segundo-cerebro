@@ -1,0 +1,111 @@
+{
+ "empresa": "Americanas S.A.",
+ "ticker": "AMER3",
+ "bolsa": "B3",
+ "situacao": "listada (AMER3); em recuperação judicial desde 2023 — pediu o encerramento em março/2026 e MP e administrador judicial deram parecer favorável; encerramento não confirmado em 14/11/2026",
+ "situacao_url": "https://visnoinvest.com.br/news/16450/americanas-amer3-registra-prejuizo-de-r-955-mi-no-3t26-e-9m26",
+ "marcas": [
+  {
+   "marca": "Americanas",
+   "nomes_no_arquivo": [
+    "AMERICANAS",
+    "LOJAS AMERICANAS"
+   ],
+   "url": "https://mercadoeconsumo.com.br/27/03/2026/noticias-varejo/americanas-descarta-fechamentos-massivos-e-aposta-em-lojas-como-hubs-de-entrega/amp/",
+   "trecho": "Americanas descarta fechamentos massivos e aposta em lojas como hubs de entrega (título) [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 12300000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.jb.com.br/economia/marcas/2026/03/1059092-americanas-tem-prejuizo-de-rs-44-mi-no-4-trimestre-de-2025-reducao-de-925-em-um-ano.html",
+   "trecho": "A receita líquida somou R$ 12,3 bilhões no ano, queda de 1,2% na comparação anual. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 1470,
+   "unidade": "lojas",
+   "escopo": "total de lojas ativas",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/27/03/2026/noticias-varejo/americanas-descarta-fechamentos-massivos-e-aposta-em-lojas-como-hubs-de-entrega/amp/",
+   "trecho": "foram 1.470 lojas ativas no fim de 2025, contra 1.587 no ano anterior [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 2966000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16450/americanas-amer3-registra-prejuizo-de-r-955-mi-no-3t26-e-9m26",
+   "trecho": "No 3T26, a receita bruta foi de R$ 3,5 bi, alta de 9,6%, e a receita líquida somou R$ 2,97 bi (R$ 2.966 mi), alta de 10,3%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T26",
+   "valor": 3500000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (arredondado)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16450/americanas-amer3-registra-prejuizo-de-r-955-mi-no-3t26-e-9m26",
+   "trecho": "No 3T26, a receita bruta foi de R$ 3,5 bi, alta de 9,6% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 9400000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (arredondado)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16450/americanas-amer3-registra-prejuizo-de-r-955-mi-no-3t26-e-9m26",
+   "trecho": "A receita líquida foi de R$ 9,4 bi no 9M26, avanço de 8,6%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "9M26",
+   "valor": 8.7,
+   "unidade": "%",
+   "escopo": "lojas físicas (fonte única)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16450/americanas-amer3-registra-prejuizo-de-r-955-mi-no-3t26-e-9m26",
+   "trecho": "as vendas nas mesmas lojas cresceram 8,7% no 9M26, para R$ 10,3 bi [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 3302000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/acoes/americanas-quase-triplica-prejuizo-no-2o-trimestre",
+   "trecho": "No 2T26, a receita líquida caiu 1,7%, para R$ 3,302 bilhões [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T26",
+   "valor": 3088000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://acionista.com.br/americanas-amer3-aumenta-receita-liquida-em-202-no-1t26/",
+   "trecho": "a receita líquida foi de R$ 3,088 bilhões entre janeiro e março, crescimento de 20,2% na comparação anual [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "SSS: +8,7% no 9M26 (fonte única) x -0,6% no 2T26 em outra fonte — conferir no release.",
+  "PUKET aparece no arquivo de marcas, mas a Americanas vendeu Imaginarium e Puket (notícia de 26/03/2026: mercadoeconsumo.com.br/26/03/2026/noticias-varejo/americanas-vende-imaginarium-e-puket-e-pede-fim-de-recuperacao-judicial) — por isso PUKET NÃO foi atribuída à Americanas.",
+  "Reportagens falam em 'cerca de 1.500' lojas; o número preciso achado é 1.470."
+ ],
+ "nao_encontrado": [
+  "Número de lojas no 3T26",
+  "Área de vendas (m²) e venda por m²",
+  "Confirmação da data de encerramento da recuperação judicial"
+ ]
+}

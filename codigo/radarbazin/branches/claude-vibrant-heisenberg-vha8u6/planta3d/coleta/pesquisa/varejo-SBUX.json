@@ -1,0 +1,45 @@
+{
+ "empresa": "Starbucks Corporation",
+ "ticker": "SBUX",
+ "bolsa": "Nasdaq",
+ "situacao": "listada",
+ "situacao_url": "https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Reports-Q4-and-Full-Fiscal-Year-2026-Results/default.aspx",
+ "marcas": [
+  {
+   "marca": "Starbucks (no Brasil a marca é operada pela Zamp - ver ZAMP3.json)",
+   "nomes_no_arquivo": [
+    "STARBUCKS"
+   ],
+   "url": "https://www.reuters.com/business/retail-consumer/mubadala-backed-zamp-buy-starbucks-brand-rights-stores-brazil-2024-06-06/",
+   "trecho": "Zamp has agreed to buy the rights to operate the Starbucks brand"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "ano fiscal 2026 (encerrado em 27/set/2026)",
+   "valor": 37900000000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Reports-Q4-and-Full-Fiscal-Year-2026-Results/default.aspx",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Starbucks Corporation (Nasdaq: SBUX) ... 52-week fiscal year ended September 27, 2026. Full-year revenue up 2% to $37.9 billion."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "ano fiscal 2026",
+   "valor": 6.2,
+   "unidade": "%",
+   "escopo": "companhia consolidada (global comparable sales)",
+   "publicado": true,
+   "url": "https://www.fastcasual.com/news/starbucks-closes-fiscal-2026-with-79-north-america-comp-gain/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] For the full fiscal year, global comp sales rose 6.2%, driven by a 3.2% increase in transactions and a 3% increase in average ticket."
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar."
+ ],
+ "nao_encontrado": [
+  "Nº de lojas Starbucks no Brasil"
+ ]
+}

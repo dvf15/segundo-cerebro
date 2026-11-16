@@ -33,9 +33,9 @@
   },
   {
     "slug": "radar-de-clausulas",
-    "title": "Radar de Cláusulas",
+    "title": "Radar de Cláusulas — Gestão e Aprovação",
     "url": "https://claude.ai/artifact/CPsSPhCanFUYRWuGS3Er93",
-    "updated": "2026-10-14",
+    "updated": "2026-11-16",
     "kind": "html",
     "owner": "mine"
   },
@@ -171,6 +171,38 @@
     "slug": "radar-de-shopping-centers-compartilhado",
     "title": "Radar de Shopping Centers (compartilhado comigo)",
     "url": "https://claude.ai/artifact/R18r9kqoNYxvWLqkrtEVUQ",
+    "updated": null,
+    "kind": "html",
+    "owner": "shared"
+  },
+  {
+    "slug": "planta-3d-shoppings",
+    "title": "Planta 3D Shoppings",
+    "url": "https://claude.ai/artifact/HSfNvHABZQHKbPGMWm4XLm",
+    "updated": "2026-11-14",
+    "kind": "html",
+    "owner": "mine"
+  },
+  {
+    "slug": "radar-de-renovacoes-mobile",
+    "title": "Radar de Renovações Mobile",
+    "url": "https://claude.ai/artifact/MTP5pLH3BSEoRFUZrE4kNG",
+    "updated": "2026-11-16",
+    "kind": "html",
+    "owner": "mine"
+  },
+  {
+    "slug": "nova-america-x-norteshopping",
+    "title": "Nova América × NorteShopping",
+    "url": "https://claude.ai/artifact/S7WBWYC8bp8kM7LRCxzqsk",
+    "updated": "2026-11-14",
+    "kind": "html",
+    "owner": "mine"
+  },
+  {
+    "slug": "riosul-planta-3d-compartilhado",
+    "title": "RIOSUL Planta 3D (compartilhado comigo)",
+    "url": "https://claude.ai/artifact/TkGEQQiTVg2Ggk1T8rqR6S",
     "updated": null,
     "kind": "html",
     "owner": "shared"

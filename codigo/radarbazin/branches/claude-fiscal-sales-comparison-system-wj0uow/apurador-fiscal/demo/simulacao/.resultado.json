@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-27",
+  "geradoEm": "2026-11-16",
   "ocr": false,
   "passos": [
     {
@@ -10,7 +10,7 @@
         {
           "item": "a base entrou com 40 lojistas",
           "esperado": "Base fictícia de teste · 40 lojistas",
-          "observado": "🧪 Base fictícia de teste carregada em 27/10/2026 — 40 lojistas inventados. Tudo o que você fizer aqui fica só neste navegador. Apagar base fictícia",
+          "observado": "🧪 Base fictícia de teste carregada em 16/11/2026 — 40 lojistas inventados. Tudo o que você fizer aqui fica só neste navegador. Apagar base fictícia",
           "ok": true,
           "obrigatorio": true
         }
@@ -123,14 +123,14 @@
         {
           "item": "ficha 2025 lida",
           "esperado": "26 linha(s) de venda",
-          "observado": "ficha-vendas-informadas-2025.xlsx 26 linha(s) de venda · 6 CNPJ · 01/2025–12/2025 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001-77 S",
+          "observado": "ficha-vendas-informadas-2025.xlsx 26 linha(s) de venda · 6 CNPJ · 01/2025–12/2025 ✕ LOJISTA (SE O ARQUIVO NÃO TROUXER CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001-77 S",
           "ok": true,
           "obrigatorio": true
         },
         {
           "item": "linha sem CNPJ recusada com aviso",
           "esperado": "CNPJ ilegível",
-          "observado": "ficha-vendas-informadas-2025.xlsx 26 linha(s) de venda · 6 CNPJ · 01/2025–12/2025 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001-77 S",
+          "observado": "ficha-vendas-informadas-2025.xlsx 26 linha(s) de venda · 6 CNPJ · 01/2025–12/2025 ✕ LOJISTA (SE O ARQUIVO NÃO TROUXER CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001-77 S",
           "ok": true,
           "obrigatorio": true
         }
@@ -263,7 +263,7 @@
         {
           "item": "Urbano Moda Masculina avançou para AUDITADO (ou já estava além)",
           "esperado": "AUDITADO",
-          "observado": "Urbano Moda Masculina LUC 187 · 56.288.060/0001-06 AUDITADO ✦ ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
+          "observado": "Urbano Moda Masculina LUC 187 · 56.288.060/0001-06 AUDITADO ✦ 1ª notif.2ª notif.3ª notif.aviso multamulta",
           "ok": true,
           "obrigatorio": true
         },
@@ -315,21 +315,21 @@
         {
           "item": "planilha do NAPP lida pelo número da loja",
           "esperado": "Tabular (NAPP) · dia(s) de NAPP",
-          "observado": "napp-vendas-diarias-2026-10.xlsx Tabular (NAPP) · 76 dia(s) de NAPP · 3 CNPJ · 10/2026 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001",
+          "observado": "napp-vendas-diarias-2026-10.xlsx Tabular (NAPP) · 76 dia(s) de NAPP · 3 CNPJ · 10/2026 ✕ LOJISTA (SE O ARQUIVO NÃO TROUXER CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001",
           "ok": true,
           "obrigatorio": true
         },
         {
           "item": "loja do NAPP fora da carteira é avisada",
           "esperado": "Loja(s) 999 sem CNPJ na carteira",
-          "observado": "napp-vendas-diarias-2026-10.xlsx Tabular (NAPP) · 76 dia(s) de NAPP · 3 CNPJ · 10/2026 ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001",
+          "observado": "napp-vendas-diarias-2026-10.xlsx Tabular (NAPP) · 76 dia(s) de NAPP · 3 CNPJ · 10/2026 ✕ LOJISTA (SE O ARQUIVO NÃO TROUXER CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinquedos Pipa · 66.681.907/0001-71 Casa Linho · 80.926.487/0001",
           "ok": true,
           "obrigatorio": true
         },
         {
           "item": "foto da redução Z lida por OCR (precisa de internet)",
           "esperado": "Redução Z",
-          "observado": "bambu-decor-reducao-z-foto-01-10-2026.jpg erro Não foi possível baixar o OCR (tesseract.js). Verifique a conexão ou converta a foto em PDF/Excel. ✕ Lojista (se o arquivo não trouxer CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinqu",
+          "observado": "bambu-decor-reducao-z-foto-01-10-2026.jpg erro Não foi possível baixar o OCR (tesseract.js). Verifique a conexão ou converta a foto em PDF/Excel. ✕ LOJISTA (SE O ARQUIVO NÃO TROUXER CNPJ) — pelo arquivo — Bela Cosméticos · 11.222.333/0001-81 Bela Cosméticos — quiosque · 11.222.333/0002-62 Café Aurora · 69.781.682/0001-13 Trilha & Cia · 47.231.337/0001-73 Ótica Horizonte · 18.637.317/0001-07 Brinqu",
           "ok": false,
           "obrigatorio": false
         },
@@ -469,7 +469,7 @@
         {
           "item": "o dashboard reflete a simulação",
           "esperado": "LIVROS RECEBIDOS · TRIANGULAÇÃO: MESES FECHADOS (10/2026)",
-          "observado": "LIVROS RECEBIDOS 61,9% APURADOS 52,4% COBRADOS 14,3% TRIANGULAÇÃO: MESES FECHADOS (10/2026) 11,9% PESQUISADOS NA JUNTA 81% TT FATURADA / ENCONTRADA 40,1%",
+          "observado": "LIVROS RECEBIDOS 64,3% APURADOS 45,2% COBRADOS 11,9% TRIANGULAÇÃO: MESES FECHADOS (10/2026) 73,8% PESQUISADOS NA JUNTA 85,7% TT FATURADA / ENCONTRADA 40,1%",
           "ok": true,
           "obrigatorio": true
         },

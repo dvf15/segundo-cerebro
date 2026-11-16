@@ -1,0 +1,206 @@
+{
+  "id": "parkshopping-sao-caetano",
+  "empresa": "Multiplan",
+  "ticker": "MULT3",
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1101400000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 2468,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 39252,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ParkShoppingSãoCaetano | 353.4 M | 330.3 M | +7.0% | 1,101.4 M | 1,021.0 M | +7.9% || Portfolio (2025): ParkShoppingSão Caetano | 2011 | SP | 80.0% | 39,252 sq.m | 2,468 R$/sq.m | 168 R$/sq.m | 97.2%"
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1021000000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": null,
+      "abl_fonte_url": null,
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ParkShoppingSãoCaetano | 353.4 M | 330.3 M | +7.0% | 1,101.4 M | 1,021.0 M | +7.9% (coluna comparativa 2024 do release do 4T25)"
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 353400000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 39252,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ParkShoppingSãoCaetano | 353.4 M | 330.3 M | +7.0% | 1,101.4 M | 1,021.0 M | +7.9%"
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 244800000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 2197,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 39252,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 1T26 | 1T25 | Var. % | mar/26 (12M) | mar/25 (12M) | Var.% || ParkShoppingSãoCaetano | 244,8 M | 225,1 M | +8,8% | 1.121,1 M | 1.031,9 M | +8,6% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || ParkShoppingSão Caetano | 80,0% | 39.252 m2 | 2.197 R$/m2 | 158 R$/m2 | 97,0%"
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 292400000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 2632,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 39252,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 2T26 | 2T25 | Var. % | 1S26 | 1S25 | Var. % || ParkShoppingSãoCaetano | 292,4 M | 273,4 M | +7,0% | 537,2 M | 498,4 M | +7,8% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || Park Shopping São Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.632 R$/m2 | 167 R$/m2 | 97,1%"
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 270700000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": 2423,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": true,
+      "abl_m2": 39252,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 3T26 | 3T25 | Var.% | 9M26 | 9M25 | Var.% || ParkShoppingSãoCaetano | 270,7 M | 249,5 M | +8,5% | 807,9 M | 747,9 M | +8,0% || Portfólio: Multiplan % | ABL Total | Vendas (mês) | Aluguel (mês) | Taxa de ocupação média || ParkShoppingSão Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.423 R$/m2 | 159 R$/m2 | 98,2%"
+    },
+    {
+      "periodo": "12 meses até mar/26",
+      "tipo_periodo": "12 meses",
+      "vendas_reais": 1121100000,
+      "base": "100% do shopping (vendas dos lojistas)",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 39252,
+      "abl_fonte_url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 1T26 | 1T25 | Var. % | mar/26 (12M) | mar/25 (12M) | Var.% || ParkShoppingSãoCaetano | 244,8 M | 225,1 M | +8,8% | 1.121,1 M | 1.031,9 M | +8,6%"
+    }
+  ],
+  "outros_indicadores": [
+    {
+      "indicador": "vendas dos lojistas acumuladas 9M26 (100%)",
+      "periodo": "9M26 (jan-set/2026)",
+      "valor": "R$ 807,9 milhões (9M25: R$ 747,9 milhões)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Vendas dos lojistas (100%) (R$) | 3T26 | 3T25 | Var.% | 9M26 | 9M25 | Var.% || ParkShoppingSãoCaetano | 270,7 M | 249,5 M | +8,5% | 807,9 M | 747,9 M | +8,0%"
+    },
+    {
+      "indicador": "vendas dos lojistas 4T24 (100%)",
+      "periodo": "4T24",
+      "valor": "R$ 330,3 milhões",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "Tenants' sales (100%) (R$) | 4Q25 | 4Q24 | Chg. % | 2025 | 2024 | Chg. % || ParkShoppingSãoCaetano | 353.4 M | 330.3 M | +7.0% | 1,101.4 M | 1,021.0 M | +7.9%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "2025",
+      "valor": "R$ 168/m²/mês",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "ParkShoppingSão Caetano | 2011 | SP | 80.0% | 39,252 sq.m | 2,468 R$/sq.m | 168 R$/sq.m | 97.2%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "2025",
+      "valor": "97,2%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "trecho": "ParkShoppingSão Caetano | 2011 | SP | 80.0% | 39,252 sq.m | 2,468 R$/sq.m | 168 R$/sq.m | 97.2%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "1T26",
+      "valor": "R$ 158/m²/mês",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "ParkShoppingSão Caetano | 80,0% | 39.252 m2 | 2.197 R$/m2 | 158 R$/m2 | 97,0%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "1T26",
+      "valor": "97,0%",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "trecho": "ParkShoppingSão Caetano | 80,0% | 39.252 m2 | 2.197 R$/m2 | 158 R$/m2 | 97,0%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "2T26",
+      "valor": "R$ 167/m²/mês",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Park Shopping São Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.632 R$/m2 | 167 R$/m2 | 97,1%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "2T26",
+      "valor": "97,1%",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Park Shopping São Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.632 R$/m2 | 167 R$/m2 | 97,1%"
+    },
+    {
+      "indicador": "aluguel/m² (mínimo + complementar, média mensal)",
+      "periodo": "3T26",
+      "valor": "R$ 159/m²/mês",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "ParkShoppingSão Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.423 R$/m2 | 159 R$/m2 | 98,2%"
+    },
+    {
+      "indicador": "taxa de ocupação média",
+      "periodo": "3T26",
+      "valor": "98,2%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "ParkShoppingSão Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.423 R$/m2 | 159 R$/m2 | 98,2%"
+    },
+    {
+      "indicador": "receita de locação do shopping (R$)",
+      "periodo": "3T26 / 9M26",
+      "valor": "3T26 R$ 15,5 M (3T25 R$ 18,3 M, -15,3%); 9M26 R$ 46,8 M (9M25 R$ 54,6 M, -14,3%)",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "Receita de locação (R$) | 3T26 | 3T25 | Var. % | 9M26 | 9M25 | Var. % || ParkShoppingSãoCaetano | 15,5 M | 18,3 M | -15,3% | 46,8 M | 54,6 M | -14,3%"
+    },
+    {
+      "indicador": "participação da Multiplan no shopping",
+      "periodo": "3T26",
+      "valor": "80,0%",
+      "url": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "trecho": "ParkShoppingSão Caetano | 2011 | SP | 80,0% | 39.252 m2 | 2.423 R$/m2 | 159 R$/m2 | 98,2%"
+    },
+    {
+      "indicador": "critério da venda/m² publicada",
+      "periodo": "2T26 (nota de rodapé da tabela Portfólio)",
+      "valor": "considera apenas a ABL de lojas âncoras e satélites que reportam vendas; exclui quiosques (não é venda total ÷ ABL total)",
+      "url": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "trecho": "Vendas por m2: o cálculo de vendas/m2 considera apenas a ABL de lojas âncoras e satélites que reportam vendas. e exclui as vendas de quiosques. pois estas operações não estão incluídas na ABL total."
+    }
+  ],
+  "divergencias": [
+    "Venda/m² publicada (tabela Portfólio) usa como denominador só a ABL de lojas âncoras e satélites que reportam vendas e exclui quiosques; por isso NÃO bate com vendas totais ÷ ABL total ÷ meses. Não misturar com valor 'calculado'.",
+    "Tabela Portfólio do release 4T25 (versão em inglês): a extração devolveu o cabeçalho como 'Sales (year)' / 'Rent (year)', mas a ordem de grandeza (milhares de R$/m²) é de média MENSAL, igual às tabelas trimestrais 'Vendas (mês)'. Registrado como R$/m²/mês; conferir o cabeçalho no PDF antes de publicar.",
+    "Valores de venda vêm dos releases arredondados a R$ 0,1 milhão (vendas_reais = valor x 1.000.000). A Planilha de Fundamentos 3T26 (https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/6792a854-1d37-41c1-b1ab-82fc8d0268e7) traz a série em R$ mil; a leitura automática da planilha misturou linhas de shoppings e não foi usada como fonte primária.",
+    "Conferência interna: 1S26 = 1T26 + 2T26, 9M26 = 1T26+2T26+3T26 e 12M mar/26 = 2025 - 1T25 + 1T26 fecham com os valores publicados (diferenças só de arredondamento).",
+    "Multiplan vendeu 20,0% do ParkShoppingSãoCaetano (participação caiu para 80,0%); a queda da receita de locação (-15,3% no 3T26) reflete a venda, não o desempenho. Vendas são 100% do shopping.",
+    "Atenção a homônimos: na Planilha de Fundamentos a leitura automática confundiu a linha com a do ParkShoppingBarigüi (2025: R$ 1.959,0 mi). O valor correto do ParkShoppingSãoCaetano em 2025 é R$ 1.101,4 mi (release 4T25)."
+  ],
+  "nao_encontrado": [
+    "Venda/m² e ABL de 2024 por shopping: o release do 4T24 não foi localizado/lido (vendas de 2024 vêm da coluna comparativa do release do 4T25).",
+    "Versão em português do release do 4T25: não localizada (página 'Central de Resultados' só carregou 2026 na leitura automática); usada a versão oficial em inglês hospedada no mesmo repositório de RI.",
+    "Página institucional multiplan.com.br do shopping com vendas do ano: URL tentada retornou 404; não explorada além disso.",
+    "SSS (vendas mesmas lojas) e custo de ocupação POR SHOPPING: a Multiplan só divulga consolidado (3T26: SSS 3,1%, custo de ocupação 13,0%).",
+    "Leitura dos PDFs feita por extração automática (Firecrawl, modo consulta) em 14/11/2026; os 'trechos' são linhas de tabela reconstituídas pela ferramenta, não cópia de tela."
+  ]
+}

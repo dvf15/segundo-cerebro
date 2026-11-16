@@ -1,0 +1,5 @@
+{
+  "diamondmall": {"1º Piso": "L1", "2º Piso": "L2", "3º Piso": "L3", "4º Piso": "L4", "G1": "G1", "_sem_piso": "L1"},
+  "analia-franco": {"Piso Acácia": "LAC", "Piso Orquídea": "LOR", "Piso Tulipa": "LTU", "Piso Lírio": "LLI", "Piso G5": "G5", "_sem_piso": "LOR"},
+  "parkshopping-sao-caetano": {"L1": "L1", "L2": "L2", "3º PISO": "L3", "Subsolo": "SS", "_sem_piso": "L1"}
+}

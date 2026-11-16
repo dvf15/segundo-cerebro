@@ -1,0 +1,93 @@
+{
+ "empresa": "d1000 Varejo Farma Participações S.A. (controlada da Profarma)",
+ "ticker": "DMVF3",
+ "bolsa": "B3",
+ "situacao": "listada (empresa acrescentada: não estava na lista de candidatas)",
+ "situacao_url": "https://statusinvest.com.br/acoes/dmvf3",
+ "marcas": [
+  {
+   "marca": "Drogasmil",
+   "nomes_no_arquivo": [
+    "DROGASMIL"
+   ],
+   "url": "https://investimentos.com.br/ativo/dmvf3/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Its footprint is concentrated in the states of Rio de Janeiro, Mato Grosso, Goiás and the Federal District, where the brands Drogarias Tamoio, Drogasmil, Farmalife and Rosário are located. (d1000 Varejo Farma, B3: DMVF3, controlada da Profarma)"
+  },
+  {
+   "marca": "Farmalife",
+   "nomes_no_arquivo": [
+    "FARMALIFE"
+   ],
+   "url": "https://investimentos.com.br/ativo/dmvf3/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Its footprint is concentrated in the states of Rio de Janeiro, Mato Grosso, Goiás and the Federal District, where the brands Drogarias Tamoio, Drogasmil, Farmalife and Rosário are located. (d1000 Varejo Farma, B3: DMVF3, controlada da Profarma)"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2025",
+   "valor": 2591900000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/dd6103ac-e9a2-bb8e-156e-a3c35d624412?origin=2",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] 2025 full year: Gross revenue reached R$ 2,591.9 million, up 17.5%, and the company ended 4T25 with 300 stores, per the 4T25 release."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025 (dez/25)",
+   "valor": 300,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada (4 bandeiras)",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/dd6103ac-e9a2-bb8e-156e-a3c35d624412?origin=2",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] the company ended 4T25 with 300 stores, per the 4T25 release"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 703500000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/1de7026e-4211-cbf9-0c8f-1265e00200de?origin=2",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] 2T26 (latest found): 312 stores, with gross revenue of R$ 703.5 million, up 10.8% vs 2T25."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "6M26",
+   "valor": 1399400000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/1de7026e-4211-cbf9-0c8f-1265e00200de?origin=2",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] For the first half of 2026, gross revenue was R$ 1,399.4 million, up 15.7% (6M26 vs 6M25)."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 312,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada (4 bandeiras)",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/3ca09921-ff49-47d4-b0b8-7cd43453a9aa/1de7026e-4211-cbf9-0c8f-1265e00200de?origin=2",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] 2T26 (latest found): 312 stores"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "3T25",
+   "valor": 680900000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://investidor10.com.br/acoes/link_comunicado/DMVF3/24526",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] 3T25: The company reported R$ 680.9 MM gross revenue, +18.4% and 283 stores at quarter-end."
+  }
+ ],
+ "divergencias": [],
+ "nao_encontrado": [
+  "Resultado do 3T26.",
+  "Lojas e receita por bandeira (Drogasmil, Farmalife, Tamoio, Rosário); área de vendas m²; venda por m² ou por loja; SSS.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

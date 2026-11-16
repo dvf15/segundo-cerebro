@@ -6,7 +6,7 @@ export default function SettingsPage() {
     <main className="mx-auto max-w-2xl p-4 pb-32">
       <header className="mb-4">
         <h1 className="text-2xl font-extrabold tracking-tight text-white">Perfil &amp; Exames</h1>
-        <p className="text-[13px] text-slate-400">Dados, metas, suplementos e referencial científico</p>
+        <p className="text-[14px] text-slate-400">Dados, metas, suplementos e referencial científico</p>
       </header>
       <ProfileForm />
       <BottomNav />

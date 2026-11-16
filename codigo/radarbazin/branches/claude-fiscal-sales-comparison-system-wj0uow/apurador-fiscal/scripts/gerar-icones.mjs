@@ -2,10 +2,10 @@
 /**
  * Gera os ícones do app a partir de um desenho único.
  *
- * Um livro aberto minimalista: duas páginas simétricas separadas por uma
- * fresta que deixa o verde do fundo aparecer como lombada. A página da
- * direita é levemente tingida — dá volume sem nenhuma linha interna, que
- * some de qualquer jeito a 48px na tela inicial.
+ * No estilo dos ícones das ferramentas do radarbazin1 (Radar de Varejo e
+ * família): fundo verde-petróleo chapado, traço branco grosso e um detalhe em
+ * verde-claro. O desenho é uma folha de livro fiscal sob uma lupa, com a venda
+ * (três barras) dentro da lente — legível a 48px na tela inicial.
  *
  * As cores vivem só em icones/paleta.json.
  *
@@ -22,32 +22,25 @@ const dir = join(raiz, 'icones')
 if (!existsSync(dir)) mkdirSync(dir)
 const cor = JSON.parse(readFileSync(join(dir, 'paleta.json'), 'utf8'))
 
-/** Traço arredondado nos cantos das páginas, em vez de bicos. */
-const ARREDONDA = 'stroke-linejoin="round" stroke-linecap="round" stroke-width="10"'
-
 /**
- * @param {boolean} cheio  true = sangra até a borda (ícone "maskable", que o
- *   sistema recorta como quiser); false = quadrado de cantos arredondados.
+ * @param {boolean} cheio  true = ícone "maskable" (o sistema recorta como quiser):
+ *   o desenho encolhe para a área segura. Os dois sangram até a borda, como os
+ *   ícones das outras ferramentas (operacoes-icon-*.png), e o sistema arredonda.
  */
 function svg (cheio) {
-  // no maskable o desenho encolhe para caber na área segura do recorte
-  const k = cheio ? 0.76 : 1
+  const k = cheio ? 0.8 : 1
   const t = (256 * (1 - k)).toFixed(1)
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Livro aberto">
-  <defs>
-    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${cor.verde}"/>
-      <stop offset="1" stop-color="${cor.verdeProfundo}"/>
-    </linearGradient>
-  </defs>
-  ${cheio
-    ? `<rect width="512" height="512" fill="url(#fundo)"/>`
-    : `<rect width="512" height="512" rx="112" ry="112" fill="url(#fundo)"/>`}
+  const traco = `stroke="${cor.papel}" stroke-linecap="round" stroke-linejoin="round" fill="none"`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Livro fiscal sob a lupa">
+  <rect width="512" height="512" fill="${cor.verde}"/>
   <g transform="translate(${t} ${t}) scale(${k})">
-    <path d="M 250 200 C 210 174, 148 162, 88 182 L 88 332 C 148 312, 210 324, 250 352 Z"
-      fill="${cor.papel}" stroke="${cor.papel}" ${ARREDONDA}/>
-    <path d="M 262 200 C 302 174, 364 162, 424 182 L 424 332 C 364 312, 302 324, 262 352 Z"
-      fill="${cor.papelSombra}" stroke="${cor.papelSombra}" ${ARREDONDA}/>
+    <!-- a folha do livro -->
+    <path d="M 128 86 H 300 L 352 138 V 250 M 128 86 V 426 H 236" ${traco} stroke-width="30"/>
+    <path d="M 176 168 H 268 M 176 228 H 252 M 176 288 H 214" ${traco} stroke-width="26"/>
+    <!-- a lupa, com a venda (três barras) dentro da lente -->
+    <circle cx="334" cy="336" r="86" fill="${cor.destaque}" stroke="${cor.papel}" stroke-width="30"/>
+    <path d="M 398 400 L 446 448" ${traco} stroke-width="36"/>
+    <path d="M 300 368 V 344 M 334 368 V 308 M 368 368 V 328" stroke="${cor.verde}" stroke-width="20" stroke-linecap="round" fill="none"/>
   </g>
 </svg>`
 }
@@ -89,7 +82,7 @@ const manifesto = {
   scope: './',
   display: 'standalone',
   orientation: 'any',
-  background_color: cor.verdeProfundo,
+  background_color: cor.fundo,
   theme_color: cor.verde,
   lang: 'pt-BR',
   icons: [
@@ -100,4 +93,4 @@ const manifesto = {
 }
 writeFileSync(join(raiz, 'manifest.webmanifest'), JSON.stringify(manifesto, null, 2) + '\n', 'utf8')
 console.log('manifest.webmanifest')
-console.log('\ncores usadas:', cor.verde, '/', cor.verdeProfundo, '— provisórias, veja icones/paleta.json')
+console.log('\ncores usadas:', cor.verde, '/', cor.destaque, '— as do template do Radar de Varejo, em icones/paleta.json')

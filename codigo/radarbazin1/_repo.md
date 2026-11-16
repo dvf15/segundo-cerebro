@@ -1,16 +1,16 @@
 ---
 title: "radarbazin1"
-date: 2026-11-02
+date: 2026-11-16
 source: "github"
 source_id: "dvf15/radarbazin1"
 url: "https://github.com/dvf15/radarbazin1"
 private: true
 branch: "main"
-commit: "15f5c0d"
-files: 270
-size_mb: 24.2
+commit: "7737740"
+files: 305
+size_mb: 43.2
 skipped: 2
-branches_with_work: 22
+branches_with_work: 23
 tags: ["codigo", "github", "repo/radarbazin1"]
 ---
 # radarbazin1
@@ -18,9 +18,9 @@ tags: ["codigo", "github", "repo/radarbazin1"]
 Radar de shopping centers: docs, workflows de leads, app bloquinhos
 
 - **GitHub:** https://github.com/dvf15/radarbazin1
-- **Branch padrão espelhado:** main · **commit:** 15f5c0d · **último commit:** 2026-11-02T10:11:50-03:00
-- **Código-fonte do branch padrão:** pasta `src/` (270 arquivos, 24.2 MB). Histórico de commits fica no GitHub.
-- **Trabalho em outros branches:** pasta `branches/` (22 branches, 288 arquivos, 77.8 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
+- **Branch padrão espelhado:** main · **commit:** 7737740 · **último commit:** 2026-11-16T00:54:41+00:00
+- **Código-fonte do branch padrão:** pasta `src/` (305 arquivos, 43.2 MB). Histórico de commits fica no GitHub.
+- **Trabalho em outros branches:** pasta `branches/` (23 branches, 354 arquivos, 82.0 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
 
 ## Arquivos do branch padrão acima de 20 MB (só no GitHub)
 
@@ -34,14 +34,15 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 | `claude/ai-orchestration-training-6576av` | `branches/claude-ai-orchestration-training-6576av/` | 3 | 3 | 2026-07-11 — Módulos de guardrails e auditoria do modelo no treinamento de orquestração |
 | `claude/benefits-ux-improvements-7ptjlq` | `branches/claude-benefits-ux-improvements-7ptjlq/` | 4 | 8 | 2026-07-03 — Add 'Anexo para consulta' page with verbatim source texts |
 | `claude/casas-bahia-risk-analysis-6rceir` | `branches/claude-casas-bahia-risk-analysis-6rceir/` | 2 | 3 | 2026-08-16 — Amplia deck da Casas Bahia com erros estratégicos, exposição e pipeline |
-| `claude/clause-approval-strategy-sbulaw` | `branches/claude-clause-approval-strategy-sbulaw/` | 1 | 1 | 2026-11-02 — Ferramentas publicas fora do middleware |
+| `claude/clause-approval-strategy-sbulaw` | `branches/claude-clause-approval-strategy-sbulaw/` | 3 | 2 | 2026-11-16 — Matcher inclui o Radar de Renovacoes e seus videos |
 | `claude/exec-compensation-simulator-y9fq93` | `branches/claude-exec-compensation-simulator-y9fq93/` | 6 | 8 | 2026-09-01 — Torna o simulador instalavel: service worker, botao e instrucoes |
 | `claude/fable5-agent-builder-config-4vn6pq` | `branches/claude-fable5-agent-builder-config-4vn6pq/` | 3 | 5 | 2026-07-16 — Base de teste completa (Excel + 3 CSVs) para exercitar todas as funcionalidad |
-| `claude/fitness-photo-workout-app-swee4u` | `branches/claude-fitness-photo-workout-app-swee4u/` | 1 | 4 | 2026-10-12 — Histórico: barra de tempo em calorias/macros/micros/pressão e calorias vs met |
+| `claude/fitness-photo-workout-app-swee4u` | `branches/claude-fitness-photo-workout-app-swee4u/` | 1 | 19 | 2026-11-14 — Aumenta um pouco a fonte dos textos do app (+1px nos tamanhos pequenos) |
 | `claude/kiosk-investor-screening-ickf15` | `branches/claude-kiosk-investor-screening-ickf15/` | 1 | 1 | 2026-08-20 — Seguranca: corrige XSS armazenado/refletido e adiciona hardening |
 | `claude/math-game-numberblocks-vjfnkf` | `branches/claude-math-game-numberblocks-vjfnkf/` | 3 | 15 | 2026-10-19 — Pop-up "Pense com calma" em todos os jogos de múltipla escolha |
 | `claude/media-screening-tool-executives-xlp20a` | `branches/claude-media-screening-tool-executives-xlp20a/` | 2 | 2 (+2 só no GitHub) | 2026-10-27 — Radar de Mídia: vídeos do fluxo revisado e das mudanças pedidas no teste |
 | `claude/media-vehicle-reit-analysis-dekwqf` | `branches/claude-media-vehicle-reit-analysis-dekwqf/` | 3 | 29 | 2026-06-26 — Add Obsidian vault: concept stubs, deep-dive notes, README as MOC |
+| `claude/radar-auditoria` | `branches/claude-radar-auditoria/` | 2 | 43 (+2 só no GitHub) | 2026-11-16 — Radar de Auditoria no template e paleta do Radar de Varejo |
 | `claude/seguro-lojas-estrategia-auzz4y` | `branches/claude-seguro-lojas-estrategia-auzz4y/` | 3 | 4 | 2026-08-23 — docs: deck PPTX do material de pre-comite de Seguro para Lojas |
 | `claude/shopping-ai-efficiency-presentation-vlfzql` | `branches/claude-shopping-ai-efficiency-presentation-vlfzql/` | 134 | 137 (+1 só no GitHub) | 2026-10-29 — Workshop: versao final (VF) a partir do PDF de referencia + versao de 1h30 pa |
 | `claude/shopping-app-guidelines-pzkv93` | `branches/claude-shopping-app-guidelines-pzkv93/` | 2 | 1 | 2026-07-21 — Adiciona Ciclo 2 das orientações: Goal, shopping ativo e revisão dos agentes |
@@ -52,9 +53,11 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 | `claude/training-markdown-file-11rsdm` | `branches/claude-training-markdown-file-11rsdm/` | 1 | 1 | 2026-07-07 — Adiciona treinamento Shopping Inteligente IA (Mooca Plaza) em Markdown |
 | `claude/treino-funcional-jiu-jitsu-hhyk9q` | `branches/claude-treino-funcional-jiu-jitsu-hhyk9q/` | 1 | 1 | 2026-07-19 — Agenda semanal padrao do dono: musculacao, BJJ e HIIT por dia da semana |
 | `claude/via-center-niteroi-development-3sqqae` | `branches/claude-via-center-niteroi-development-3sqqae/` | 8 | 5 | 2026-09-02 — Dossie Via Center: compacta o slide de riscos para a regularidade do Plaza |
-| `nutritreino` | `branches/nutritreino/` | 28 | 36 | 2026-10-12 — Histórico: barra de tempo em calorias/macros/micros/pressão e calorias vs met |
+| `nutritreino` | `branches/nutritreino/` | 29 | 43 | 2026-11-14 — Aumenta um pouco a fonte dos textos do app (+1px nos tamanhos pequenos) (#182 |
 
 **Só no GitHub (`claude/media-screening-tool-executives-xlp20a`):** public/midia-o-que-mudou.mp4 (vídeo), public/midia-passo-a-passo-celular.mp4 (vídeo)
+
+**Só no GitHub (`claude/radar-auditoria`):** public/auditoria-novidades.mp4 (vídeo), public/auditoria-passo-a-passo-celular.mp4 (vídeo)
 
 **Só no GitHub (`claude/shopping-ai-efficiency-presentation-vlfzql`):** apresentacao/Workshop_Shopping_Inteligente_VF.pptx (acima de 20 MB ou ilegível)
 
@@ -73,6 +76,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - [[codigo/radarbazin1/src/docs/RADAR-CLAUSULAS|docs/RADAR-CLAUSULAS.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-MIDIA|docs/RADAR-MIDIA.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-QUIOSQUES|docs/RADAR-QUIOSQUES.md]]
+- [[codigo/radarbazin1/src/docs/RADAR-RENOVACOES|docs/RADAR-RENOVACOES.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-VAREJO|docs/RADAR-VAREJO.md]]
 - [[codigo/radarbazin1/src/docs/SEGUNDA-PESSOA|docs/SEGUNDA-PESSOA.md]]
 - [[codigo/radarbazin1/src/docs/SIMULADOR-ESTRUTURA-SHOPPINGS|docs/SIMULADOR-ESTRUTURA-SHOPPINGS.md]]
@@ -91,6 +95,8 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - [[codigo/radarbazin1/src/docs/workflow-qualificacao-leads/Saida-B-Investidor-sem-Operacao|docs/workflow-qualificacao-leads/Saida-B-Investidor-sem-Operacao.md]]
 - [[codigo/radarbazin1/src/docs/workflow-qualificacao-leads/Saida-C-Segmento-Saturado|docs/workflow-qualificacao-leads/Saida-C-Segmento-Saturado.md]]
 - [[codigo/radarbazin1/src/docs/workflow-qualificacao-leads/Template-Ficha-de-Lead|docs/workflow-qualificacao-leads/Template-Ficha-de-Lead.md]]
+- [[codigo/radarbazin1/src/ferramentas/radar-renovacoes/README|ferramentas/radar-renovacoes/README.md]]
+- [[codigo/radarbazin1/src/ferramentas/radar-renovacoes/base-teste/guia-de-teste|ferramentas/radar-renovacoes/base-teste/guia-de-teste.md]]
 - [[codigo/radarbazin1/src/obsidian/00 - MOC - Projeto Cláusulas|obsidian/00 - MOC - Projeto Cláusulas.md]]
 - [[codigo/radarbazin1/src/obsidian/Conceitos/Alçadas e Roteamento|obsidian/Conceitos/Alçadas e Roteamento.md]]
 - [[codigo/radarbazin1/src/obsidian/Conceitos/Balança de Decisão|obsidian/Conceitos/Balança de Decisão.md]]
@@ -111,6 +117,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - [[codigo/radarbazin1/src/obsidian/Skills/Skill - Geração de Artefatos (pptx, xlsx, pdf)|obsidian/Skills/Skill - Geração de Artefatos (pptx, xlsx, pdf).md]]
 - [[codigo/radarbazin1/src/obsidian/Skills/Skill - Paleta ALLOS (pptallos)|obsidian/Skills/Skill - Paleta ALLOS (pptallos).md]]
 - [[codigo/radarbazin1/src/public/exemplos/LEIA-ME-base-de-teste|public/exemplos/LEIA-ME-base-de-teste.md]]
+- [[codigo/radarbazin1/src/public/exemplos/renovacoes-guia-de-teste|public/exemplos/renovacoes-guia-de-teste.md]]
 - [[codigo/radarbazin1/src/sistema/COMO_USAR_NO_CLAUDE_CHAT|sistema/COMO_USAR_NO_CLAUDE_CHAT.md]]
 - [[codigo/radarbazin1/src/sistema/README|sistema/README.md]]
 - [[codigo/radarbazin1/src/sistema/_fonte/MODELO_FONTE|sistema/_fonte/MODELO_FONTE.md]]
@@ -235,6 +242,7 @@ docs/PESQUISA-EXECUTIVOS.md
 docs/RADAR-CLAUSULAS.md
 docs/RADAR-MIDIA.md
 docs/RADAR-QUIOSQUES.md
+docs/RADAR-RENOVACOES.md
 docs/RADAR-VAREJO.md
 docs/Radar-Quiosques-Guia-Executivo.pptx
 docs/SEGUNDA-PESSOA.md
@@ -258,6 +266,27 @@ docs/workflow-qualificacao-leads/Saida-A-Negocio-Estruturado.md
 docs/workflow-qualificacao-leads/Saida-B-Investidor-sem-Operacao.md
 docs/workflow-qualificacao-leads/Saida-C-Segmento-Saturado.md
 docs/workflow-qualificacao-leads/Template-Ficha-de-Lead.md
+ferramentas/radar-renovacoes/.gitignore
+ferramentas/radar-renovacoes/README.md
+ferramentas/radar-renovacoes/base-teste/base-teste.json
+ferramentas/radar-renovacoes/base-teste/base-teste.xlsx
+ferramentas/radar-renovacoes/base-teste/dispersao-teste.csv
+ferramentas/radar-renovacoes/base-teste/gerar-base-teste.mjs
+ferramentas/radar-renovacoes/base-teste/guia-de-teste.md
+ferramentas/radar-renovacoes/base-teste/montar-xlsx.py
+ferramentas/radar-renovacoes/exemplo.json
+ferramentas/radar-renovacoes/gerar.mjs
+ferramentas/radar-renovacoes/gravar-celular.cjs
+ferramentas/radar-renovacoes/gravar-como-usar.cjs
+ferramentas/radar-renovacoes/modelo-importacao.xlsx
+ferramentas/radar-renovacoes/moldura-celular.py
+ferramentas/radar-renovacoes/motor.mjs
+ferramentas/radar-renovacoes/src/app.src.html
+ferramentas/radar-renovacoes/src/icones-varejo.js
+ferramentas/radar-renovacoes/src/painel.src.html
+ferramentas/radar-renovacoes/src/renovacoes-icon.svg
+ferramentas/radar-renovacoes/testar.mjs
+ferramentas/radar-renovacoes/vendor/xlsx.mini.min.js
 index.html
 lib/alerts.ts
 lib/anthropic.ts
@@ -338,6 +367,11 @@ public/exemplos/pontos-shopping-exemplo.csv
 public/exemplos/radar-varejo-base-teste.json
 public/exemplos/radar-varejo-base-teste.xlsx
 public/exemplos/radar-varejo-pipeline.xlsx
+public/exemplos/renovacoes-base-teste.json
+public/exemplos/renovacoes-base-teste.xlsx
+public/exemplos/renovacoes-dispersao-teste.csv
+public/exemplos/renovacoes-guia-de-teste.md
+public/exemplos/renovacoes-modelo-importacao.xlsx
 public/icon-pink.png
 public/icon-pink.svg
 public/icon.png
@@ -366,6 +400,14 @@ public/quiosque-icon-192.png
 public/quiosque-icon.png
 public/quiosques.html
 public/quiosques.webmanifest
+public/renovacoes-celular.mp4
+public/renovacoes-como-usar.mp4
+public/renovacoes-icon-180.png
+public/renovacoes-icon-192.png
+public/renovacoes-icon-512.png
+public/renovacoes-icon.svg
+public/renovacoes.html
+public/renovacoes.webmanifest
 public/simulador-estrutura.html
 scripts/test-clausulas.mjs
 scripts/vercel-build.mjs

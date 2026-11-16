@@ -10,4 +10,4 @@ _1 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Repo |
 | --- | --- | --- |
-| 2026-10-30 | [[claude/sessoes-code/2026-10/2026-10-30_backup-claude_d2fb3e46\|Backup Claude]] | radarbazin |
+| 2026-10-30 | [[claude/sessoes-code/2026-10/2026-10-30_backup-claude-segundo-cerebro_d2fb3e46\|Backup Claude segundo-cerebro]] | user |

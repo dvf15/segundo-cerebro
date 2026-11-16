@@ -1,0 +1,405 @@
+{
+  "id": "ID_DA_PASTA",
+  "nome": "Mooca Plaza Shopping",
+  "curto": "MOOCA PLAZA SHOPPING",
+  "papel": "meu shopping",
+  "subtitulo": "R. Cap. Pacheco e Chaves, 313 – Vila Prudente, São Paulo – SP, CEP 03126-000 · ALLOS",
+  "coleta": null,
+  "origem_lista": "relação colada na página",
+  "link_loja": null,
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    {
+      "rotulo": "Âncoras + megalojas",
+      "chaves": [
+        "ancoras",
+        "megalojas"
+      ]
+    },
+    "vagas",
+    "consumidores_mes",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "29/11/2011",
+      "nota": "Ficha ALLOS traz só o ano (2011)",
+      "fonte": "rad.cvm.gov.br"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 42067,
+      "unidade": "m²",
+      "nota": "Na inauguração: 41.964 m² (ver divergencias)",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída / estrutura",
+      "valor": 112000,
+      "unidade": "m²",
+      "nota": "Fonte diz 'estrutura de 112 mil m²'",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 221,
+      "nota": "Mesma página cita 241 operações; outras fontes 233 e 'mais de 250' (ver divergencias)",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Lojas-âncora",
+      "valor": 7,
+      "nota": "Texto da mesma página diz 'seis âncoras'",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 9,
+      "nota": "Texto da mesma página diz 'oito megalojas'",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Operações de alimentação",
+      "valor": 42,
+      "nota": "Além disso: 9 restaurantes fora da praça; praça de alimentação com 980 lugares",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "restaurantes_fora_da_praca",
+      "rotulo": "Restaurantes fora da praça",
+      "valor": 9,
+      "nota": "Texto da mesma página diz 'sete restaurantes'",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "praca_alimentacao_lugares",
+      "rotulo": "Praça de alimentação",
+      "valor": 980,
+      "unidade": "lugares",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 6,
+      "nota": "Cinemark, uma sala XD",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 2525,
+      "nota": "Na inauguração: 2.385 (ver divergencias)",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "consumidores_mes",
+      "rotulo": "Consumidores/mês",
+      "valor": 750000,
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil",
+      "valor": "A/B",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "lazer",
+      "rotulo": "Lazer",
+      "valor": "Neo Geo Family, Go Kids Lab, Pet Park, Cinemark, Carrinhos Kids, Teatro",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · autor do projeto",
+      "valor": "Paulo Baruki Arquitetura",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · ano",
+      "valor": "Projeto 2009 | conclusão 2011",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · obra",
+      "valor": "Obra iniciada em julho de 2010 e concluída em novembro de 2011; desenvolvido pela BRMALLS",
+      "fonte": "rad.cvm.gov.br"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · características",
+      "valor": "Elementos clássicos integrados a linhas contemporâneas, ênfase em áreas de convívio e jardins",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · características (sustentabilidade)",
+      "valor": "Preservação da topografia e da massa arbórea; fachadas em vidro e claraboias para luz natural; brises nas varandas dos restaurantes; 'chaminés solares'",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · características",
+      "valor": "3,5 mil metros de iluminação natural, duas varandas, duas alamedas de serviço",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · porte na inauguração",
+      "valor": "Maior shopping inaugurado no Brasil em 2011 e maior já desenvolvido pela BRMALLS",
+      "fonte": "rad.cvm.gov.br"
+    },
+    {
+      "chave": "arq_8",
+      "rotulo": "Projeto · expansões (projeto)",
+      "valor": "Masterplan prevê expansão do varejo com mais de 19 mil m² de ABL adicional e dois edifícios corporativos (~28 mil m² de área privativa)",
+      "fonte": "allos.com.br"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1138850000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2256.0,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 1052458000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2084.9,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 286439000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2269.7,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 302051000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2393.4,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 257510000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2040.5,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 365800000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2898.6,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    },
+    {
+      "periodo": "3T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 261782000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2069.1,
+      "abl": 42173,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.75
+    },
+    {
+      "periodo": "2T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 276232000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2188.8,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.5
+    },
+    {
+      "periodo": "1T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 235037000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1862.4,
+      "abl": 42067,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.25
+    }
+  ],
+  "vendas_empresa": "ALLOS (ALOS3)",
+  "vendas_nota": "Fonte: Planilha de Fundamentos 3T26 da ALLOS, tabela de vendas totais por shopping a 100%, lida por extração automática em 14/11/2026. A ALLOS não publica venda por m² por shopping, só a da carteira (R$ 2.017 por m² ao mês no 3T26).",
+  "niveis": [
+    {
+      "id": "L1",
+      "nome": "1º Piso (L1)",
+      "uso": "[FALTA: uso do piso]"
+    },
+    {
+      "id": "L2",
+      "nome": "2º Piso (L2)",
+      "uso": "[FALTA: uso do piso]"
+    }
+  ],
+  "contorno": [[28.8,-175.5],[99.4,-183.1],[107.4,-183.1],[111.3,-180],[113.9,-171.3],[105.9,-113.3],[96.8,-113.7],[92.2,-89.4],[71.6,-92.9],[70.8,-57.2],[74.2,-55],[72.7,-40.9],[93.7,-32.6],[49.8,67.8],[29.6,59.1],[20.4,70.5],[17,68.2],[-17,110.3],[-3.6,120.9],[-54,183.1],[-113.9,135.7],[-81.1,95.5],[-73.9,101.2],[-49,70.1],[-53.6,67.1],[-40.6,40.6],[-46.8,39.7],[-46.1,34],[-51.6,33],[-50.5,22.1],[-50.5,17],[-49.4,9.2],[-37.2,-3.8],[-36,-9.1],[-33.4,-15],[-27,-38.9],[-18.5,-46.2],[-7.8,-70.9],[17.8,-60.3],[20,-64.4],[11.3,-77.3],[6.3,-70.9],[-1.7,-77.3],[7.4,-88.7],[13.9,-86],[23.1,-110.3],[30.7,-109.2],[35.7,-149],[25,-149.7]],
+  "metodo": [
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio, entradas e ruas: OpenStreetMap."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Lista de lojas e quiosques: não está embutida. O site do shopping é da ALLOS e a lista entra pela relação colada na aba Lojas ou por um arquivo lojas.csv."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pisos: a pesquisa não achou em fonte pública os nomes nem a quantidade de pisos. O modelo traz dois pisos provisórios; a relação de lojas cria os que faltarem."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Desenho de cada piso: esquemático (fileira externa, corredor com quiosques, ilha central e átrio)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: ABL: 42.067 m².com.br/shopping/mooca-plaza-shopping/) x 41.964 m² na inauguração.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Lojas: 221 lojas na ficha e '241 operações' no texto da mesma página.com.br/shopping/mooca-plaza-shopping/) x 233 na inauguração.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1) x 'mais de 250 lojas'.com.br/projetos_multiuso/mooca-plaza-shopping/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Âncoras e megalojas: ficha '7 lojas-âncora, 9 megalojas' x texto 'oito megalojas e seis âncoras', ambos em.com.br/shopping/mooca-plaza-shopping/; na inauguração '16 lojas âncoras e megalojas'.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Restaurantes: 'sete restaurantes' no texto x '9 restaurantes fora da praça' na ficha, ambos em.com.br/shopping/mooca-plaza-shopping/"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Vagas: 2.525.com.br/shopping/mooca-plaza-shopping/) x 2.385 na inauguração.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Bairro: ALLOS e site do shopping dão 'Vila Prudente' no endereço.com.br/como-chegar/); comunicado da BRMALLS fala em 'distrito da Mooca'.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Página ALLOS repete 42.067 como 'ABL' e 'ABC em (m²)'.com.br/shopping/mooca-plaza-shopping/)"
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Nomes dos pisos e o que há em cada um; número de pisos de lojas (site oficial fala apenas em 'todos os andares'; mapa interativo não legível); Número de quiosques; Área do terreno e prêmios de arquitetura; Passarela ou acesso direto à estação Ipiranga da CPTM (a fonte dá só a distância de 400 m); Torre comercial ou residencial já construída e ligada ao shopping (só o projeto de dois edifícios corporativos); Hotel, hospital ou universidade ligados ao shopping; Estação Ipiranga da Linha 15-Prata (em construção, segundo a Wikipedia) e eventual relação com o shopping: nenhuma fonte liga uma ao outro; Artigo da Wikipedia sobre o shopping (não existe em pt.wikipedia.org; 404)."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 236296034 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: allos.com.br, moocaplaza.com.br, paulobaruki.com, rad.cvm.gov.br"
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Dois edifícios corporativos (projeto multiúso ALLOS)",
+      "descricao": "Masterplan prevê a integração de dois edifícios corporativos ao shopping: 28.400 m² de área privativa, 182 unidades. É projeto (imagens referenciais), não obra entregue.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/projetos_multiuso/mooca-plaza-shopping/"
+    },
+    {
+      "tipo": "trem",
+      "nome": "Estação Ipiranga (CPTM)",
+      "descricao": "A 400 metros do shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://moocaplaza.com.br/como-chegar/",
+      "osm": "^(Esta[cç][aã]o )?Ipiranga$",
+      "x": -223.2,
+      "y": -283.6,
+      "d": 274,
+      "osm_nome": "Estação Ipiranga"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Vila Prudente (Metrô)",
+      "descricao": "A 1,7 km do shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://moocaplaza.com.br/como-chegar/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Linhas de ônibus na Rua Capitão Pacheco e Chaves",
+      "descricao": "Linhas 314J-10, 314V-10, 364A-10, 476G-10, 476G-41, 513L-10, 514T-10, 519M-10, 574J-10, 575C-10, 5142-10, 5145-10 e N536-11 passam próximo ao acesso",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://moocaplaza.com.br/como-chegar/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Acessos viários",
+      "descricao": "Portões na Rua Capitão Pacheco e Chaves e na Avenida Henry Ford",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://moocaplaza.com.br/como-chegar/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Centro Ambulatorial São Cristóvão Saúde e posto da Polícia Federal",
+      "descricao": "Serviços instalados dentro do shopping (lista de serviços da ALLOS)",
+      "piso": null,
+      "acesso": "direto",
+      "fonte": "https://allos.com.br/shopping/mooca-plaza-shopping/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Teatro Mooca",
+      "descricao": "Teatro do shopping",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://moocaplaza.com.br/"
+    }
+  ]
+}

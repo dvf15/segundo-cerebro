@@ -1,0 +1,88 @@
+{
+ "empresa": "Alpargatas S.A.",
+ "ticker": "ALPA4",
+ "bolsa": "B3",
+ "situacao": "listada (ALPA4 e ALPA3; resultado do 3T26 divulgado em novembro/2026)",
+ "situacao_url": "https://visnoinvest.com.br/news/16295/alpargatas-alpa4-registra-lucro-de-r-1755-mi-no-3t26",
+ "marcas": [
+  {
+   "marca": "Havaianas",
+   "nomes_no_arquivo": [
+    "HAVAIANAS"
+   ],
+   "url": "https://www.moneytimes.com.br/alpargatas-alpa4-dona-da-havaianas-dispara-na-b3-apos-balanco-e-hora-de-comprar-lils/",
+   "trecho": "Alpargatas (ALPA4), dona da Havaianas, dispara na B3 após balanço (título) [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 4564000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/11962/alpargatas-alpa4-registra-lucro-de-r-197-mi-no-4t25",
+   "trecho": "A receita líquida anual da Alpargatas atingiu R$ 4,564 bilhões, crescimento de 11,1% na comparação com o ano anterior. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 3400000000,
+   "unidade": "R$",
+   "escopo": "Havaianas Brasil (todos os canais, não só lojas)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/11962/alpargatas-alpa4-registra-lucro-de-r-197-mi-no-4t25",
+   "trecho": "A operação Havaianas Brasil encerrou 2025 com receita líquida de R$ 3,4 bilhões, avanço de 10,2%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 1260000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/alpargatas-alpa4-tem-lucro-de-r-197-mi-no-4o-tri-receita-sobe-e-custos-caem-fets/",
+   "trecho": "no 4T25, a receita líquida foi de R$ 1,26 bilhão, alta de 11,8% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1240000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16295/alpargatas-alpa4-registra-lucro-de-r-1755-mi-no-3t26",
+   "trecho": "a receita líquida consolidada foi de R$ 1,24 bilhão, alta de 11,1% sobre o 3T25 [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 989700000,
+   "unidade": "R$",
+   "escopo": "Havaianas Brasil (todos os canais)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16295/alpargatas-alpa4-registra-lucro-de-r-1755-mi-no-3t26",
+   "trecho": "a receita líquida da marca no país foi de R$ 989,7 milhões, alta de 13,5%, com 55,2 milhões de pares vendidos (+6,9%) [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 3700000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://paraibabusiness.com.br/alpargatas-sobe-mais-de-6-apos-lucro-de-r-1755-milhoes-no-3o-trimestre/",
+   "trecho": "nos nove meses, a receita chegou a R$ 3,70 bilhões, alta de 11,7% [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Alpargatas é fabricante: a receita de 'Havaianas Brasil' é venda da indústria para todos os canais (atacado, franquias, lojas próprias, digital), não faturamento das lojas Havaianas de shopping, que são em grande parte franquias."
+ ],
+ "nao_encontrado": [
+  "Número de lojas Havaianas no Brasil (próprias e franquias)",
+  "Área de vendas e venda por m²",
+  "SSS / sell-out das lojas"
+ ]
+}

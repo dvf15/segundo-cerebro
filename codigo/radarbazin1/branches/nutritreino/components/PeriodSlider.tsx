@@ -51,7 +51,7 @@ export function PeriodButtons({
         <button
           key={p.key}
           onClick={() => onChange(p.key)}
-          className={`rounded-full px-3 py-1.5 text-xs font-semibold ${
+          className={`rounded-full px-3 py-1.5 text-[13px] font-semibold ${
             value === p.key ? "bg-blue-600 text-white" : "border border-[#55555f] bg-[#42424a] text-slate-300"
           }`}
         >
@@ -80,7 +80,7 @@ export default function PeriodSlider({
   const cutoff = value === 0 ? "" : daysCutoff(days);
   return (
     <div className="rounded-xl border border-[#4c4c57] bg-[#2e2e36] px-3 py-2.5">
-      <div className="flex items-baseline justify-between gap-2 text-[13px]">
+      <div className="flex items-baseline justify-between gap-2 text-[14px]">
         <span className="font-semibold text-white">
           {value === 0 ? "Todo o histórico" : `Últimos ${daysLabel(days)}`}
         </span>
@@ -101,7 +101,7 @@ export default function PeriodSlider({
         aria-label="Período em dias"
         className="mt-2 w-full accent-emerald-500"
       />
-      <div className="flex justify-between text-[11px] text-slate-400">
+      <div className="flex justify-between text-[12px] text-slate-400">
         <span>1 dia</span>
         <span>{cutoff ? `desde ${fmtDate(cutoff)}` : "todo o histórico"}</span>
         <span>{daysLabel(max)}</span>

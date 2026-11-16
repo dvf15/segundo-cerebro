@@ -132,10 +132,10 @@ export default function MealLogger({
   return (
     <div className="rounded-2xl border border-[#4c4c57] bg-[#363640] shadow-[0_2px_6px_rgba(0,0,0,0.28)] p-4">
       <div className="mb-3 flex items-center justify-between">
-        <div className="text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="text-[13px] font-bold uppercase tracking-wide text-slate-300">
           {editId ? "🤖 Re-estimar refeição" : "Registrar refeição"}
         </div>
-        <button onClick={onClose} className="text-[15px] text-slate-300">
+        <button onClick={onClose} className="text-[16px] text-slate-300">
           Fechar
         </button>
       </div>
@@ -149,7 +149,7 @@ export default function MealLogger({
       />
       <button
         onClick={() => fileRef.current?.click()}
-        className="w-full rounded-xl border border-[#55555f] bg-[#42424a] py-3 text-[15px] font-bold text-slate-200"
+        className="w-full rounded-xl border border-[#55555f] bg-[#42424a] py-3 text-[16px] font-bold text-slate-200"
       >
         📷 Tirar / escolher foto
       </button>
@@ -173,21 +173,21 @@ export default function MealLogger({
       <button
         onClick={estimateMeal}
         disabled={loading}
-        className="mt-3 w-full rounded-xl bg-blue-600 py-3 text-[15px] font-bold text-white disabled:opacity-50"
+        className="mt-3 w-full rounded-xl bg-blue-600 py-3 text-[16px] font-bold text-white disabled:opacity-50"
       >
         {loading ? "Analisando..." : "Estimar macros"}
       </button>
 
-      {err && <div className="mt-3 text-[15px] text-rose-400">{err}</div>}
+      {err && <div className="mt-3 text-[16px] text-rose-400">{err}</div>}
 
       {estimate && (
         <>
           <div className="mt-3 flex items-center justify-between gap-3 rounded-xl border border-[#474750] bg-[#242427]/60 px-3 py-2">
             <div>
-              <label className="block text-[11px] uppercase text-slate-300">
+              <label className="block text-[12px] uppercase text-slate-300">
                 🕐 Horário da refeição
               </label>
-              <p className="mt-0.5 text-[11px] text-slate-400">
+              <p className="mt-0.5 text-[12px] text-slate-400">
                 {dataUrl
                   ? "≈ foto + 15 min · ajuste se precisar"
                   : "horário atual · ajuste se já comeu antes"}
@@ -197,7 +197,7 @@ export default function MealLogger({
               type="time"
               value={mealTime}
               onChange={(e) => setMealTime(e.target.value)}
-              className="rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-2 text-[15px] font-semibold text-white outline-none"
+              className="rounded-lg border border-[#55555f] bg-[#42424a] px-3 py-2 text-[16px] font-semibold text-white outline-none"
             />
           </div>
           <EstimateResult

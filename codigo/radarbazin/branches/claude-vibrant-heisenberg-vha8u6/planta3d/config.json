@@ -1,0 +1,51 @@
+{
+  "titulo": "Planta 3D Shoppings",
+  "shoppings": ["tijuca", "riosul", "norteshopping", "nova-america", "boulevard-bh", "diamondmall", "mooca-plaza", "analia-franco", "parkshopping-sao-caetano"],
+  "filtros": [
+    {"id": "tijuca-riosul", "nome": "1 · Tijuca × RIOSUL", "shoppings": ["tijuca", "riosul"], "inicial": "riosul"},
+    {"id": "norte-nova-america", "nome": "2 · NorteShopping × Nova América", "shoppings": ["norteshopping", "nova-america"], "inicial": "nova-america"},
+    {"id": "boulevard-diamond", "nome": "3 · Boulevard BH × DiamondMall", "shoppings": ["boulevard-bh", "diamondmall"], "inicial": "diamondmall"},
+    {"id": "mooca-analia-park", "nome": "4 · Mooca Plaza × Anália Franco e ParkShopping São Caetano", "shoppings": ["mooca-plaza", "analia-franco", "parkshopping-sao-caetano"], "inicial": "analia-franco"}
+  ],
+  "filtro_inicial": "tijuca-riosul",
+  "grupos": [
+    {"nome": "Moda e calçados", "cor": "#5b9be6"},
+    {"nome": "Alimentação", "cor": "#ee7b4b"},
+    {"nome": "Beleza e saúde", "cor": "#e070b4"},
+    {"nome": "Joias, óticas e acessórios", "cor": "#bccf4e"},
+    {"nome": "Esporte", "cor": "#48c283"},
+    {"nome": "Casa e decoração", "cor": "#9b84ee"},
+    {"nome": "Tecnologia e telefonia", "cor": "#3cc7c2"},
+    {"nome": "Departamento", "cor": "#ee6470"},
+    {"nome": "Lazer", "cor": "#9aaec2"},
+    {"nome": "Serviços e conveniência", "cor": "#c2a07c"}
+  ],
+  "grupo_padrao": "Serviços e conveniência",
+  "grupo_alimentacao": "Alimentação",
+  "regras_grupo": [
+    ["Tecnologia e telefonia", "celular|telef|eletr[oô]n|tecnolog|inform[aá]t|games?\\b|foto|\\bsom\\b|operadora"],
+    ["Alimentação", "aliment|restaur|caf[eé]|sorvet|gelat|doce|bombon|chocol|lanch|pizza|hamb|suco|ch[aá]s|vinho|gastron|fast|padaria|a[cç]a[ií]|food|bebida"],
+    ["Beleza e saúde", "perfum|cosm[eé]t|beleza|est[eé]tic|sa[uú]de|farm[aá]c|drog|barbear|cabel|sal[aã]o|\\bspa\\b|cl[ií]nic|odont|esmalt|depila"],
+    ["Joias, óticas e acessórios", "joia|joalh|[oó]tica|rel[oó]gi|bijut|acess[oó]r|semijoia"],
+    ["Esporte", "esport|fitness|surf|suplement"],
+    ["Casa e decoração", "casa|decor|m[oó]veis|cama|colch|utilidades|presentes"],
+    ["Departamento", "departamento|hipermerc|supermerc|magazine"],
+    ["Lazer", "lazer|cinema|academia|brinqued|entreten|parque|livrar|papelar|\\bpet\\b|hobby|teatro"],
+    ["Serviços e conveniência", "servi[cç]|conveni|banco|c[aâ]mbio|turismo|lot[eé]ric|chave|conserto|tabac|correio|lavand|diversos|seguro|ag[eê]ncia"],
+    ["Moda e calçados", "moda|cal[cç]ad|vestu|roupa|bolsa|mochila|lingerie|praia|jeans|infantil|sapato|t[eê]nis|malas?\\b"]
+  ],
+  "area_referencia_m2": {
+    "Quiosque": 8, "Âncora": 1500, "Megaloja": 450, "Restaurante": 250,
+    "Lazer": 800, "Alimentação": 60, "Serviço": 40, "Loja": 90
+  },
+  "campos": [
+    {"chave": "setor", "rotulo": "Setor", "tipo": "texto", "agrupar": true, "fonte": "site"},
+    {"chave": "piso_fonte", "rotulo": "Origem do piso", "tipo": "texto"},
+    {"chave": "obs", "rotulo": "Observação", "tipo": "texto"}
+  ],
+  "orientacoes": [
+    "Visita de campo com foto dos totens de diretório de cada piso, que trazem o número das lojas.",
+    "Medição de fachada a passo ou trena a laser nas lojas de interesse.",
+    "Planta de comercialização, se obtida com corretores ou lojistas em comum."
+  ]
+}

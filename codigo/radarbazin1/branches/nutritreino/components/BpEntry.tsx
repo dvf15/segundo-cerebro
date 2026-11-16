@@ -28,7 +28,7 @@ export default function BpEntry() {
   return (
     <div className="space-y-4">
       <div className={card}>
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-slate-300">
+        <div className="mb-3 text-[13px] font-bold uppercase tracking-wide text-slate-300">
           Nova medição
         </div>
         <BpForm onSaved={setReadings} />
@@ -36,7 +36,7 @@ export default function BpEntry() {
 
       {loaded && <BpSummary readings={readings} />}
 
-      <div className="text-center text-[13px] text-slate-400">
+      <div className="text-center text-[14px] text-slate-400">
         Gráfico e lista completa em{" "}
         <Link href="/history?v=pressao" className="font-semibold text-blue-400">
           Histórico → Pressão

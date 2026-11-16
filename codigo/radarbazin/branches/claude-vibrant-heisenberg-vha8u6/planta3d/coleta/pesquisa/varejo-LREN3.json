@@ -1,0 +1,326 @@
+{
+ "empresa": "Lojas Renner S.A.",
+ "ticker": "LREN3",
+ "bolsa": "B3",
+ "situacao": "listada (LREN3; release do 3T26 divulgado em 05/11/2026)",
+ "situacao_url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+ "marcas": [
+  {
+   "marca": "Renner",
+   "nomes_no_arquivo": [
+    "RENNER",
+    "LOJAS RENNER"
+   ],
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "marca": "Camicado",
+   "nomes_no_arquivo": [
+    "CAMICADO"
+   ],
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "marca": "Youcom",
+   "nomes_no_arquivo": [
+    "YOUCOM"
+   ],
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "marca": "Ashua",
+   "nomes_no_arquivo": [
+    "ASHUA"
+   ],
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 15800000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://www.lojasrennersa.com.br/wp-content/uploads/2026/04/Lojas-Renner-Relatorio-Anual2025.pdf",
+   "trecho": "R$ 15,8 bilhões de receita líquida em 2025"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 717,
+   "unidade": "lojas",
+   "escopo": "total (Renner+Camicado+Youcom+Ashua)",
+   "publicado": true,
+   "url": "https://www.lojasrennersa.com.br/wp-content/uploads/2026/04/Lojas-Renner-Relatorio-Anual2025.pdf",
+   "trecho": "717 lojas"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 443,
+   "unidade": "lojas",
+   "escopo": "marca Renner",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 104,
+   "unidade": "lojas",
+   "escopo": "marca Camicado",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 152,
+   "unidade": "lojas",
+   "escopo": "marca Youcom",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 18,
+   "unidade": "lojas",
+   "escopo": "marca Ashua",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Quantidade de lojas | 2024 | 2025 | Renner | 429 | 443 | Camicado | 103 | 104 | Youcom | 135 | 152 | Ashua | 19 | 18"
+  },
+  {
+   "indicador": "venda_m2",
+   "periodo": "2025",
+   "valor": 17200,
+   "unidade": "R$/m²/ano",
+   "escopo": "só varejo (receita líquida de varejo por m²)",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Venda por m2 de R$ 17,2 mil"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 3950500000,
+   "unidade": "R$",
+   "escopo": "marca Renner (inclui Ashua)",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "A Renner, registrou receita operacional líquida de R$ 3.950,5 milhões, resultando em um crescimento de 4,2% ante o 4T24"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "2025",
+   "valor": 56.1,
+   "unidade": "%",
+   "escopo": "só varejo",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Receita de varejo crescendo 9,2% e 56,1% (+0,7p.p.)"
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "2025",
+   "valor": 55.8,
+   "unidade": "%",
+   "escopo": "marca Renner",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Renner | 56,2% | 55,4% | 0,8p.p. | 55,8% | 55,1% | 0,7p.p."
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "2025",
+   "valor": 61.3,
+   "unidade": "%",
+   "escopo": "marca Youcom",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Youcom | 61,1% | 62,0% | -0,9p.p. | 61,3% | 61,5% | -0,2p.p."
+  },
+  {
+   "indicador": "margem_bruta",
+   "periodo": "2025",
+   "valor": 56.5,
+   "unidade": "%",
+   "escopo": "marca Camicado",
+   "publicado": true,
+   "url": "https://static.poder360.com.br/2026/03/renner-4T25.pdf",
+   "trecho": "Camicado | 57,8% | 56,6% | 1,2p.p. | 56,5% | 54,8% | 1,7p.p."
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "2025",
+   "valor": 820000,
+   "unidade": "m²",
+   "escopo": "total (número de relatório de analista, não do release)",
+   "publicado": false,
+   "url": "https://analisa.genialinvestimentos.com.br/acoes/LREN3/Lojas-Renner-LREN3--Iniciacao-de-Cobertura-Na-Vanguarda-do-Varejo-Brasileiro",
+   "trecho": "Projetamos a rede saindo de 717 lojas em 2025 para 983 em 2030, com a área de vendas indo de 820 para 1.000 mil m²"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 3029400000,
+   "unidade": "R$",
+   "escopo": "só varejo",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Receita líquida de varejo | 3.029,4 | 3.079,1 | -1,6% | 9.594,6 | 9.485,7 | 1,1%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 9594600000,
+   "unidade": "R$",
+   "escopo": "só varejo",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Receita líquida de varejo | 3.029,4 | 3.079,1 | -1,6% | 9.594,6 | 9.485,7 | 1,1%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 2753400000,
+   "unidade": "R$",
+   "escopo": "marca Renner (inclui Ashua)",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Renner | 2.753,4 | 2.822,1 | -2,4% | 8.791,1 | 8.721,4 | 0,8%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 8791100000,
+   "unidade": "R$",
+   "escopo": "marca Renner (inclui Ashua)",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Renner | 2.753,4 | 2.822,1 | -2,4% | 8.791,1 | 8.721,4 | 0,8%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 138800000,
+   "unidade": "R$",
+   "escopo": "marca Youcom",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Youcom | 138,8 | 121,8 | 14,0% | 402,4 | 368,3 | 9,3%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 402400000,
+   "unidade": "R$",
+   "escopo": "marca Youcom",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Youcom | 138,8 | 121,8 | 14,0% | 402,4 | 368,3 | 9,3%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 137200000,
+   "unidade": "R$",
+   "escopo": "marca Camicado",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Camicado | 137,2 | 135,2 | 1,5% | 401,1 | 396,0 | 1,3%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "9M26",
+   "valor": 401100000,
+   "unidade": "R$",
+   "escopo": "marca Camicado",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Camicado | 137,2 | 135,2 | 1,5% | 401,1 | 396,0 | 1,3%"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": -2.5,
+   "unidade": "%",
+   "escopo": "só varejo",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Vendas em mesmas lojas | -2,5% | 3,1% | n.a | 0,3% | 10,5% | n.a"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "9M26",
+   "valor": 0.3,
+   "unidade": "%",
+   "escopo": "só varejo",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Vendas em mesmas lojas | -2,5% | 3,1% | n.a | 0,3% | 10,5% | n.a"
+  },
+  {
+   "indicador": "venda_m2",
+   "periodo": "3T26",
+   "valor": 3670,
+   "unidade": "R$/m²/trimestre",
+   "escopo": "só varejo (receita líquida do varejo por m²)",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Receita líquida do varejo/m2 (R$ mil) | 3,67 | 3,82 | -4,1% | 11,66 | 11,78 | -1,1%"
+  },
+  {
+   "indicador": "venda_m2",
+   "periodo": "9M26",
+   "valor": 11660,
+   "unidade": "R$/m²/9 meses",
+   "escopo": "só varejo (receita líquida do varejo por m²)",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Receita líquida do varejo/m2 (R$ mil) | 3,67 | 3,82 | -4,1% | 11,66 | 11,78 | -1,1%"
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "3T26",
+   "valor": 826300,
+   "unidade": "m²",
+   "escopo": "área de vendas média do trimestre, total",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Área de vendas média (mil m2) | 826,3 | 805,8 | 2,5% | 822,9 | 805,0 | 2,2%"
+  },
+  {
+   "indicador": "area_vendas_m2",
+   "periodo": "9M26",
+   "valor": 822900,
+   "unidade": "m²",
+   "escopo": "área de vendas média do período, total",
+   "publicado": true,
+   "url": "https://filemanager-cdn.mziq.com/published/13154776-9416-4fce-8c46-3e54d45b03a3/6fa83b25-03ad-4e0d-98b7-f7c6cfe67325",
+   "trecho": "Área de vendas média (mil m2) | 826,3 | 805,8 | 2,5% | 822,9 | 805,0 | 2,2%"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "O release 4T25 foi lido numa cópia hospedada em static.poder360.com.br (o PDF do RI não pôde ser aberto).",
+  "Número de lojas Renner: 443 no release 4T25; relatório da Genial cita 461 (soma Renner 443 + Ashua 18).",
+  "Venda/m² é publicada pela própria companhia como 'Receita líquida do varejo/m2 (R$ mil)': base anual em 2025 (17,2), trimestral no 3T26 (3,67) e acumulada no 9M26 (11,66) — não são comparáveis sem ajuste de período."
+ ],
+ "nao_encontrado": [
+  "Receita líquida de varejo de 2025 em valor absoluto (só achado o crescimento de 9,2%)",
+  "Número de lojas por marca no 3T26 (tabela veio vazia no trecho)",
+  "Área de vendas de fim de período (só a média)",
+  "Área de vendas por marca"
+ ]
+}

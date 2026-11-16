@@ -1,0 +1,269 @@
+{
+  "id": "mooca-plaza",
+  "nome": "Mooca Plaza Shopping",
+  "administradora": "ALLOS",
+  "endereco": "R. Cap. Pacheco e Chaves, 313 – Vila Prudente, São Paulo – SP, CEP 03126-000",
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "29/11/2011",
+      "unidade": null,
+      "nota": "Ficha ALLOS traz só o ano (2011)",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "Inauguração: 29 de Novembro de 2011"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 42067,
+      "unidade": "m²",
+      "nota": "Na inauguração: 41.964 m² (ver divergencias)",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "42.067 ABL (m²)"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída / estrutura",
+      "valor": 112000,
+      "unidade": "m²",
+      "nota": "Fonte diz 'estrutura de 112 mil m²'",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "em uma estrutura de 112 mil m² e 42 mil m² de Área Bruta Locável (ABL)"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 221,
+      "unidade": null,
+      "nota": "Mesma página cita 241 operações; outras fontes 233 e 'mais de 250' (ver divergencias)",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "221 Número de lojas"
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Lojas-âncora",
+      "valor": 7,
+      "unidade": null,
+      "nota": "Texto da mesma página diz 'seis âncoras'",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "7 Lojas-âncora"
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 9,
+      "unidade": null,
+      "nota": "Texto da mesma página diz 'oito megalojas'",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "9 Megalojas"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Operações de alimentação",
+      "valor": 42,
+      "unidade": null,
+      "nota": "Além disso: 9 restaurantes fora da praça; praça de alimentação com 980 lugares",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "42 Operações de Alimentação"
+    },
+    {
+      "chave": "restaurantes_fora_da_praca",
+      "rotulo": "Restaurantes fora da praça",
+      "valor": 9,
+      "unidade": null,
+      "nota": "Texto da mesma página diz 'sete restaurantes'",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "9 Restaurantes fora da praça"
+    },
+    {
+      "chave": "praca_alimentacao_lugares",
+      "rotulo": "Praça de alimentação",
+      "valor": 980,
+      "unidade": "lugares",
+      "nota": null,
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "980 lugares Praça de Alimentação"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 6,
+      "unidade": "salas",
+      "nota": "Cinemark, uma sala XD",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "seis salas do Cinemark, sendo uma XD"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 2525,
+      "unidade": "vagas",
+      "nota": "Na inauguração: 2.385 (ver divergencias)",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "2.525 Vagas de Estacionamento"
+    },
+    {
+      "chave": "consumidores_mes",
+      "rotulo": "Consumidores/mês",
+      "valor": 750000,
+      "unidade": null,
+      "nota": null,
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "750.000 Consumidores/Mês"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil",
+      "valor": "A/B",
+      "unidade": null,
+      "nota": null,
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "A/B Perfil"
+    },
+    {
+      "chave": "lazer",
+      "rotulo": "Lazer",
+      "valor": "Neo Geo Family, Go Kids Lab, Pet Park, Cinemark, Carrinhos Kids, Teatro",
+      "unidade": null,
+      "nota": null,
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "Lazer Neo Geo Family, Go Kids Lab, Pet Park, Cinemark, Carrinhos Kids, Teatro"
+    }
+  ],
+  "pisos": [],
+  "arquitetura": [
+    {
+      "item": "autor do projeto",
+      "valor": "Paulo Baruki Arquitetura",
+      "url": "https://paulobaruki.com/pt/mooca-plaza-shopping/",
+      "trecho": "Mooca Plaza Shopping | Paulo Baruki Arquitetura"
+    },
+    {
+      "item": "ano",
+      "valor": "Projeto 2009 | conclusão 2011",
+      "url": "https://paulobaruki.com/pt/mooca-plaza-shopping/",
+      "trecho": "Mooca Plaza Shopping São Paulo, Brasil 2009 | 2011"
+    },
+    {
+      "item": "obra",
+      "valor": "Obra iniciada em julho de 2010 e concluída em novembro de 2011; desenvolvido pela BRMALLS",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "A obra do Mooca Plaza Shopping teve início em julho de 2010 e terminou como previsto no cronograma inicial, em novembro de 2011."
+    },
+    {
+      "item": "características",
+      "valor": "Elementos clássicos integrados a linhas contemporâneas, ênfase em áreas de convívio e jardins",
+      "url": "https://paulobaruki.com/pt/mooca-plaza-shopping/",
+      "trecho": "dramaticidade arquitetônica dos elementos clássicos integrados às linhas contemporâneas"
+    },
+    {
+      "item": "características (sustentabilidade)",
+      "valor": "Preservação da topografia e da massa arbórea; fachadas em vidro e claraboias para luz natural; brises nas varandas dos restaurantes; 'chaminés solares'",
+      "url": "https://paulobaruki.com/pt/mooca-plaza-shopping/",
+      "trecho": "As principais fachadas em vidro e claraboias do mall receberam um tratamento especial: foram projetadas para maior captação de luz natural, com mínima absorção de carga térmica."
+    },
+    {
+      "item": "características",
+      "valor": "3,5 mil metros de iluminação natural, duas varandas, duas alamedas de serviço",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "São 3,5 mil metros de iluminação natural, duas varandas, sete restaurantes, seis salas do Cinemark, sendo uma XD, área de lazer e duas alamedas de serviço."
+    },
+    {
+      "item": "porte na inauguração",
+      "valor": "Maior shopping inaugurado no Brasil em 2011 e maior já desenvolvido pela BRMALLS",
+      "url": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1",
+      "trecho": "Maior shopping inaugurado no Brasil em 2011 e maior shopping já desenvolvido pela BRMALLS"
+    },
+    {
+      "item": "expansões (projeto)",
+      "valor": "Masterplan prevê expansão do varejo com mais de 19 mil m² de ABL adicional e dois edifícios corporativos (~28 mil m² de área privativa)",
+      "url": "https://allos.com.br/projetos_multiuso/mooca-plaza-shopping/",
+      "trecho": "No total, o projeto contempla mais de 19 mil m² de ABL adicional e aproximadamente 28 mil m² de área privativa corporativa de alto padrão"
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Dois edifícios corporativos (projeto multiúso ALLOS)",
+      "descricao": "Masterplan prevê a integração de dois edifícios corporativos ao shopping: 28.400 m² de área privativa, 182 unidades. É projeto (imagens referenciais), não obra entregue.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/projetos_multiuso/mooca-plaza-shopping/",
+      "trecho": "O masterplan do empreendimento prevê a integração de dois edifícios corporativos ao shopping, além da expansão do varejo"
+    },
+    {
+      "tipo": "trem",
+      "nome": "Estação Ipiranga (CPTM)",
+      "descricao": "A 400 metros do shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://moocaplaza.com.br/como-chegar/",
+      "trecho": "O shopping está a 400 metros da estação Ipiranga da CPTM e a 1,7 quilômetros da estação Vila Prudente do Metro."
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Vila Prudente (Metrô)",
+      "descricao": "A 1,7 km do shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://moocaplaza.com.br/como-chegar/",
+      "trecho": "a 1,7 quilômetros da estação Vila Prudente do Metro"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Linhas de ônibus na Rua Capitão Pacheco e Chaves",
+      "descricao": "Linhas 314J-10, 314V-10, 364A-10, 476G-10, 476G-41, 513L-10, 514T-10, 519M-10, 574J-10, 575C-10, 5142-10, 5145-10 e N536-11 passam próximo ao acesso",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://moocaplaza.com.br/como-chegar/",
+      "trecho": "Próximo ao acesso da Rua Capitão Pacheco e Chaves passam as linhas de ônibus"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Acessos viários",
+      "descricao": "Portões na Rua Capitão Pacheco e Chaves e na Avenida Henry Ford",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://moocaplaza.com.br/como-chegar/",
+      "trecho": "O Mooca Plaza Shopping tem portões de acesso na Rua Capitão Pacheco e Chaves e Avenida Henry Ford."
+    },
+    {
+      "tipo": "outro",
+      "nome": "Centro Ambulatorial São Cristóvão Saúde e posto da Polícia Federal",
+      "descricao": "Serviços instalados dentro do shopping (lista de serviços da ALLOS)",
+      "piso": null,
+      "acesso": "direto",
+      "url": "https://allos.com.br/shopping/mooca-plaza-shopping/",
+      "trecho": "Serviços Centro Ambulatorial São Cristóvão Saúde, Caixas 24h, Caixa Econômica Federal"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Teatro Mooca",
+      "descricao": "Teatro do shopping",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://moocaplaza.com.br/",
+      "trecho": "Descubra nosso teatro! Teatro Mooca"
+    }
+  ],
+  "divergencias": [
+    "ABL: 42.067 m² (https://allos.com.br/shopping/mooca-plaza-shopping/) x 41.964 m² na inauguração (https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)",
+    "Lojas: 221 lojas na ficha e '241 operações' no texto da mesma página (https://allos.com.br/shopping/mooca-plaza-shopping/) x 233 na inauguração (https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1) x 'mais de 250 lojas' (https://allos.com.br/projetos_multiuso/mooca-plaza-shopping/)",
+    "Âncoras e megalojas: ficha '7 lojas-âncora, 9 megalojas' x texto 'oito megalojas e seis âncoras', ambos em https://allos.com.br/shopping/mooca-plaza-shopping/; na inauguração '16 lojas âncoras e megalojas' (https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)",
+    "Restaurantes: 'sete restaurantes' no texto x '9 restaurantes fora da praça' na ficha, ambos em https://allos.com.br/shopping/mooca-plaza-shopping/",
+    "Vagas: 2.525 (https://allos.com.br/shopping/mooca-plaza-shopping/) x 2.385 na inauguração (https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)",
+    "Bairro: ALLOS e site do shopping dão 'Vila Prudente' no endereço (https://moocaplaza.com.br/como-chegar/); comunicado da BRMALLS fala em 'distrito da Mooca' (https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=312300&descTipo=IPE&CodigoInstituicao=1)",
+    "Página ALLOS repete 42.067 como 'ABL' e 'ABC em (m²)' (https://allos.com.br/shopping/mooca-plaza-shopping/)"
+  ],
+  "nao_encontrado": [
+    "Nomes dos pisos e o que há em cada um; número de pisos de lojas (site oficial fala apenas em 'todos os andares'; mapa interativo não legível)",
+    "Número de quiosques",
+    "Área do terreno e prêmios de arquitetura",
+    "Passarela ou acesso direto à estação Ipiranga da CPTM (a fonte dá só a distância de 400 m)",
+    "Torre comercial ou residencial já construída e ligada ao shopping (só o projeto de dois edifícios corporativos)",
+    "Hotel, hospital ou universidade ligados ao shopping",
+    "Estação Ipiranga da Linha 15-Prata (em construção, segundo a Wikipedia) e eventual relação com o shopping: nenhuma fonte liga uma ao outro",
+    "Artigo da Wikipedia sobre o shopping (não existe em pt.wikipedia.org; 404)"
+  ]
+}

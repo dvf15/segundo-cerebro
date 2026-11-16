@@ -1,0 +1,98 @@
+{
+ "empresa": "Natura Cosméticos S.A. (Grupo Natura; sucessora da Natura &Co Holding)",
+ "ticker": "NATU3",
+ "bolsa": "B3",
+ "situacao": "listada; ticker mudou de NTCO3 para NATU3 após a incorporação da holding Natura &Co; venda da Avon International concluída (notícia de 02/01/2026)",
+ "situacao_url": "https://mercadoeconsumo.com.br/02/01/2026/noticias-varejo/natura-conclui-venda-da-avon-international/",
+ "marcas": [
+  {
+   "marca": "Natura",
+   "nomes_no_arquivo": [
+    "NATURA"
+   ],
+   "url": "https://economicnewsbrasil.com.br/2026/08/10/lojas-natura-vendas-segundo-trimestre-2026/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Natura tem 74 lojas a mais, mas vendas comparáveis recuam 4,3% — a rede encerrou o segundo trimestre de 2026 com 1.098 lojas no Brasil (balanço da Natura, NATU3)"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 22200000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12121/natura-natu3-registra-lucro-de-r-463-mi-em-2025",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A receita líquida consolidada do Grupo Natura alcançou R$ 22,2 bi em 2025, queda de 5,0% em relação a 2024."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 13423000000,
+   "unidade": "R$",
+   "escopo": "Brasil",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12121/natura-natu3-registra-lucro-de-r-463-mi-em-2025",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] No Brasil, a receita líquida de 2025 ficou praticamente estável em R$ 13,423 bi (-0,1% A/A). Na América Hispânica, a receita líquida de 2025 somou R$ 8,795 bi (-11,5% A/A)."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 6193000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12121/natura-natu3-registra-lucro-de-r-463-mi-em-2025",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A receita líquida foi de R$ 6.193 milhões no 4T-25, -12,1% na variação anual."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 5170000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://mercadoeconsumo.com.br/11/08/2026/mc-capital/lucro-da-natura-recua-no-2-trimestre-e-soma-r-35-milhoes/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] A receita líquida da empresa recuou 9,1% na comparação anual, somando R$ 5,17 bilhões."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T26",
+   "valor": 4750000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://tools.prnewswire.com/en-us/live/20817/release/20260511EN56960",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] 1T26: A receita líquida somou R$ 4,75 bilhões, um recuo anual de 7,7%."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 1098,
+   "unidade": "lojas",
+   "escopo": "marca Natura, Brasil (lojas próprias + franquias)",
+   "publicado": true,
+   "url": "https://economicnewsbrasil.com.br/2026/08/10/lojas-natura-vendas-segundo-trimestre-2026/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] a rede encerrou o segundo trimestre de 2026 com 1.098 lojas no Brasil, 74 a mais do que um ano antes"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2T26",
+   "valor": -4.3,
+   "unidade": "%",
+   "escopo": "lojas Natura (varejo), Brasil",
+   "publicado": true,
+   "url": "https://economicnewsbrasil.com.br/2026/08/10/lojas-natura-vendas-segundo-trimestre-2026/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] as vendas da Natura nas mesmas lojas recuaram 4,3%, enquanto a receita do varejo caiu 3% no período"
+  }
+ ],
+ "divergencias": [
+  "Número de lojas Natura: 1.098 (jun/2026, imprensa) x 1.092 (Portal do Franchising, atualizado em 11/06/2026)."
+ ],
+ "nao_encontrado": [
+  "Resultado do 3T26 da Natura: não localizado nas buscas em 14/11/2026.",
+  "Separação entre lojas próprias e franquias; receita do canal varejo em R$; área de vendas m²; venda por m².",
+  "Avon: não há loja AVON em marcas.txt.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

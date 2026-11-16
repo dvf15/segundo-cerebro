@@ -1,0 +1,120 @@
+{
+ "empresa": "Localiza Rent a Car S.A. (Localiza&Co)",
+ "ticker": "RENT3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://visnoinvest.com.br/news/16279/localiza-rent3-registra-lucro-liquido-de-r-11-bi-no-3t26",
+ "marcas": [
+  {
+   "marca": "Localiza",
+   "nomes_no_arquivo": [
+    "LOCALIZA"
+   ],
+   "url": "https://visnoinvest.com.br/news/16279/localiza-rent3-registra-lucro-liquido-de-r-11-bi-no-3t26",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Localiza (RENT3) registra lucro líquido de R$ 1,1 bi no 3T26; receita líquida da divisão de aluguel de carros chegou a R$ 3.025 milhões"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 41800000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/11843/localiza-rent3-registra-lucro-ajustado-de-r-34-bi-em-2025",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Full-year 2025 net revenue: roughly R$41.8 billion, up about 12.1%. One outlet reports R$41.7 billion."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 10424000000,
+   "unidade": "R$",
+   "escopo": "divisão Aluguel de Carros",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/11843/localiza-rent3-registra-lucro-ajustado-de-r-34-bi-em-2025",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Aluguel de Carros 2025: receita líquida de R$ 10,424 bilhões, alta de 8,1% sobre 2024, diária média de R$ 150,8 e taxa de utilização de 79,7%."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "4T25",
+   "valor": 11000000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/localiza-rent3-lucra-r-939-milhoes-no-4t25-alta-de-121-ante-4tri24-kda/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Consolidated net revenue was about R$11.0 billion in 4T25, up 11.7% year over year."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "4T25",
+   "valor": 590,
+   "unidade": "lojas",
+   "escopo": "Brasil, agências de aluguel de carros",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/08f327aa-e610-4d9d-b683-8ff0f7caae07/017f322c-ee1a-5926-d744-308f267da076?origin=2",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 4T25: havia 590 agências no Brasil e 690 no total da região, segundo a apresentação do período."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 593,
+   "unidade": "lojas",
+   "escopo": "Brasil, agências de aluguel de carros (próprias + franqueadas)",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/08f327aa-e610-4d9d-b683-8ff0f7caae07/017f322c-ee1a-5926-d744-308f267da076?origin=2",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A apresentação de resultados traz 593 agências no Brasil, sendo 516 operadas pela própria Localiza."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 516,
+   "unidade": "lojas",
+   "escopo": "Brasil, agências próprias",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/08f327aa-e610-4d9d-b683-8ff0f7caae07/017f322c-ee1a-5926-d744-308f267da076?origin=2",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 593 agências no Brasil, sendo 516 operadas pela própria Localiza."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 269,
+   "unidade": "lojas",
+   "escopo": "lojas de Seminovos",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/08f327aa-e610-4d9d-b683-8ff0f7caae07/017f322c-ee1a-5926-d744-308f267da076?origin=2",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 269 lojas de seminovos"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 12300000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16279/localiza-rent3-registra-lucro-liquido-de-r-11-bi-no-3t26",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] a receita líquida consolidada foi de R$ 12,3 bilhões, com EBITDA de R$ 4,0 bilhões"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 3025000000,
+   "unidade": "R$",
+   "escopo": "divisão Aluguel de Carros",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/16279/localiza-rent3-registra-lucro-liquido-de-r-11-bi-no-3t26",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] a receita líquida da divisão chegou a R$ 3.025 milhões, um crescimento de 16,5% na comparação com o 3T25, impulsionado por diárias com alta de 10,6%."
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "URL da apresentação com o nº de agências (api.mziq.com) é a mais provável entre vários PDFs de RI retornados pela busca; conferir.",
+  "Lojas de seminovos: 269 (2T26) x 277 em outra fonte; em out/2026 a empresa anunciou 1.000 pontos de contato na América Latina (agências, seminovos, Zarp, Pit Stops) - https://mercadoeconsumo.com.br/03/10/2026/destaque-do-dia/localiza-abre-loja-de-seminovos-em-sao-paulo-e-chega-a-1-000-unidades/",
+  "Receita 2025: R$ 41,8 bi x R$ 41,7 bi conforme a fonte."
+ ],
+ "nao_encontrado": [
+  "Nº de agências no 3T26",
+  "Receita acumulada 9M26",
+  "Receita por agência / venda por m² (não publicado nas fontes lidas)"
+ ]
+}

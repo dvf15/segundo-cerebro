@@ -1,0 +1,161 @@
+{
+ "empresa": "Grupo SBF S.A.",
+ "ticker": "SBFG3",
+ "bolsa": "B3",
+ "situacao": "listada (SBFG3; resultado do 3T26 divulgado em 09/11/2026)",
+ "situacao_url": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/",
+ "marcas": [
+  {
+   "marca": "Centauro",
+   "nomes_no_arquivo": [
+    "CENTAURO"
+   ],
+   "url": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/",
+   "trecho": "O Grupo SBF (SBFG3), dono da rede de lojas Centauro e responsável pela operação da Nike no Brasil por meio da Fisia"
+  },
+  {
+   "marca": "Nike (lojas operadas pela Fisia)",
+   "nomes_no_arquivo": [
+    "NIKE",
+    "NIKE UNITE NOVA AMERICA"
+   ],
+   "url": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/",
+   "trecho": "O Grupo SBF (SBFG3), dono da rede de lojas Centauro e responsável pela operação da Nike no Brasil por meio da Fisia"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 7736000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12011/grupo-sbf-sbfg3-registra-lucro-ajustado-de-r-4276-mi-em-2025",
+   "trecho": "R$ 7,736 bilhões no ano, crescimento de 8,2% [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 4100000000,
+   "unidade": "R$",
+   "escopo": "Centauro",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12011/grupo-sbf-sbfg3-registra-lucro-ajustado-de-r-4276-mi-em-2025",
+   "trecho": "A Centauro encerrou 2025 com receita líquida de R$ 4,1 bi, avanço de 13,0% em relação a 2024, com same store sales de 13,8%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2025",
+   "valor": 13.8,
+   "unidade": "%",
+   "escopo": "Centauro",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12011/grupo-sbf-sbfg3-registra-lucro-ajustado-de-r-4276-mi-em-2025",
+   "trecho": "A Centauro encerrou 2025 com receita líquida de R$ 4,1 bi, avanço de 13,0% em relação a 2024, com same store sales de 13,8%. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 4300000000,
+   "unidade": "R$",
+   "escopo": "Fisia (Nike; inclui atacado e digital)",
+   "publicado": true,
+   "url": "https://visnoinvest.com.br/news/12011/grupo-sbf-sbfg3-registra-lucro-ajustado-de-r-4276-mi-em-2025",
+   "trecho": "A Fisia, distribuidora exclusiva da Nike no Brasil, apurou receita líquida de R$ 4,3 bi em 2025, alta de 6,2% contra 2024. [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 230,
+   "unidade": "lojas",
+   "escopo": "Centauro",
+   "publicado": true,
+   "url": "https://maquinadoesporte.com.br/tag/grupo-sbf/",
+   "trecho": "no fim de 2025, a Centauro passou de 227 para 230 lojas [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 50,
+   "unidade": "lojas",
+   "escopo": "lojas Nike operadas pela Fisia",
+   "publicado": true,
+   "url": "https://maquinadoesporte.com.br/tag/grupo-sbf/",
+   "trecho": "Em 2025, a rede Nike do grupo subiu de 46 para 50 unidades [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 2040000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/",
+   "trecho": "A receita líquida somou R$ 2,04 bilhões, crescimento anual de 5,1% e dentro do esperado pelo mercado."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": 6.8,
+   "unidade": "%",
+   "escopo": "Centauro (inclui online)",
+   "publicado": true,
+   "url": "https://www.moneytimes.com.br/grupo-sbf-sbfg3-dono-da-centauro-tem-recuo-de-45-no-lucro-do-3o-trimestre-fets/",
+   "trecho": "A rede de lojas Centauro teve alta de 6,8% nas vendas no conceito mesmas lojas, incluindo operações online, ante 14,8% um ano antes."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "3T26",
+   "valor": -0.7,
+   "unidade": "%",
+   "escopo": "Centauro, só lojas físicas",
+   "publicado": true,
+   "url": "https://content.btgpactual.com/research/ativo/SBFG3",
+   "trecho": "Na Centauro, a receita avançou 4,2%, para R$ 1,1 bi, com SSS total de 6,8%, mas SSS físico de -0,7%"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1100000000,
+   "unidade": "R$",
+   "escopo": "Centauro (arredondado)",
+   "publicado": true,
+   "url": "https://content.btgpactual.com/research/ativo/SBFG3",
+   "trecho": "Na Centauro, a receita avançou 4,2%, para R$ 1,1 bi"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1100000000,
+   "unidade": "R$",
+   "escopo": "Fisia (arredondado)",
+   "publicado": true,
+   "url": "https://content.btgpactual.com/research/ativo/SBFG3",
+   "trecho": "Na Fisia, a receita subiu 6,9%, para R$ 1,1 bi, com lojas físicas em +7,8%, digital em +14,6% e atacado em -2%"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "3T26",
+   "valor": 53,
+   "unidade": "lojas",
+   "escopo": "lojas Nike operadas pela Fisia",
+   "publicado": true,
+   "url": "https://maquinadoesporte.com.br/?p=247709",
+   "trecho": "a empresa encerrou o trimestre com 53 lojas no país, após inaugurar uma nova unidade Nike Direct Inline Store (NDIS) no Shopping Anália Franco [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Receita líquida do 4T25: R$ 2,42 bi, R$ 2,43 bi ou R$ 2,47 bi conforme o veículo (todas +11,8%).",
+  "Soma Centauro (4,1 bi) + Fisia (4,3 bi) supera o consolidado (7,736 bi) por eliminações entre empresas.",
+  "Lojas 'NIKE' em shopping: a Fisia opera os formatos Nike Value Store (NVS) e Nike Direct Inline Store (NDIS), 53 lojas no 3T26; não foi possível confirmar que TODA loja Nike listada no arquivo é operada pela Fisia (podem existir lojas de parceiros/franqueados).",
+  "Contrato de distribuição da Nike com a Fisia foi estendido até 31/05/2034 (forbes.com.br, agosto/2026)."
+ ],
+ "nao_encontrado": [
+  "Área de vendas (m²) de Centauro e Fisia",
+  "Venda por m²",
+  "Número de lojas Centauro no 3T26",
+  "Receita só de lojas físicas"
+ ]
+}

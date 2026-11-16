@@ -1,0 +1,151 @@
+{
+ "empresa": "Track & Field Co S.A.",
+ "ticker": "TFCO4",
+ "bolsa": "B3",
+ "situacao": "listada (TFCO4; resultado do 3T26 divulgado em 12/11/2026)",
+ "situacao_url": "https://visnoinvest.com.br/news/16505/track-field-tfco4-registra-lucro-liquido-de-r-351-mi-no-3t26",
+ "marcas": [
+  {
+   "marca": "Track & Field",
+   "nomes_no_arquivo": [
+    "TRACK & FIELD",
+    "TRACK&FIELD"
+   ],
+   "url": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+   "trecho": "Track&Field (TFCO4) aumenta número de franquias e surpreende no 2T26 (título) [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 435,
+   "unidade": "lojas",
+   "escopo": "total (próprias + franquias)",
+   "publicado": true,
+   "url": "https://exame.com/revista-exame/performance-com-estilo/",
+   "trecho": "435 lojas em operação, sendo 379 franquias e 56 lojas próprias, incluindo outlets [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 379,
+   "unidade": "lojas",
+   "escopo": "franquias",
+   "publicado": true,
+   "url": "https://exame.com/revista-exame/performance-com-estilo/",
+   "trecho": "435 lojas em operação, sendo 379 franquias e 56 lojas próprias, incluindo outlets [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025",
+   "valor": 56,
+   "unidade": "lojas",
+   "escopo": "lojas próprias (inclui outlets)",
+   "publicado": true,
+   "url": "https://exame.com/revista-exame/performance-com-estilo/",
+   "trecho": "435 lojas em operação, sendo 379 franquias e 56 lojas próprias, incluindo outlets [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 279700000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+   "trecho": "receita líquida consolidada foi de R$ 279,7 milhões, crescimento de +15,5% vs 2T25 (R$ 242,1 milhões) [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 448,
+   "unidade": "lojas",
+   "escopo": "total",
+   "publicado": true,
+   "url": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+   "trecho": "448 lojas, sendo 390 franquias e 58 unidades próprias — 14 delas são outlets [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 390,
+   "unidade": "lojas",
+   "escopo": "franquias",
+   "publicado": true,
+   "url": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+   "trecho": "448 lojas, sendo 390 franquias e 58 unidades próprias — 14 delas são outlets [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 58,
+   "unidade": "lojas",
+   "escopo": "lojas próprias (14 outlets)",
+   "publicado": true,
+   "url": "https://www.seudinheiro.com/2026/seu-negocio/trackfield-tfco4-aumenta-numero-de-franquias-e-surpreende-no-2t26-veja-quanto-custa-abrir-uma-loja-giov/",
+   "trecho": "448 lojas, sendo 390 franquias e 58 unidades próprias — 14 delas são outlets [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "2T26",
+   "valor": 493000000,
+   "unidade": "R$",
+   "escopo": "sell-out total da rede",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/acoes/track-field-corte-de-despesas-segura-a-margem-ebitda-aponta-btg",
+   "trecho": "Vendas mesmas lojas subiram 15,9% no trimestre, ante 12,1% nos três meses anteriores, e o sell-out chegou a R$ 493 milhões"
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "2T26",
+   "valor": 306000000,
+   "unidade": "R$",
+   "escopo": "sell-out das franquias",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/acoes/track-field-corte-de-despesas-segura-a-margem-ebitda-aponta-btg",
+   "trecho": "O sell-out chegou a R$ 306 milhões nas franquias e a R$ 141 milhões nas lojas próprias."
+  },
+  {
+   "indicador": "vendas_totais",
+   "periodo": "2T26",
+   "valor": 141000000,
+   "unidade": "R$",
+   "escopo": "sell-out das lojas próprias",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/acoes/track-field-corte-de-despesas-segura-a-margem-ebitda-aponta-btg",
+   "trecho": "O sell-out chegou a R$ 306 milhões nas franquias e a R$ 141 milhões nas lojas próprias."
+  },
+  {
+   "indicador": "sss",
+   "periodo": "2T26",
+   "valor": 15.9,
+   "unidade": "%",
+   "escopo": "rede",
+   "publicado": true,
+   "url": "https://euqueroinvestir.com/acoes/track-field-corte-de-despesas-segura-a-margem-ebitda-aponta-btg",
+   "trecho": "Vendas mesmas lojas subiram 15,9% no trimestre, ante 12,1% nos três meses anteriores"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1T26",
+   "valor": 251200000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/8e49886e-dded-49c0-b8db-c35451e75eed/036cc41b-726e-4be8-a709-a4fcf34e3425?origin=2",
+   "trecho": "receita líquida foi de R$ 251,2 milhões, crescimento de +18,0% vs 1T25 (R$ 212,8 milhões) [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Lojas no fim de 2025: 435 (release 4T25 e Exame) x 433 (resumo do relatório anual).",
+  "Receita líquida de 2025: só achada a expressão '+R$ 1 bilhão de Receita Líquida, crescimento de 25,8% vs. 2024' (sem valor exato) — não gravada como número.",
+  "O período do sell-out/SSS (2T26) foi inferido pela receita de R$ 280 mi citada na mesma matéria."
+ ],
+ "nao_encontrado": [
+  "Números do 3T26 (só achado o lucro líquido de R$ 35,1 mi)",
+  "Receita líquida exata de 2025 e sell-out de 2025",
+  "Área de vendas e venda por m²"
+ ]
+}

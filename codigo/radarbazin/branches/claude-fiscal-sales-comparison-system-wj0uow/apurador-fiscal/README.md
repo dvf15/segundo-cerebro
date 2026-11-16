@@ -168,6 +168,26 @@ A etapa devida é a próxima ainda não registrada cujo mês já chegou; quem co
 acumula. O que é multa, quanto e por qual cláusula vem do contrato de locação e é você
 quem escreve em *Textos e prazos* — o sistema não inventa valor.
 
+### Versão no repositório radarbazin1 (modelo Radar de Varejo)
+
+As ferramentas comerciais do repositório `radarbazin1` (Radar de Varejo, Radar de Mídia,
+Radar de Cláusulas…) são um arquivo único em `public/`, servido pela Vercel. O Radar de
+Auditoria tem uma versão nesse modelo: `public/auditoria.html`, com manifest e ícones
+próprios (`auditoria.webmanifest`, `auditoria-icon-*.png`), os vídeos (`auditoria-*.mp4`),
+a base de teste e a simulação em `public/exemplos/auditoria-*`, a nota `docs/RADAR-AUDITORIA.md`
+e a rota pública no `middleware.ts`.
+
+A fonte continua aqui. Depois de mudar o app:
+
+```bash
+npm run build
+npm run exportar:radar -- ../../radarbazin1   # caminho do clone do radarbazin1
+```
+
+O script troca só o `<head>` (noindex, a política de segurança na própria página — com o
+`blob:` do leitor de PDF e o `cdn.jsdelivr.net` do OCR — e ícones/manifest em arquivo) e o
+nome dos vídeos. Não edite o `auditoria.html` de lá direto: as duas versões divergiriam.
+
 ### Base fictícia para teste
 
 Na aba **Lojistas** (ou no Dashboard vazio), **Carregar base fictícia** preenche o app com um
@@ -562,6 +582,7 @@ scripts/gravar-video.mjs grava o vídeo de orientação e confere o que ele narr
 scripts/video-celular.mjs         a câmera dos vídeos verticais (gravação, narração, pós-produção)
 scripts/gravar-video-celular.mjs  roteiro do passo a passo completo, em 9:16 e com narração
 scripts/gravar-video-novidades.mjs roteiro do vídeo curto das novidades
+scripts/exportar-radar.mjs        exporta para o radarbazin1 (public/auditoria.html), no modelo do Radar de Varejo
 scripts/narracao.mjs     síntese de voz (Piper), trilha e mixagem
 scripts/baixar-voz.mjs   traz a voz pt-BR para demo/.narracao/voz (fora do git)
 scripts/gerar-icones.mjs desenha os ícones do app e escreve o manifesto

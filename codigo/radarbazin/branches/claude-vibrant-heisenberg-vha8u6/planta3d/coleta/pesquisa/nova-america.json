@@ -1,0 +1,190 @@
+{
+  "id": "nova-america",
+  "pisos": [
+    {
+      "nome": "4 pisos (contagem)",
+      "uso": "A Wikipédia, citando a Abrasce, informa 4 pisos; não nomeia os pisos",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Andares | 4 pisos"
+    },
+    {
+      "nome": "1º Piso e 2º Piso",
+      "uso": "Tese da UFRJ traz plantas do 1º e do 2º piso do shopping (só o índice de figuras foi lido)",
+      "url": "https://objdig.ufrj.br/16/teses/893556.pdf",
+      "trecho": "Figura A1.1 - Planta do 1º Piso do Shopping Nova América [...] Figura A1.2 – Planta do 2º Piso"
+    },
+    {
+      "nome": "2º andar",
+      "uso": "Piso de lojas (o incêndio de 16/02/2015 teria começado numa loja da Lupo no 2º andar)",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "O evento teria começado numa loja de roupas da Lupo no 2º andar do edifício."
+    },
+    {
+      "nome": "Rua do Rio",
+      "uso": "Área gastronômica ao ar livre com 17 bares e restaurantes, aberta em 2002",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "a Rua do Rio, uma área gastronômica ao ar livre, com 17 bares e restaurantes com a cara da região boêmia da cidade. A Rua do Rio foi aberta em 2002"
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "ano de inauguração",
+      "valor": "31 de outubro de 1995, no lugar da Fábrica de Tecidos Nova América (1925, fechada em 1991)",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Em 1925, nascia a Fábrica de Tecidos Nova América, fechada em 1991. [...] Em 1995, a fábrica deu lugar ao Shopping Nova América que começou como outlet (o primeiro do Rio) passando a shopping regional em 2002."
+    },
+    {
+      "item": "tombamento",
+      "valor": "Tombado pelo patrimônio histórico; preserva parte das instalações da fábrica, com tijolos ingleses e a chaminé",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Tombado pelo patrimônio histórico, o shopping preserva parte das instalações da Companhia de Tecidos Nova América, desativada em 1991 com os tradicionais tijolos ingleses."
+    },
+    {
+      "item": "expansões",
+      "valor": "Segunda expansão inaugurada em outubro de 2012 (mais 130 lojas em 2013), com Nova América Offices, Nova América Corporate e dois hotéis; a Wikipédia fala em 'expansão em 2014' para o complexo multiuso",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Em outubro de 2012, o empreendimento inaugurou uma nova fase: sua segunda expansão cujo projeto além de trazer mais 130 lojas em 2013, inclui novidades imobiliárias para o segundo semestre - o Nova América Offices, o Nova América Corporate e um projeto de dois hotéis."
+    },
+    {
+      "item": "autor do projeto (torres Nova América Offices)",
+      "valor": "De Fournier Arquitetos Associados; paisagismo de Burle Marx & Cia (material de lançamento do empreendimento)",
+      "url": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "trecho": "Assinado pelo escritório internacional De Fournier Arquitetos Associados, o projeto do NOVA AMÉRICA OFFICES [...] o renomado escritório Burle Marx & Cia, assinando o projeto paisagístico do empreendimento."
+    },
+    {
+      "item": "características",
+      "valor": "Complexo multiuso: três torres comerciais, três lajes corporativas, academia e dois hotéis com mais de 420 quartos (descrição do site oficial)",
+      "url": "https://www.novaamerica.com.br/",
+      "trecho": "o Shopping Nova América é, o maior complexo multiuso da cidade com três torres comerciais, três lajes corporativas, academia e dois hotéis com mais de 420 quartos."
+    },
+    {
+      "item": "características: fachada",
+      "valor": "Fachada de tijolinhos da antiga fábrica preservada",
+      "url": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "trecho": "Ao preservar a fachada de tijolinhos da antiga fábrica que ocupa, aliou a tradição dos bons tempos e a essência carioca às conveniências da atualidade"
+    },
+    {
+      "item": "características: área e vagas",
+      "valor": "Área construída 315.000 m², ABL 84.448 m², 4.200 vagas (Wikipédia)",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Área construída | 315.000 m² [...] Área locável | 84.448 m² [...] Estacionamento | 4.200 vagas"
+    },
+    {
+      "item": "incêndio",
+      "valor": "Incêndio de grandes proporções em 16 de fevereiro de 2015",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Em 16 de fevereiro de 2015, um incêndio de grandes proporções atingiu o shopping."
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "metrô",
+      "nome": "Estação Del Castilho da Linha 2 (chamada Nova América/Del Castilho até agosto de 2022)",
+      "descricao": "Estação ligada ao shopping por passarela; o material do empreendimento fala em 'acesso direto pela Estação [...] dentro do próprio shopping'. O Acesso A da estação chama-se 'Shopping Nova América'. Nenhuma fonte informa o piso do shopping em que a passarela chega.",
+      "piso": null,
+      "acesso": "direto",
+      "url": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "trecho": "O NOVA AMÉRICA SHOPPING, Corporate & Offices conta com acesso direto pela Estação Nova América / Del Castilho do Metrô – dentro do próprio shopping"
+    },
+    {
+      "tipo": "passarela",
+      "nome": "Passarela shopping - estação Del Castilho",
+      "descricao": "Passarela que liga o shopping à estação do metrô (e, segundo a Wikipédia, à Linha Amarela).",
+      "piso": null,
+      "acesso": "direto",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "é localizado estrategicamente, ligado por uma passarela a estação de Del Castilho do Metrô e da Linha Amarela."
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Nome e acessos da estação (Wikipédia da estação)",
+      "descricao": "Estação da Linha 2; até agosto de 2022 chamava-se Nova América/Del Castilho por parceria com o shopping, descrito como principal polo de atração; acessos: A - Shopping Nova América, B - Av. Dom Hélder Câmara.",
+      "piso": "Acesso A da estação",
+      "acesso": "direto",
+      "url": "https://pt.wikipedia.org/wiki/Esta%C3%A7%C3%A3o_Del_Castilho_(Metr%C3%B4_Rio)",
+      "trecho": "Até agosto de 2022 se chamava Nova América/Del Castilho, fruto de uma parceria com o Shopping Nova América, principal polo de atração da estação. [...] Acesso A - Shopping Nova América"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Nova América Offices — Office 1000, Office 2000 e Office 3000",
+      "descricao": "Três torres de conjuntos comerciais com 914 unidades, integradas ao shopping segundo o material de lançamento. Office 1000 e 2000: 13 pavimentos; Office 3000: 16 pavimentos (1º e 2º de áreas comuns). O material não diz o piso nem a forma da ligação com o mall.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "trecho": "um centro empresarial de conceito mundial, integrado a lajes corporativas, salas comerciais e ao Shopping Nova América, com 3 torres de conjuntos comerciais totalizando 914 unidades."
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Nova América Corporate (lajes corporativas)",
+      "descricao": "Três edifícios corporativos com 24.161 m² de área privativa, capacidade para até 21 empresas; o site oficial fala em 'três lajes corporativas'.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.slideshare.net/slideshow/nova-amrica-offices-24950244/24950244",
+      "trecho": "3 edifícios corporativos com 24.161 m2 de área privativa e capacidade para até 21 empresas"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Centro Empresarial (CENA)",
+      "descricao": "Centro empresarial/comercial com 154 salas dentro do complexo.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "um centro empresarial com 154 salas, o \"Espaço Cliente\", duas praças de alimentação e mais de 300 lojas."
+    },
+    {
+      "tipo": "hotel",
+      "nome": "ibis Rio de Janeiro Shopping Nova América",
+      "descricao": "Hotel da Accor dentro do complexo do shopping, ao lado da estação Del Castilho; endereço do hotel indica Bloco 11, Torre 4 no mesmo número do shopping. A fonte diz 'dentro do complexo', não descreve a ligação nem o piso.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://all.accor.com/hotel/9449/index.en.shtml",
+      "trecho": "ibis Shopping Nova América is in a prime location next to Del Castilho metro station, inside the Nova América shopping complex"
+    },
+    {
+      "tipo": "hotel",
+      "nome": "ibis budget Rio de Janeiro Shopping Nova América",
+      "descricao": "Segundo hotel da Accor no complexo, em Del Castilho.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://all.accor.com/hotel/9558/index.pt.shtml",
+      "trecho": "Em Del Castilho, no Rio de Janeiro, o ibis budget RJ Shopping Nova América é confortável, moderno e bem localizado"
+    },
+    {
+      "tipo": "hotel",
+      "nome": "Dois hotéis do complexo (total)",
+      "descricao": "O site oficial informa dois hotéis com mais de 420 quartos no complexo.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.novaamerica.com.br/",
+      "trecho": "três torres comerciais, três lajes corporativas, academia e dois hotéis com mais de 420 quartos."
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Universidade Estácio de Sá — campus Nova América",
+      "descricao": "Campus universitário dentro do shopping ('Possui um campus'); material de 2010 falava em mais de 6.100 alunos.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Possui um campus da Universidade Estácio de Sá, um centro empresarial com 154 salas"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Linha Amarela",
+      "descricao": "Acesso de carro pela Linha Amarela; a Wikipédia menciona a passarela ligando também à Linha Amarela.",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://pt.wikipedia.org/wiki/Shopping_Nova_Am%C3%A9rica",
+      "trecho": "Para quem deseja ir de carro, é possível chegar pela Linha Amarela. Ainda há a opção de ir de ônibus."
+    }
+  ],
+  "nao_encontrado": [
+    "Piso do shopping em que chega a passarela do metrô (nenhuma fonte informa)",
+    "Piso e forma de ligação das torres Offices 1000/2000/3000, do Corporate, do Centro Empresarial, dos hotéis e da Estácio com o mall (fontes dizem só 'integrado' ou 'dentro do complexo')",
+    "Autor do projeto arquitetônico do shopping de 1995 (conversão da fábrica) e da expansão de 2012",
+    "Órgão e data do tombamento (a Wikipédia diz só 'tombado pelo patrimônio histórico')",
+    "Nomes oficiais dos 4 pisos e o uso de cada um",
+    "Páginas institucionais: www.ancar.com.br/shoppings/nova-america e www.novaamerica.com.br/o-shopping devolveram 404; a página da Abrasce não trouxe texto legível",
+    "Página do MetrôRio sobre a estação não foi lida; o nome atual da estação vem da Wikipédia (Del Castilho desde agosto de 2022)",
+    "Ligação com trem (SuperVia) ou terminal de ônibus: nenhuma fonte encontrada; linhas de ônibus gratuitas do shopping para Méier e Maria da Graça aparecem na Wikipédia no passado ('disponibilizava')"
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "id": "riosul",
+  "nome": "RIOSUL",
+  "curto": "RIOSUL",
+  "papel": "concorrente",
+  "subtitulo": "Rua Lauro Müller, 116 · Botafogo · Grupo Iguatemi",
+  "coleta": "12/11/2026",
+  "origem_lista": "diretório público do site",
+  "resumo_nota": "Piso, nome e categoria são oficiais. A posição de cada loja dentro do piso é esquemática e as áreas são estimativas, com margem de ±35%.",
+  "link_loja": "https://iguatemi.com.br/riosul/lojas-e-alimentacao/{slug}",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    "quiosques",
+    {
+      "rotulo": "Âncoras + megalojas",
+      "chaves": [
+        "ancoras",
+        "megalojas"
+      ]
+    },
+    "vagas_site",
+    {
+      "rotulo": "Pessoas / mês",
+      "texto": "1,3 mi"
+    }
+  ],
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "28/04/1980"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 51966,
+      "unidade": "m²"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída",
+      "valor": 135967,
+      "unidade": "m²"
+    },
+    {
+      "chave": "terreno_m2",
+      "rotulo": "Área do terreno",
+      "valor": 21827,
+      "unidade": "m²"
+    },
+    {
+      "chave": "pisos_lojas",
+      "rotulo": "Pisos de lojas",
+      "valor": 4,
+      "nota": "L1 a L4, mais lojas em G2, G3, G4 e SS1"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 308
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": 60
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": 4
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 6
+    },
+    {
+      "chave": "operacoes_alimentacao",
+      "rotulo": "Operações de alimentação",
+      "valor": 25
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Restaurantes",
+      "valor": 14
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Cinema",
+      "valor": "Kinoplex - 4 salas VIP e 2 Evolution"
+    },
+    {
+      "chave": "academia",
+      "rotulo": "Academia",
+      "valor": "Bodytech"
+    },
+    {
+      "chave": "vagas_site",
+      "rotulo": "Vagas (site)",
+      "curto": "Vagas",
+      "valor": 1869
+    },
+    {
+      "chave": "vagas_midiakit",
+      "rotulo": "Vagas (mídia kit)",
+      "valor": 1500
+    },
+    {
+      "chave": "fluxo_pessoas_mes",
+      "rotulo": "Fluxo médio mensal de pessoas",
+      "valor": 1300000
+    },
+    {
+      "chave": "fluxo_veiculos_mes",
+      "rotulo": "Fluxo médio mensal de veículos",
+      "valor": 120000
+    },
+    {
+      "chave": "escadas_rolantes",
+      "rotulo": "Escadas rolantes",
+      "valor": 12
+    },
+    {
+      "chave": "elevadores",
+      "rotulo": "Elevadores",
+      "valor": 16
+    },
+    {
+      "chave": "cancelas",
+      "rotulo": "Cancelas",
+      "valor": "8 entrada / 6 saída"
+    },
+    {
+      "chave": "quiosque_comercial_m2",
+      "rotulo": "Quiosque comercial",
+      "valor": "6 a 9",
+      "unidade": "m²"
+    },
+    {
+      "chave": "quiosque_promocional_m2",
+      "rotulo": "Quiosque promocional",
+      "valor": "6 a 20",
+      "unidade": "m²"
+    },
+    {
+      "chave": "vao_central_L1_m2",
+      "rotulo": "Vão central (L1)",
+      "valor": 122,
+      "unidade": "m²",
+      "nota": "para eventos"
+    },
+    {
+      "chave": "torre",
+      "rotulo": "Torre RIOSUL",
+      "valor": "164 m, 40 pavimentos, 298 unidades"
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · autor do projeto",
+      "valor": "Ulysses Burlamaqui (arquiteto), com cálculos estruturais de Bruno Contarini — autoria declarada para o condomínio da Torre, que tem o shopping no embasamento",
+      "fonte": "torreriosul.com.br"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · autor do projeto (coautor citado pela Wikipédia)",
+      "valor": "Ulysses Burlamaqui e Alexandre Chan",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · ano de inauguração do shopping",
+      "valor": "28 de abril de 1980",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · período de construção / conclusão da torre",
+      "valor": "Construção iniciada no fim da década de 70 (Wikipédia: 1976-1982); obras concluídas em 1982",
+      "fonte": "torreriosul.com.br"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · características",
+      "valor": "Fachada de concreto, treliças aparentes e muito vidro; a Wikipédia categoriza como arquitetura brutalista",
+      "fonte": "torreriosul.com.br"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · reforma",
+      "valor": "Revitalização iniciada no início de 2006, prevista para terminar no fim de 2007, com nova fachada",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · reforma (descrição da administradora, sem data no trecho)",
+      "valor": "Nova fachada de vidro, modernização do átrio em três andares, iluminação, paisagismo, mobiliário e banheiros",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "arq_8",
+      "rotulo": "Projeto · reforma (atualmente)",
+      "valor": "Novo polo gastronômico na Alameda Gourmet, entrada de luz natural e adequações arquitetônicas nos pisos G2, G3 e G4",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "arq_9",
+      "rotulo": "Projeto · contratante / construtora (Wikipédia)",
+      "valor": "Novonor (ex-Odebrecht)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_10",
+      "rotulo": "Projeto · divergência de fontes: pavimentos da torre",
+      "valor": "Administradora e site da Torre: 164 m e 40 pavimentos; Wikipédia: 164 m e 48 andares",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso 1º piso",
+      "valor": "Balcão de Informações, Achados e Perdidos, acesso aos pontos de táxi, empréstimo de carrinhos de bebê e cadeiras de rodas",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso 2º Piso",
+      "valor": "Lojas (ex.: FARM, LACOSTE)",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso 3º Piso",
+      "valor": "Lojas (ex.: AREZZO, SEPHORA, ANIMALE, ADCOS)",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso 4º Piso",
+      "valor": "Lojas (ex.: FUTTEBOL)",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "piso_5",
+      "rotulo": "Piso G1, G2, G3, G4 e G5",
+      "valor": "Pisos citados pela administradora com elevadores; cadeiras de rodas perto dos elevadores; fraldário no G4. A fonte não diz o uso principal desses pisos; diz que G2, G3 e G4 receberam adequações arquitetônicas",
+      "fonte": "iguatemi.com.br"
+    },
+    {
+      "chave": "piso_6",
+      "rotulo": "Piso quatro pavimentos (contagem da Wikipédia)",
+      "valor": "Mix de lojas em quatro pavimentos, home center, duas praças de alimentação e terraço com eventos, restaurantes e academia BodyTech",
+      "fonte": "pt.wikipedia.org"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 2007882000,
+      "fonte": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "m2": 3225.8,
+      "abl": 51870,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 501334000,
+      "fonte": "https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=1587440&descTipo=IPE&CodigoInstituicao=1",
+      "m2": 3223.7,
+      "abl": 51839,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 510844000,
+      "fonte": "https://content.btgpactual.com/research/files/file/hf-news/3440612.pdf",
+      "m2": 3286.5,
+      "abl": 51812,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 485089000,
+      "fonte": "https://2xsrxj8qfm3wamcc.public.blob.vercel-storage.com/atlas/conteudo/63bc1f21882e46bd6001a08e63114f84cee4ed8e1dfeb7e01ee2f8e79bb5fbe8.pdf",
+      "m2": 3118.1,
+      "abl": 51858,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 588790000,
+      "fonte": "https://ri.iguatemi.com.br/Download.aspx?Arquivo=E30o1WVrpIDxfzYOKdla+Q==",
+      "m2": 3783.8,
+      "abl": 51870,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    }
+  ],
+  "vendas_empresa": "Iguatemi (IGTI11)",
+  "vendas_nota": "Fonte: releases de resultados da Iguatemi (4T25 a 3T26), tabela de vendas dos ativos a 100%, lidos por extração automática em 14/11/2026; os releases do 1T26 e do 2T26 foram lidos em cópias hospedadas por terceiros, e fecham com o acumulado do release do 3T26 na CVM. A Iguatemi passou a abrir vendas por shopping no 4T25; não há 2024. Ela não publica venda por m² por shopping. Participação da Iguatemi no RIOSUL: 16,63%.",
+  "niveis": [
+    {
+      "id": "SS1",
+      "nome": "SS1 · Subsolo",
+      "uso": "Subsolo com serviço de saúde"
+    },
+    {
+      "id": "L1",
+      "nome": "1º Piso (L1)",
+      "uso": "Entrada principal, âncoras, restaurantes e bancos"
+    },
+    {
+      "id": "L2",
+      "nome": "2º Piso (L2)",
+      "uso": "Moda, praça de alimentação"
+    },
+    {
+      "id": "L3",
+      "nome": "3º Piso (L3)",
+      "uso": "Moda premium, beleza, joias e tecnologia"
+    },
+    {
+      "id": "L4",
+      "nome": "4º Piso (L4)",
+      "uso": "Casa, conveniência, serviços e alimentação"
+    },
+    {
+      "id": "G1",
+      "nome": "G1 · Garagem",
+      "uso": "Estacionamento e acessos"
+    },
+    {
+      "id": "G2",
+      "nome": "G2 · Garagem com lojas",
+      "uso": "Estacionamento, Correios e serviços"
+    },
+    {
+      "id": "G3",
+      "nome": "G3 · Garagem com lazer",
+      "uso": "Cinema Kinoplex e restaurantes"
+    },
+    {
+      "id": "G4",
+      "nome": "G4 · Garagem",
+      "uso": "Estacionamento, fraldário e serviços"
+    },
+    {
+      "id": "G5",
+      "nome": "G5 · Garagem",
+      "uso": "Estacionamento e espaço de eventos"
+    }
+  ],
+  "centro": [12,-18],
+  "contorno": [[-53,87],[-47,83],[-42,76],[-45,73],[-40,70],[-35,77],[-32,75],[-37,68],[-35,66],[-33,70],[-30,70],[12,42],[34,28],[44,22],[40,16],[29,-2],[28,-4],[32,-6],[34,1],[36,0],[40,5],[45,1],[47,4],[52,1],[50,-2],[66,-11],[69,-7],[73,-1],[69,2],[73,8],[77,6],[81,12],[87,21],[128,-6],[124,-12],[108,-37],[77,-85],[72,-87],[49,-101],[41,-106],[37,-108],[33,-107],[-20,-90],[-18,-86],[-24,-82],[-28,-88],[-38,-84],[-40,-84],[-42,-72],[-50,-38],[-54,-16],[-60,0],[-63,18],[-66,36],[-63,36],[-66,41],[-62,46],[-66,52],[-69,71],[-71,95],[-69,98]],
+  "atrio": [[33.1,-18],[30.3,-17],[27.4,-16.4],[25.5,-15.9],[24.9,-15.3],[24.1,-14.8],[22.8,-14.5],[21.5,-14.4],[20.3,-14.3],[19.1,-14.4],[17.9,-14.6],[17.4,-14.5],[17.2,-14.2],[17,-14],[16.8,-13.7],[16.6,-13.4],[16.7,-12.8],[17.1,-11.7],[17.7,-10.1],[18.2,-8.5],[18.4,-6.9],[18.4,-5.4],[18.1,-4.2],[17.5,-3.7],[16.7,-3.4],[16,-3.1],[15.2,-2.7],[14.5,-2.4],[13.7,-2],[12.9,-1.6],[12,-1.2],[11.1,-0.8],[10.1,-0.4],[9.1,0.1],[8,0.7],[6.8,1.2],[5.5,1.9],[4.1,2.6],[2.5,3.4],[0.7,4.2],[-1.1,4.7],[-2.8,4.8],[-4.4,4.6],[-5.9,4],[-6.9,3],[-7.8,1.8],[-8.4,0.3],[-8.7,-1.2],[-8.9,-2.8],[-8.9,-4.4],[-8.9,-6],[-8.8,-7.4],[-8.7,-8.8],[-8.5,-10.1],[-8.3,-11.4],[-8.1,-12.6],[-7.9,-13.8],[-7.7,-14.9],[-7.6,-15.9],[-7.5,-17],[-7.4,-18],[-7.4,-19],[-7.3,-20],[-7.1,-21],[-7,-22],[-6.7,-23],[-6.5,-24],[-6.2,-25],[-5.8,-25.9],[-5.5,-26.9],[-5.1,-27.9],[-4.7,-28.9],[-4.4,-29.9],[-4,-30.9],[-3.6,-32],[-3.1,-33.1],[-2.5,-34.1],[-1.8,-35],[-1,-35.8],[0,-36.6],[1,-37.1],[2,-37.6],[3,-38.2],[4,-38.9],[5,-39.5],[6.1,-40.1],[7.2,-40.6],[8.3,-41.2],[9.5,-41.5],[10.8,-41.7],[12,-41.9],[13.3,-42.2],[14.6,-42.4],[15.9,-42.6],[17.3,-42.9],[18.7,-43],[20.1,-43.1],[21.6,-42.9],[22.9,-42.6],[24.3,-42.1],[25.5,-41.4],[26.7,-40.7],[27.9,-39.9],[29,-39],[30.2,-38.2],[31.2,-37.2],[32.2,-36.2],[33.2,-35.2],[34.1,-34],[34.9,-32.9],[35.6,-31.6],[36.3,-30.4],[37,-29.1],[37.6,-27.8],[38.2,-26.5],[38.8,-25.2],[39.4,-23.8],[39.8,-22.4],[37.9,-20.7],[35.6,-19.2],[33.1,-18]],
+  "torre": [[45,1],[52,1],[50,-2],[66,-11],[72,-13],[76,-18],[72,-25],[75,-26],[67,-33],[59,-45],[62,-46],[56,-49],[52,-55],[47,-51],[45,-54],[40,-51],[42,-48],[26,-38],[20,-37],[15,-31],[19,-25],[23,-21],[32,-6],[34,1],[40,5]],
+  "ajustes": {
+    "H&M": {
+      "area": 1400,
+      "etiqueta": "imprensa",
+      "faixa": "área divulgada pela imprensa na abertura, em abril de 2026: cerca de 1.400 m² (anúncios anteriores falavam em 1.700 m²)"
+    }
+  },
+  "metodo": [
+    {
+      "tag": "oficial",
+      "texto": "Nome, categoria, piso e código de localização de cada operação ({com_codigo} de {ops} blocos têm código no site), ficha técnica e contorno do prédio."
+    },
+    {
+      "tag": "oficial",
+      "texto": "Quiosques: {quiosques_oficiais} operações têm código de quiosque (iniciado em Q) no site. Outras {quiosques_inferidos} sem código foram marcadas como prováveis quiosques. A ficha oficial fala em {ficha:quiosques}."
+    },
+    {
+      "tag": "oficial",
+      "texto": "Ordem das lojas em cada piso: segue a numeração do código (A no 1º piso, B no 2º, C no 3º, D no 4º e garagens)."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Desenho do piso: o shopping não publica a planta. O ponto de partida da numeração e o sentido horário foram assumidos a partir do vídeo de campo e do OpenStreetMap."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Quiosques: a posição no corredor usa a grade do código, com orientação assumida."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Área e fachada de cada loja: referência por segmento, ajustada para a soma fechar na ABL oficial. Margem de ±35%."
+    },
+    {
+      "tag": "imprensa",
+      "texto": "Área da H&M: cerca de 1.400 m², conforme a cobertura da abertura em abril de 2026. Substitui a estimativa anterior de 2.500 m²."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Passeio: o trajeto segue o corredor do desenho esquemático, não a circulação real."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Piso exato em que a Torre do RIOSUL se liga ao shopping e se o acesso é direto pelo mall (as fontes dizem só 'integrada' e 'no embasamento'); Significado oficial dos pisos G1 a G5 (garagem ou pisos de mall) e o uso de cada piso em fonte pública; página 'o-shopping' de iguatemi.com.br/riosul devolve 'Página não encontrada'; Mapa/planta de pisos do shopping em fonte pública; Seção 'Como chegar' do site (linhas de ônibus, estação de metrô Botafogo): não lida; nenhuma fonte encontrada sobre ligação a pé com a estação Botafogo; Data e autor do projeto da reforma da fachada de vidro no site da administradora (a data 2006-2007 vem só da Wikipédia); Tombamento: nenhuma fonte encontrada; Hotel, passarela ou terminal de ônibus ligados ao shopping: nenhuma fonte encontrada (há menção a um 'Free Bus RIOSUL x Hotéis' na década de 2010, sem dizer se ainda existe)."
+    }
+  ],
+  "fontes": [
+    "iguatemi.com.br/riosul/lojas-e-alimentacao (diretório, coletado em 12/11/2026)",
+    "iguatemi.com.br/riosul/lojas-e-alimentacao/<loja> (código de localização de cada loja, coletado em 12/11/2026)",
+    "iguatemi.com.br/riosul/sobre (números oficiais)",
+    "Mídia Kit RIOSUL Iguatemi 2026 (ficha técnica e formatos de quiosque)",
+    "OpenStreetMap, way 991851293 (contorno do prédio e altura) © colaboradores do OpenStreetMap, ODbL",
+    "Imprensa sobre a abertura da H&M no RIOSUL (área da loja), lida via busca em 13/11/2026",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: iguatemi.com.br, pt.wikipedia.org, torreriosul.com.br"
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Torre do RIOSUL (Rio Sul Center)",
+      "descricao": "Condomínio empresarial de 164 m e 40 pavimentos, 298 unidades e uma cobertura; o shopping fica no embasamento da torre e a administradora diz que a torre é 'integrada ao shopping'. Nenhuma fonte informa o piso da ligação nem usa a expressão 'acesso direto'.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://iguatemi.com.br/riosul/sobre",
+      "x": 47.5,
+      "y": -27.1
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Conexão-Metrô (RIOSUL x Cardeal Arcoverde)",
+      "descricao": "Não há estação no shopping: a ligação com o metrô é um serviço de transporte 'Conexão-Metrô' entre o RIOSUL e a estação Cardeal Arcoverde, com embarque e desembarque na Entrada Principal, saídas de meia em meia hora (seg-sáb 10h-22h30; dom e feriados 12h-21h).",
+      "piso": "Entrada Principal",
+      "acesso": "pela rua",
+      "fonte": "https://iguatemi.com.br/riosul/servicos/conexao-metro"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Ponto de táxi (cooperativa Sul Táxi)",
+      "descricao": "Ponto de táxi em parceria com a cooperativa Sul Táxi, com acesso pelo 1º piso.",
+      "piso": "1º piso",
+      "acesso": "a confirmar",
+      "fonte": "https://iguatemi.com.br/riosul/faq"
+    }
+  ]
+}

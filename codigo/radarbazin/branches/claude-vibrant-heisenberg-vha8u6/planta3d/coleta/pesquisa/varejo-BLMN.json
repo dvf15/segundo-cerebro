@@ -1,0 +1,68 @@
+{
+ "empresa": "Bloomin' Brands, Inc.",
+ "ticker": "BLMN",
+ "bolsa": "Nasdaq",
+ "situacao": "listada; no Brasil é minoritária: vendeu 67% da operação brasileira (Outback, Abbraccio, Aussie) à Vinci Partners (acordo de nov/2024) e ficou com 33%",
+ "situacao_url": "https://www.barchart.com/story/news/410228/bloomin-brands-announces-2025-q4-financial-results",
+ "marcas": [
+  {
+   "marca": "Outback Steakhouse",
+   "nomes_no_arquivo": [
+    "OUTBACK",
+    "OUTBACK STEAK HOUSE",
+    "OUTBACK STEAKHOUSE"
+   ],
+   "url": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A gestora Vinci Partners ficaria com 67% da operação brasileira e a Bloomin' Brands com 33%. O negócio inclui Outback, Abbraccio e Aussie. Atualmente o Outback tem 174 unidades no Brasil, o Abbraccio, 17, e a Aussie, duas."
+  },
+  {
+   "marca": "Abbraccio",
+   "nomes_no_arquivo": [
+    "ABBRACCIO",
+    "ABBRACCIO-CUCINA ITALIANA"
+   ],
+   "url": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A gestora Vinci Partners ficaria com 67% da operação brasileira e a Bloomin' Brands com 33%. O negócio inclui Outback, Abbraccio e Aussie. Atualmente o Outback tem 174 unidades no Brasil, o Abbraccio, 17, e a Aussie, duas."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025 (exercício encerrado em 28/dez/2025)",
+   "valor": 3956000000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada (Brasil não consolidado)",
+   "publicado": true,
+   "url": "https://stockanalysis.com/stocks/blmn/financials/income-statement/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Total revenues were about $3.96B, roughly flat versus 2024; SEC-filing-based table lists 3,956 for FY2025 against 3,950 for FY2024"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "nov/2024",
+   "valor": 174,
+   "unidade": "lojas",
+   "escopo": "Brasil, marca Outback",
+   "publicado": true,
+   "url": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A gestora Vinci Partners ficaria com 67% da operação brasileira e a Bloomin' Brands com 33%. O negócio inclui Outback, Abbraccio e Aussie. Atualmente o Outback tem 174 unidades no Brasil, o Abbraccio, 17, e a Aussie, duas."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "nov/2024",
+   "valor": 17,
+   "unidade": "lojas",
+   "escopo": "Brasil, marca Abbraccio",
+   "publicado": true,
+   "url": "https://www.bloomberglinea.com.br/negocios/vinci-fecha-compra-do-controle-do-outback-abbraccio-e-aussie-por-r-14-bi/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] A gestora Vinci Partners ficaria com 67% da operação brasileira e a Bloomin' Brands com 33%. O negócio inclui Outback, Abbraccio e Aussie. Atualmente o Outback tem 174 unidades no Brasil, o Abbraccio, 17, e a Aussie, duas."
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "A controladora da operação brasileira é a Vinci Partners (hoje Vinci Compass, listada na Nasdaq: VINP) por meio de fundo de private equity; os números da Bloomin' não incluem a receita das lojas do Brasil.",
+  "Não achei confirmação posterior da data de conclusão da venda."
+ ],
+ "nao_encontrado": [
+  "Receita e nº de lojas do Brasil em 2025/2026"
+ ]
+}

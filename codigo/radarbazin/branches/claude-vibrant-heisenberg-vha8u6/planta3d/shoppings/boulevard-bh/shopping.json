@@ -1,0 +1,492 @@
+{
+  "id": "ID_DA_PASTA",
+  "nome": "Boulevard Shopping Belo Horizonte",
+  "curto": "BOULEVARD SHOPPING BELO HORIZONTE",
+  "papel": "meu shopping",
+  "subtitulo": "Av. dos Andradas, 3.000 – Santa Efigênia, Belo Horizonte – MG · ALLOS",
+  "coleta": null,
+  "origem_lista": "relação colada na página",
+  "link_loja": null,
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    {
+      "rotulo": "Âncoras + megalojas",
+      "chaves": [
+        "ancoras",
+        "megalojas"
+      ]
+    },
+    "vagas",
+    "consumidores_mes",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "26/10/2010",
+      "nota": "ALLOS informa apenas o ano (2010); dia vem de notícia da inauguração",
+      "fonte": "bheventos.com.br"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 41683,
+      "unidade": "m²",
+      "nota": "A mesma página dá ABC de 43.016 m²; o site do shopping chama 43.016 de ABL",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "abc_m2",
+      "rotulo": "ABC (área bruta comercial)",
+      "valor": 43016,
+      "unidade": "m²",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída",
+      "valor": 156000,
+      "unidade": "m²",
+      "nota": "Dado de 2010, notícia da inauguração",
+      "fonte": "bheventos.com.br"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Número de lojas",
+      "valor": 221,
+      "nota": "Site do shopping diz 200",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Lojas-âncora",
+      "valor": 13,
+      "nota": "Site do shopping diz 5",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 9,
+      "nota": "Site do shopping diz 11",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Operações de alimentação",
+      "valor": 28,
+      "nota": "Mais 8 restaurantes fora da praça; praça com 816 lugares",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "lugares_praca",
+      "rotulo": "Lugares na praça de alimentação",
+      "valor": 816,
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 6,
+      "nota": "Cineart; 1 sala IMAX",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 2382,
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "consumidores_mes",
+      "rotulo": "Consumidores por mês",
+      "valor": 1000000,
+      "unidade": "pessoas/mês",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "pisos_lojas",
+      "rotulo": "Pisos de lojas",
+      "valor": 3,
+      "nota": "Oito andares no total, cinco de estacionamento (dado de 2010)",
+      "fonte": "bheventos.com.br"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil",
+      "valor": "A/B/C",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "torre_comercial",
+      "rotulo": "Torres comerciais",
+      "valor": 1,
+      "fonte": "boulevardshopping.com.br"
+    },
+    {
+      "chave": "premios",
+      "rotulo": "Prêmios conquistados",
+      "valor": 23,
+      "nota": "Sete internacionais",
+      "fonte": "boulevardshopping.com.br"
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · ano",
+      "valor": "Inaugurado em 26/10/2010 após dois anos e seis meses de obras",
+      "fonte": "bheventos.com.br"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · autor do projeto (shopping)",
+      "valor": "CDC - Coutinho, Diegues, Cordeiro Arquitetos, segundo legenda de maquete no Pinterest (fonte fraca, só trecho de busca)",
+      "fonte": "br.pinterest.com"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · características",
+      "valor": "Oito andares: cinco de estacionamento e três pisos de lojas; 156 mil m² de área construída",
+      "fonte": "bheventos.com.br"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · características",
+      "valor": "Dois grandes vãos centrais; a praça de alimentação fica adjacente a um deles e é visível de todos os andares",
+      "fonte": "faldesign.com.br"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · empreendedores",
+      "valor": "Aliansce Shopping Centers e NRG Empreendimentos; investimento total de R$ 400 milhões incluindo a torre",
+      "fonte": "bheventos.com.br"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · reforma",
+      "valor": "Renovação com novo projeto da praça de alimentação pela FAL Design (madeira, cor, floreiras altas)",
+      "fonte": "faldesign.com.br"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · autor do projeto (torre)",
+      "valor": "Aflalo & Gasperini Arquitetos; construção OAS; certificação LEED prevista (silver)",
+      "fonte": "alshop.com.br"
+    },
+    {
+      "chave": "arq_8",
+      "rotulo": "Projeto · torre: fachada",
+      "valor": "Limestone similar à fachada do shopping, painéis pré-moldados e pele de vidro unitizada; sky lobby e heliponto previstos",
+      "fonte": "kinea.com.br"
+    },
+    {
+      "chave": "arq_9",
+      "rotulo": "Projeto · expansões",
+      "valor": "Projeto multiúso da ALLOS prevê expansão do mall com cerca de 5 mil m² de área comercial e uma segunda torre",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "arq_10",
+      "rotulo": "Projeto · prêmios",
+      "valor": "23 prêmios, sete internacionais (a fonte não lista quais)",
+      "fonte": "boulevardshopping.com.br"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso SS",
+      "valor": "Alameda de Serviços (legenda do mapa interno)",
+      "fonte": "boulevardshopping.com.br"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso 1",
+      "valor": "Carrefour Hipermercado (endereço da loja indica Piso 1)",
+      "fonte": "instagram.com"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso 2",
+      "valor": "Espaço Cliente; no mapa: fraldário, achados e perdidos, guarda-volumes, empréstimo de cadeiras de rodas e carrinhos",
+      "fonte": "boulevardshopping.com.br"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso 3",
+      "valor": "Cinema Cineart (loja 3036); fraldário",
+      "fonte": "ingresso.com"
+    },
+    {
+      "chave": "piso_5",
+      "rotulo": "Piso A",
+      "valor": "Aparece no seletor do mapa interno; a fonte não descreve o uso",
+      "fonte": "boulevardshopping.com.br"
+    },
+    {
+      "chave": "piso_6",
+      "rotulo": "Piso G1, G2, G3",
+      "valor": "Estacionamento, acima dos pisos do shopping (corte esquemático do folheto da torre, que chama os pisos de lojas de L1, L2, L3 e SS1)",
+      "fonte": "kinea.com.br"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1061470000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2122.1,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 1031253000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2062.5,
+      "abl": 41666,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 255134000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1985.0,
+      "abl": 42844,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 265136000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2120.3,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 232590000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1860.0,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 331147000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2648.1,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    },
+    {
+      "periodo": "3T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 250310000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2001.7,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.75
+    },
+    {
+      "periodo": "2T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 254367000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2034.1,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.5
+    },
+    {
+      "periodo": "1T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 225646000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1804.5,
+      "abl": 41683,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.25
+    }
+  ],
+  "vendas_empresa": "ALLOS (ALOS3)",
+  "vendas_nota": "Fonte: Planilha de Fundamentos 3T26 da ALLOS, tabela de vendas totais por shopping a 100%, lida por extração automática em 14/11/2026. A ALLOS não publica venda por m² por shopping, só a da carteira (R$ 2.017 por m² ao mês no 3T26).",
+  "niveis": [
+    {
+      "id": "SS",
+      "nome": "SS · Piso SS",
+      "uso": "Alameda de Serviços (mapa interno do shopping)"
+    },
+    {
+      "id": "L1",
+      "nome": "Piso 1 (L1)",
+      "uso": "Lojas; hipermercado Carrefour"
+    },
+    {
+      "id": "L2",
+      "nome": "Piso 2 (L2)",
+      "uso": "Lojas; Espaço Cliente"
+    },
+    {
+      "id": "L3",
+      "nome": "Piso 3 (L3)",
+      "uso": "Lojas; cinema Cineart"
+    },
+    {
+      "id": "G1",
+      "nome": "G1 · Garagem",
+      "uso": "Estacionamento acima dos pisos de lojas (corte do folheto da torre)"
+    },
+    {
+      "id": "G2",
+      "nome": "G2 · Garagem",
+      "uso": "Estacionamento"
+    },
+    {
+      "id": "G3",
+      "nome": "G3 · Garagem",
+      "uso": "Estacionamento"
+    }
+  ],
+  "contorno": [[89.5,87.4],[33.7,79.7],[-52.3,66.4],[-92.7,58.7],[-97,57.4],[-99.8,55.4],[-100.7,53.9],[-94.2,14.5],[-42.2,-0.7],[-28.4,-13.3],[-39.4,-54],[49.2,-78.8],[51.5,-69.3],[66.1,-73.6],[64.4,-79.9],[93.8,-87.4],[97.5,-74.6],[99.5,-72],[100.5,-69.1],[100.5,-63.2],[99.1,-60.3],[97.1,-58.1],[94.7,-56.6],[91.3,-56],[87.8,-56.3],[74.2,34.2],[96.7,37.4]],
+  "metodo": [
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio, entradas e ruas: OpenStreetMap."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Lista de lojas e quiosques: não está embutida. O site do shopping é da ALLOS e a lista entra pela relação colada na aba Lojas ou por um arquivo lojas.csv."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pisos: SS, 1, 2 e 3 pelo mapa interno do shopping e G1 a G3 pelo corte do folheto da torre. O mapa cita ainda um \"Piso A\", sem descrição."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Desenho de cada piso: esquemático (fileira externa, corredor com quiosques, ilha central e átrio)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: ABL: 41.683 m² (ALLOS,.com.br/shopping/boulevard-shopping-belo-horizonte/, que dá 43.016 como ABC) x 43.016 m² como ABL.com.br/sobre-o-shopping/) x 43.064 m² (comunicado Aliansce na CVM,.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=364700&descTipo=IPE&CodigoInstituicao=1) x 42.580 m² na inauguração.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Lojas: 221.com.br/shopping/boulevard-shopping-belo-horizonte/) x 200.com.br/sobre-o-shopping/) x 214 em 2010.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte) x 'mais de 220'.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Âncoras: 13.com.br/shopping/boulevard-shopping-belo-horizonte/) x 5.com.br/sobre-o-shopping/) x 4 em 2010.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte). Megalojas: 9.com.br/shopping/boulevard-shopping-belo-horizonte/) x 11.com.br/sobre-o-shopping/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Alimentação: 28 operações + 8 restaurantes fora da praça.com.br/shopping/boulevard-shopping-belo-horizonte/) x 16 operações na praça + 4 restaurantes.com.br/sobre-o-shopping/) x 18 operações em 2010.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Lugares na praça de alimentação: 816.com.br/shopping/boulevard-shopping-belo-horizonte/) x 1.800 em 2010.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Vagas: 2.382.com.br/shopping/boulevard-shopping-belo-horizonte/) x 2.439 rotativas no folheto da torre.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf) x 'mais de 2.300' em 2010.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Área da torre: 18.275 m² de área total e 1.075 m² por andar.alshop.com.br/portal/boulevard-shopping-inicia-obras-do-boulevard-corporate-tower/, 2011) x 20.426,18 m² locáveis e 1.201,54 m² por andar.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf) x 'mais de 20 mil m² de área privativa'.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Segunda torre: chamada de 'torre multiúso' no texto e de '1 residencial' nos dados do projeto, na mesma página.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Nome dos pisos: Piso SS, 1, 2, 3 e A no mapa do shopping.com.br/o-shopping/mapa-interno.htm) x SS1, L1, L2, L3 e G1-G3 no corte do folheto da torre.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Verbete do shopping na Wikipédia.wikipedia.org/wiki/Boulevard_Shopping_Belo_Horizonte não existe); Autor do projeto do shopping em fonte primária (só legenda de maquete no Pinterest citando CDC Arquitetos; não achei página do escritório nem ArchDaily); Número de quiosques; Área do terreno e uso anterior do terreno; Piso exato do acesso da Boulevard Corporate Tower ao shopping (fontes falam em lobby de acesso e elevadores comuns, sem dizer o piso); Acesso direto entre metrô e shopping: nenhuma fonte afirma; só caminhada pela passarela/Av. dos Andradas; Hotel, universidade ou terminal de ônibus ligado ao shopping: nada encontrado; Uso do Piso A e piso da praça de alimentação (mapa interno é imagem; página 'Como chegar' só traz o endereço); Lista e nomes dos 23 prêmios; data da renovação da praça de alimentação; prazo e nome da segunda torre."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 89435468 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: allos.com.br, alshop.com.br, bheventos.com.br, boulevardshopping.com.br, br.pinterest.com, faldesign.com.br, ingresso.com, instagram.com, kinea.com.br, quintoandar.com.br"
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Boulevard Corporate Tower",
+      "descricao": "Torre comercial de 17 andares construída sobre parte do shopping (esquina da rua Pacífico Mascarenhas com Av. dos Andradas); tem lobby de acesso ao shopping e 2 elevadores comuns ao shopping, além de lobby exclusivo; 20.426,18 m² locáveis (BOMA), 400 vagas próprias",
+      "piso": null,
+      "acesso": "direto",
+      "fonte": "https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf",
+      "osm": "Corporate Tower|Boulevard Corporate"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Nova torre multiúso (em desenvolvimento)",
+      "descricao": "Segunda torre do projeto multiúso da ALLOS, cerca de 10 mil m² de área privativa; a ficha do projeto lista '1 corporativo, 1 residencial', 350 unidades; descrita como integrada ao shopping, sem detalhe do acesso",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Santa Efigênia (Linha 1 do metrô de BH)",
+      "descricao": "A 200 m da torre/shopping; chega-se a pé pela passarela da estação que leva à Av. dos Andradas; nenhuma fonte fala em acesso interno ao shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/",
+      "osm": "Esta[cç][aã]o Santa Efig",
+      "x": -244.3,
+      "y": 117.7,
+      "d": 157,
+      "osm_nome": "Estação Santa Efigênia"
+    },
+    {
+      "tipo": "passarela",
+      "nome": "Passarela da Estação Santa Efigênia sobre a Av. dos Andradas",
+      "descricao": "Passarela é acesso da estação de metrô (com escada fixa), não do shopping; em obras de alargamento segundo o Metrô BH",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Área Hospitalar (Hospital Unimed, Hospital da Polícia Militar, Santa Casa, Hospital das Clínicas)",
+      "descricao": "Vizinhança; mapa do folheto da torre marca Hospital Unimed e Hospital da Polícia Militar no entorno; sem ligação física citada",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Ponto de táxi e bicicletário",
+      "descricao": "Serviços listados pela ALLOS no shopping; piso não informado",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/"
+    }
+  ]
+}

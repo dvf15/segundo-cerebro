@@ -23,7 +23,9 @@ import type { NextRequest } from "next/server";
 /* Páginas e recursos que podem ser abertos por qualquer pessoa. */
 const PUBLICO: RegExp[] = [
   // ferramentas comerciais
-  /^\/(operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas)\.html$/,
+  /^\/(operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas|renovacoes)\.html$/,
+  // vídeos do passo a passo do Radar de Renovações (aba Como usar)
+  /^\/renovacoes-[a-z0-9-]+\.mp4$/,
   // manifests e ícones dessas ferramentas
   /^\/[a-z0-9-]+\.webmanifest$/,
   /^\/[a-z0-9-]+-icon(-\d+)?\.(png|svg)$/,
@@ -201,5 +203,5 @@ export async function middleware(req: NextRequest) {
    Ao incluir uma ferramenta nova, acrescente-a nas duas listas. */
 export const config = {
   matcher:
-    "/((?!_next/static|_next/image|(?:operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas)\\.html$|[a-z0-9-]+\\.webmanifest$|[a-z0-9-]+-icon(?:-\\d+)?\\.(?:png|svg)$|icon(?:-pink)?\\.(?:png|svg)$|sw-[a-z0-9-]+\\.js$|exemplos/|favicon\\.ico$).*)",
+    "/((?!_next/static|_next/image|(?:operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas|renovacoes)\\.html$|renovacoes-[a-z0-9-]+\\.mp4$|[a-z0-9-]+\\.webmanifest$|[a-z0-9-]+-icon(?:-\\d+)?\\.(?:png|svg)$|icon(?:-pink)?\\.(?:png|svg)$|sw-[a-z0-9-]+\\.js$|exemplos/|favicon\\.ico$).*)",
 };

@@ -1,0 +1,32 @@
+{
+  "id": "ID_DA_PASTA",
+  "nome": "NOME DO SHOPPING",
+  "curto": "NOME CURTO",
+  "papel": "concorrente",
+  "subtitulo": "[FALTA: endereço · bairro · administradora]",
+  "coleta": null,
+  "origem_lista": "[FALTA: de onde veio a lista de lojas]",
+  "link_loja": null,
+  "kpis": ["abl_m2", "lojas", "quiosques", "@ops", "@quiosques"],
+  "ficha": [
+    {"chave": "endereco", "rotulo": "Endereço", "valor": null},
+    {"chave": "inauguracao", "rotulo": "Inauguração", "valor": null},
+    {"chave": "abl_m2", "rotulo": "ABL", "valor": null, "unidade": "m²"},
+    {"chave": "lojas", "rotulo": "Lojas", "valor": null},
+    {"chave": "quiosques", "rotulo": "Quiosques", "valor": null},
+    {"chave": "ancoras", "rotulo": "Âncoras", "valor": null},
+    {"chave": "megalojas", "rotulo": "Megalojas", "valor": null},
+    {"chave": "vagas", "rotulo": "Vagas", "valor": null}
+  ],
+  "niveis": [
+    {"id": "L1", "nome": "1º Piso (L1)", "uso": "Lojas"},
+    {"id": "L2", "nome": "2º Piso (L2)", "uso": "Lojas"}
+  ],
+  "contorno": [[-60,-35],[60,-35],[60,35],[-60,35]],
+  "metodo": [
+    {"tag": "a confirmar", "texto": "Contorno do prédio: retângulo provisório de 120 × 70 m. Troque pelo contorno real com scripts/osm.mjs."},
+    {"tag": "a confirmar", "texto": "Pisos: confirme a quantidade e o uso de cada um em \"niveis\"."},
+    {"tag": "estimado", "texto": "Desenho de cada piso: esquemático (fileira externa, corredor com quiosques, ilha central e átrio)."}
+  ],
+  "fontes": []
+}

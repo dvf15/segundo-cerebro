@@ -1,0 +1,233 @@
+{
+  "id": "mooca-plaza",
+  "empresa": "ALLOS",
+  "ticker": "ALOS3",
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1138850000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/ano",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 2025 = 1,138,850. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 4T25 = 42,067 (ABL do fim do ano)."
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas_reais": 1052458000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/ano",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 2024 = 1,052,458. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 4T24 = 42,067 (ABL do fim do ano)."
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 286439000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 3T26 = 286,439. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 3T26 = 42,067."
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 302051000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 2T26 = 302,051. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 2T26 = 42,067."
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 257510000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 1T26 = 257,510. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 1T26 = 42,067."
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 365800000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 4T25 = 365,800. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 4T25 = 42,067."
+    },
+    {
+      "periodo": "3T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 261782000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42173,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 3T25 = 261,782. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 3T25 = 42,173."
+    },
+    {
+      "periodo": "2T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 276232000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 2T25 = 276,232. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 2T25 = 42,067."
+    },
+    {
+      "periodo": "1T25",
+      "tipo_periodo": "trimestre",
+      "vendas_reais": 235037000,
+      "base": "100% do shopping (vendas dos lojistas; nota da planilha: 'Vendas Totais por Shopping base @100%')",
+      "vendas_m2": null,
+      "vendas_m2_unidade": "R$/m²/mês",
+      "vendas_m2_publicado": false,
+      "abl_m2": 42067,
+      "abl_fonte_url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Vendas > Sales', tabela 'Vendas Totais por Shopping¹ (R$ mil)': linha 'Mooca Plaza Shopping', coluna 1T25 = 235,037. Aba 'Portfolio', 'ABL Total (m²)': Mooca Plaza Shopping, coluna 1T25 = 42,067."
+    }
+  ],
+  "outros_indicadores": [
+    {
+      "indicador": "taxa de ocupação do shopping",
+      "periodo": "4T25",
+      "valor": "99.9%",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Portfolio', bloco de taxa de ocupação: Mooca Plaza Shopping, 4T25 = 99.9%"
+    },
+    {
+      "indicador": "taxa de ocupação do shopping",
+      "periodo": "1T26",
+      "valor": "99.9%",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Portfolio', bloco de taxa de ocupação: Mooca Plaza Shopping, 1T26 = 99.9%"
+    },
+    {
+      "indicador": "taxa de ocupação do shopping",
+      "periodo": "2T26",
+      "valor": "99.2%",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Portfolio', bloco de taxa de ocupação: Mooca Plaza Shopping, 2T26 = 99.2%"
+    },
+    {
+      "indicador": "taxa de ocupação do shopping",
+      "periodo": "3T26",
+      "valor": "97.7%",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Portfolio', bloco de taxa de ocupação: Mooca Plaza Shopping, 3T26 = 97.7%"
+    },
+    {
+      "indicador": "NOI do shopping @100% (R$ mil no trimestre)",
+      "periodo": "2T25",
+      "valor": "26,126",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'NOI', tabela 'NOI por Shopping¹' (nota: '¹NOI por shopping base @100%'): Mooca Plaza Shopping, 2T25 = 26,126"
+    },
+    {
+      "indicador": "NOI do shopping @100% (R$ mil no trimestre)",
+      "periodo": "3T25",
+      "valor": "26,833",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'NOI', tabela 'NOI por Shopping¹' (nota: '¹NOI por shopping base @100%'): Mooca Plaza Shopping, 3T25 = 26,833"
+    },
+    {
+      "indicador": "NOI do shopping @100% (R$ mil no trimestre)",
+      "periodo": "4T25",
+      "valor": "34,048",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'NOI', tabela 'NOI por Shopping¹' (nota: '¹NOI por shopping base @100%'): Mooca Plaza Shopping, 4T25 = 34,048"
+    },
+    {
+      "indicador": "NOI do shopping @100% (R$ mil no trimestre)",
+      "periodo": "1T26",
+      "valor": "25,240",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'NOI', tabela 'NOI por Shopping¹' (nota: '¹NOI por shopping base @100%'): Mooca Plaza Shopping, 1T26 = 25,240"
+    },
+    {
+      "indicador": "NOI do shopping @100% (R$ mil no trimestre)",
+      "periodo": "2T26",
+      "valor": "28,758",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'NOI', tabela 'NOI por Shopping¹' (nota: '¹NOI por shopping base @100%'): Mooca Plaza Shopping, 2T26 = 28,758"
+    },
+    {
+      "indicador": "NOI do shopping @100% (R$ mil no trimestre)",
+      "periodo": "3T26",
+      "valor": "28,698",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'NOI', tabela 'NOI por Shopping¹' (nota: '¹NOI por shopping base @100%'): Mooca Plaza Shopping, 3T26 = 28,698"
+    },
+    {
+      "indicador": "participação da ALLOS no shopping",
+      "periodo": "3T26",
+      "valor": "60.0%",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "trecho": "Planilha de Fundamentos 3T26, aba 'Portfolio', bloco de participação: Mooca Plaza Shopping, 3T26 = 60.0%"
+    },
+    {
+      "indicador": "vendas/m² da CARTEIRA ALLOS (não é do shopping; R$/m²/mês, média mensal do trimestre)",
+      "periodo": "3T26",
+      "valor": "R$ 2.017/m² (3T25: 1.935; 9M26: 1.980)",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/ac6a7e0d-a610-472f-8a24-1e12bebe1f3d",
+      "trecho": "| Vendas/m2 (R) | 2.017 | 1.935 | 4,3% | 1.980 | 1.902 | 4,1% | — Relatório de Resultados 3T26 (texto lido em cópia em https://investidor10.com.br/acoes/link_comunicado/ALOS3/51855/)"
+    },
+    {
+      "indicador": "vendas totais da CARTEIRA ALLOS @100% (R$ mil)",
+      "periodo": "3T26 / 9M26",
+      "valor": "10.042.160 / 29.973.984",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/ac6a7e0d-a610-472f-8a24-1e12bebe1f3d",
+      "trecho": "| Vendas Totais @100% (R$ mil)1 | 10.042.160 | 9.860.879 | 1,8% | 29.973.984 | 29.021.169 | 3,3% |"
+    },
+    {
+      "indicador": "crescimento de vendas do shopping (3T26 x 3T25), citado no release",
+      "periodo": "3T26",
+      "valor": "+9,4%",
+      "url": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/ac6a7e0d-a610-472f-8a24-1e12bebe1f3d",
+      "trecho": "Os destaques no desempenho de vendas no trimestre foram: Shopping Grande Rio (+10%), Mooca Plaza Shopping (+9,4%), Shopping Taboão (+9,1%)"
+    }
+  ],
+  "divergencias": [
+    "ABL total: a planilha de fundamentos 3T26 traz 42,067 m² (3T26) e 42,067 m² (4T25); a página 'Nossos Shoppings' do RI (última atualização 10/09/2026, https://ri.allos.com.br/a-companhia/nossos-shoppings/) traz 42.067 m². Ao calcular venda/m², usar a ABL do mesmo período da venda."
+  ],
+  "nao_encontrado": [
+    "Venda por m² do shopping: a ALLOS não publica vendas/m² por shopping, só a da carteira (R$/m²/mês) — ver planilha de fundamentos (https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797) e relatório 3T26. O valor por shopping precisa ser calculado (venda ÷ ABL).",
+    "Vendas mensais por shopping: não divulgadas (a abertura é trimestral e anual).",
+    "Vendas de 2026 fechado: ainda não existem; há 1T26, 2T26 e 3T26 (soma 9M26 pode ser calculada).",
+    "Fundos imobiliários: não foi localizado relatório gerencial de FII com vendas ou vendas/m² deste shopping (a busca não foi exaustiva; o fundo ALLOS/Kinea anunciado em abr/2026 não foi verificado)."
+  ]
+}

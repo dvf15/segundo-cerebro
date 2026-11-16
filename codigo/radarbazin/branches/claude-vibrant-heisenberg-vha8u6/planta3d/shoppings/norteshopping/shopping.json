@@ -1,0 +1,388 @@
+{
+  "id": "norteshopping",
+  "nome": "NorteShopping",
+  "curto": "NORTESHOPPING",
+  "papel": "meu shopping",
+  "subtitulo": "Av. Dom Hélder Câmara, 5474 · Cachambi · ALLOS",
+  "coleta": null,
+  "origem_lista": "relação colada na página",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    {
+      "rotulo": "Âncoras + megalojas",
+      "chaves": [
+        "ancoras",
+        "megalojas"
+      ]
+    },
+    "vagas",
+    "consumidores_mes",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "endereco",
+      "rotulo": "Endereço",
+      "valor": "Av. Dom Hélder Câmara, 5474 · Cachambi · CEP 20771-004"
+    },
+    {
+      "chave": "administradora",
+      "rotulo": "Administradora",
+      "valor": "ALLOS"
+    },
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "1986"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 71336,
+      "unidade": "m²",
+      "nota": "o site do shopping fala em \"103 mil m² de ABL\"; a ALLOS publica 103.000 m² como ABC"
+    },
+    {
+      "chave": "abc_m2",
+      "rotulo": "ABC",
+      "valor": 103000,
+      "unidade": "m²"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Lojas",
+      "valor": 359,
+      "nota": "o site do shopping fala em \"mais de 350\""
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": 17
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 15
+    },
+    {
+      "chave": "operacoes_alimentacao",
+      "rotulo": "Operações de alimentação",
+      "valor": 67
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Restaurantes fora da praça",
+      "valor": 30
+    },
+    {
+      "chave": "praca_alimentacao",
+      "rotulo": "Praça de alimentação",
+      "valor": "1.050 lugares"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Cinema",
+      "valor": "UCI Kinoplex · 10 salas"
+    },
+    {
+      "chave": "teatro",
+      "rotulo": "Teatro",
+      "valor": "Teatro Miguel Falabella · 442 lugares"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas",
+      "valor": 3573
+    },
+    {
+      "chave": "consumidores_mes",
+      "rotulo": "Consumidores por mês",
+      "curto": "Consumidores / mês",
+      "valor": "1.650.000",
+      "nota": "o site do shopping fala em fluxo médio de 1,5 milhão de visitantes por mês"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil de público",
+      "valor": "B/C"
+    },
+    {
+      "chave": "patio",
+      "rotulo": "Pátio NorteShopping",
+      "valor": "inaugurado em 2007 · 30.000 m² de lazer, entretenimento e área ao ar livre (lifestyle center)"
+    },
+    {
+      "chave": "revitalizacao",
+      "rotulo": "Revitalização",
+      "valor": "iniciada em 2018, com novo conceito arquitetônico e áreas de convívio; Taste LAB aberto em 2020"
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · ano de inauguração",
+      "valor": "1986, na antiga fábrica da Klabin",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · expansões: Pátio NorteShopping",
+      "valor": "2ª expansão, área de lazer e entretenimento; data: dezembro de 2006 segundo a Wikipédia, 2007 segundo a ALLOS; área: 32.500 m² (Wikipédia) ou 30.000 m² (ALLOS)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · autor do projeto (Pátio NorteShopping)",
+      "valor": "Designcorp, escritório de design canadense",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · expansões: Torre NorteShopping",
+      "valor": "Expansão com torre de 10 andares de salas (mais de 30 por andar) e 4 elevadores; a Wikipédia não dá a data",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · características",
+      "valor": "Primeiro centro comercial de grande porte da Zona Norte; 71.336 m² de ABL, 103.000 m² de ABC, 3.573 vagas, 359 lojas (ALLOS)",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · características: entradas",
+      "valor": "Quatro entradas para pedestres e veículos: principal (Dom Helder Câmara), Pedras Altas, Gândavo e Fernão Cardim (esta com passagem de pedestres bloqueada em 25/11/2012)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · reforma",
+      "valor": "A administradora diz que o shopping 'segue se expandindo e revitalizando', sem detalhar",
+      "fonte": "allos.com.br"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso 1",
+      "valor": "Lojas e atrações (citado em divulgação do shopping; a praça de alimentação é citada junto a 'Piso 1 e 2')",
+      "fonte": "instagram.com"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso 2º piso",
+      "valor": "Lojas (ex.: H&M) e praça de alimentação",
+      "fonte": "instagram.com"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso Pátio NorteShopping",
+      "valor": "Área de lazer, entretenimento e espaço ao ar livre (lifestyle center): cinema UCI Kinoplex de 10 salas, boliche, academia Bodytech, bares e restaurantes",
+      "fonte": "allos.com.br"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1554149000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1817.8,
+      "abl": 71248,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 1544002000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1806.9,
+      "abl": 71208,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 383228000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1782.7,
+      "abl": 71655,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 395266000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1838.7,
+      "abl": 71655,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 377727000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1765.0,
+      "abl": 71336,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 462946000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 2165.9,
+      "abl": 71248,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    },
+    {
+      "periodo": "3T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 363498000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1702.6,
+      "abl": 71165,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.75
+    },
+    {
+      "periodo": "2T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 378205000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1771.5,
+      "abl": 71165,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.5
+    },
+    {
+      "periodo": "1T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 349500000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/330c258b-6212-45ce-8c13-557ea46cc23a/03303118-1df0-44fb-a6a0-92abfbf92797",
+      "m2": 1637.0,
+      "abl": 71165,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2025.25
+    }
+  ],
+  "vendas_empresa": "ALLOS (ALOS3)",
+  "vendas_nota": "Fonte: Planilha de Fundamentos 3T26 da ALLOS, tabela de vendas totais por shopping a 100%, lida por extração automática em 14/11/2026. A ALLOS não publica venda por m² por shopping, só a da carteira (R$ 2.017 por m² ao mês no 3T26).",
+  "niveis": [
+    {
+      "id": "L1",
+      "nome": "1º Piso (L1)",
+      "uso": "[FALTA: uso do piso]"
+    },
+    {
+      "id": "L2",
+      "nome": "2º Piso (L2)",
+      "uso": "[FALTA: uso do piso]"
+    }
+  ],
+  "contorno": [[-197.4,50.5],[-189,62.9],[-184.1,63.1],[-181.5,64.6],[-180,66.4],[-158.5,101.8],[-157.8,106.5],[-159.8,110.7],[-152.8,122],[-101.2,121.2],[-66.6,58.8],[-63.9,55.9],[-59.9,54.7],[-60.2,42.9],[-59.7,39.8],[-56.9,36.1],[-53.2,34.7],[23.5,33],[26.9,34.9],[29,38.2],[29.7,52.3],[60,51.5],[63,52.4],[65,53.7],[67.3,57.7],[69.2,72.1],[72.6,73.5],[74.8,75.7],[76,79.3],[76,86.2],[79,89.2],[149.5,86.7],[148.7,44.5],[149.6,40.8],[152.1,37.8],[154.8,36.6],[175.7,35.5],[174.3,-26],[172.8,-29.1],[172.6,-32.2],[173.5,-35.1],[197.4,-77.9],[190.9,-81.2],[188.7,-83.2],[187.4,-86],[186.7,-91.8],[187.8,-95.6],[197.3,-111.5],[150.9,-122],[146.5,-114],[144.7,-112.4],[141.8,-111.2],[64.3,-109.3],[63.5,-53.3],[62.3,-49.6],[59.4,-46.8],[56.4,-45.9],[25.3,-45.3],[22.2,-42.1],[22.3,-35.6],[21.4,-32.6],[18.9,-29.7],[16,-28.4],[9.9,-28.1],[6.1,-29.5],[-6.3,-44.7],[-67.9,-43.1],[-74.5,-40],[-87.2,-16.8],[-89.3,-14.3],[-111.8,-0.4],[-126.2,0.4],[-129.9,1.2],[-133,0.4],[-136,-2],[-153,-30]],
+  "metodo": [
+    {
+      "tag": "oficial",
+      "texto": "Ficha técnica: página do NorteShopping no site da ALLOS. Onde o site do próprio shopping diz outro número, os dois aparecem na ficha."
+    },
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio: união de quatro blocos que o OpenStreetMap marca como shopping (ways 1166264399, 1166264402, 1166264414 e 1166264415), cerca de 46 mil m² de projeção. Um quinto bloco (way 1166264400), o cinema, os restaurantes do Pátio e a torre estão mapeados à parte e aparecem como prédios vizinhos."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pisos: a pesquisa não achou em fonte pública quantos pisos de lojas o shopping tem. O modelo traz dois pisos provisórios; a relação de lojas cria os que faltarem."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Lista de lojas e quiosques: não está embutida. O site do shopping recusa leitura automática, e a lista entra pela relação colada na aba Lojas ou por um arquivo lojas.csv."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Desenho de cada piso: esquemático (fileira externa, corredor com quiosques, ilha central e átrio). Não é a planta real."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: norteshopping.com.br recusa acesso automático (não contornado); só foi usado o trecho devolvido pela busca (página 'Sobre o Shopping'); Piso do acesso interno da Torre NorteShopping e data de inauguração da torre; Como o Pátio NorteShopping se liga ao mall original (piso, passarela, área aberta); Autor do projeto arquitetônico original de 1986 e da torre; Lista oficial de pisos e uso de cada um (só menções a 'Piso 1' e '2º piso' em divulgação); Estação de trem ou metrô próxima e eventual ligação: nenhuma fonte encontrada; Terminal de ônibus, hotel ou passarela ligados ao shopping: nenhuma fonte encontrada; Tombamento ou preservação de elementos da fábrica Klabin: nenhuma fonte encontrada; Divergência não resolvida: data do Pátio (dezembro de 2006 na Wikipédia, 2007 na ALLOS) e área (32.500 m² x 30.000 m²)."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, ways 1166264399, 1166264402, 1166264414 e 1166264415 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "allos.com.br/shopping/norte-shopping (ficha: ABL, ABC, lojas, âncoras, megalojas, vagas, alimentação, lazer, Pátio), lido em 14/11/2026",
+    "norteshopping.com.br/sobre-o-shopping (mais de 350 lojas, 103 mil m², 1,5 milhão de visitantes por mês, revitalização de 2018 e Taste LAB), trecho lido via busca em 14/11/2026",
+    "Lista de lojas e quiosques: relação colada pelo usuário neste navegador (o site oficial recusa leitura automática)",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: allos.com.br, instagram.com, pt.wikipedia.org"
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Torre NorteShopping",
+      "descricao": "Torre de salas com 10 andares e 4 elevadores, com acesso interno pelo shopping e também pela Av. Dom Hélder Câmara. A fonte não informa o piso do acesso interno.",
+      "piso": null,
+      "acesso": "direto",
+      "fonte": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)",
+      "osm": "Torre NorteShopping",
+      "x": 157.8,
+      "y": -86.1,
+      "d": 0,
+      "osm_nome": "Torre NorteShopping"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Pátio NorteShopping",
+      "descricao": "Expansão do próprio shopping (lifestyle center de lazer e entretenimento com área ao ar livre). As fontes a tratam como parte do shopping, sem descrever piso ou forma de ligação com o mall original.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/shopping/norte-shopping/",
+      "osm": "P[aá]tio"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Universidade Estácio (unidade no shopping)",
+      "descricao": "Faculdade dentro do complexo, listada pela administradora em 'Ensino', com Colégio Elite e Colégio Cel.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/shopping/norte-shopping/"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Teatro Miguel Falabella",
+      "descricao": "Teatro de 442 lugares dentro do shopping.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://allos.com.br/shopping/norte-shopping/",
+      "osm": "Falabella"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Centro médico",
+      "descricao": "A Wikipédia lista 1 centro médico entre as operações do complexo.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Av. Dom Hélder Câmara (entrada principal)",
+      "descricao": "Entrada principal do shopping e segundo acesso da Torre, pela avenida.",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://pt.wikipedia.org/wiki/Norte_Shopping_(Rio_de_Janeiro)"
+    }
+  ]
+}

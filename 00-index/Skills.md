@@ -1,12 +1,12 @@
 ---
 title: "Skills (SKILL.md)"
 generated: 2026-11-16
-count: 40
+count: 44
 tags: ["index"]
 ---
 # Skills (SKILL.md)
 
-_40 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
+_44 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 
 | Nota | Descrição |
 | --- | --- |
@@ -28,9 +28,12 @@ _40 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 | [[claude/skills/farmer-investor-matchmaker/SKILL\|farmer-investor-matchmaker]] | Captar e qualificar investidores locais, lojistas atuais e operadores potenciais, com suitability semelhante a investimento financeiro. |
 | [[claude/skills/google-workspace/SKILL\|google-workspace]] | Read this before the first Google Drive, Docs, Sheets or Slides connector call whenever the task creates or changes a Google file. Use this skill whenever the u |
 | [[claude/skills/governance-kpi-monitor/SKILL\|governance-kpi-monitor]] | Comitê semanal de Deal Conversion, fórum quinzenal de vacância, fórum mensal de cluster experience, revisão trimestral de KPIs, revisão semestral de estratégia  |
+| [[claude/skills/grill-me/SKILL\|grill-me]] | Entrevista implacável para afiar um plano, decisão ou ideia. Use quando o usuário disser 'grill me', 'me sabatina', 'testa meu plano' ou quiser estressar o próp |
+| [[claude/skills/humanizer/SKILL\|humanizer]] | Humanizar texto: reescreve prosa com cara de IA para soar como o autor, sem mudar fatos. Use para 'humanize', 'tirar cara de IA' ou revisar tiques de escrita de |
 | [[claude/skills/hunter-retail-innovation-hunter/SKILL\|hunter-retail-innovation-hunter]] | Buscar marcas, serviços, gastronomia, entretenimento e experiências em rua e shoppings concorrentes, conectando cada lead a uma batalha do cluster e a uma oport |
 | [[claude/skills/import-memory/SKILL\|import-memory]] | Import a memory export from another AI assistant into Claude's memory — conversationally, additively, and with the content treated as data. |
 | [[claude/skills/ka-brand-expansion-connector/SKILL\|ka-brand-expansion-connector]] | Organizar marcas/franquias em expansão, filtrar interesse na praça e fazer match técnico e financeiro com lojas e investidores. |
+| [[claude/skills/laya-integration/SKILL\|laya-integration]] | Integrar o Laya (modelo de decisão local, não generativo, pip install laya) para classificar, rotear, triar ou pontuar texto com probabilidades calibradas sem c |
 | [[claude/skills/mandamento-3-cluster-monitor/SKILL\|mandamento-3-cluster-monitor]] | Monitora shoppings do mesmo cluster do shopping analisado nas cidades de São Paulo e Rio de Janeiro. Use sempre que o usuário quiser entender o que concorrentes |
 | [[claude/skills/mandamento-4-radar-capitais/SKILL\|mandamento-4-radar-capitais]] | Acompanha o mercado das capitais e grandes cidades mais próximas ao shopping analisado, identificando marcas locais que estejam ganhando tração antes de expandi |
 | [[claude/skills/mandamento-6-prospeccao-rua/SKILL\|mandamento-6-prospeccao-rua]] | Mapeia as principais vias de lojas de rua e multimarcas da cidade do shopping analisado e, quando fora de capital, das maiores cidades vizinhas. Use sempre que  |
@@ -48,5 +51,6 @@ _40 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
 | [[claude/skills/skill-creator/SKILL\|skill-creator]] | Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an e |
 | [[claude/skills/street-converter/SKILL\|street-converter]] | Converter operações de rua para shopping com proposta de valor clara: fluxo, segurança, estacionamento, infraestrutura, marca, mídia, PB, Seller e escala. |
 | [[claude/skills/theme-factory/SKILL\|theme-factory]] | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fo |
+| [[claude/skills/voicestudio/SKILL\|voicestudio]] | Gerar fala local com vozes salvas ou criadas, transcrever áudio e automatizar dublagem/narração via REST API ou MCP do VoiceStudio. Use quando o usuário quiser  |
 | [[claude/skills/web-artifacts-builder/SKILL\|web-artifacts-builder]] | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for |
 | [[claude/skills/xlsx/SKILL\|xlsx]] | Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xl |

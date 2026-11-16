@@ -49,24 +49,24 @@ export default function BpSummary({ readings }: { readings: BpReadingDTO[] }) {
     <>
       {/* Alertas */}
       {veryHigh && (
-        <div className="animate-in rounded-xl border border-red-500/50 bg-red-500/15 px-3 py-2 text-[15px] text-red-200">
+        <div className="animate-in rounded-xl border border-red-500/50 bg-red-500/15 px-3 py-2 text-[16px] text-red-200">
           🚨 Última medição muito alta ({last.sys}/{last.dia}). Se houver sintomas, procure
           atendimento de emergência.
         </div>
       )}
       {highAvg && (
-        <div className="animate-in rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-[15px] text-amber-200">
+        <div className="animate-in rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-[16px] text-amber-200">
           ⚠️ Média de 7 dias em {avg7Sys}/{avg7Dia} mmHg (≥ {BP_REF_SYS}/{BP_REF_DIA}) — considere
           avaliação médica.
         </div>
       )}
       {allNight && (
-        <div className="animate-in rounded-xl border border-blue-500/40 bg-blue-500/10 px-3 py-2 text-[15px] text-blue-200">
+        <div className="animate-in rounded-xl border border-blue-500/40 bg-blue-500/10 px-3 py-2 text-[16px] text-blue-200">
           ℹ️ Todas as medições foram à noite. O MRPA recomenda 2 de manhã e 2 à noite.
         </div>
       )}
       {!allNight && lowMorning && (
-        <div className="animate-in rounded-xl border border-blue-500/40 bg-blue-500/10 px-3 py-2 text-[15px] text-blue-200">
+        <div className="animate-in rounded-xl border border-blue-500/40 bg-blue-500/10 px-3 py-2 text-[16px] text-blue-200">
           ℹ️ Cobertura — manhã {morningCount} · noite {nightCount}. A média matinal (antes do café e
           da medicação) é a que a MRPA pede.
         </div>
@@ -75,42 +75,42 @@ export default function BpSummary({ readings }: { readings: BpReadingDTO[] }) {
       {/* Cards de resumo */}
       <div className="grid grid-cols-2 gap-3">
         <div className={card}>
-          <div className="text-[11px] uppercase tracking-wide text-slate-400">Última medição</div>
+          <div className="text-[12px] uppercase tracking-wide text-slate-400">Última medição</div>
           <div className="mt-1 text-xl font-extrabold text-white">
             {last.sys}/{last.dia}
           </div>
-          <div className="mt-0.5 text-[12px] text-slate-400">
+          <div className="mt-0.5 text-[13px] text-slate-400">
             {last.date.slice(5)} · {last.time}
           </div>
         </div>
         <div className={card}>
-          <div className="text-[11px] uppercase tracking-wide text-slate-400">Média 7 dias</div>
+          <div className="text-[12px] uppercase tracking-wide text-slate-400">Média 7 dias</div>
           <div className="mt-1 text-xl font-extrabold text-white">
             {last7.length ? `${avg7Sys}/${avg7Dia}` : "—"}
           </div>
           {situacao && (
-            <div className="mt-1 text-[12px] font-semibold" style={{ color: situacao.color }}>
+            <div className="mt-1 text-[13px] font-semibold" style={{ color: situacao.color }}>
               {situacao.label} (ref. {BP_REF_SYS}/{BP_REF_DIA})
             </div>
           )}
         </div>
         <div className={card}>
-          <div className="text-[11px] uppercase tracking-wide text-slate-400">Média geral</div>
+          <div className="text-[12px] uppercase tracking-wide text-slate-400">Média geral</div>
           <div className="mt-1 text-xl font-extrabold text-white">
             {readings.length ? `${avgAllSys}/${avgAllDia}` : "—"}
           </div>
-          <div className="mt-0.5 text-[12px] text-slate-400">{readings.length} medições</div>
+          <div className="mt-0.5 text-[13px] text-slate-400">{readings.length} medições</div>
         </div>
         <div className={card}>
-          <div className="text-[11px] uppercase tracking-wide text-slate-400">Situação (7d)</div>
+          <div className="text-[12px] uppercase tracking-wide text-slate-400">Situação (7d)</div>
           {situacao ? (
             <div className="mt-1 text-lg font-extrabold" style={{ color: situacao.color }}>
               {situacao.label}
             </div>
           ) : (
-            <div className="mt-1 text-[13px] text-slate-400">—</div>
+            <div className="mt-1 text-[14px] text-slate-400">—</div>
           )}
-          <div className="mt-0.5 text-[12px] text-slate-400">
+          <div className="mt-0.5 text-[13px] text-slate-400">
             vs {BP_REF_SYS}/{BP_REF_DIA} residencial
           </div>
         </div>
@@ -118,8 +118,8 @@ export default function BpSummary({ readings }: { readings: BpReadingDTO[] }) {
 
       {/* Referências clínicas */}
       <div className={card}>
-        <div className="mb-2 text-xs font-bold uppercase text-slate-300">Referências clínicas</div>
-        <div className="space-y-1.5 text-[12.5px] text-slate-300">
+        <div className="mb-2 text-[13px] font-bold uppercase text-slate-300">Referências clínicas</div>
+        <div className="space-y-1.5 text-[13.5px] text-slate-300">
           <p>
             <b className="text-slate-100">Consultório (DBH/SBC 2025):</b> Normal &lt; 120/80 ·
             Pré‑hipertensão 120–139/80–89 · HAS est. 1: 140–159/90–99 · est. 2: 160–179/100–109 ·

@@ -1,0 +1,118 @@
+{
+  "id": "tijuca",
+  "pisos": [
+    {
+      "nome": "Pisos de lojas (4)",
+      "uso": "Quatro pisos de lojas, segundo a ficha técnica do relatório anual 2012 da BRMalls (antiga administradora); a fonte não nomeia os pisos",
+      "url": "http://extapps.mz-ir.com/BRMalls/RAO/2012/default/en/show5e31.html?IdCanal=Mm3J9RO7Q+s01xQSeOgM2g==",
+      "trecho": "Pisos de lojas | 4"
+    },
+    {
+      "nome": "1º piso",
+      "uso": "Piso de onde se acessa a Torre Comercial 2, em frente à entrada da Av. Maracanã (segundo anúncio de loja da torre)",
+      "url": "https://www.instagram.com/p/DUjHeTRE21L/",
+      "trecho": "SHOPPING TIJUCA AV MARACANÃ, 987 - TORRE COMERCIAL 2 - SL.703 (Acesso pelo 1o piso em frente à entrada da Av.Maracanã)"
+    },
+    {
+      "nome": "G1",
+      "uso": "Espaço Cliente / central de estacionamento (trecho de busca do site oficial, que recusa acesso automático)",
+      "url": "https://shoppingtijuca.com/o-shopping/",
+      "trecho": "Central de estacionamento no Espaço Cliente, piso G1 somente para perda de tickets."
+    },
+    {
+      "nome": "G2, G3, G4, G5 e G6",
+      "uso": "Pisos com guichês de pagamento automático de estacionamento (trecho de busca do site oficial)",
+      "url": "https://shoppingtijuca.com/o-shopping/",
+      "trecho": "Guichês para pagamento automático nos Pisos G2, G3, G4, G5 e G6."
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "ano de inauguração",
+      "valor": "1996 (novembro de 1996 na ficha da BRMalls)",
+      "url": "https://allos.com.br/shopping/shopping-tijuca/",
+      "trecho": "Inaugurado em 1996, o Shopping Tijuca está localizado no coração da Grande Tijuca e é o maior complexo comercial do bairro com mais de 300 lojas"
+    },
+    {
+      "item": "expansões",
+      "valor": "1 expansão (ficha técnica BRMalls 2012); a fonte não dá a data",
+      "url": "http://extapps.mz-ir.com/BRMalls/RAO/2012/default/en/show5e31.html?IdCanal=Mm3J9RO7Q+s01xQSeOgM2g==",
+      "trecho": "Expansões | 1"
+    },
+    {
+      "item": "características",
+      "valor": "Complexo com shopping e três torres comerciais com cerca de 200 salas",
+      "url": "https://allos.com.br/shopping/shopping-tijuca/",
+      "trecho": "O empreendimento conta ainda com três torres comerciais, compostas por cerca de 200 salas, com opção de serviços variados."
+    },
+    {
+      "item": "características: entradas",
+      "valor": "Entradas pela Av. Maracanã e pela Rua Eng. Enaldo Cravo Peixoto; esta última é a mais usada por quem chega a pé da Praça Saens Peña",
+      "url": "http://natijuca.com/Grande-Tijuca/importancia-do-shopping-tijuca-na-revitalizacao-do-bairro.html",
+      "trecho": "a maioria deste público utiliza a entrada localizada na Rua Eng. Enaldo Cravo Peixoto"
+    },
+    {
+      "item": "projeto 2012/2015 (escritório de arquitetura)",
+      "valor": "O currículo do arquiteto Ivan Rezende lista 'Shopping Tijuca / Brmalls' em 2012/2015; o trecho não diz a natureza do trabalho (não é o autor do projeto original)",
+      "url": "http://ivanrezendearquitetura.com.br/wp-content/uploads/2016/05/cv_portugues.pdf",
+      "trecho": "2012/2015 - Shopping Tijuca / Brmalls. Tijuca - Rio de Janeiro - RJ."
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Três torres comerciais do Shopping Tijuca",
+      "descricao": "O empreendimento tem três torres comerciais com cerca de 200 salas. A administradora não diz por onde se entra nelas.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/shopping/shopping-tijuca/",
+      "trecho": "O empreendimento conta ainda com três torres comerciais, compostas por cerca de 200 salas, com opção de serviços variados."
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torre Comercial 2",
+      "descricao": "Anúncio de loja instalada na torre informa que o acesso é pelo 1º piso, em frente à entrada da Av. Maracanã. A fonte não é a administradora e não diz textualmente 'acesso direto'.",
+      "piso": "1º piso",
+      "acesso": "a confirmar",
+      "url": "https://www.instagram.com/p/DUjHeTRE21L/",
+      "trecho": "SHOPPING TIJUCA AV MARACANÃ, 987 - TORRE COMERCIAL 2 - SL.703 (Acesso pelo 1o piso em frente à entrada da Av.Maracanã) - estação Metrô: Saens Pena."
+    },
+    {
+      "tipo": "torre",
+      "nome": "Torre 3",
+      "descricao": "Existência de uma 'torre 3' confirmada por anúncio imobiliário de sala; sem informação de acesso.",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://www.imovelweb.com.br/comerciais-conjunto-comercial-sala-venda-maracana-rio-de-janeiro-perto-de-iw-dubom-gourmet-rua-morais-e-silva-107.html",
+      "trecho": "Av. Maracanã!! Sala shopping tijuca, torre 3. Excelente localização."
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Saens Peña (Praça Saens Peña)",
+      "descricao": "Sem ligação física: o shopping fica a 5 minutos a pé da Praça Saens Peña; o fluxo de pedestres vem da praça pela Rua General Roca até a entrada da Rua Eng. Enaldo Cravo Peixoto. A fonte da BRMalls cita a praça, não a estação; a estação Saens Peña é citada como referência por loja da torre.",
+      "piso": "entrada da Rua Eng. Enaldo Cravo Peixoto",
+      "acesso": "pela rua",
+      "url": "http://extapps.mz-ir.com/BRMalls/RAO/2012/default/en/show5e31.html?IdCanal=Mm3J9RO7Q+s01xQSeOgM2g==",
+      "trecho": "Situa-se estrategicamente na Av. Maracanã, famosa por seu estádio homônimo, e está a 5 minutos (a pé) da Praça Saens Peña."
+    },
+    {
+      "tipo": "outro",
+      "nome": "Fluxo de pedestres Praça Saens Peña - Shopping",
+      "descricao": "70% dos frequentadores chegam a pé; mais de 60 mil pessoas por dia no trecho entre a Praça Saens Peña e o shopping, pela Rua General Roca.",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "http://natijuca.com/Grande-Tijuca/importancia-do-shopping-tijuca-na-revitalizacao-do-bairro.html",
+      "trecho": "chegam através do fluxo de pessoas que liga a Praça Saenz Peña ao Shopping Tijuca, passando pela Rua General Roca. Estima-se que por dia, mais de 60 mil pessoas trafegam neste trecho."
+    }
+  ],
+  "nao_encontrado": [
+    "shoppingtijuca.com recusa acesso automático (não contornado); só foi usado o trecho devolvido pela busca",
+    "Wikipédia em português não tem artigo 'Shopping Tijuca' (404)",
+    "Autor do projeto arquitetônico original (1996) e autor/data da expansão",
+    "Nomes e usos dos quatro pisos de lojas (ex.: piso da praça de alimentação e do cinema Kinoplex)",
+    "Como as torres 1 e 3 se ligam ao shopping, número de andares das torres e confirmação oficial de acesso direto pelo mall",
+    "Distância ou tempo a pé até a estação Uruguai do metrô; nenhuma fonte fala de ligação física com o metrô",
+    "Hotel, passarela, terminal de ônibus ou trem ligados ao shopping: nenhuma fonte encontrada",
+    "Tombamento ou uso anterior do terreno: nenhuma fonte encontrada"
+  ]
+}

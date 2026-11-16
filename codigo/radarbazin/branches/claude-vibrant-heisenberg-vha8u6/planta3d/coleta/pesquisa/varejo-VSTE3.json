@@ -1,0 +1,120 @@
+{
+ "empresa": "Veste S.A. Estilo (antiga Restoque)",
+ "ticker": "VSTE3",
+ "bolsa": "B3",
+ "situacao": "listada (VSTE3)",
+ "situacao_url": "https://statusinvest.com.br/acoes/vste3",
+ "marcas": [
+  {
+   "marca": "Le Lis",
+   "nomes_no_arquivo": [
+    "LE LIS",
+    "LE LIS BLANC"
+   ],
+   "url": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/",
+   "trecho": "Holding que controla marcas como Le Lis, Dudalina e John John acumula ganho de R$23,3 milhões de janeiro a junho"
+  },
+  {
+   "marca": "Dudalina",
+   "nomes_no_arquivo": [
+    "DUDALINA"
+   ],
+   "url": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/",
+   "trecho": "Holding que controla marcas como Le Lis, Dudalina e John John acumula ganho de R$23,3 milhões de janeiro a junho"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 1230948000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (dado de agregador)",
+   "publicado": true,
+   "url": "https://investimentos.com.br/ativo/vste3/resultados/",
+   "trecho": "Receita líquida R$ 1.230.948.000,00 em 31/12/2025 [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2T26",
+   "valor": 351200000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/",
+   "trecho": "O segundo trimestre de 2026 contribuiu com receita de R$351,2 milhões, que representa crescimento de 9,8% na comparação com igual trimestre do ano passado."
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "1S26",
+   "valor": 655700000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/",
+   "trecho": "No período, o balanço financeiro registra alta da receita líquida de 12%, para R$655,7 milhões."
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 433100000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://www.instagram.com/p/Db8ZjkIFseF/",
+   "trecho": "A Veste encerrou o 2T26 com resultados sólidos e evolução em seus principais indicadores: faturamento bruto de R$ 433,1 milhões"
+  },
+  {
+   "indicador": "receita_bruta",
+   "periodo": "2T26",
+   "valor": 64200000,
+   "unidade": "R$",
+   "escopo": "marca Dudalina",
+   "publicado": true,
+   "url": "https://gbljeans.com.br/mercado/varejo/veste-volta-a-ter-lucro-forte-no-primeiro-semestre-2026/",
+   "trecho": "Dudalina cresceu 7,4%, com receita bruta de R$64,2 milhões."
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 160,
+   "unidade": "lojas",
+   "escopo": "lojas próprias",
+   "publicado": true,
+   "url": "https://fashionunited.com/news/business/veste-reports-highest-q2-net-income-in-seven-years/2026081274022",
+   "trecho": "encerrou 2T26 com 160 lojas próprias em operação [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 193,
+   "unidade": "lojas",
+   "escopo": "total incluindo franquias e Estoque (outlet)",
+   "publicado": true,
+   "url": "https://fashionunited.com/news/business/veste-reports-highest-q2-net-income-in-seven-years/2026081274022",
+   "trecho": "a rede somava 193 lojas incluindo franquias e Estoque [trecho obtido via resumo de busca; página não aberta]"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2T26",
+   "valor": 18,
+   "unidade": "lojas",
+   "escopo": "marca Bo.Bô (próprias)",
+   "publicado": true,
+   "url": "https://fashionunited.com/news/business/veste-reports-highest-q2-net-income-in-seven-years/2026081274022",
+   "trecho": "BO.BÔ ended June with 18 of its own stores, two more than a year earlier [trecho obtido via resumo de busca; página não aberta]"
+  }
+ ],
+ "divergencias": [
+  "Método: em 14/11/2026 os sites de RI/CVM e a imprensa não puderam ser abertos diretamente (rede da sessão bloqueia os hosts; créditos Firecrawl esgotados após as primeiras buscas). Itens marcados '[trecho obtido via resumo de busca; página não aberta]' vêm de trechos devolvidos pelo buscador e a URL é a fonte indicada pelo buscador — conferir no release oficial antes de publicar.",
+  "Receita líquida do 2T26: R$ 351,2 mi (GBL Jeans) x R$ 353,2 mi 'ajustada' (outras fontes).",
+  "John John, Bo.Bô e Individual pertencem à Veste mas não aparecem no arquivo de marcas."
+ ],
+ "nao_encontrado": [
+  "Resultado do 3T26 (previsto para 12/11/2026) não localizado",
+  "Número de lojas por marca (Le Lis, Dudalina) e total em 2025",
+  "Área de vendas e venda por m²",
+  "SSS",
+  "Receita bruta de 2025"
+ ]
+}

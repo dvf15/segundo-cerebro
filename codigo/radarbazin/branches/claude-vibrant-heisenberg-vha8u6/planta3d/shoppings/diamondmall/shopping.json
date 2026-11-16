@@ -1,0 +1,409 @@
+{
+  "id": "ID_DA_PASTA",
+  "nome": "DiamondMall",
+  "curto": "DIAMONDMALL",
+  "papel": "concorrente",
+  "subtitulo": "Av. Olegário Maciel, 1600 - Lourdes - Belo Horizonte/MG - CEP 30180-111 · Multiplan",
+  "coleta": "14/11/2026",
+  "origem_lista": "páginas de loja do site do shopping",
+  "link_loja": "https://www.diamondmall.com.br/{slug}/",
+  "kpis": [
+    "abl_m2",
+    "lojas",
+    "vagas",
+    "@ops",
+    "@quiosques"
+  ],
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "06/11/1996",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 24191,
+      "unidade": "m²",
+      "nota": "ABL total; site do shopping arredonda para 24.191 m²",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída",
+      "valor": 73039,
+      "unidade": "m²",
+      "nota": "Só na Wikipédia; sem data, provavelmente anterior à expansão de 2024",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Número de lojas",
+      "valor": 315,
+      "nota": "Ver divergências: o mesmo site mostra 274 no contador e a Multiplan falou em 196 operações em 2024",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Opções gastronômicas",
+      "valor": 35,
+      "nota": "Fonte diz 'mais de 35'",
+      "fonte": "diamondmall.com.br"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 6,
+      "nota": "Cinemark; dado da Wikipédia",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 1060,
+      "nota": "Wikipédia dá 1.289",
+      "fonte": "diamondmall.com.br"
+    },
+    {
+      "chave": "visitas_ano",
+      "rotulo": "Tráfego anual (2025)",
+      "valor": 5400000,
+      "unidade": "visitas/ano",
+      "nota": "Dado anual, não mensal; em 2024 a superintendente citou quase 7,5 milhões/ano",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "pisos_lojas",
+      "rotulo": "Pisos de lojas",
+      "valor": 4,
+      "nota": "L1 a L4; o mapa interno lista ainda G1",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil do público",
+      "valor": "90% classes A e B; 55% mulheres",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "participacao_multiplan",
+      "rotulo": "Participação Multiplan",
+      "valor": "90%",
+      "nota": "RI em inglês informa propriedade de 75,05% com arrendamento que dá 90% do resultado (https://ri.multiplan.com.br/en/about-multiplan/corporate-structure/)",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "expansoes",
+      "rotulo": "Expansões",
+      "valor": 2,
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "empregos",
+      "rotulo": "Empregos",
+      "valor": 2308,
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "vendas_2025",
+      "rotulo": "Vendas em 2025",
+      "valor": "R$ 1,04 bilhão",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "quiosques",
+      "rotulo": "Quiosques",
+      "valor": null
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Âncoras",
+      "valor": null
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": null
+    },
+    {
+      "chave": "arq_1",
+      "rotulo": "Projeto · características",
+      "valor": "Projeto arquitetônico com formato semelhante a um diamante",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "arq_2",
+      "rotulo": "Projeto · ano",
+      "valor": "Inaugurado em 06/11/1996",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "arq_3",
+      "rotulo": "Projeto · terreno / implantação",
+      "valor": "Ocupa um quarteirão inteiro, no terreno do antigo Estádio Presidente Antônio Carlos (campo do Atlético Mineiro de 1929 a 1969)",
+      "fonte": "pt.wikipedia.org"
+    },
+    {
+      "chave": "arq_4",
+      "rotulo": "Projeto · área do terreno",
+      "valor": "13.500 m² segundo a Dávila Arquitetura (Wikipédia: 14.400 m²)",
+      "fonte": "davila.arq.br"
+    },
+    {
+      "chave": "arq_5",
+      "rotulo": "Projeto · expansão 1 (3º piso)",
+      "valor": "Primeira expansão: abertura do terceiro piso com 35 lojas e Cinemark (2004 segundo o shopping)",
+      "fonte": "diamondmall.com.br"
+    },
+    {
+      "chave": "arq_6",
+      "rotulo": "Projeto · autor do detalhamento da expansão 1",
+      "valor": "Dávila Arquitetura (projeto datado de 2006 no site do escritório); transformou um piso de estacionamento em mall, com madeira (tábua corrida) e áreas de estar",
+      "fonte": "davila.arq.br"
+    },
+    {
+      "chave": "arq_7",
+      "rotulo": "Projeto · expansão 2 (4º piso)",
+      "valor": "Inaugurada em 06/11/2024: 26 novas lojas, investimento de R$ 86 milhões; prevista desde o projeto de 1996",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "arq_8",
+      "rotulo": "Projeto · autor do projeto da expansão 2 / revitalização",
+      "valor": "Paulo Baruki Arquitetura lista o projeto 'Diamond Mall' (2020 | 2022) em seu portfólio, com imagens de fachadas e portaria; mais de 5 mil m² de área comercial acrescidos",
+      "fonte": "paulobaruki.com"
+    },
+    {
+      "chave": "arq_9",
+      "rotulo": "Projeto · reforma",
+      "valor": "Revitalização extensa antes do 4º piso: forros, escadas rolantes, elevadores, acessos, estacionamentos, fachadas e claraboias com eficiência energética",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "piso_1",
+      "rotulo": "Piso G1",
+      "valor": "Aparece no seletor do mapa interno; a fonte não descreve o uso",
+      "fonte": "diamondmall.com.br"
+    },
+    {
+      "chave": "piso_2",
+      "rotulo": "Piso L1",
+      "valor": "Verdemar (empório/supermercado) fica neste piso",
+      "fonte": "multiplan.com.br"
+    },
+    {
+      "chave": "piso_3",
+      "rotulo": "Piso L2",
+      "valor": "Aparece no seletor do mapa interno; a fonte não descreve o uso",
+      "fonte": "diamondmall.com.br"
+    },
+    {
+      "chave": "piso_4",
+      "rotulo": "Piso L3",
+      "valor": "Terceiro piso, aberto na 1ª expansão (2004) com 35 lojas e o Cinemark; era um piso de estacionamento transformado em mall; abriga o Espaço Gourmet",
+      "fonte": "diamondmall.com.br"
+    },
+    {
+      "chave": "piso_5",
+      "rotulo": "Piso L4",
+      "valor": "Quarto piso, aberto em 06/11/2024: 26 lojas (marcas internacionais) e espaço de restaurantes com luz natural (Lagar Tragaluz, Zucco, SU)",
+      "fonte": "multiplan.com.br"
+    }
+  ],
+  "vendas": [
+    {
+      "periodo": "12 meses até mar/26",
+      "tipo_periodo": "12 meses",
+      "vendas": 1063600000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "m2": 3663.9,
+      "abl": 24191,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "2025",
+      "tipo_periodo": "ano",
+      "vendas": 1042900000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "m2_pub": 3838.0,
+      "m2": 3592.6,
+      "abl": 24191,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026
+    },
+    {
+      "periodo": "2024",
+      "tipo_periodo": "ano",
+      "vendas": 850600000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "ordem": 2025
+    },
+    {
+      "periodo": "3T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 262300000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/44012371-21e3-4e38-b7fa-be3e26f81c16",
+      "m2_pub": 3941.0,
+      "m2": 3614.3,
+      "abl": 24191,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.75
+    },
+    {
+      "periodo": "2T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 268500000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/c4f3c5e6-87bf-6caf-cbab-d87472eb4631?origin=2",
+      "m2_pub": 3977.0,
+      "m2": 3699.7,
+      "abl": 24191,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.5
+    },
+    {
+      "periodo": "1T26",
+      "tipo_periodo": "trimestre",
+      "vendas": 238600000,
+      "fonte": "https://api.mziq.com/mzfilemanager/v2/d/08dd2899-a019-4531-a90c-f00c9f91b0ff/2b025526-88a0-dba2-6988-dfbafd5db5a1?origin=2",
+      "m2_pub": 3542.0,
+      "m2": 3287.7,
+      "abl": 24191,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.25
+    },
+    {
+      "periodo": "4T25",
+      "tipo_periodo": "trimestre",
+      "vendas": 314300000,
+      "fonte": "https://filemanager-cdn.mziq.com/published/08dd2899-a019-4531-a90c-f00c9f91b0ff/f1ee4653-9ceb-4fc8-b564-4a9e142d2885_er_4q25_eng.pdf",
+      "m2": 4330.8,
+      "abl": 24191,
+      "abl_origem": "do mesmo documento",
+      "ordem": 2026.0
+    }
+  ],
+  "vendas_empresa": "Multiplan (MULT3)",
+  "vendas_nota": "Fonte: releases de resultados da Multiplan (4T25, 1T26, 2T26 e 3T26), lidos por extração automática dos PDFs em 14/11/2026; valores arredondados a R$ 0,1 milhão. A venda por m² publicada usa só a ABL das âncoras e satélites que reportam venda, sem quiosques. A venda por m² e a ABL de 2024 não foram lidas (release do 4T24 não localizado), por isso 2024 não tem a conta por ABL. A ABL do DiamondMall passou de cerca de 21,4 mil para 24.191 m² no 4T24, com o quarto piso; o salto de vendas de 2025 sobre 2024 reflete a expansão.",
+  "niveis": [
+    {
+      "id": "L1",
+      "nome": "1º Piso (L1)",
+      "uso": "Lojas; empório Verdemar"
+    },
+    {
+      "id": "L2",
+      "nome": "2º Piso (L2)",
+      "uso": "Lojas"
+    },
+    {
+      "id": "L3",
+      "nome": "3º Piso (L3)",
+      "uso": "Aberto na expansão de 2004: lojas e Cinemark"
+    },
+    {
+      "id": "L4",
+      "nome": "4º Piso (L4)",
+      "uso": "Aberto em 2024: lojas e restaurantes com luz natural"
+    },
+    {
+      "id": "G1",
+      "nome": "G1",
+      "uso": "Piso G1 do mapa do shopping, com poucas operações"
+    }
+  ],
+  "contorno": [[60.2,27.7],[64.9,26.1],[43.8,-54.7],[40.4,-53.8],[25.6,-63.9],[23.8,-67.7],[-49.4,-49.5],[-50.5,-45.9],[-60.8,-29.8],[-64.9,-28.6],[-43.6,56.5],[-39.1,55.2],[-24.8,62.9],[-22.4,67.7],[52.2,48.8],[51.9,42.5],[55.5,36]],
+  "metodo": [
+    {
+      "tag": "oficial",
+      "texto": "Nome, categorias, piso, LUC e situação de cada operação: páginas de loja do site do shopping, listadas no sitemap ({com_codigo} de {ops} com LUC). O site não publica área nem tipo de operação."
+    },
+    {
+      "tag": "oficial",
+      "texto": "Quiosques: {quiosques} operações com LUC iniciado em Q. O site não publica o total de quiosques."
+    },
+    {
+      "tag": "estimado",
+      "texto": "Tipo de operação: deduzido do código, da seção do site e da categoria. Área: não é publicada; os m² são a referência de desenho por tipo de operação, multiplicada pelo número de LUCs. Desenho do piso: esquemático, na ordem do LUC; não é a planta real."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pisos: 1º a 4º piso e G1 são os nomes do site. A posição vertical do G1 em relação aos pisos de lojas não foi confirmada; no modelo ele aparece acima."
+    },
+    {
+      "tag": "real",
+      "texto": "Contorno do prédio, entradas e ruas: OpenStreetMap."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Pesquisa de ficha, projeto e conexões: fontes públicas lidas em 14/11/2026 por busca automatizada. Cada item da ficha traz o site de origem e cada conexão traz o link; os trechos citados estão em coleta/pesquisa."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Número de lojas: 315.multiplan.com.br/shoppings/diamondmall/ e texto de.diamondmall.com.br/o-diamondmall/) x 274 no contador da mesma página.diamondmall.com.br/o-diamondmall/ x 196 operações no comunicado de 06/11/2024.multiplan.com.br/dicas-e-novidades/post/diamondmall-inaugura-4-piso-com-marcas-internacion/) x 270 (infobox) / 268 (texto) na Wikipédia.wikipedia.org/wiki/Diamond_Mall)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: ABL: 24.190,57 m².multiplan.com.br/shoppings/diamondmall/) x 21.386 m² na Wikipédia.wikipedia.org/wiki/Diamond_Mall), valor anterior à expansão de 2024."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Vagas: 1.060.diamondmall.com.br/o-diamondmall/, que na mesma página diz '+ de 1.000') x 1.289.wikipedia.org/wiki/Diamond_Mall)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Fluxo: 5,4 milhões de visitas em 2025.multiplan.com.br/shoppings/diamondmall/) x 'quase 7,5 milhões de visitantes por ano' dito pela superintendente em 2024.multiplan.com.br/dicas-e-novidades/post/diamondmall-inaugura-4-piso-com-marcas-internacion/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Área do terreno: 13.500 m².davila.arq.br/projetos/expansao-diamond-mall/) x 14.400 m².wikipedia.org/wiki/Diamond_Mall)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Data da 1ª expansão: 2004.diamondmall.com.br/o-diamondmall/) x projeto datado de 2006 no site da Dávila.davila.arq.br/projetos/expansao-diamond-mall/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: 2ª expansão: 26 lojas e R$ 86 milhões na inauguração.multiplan.com.br/dicas-e-novidades/post/diamondmall-inaugura-4-piso-com-marcas-internacion/) x 25 lojas e R$ 80 milhões no anúncio reproduzido por Paulo Baruki.com/pt/diamond-mall/)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Divergência entre fontes: Participação Multiplan: 90%.multiplan.com.br/shoppings/diamondmall/) x 75,05% de propriedade com direito a 90% do resultado.multiplan.com.br/en/about-multiplan/corporate-structure/); Wikipédia cita venda da parte restante do Atlético em 2023.wikipedia.org/wiki/Diamond_Mall)."
+    },
+    {
+      "tag": "a confirmar",
+      "texto": "Não encontrado em fonte pública: Autor do projeto arquitetônico original de 1996 (nenhuma fonte pública consultada nomeia o arquiteto); Quiosques, número de âncoras e de megalojas (não constam nas páginas da Multiplan nem do shopping); Uso dos pisos G1 e L2 e o piso da praça de alimentação (o mapa interno do site é interativo e não veio no texto raspado); Estação de metrô, trem ou terminal de ônibus ligado ou próximo: nenhuma fonte encontrada menciona; Torres comerciais/residenciais, hospitais, universidades ou passarelas ligados ao shopping: nada encontrado (o 'Diamond Tower' que aparece na busca é de outra incorporadora e as fontes não o ligam ao shopping); Área construída atualizada após a expansão de 2024 (só há 73.039 m² na Wikipédia, sem data); Fluxo mensal de consumidores (só há tráfego anual); Prêmios de arquitetura do edifício; URL.multiplan.com.br/pt-br/shopping-centers/diamondmall devolve 404; a página válida é.multiplan.com.br/shoppings/diamondmall/. Não existe verbete 'DiamondMall' na Wikipédia, só 'Diamond_Mall'."
+    }
+  ],
+  "fontes": [
+    "OpenStreetMap, way 8601206 (contorno do prédio, ruas, entradas e prédios vizinhos), lido em 14/11/2026 © colaboradores do OpenStreetMap, ODbL",
+    "www.diamondmall.com.br (sitemap e páginas de loja: nome, categorias, piso, LUC e situação), lido em 14/11/2026",
+    "Pesquisa em fontes públicas (ficha, projeto e conexões), lida em 14/11/2026: davila.arq.br, diamondmall.com.br, multiplan.com.br, paulobaruki.com, pt.wikipedia.org, trip.com"
+  ],
+  "conexoes": [
+    {
+      "tipo": "outro",
+      "nome": "Sede social do Clube Atlético Mineiro (Sede de Lourdes)",
+      "descricao": "Vizinha ao shopping; a fonte diz apenas 'ao lado', sem falar em ligação física",
+      "piso": null,
+      "acesso": "a confirmar",
+      "fonte": "https://pt.wikipedia.org/wiki/Diamond_Mall",
+      "osm": "Atl[eé]tico",
+      "x": 59.9,
+      "y": 89.9,
+      "d": 42,
+      "osm_nome": "Clube Atlético Mineiro"
+    },
+    {
+      "tipo": "hotel",
+      "nome": "H2 Platinum Lourdes",
+      "descricao": "Hotel no Santo Agostinho descrito por agregador de viagens como a poucos passos do shopping; sem menção a ligação interna",
+      "piso": null,
+      "acesso": "pela rua",
+      "fonte": "https://www.trip.com/hot/hotels-near-diamond-mall/",
+      "osm": "H2"
+    }
+  ],
+  "resumo_nota": "Nome, categoria, piso e LUC são do site do shopping. O tipo de operação é deduzido. A posição de cada loja dentro do piso é esquemática. O site não publica área: os m² mostrados são só a referência de desenho por tipo de operação, não uma medida."
+}

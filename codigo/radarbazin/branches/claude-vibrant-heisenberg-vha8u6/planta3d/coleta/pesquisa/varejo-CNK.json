@@ -1,0 +1,101 @@
+{
+ "empresa": "Cinemark Holdings, Inc.",
+ "ticker": "CNK",
+ "bolsa": "NYSE",
+ "situacao": "listada",
+ "situacao_url": "https://www.sec.gov/Archives/edgar/data/0001385280/000119312526444332/cnk-ex99_1.htm",
+ "marcas": [
+  {
+   "marca": "Cinemark",
+   "nomes_no_arquivo": [
+    "CINEMARK",
+    "CINEMARK DIAMONDMALL"
+   ],
+   "url": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] its international footprint spans the U.S., Brazil, Argentina, Chile, Colombia, Peru, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Guatemala, Bolivia, and Paraguay"
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 3115000000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] full-year 2025 total revenue of $3,115.0 million, up 2.1%"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "dez/2025",
+   "valor": 496,
+   "unidade": "lojas",
+   "escopo": "companhia consolidada (cinemas/complexos)",
+   "publicado": true,
+   "url": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 496 theaters with 5,637 screens in 42 states domestically and 13 countries throughout South and Central America as of December 31, 2025"
+  },
+  {
+   "indicador": "outro (salas de cinema)",
+   "periodo": "dez/2025",
+   "valor": 5637,
+   "unidade": "salas",
+   "escopo": "companhia consolidada",
+   "publicado": true,
+   "url": "https://ir.cinemark.com/sec-filings/all-sec-filings/content/0001193125-26-056010/cnk-ex99_1.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 496 theaters with 5,637 screens ... as of December 31, 2025"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 1100000000,
+   "unidade": "US$",
+   "escopo": "companhia consolidada (valor arredondado)",
+   "publicado": true,
+   "url": "https://www.sec.gov/Archives/edgar/data/0001385280/000119312526444332/cnk-ex99_1.htm",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] record third-quarter revenue of about $1.1 billion and Adjusted EBITDA of $268 million"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "3T26",
+   "valor": 241600000,
+   "unidade": "US$",
+   "escopo": "segmento internacional (América Latina, inclui Brasil)",
+   "publicado": true,
+   "url": "https://finsee.ai/earnings/cnk/2026/q3/en/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] reported international revenue at $241.6 million, up 38.9%, or 36.1% in constant currency"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "sem data (matéria não datada)",
+   "valor": 85,
+   "unidade": "lojas",
+   "escopo": "Brasil (complexos)",
+   "publicado": false,
+   "url": "https://www.abcdacomunicacao.com.br/cinemark-anuncia-sabrina-salgado-como-nova-diretora-de-marketing-e-clientes/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] Rede Cinemark representa cerca de 30% do mercado brasileiro de cinema, com 627 salas em 85 complexos em 47 cidades, 15 estados e o Distrito Federal"
+  },
+  {
+   "indicador": "outro (salas de cinema)",
+   "periodo": "sem data (matéria não datada)",
+   "valor": 627,
+   "unidade": "salas",
+   "escopo": "Brasil",
+   "publicado": false,
+   "url": "https://www.abcdacomunicacao.com.br/cinemark-anuncia-sabrina-salgado-como-nova-diretora-de-marketing-e-clientes/",
+   "trecho": "[resumo do buscador, não é citação literal conferida na página] 627 salas em 85 complexos em 47 cidades"
+  }
+ ],
+ "divergencias": [
+  "Leitura em 14/11/2026. Trechos SEM o prefixo '[resumo do buscador...]' são literais (Firecrawl). Os COM prefixo vêm do resumo da busca web (créditos do Firecrawl acabaram e o acesso direto às páginas está bloqueado na rede da sessão): valor e URL devem ser conferidos na fonte antes de publicar.",
+  "Receita 3T26: headline da companhia ~US$ 1,1 bi; outra fonte dá US$ 1,06 bi.",
+  "Complexos no Brasil: 85 em uma matéria e 86 em outra (após abertura em Mogi das Cruzes), ambas sem data; não constam de documento da SEC lido."
+ ],
+ "nao_encontrado": [
+  "Nº de cinemas e salas no Brasil no 10-K de 2025",
+  "Receita do Brasil",
+  "Receita 9M26",
+  "UCI CINEMAS e KINOPLEX (também no arquivo) não são da Cinemark nem de empresa listada"
+ ]
+}

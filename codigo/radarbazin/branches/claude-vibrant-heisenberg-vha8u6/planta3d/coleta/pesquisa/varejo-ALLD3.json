@@ -1,0 +1,68 @@
+{
+ "empresa": "Allied Tecnologia S.A.",
+ "ticker": "ALLD3",
+ "bolsa": "B3",
+ "situacao": "listada",
+ "situacao_url": "https://statusinvest.com.br/acoes/alld3",
+ "marcas": [
+  {
+   "marca": "Samsung (lojas oficiais Samsung operadas pela Allied)",
+   "nomes_no_arquivo": [
+    "SAMSUNG"
+   ],
+   "url": "https://forbes.com.br/forbes-money/2026/09/o-iphone-e-um-objeto-de-desejo-a-aposta-da-maior-distribuidora-de-eletronicos-do-brasil-nos-celulares-usados/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] a Allied também opera 92 pontos de venda da Samsung, lojas oficiais de fabricantes no comércio eletrônico e uma operação internacional em Miami. ATENÇÃO: nem toda loja SAMSUNG de shopping é operada pela Allied; a ligação loja a loja não foi confirmada."
+  }
+ ],
+ "indicadores": [
+  {
+   "indicador": "lojas",
+   "periodo": "set/2026 (data da reportagem)",
+   "valor": 92,
+   "unidade": "lojas",
+   "escopo": "pontos de venda Samsung operados pela Allied",
+   "publicado": true,
+   "url": "https://forbes.com.br/forbes-money/2026/09/o-iphone-e-um-objeto-de-desejo-a-aposta-da-maior-distribuidora-de-eletronicos-do-brasil-nos-celulares-usados/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] a Allied também opera 92 pontos de venda da Samsung"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "1T26",
+   "valor": 97,
+   "unidade": "lojas",
+   "escopo": "só varejo físico (base total de lojas da Allied)",
+   "publicado": true,
+   "url": "https://api.mziq.com/mzfilemanager/v2/d/cbfa0f13-b657-4ace-bf5e-810e7bfc1e12/1f153698-2a45-3b7e-2be8-9498c0cad555?origin=2",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] a base foi reduzida em aproximadamente 13%, passando de 112 lojas no 1T25 para 97 lojas no 1T26"
+  },
+  {
+   "indicador": "lojas",
+   "periodo": "2025 (dez/25)",
+   "valor": 98,
+   "unidade": "lojas",
+   "escopo": "só varejo físico (base total de lojas da Allied)",
+   "publicado": true,
+   "url": "https://neofeed.com.br/negocios/o-plano-da-allied-para-ser-mais-varejista-e-reduzir-sua-dependencia-da-distribuicao/",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] a Allied reduziu sua base de 112 para 98 lojas ao longo de 2025"
+  },
+  {
+   "indicador": "receita_liquida",
+   "periodo": "2025",
+   "valor": 5500000000,
+   "unidade": "R$",
+   "escopo": "companhia consolidada (dado de agregador, arredondado)",
+   "publicado": true,
+   "url": "https://www.dadosdemercado.com.br/bolsa/acoes/ALLD3/desdobramentos",
+   "trecho": "[resumo de busca WebSearch, NÃO conferido na página; URL = fonte provável listada pela busca] Segundo o Dados de Mercado, a receita líquida foi de R$ 5,50 bi em 2025, R$ 5,52 bi em 2024 e R$ 5,85 bi em 2023"
+  }
+ ],
+ "divergencias": [
+  "Número de lojas Samsung operadas pela Allied varia entre fontes: 92 pontos de venda (Forbes, set/2026), 150 (NeoFeed, sem data clara) e 160 + 116 lojas dentro de outras varejistas (bpmoney, jun/2026). A base total divulgada no release é de 97-98 lojas."
+ ],
+ "nao_encontrado": [
+  "Resultado do 3T26 (receita líquida total e do varejo físico).",
+  "Receita do varejo físico em 2025; área de vendas m²; venda por m²; SSS.",
+  "Confirmação de quais lojas SAMSUNG dos shoppings do painel são operadas pela Allied.",
+  "Limitação da coleta em 14/11/2026: os créditos do Firecrawl acabaram no meio do trabalho e a rede da sessão bloqueia acesso direto a sites de RI/CVM/imprensa. Itens cujo trecho começa com '[resumo de busca WebSearch...' vêm do resumo do buscador e precisam ser conferidos no release oficial antes de uso."
+ ]
+}

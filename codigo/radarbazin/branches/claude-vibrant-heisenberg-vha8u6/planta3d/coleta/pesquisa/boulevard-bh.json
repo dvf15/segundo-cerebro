@@ -1,0 +1,348 @@
+{
+  "id": "boulevard-bh",
+  "nome": "Boulevard Shopping Belo Horizonte",
+  "administradora": "ALLOS",
+  "endereco": "Av. dos Andradas, 3.000 – Santa Efigênia, Belo Horizonte – MG",
+  "ficha": [
+    {
+      "chave": "inauguracao",
+      "rotulo": "Inauguração",
+      "valor": "26/10/2010",
+      "unidade": null,
+      "nota": "ALLOS informa apenas o ano (2010); dia vem de notícia da inauguração",
+      "url": "https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte",
+      "trecho": "abre as portas às 14 horas do dia 26 de outubro"
+    },
+    {
+      "chave": "abl_m2",
+      "rotulo": "ABL",
+      "valor": 41683,
+      "unidade": "m²",
+      "nota": "A mesma página dá ABC de 43.016 m²; o site do shopping chama 43.016 de ABL",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "41.683ABL (m²)"
+    },
+    {
+      "chave": "abc_m2",
+      "rotulo": "ABC (área bruta comercial)",
+      "valor": 43016,
+      "unidade": "m²",
+      "nota": null,
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "43.016ABC em (m²)"
+    },
+    {
+      "chave": "construida_m2",
+      "rotulo": "Área construída",
+      "valor": 156000,
+      "unidade": "m²",
+      "nota": "Dado de 2010, notícia da inauguração",
+      "url": "https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte",
+      "trecho": "156 mil m² de área construída, 214 lojas e oito andares"
+    },
+    {
+      "chave": "lojas",
+      "rotulo": "Número de lojas",
+      "valor": 221,
+      "unidade": null,
+      "nota": "Site do shopping diz 200",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "221Número de lojas"
+    },
+    {
+      "chave": "ancoras",
+      "rotulo": "Lojas-âncora",
+      "valor": 13,
+      "unidade": null,
+      "nota": "Site do shopping diz 5",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "13Lojas-âncora"
+    },
+    {
+      "chave": "megalojas",
+      "rotulo": "Megalojas",
+      "valor": 9,
+      "unidade": null,
+      "nota": "Site do shopping diz 11",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "9Megalojas"
+    },
+    {
+      "chave": "restaurantes",
+      "rotulo": "Operações de alimentação",
+      "valor": 28,
+      "unidade": null,
+      "nota": "Mais 8 restaurantes fora da praça; praça com 816 lugares",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "28Operações de Alimentação - 8Restaurantes fora da praça"
+    },
+    {
+      "chave": "lugares_praca",
+      "rotulo": "Lugares na praça de alimentação",
+      "valor": 816,
+      "unidade": "lugares",
+      "nota": null,
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "816 lugares Praça de Alimentação"
+    },
+    {
+      "chave": "cinema",
+      "rotulo": "Salas de cinema",
+      "valor": 6,
+      "unidade": "salas",
+      "nota": "Cineart; 1 sala IMAX",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "Lazer6 salas de cinema, sendo 1 IMAX (única sala IMAX de MG)"
+    },
+    {
+      "chave": "vagas",
+      "rotulo": "Vagas de estacionamento",
+      "valor": 2382,
+      "unidade": "vagas",
+      "nota": null,
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "2.382Vagas de Estacionamento"
+    },
+    {
+      "chave": "consumidores_mes",
+      "rotulo": "Consumidores por mês",
+      "valor": 1000000,
+      "unidade": "pessoas/mês",
+      "nota": null,
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "1.000.000Consumidores/Mês"
+    },
+    {
+      "chave": "pisos_lojas",
+      "rotulo": "Pisos de lojas",
+      "valor": 3,
+      "unidade": "pisos",
+      "nota": "Oito andares no total, cinco de estacionamento (dado de 2010)",
+      "url": "https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte",
+      "trecho": "oito andares, sendo cinco de estacionamento - com mais de 2.300 vagas - e três pisos de lojas"
+    },
+    {
+      "chave": "perfil",
+      "rotulo": "Perfil",
+      "valor": "A/B/C",
+      "unidade": null,
+      "nota": null,
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "A/B/CPerfil"
+    },
+    {
+      "chave": "torre_comercial",
+      "rotulo": "Torres comerciais",
+      "valor": 1,
+      "unidade": null,
+      "nota": null,
+      "url": "https://boulevardshopping.com.br/sobre-o-shopping/",
+      "trecho": "Torre comercial 1"
+    },
+    {
+      "chave": "premios",
+      "rotulo": "Prêmios conquistados",
+      "valor": 23,
+      "unidade": null,
+      "nota": "Sete internacionais",
+      "url": "https://boulevardshopping.com.br/sobre-o-shopping/",
+      "trecho": "o empreendimento já conquistou 23 prêmios, sete deles internacionais"
+    }
+  ],
+  "pisos": [
+    {
+      "nome": "Piso SS",
+      "uso": "Alameda de Serviços (legenda do mapa interno)",
+      "url": "https://boulevardshopping.com.br/o-shopping/mapa-interno.htm",
+      "trecho": "Piso SS ... Legenda ... Alameda de Serviços"
+    },
+    {
+      "nome": "Piso 1",
+      "uso": "Carrefour Hipermercado (endereço da loja indica Piso 1)",
+      "url": "https://www.instagram.com/explore/locations/2983948/carrefour---boulevard-shopping-bh/?hl=en",
+      "trecho": "Carrefour - Boulevard Shopping BH. Avenida dos Andradas, 3000, Piso 1 - Santa Efigênia"
+    },
+    {
+      "nome": "Piso 2",
+      "uso": "Espaço Cliente; no mapa: fraldário, achados e perdidos, guarda-volumes, empréstimo de cadeiras de rodas e carrinhos",
+      "url": "https://boulevardshopping.com.br/",
+      "trecho": "Espaço Cliente (Piso 2). Segunda a sábado: 10h às 22h"
+    },
+    {
+      "nome": "Piso 3",
+      "uso": "Cinema Cineart (loja 3036); fraldário",
+      "url": "https://www.ingresso.com/cinema/cineart-boulevard/detalhes?city=belo-horizonte",
+      "trecho": "Cineart Boulevard. Shopping Boulevard , piso 3, loja 3036 Av. dos Andradas, 3000"
+    },
+    {
+      "nome": "Piso A",
+      "uso": "Aparece no seletor do mapa interno; a fonte não descreve o uso",
+      "url": "https://boulevardshopping.com.br/o-shopping/mapa-interno.htm",
+      "trecho": "Selecione o piso desejado Piso SS Piso 1 Piso 2 Piso 3 Piso A"
+    },
+    {
+      "nome": "G1, G2, G3",
+      "uso": "Estacionamento, acima dos pisos do shopping (corte esquemático do folheto da torre, que chama os pisos de lojas de L1, L2, L3 e SS1)",
+      "url": "https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf",
+      "trecho": "G3 - ESTACIONAMENTO G2 - ESTACIONAMENTO G1 - ESTACIONAMENTO"
+    }
+  ],
+  "arquitetura": [
+    {
+      "item": "ano",
+      "valor": "Inaugurado em 26/10/2010 após dois anos e seis meses de obras",
+      "url": "https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte",
+      "trecho": "Após dois anos e seis meses de obras, o Boulevard Shopping ... abre as portas às 14 horas do dia 26 de outubro"
+    },
+    {
+      "item": "autor do projeto (shopping)",
+      "valor": "CDC - Coutinho, Diegues, Cordeiro Arquitetos, segundo legenda de maquete no Pinterest (fonte fraca, só trecho de busca)",
+      "url": "https://br.pinterest.com/pin/335166397281784555/",
+      "trecho": "Projeto: Boulevard Shopping / Belo Horizonte / MG / Brasil - Autor: CDC-Coutinho, Diegues, Cordeiro Arquitetos - Cliente: Aliance Shopping Center Ltda."
+    },
+    {
+      "item": "características",
+      "valor": "Oito andares: cinco de estacionamento e três pisos de lojas; 156 mil m² de área construída",
+      "url": "https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte",
+      "trecho": "156 mil m² de área construída, 214 lojas e oito andares, sendo cinco de estacionamento ... e três pisos de lojas"
+    },
+    {
+      "item": "características",
+      "valor": "Dois grandes vãos centrais; a praça de alimentação fica adjacente a um deles e é visível de todos os andares",
+      "url": "https://faldesign.com.br/portfolio/boulevard-shopping/",
+      "trecho": "visível e facilmente localizável de todos os andares, graças a sua localização adjacente a um dos dois grandes vãos centrais"
+    },
+    {
+      "item": "empreendedores",
+      "valor": "Aliansce Shopping Centers e NRG Empreendimentos; investimento total de R$ 400 milhões incluindo a torre",
+      "url": "https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte",
+      "trecho": "O investimento total disponibilizado pelos empreendedores - Aliansce Shopping Centers e NRG Empreendimentos - e lojistas, incluindo a construção da torre comercial anexa ao shopping, é de R$400 milhões."
+    },
+    {
+      "item": "reforma",
+      "valor": "Renovação com novo projeto da praça de alimentação pela FAL Design (madeira, cor, floreiras altas)",
+      "url": "https://faldesign.com.br/portfolio/boulevard-shopping/",
+      "trecho": "No nosso projeto, que faz parte da renovação do Boulevard, em Belo Horizonte"
+    },
+    {
+      "item": "autor do projeto (torre)",
+      "valor": "Aflalo & Gasperini Arquitetos; construção OAS; certificação LEED prevista (silver)",
+      "url": "https://www.alshop.com.br/portal/boulevard-shopping-inicia-obras-do-boulevard-corporate-tower/",
+      "trecho": "A torre será comercializada pela CBRE e o projeto é da Aflalo & Gasperini Arquitetos."
+    },
+    {
+      "item": "torre: fachada",
+      "valor": "Limestone similar à fachada do shopping, painéis pré-moldados e pele de vidro unitizada; sky lobby e heliponto previstos",
+      "url": "https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf",
+      "trecho": "Limestone Mont Charmot ou similar à fachada do shopping ... Caixilho pele de vidro em sistema unitizado."
+    },
+    {
+      "item": "expansões",
+      "valor": "Projeto multiúso da ALLOS prevê expansão do mall com cerca de 5 mil m² de área comercial e uma segunda torre",
+      "url": "https://allos.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/",
+      "trecho": "duas torres integradas ao shopping, sendo uma já em operação e outra em desenvolvimento, além da expansão do mall com aproximadamente 5 mil m² adicionais de área comercial"
+    },
+    {
+      "item": "prêmios",
+      "valor": "23 prêmios, sete internacionais (a fonte não lista quais)",
+      "url": "https://boulevardshopping.com.br/sobre-o-shopping/",
+      "trecho": "o empreendimento já conquistou 23 prêmios, sete deles internacionais"
+    }
+  ],
+  "conexoes": [
+    {
+      "tipo": "torre",
+      "nome": "Boulevard Corporate Tower",
+      "descricao": "Torre comercial de 17 andares construída sobre parte do shopping (esquina da rua Pacífico Mascarenhas com Av. dos Andradas); tem lobby de acesso ao shopping e 2 elevadores comuns ao shopping, além de lobby exclusivo; 20.426,18 m² locáveis (BOMA), 400 vagas próprias",
+      "piso": null,
+      "acesso": "direto",
+      "url": "https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf",
+      "trecho": "São 8 elevadores sociais, 1 de serviço e 2 elevadores comuns ao Boulevard Shopping ... Lobby de acesso ao shopping"
+    },
+    {
+      "tipo": "torre",
+      "nome": "Boulevard Corporate Tower (posição)",
+      "descricao": "Fonte de 2011 descreve a torre como construída sobre parte do shopping",
+      "piso": null,
+      "acesso": "direto",
+      "url": "https://www.alshop.com.br/portal/boulevard-shopping-inicia-obras-do-boulevard-corporate-tower/",
+      "trecho": "está sendo construído sobre parte do Boulevard Shopping, na esquina da rua Pacífico Mascarenhas, com Avenida dos Andradas"
+    },
+    {
+      "tipo": "empreendimento",
+      "nome": "Nova torre multiúso (em desenvolvimento)",
+      "descricao": "Segunda torre do projeto multiúso da ALLOS, cerca de 10 mil m² de área privativa; a ficha do projeto lista '1 corporativo, 1 residencial', 350 unidades; descrita como integrada ao shopping, sem detalhe do acesso",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/",
+      "trecho": "A nova torre multiúso, com aproximadamente 10 mil m² de área privativa, amplia a integração entre trabalho, lazer e conveniência"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Santa Efigênia (Linha 1 do metrô de BH)",
+      "descricao": "A 200 m da torre/shopping; chega-se a pé pela passarela da estação que leva à Av. dos Andradas; nenhuma fonte fala em acesso interno ao shopping",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/",
+      "trecho": "acessível em poucos minutos de caminhada a partir da estação de metrô, pela passarela que leva à Av. dos Andradas"
+    },
+    {
+      "tipo": "metrô",
+      "nome": "Estação Santa Efigênia (distância)",
+      "descricao": "Folheto da torre informa a distância",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf",
+      "trecho": "a Estação Santa Efigênia do Metrô a apenas 200 metros do Boulevard Corporate Tower"
+    },
+    {
+      "tipo": "passarela",
+      "nome": "Passarela da Estação Santa Efigênia sobre a Av. dos Andradas",
+      "descricao": "Passarela é acesso da estação de metrô (com escada fixa), não do shopping; em obras de alargamento segundo o Metrô BH",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/",
+      "trecho": "A estação tem três acessos, sendo um deles a passarela na Av. dos Andradas com escada fixa"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Área Hospitalar (Hospital Unimed, Hospital da Polícia Militar, Santa Casa, Hospital das Clínicas)",
+      "descricao": "Vizinhança; mapa do folheto da torre marca Hospital Unimed e Hospital da Polícia Militar no entorno; sem ligação física citada",
+      "piso": null,
+      "acesso": "pela rua",
+      "url": "https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/",
+      "trecho": "importantes hospitais públicos, como a Santa Casa e o Hospital das Clínicas, e um dos maiores shoppings de BH, o Boulevard Shopping"
+    },
+    {
+      "tipo": "outro",
+      "nome": "Ponto de táxi e bicicletário",
+      "descricao": "Serviços listados pela ALLOS no shopping; piso não informado",
+      "piso": null,
+      "acesso": "a confirmar",
+      "url": "https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/",
+      "trecho": "Bicicletário ... Ponto de táxi"
+    }
+  ],
+  "divergencias": [
+    "ABL: 41.683 m² (ALLOS, https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/, que dá 43.016 como ABC) x 43.016 m² como ABL (https://boulevardshopping.com.br/sobre-o-shopping/) x 43.064 m² (comunicado Aliansce na CVM, https://www.rad.cvm.gov.br/ENETWeb/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=364700&descTipo=IPE&CodigoInstituicao=1) x 42.580 m² na inauguração (https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte).",
+    "Lojas: 221 (https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/) x 200 (https://boulevardshopping.com.br/sobre-o-shopping/) x 214 em 2010 (https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte) x 'mais de 220' (https://www.quintoandar.com.br/guias/cidades/estacao-santa-efigenia/).",
+    "Âncoras: 13 (https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/) x 5 (https://boulevardshopping.com.br/sobre-o-shopping/) x 4 em 2010 (https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte). Megalojas: 9 (https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/) x 11 (https://boulevardshopping.com.br/sobre-o-shopping/).",
+    "Alimentação: 28 operações + 8 restaurantes fora da praça (https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/) x 16 operações na praça + 4 restaurantes (https://boulevardshopping.com.br/sobre-o-shopping/) x 18 operações em 2010 (https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte).",
+    "Lugares na praça de alimentação: 816 (https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/) x 1.800 em 2010 (https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte).",
+    "Vagas: 2.382 (https://allos.com.br/shopping/boulevard-shopping-belo-horizonte/) x 2.439 rotativas no folheto da torre (https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf) x 'mais de 2.300' em 2010 (https://bheventos.com.br/noticia/10-23-2010-inauguracao-do-shopping-boulevard-em-belo-horizonte).",
+    "Área da torre: 18.275 m² de área total e 1.075 m² por andar (https://www.alshop.com.br/portal/boulevard-shopping-inicia-obras-do-boulevard-corporate-tower/, 2011) x 20.426,18 m² locáveis e 1.201,54 m² por andar (https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf) x 'mais de 20 mil m² de área privativa' (https://allos.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/).",
+    "Segunda torre: chamada de 'torre multiúso' no texto e de '1 residencial' nos dados do projeto, na mesma página (https://allos.com.br/projetos_multiuso/boulevard-shopping-belo-horizonte/).",
+    "Nome dos pisos: Piso SS, 1, 2, 3 e A no mapa do shopping (https://boulevardshopping.com.br/o-shopping/mapa-interno.htm) x SS1, L1, L2, L3 e G1-G3 no corte do folheto da torre (https://www.kinea.com.br/wp-content/uploads/2018/12/037_Torre_Boulevard_-BH_baixa.pdf)."
+  ],
+  "nao_encontrado": [
+    "Verbete do shopping na Wikipédia (https://pt.wikipedia.org/wiki/Boulevard_Shopping_Belo_Horizonte não existe).",
+    "Autor do projeto do shopping em fonte primária (só legenda de maquete no Pinterest citando CDC Arquitetos; não achei página do escritório nem ArchDaily).",
+    "Número de quiosques.",
+    "Área do terreno e uso anterior do terreno.",
+    "Piso exato do acesso da Boulevard Corporate Tower ao shopping (fontes falam em lobby de acesso e elevadores comuns, sem dizer o piso).",
+    "Acesso direto entre metrô e shopping: nenhuma fonte afirma; só caminhada pela passarela/Av. dos Andradas.",
+    "Hotel, universidade ou terminal de ônibus ligado ao shopping: nada encontrado.",
+    "Uso do Piso A e piso da praça de alimentação (mapa interno é imagem; página 'Como chegar' só traz o endereço).",
+    "Lista e nomes dos 23 prêmios; data da renovação da praça de alimentação; prazo e nome da segunda torre."
+  ]
+}

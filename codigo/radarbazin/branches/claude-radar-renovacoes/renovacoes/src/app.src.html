@@ -1,0 +1,649 @@
+<title>Radar de Renovações Mobile</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#00616f">
+<style>
+  /* Modelo Radar de Varejo: coluna única de 720px, cartões brancos sobre areia, abas em pílulas, verde-petróleo ALLOS. */
+  :root{ color-scheme: light; --painel:#ffffff; --painel2:#f1ece3; --borda:#ccc5bc; --texto:#0d454a; --fraco:rgba(13,69,74,.62); --mudo:rgba(13,69,74,.5); --acento:#00616f; --ok:#3f9e6a; --aviso:#c07d1e; --critico:#cd5151; --info:#368c82; --mix1:#0a86a0; --mix2:#c97a14; --mix3:#7b6cc0; --mix4:#2f9a62; --mono:ui-monospace,Menlo,Consolas,monospace; --corpo:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ max-width:100%; }
+  body{ margin:0; background:#e5ded4; color:#0d454a; font-family:var(--corpo); overflow-x:hidden; -webkit-font-smoothing:antialiased; padding-block:16px 64px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); }
+  .wrap{ max-width:720px; margin:0 auto; min-width:0; }
+  h1{ font-size:23px; font-weight:800; color:#00616f; margin:0 0 2px; letter-spacing:-.3px; }
+  h2{ font-size:16px; font-weight:800; color:#00616f; margin:0 0 4px; }
+  h3{ font-size:13px; font-weight:800; color:#00616f; margin:0 0 8px; }
+  .sub{ font-size:13px; color:rgba(13,69,74,.62); margin:0; overflow-wrap:anywhere; }
+  .brand{ display:flex; gap:12px; align-items:center; margin-bottom:6px; min-width:0; }
+  .brand>div{ min-width:0; }
+  .brandmark{ width:42px; height:42px; border-radius:12px; background:#00616f; color:#fff; display:flex; align-items:center; justify-content:center; flex:0 0 auto; box-shadow:0 6px 16px rgba(0,97,111,.28); }
+  .card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:16px; padding:18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 12px 28px rgba(13,69,74,.06); min-width:0; }
+  .lbl{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:rgba(13,69,74,.55); display:block; margin-bottom:5px; font-weight:600; }
+  .lblsec{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#00616f; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .lblsec .n{ background:rgba(0,97,111,.14); color:#00616f; min-width:20px; height:20px; padding:0 5px; border-radius:99px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
+  input, select, textarea{ width:100%; background:#ffffff; border:1px solid #ccc5bc; border-radius:10px; padding:10px 12px; color:#0d454a; font-size:16px; outline:none; font-family:inherit; transition:border-color .15s ease, box-shadow .15s ease; min-width:0; }
+  input:focus, select:focus, textarea:focus{ border-color:#00616f; box-shadow:0 0 0 3px rgba(0,97,111,.13); }
+  textarea{ resize:vertical; min-height:52px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .field{ margin-bottom:12px; min-width:0; }
+  .hint{ font-size:11px; color:rgba(13,69,74,.55); margin-top:4px; line-height:1.45; }
+  .txt{ font-size:13px; line-height:1.55; color:#0d454a; margin:0 0 8px; }
+  .row{ display:flex; justify-content:space-between; align-items:baseline; padding:5px 0; font-size:13.5px; gap:10px; border-bottom:1px solid #eee8de; }
+  .row:last-child{ border-bottom:0; }
+  .row .k{ color:rgba(13,69,74,.62); } .row .v{ color:#0d454a; font-weight:700; text-align:right; font-variant-numeric:tabular-nums; }
+  .acard{ border-radius:14px; border:1px solid; padding:16px; margin-bottom:12px; box-shadow:0 6px 18px rgba(13,69,74,.05); font-size:13px; line-height:1.5; }
+  .verde{ background:rgba(108,198,128,.16); border-color:rgba(108,198,128,.55); }
+  .amarelo{ background:rgba(237,167,84,.16); border-color:rgba(237,167,84,.55); }
+  .vermelho{ background:rgba(205,81,81,.12); border-color:rgba(205,81,81,.5); }
+  .cinza{ background:rgba(204,197,188,.22); border-color:#ccc5bc; }
+  .azul{ background:rgba(54,140,130,.14); border-color:rgba(54,140,130,.5); }
+  .t-verde{ color:#3f9e6a; } .t-amarelo{ color:#c07d1e; } .t-vermelho{ color:#cd5151; } .t-cinza{ color:rgba(13,69,74,.55); } .t-azul{ color:#368c82; }
+  button{ border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:700; cursor:pointer; width:100%; font-family:inherit; transition:transform .05s ease, box-shadow .15s ease, filter .15s ease; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+  button:active{ transform:translateY(1px); }
+  button:focus-visible, .tab:focus-visible{ outline:3px solid rgba(0,97,111,.4); outline-offset:2px; }
+  .btn-blue{ background:#00616f; color:#ffffff; box-shadow:0 6px 16px rgba(0,97,111,.22); } .btn-blue:hover{ filter:brightness(1.07); }
+  .btn-green{ background:#368c82; color:#ffffff; } .btn-green:hover{ filter:brightness(1.05); }
+  .btn-gray{ background:#ffffff; color:#0d454a; border:1px solid #ccc5bc; } .btn-gray:hover{ border-color:#00616f; }
+  .btn-sm{ padding:8px 12px; font-size:13px; width:auto; }
+  .btn-danger{ background:rgba(205,81,81,.12); color:#cd5151; border:1px solid rgba(205,81,81,.5); }
+  .actions{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px; }
+  .actions3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:4px; }
+  .warn{ font-size:11px; color:rgba(13,69,74,.55); border-top:1px solid #ccc5bc; padding-top:10px; margin-top:12px; line-height:1.5; }
+  .tabs{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 18px; width:100%; }
+  .tab{ flex:1 1 128px; justify-content:center; min-width:0; padding:9px 11px; border-radius:10px; background:#ffffff; border:1px solid #ccc5bc; color:rgba(13,69,74,.72); font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:6px; box-shadow:0 1px 2px rgba(13,69,74,.05); }
+  .tab.on{ background:#00616f; border-color:#00616f; color:#ffffff; box-shadow:0 6px 16px rgba(0,97,111,.24); }
+  .tab .cnt{ background:rgba(255,255,255,.28); border-radius:99px; padding:0 7px; font-size:11px; }
+  .tab:not(.on) .cnt{ background:#f1ece3; color:rgba(13,69,74,.6); }
+  .badge{ font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700; display:inline-block; background:rgba(204,197,188,.45); color:#0d454a; }
+  .badge.m-Essencial{ background:rgba(10,134,160,.16); color:#0a6f85; } .badge.m-Relevante{ background:rgba(201,122,20,.18); color:#95590c; } .badge.m-Indiferente{ background:rgba(123,108,192,.18); color:#5a4ca0; } .badge.m-Ofensora{ background:rgba(47,154,98,.18); color:#237a4c; }
+  .metrics{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px; }
+  .metric{ background:#f1ece3; border:1px solid #e3dccf; border-radius:9px; padding:8px 10px; min-width:0; }
+  .metric .mk{ font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(13,69,74,.55); }
+  .metric .mv{ font-size:13px; font-weight:700; color:#0d454a; margin-top:2px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+  .metric .md{ font-size:10px; color:rgba(13,69,74,.55); margin-top:1px; line-height:1.35; }
+  .metric.big .mv{ font-size:19px; font-weight:800; }
+  .reasons{ margin-top:10px; display:flex; flex-direction:column; gap:6px; }
+  .reason{ font-size:12.5px; line-height:1.45; display:flex; gap:7px; align-items:flex-start; color:#0d454a; }
+  .reason svg.ic{ color:#00616f; margin-top:1px; }
+  .inv-card{ background:#ffffff; border:1px solid #ccc5bc; border-radius:14px; padding:13px; margin-bottom:10px; box-shadow:0 1px 2px rgba(13,69,74,.05), 0 8px 20px rgba(13,69,74,.05); min-width:0; }
+  .inv-card.clk{ cursor:pointer; } .inv-card.clk:hover{ border-color:#00616f; }
+  .inv-top{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .inv-name{ font-size:15px; font-weight:800; color:#00616f; }
+  .inv-meta{ font-size:11px; color:rgba(13,69,74,.55); margin-top:2px; }
+  .status-pill{ font-size:10px; font-weight:700; padding:3px 9px; border-radius:99px; border:1px solid; white-space:nowrap; box-shadow:0 1px 2px rgba(13,69,74,.05); flex:0 0 auto; }
+  .st-verde{ color:#0d454a; border-color:rgba(108,198,128,.55); background:rgba(108,198,128,.28); }
+  .st-amarelo{ color:#0d454a; border-color:rgba(237,167,84,.55); background:rgba(237,167,84,.28); }
+  .st-vermelho{ color:#a53b3b; border-color:rgba(205,81,81,.5); background:rgba(205,81,81,.14); }
+  .st-cinza{ color:rgba(13,69,74,.7); border-color:#ccc5bc; background:rgba(204,197,188,.45); }
+  .st-azul{ color:#ffffff; border-color:#00616f; background:#00616f; }
+  .rec-mini{ font-size:12px; color:#0d454a; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+  .rec-tag{ background:#f1ece3; border:1px solid #e3dccf; border-radius:7px; padding:3px 8px; }
+  .toolbar{ display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+  .toolbar input, .toolbar select{ font-size:14px; padding:9px 10px; }
+  .toolbar .grow{ flex:1 1 150px; }
+  .pt-card{ border:1px solid #e3dccf; border-radius:12px; padding:12px; margin-bottom:10px; background:#f1ece3; min-width:0; }
+  .pt-head{ display:flex; justify-content:space-between; gap:10px; align-items:baseline; }
+  .pt-head b{ color:#00616f; font-size:13px; } .pt-head .big{ font-size:17px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .codebox{ width:100%; min-height:260px; font-family:var(--mono); font-size:12px; background:#f1ece3; padding:10px 11px; }
+  .banner{ font-size:12px; line-height:1.5; background:rgba(0,97,111,.08); border:1px solid rgba(54,140,130,.35); border-radius:10px; padding:10px 12px; color:#0d454a; margin-bottom:14px; }
+  .empty{ text-align:center; color:rgba(13,69,74,.55); padding:22px 12px; font-size:13px; }
+  details summary{ cursor:pointer; font-size:12px; font-weight:700; color:#00616f; padding:6px 0; }
+  .hidden{ display:none; }
+  .chart{ position:relative; overflow-x:auto; min-width:0; }
+  .chart svg{ display:block; width:100%; min-width:560px; height:auto; }
+  .tip{ position:absolute; pointer-events:none; background:#fff; border:1px solid #ccc5bc; border-radius:8px; padding:6px 10px; font-size:12px; box-shadow:0 8px 20px rgba(13,69,74,.12); display:none; max-width:240px; z-index:3; }
+  .legenda{ display:flex; gap:12px; flex-wrap:wrap; font-size:11.5px; color:rgba(13,69,74,.62); margin-top:6px; }
+  .legenda span::before{ content:""; display:inline-block; width:9px; height:9px; border-radius:99px; margin-right:5px; background:currentColor; }
+  .mudo{ color:rgba(13,69,74,.62); font-size:12.5px; } .tiny{ font-size:11px; color:rgba(13,69,74,.55); } .mono{ font-family:var(--mono); }
+  .videos{ display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start; }
+  .videos figure{ margin:0; flex:1 1 320px; min-width:0; } .videos figure.vertical{ flex:0 1 220px; }
+  .videos video{ width:100%; max-width:100%; border-radius:10px; background:#000; display:block; } .videos figure.vertical video{ aspect-ratio:9/16; }
+  .videos figcaption{ font-size:11.5px; color:rgba(13,69,74,.6); margin-top:5px; }
+  .toast{ position:fixed; left:50%; bottom:calc(22px + env(safe-area-inset-bottom,0px)); transform:translateX(-50%); background:#00616f; color:#ffffff; font-size:13px; font-weight:700; padding:10px 16px; border-radius:10px; box-shadow:0 8px 24px rgba(13,69,74,.28); opacity:0; transition:opacity .2s; pointer-events:none; z-index:50; max-width:90vw; text-align:center; }
+  .toast.show{ opacity:1; }
+  svg.ic{ width:17px; height:17px; display:inline-block; flex:0 0 auto; vertical-align:-3px; stroke-width:2; }
+  .tab svg.ic{ width:16px; height:16px; vertical-align:-2px; }
+  .lblsec .n svg.ic{ width:12px; height:12px; vertical-align:0; }
+  button svg.ic{ margin-right:7px; }
+  .brandmark svg.ic{ width:27px; height:27px; }
+  @media(max-width:520px){
+    .metrics{ grid-template-columns:1fr 1fr; } .grid2{ grid-template-columns:1fr; }
+    .brandmark{ width:38px; height:38px; } h1{ font-size:21px; }
+    #tabs{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; } #tabs .tab{ flex:none; font-size:12px; padding:8px 6px; gap:4px; }
+    .btn-sm{ font-size:12.5px; padding:8px 10px; } .actions3{ gap:8px; } .actions3 button{ font-size:13px; padding:11px 6px; }
+  }
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+
+<div class="wrap">
+  <div class="brand">
+    <div class="brandmark" data-ic="renovar" aria-hidden="true"></div>
+    <div>
+      <h1>Radar de Renovações</h1>
+      <p class="sub">Renovação contratual de <b>lojas-satélite</b>: quem negociar, quanto pedir e o que a perícia sustenta · <span id="shopNome"></span></p>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <div class="tab on" data-view="radar" data-ic="target" tabindex="0">Radar <span class="cnt" id="cntRadar">0</span></div>
+    <div class="tab" data-view="loja" data-ic="clipboard" tabindex="0">Análise</div>
+    <div class="tab" data-view="laudo" data-ic="scale" tabindex="0">Laudo <span class="cnt" id="cntLaudo">0</span></div>
+    <div class="tab" data-view="pericia" data-ic="chart" tabindex="0">Perícia</div>
+    <div class="tab" data-view="cadastro" data-ic="users" tabindex="0">Cadastro <span class="cnt" id="cntLojas">0</span></div>
+    <div class="tab" data-view="auditoria" data-ic="check" tabindex="0">Auditoria <span class="cnt" id="cntAud">0</span></div>
+    <div class="tab" data-view="plano" data-ic="map" tabindex="0">Plano</div>
+    <div class="tab" data-view="comite" data-ic="send" tabindex="0">Comitê</div>
+    <div class="tab" data-view="params" data-ic="gear" tabindex="0">Ajustes</div>
+    <div class="tab" data-view="ajuda" data-ic="help" tabindex="0">Como usar</div>
+  </nav>
+
+  <div id="exemploAviso" class="banner hidden">Base de <b>exemplo</b> carregada (lojas fictícias). Importe a sua planilha em <b>Cadastro</b> ou edite as lojas.</div>
+
+  <!-- RADAR -->
+  <section id="view-radar">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="target"></span> Visão do ano</div>
+      <div class="field" style="max-width:220px"><span class="lbl">Data de referência</span><input type="date" id="hoje"></div>
+      <div class="metrics" id="kpis"></div>
+    </div>
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="users"></span> Fila priorizada</div>
+      <div class="toolbar">
+        <input id="fBusca" class="grow" placeholder="Buscar LUC, nome ou segmento">
+        <select id="fFarol" class="grow"><option value="">Todos os faróis</option><option value="verde">Negociar</option><option value="amarelo">Preparar</option><option value="vermelho">Bloqueado / vencido</option><option value="cinza">Aguardar</option><option value="azul">Renovado</option></select>
+        <select id="fMix" class="grow"><option value="">Todos os mix</option><option>Essencial</option><option>Relevante</option><option>Indiferente</option><option>Ofensora</option></select>
+      </div>
+      <p class="hint" style="margin:-4px 0 0">Ordem: ganho em 60 meses × urgência da janela × peso do mix. Toque na loja para abrir a análise.</p>
+    </div>
+    <div id="fila"></div>
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="chart"></span> Mapa de quadrantes</div>
+      <p class="hint" style="margin:-6px 0 10px">AMM/m² × Vendas/m² contra a média das satélites. Q1 vende bem e paga pouco: maior espaço de LSR.</p>
+      <div class="chart" id="quadChart"></div>
+      <div class="legenda"><span style="color:var(--mix1)">Essencial</span><span style="color:var(--mix2)">Relevante</span><span style="color:var(--mix3)">Indiferente</span><span style="color:var(--mix4)">Ofensora</span><span>◇ mix não validado</span></div>
+    </div>
+  </section>
+
+  <!-- ANÁLISE -->
+  <section id="view-loja" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="clipboard"></span> Análise da loja</div>
+      <div class="field"><span class="lbl">Loja</span><select id="selLoja"></select></div>
+      <div class="actions"><button class="btn-gray" id="btnEditarLoja">Editar cadastro</button><button class="btn-blue" id="btnCopiarObsidian" data-ic="send">Copiar análise</button></div>
+    </div>
+    <div id="analise"></div>
+  </section>
+
+  <!-- LAUDO -->
+  <section id="view-laudo" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="scale"></span> Visão de laudo · risco de perda em renovatória</div>
+      <p class="hint" style="margin:-6px 0 6px">A proposta do método é confrontada com o laudo prévio (o que uma perícia pelo método comparativo tende a encontrar). <b>Baixo</b>: até o 3º quartil dos comparáveis. <b>Moderado</b>: acima dele ou 10% a 25% acima do valor provável. <b>Alto</b>: acima do maior comparável, mais de 25% acima do provável ou laudo abaixo do AMM atual. O LSR não muda; aqui se mede o risco de defendê-lo.</p>
+      <div class="metrics" id="kpiLaudo"></div>
+    </div>
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="chart"></span> Proposta × laudo</div>
+      <div class="toolbar">
+        <select id="fPerda" class="grow"><option value="">Todos os níveis</option><option value="alto">Alto</option><option value="moderado">Moderado</option><option value="baixo">Baixo</option><option value="indefinido">Sem proposta</option></select>
+        <select id="fSoNeg" class="grow"><option value="1">Só em negociação / janela</option><option value="">Todas as lojas</option></select>
+        <button class="btn-gray btn-sm" id="btnLaudoCsv" data-ic="download">CSV</button>
+      </div>
+      <div class="chart" id="laudoChart"></div>
+      <p class="hint">Faixa = 1º ao 3º quartil dos comparáveis · traço = valor provável · ○ AMM atual · ◆ proposto na cor do risco.</p>
+    </div>
+    <div id="listaLaudo"></div>
+  </section>
+
+  <!-- PERÍCIA -->
+  <section id="view-pericia" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="chart"></span> Linearidade dos valores locativos</div>
+      <p class="hint" style="margin:-6px 0 6px">Quanto menor a linearidade do AMM/m² entre as satélites, menos a média representa o shopping e mais a perícia depende de segmentar os comparáveis. 20 lojas a R$ 100/m² e 10 a R$ 50 + 10 a R$ 150 têm a mesma média.</p>
+      <div class="metrics" id="kpiLin"></div>
+      <div class="chart" id="linChart" style="margin-top:12px"></div>
+    </div>
+    <div class="card"><div class="lblsec"><span class="n" data-ic="map"></span> Por faixa de área e por piso</div><div id="linGrupos"></div></div>
+    <div class="card"><div class="lblsec"><span class="n" data-ic="star"></span> Lojas fora da curva</div><p class="hint" style="margin:-6px 0 10px">Fora de 1,5 × intervalo interquartil da própria faixa. Documente o racional comercial: é o que sustenta o valor diante do perito.</p><div id="linFora"></div></div>
+    <div class="card"><div class="lblsec"><span class="n" data-ic="link"></span> Contemporaneidade e eventos estruturais</div><div id="linEventos"></div></div>
+  </section>
+
+  <!-- CADASTRO -->
+  <section id="view-cadastro" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="users"></span> Base de lojas-satélite</div>
+      <div class="actions3">
+        <button class="btn-blue btn-sm" id="btnExcel" data-ic="upload">Excel</button>
+        <button class="btn-gray btn-sm" id="btnJson" data-ic="download">Backup</button>
+        <button class="btn-gray btn-sm" id="btnImp" data-ic="upload">Importar</button>
+      </div>
+      <div class="actions3" style="margin-top:10px">
+        <button class="btn-green btn-sm" id="btnNova">+ Nova loja</button>
+        <button class="btn-gray btn-sm" id="btnCsvLojas" data-ic="download">CSV</button>
+        <button class="btn-gray btn-sm" id="btnExemplo">Exemplo</button>
+      </div>
+      <input type="file" id="xlsxFile" accept=".xlsx,.xls,.csv" class="hidden">
+      <input type="file" id="fileJson" accept="application/json,.json" class="hidden">
+      <div id="excelOut" style="margin-top:10px"></div>
+      <p class="hint" style="margin-top:10px">A base fica salva neste navegador (<code>localStorage</code>). Use <b>Backup</b> para levar entre dispositivos. O Excel segue o modelo com as abas <b>Lojas</b>, <b>Parametros</b> e <b>Historico</b>; LUC repetido atualiza a loja e colunas ausentes preservam o que já existe.</p>
+      <details><summary>Colunas aceitas na aba Lojas</summary><p class="hint" id="colunas"></p></details>
+      <details><summary>Apagar a base deste navegador</summary><div class="actions" style="margin-top:6px"><button class="btn-danger btn-sm" id="btnLimpar" style="width:100%">Limpar base</button><span></span></div></details>
+    </div>
+    <div id="formBox" class="hidden"></div>
+    <div id="listaLojas"></div>
+  </section>
+
+  <!-- AUDITORIA -->
+  <section id="view-auditoria" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="check"></span> Agenda para o Radar de Auditoria</div>
+      <p class="hint" style="margin:-6px 0 10px">Regra do Book: auditoria integral em pelo menos um mês nos 6 meses anteriores à negociação (ideal: 6 a 3 meses antes). Mês sazonal não conta. Dispersão acima da tolerância manda reauditar. Sem isso a negociação não começa.</p>
+      <div class="actions"><button class="btn-gray btn-sm" id="btnAgendaCsv" data-ic="download" style="width:100%">Agenda (CSV)</button><button class="btn-gray btn-sm" id="btnDispCsv" data-ic="upload" style="width:100%">Receber dispersão</button></div>
+      <input type="file" id="csvDisp" accept=".csv,text/csv" class="hidden">
+      <div id="csvOut" style="margin-top:10px"></div>
+      <p class="hint">"Receber dispersão" lê o CSV do Radar de Auditoria (CNPJ · Competência · Dispersão % · Status), casa pelo CNPJ e atualiza a trava de cada loja.</p>
+    </div>
+    <div id="agenda"></div>
+  </section>
+
+  <!-- PLANO -->
+  <section id="view-plano" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="map"></span> Planejamento anual de LSR</div>
+      <div class="field" style="max-width:160px"><span class="lbl">Ano</span><input type="number" id="anoPlano" inputmode="numeric"></div>
+      <div class="metrics" id="kpiPlano"></div>
+      <div id="gapPlano" style="margin-top:12px"></div>
+      <div class="chart" id="planoChart"></div>
+    </div>
+    <div id="listaPlano"></div>
+  </section>
+
+  <!-- COMITÊ -->
+  <section id="view-comite" class="hidden">
+    <div class="card">
+      <div class="lblsec"><span class="n" data-ic="send"></span> Pacote do comitê comercial</div>
+      <p class="hint" style="margin:-6px 0 10px">Lojas com farol Negociar ou em negociação, com proposta, laudo, perito, risco renovatório e risco de perda, mais a nota completa de cada uma. A decisão de valor é do comitê.</p>
+      <div class="actions"><button class="btn-blue" id="btnCopiarComite" data-ic="send">Copiar pacote</button><button class="btn-gray" id="btnBaixarComite" data-ic="download">Baixar .md</button></div>
+      <textarea id="comiteTxt" class="codebox" readonly style="margin-top:12px"></textarea>
+    </div>
+  </section>
+
+  <!-- AJUSTES -->
+  <section id="view-params" class="hidden"><form id="formParams"></form></section>
+
+  <!-- COMO USAR -->
+  <section id="view-ajuda" class="hidden">
+    <div class="card" id="painel-video" style="position:absolute;left:-99999px;top:0">
+      <div class="lblsec"><span class="n" data-ic="star"></span> Vídeos: o passo a passo</div>
+      <p class="hint" style="margin:-6px 0 10px">Dados fictícios, sem áudio, legendas na tela. Gravados na edição completa do app; o roteiro de preenchimento e análise é o mesmo.</p>
+      <div class="videos">
+        <figure data-video><video controls preload="metadata" playsinline><source src="radar-renovacoes-como-usar.webm" type="video/webm"><source src="radar-renovacoes-como-usar.mp4" type="video/mp4"></video><figcaption>No computador · preenchimento e análises</figcaption></figure>
+        <figure data-video class="vertical"><video controls preload="metadata" playsinline><source src="radar-renovacoes-celular.mp4" type="video/mp4"></video><figcaption>No celular · resumo</figcaption></figure>
+      </div>
+    </div>
+    <div id="ajudaTxt"></div>
+  </section>
+
+  <p class="warn">Fórmulas e regras: Book de Renovações (2011). Laudo prévio, linearidade e checklist: material de perícia judicial (2025). Risco renovatório, risco de perda, prioridade e confiança são heurísticas deste sistema. A decisão é do comitê comercial. Ferramenta de apoio — não substitui parecer jurídico.</p>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/*__XLSX__*/
+</script>
+<script>
+/*__MOTOR__*/
+</script>
+<script>
+/* ============================================================ estado e utilidades */
+const CHAVE = 'radar-renovacoes-v1'
+const EXEMPLO = /*__EXEMPLO__*/
+let estado = { lojas: [], params: { ...PARAMS_PADRAO }, exemplo: false }
+let lojaAtual = null, editandoId = null, viewAtual = 'radar'
+const $ = (s) => document.querySelector(s)
+const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') e.className = v; else if (k === 'html') e.innerHTML = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v) } for (const k of kids) e.append(k); return e }
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+function lsGet(k) { try { return JSON.parse(localStorage.getItem(k)) } catch (e) { return null } }
+function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) {} }
+function salvar() { lsSet(CHAVE, estado) }
+function carregar() {
+  const o = lsGet(CHAVE)
+  if (o && Array.isArray(o.lojas)) { estado = { lojas: o.lojas, params: { ...PARAMS_PADRAO, ...(o.params || {}) }, exemplo: !!o.exemplo }; return }
+  estado = { lojas: JSON.parse(JSON.stringify(EXEMPLO.lojas)), params: { ...PARAMS_PADRAO, ...EXEMPLO.params }, exemplo: true }
+}
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 1900) }
+async function copiar(txt, msg) {
+  try { await navigator.clipboard.writeText(txt); toast(msg || 'Copiado') }
+  catch (e) { const ta = el('textarea', { style: 'position:fixed;left:-9999px' }); ta.value = txt; document.body.append(ta); ta.select(); try { document.execCommand('copy'); toast(msg || 'Copiado') } catch (e2) { toast('Não foi possível copiar') } ta.remove() }
+}
+/* Salva o arquivo gerado. Publicado como artifact, pede o salvamento ao visualizador; aberto como arquivo ou hospedado, usa blob + link. */
+async function download(name, text, mime) {
+  try {
+    const dl = (window.claude && typeof window.claude.use === 'function') ? await window.claude.use('downloads') : null
+    if (dl) {
+      try { await dl.save({ filename: name, data: text }); toast('Arquivo salvo') }
+      catch (err) { const code = err && err.code; if (code === 'declined') return; if (code === 'extension_not_enabled' && /\.(csv|md|json)$/i.test(name)) { try { await dl.save({ filename: name.replace(/\.\w+$/, '.txt'), data: text }); toast('Salvo como .txt'); return } catch (e2) {} } await copiar(text, 'Não deu para salvar: conteúdo copiado') }
+      return
+    }
+  } catch (e) {}
+  const b = new Blob([text], { type: mime || 'text/plain;charset=utf-8' }); const u = URL.createObjectURL(b)
+  const a = document.createElement('a'); a.href = u; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 1500)
+}
+const csvLinha = (arr) => arr.map(v => String(v ?? '').replace(/;/g, ',').replace(/\r?\n/g, ' ')).join(';')
+const hoje = () => $('#hoje').value || new Date().toISOString().slice(0, 10)
+const analises = () => estado.lojas.map(l => ({ ...analisarLoja(l, estado.params, hoje(), estado.lojas), shopping: estado.params.shopping }))
+const ativa = (a) => a.loja.status !== 'renovado' && a.loja.status !== 'nao-renovado'
+const naJanela = (a) => a.farol.cor === 'verde' || a.loja.status === 'em-negociacao' || (a.jan.meses !== null && a.jan.meses <= 12)
+const pillPerda = (n) => ({ alto: 'vermelho', moderado: 'amarelo', baixo: 'verde' })[n] || 'cinza'
+const rotuloPerda = (n) => ({ alto: 'Alto', moderado: 'Moderado', baixo: 'Baixo' })[n] || '—'
+const rotuloPerito = (n) => ({ forte: 'Forte', atencao: 'Atenção', fragil: 'Frágil' })[n] || '—'
+const corPerito = (n) => ({ forte: 'verde', atencao: 'amarelo', fragil: 'vermelho' })[n] || 'cinza'
+const metric = (k, v, d = '', cls = '') => `<div class="metric ${cls}"><div class="mk">${esc(k)}</div><div class="mv">${v}</div>${d ? `<div class="md">${d}</div>` : ''}</div>`
+const badgeMix = (a) => a.cls.mix ? `<span class="badge m-${a.cls.mix}">${a.cls.mix}${a.cls.mixValidado ? '' : ' *'}</span>` : '<span class="badge">sem mix</span>'
+function niceStep(x) { const p = Math.pow(10, Math.floor(Math.log10(x))); const r = x / p; return (r < 1.5 ? 1 : r < 3.5 ? 2 : r < 7.5 ? 5 : 10) * p }
+function fmtK(v) { return v >= 1000 ? (v / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' mil' : v.toLocaleString('pt-BR') }
+
+/* ícones SVG monocromáticos (mesmo conjunto do Radar de Varejo, mais quatro) */
+/*__ICONS__*/
+Object.assign(ICONS, {
+  scale: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M5 7l-3 7a3.5 3.5 0 0 0 6 0z"/><path d="M19 7l-3 7a3.5 3.5 0 0 0 6 0z"/></svg>',
+  gear: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>',
+  help: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7"/><path d="M12 17h.01"/></svg>',
+  renovar: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21H5V3h8l5 5v4"/><path d="M13 3v5h5"/><path d="M8 10h5"/><path d="M8 14h3"/><path d="M14.2 16.2a3.6 3.6 0 0 1 6.2-.9"/><path d="M20.6 13.6v1.9h-1.9"/><path d="M20.8 19.8a3.6 3.6 0 0 1-6.2.9"/><path d="M14.4 22.4v-1.9h1.9"/></svg>',
+  alert: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>',
+})
+function applyIcons(root) { (root || document).querySelectorAll('[data-ic]').forEach(e => { if (e.dataset.icd) return; e.dataset.icd = '1'; const svg = ICONS[e.getAttribute('data-ic')]; if (!svg) return; if (e.classList.contains('n') || e.classList.contains('brandmark')) e.innerHTML = svg; else e.insertAdjacentHTML('afterbegin', svg) }) }
+const ic = (n) => ICONS[n] || ''
+
+/* ============================================================ navegação */
+const VIEWS = ['radar', 'loja', 'laudo', 'pericia', 'cadastro', 'auditoria', 'plano', 'comite', 'params', 'ajuda']
+function mostrarAba(n, rolar = true) {
+  viewAtual = n
+  VIEWS.forEach(v => $('#view-' + v).classList.toggle('hidden', v !== n))
+  document.querySelectorAll('#tabs .tab').forEach(t => t.classList.toggle('on', t.dataset.view === n))
+  lsSet(CHAVE + ':aba', n); render()
+  if (rolar) window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+document.querySelectorAll('#tabs .tab').forEach(t => { t.onclick = () => mostrarAba(t.dataset.view); t.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); mostrarAba(t.dataset.view) } } })
+
+function render() {
+  $('#shopNome').textContent = estado.params.shopping || ''
+  $('#exemploAviso').classList.toggle('hidden', !estado.exemplo)
+  const as = analises()
+  $('#cntLojas').textContent = estado.lojas.length
+  $('#cntRadar').textContent = as.filter(a => a.farol.cor === 'verde').length
+  $('#cntAud').textContent = as.filter(a => a.trava.status === 'bloqueio' && ativa(a)).length
+  $('#cntLaudo').textContent = as.filter(a => a.perda?.nivel === 'alto' && ativa(a) && naJanela(a)).length
+  ;({ radar: renderRadar, loja: renderLoja, laudo: renderLaudo, pericia: renderPericia, cadastro: renderCadastro, auditoria: renderAuditoria, plano: renderPlano, comite: renderComite, params: renderParams, ajuda: renderAjuda })[viewAtual](as)
+  applyIcons()
+}
+
+/* ============================================================ RADAR */
+function cardLoja(a, extra = '') {
+  return `<div class="inv-card clk" data-open="${esc(a.loja.id)}">
+    <div class="inv-top"><div><div class="inv-name">${esc(a.loja.luc)} · ${esc(a.loja.nome)}</div><div class="inv-meta">${esc(a.loja.segmento || 'segmento?')} · ${a.loja.area || '?'} m² · Q${a.cls.quadrante ?? '?'} · ${a.jan.meses === null ? 'sem data de fim' : String(a.jan.meses).replace('.', ',') + ' meses'}</div></div><span class="status-pill st-${a.farol.cor}">${esc(a.farol.rotulo)}</span></div>
+    ${extra}</div>`
+}
+function renderRadar(as) {
+  const ano = +estado.params.anoPlanejamento || new Date().getFullYear()
+  const pl = planejamento(estado.lojas, estado.params, hoje())
+  const at = as.filter(ativa)
+  $('#kpis').innerHTML = [
+    metric('Negociar agora', `<span class="t-verde">${at.filter(a => a.farol.cor === 'verde').length}</span>`, 'na janela, sem bloqueio', 'big'),
+    metric('Bloqueadas', `<span class="${at.some(a => a.farol.cor === 'vermelho') ? 't-vermelho' : ''}">${at.filter(a => a.farol.cor === 'vermelho' && a.jan.fase !== 'vencido').length}</span>`, 'auditoria, inadimplência, ação', 'big'),
+    metric('Vencidos', `<span class="${pl.vencidos ? 't-vermelho' : 't-verde'}">${pl.vencidos}</span>`, 'nenhuma loja opera vencida', 'big'),
+    metric(`Vencem em ${ano}`, String(pl.n), `${pl.nReal} já renovada(s)`, 'big'),
+    metric(`LSR planejado`, pl.lsrPlanejado === null ? '—' : pct(pl.lsrPlanejado), pl.meta === null ? 'meta não definida' : `meta ${pct(pl.meta)}`, 'big'),
+    metric('Ganho 60 meses', brl(at.reduce((s, a) => s + Math.max(a.prop.ganho60m || 0, 0), 0)), 'propostas calculáveis'),
+    metric('Risco de perda alto', `<span class="${at.some(a => a.perda?.nivel === 'alto' && naJanela(a)) ? 't-vermelho' : 't-verde'}">${at.filter(a => a.perda?.nivel === 'alto' && naJanela(a)).length}</span>`, 'ver aba Laudo'),
+    metric('Dados faltantes', String(at.reduce((s, a) => s + a.faltantes.length, 0)), 'levantar, sem estimar'),
+    metric('Mix sem validação', String(at.filter(a => a.cls.mix && !a.cls.mixValidado).length), 'levar ao comitê'),
+  ].join('')
+  const ff = $('#fFarol').value, fm = $('#fMix').value, fb = ($('#fBusca').value || '').toLowerCase()
+  const ordem = (a) => ({ vermelho: 0, verde: 1, amarelo: 2, cinza: 3, azul: 4 }[a.farol.cor] ?? 5)
+  const lista = as.filter(a => (!ff || a.farol.cor === ff) && (!fm || a.cls.mix === fm) && (!fb || [a.loja.luc, a.loja.nome, a.loja.segmento].join(' ').toLowerCase().includes(fb))).sort((x, y) => ordem(x) - ordem(y) || y.prio.score - x.prio.score)
+  $('#fila').innerHTML = lista.length ? lista.map(a => cardLoja(a, `
+    <div class="metrics">${metric('AMM atual', brl(a.prop.ammAtual))}${metric('LSR total', a.lsr.lsrTotal === null ? '—' : pct(a.lsr.lsrTotal))}${metric('AMM proposto', a.prop.ammProposto === null ? '—' : brl(a.prop.ammProposto), a.prop.ganho60m === null ? '' : `ganho 60 m ${brl(a.prop.ganho60m)}`)}</div>
+    <div class="rec-mini">${badgeMix(a)}<span class="rec-tag">Auditoria: <b class="t-${({ ok: 'verde', programar: 'amarelo' })[a.trava.status] || 'vermelho'}">${({ ok: 'OK', programar: 'Programar' })[a.trava.status] || 'Reauditar'}</b></span><span class="rec-tag">Perito: <b class="t-${corPerito(a.prop.perito)}">${rotuloPerito(a.prop.perito)}</b></span><span class="rec-tag">Perda: <b class="t-${pillPerda(a.perda?.nivel)}">${rotuloPerda(a.perda?.nivel)}</b></span></div>
+    <div class="hint" style="margin-top:8px">${esc(a.jan.acao)}</div>`)).join('') : '<div class="card empty">Nenhuma loja neste filtro.</div>'
+  renderQuadrantes(as)
+}
+['fFarol', 'fMix', 'fBusca'].forEach(id => $('#' + id).addEventListener('input', render))
+document.addEventListener('click', (e) => {
+  const o = e.target.closest('[data-open]'); if (o && !e.target.closest('textarea,button,input,select')) { lojaAtual = o.dataset.open; mostrarAba('loja'); return }
+  const ed = e.target.closest('[data-edit]'); if (ed) { editandoId = ed.dataset.edit; abrirForm(estado.lojas.find(l => l.id === editandoId)) }
+})
+
+/* ============================================================ gráficos (mesmos da edição completa) */
+/*__CHARTS__*/
+
+/* ============================================================ ANÁLISE DA LOJA */
+function renderLoja(as) {
+  const sel = $('#selLoja'); sel.innerHTML = ''
+  if (!as.length) { $('#analise').innerHTML = '<div class="card empty">Cadastre uma loja para ver a análise.</div>'; return }
+  for (const a of as) sel.append(el('option', { value: a.loja.id }, `${a.loja.luc} · ${a.loja.nome}`))
+  if (!lojaAtual || !as.some(a => a.loja.id === lojaAtual)) lojaAtual = as[0].loja.id
+  sel.value = lojaAtual
+  const a = as.find(x => x.loja.id === lojaAtual), l = a.loja, c = a.cls, j = a.jan, p = a.prop, s = a.lsr, lp = a.laudo, cp = a.comp, pd = a.perda
+  const sec = (n, t, html) => `<div class="card"><div class="lblsec"><span class="n">${n}</span> ${t}</div>${html}</div>`
+  const linha = (k, v) => `<div class="row"><span class="k">${k}</span><span class="v">${v}</span></div>`
+  const caixa = (cor, html) => `<div class="acard ${cor}" style="margin:8px 0 0;padding:11px 13px;box-shadow:none">${html}</div>`
+  let h = `<div class="acard ${a.farol.cor}"><div class="inv-top"><div><div class="inv-name" style="font-size:17px">${esc(l.luc)} · ${esc(l.nome)}</div><div class="inv-meta">${esc(l.segmento || 'segmento?')} · ${l.area || '?'} m² · piso ${esc(l.piso || '?')} · vigência até ${esc(l.contrato?.fim || '?')}</div></div><span class="status-pill st-${a.farol.cor}">${esc(a.farol.rotulo)}</span></div>
+    <div class="metrics">${metric('AMM atual', brl(p.ammAtual), c.ammM2 !== null ? `${brl(c.ammM2)}/m²` : '', 'big')}${metric('LSR total', s.lsrTotal === null ? '—' : pct(s.lsrTotal), s.lsrBase === null ? 'faltam insumos' : `${pct(s.lsrBase)} + inflação ${pct(s.inflacao)}`, 'big')}${metric('AMM proposto', p.ammProposto === null ? '—' : brl(p.ammProposto), p.ammPropostoM2 !== null ? `${brl(p.ammPropostoM2)}/m²` : '', 'big')}${metric('Ganho 60 meses', p.ganho60m === null ? '—' : brl(p.ganho60m))}${metric('Risco de perda', `<span class="t-${pillPerda(pd?.nivel)}">${rotuloPerda(pd?.nivel)}</span>`)}${metric('Confiança', `${a.confianca}/10`, `${a.faltantes.length} dado(s) faltante(s)`)}</div>
+    <div style="margin-top:8px"><b>${esc(j.acao)}</b></div></div>`
+  if (a.bloq.length || a.avisos.length) h += `<div class="card"><div class="lblsec"><span class="n">${ic('alert')}</span> Bloqueios e avisos</div>${a.bloq.map(b => caixa('vermelho', '⛔ ' + esc(b))).join('')}${a.avisos.map(w => caixa('amarelo', esc(w))).join('')}</div>`
+  h += sec(1, 'Classificação', linha('Mix', `${c.mix || '[FALTA]'} ${c.mix ? (c.mixValidado ? '· validado' : '· <span class="t-amarelo">preliminar</span>') : ''}`) + linha('Quadrante', c.quadrante ?? '[FALTA]') + linha('AMM/m² · satélites', `${brl(c.ammM2)} · ${brl(c.mediaAmmM2)}`) + linha('Vendas/m² · satélites', `${brl(c.vendasM2)} · ${brl(c.mediaVendasM2)}`) + `<p class="hint">${esc(c.leitura)}</p>`)
+  h += sec(2, 'Janela', linha('Fase', esc(j.fase)) + linha('Meses restantes', j.meses ?? '?') + linha('Último reajuste', j.ultimoReajuste || '[FALTA]') + (j.proximoReajuste ? linha('Próximo reajuste', j.proximoReajuste) : '') + j.alertas.map(x => caixa('amarelo', esc(x))).join(''))
+  h += sec(3, 'Due diligence e auditoria', caixa(({ ok: 'verde', programar: 'amarelo' })[a.trava.status] || 'vermelho', esc(a.trava.motivo)) + `<div style="margin-top:8px">` + linha('Janela ideal da integral', a.trava.janelaIdeal) + linha('Inadimplência', `${l.desempenho?.mesesInadimplente || 0} mês(es) · ${brl(num(l.desempenho?.saldoAberto) || 0)}`) + linha('Cláusulas a retirar', esc([...(l.contrato?.clausulasEspeciais || []), ...(l.contrato?.subsidios || [])].join(', ') || 'nenhuma')) + '</div>')
+  // histórico
+  if (!a.hist.disponivel) h += sec('3b', 'Histórico desde a última renovação', `<p class="hint">[FALTA: histórico mensal desde ${a.hist.inicio}]. Cole no cadastro ou importe a aba Historico do Excel.</p>`)
+  else { const hi = a.hist; h += sec('3b', 'Histórico desde a última renovação', `<p class="txt">${hi.meses} meses desde <b>${hi.inicio}</b>${hi.crescimentoVendas !== null ? ` · vendas/mês <b>${pct(hi.crescimentoVendas)}</b> vs 1º ano` : ''}${hi.deltaCoVendas !== null ? ` · CO/Vendas <b>${pct(hi.primeiro.coVendas)} → ${pct(hi.ultimos12.coVendas)}</b>` : ' · curto demais para comparar CO/Vendas'}</p>` + [...hi.anos, { rotulo: 'Últimos 12 meses', ...hi.ultimos12 }].map(y => `<div class="pt-card" style="padding:9px 12px;margin-bottom:6px"><div class="pt-head"><b>${y.rotulo}</b><span class="big">${y.coVendas === null ? '—' : pct(y.coVendas)}</span></div><div class="tiny">${y.de} a ${y.ate} · vendas ${brl(y.vendasMes)}/mês · AMM ${brl(y.ammMedio)} · A% ${brl(y.aPct)} (${y.mesesComAPct} m) · CO/Vendas à direita</div></div>`).join('') + '<div id="histChart"></div>') }
+  // argumentos
+  h += sec(4, 'Os argumentos', a.args.map(x => `<div class="pt-card"><div class="pt-head"><b>${x.n} · ${esc(x.nome)}${x.origem === 'sistema' ? ' <span class="tiny">fora do Book</span>' : ''}</b><span class="big ${x.usavel ? 't-verde' : 't-cinza'}">${x.incremento === null ? '[FALTA]' : pct(x.incremento)}</span></div><div class="tiny" style="margin-top:4px">${esc(x.detalhe)}${x.faltantes.length ? `<br><span class="t-amarelo">[FALTA: ${esc(x.faltantes.join('; '))}]</span>` : ''}</div></div>`).join('') + '<p class="hint">Em cada argumento vale o maior indicador. O A% só entra se a loja já paga aluguel variável.</p>')
+  h += sec(5, 'LSR real e proposta', `<div class="banner" style="margin-bottom:8px">${esc(s.regra)}</div>` + linha('Argumentos usados', esc(s.usados.join(' · ') || 'nenhum com base')) + linha('LSR real + inflação', `${pct(s.lsrBase)} + ${pct(s.inflacao)} = ${pct(s.lsrTotal)}`) + linha('AMM proposto', brl(p.ammProposto)) + linha('Tabela ABC', p.tabelaAbc === null ? '[FALTA]' : `${brl(p.tabelaAbc)}${p.vsAbc === null ? '' : ` (proposta ${pct(p.vsAbc)})`}`) + linha('Teste do perito', `<span class="t-${corPerito(p.perito)}">${rotuloPerito(p.perito)}</span>`) + `<p class="hint">${esc(p.peritoMotivo)}</p>`)
+  // laudo prévio
+  let lh = ''
+  if (!lp.disponivel) lh += caixa('amarelo', `[FALTA: comparáveis suficientes] ${esc(lp.motivo)}`)
+  else lh += `<div class="metrics" style="margin-top:0">${metric('Comparáveis', String(lp.n), `±${cp.params.similaridadeAreaPct}% de área, ≤ ${cp.params.contemporaneidadeMeses} m`)}${metric('Valor provável', brl(lp.provavel), `mediana ${brl(lp.medianaM2)}/m²`)}${metric('Faixa Q1–Q3', `${brl(lp.faixa[0])} a ${brl(lp.faixa[1])}`)}</div>`
+  if (pd) lh += caixa(pillPerda(pd.nivel), `<b>Risco de perda em renovatória: ${rotuloPerda(pd.nivel).toUpperCase()}</b><br>${esc(pd.motivos.join(' · '))}${pd.disponivel ? `<br><span class="tiny">defensável até ${brl(pd.defensavel)} · excedente ${brl(pd.ajuste)} · receita em risco (60 m) ${brl(pd.receitaEmRisco)}</span>` : ''}`)
+  lh += '<div id="laudoLojaChart" style="margin-top:10px"></div>'
+  if (cp) lh += `<details><summary>Amostra: ${cp.finais.length} incluída(s), ${cp.amostra.length - cp.finais.length} excluída(s)</summary>${cp.amostra.map(x => `<div class="row"><span class="k" style="${x.incluido ? 'color:#0d454a' : ''}"><b>${esc(x.luc)}</b> ${esc(x.nome)} · ${x.area ?? '—'} m²${x.incluido ? '' : `<br><span class="tiny">${esc(x.motivos.join('; '))}</span>`}</span><span class="v">${x.ammM2 === null ? '—' : brl(x.ammM2)}/m²</span></div>`).join('')}</details>`
+  h += sec('5b', 'Laudo prévio · o que a perícia tende a encontrar', lh)
+  h += sec(6, 'Alçadas', p.ammProposto === null ? '<p class="hint">Sem proposta calculável.</p>' : linha('Comitê aprova', brl(p.ammProposto)) + p.alcadas.map(x => linha(`${esc(x.cargo)} <span class="tiny">${x.faixa}</span>`, `${brl(x.de)} → ${brl(x.ate)}`)).join('') + `<p class="hint">Ultrapassou o aprovado, volta ao comitê. Degrau no ${p.degrau.join('º e ')}º mês. Nunca citar "meta"; nunca insinuar sonegação.</p>`)
+  h += sec(ic('alert'), 'Risco renovatório', caixa(({ alto: 'vermelho', medio: 'amarelo', baixo: 'verde' })[a.risco.nivel], `Nível ${a.risco.nivel.toUpperCase()} (${a.risco.score}/100) — ${esc(a.risco.fatores.join(' · ') || 'sem fatores agravantes')}`) + `<p class="hint">${a.risco.lembretes.map(esc).join(' · ')}</p>` + (a.risco.nivel !== 'baixo' || l.juridico?.renovatoriaAjuizada ? `<details><summary>Checklist técnico da perícia (15 pontos)</summary><div class="reasons">${CHECKLIST_PERICIA.map(x => `<div class="reason">${ic('check')}<span>${esc(x)}</span></div>`).join('')}</div></details>` : ''))
+  h += sec(ic('check'), 'Ações', `<div class="reasons" style="margin-top:0">${a.acoes.map(x => `<div class="reason">${ic('check')}<span>${esc(x)}</span></div>`).join('')}</div>`)
+  if (a.faltantes.length) h += sec(ic('alert'), 'Dados faltantes (não estimar)', `<div class="reasons" style="margin-top:0">${a.faltantes.map(x => `<div class="reason">${ic('alert')}<span>[FALTA: ${esc(x)}]</span></div>`).join('')}</div>`)
+  $('#analise').innerHTML = h
+  if (a.hist.disponivel) $('#histChart').append(renderHistChart(a.hist))
+  if (cp) $('#laudoLojaChart').append(renderLaudoChart(a))
+}
+$('#selLoja').addEventListener('change', (e) => { lojaAtual = e.target.value; render() })
+$('#btnCopiarObsidian').onclick = () => { const a = analises().find(x => x.loja.id === lojaAtual); if (a) copiar(analiseObsidian(a), 'Análise copiada (formato Obsidian)') }
+$('#btnEditarLoja').onclick = () => { editandoId = lojaAtual; mostrarAba('cadastro', false); abrirForm(estado.lojas.find(l => l.id === lojaAtual)) }
+
+/* ============================================================ LAUDO */
+function selecaoLaudo(as) {
+  const so = $('#fSoNeg').value, fn = $('#fPerda').value, o = { alto: 0, moderado: 1, baixo: 2 }
+  return as.filter(a => ativa(a) && (!so || naJanela(a)) && (!fn || (a.perda?.nivel || 'indefinido') === fn)).sort((x, y) => (o[x.perda?.nivel] ?? 3) - (o[y.perda?.nivel] ?? 3) || (y.perda?.receitaEmRisco || 0) - (x.perda?.receitaEmRisco || 0))
+}
+function renderLaudo(as) {
+  const sel = selecaoLaudo(as), n = (lv) => sel.filter(a => a.perda?.nivel === lv).length
+  $('#kpiLaudo').innerHTML = [metric('Risco alto', `<span class="${n('alto') ? 't-vermelho' : 't-verde'}">${n('alto')}</span>`, 'acima do que os comparáveis sustentam', 'big'), metric('Moderado', `<span class="t-amarelo">${n('moderado')}</span>`, 'só o topo da amostra sustenta', 'big'), metric('Baixo', `<span class="t-verde">${n('baixo')}</span>`, 'laudo tende a sustentar', 'big'),
+    metric('Receita em risco (60 m)', brl(sel.reduce((s, a) => s + (a.perda?.receitaEmRisco || 0), 0)), 'se a sentença vier no valor provável'), metric('Perda esperada', brl(sel.reduce((s, a) => s + (a.perda?.perdaEsperada || 0), 0)), 'ponderada pelo nível'), metric('Laudo abaixo do atual', String(sel.filter(a => a.perda?.laudoAbaixoDoAtual).length), 'renovatória pode reduzir o aluguel')].join('')
+  renderLaudoRangeChart(sel)
+  $('#listaLaudo').innerHTML = sel.length ? sel.map(a => { const pd = a.perda || {}, lp = a.laudo || {}; return `<div class="inv-card clk" data-open="${esc(a.loja.id)}"><div class="inv-top"><div><div class="inv-name">${esc(a.loja.luc)} · ${esc(a.loja.nome)}</div><div class="inv-meta">${esc(a.cls.mix || 'sem mix')} · ${a.loja.area || '?'} m² · ${a.jan.meses ?? '?'} meses · ${lp.disponivel ? lp.n + ' comparáveis' : 'sem laudo'}</div></div><span class="status-pill st-${pillPerda(pd.nivel)}">${rotuloPerda(pd.nivel)}</span></div>
+    <div class="metrics">${metric('Atual → proposto', `${brl(a.prop.ammAtual)} → ${a.prop.ammProposto === null ? '—' : brl(a.prop.ammProposto)}`)}${metric('Laudo provável', lp.disponivel ? brl(lp.provavel) : '—', pd.gapLaudo == null ? '' : `gap ${pd.gapLaudo > 0 ? '+' : ''}${pct(pd.gapLaudo)}`)}${metric('Defensável', pd.defensavel == null ? '—' : brl(pd.defensavel), pd.receitaEmRisco ? `em risco ${brl(pd.receitaEmRisco)}` : '')}</div>
+    <div class="hint" style="margin-top:8px">${esc((pd.motivos || []).join(' · '))}</div></div>` }).join('') : '<div class="card empty">Nenhuma loja neste filtro.</div>'
+  $('#btnLaudoCsv').onclick = () => download(`visao-de-laudo-${hoje()}.csv`, '﻿' + [csvLinha(['LUC', 'Loja', 'Risco de perda', 'Meses', 'AMM atual', 'AMM proposto', 'Laudo provável', 'Q1', 'Q3', 'Gap %', 'Defensável', 'Receita em risco 60m', 'Motivos']), ...sel.map(a => { const pd = a.perda || {}, lp = a.laudo || {}; return csvLinha([a.loja.luc, a.loja.nome, pd.nivel || '', a.jan.meses ?? '', a.prop.ammAtual ?? '', a.prop.ammProposto == null ? '' : Math.round(a.prop.ammProposto), lp.disponivel ? Math.round(lp.provavel) : '', lp.disponivel ? Math.round(lp.faixa[0]) : '', lp.disponivel ? Math.round(lp.faixa[1]) : '', pd.gapLaudo == null ? '' : Math.round(pd.gapLaudo * 1000) / 10, pd.defensavel == null ? '' : Math.round(pd.defensavel), pd.receitaEmRisco == null ? '' : Math.round(pd.receitaEmRisco), (pd.motivos || []).join(' | ')]) })].join('\r\n'), 'text/csv;charset=utf-8')
+}
+['fPerda', 'fSoNeg'].forEach(id => $('#' + id).addEventListener('change', render))
+
+/* ============================================================ PERÍCIA */
+function renderPericia() {
+  const lin = linearidade(estado.lojas, estado.params, hoje()), g = lin.geral
+  const corL = ({ linear: 't-verde', moderada: 't-amarelo', dispersa: 't-vermelho' })[g.classif] || ''
+  $('#kpiLin').innerHTML = [metric('Satélites na base', String(g.n), 'com área e AMM', 'big'), metric('Mediana AMM/m²', g.mediana === null ? '—' : brl(g.mediana), g.media === null ? '' : `média ${brl(g.media)}`, 'big'), metric('Linearidade', `<span class="${corL}">${g.cv === null ? '—' : pct(g.cv)}</span>`, `coef. de variação · ${g.classif}`, 'big'),
+    metric('Dentro de ±30% da média', lin.dentro30 === null ? '—' : pct(lin.dentro30), 'quanto a média representa'), metric('Fora da curva', String(lin.fora.length), `${lin.fora.filter(x => !x.racional).length} sem racional`), metric('Não contemporâneos', String(lin.naoContemporaneos), `mais de ${lin.params.contemporaneidadeMeses} meses`)].join('')
+  renderLinChart(lin)
+  const grupo = (t, gs) => `<h3 style="margin-top:6px">${t}</h3>` + gs.map(x => `<div class="row"><span class="k"><b style="color:#0d454a">${esc(x.chave)}</b> · ${x.stats.n} loja(s) · ${brl(x.stats.min)} a ${brl(x.stats.max)}</span><span class="v">${brl(x.stats.mediana)} <span class="tiny">CV ${x.stats.cv === null ? '—' : pct(x.stats.cv)} · <span class="${({ linear: 't-verde', moderada: 't-amarelo', dispersa: 't-vermelho' })[x.classif] || ''}">${x.classif}</span></span></span></div>`).join('')
+  $('#linGrupos').innerHTML = grupo('Faixa de área (mediana do AMM/m²)', lin.porFaixa) + grupo('Piso', lin.porPiso)
+  const box = $('#linFora'); box.innerHTML = lin.fora.length ? '' : '<div class="empty">Nenhuma loja fora da curva com a base atual.</div>'
+  for (const x of lin.fora) {
+    const c = el('div', { class: 'pt-card', html: `<div class="pt-head"><b>${esc(x.luc)} · ${esc(x.nome)}</b><span class="big ${x.lado === 'acima' ? 't-verde' : 't-vermelho'}">${x.desvioPct > 0 ? '+' : ''}${pct(x.desvioPct)}</span></div><div class="tiny" style="margin:4px 0 8px">${brl(x.ammM2)}/m² contra mediana ${brl(x.mediana)} (${esc(x.referencia)}) · ${x.area} m² · piso ${esc(x.piso)}${x.contemporaneo ? '' : ' · contrato antigo'}${x.subsidio ? ' · com subsídio' : ''}</div>` })
+    const ta = el('textarea', { placeholder: 'Racional comercial: por que este valor é defensável?' }); ta.value = x.racional
+    ta.addEventListener('change', () => { const l = estado.lojas.find(l => l.id === x.id); if (l) { l.racionalForaDaCurva = ta.value.trim(); estado.exemplo = false; salvar(); toast('Racional salvo') } })
+    c.append(ta); box.append(c)
+  }
+  const evs = estado.params.eventosEstruturais || []
+  $('#linEventos').innerHTML = `<p class="hint" style="margin:-6px 0 8px">Contratos com mais de ${lin.params.contemporaneidadeMeses} meses ou anteriores ao último evento saem dos comparáveis do laudo prévio. Cadastre os eventos em Ajustes.</p>` + (evs.length ? evs.map(e => `<div class="row"><span class="k">${esc(e.data)}</span><span class="v">${esc(e.descricao || 'evento estrutural')}</span></div>`).join('') : '<div class="empty">Nenhum evento estrutural cadastrado.</div>')
+}
+
+/* ============================================================ CADASTRO */
+const SN = [['', 'Não'], ['1', 'Sim']]
+const CAMPOS = [
+  ['ID', 'Identificação', [['luc', 'LUC', 'text', 1], ['nome', 'Nome fantasia', 'text', 1], ['cnpj', 'CNPJ'], ['segmento', 'Segmento'], ['piso', 'Piso'], ['area', 'Área (m²)', 'num'], ['formato', 'Formato', [['satelite', 'Loja-satélite'], ['ancora', 'Âncora'], ['megaloja', 'Megaloja'], ['quiosque', 'Quiosque'], ['atipico', 'Atípico / mídia']]], ['keyAccount', 'Key Account?', 'bool']]],
+  ['1', 'Classificação', [['mix', 'Mix (do comitê)', [['', '— não classificada —'], ['Essencial', 'Essencial'], ['Relevante', 'Relevante'], ['Indiferente', 'Indiferente'], ['Ofensora', 'Ofensora']]], ['mixValidado', 'Validada pelo comitê?', 'bool'], ['cluster', 'Cluster / batalha'], ['status', 'Status', [['a-negociar', 'A negociar'], ['em-negociacao', 'Em negociação'], ['renovado', 'Renovado'], ['nao-renovado', 'Não renovado']]]]],
+  ['2', 'Contrato', [['contrato.inicio', 'Início da vigência', 'date'], ['contrato.fim', 'Fim da vigência (minuta)', 'date', 1], ['contrato.ultimoReajuste', 'Último reajuste', 'date'], ['contrato.indice', 'Índice'], ['contrato.degrau', 'Degrau'], ['contrato.fatorPercentual', 'Fator de aluguel %', 'num'], ['contrato.comercial', 'Contrato comercial?', 'boolT'], ['inflacaoAcumuladaPct', 'Inflação própria % (opcional)', 'num'], ['contrato.clausulasEspeciais', 'Cláusulas especiais (vírgula)', 'list'], ['contrato.subsidios', 'Subsídios (vírgula)', 'list']]],
+  ['3', 'Faturamento, desempenho, auditoria e jurídico', [['faturamento.amm', 'AMM do último mês (R$)', 'num'], ['faturamento.aPctMedioSemDezembro', 'A% médio 12 m sem dezembro (R$)', 'num'], ['desempenho.vendas12mExpurgada', 'Vendas média 12 m expurgada (R$)', 'num'], ['desempenho.custoOcupacao', 'Custo de ocupação mensal (R$)', 'num'], ['desempenho.mesesInadimplente', 'Meses inadimplente', 'num'], ['desempenho.saldoAberto', 'Saldo em aberto (R$)', 'num'], ['auditoria.ultimaIntegral', 'Última auditoria integral', 'date'], ['auditoria.dispersaoPct', 'Dispersão da curva %', 'num'], ['auditoria.statusLivros', 'Livros fiscais', [['', '—'], ['pendente', 'pendente'], ['notificado', 'notificado'], ['recebido', 'recebido'], ['auditado', 'auditado'], ['negociado', 'negociado'], ['cobrado', 'cobrado']]], ['juridico.acaoContraShopping', 'Ação contra o shopping?', 'bool'], ['juridico.renovatoriaAjuizada', 'Renovatória ajuizada?', 'bool'], ['negociacao.resistencia', 'Lojista resistente?', 'bool']]],
+  ['3b', 'Histórico mensal desde a última renovação', [['historico', 'Uma linha por mês: AAAA-MM;vendas;AMM;A% pago;custo de ocupação', 'hist']]],
+  ['4', 'Comparativos (nunca estimar: deixe vazio)', [['comparativos.coVendasRedePct', 'CO/Vendas da loja na rede %', 'num'], ['comparativos.coVendasSegmentoShoppingPct', 'CO/Vendas do segmento no shopping %', 'num'], ['comparativos.ammM2Entorno', 'AMM/m² entorno', 'num'], ['comparativos.ammM2Piso', 'AMM/m² mesmo piso', 'num'], ['comparativos.ammM2Tamanho', 'AMM/m² mesmo tamanho', 'num'], ['comparativos.ammM2Concorrentes', 'AMM/m² 3 concorrentes', 'num'], ['comparativos.ammM2SegmentoAbrasce', 'AMM/m² segmento Abrasce', 'num'], ['comparativos.tabelaAbcM2', 'Tabela ABC (R$/m²)', 'num']]],
+  ['P', 'Perícia', [['racionalForaDaCurva', 'Racional comercial de um valor fora da curva', 'area']]],
+  ['7', 'Realizado (quando renovado)', [['realizado.ammNovo', 'AMM novo (R$)', 'num'], ['realizado.data', 'Data da renovação', 'date'], ['realizado.novoFim', 'Nova vigência até', 'date']]],
+]
+const getP = (o, path) => path.split('.').reduce((x, k) => (x == null ? undefined : x[k]), o)
+const setP = (o, path, v) => { const ks = path.split('.'); let x = o; for (const k of ks.slice(0, -1)) { if (x[k] == null || typeof x[k] !== 'object') x[k] = {}; x = x[k] } x[ks[ks.length - 1]] = v }
+const fid = (k) => 'c_' + k.replace(/\./g, '_')
+function campoHtml([k, l, t, req], loja) {
+  const v = loja ? getP(loja, k) : undefined, id = fid(k), r = req ? ' required' : ''
+  let inp
+  if (Array.isArray(t)) inp = `<select id="${id}">${t.map(([val, lab]) => `<option value="${esc(val)}"${String(v ?? (k === 'formato' ? 'satelite' : k === 'status' ? 'a-negociar' : '')) === val ? ' selected' : ''}>${esc(lab)}</option>`).join('')}</select>`
+  else if (t === 'bool' || t === 'boolT') { const on = t === 'boolT' ? v !== false : !!v; inp = `<select id="${id}"><option value=""${on ? '' : ' selected'}>Não</option><option value="1"${on ? ' selected' : ''}>Sim</option></select>` }
+  else if (t === 'hist') inp = `<textarea id="${id}" style="min-height:120px;font-family:var(--mono);font-size:12.5px" placeholder="2022-07;101000;8200;390;11790">${esc(historicoTexto(v || []))}</textarea><div class="hint" id="histInfo"></div>`
+  else if (t === 'area') inp = `<textarea id="${id}">${esc(v ?? '')}</textarea>`
+  else if (t === 'list') inp = `<input id="${id}" value="${esc((v || []).join(', '))}">`
+  else inp = `<input id="${id}"${t === 'num' ? ' type="number" step="any" inputmode="decimal"' : t === 'date' ? ' type="date"' : ''} value="${esc(v ?? '')}"${r}>`
+  return `<div class="field"${t === 'hist' || t === 'area' ? ' style="grid-column:1/-1"' : ''}><span class="lbl">${esc(l)}</span>${inp}</div>`
+}
+function abrirForm(l) {
+  const box = $('#formBox'); box.classList.remove('hidden')
+  box.innerHTML = `<form id="form" autocomplete="off"><div class="banner"><b>${l ? `Editando ${esc(l.luc)} · ${esc(l.nome)}` : 'Nova loja'}</b> — obrigatórios: LUC, nome e fim da vigência. Comparativo que você não tem fica vazio.</div>` + CAMPOS.map(([n, t, cs]) => `<div class="card"><div class="lblsec"><span class="n">${n}</span> ${esc(t)}</div><div class="grid2">${cs.map(c => campoHtml(c, l)).join('')}</div></div>`).join('') + `<div class="actions"><button type="button" class="btn-gray" id="btnCancelar">Cancelar</button><button type="submit" class="btn-green">Salvar loja</button></div>${l ? '<div style="margin-top:12px"><button type="button" class="btn-danger" id="btnExcluir">Excluir loja</button></div>' : ''}</form>`
+  const hi = () => { const h = parseHistoricoTexto($('#' + fid('historico')).value); $('#histInfo').textContent = h.length ? `${h.length} mês(es) lidos: ${h[0].competencia} a ${h[h.length - 1].competencia}` : 'nenhum mês lido ainda' }
+  $('#' + fid('historico')).addEventListener('input', hi); hi()
+  $('#btnCancelar').onclick = () => { box.classList.add('hidden'); box.innerHTML = '' }
+  if (l) $('#btnExcluir').onclick = (e) => { const b = e.currentTarget; if (!b.dataset.conf) { b.dataset.conf = '1'; b.textContent = `Confirmar exclusão de ${l.luc}`; return } estado.lojas = estado.lojas.filter(x => x.id !== l.id); estado.exemplo = false; salvar(); box.classList.add('hidden'); box.innerHTML = ''; toast('Loja excluída'); render() }
+  $('#form').addEventListener('submit', (e) => {
+    e.preventDefault()
+    const loja = { id: l?.id || ('l' + Date.now().toString(36)) }
+    for (const [, , cs] of CAMPOS) for (const [k, , t] of cs) { const raw = $('#' + fid(k)).value.trim(); setP(loja, k, Array.isArray(t) ? (raw || (k === 'mix' ? null : '')) : t === 'bool' || t === 'boolT' ? !!raw : t === 'num' ? num(raw) : t === 'list' ? raw.split(',').map(s => s.trim()).filter(Boolean) : t === 'hist' ? parseHistoricoTexto(raw) : raw) }
+    const i = estado.lojas.findIndex(x => x.id === loja.id); if (i >= 0) estado.lojas[i] = loja; else estado.lojas.push(loja)
+    estado.exemplo = false; salvar(); box.classList.add('hidden'); box.innerHTML = ''; lojaAtual = loja.id; toast('Loja salva'); render()
+  })
+  box.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+function renderCadastro(as) {
+  $('#colunas').textContent = 'LUC · Nome fantasia · CNPJ · Segmento · Piso · Área m² · Formato · Key Account · Mix · Mix validado pelo comitê · Cluster · Status · Início vigência · Fim vigência · Último reajuste · Índice · Degrau · Fator aluguel % · Contrato comercial · Inflação acumulada % · Cláusulas especiais · Subsídios · AMM último mês · A% médio sem dezembro · Vendas média 12m expurgada · Custo de ocupação · Meses inadimplente · Saldo em aberto · Última auditoria integral · Dispersão % · Livros fiscais · Ação contra o shopping · Renovatória ajuizada · Lojista resistente · CO/Vendas rede % · CO/Vendas segmento shopping % · AMM/m² entorno · AMM/m² piso · AMM/m² tamanho · AMM/m² concorrentes · AMM/m² segmento Abrasce · Tabela ABC R$/m² · AMM novo (realizado) · Data renovação · Nova vigência até · Racional comercial. Aba Historico: LUC · Competência · Vendas · AMM · A% · Custo de ocupação.'
+  $('#listaLojas').innerHTML = as.length ? as.slice().sort((x, y) => (x.loja.contrato?.fim || '').localeCompare(y.loja.contrato?.fim || '')).map(a => `<div class="inv-card"><div class="inv-top"><div><div class="inv-name">${esc(a.loja.luc)} · ${esc(a.loja.nome)}</div><div class="inv-meta">${esc(a.loja.segmento || '')} · fim ${esc(a.loja.contrato?.fim || '?')} · AMM ${brl(num(a.loja.faturamento?.amm))} · ${a.faltantes.length} faltante(s)</div></div><button class="btn-gray btn-sm" data-edit="${esc(a.loja.id)}">Editar</button></div><div class="rec-mini">${badgeMix(a)}<span class="rec-tag">${esc(a.loja.status || 'a-negociar')}</span><span class="rec-tag">${(a.loja.historico || []).length} mês(es) de histórico</span></div></div>`).join('') : '<div class="card empty">Nenhuma loja. Importe o Excel ou toque em + Nova loja.</div>'
+}
+$('#btnNova').onclick = () => { editandoId = null; abrirForm(null) }
+$('#btnExcel').onclick = () => $('#xlsxFile').click()
+$('#xlsxFile').addEventListener('change', (e) => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => importarExcel(rd.result, f.name); rd.readAsArrayBuffer(f); e.target.value = '' })
+function importarExcel(buffer, nome) {
+  const out = $('#excelOut'); let wb
+  try { wb = XLSX.read(buffer, { type: 'array', cellDates: false }) } catch (e) { out.innerHTML = `<div class="acard vermelho">Não consegui ler o arquivo: ${esc(e.message)}</div>`; return }
+  const nomes = wb.SheetNames, achar = (re) => nomes.find(n => re.test(n.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()))
+  const abaL = achar(/loja|cadastro|satelite/) || nomes[0], abaP = achar(/param/), abaH = achar(/hist/)
+  const r = importarLojasPlanilha(XLSX.utils.sheet_to_json(wb.Sheets[abaL], { defval: '', raw: true }), estado.exemplo ? [] : estado.lojas) // a base de exemplo é substituída, não misturada
+  let msg = ''
+  if (abaP) { const rp = importarParamsPlanilha(XLSX.utils.sheet_to_json(wb.Sheets[abaP], { header: 1, defval: '' }).map(a => ({ a: a[0], b: a[1] })), estado.params); estado.params = rp.params; msg += ` Parâmetros: ${rp.aplicados}.` }
+  if (abaH) { const rh = importarHistoricoPlanilha(XLSX.utils.sheet_to_json(wb.Sheets[abaH], { defval: '', raw: true }), r.lojas); msg += rh.erro ? ` Histórico: ${esc(rh.erro)}.` : ` Histórico: ${rh.meses} mês(es) em ${rh.lojasAtualizadas} loja(s).` }
+  if (r.novas + r.atualizadas === 0) { out.innerHTML = `<div class="acard vermelho">Nenhuma loja lida na aba "${esc(abaL)}". Confira a coluna LUC e o cabeçalho na primeira linha.</div>`; render(); return }
+  estado.lojas = r.lojas; estado.exemplo = false; salvar()
+  out.innerHTML = `<div class="acard verde"><b>${esc(nome)}</b>: ${r.novas} nova(s), ${r.atualizadas} atualizada(s), ${r.ignoradas} sem LUC.${msg}${r.naoReconhecidas.length ? '<br>Colunas ignoradas: ' + esc(r.naoReconhecidas.join(', ')) : ''}</div>`
+  toast('Planilha importada'); render()
+}
+$('#btnJson').onclick = () => download(`radar-renovacoes-backup-${hoje()}.json`, JSON.stringify({ params: estado.params, lojas: estado.lojas }, null, 2), 'application/json')
+$('#btnImp').onclick = () => $('#fileJson').click()
+$('#fileJson').addEventListener('change', (e) => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { try { const o = JSON.parse(String(rd.result)); const lojas = Array.isArray(o) ? o : o.lojas; if (!Array.isArray(lojas)) throw new Error('sem lista de lojas'); lojas.forEach((l, i) => { if (!l.id) l.id = 'imp' + i + Date.now().toString(36) }); estado.lojas = lojas; if (o.params) estado.params = { ...PARAMS_PADRAO, ...o.params }; estado.exemplo = false; salvar(); toast(`${lojas.length} loja(s) importada(s)`); render() } catch (err) { toast('Backup inválido: ' + err.message) } }; rd.readAsText(f, 'utf-8'); e.target.value = '' })
+$('#btnCsvLojas').onclick = () => { const as = analises(); download(`radar-renovacoes-${hoje()}.csv`, '﻿' + [csvLinha(['LUC', 'Loja', 'Segmento', 'Área', 'Mix', 'Validado', 'Quadrante', 'Fim', 'Meses', 'Farol', 'AMM atual', 'LSR total %', 'AMM proposto', 'Ganho 60m', 'Auditoria', 'Perito', 'Risco renovatório', 'Risco de perda', 'Laudo provável', 'Faltantes', 'Confiança']), ...as.map(a => csvLinha([a.loja.luc, a.loja.nome, a.loja.segmento, a.loja.area, a.cls.mix, a.cls.mixValidado ? 'sim' : 'não', a.cls.quadrante, a.loja.contrato?.fim, a.jan.meses, a.farol.rotulo, a.prop.ammAtual, a.lsr.lsrTotal === null ? '' : Math.round(a.lsr.lsrTotal * 1000) / 10, a.prop.ammProposto === null ? '' : Math.round(a.prop.ammProposto), a.prop.ganho60m === null ? '' : Math.round(a.prop.ganho60m), a.trava.status, a.prop.perito, a.risco.nivel, a.perda?.nivel, a.laudo?.disponivel ? Math.round(a.laudo.provavel) : '', a.faltantes.length, a.confianca]))].join('\r\n'), 'text/csv;charset=utf-8') }
+$('#btnExemplo').onclick = () => { estado = { lojas: JSON.parse(JSON.stringify(EXEMPLO.lojas)), params: { ...PARAMS_PADRAO, ...EXEMPLO.params }, exemplo: true }; salvar(); toast('Base de exemplo carregada'); render() }
+$('#btnLimpar').onclick = (e) => { const b = e.currentTarget; if (!b.dataset.conf) { b.dataset.conf = '1'; b.textContent = 'Confirmar: apagar tudo'; setTimeout(() => { delete b.dataset.conf; b.textContent = 'Limpar base' }, 4000); return } estado = { lojas: [], params: { ...PARAMS_PADRAO }, exemplo: false }; salvar(); delete b.dataset.conf; b.textContent = 'Limpar base'; toast('Base apagada'); render() }
+
+/* ============================================================ AUDITORIA */
+function renderAuditoria() {
+  const ag = agendaAuditoria(estado.lojas, estado.params, hoje())
+  $('#agenda').innerHTML = ag.length ? ag.map(x => `<div class="inv-card"><div class="inv-top"><div><div class="inv-name">${esc(x.luc)} · ${esc(x.nome)}</div><div class="inv-meta">${esc(x.cnpj || 'sem CNPJ')} · negociação a partir de ${x.inicioNegociacao}</div></div><span class="status-pill st-${x.prioridade === 'urgente' ? 'vermelho' : x.prioridade === 'programar' ? 'amarelo' : 'verde'}">${x.prioridade === 'urgente' ? 'Urgente' : x.prioridade === 'programar' ? 'Programar' : 'OK'}</span></div><div class="metrics">${metric('Integral entre', `${x.integralDe}<br>${x.integralAte}`)}${metric('Fechamento', x.fechamento.replace(' a ', '<br>'))}${metric('Dispersão', x.dispersaoPct === null ? '—' : x.dispersaoPct + '%')}</div><div class="hint" style="margin-top:8px">${esc(x.motivo)}</div></div>`).join('') : '<div class="card empty">Nenhuma loja com negociação nos próximos 30 meses.</div>'
+  $('#btnAgendaCsv').onclick = () => download(`agenda-auditoria-${hoje()}.csv`, '﻿' + [csvLinha(['LUC', 'Loja', 'CNPJ', 'Início negociação', 'Integral de', 'Integral até', 'Fechamento', 'Dispersão %', 'Prioridade', 'Situação']), ...ag.map(x => csvLinha([x.luc, x.nome, x.cnpj, x.inicioNegociacao, x.integralDe, x.integralAte, x.fechamento, x.dispersaoPct ?? '', x.prioridade, x.motivo]))].join('\r\n'), 'text/csv;charset=utf-8')
+}
+$('#btnDispCsv').onclick = () => $('#csvDisp').click()
+$('#csvDisp').addEventListener('change', (e) => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { const r = importarDispersao(String(rd.result), estado.lojas); if (r.atualizadas) { estado.exemplo = false; salvar() } $('#csvOut').innerHTML = `<div class="acard ${r.atualizadas ? 'verde' : 'amarelo'}">${r.atualizadas} loja(s) atualizada(s).${r.semLoja.length ? ' Sem loja cadastrada para: ' + esc(r.semLoja.join(', ')) : ''}</div>`; render() }; rd.readAsText(f, 'utf-8'); e.target.value = '' })
+
+/* ============================================================ PLANO */
+function renderPlano() {
+  const ano = +($('#anoPlano').value || estado.params.anoPlanejamento || new Date().getFullYear()); $('#anoPlano').value = ano
+  const pl = planejamento(estado.lojas, { ...estado.params, anoPlanejamento: ano }, hoje())
+  $('#kpiPlano').innerHTML = [metric('Contratos no ano', String(pl.n), `${pl.nReal} renovado(s)`, 'big'), metric('LSR planejado', pl.lsrPlanejado === null ? '—' : pct(pl.lsrPlanejado), `AMM ${brl(pl.ammPlanejado)}`, 'big'), metric('LSR realizado', pl.lsrRealizado === null ? '—' : pct(pl.lsrRealizado), pl.atingimento === null ? 'meta não definida' : `${Math.round(pl.atingimento * 100)}% da meta`, 'big'), metric('AMM base', brl(pl.ammBase), 'soma dos AMM atuais')].join('')
+  let g = ''
+  if (pl.meta === null) g = '<div class="acard amarelo">Defina a meta anual de LSR em Ajustes e valide com o comitê.</div>'
+  else if (pl.gap !== null && pl.gap > 0) g = `<div class="acard amarelo">Gap de ${pct(pl.gap)} entre a meta (${pct(pl.meta)}) e o planejado (${pct(pl.lsrPlanejado)}): elaborar estratégia com o comitê.</div>`
+  else if (pl.gap !== null) g = `<div class="acard verde">Planejado ${pct(pl.lsrPlanejado)} cobre a meta de ${pct(pl.meta)}.</div>`
+  if (pl.vencidos) g += `<div class="acard vermelho">${pl.vencidos} contrato(s) vencido(s) em aberto.</div>`
+  $('#gapPlano').innerHTML = g
+  renderPlanoChart(pl)
+  $('#listaPlano').innerHTML = pl.lojas.sort((x, y) => x.loja.contrato.fim.localeCompare(y.loja.contrato.fim)).map(a => { const rl = num(a.loja.realizado?.ammNovo), base = a.prop.ammAtual; return `<div class="inv-card clk" data-open="${esc(a.loja.id)}"><div class="inv-top"><div><div class="inv-name">${esc(a.loja.luc)} · ${esc(a.loja.nome)}</div><div class="inv-meta">fim ${a.loja.contrato.fim} · ${esc(a.cls.mix || 'sem mix')}</div></div><span class="status-pill st-${a.farol.cor}">${esc(a.farol.rotulo)}</span></div><div class="metrics">${metric('AMM atual', brl(base))}${metric('Planejado', a.prop.ammProposto === null ? '—' : brl(a.prop.ammProposto), a.lsr.lsrTotal === null ? '' : `LSR ${pct(a.lsr.lsrTotal)}`)}${metric('Realizado', rl === null ? '—' : brl(rl), rl !== null && base ? `LSR ${pct(rl / base - 1)}` : '')}</div></div>` }).join('') || '<div class="card empty">Nenhum contrato vence neste ano.</div>'
+}
+$('#anoPlano').addEventListener('change', render)
+
+/* ============================================================ COMITÊ */
+function renderComite(as) {
+  const sel = as.filter(a => a.farol.cor === 'verde' || a.loja.status === 'em-negociacao')
+  $('#comiteTxt').value = `# Pacote do comitê comercial — ${estado.params.shopping || 'shopping'} — ${hoje()}\n\n${sel.length} loja(s) em negociação ou dentro da janela. A decisão final é do comitê.\n\n| Loja | Mix | Q | Meses | AMM atual | LSR total | AMM proposto | Laudo provável | Perito | Risco renov. | Risco de perda |\n|---|---|---|---|---|---|---|---|---|---|---|\n${sel.map(a => `| ${a.loja.luc} ${a.loja.nome} | ${a.cls.mix || '?'} | ${a.cls.quadrante ?? '?'} | ${a.jan.meses ?? '?'} | ${brl(a.prop.ammAtual)} | ${pct(a.lsr.lsrTotal)} | ${brl(a.prop.ammProposto)} | ${a.laudo?.disponivel ? brl(a.laudo.provavel) : '—'} | ${a.prop.perito} | ${a.risco.nivel} | ${a.perda?.nivel || '—'} |`).join('\n')}\n\n---\n\n` + sel.map(analiseObsidian).join('\n\n---\n\n')
+}
+$('#btnCopiarComite').onclick = () => copiar($('#comiteTxt').value, 'Pacote copiado')
+$('#btnBaixarComite').onclick = () => download(`pacote-comite-${hoje()}.md`, $('#comiteTxt').value, 'text/markdown;charset=utf-8')
+
+/* ============================================================ AJUSTES */
+const PCAMPOS = [
+  ['Shopping', [['shopping', 'Nome do shopping', 'text'], ['mediaAmmM2Satelites', 'Média AMM/m² das satélites (R$)'], ['mediaVendasM2Satelites', 'Média Vendas/m² das satélites (R$)'], ['inflacaoAcumuladaPct', 'Inflação acumulada padrão %'], ['metaLsrAnualPct', 'Meta anual de LSR %'], ['anoPlanejamento', 'Ano do planejamento']], 'Sem as duas médias não há quadrante. A inflação vale do último aniversário até o início da nova vigência.'],
+  ['Regras do Book', [['janelaAuditoriaMeses', 'Janela de auditoria (meses)'], ['toleranciaDispersaoPct', 'Tolerância de dispersão %'], ['mesesSazonais', 'Meses sazonais (vírgula)', 'lista']], 'Altere só se a política vigente disser outra coisa.'],
+  ['Limiares do sistema', [['lsrAgressivoPct', 'LSR agressivo %'], ['lsrMuitoAgressivoPct', 'LSR muito agressivo %'], ['tolerAcimaAbcPct', 'Tolerância acima da ABC %'], ['perdaGapModeradoPct', 'Perda moderada: gap vs laudo %'], ['perdaGapAltoPct', 'Perda alta: gap vs laudo %']], 'Heurísticas deste sistema: calibre com o histórico do grupo.'],
+  ['Perícia', [['contemporaneidadeMeses', 'Contemporaneidade (meses)'], ['similaridadeAreaPct', 'Similaridade de área (± %)'], ['faixasArea', 'Faixas de área m² (limites, vírgula)', 'lista'], ['minimoComparaveis', 'Mínimo de comparáveis'], ['eventosEstruturais', 'Eventos estruturais (AAAA-MM-DD;descrição, um por linha)', 'eventos']], 'Contratos anteriores ao último evento saem dos comparáveis do laudo prévio.'],
+]
+function renderParams() {
+  const p = estado.params
+  $('#formParams').innerHTML = PCAMPOS.map(([t, cs, dica], i) => `<div class="card"><div class="lblsec"><span class="n">${i + 1}</span> ${esc(t)}</div><div class="grid2">${cs.map(([k, l, tp]) => `<div class="field"${tp === 'eventos' ? ' style="grid-column:1/-1"' : ''}><span class="lbl">${esc(l)}</span>${tp === 'eventos' ? `<textarea id="p_${k}" placeholder="2024-03-15;expansão da praça de alimentação">${esc((p[k] || []).map(e => `${e.data};${e.descricao || ''}`).join('\n'))}</textarea>` : `<input id="p_${k}"${tp ? '' : ' type="number" step="any" inputmode="decimal"'} value="${esc(tp === 'lista' ? (p[k] || []).join(', ') : p[k] ?? '')}">`}</div>`).join('')}</div><div class="hint">${esc(dica)}</div></div>`).join('') + '<div class="actions"><button type="button" class="btn-gray" id="btnParamReset">Restaurar padrão</button><button type="submit" class="btn-green">Salvar ajustes</button></div>'
+  $('#btnParamReset').onclick = () => { estado.params = { ...PARAMS_PADRAO, shopping: estado.params.shopping, mediaAmmM2Satelites: estado.params.mediaAmmM2Satelites, mediaVendasM2Satelites: estado.params.mediaVendasM2Satelites, inflacaoAcumuladaPct: estado.params.inflacaoAcumuladaPct, metaLsrAnualPct: estado.params.metaLsrAnualPct, anoPlanejamento: estado.params.anoPlanejamento }; salvar(); toast('Regras e limiares restaurados'); render() }
+}
+$('#formParams').addEventListener('submit', (e) => {
+  e.preventDefault(); const p = { ...estado.params }
+  for (const [, cs] of PCAMPOS) for (const [k, , tp] of cs) { const raw = $('#p_' + k).value.trim()
+    if (tp === 'text') p[k] = raw
+    else if (tp === 'lista') { const arr = raw.split(',').map(x => num(x.trim())).filter(x => x !== null && x > 0); p[k] = k === 'mesesSazonais' ? arr.filter(n => n <= 12) : (arr.length ? arr.sort((a, b) => a - b) : PARAMS_PADRAO[k]) }
+    else if (tp === 'eventos') p[k] = raw.split(/\r?\n/).map(l => l.split(';')).filter(c => data((c[0] || '').trim())).map(c => ({ data: iso(data(c[0].trim())), descricao: (c[1] || '').trim() }))
+    else { const n = num(raw); p[k] = n === null ? (PARAMS_PADRAO[k] ?? null) : n } }
+  estado.params = p; salvar(); toast('Ajustes salvos'); render()
+})
+
+/* ============================================================ COMO USAR */
+const AJUDA = [
+  ['help', 'Para que serve', '<p class="txt">Maximizar a renovação contratual das <b>lojas-satélite</b> aplicando as regras do Book de Renovações a cada loja: quem negociar, quem está bloqueado e por quê, quanto pedir, até onde cada alçada pode ceder, o que uma perícia tende a sustentar e como fica o LSR do ano. Nenhum comparativo é estimado: o que falta aparece como <b>[FALTA]</b> e derruba a nota de confiança.</p>'],
+  ['clipboard', 'Antes de começar, tenha em mãos', ['<b>Do shopping</b>: média de AMM/m² e Vendas/m² das satélites, inflação acumulada, meta anual de LSR, eventos estruturais com data.', '<b>De cada loja</b>: LUC, nome, CNPJ, segmento, piso, área; contrato (início, fim na minuta, último reajuste, cláusulas, subsídios); AMM do último mês, A% médio sem dezembro, vendas 12 meses expurgadas, custo de ocupação; última auditoria integral e dispersão; comparativos e Tabela ABC.', '<b>Do comitê e do jurídico</b>: mix validado, inadimplência, ações judiciais, renovatória ajuizada, resistência do lojista, histórico mensal desde a última renovação.']],
+  ['users', 'Parte 1 · Preenchimento', ['<b>1 · Ajustes</b> — nome do shopping, as duas médias das satélites, inflação, meta de LSR e ano. Cadastre os eventos estruturais.', '<b>2 · Cadastro pelo Excel</b> — o caminho para a base inteira: abas Lojas, Parametros e Historico. LUC repetido atualiza; colunas ausentes preservam o que já existe; comparativo em branco, nunca chute.', '<b>3 · Loja a loja</b> — em + Nova loja, os blocos seguem as fases do Book. Obrigatórios: LUC, nome e fim da vigência. Marque o mix como validado só depois do comitê.', '<b>4 · Histórico mensal</b> — uma linha por mês desde a última renovação (AAAA-MM;vendas;AMM;A%;custo). Alimenta o argumento de queda do custo de ocupação e preenche o que ficou em branco.', '<b>5 · Auditoria</b> — baixe a agenda para o Radar de Auditoria e, na volta, receba o CSV de dispersão. Fora da janela, em mês sazonal ou acima da tolerância, a negociação fica bloqueada.', '<b>6 · Quando renovar</b> — mude o status para Renovado e preencha AMM novo, data e nova vigência. A loja vira comparável contemporâneo.']],
+  ['target', 'Parte 2 · Análises', ['<b>Radar</b> — o farol diz a ação: Negociar (na janela, sem bloqueio), Preparar, Bloqueado (auditoria, inadimplência, ação judicial, vencido), Aguardar (ainda haverá reajuste). Ordem: ganho em 60 meses × urgência × peso do mix.', '<b>Análise</b> — de cima para baixo: ficha e bloqueios, as fases, o histórico, os argumentos com memória de cálculo, o LSR real, o laudo prévio com o risco de perda, as alçadas, o risco renovatório com o checklist da perícia, as ações e os faltantes.', '<b>Laudo</b> — risco de perda em renovatória: baixo até o 3º quartil dos comparáveis; moderado acima dele ou 10% a 25% acima do provável; alto acima do maior comparável, mais de 25% acima do provável ou laudo abaixo do AMM atual.', '<b>Perícia</b> — a linearidade do shopping e as lojas fora da curva, que pedem racional comercial documentado.', '<b>Plano</b> — LSR planejado × realizado, meta, incremento por mês e contratos vencidos.', '<b>Comitê</b> — o pacote em Markdown para a reunião semanal. A decisão de valor é do comitê; o negociador abre em 115% do aprovado.']],
+  ['map', 'Rotina sugerida', ['<b>Toda semana</b>: atualizar status das lojas em negociação, conferir a fila e a aba Laudo, levar o pacote ao comitê.', '<b>Todo mês</b>: receber a dispersão do Radar de Auditoria, enviar a agenda, acrescentar o mês ao histórico, registrar renovações concluídas.', '<b>Todo ano, com o orçamento</b>: atualizar médias, inflação e meta; revisar mix, comparativos e Tabela ABC; fechar o planejamento antes de negociar.']],
+  ['alert', 'Erros comuns', ['Negociar antes do último reajuste: o LSR estimado derrete.', 'Estimar comparativo que não se tem: deixe em branco.', 'Tratar o mix como definitivo sem o comitê.', 'Ignorar a trava de auditoria: fora da janela é bloqueio.', 'Esquecer que a base vive neste navegador: faça Backup.', 'Carteira sem comparáveis contemporâneos: registre as renovações concluídas para formar a base do laudo.']],
+  ['star', 'Glossário', '<p class="txt"><b>AMM</b> aluguel mínimo mensal · <b>A%</b> aluguel percentual sobre vendas · <b>LSR</b> leasing spread, variação do AMM na renovação além da inflação · <b>Degrau</b> aumento programado (12º e 36º mês) · <b>CO/Vendas</b> custo de ocupação sobre vendas · <b>Tabela ABC</b> referência do espaço para locação nova · <b>Quadrante</b> AMM/m² × Vendas/m² contra a média das satélites · <b>Laudo prévio</b> valor locativo que uma perícia pelo método comparativo tende a encontrar · <b>Comparável</b> satélite similar em área, mesmo shopping, contrato recente, sem subsídio · <b>Linearidade</b> quão pouco o AMM/m² se dispersa · <b>Renovatória</b> ação do lojista para renovar judicialmente, de 12 a 6 meses do fim.</p>'],
+  ['inbox', 'O que fica guardado', '<p class="txt">A base e os ajustes ficam no <code>localStorage</code> deste navegador. Outro aparelho não vê o mesmo painel: use <b>Backup</b> em Cadastro e <b>Importar</b> no outro. A planilha importada não fica guardada; só o que foi lido dela. Este arquivo HTML é autossuficiente: funciona aberto direto do computador, sem internet.</p>'],
+]
+function renderAjuda() {
+  const box = $('#ajudaTxt'); if (!box.children.length) box.innerHTML = AJUDA.map(([i, t, c]) => `<div class="card"><div class="lblsec"><span class="n">${ic(i)}</span> ${esc(t)}</div>${Array.isArray(c) ? `<div class="reasons" style="margin-top:0">${c.map(x => `<div class="reason">${ic('check')}<span>${x}</span></div>`).join('')}</div>` : c}</div>`).join('')
+  const pv = $('#painel-video'); if (!pv || pv.dataset.ok) return; pv.dataset.ok = '1'
+  /* Os vídeos acompanham a versão publicada. O cartão nasce fora da tela e só entra se algum arquivo responder. */
+  pv.querySelectorAll('figure[data-video]').forEach(fig => { const v = fig.querySelector('video'), falhou = () => fig.remove(); v.onerror = falhou; const fs = v.querySelectorAll('source'); if (fs.length) fs[fs.length - 1].onerror = falhou; v.onloadedmetadata = () => { pv.style.cssText = '' }; v.load() })
+  setTimeout(() => { if (pv.style.left) pv.remove() }, 4000)
+}
+
+/* ============================================================ início */
+carregar()
+$('#hoje').value = new Date().toISOString().slice(0, 10)
+$('#hoje').addEventListener('change', render)
+let abaInicial = lsGet(CHAVE + ':aba') || 'radar'
+if (/^#(radar|loja|laudo|pericia|cadastro|auditoria|plano|comite|params|ajuda)$/.test(location.hash)) abaInicial = location.hash.slice(1)
+applyIcons(); mostrarAba(VIEWS.includes(abaInicial) ? abaInicial : 'radar', false)
+</script>
