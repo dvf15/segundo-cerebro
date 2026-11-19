@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Radar de Vendas">
+  <rect width="512" height="512" fill="#00616f"/>
+  <!-- cupom fiscal / redução Z: fita com borda serrilhada embaixo -->
+  <path d="M128 72h232v318l-29 22-29-22-29 22-29-22-29 22-29-22-29 22-29-22z"
+        fill="none" stroke="#ffffff" stroke-width="30" stroke-linejoin="round"/>
+  <!-- linhas de itens e total -->
+  <rect x="168" y="128" width="104" height="24" rx="12" fill="#ffffff"/>
+  <rect x="168" y="182" width="152" height="24" rx="12" fill="#ffffff"/>
+  <rect x="168" y="236" width="80" height="24" rx="12" fill="#ffffff"/>
+  <!-- selo de conferência: valor batido -->
+  <circle cx="360" cy="352" r="98" fill="#00616f"/>
+  <circle cx="360" cy="352" r="84" fill="#ffffff"/>
+  <circle cx="360" cy="352" r="64" fill="#6cc680"/>
+  <path d="M328 354l22 22 44-46" fill="none" stroke="#00616f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

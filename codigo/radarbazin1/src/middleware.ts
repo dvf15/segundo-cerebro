@@ -23,9 +23,11 @@ import type { NextRequest } from "next/server";
 /* Páginas e recursos que podem ser abertos por qualquer pessoa. */
 const PUBLICO: RegExp[] = [
   // ferramentas comerciais
-  /^\/(operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas|renovacoes)\.html$/,
+  /^\/(operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas|renovacoes|vendas|iagencia|eventos|legalizacoes)\.html$/,
   // vídeos do passo a passo do Radar de Renovações (aba Como usar)
   /^\/renovacoes-[a-z0-9-]+\.mp4$/,
+  // vídeos do passo a passo do Radar de Vendas (aba Como funciona)
+  /^\/vendas-[a-z0-9-]+\.mp4$/,
   // manifests e ícones dessas ferramentas
   /^\/[a-z0-9-]+\.webmanifest$/,
   /^\/[a-z0-9-]+-icon(-\d+)?\.(png|svg)$/,
@@ -190,8 +192,18 @@ export async function middleware(req: NextRequest) {
   });
 }
 
-/* Os bundles estáticos do Next não passam por aqui: não carregam segredo
-   e bloqueá-los só quebraria o app depois do login. */
+/* Ficam fora do middleware:
+   - os bundles estáticos do Next, que não carregam segredo e cujo bloqueio
+     só quebraria o app depois do login;
+   - as ferramentas públicas e seus recursos (a mesma lista de PUBLICO).
+     Assim a Vercel as serve direto como arquivo estático, e elas seguem no
+     ar mesmo quando o middleware falha. Em 02/11/2026 o middleware passou
+     a falhar na Vercel (500 MIDDLEWARE_INVOCATION_FAILED) em todas as
+     rotas, inclusive as que ele só deixava passar, e derrubou as
+     ferramentas junto com o app. A área protegida continua passando por
+     aqui: se o middleware falhar, ela fica fechada, não aberta.
+   Ao incluir uma ferramenta nova, acrescente-a nas duas listas. */
 export const config = {
-  matcher: "/((?!_next/static|_next/image).*)",
+  matcher:
+    "/((?!_next/static|_next/image|(?:operacoes|quiosques|midia|obras|apresentacao|simulador-estrutura|simulador-remuneracao|pesquisa-executivos|clausulas|renovacoes|vendas|iagencia|eventos|legalizacoes)\\.html$|(?:renovacoes|vendas)-[a-z0-9-]+\\.mp4$|[a-z0-9-]+\\.webmanifest$|[a-z0-9-]+-icon(?:-\\d+)?\\.(?:png|svg)$|icon(?:-pink)?\\.(?:png|svg)$|sw-[a-z0-9-]+\\.js$|exemplos/|favicon\\.ico$).*)",
 };

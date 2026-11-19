@@ -1,0 +1,6 @@
+{
+  "name": "radar-eventos",
+  "private": true,
+  "type": "commonjs",
+  "scripts": { "test": "node --test tests/calc.test.js" }
+}

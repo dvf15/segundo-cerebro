@@ -1,19 +1,19 @@
 ---
 title: "Início"
-generated: 2026-11-16
-total: 865
+generated: 2026-11-19
+total: 874
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_865 notas indexadas · gerado em 2026-11-16_
+_874 notas indexadas · gerado em 2026-11-19_
 
 ## Mapas de conteúdo
 
 - [[00-index/Conversas|Conversas do claude.ai]] — 268
 - [[00-index/Projetos|Projetos do claude.ai]] — 103
 - [[00-index/Sessoes-Code|Sessões do Claude Code]] — 1
-- [[00-index/Artifacts|Artifacts]] — 26
+- [[00-index/Artifacts|Artifacts]] — 27
 - [[00-index/Skills|Skills (SKILL.md)]] — 44
 - [[00-index/Codigo|Código e documentação dos repositórios]] — 4
 - [[00-index/Memoria|Memória do Claude]] — 51
@@ -27,10 +27,11 @@ _865 notas indexadas · gerado em 2026-11-16_
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
+| 2026-11-19 | [[claude/artifacts/radar-de-legalizacoes-promo/radar-de-legalizacoes-promo\|Radar de Legalizações Promo]] | claude-artifact |
+| 2026-11-19 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
+| 2026-11-19 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
 | 2026-11-16 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas — Gestão e Aprovação]] | claude-artifact |
 | 2026-11-16 | [[claude/artifacts/radar-de-renovacoes-mobile/radar-de-renovacoes-mobile\|Radar de Renovações Mobile]] | claude-artifact |
-| 2026-11-16 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
-| 2026-11-16 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
 | 2026-11-16 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-14 | [[claude/artifacts/nova-america-x-norteshopping/nova-america-x-norteshopping\|Nova América × NorteShopping]] | claude-artifact |
 | 2026-11-14 | [[claude/artifacts/planta-3d-shoppings/planta-3d-shoppings\|Planta 3D Shoppings]] | claude-artifact |
@@ -66,7 +67,6 @@ _865 notas indexadas · gerado em 2026-11-16_
 | 2026-10-19 | [[claude/projetos/manual-operacional/claude-mo-6-lideranca-e-gestao-md_d54d4e9a\|claude/mo-6-lideranca-e-gestao.md]] | claude-project-doc |
 | 2026-10-19 | [[claude/projetos/manual-operacional/claude-mo-7-programa-pro-md_efc201f0\|claude/mo-7-programa-pro.md]] | claude-project-doc |
 | 2026-10-19 | [[claude/conversas/2026-10/2026-10-19_erros-de-execucao-da-obra_d59206f9\|Erros de execução da obra]] | claude-chat |
-| 2026-10-19 | [[claude/conversas/2026-10/2026-10-19_gestao-obra-casa-4_22ffdd60\|Gestão Obra Casa 4]] | claude-chat |
 
 ## Como manter
 

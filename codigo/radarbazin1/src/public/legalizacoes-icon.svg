@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Radar de Legalizações Promo">
+  <rect width="512" height="512" fill="#00616f"/>
+  <!-- prêmio: caixa de presente com laço -->
+  <g fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 150C236 96 168 92 166 128C164 158 220 156 256 150z"/>
+    <path d="M256 150C276 96 344 92 346 128C348 158 292 156 256 150z"/>
+  </g>
+  <rect x="104" y="150" width="304" height="66" rx="14" fill="#ffffff"/>
+  <rect x="128" y="232" width="256" height="176" rx="14" fill="#ffffff"/>
+  <rect x="236" y="150" width="40" height="258" fill="#b9dadf"/>
+  <!-- selo de autorização: promoção legalizada -->
+  <circle cx="372" cy="372" r="108" fill="#00616f"/>
+  <polygon points="464.0,372.0 450.5,387.6 457.0,407.2 438.5,416.4 437.1,437.1 416.4,438.5 407.2,457.0 387.6,450.5 372.0,464.0 356.4,450.5 336.8,457.0 327.6,438.5 306.9,437.1 305.5,416.4 287.0,407.2 293.5,387.6 280.0,372.0 293.5,356.4 287.0,336.8 305.5,327.6 306.9,306.9 327.6,305.5 336.8,287.0 356.4,293.5 372.0,280.0 387.6,293.5 407.2,287.0 416.4,305.5 437.1,306.9 438.5,327.6 457.0,336.8 450.5,356.4" fill="#6cc680"/>
+  <path d="M332 374l28 28 52-56" fill="none" stroke="#0d454a" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

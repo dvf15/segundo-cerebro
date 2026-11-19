@@ -75,6 +75,7 @@ for (const r of lista) {
     const origem = path.join(dir, rel);
     let st; try { st = fs.lstatSync(origem); } catch { continue; }
     if (st.isSymbolicLink() || !st.isFile()) continue;
+    if (VIDEO.test(rel)) { pulados.push(`${rel} (vídeo, ${(st.size / 1048576).toFixed(1)} MB)`); continue; }
     if (st.size > LIMITE_MB * 1024 * 1024) { pulados.push(`${rel} (${(st.size / 1048576).toFixed(1)} MB)`); continue; }
     const alvo = path.join(src, rel);
     fs.mkdirSync(path.dirname(alvo), { recursive: true });

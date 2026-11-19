@@ -1,12 +1,12 @@
 ---
 title: "Tarefas agendadas e dados de artifacts"
-generated: 2026-11-16
+generated: 2026-11-19
 count: 4
 tags: ["index"]
 ---
 # Tarefas agendadas e dados de artifacts
 
-_4 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
+_4 notas · gerado em 2026-11-19 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Tipo |
 | --- | --- | --- |

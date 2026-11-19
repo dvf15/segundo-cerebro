@@ -1,12 +1,12 @@
 ---
 title: "Sessões do Claude Code"
-generated: 2026-11-16
+generated: 2026-11-19
 count: 1
 tags: ["index"]
 ---
 # Sessões do Claude Code
 
-_1 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
+_1 notas · gerado em 2026-11-19 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Repo |
 | --- | --- | --- |

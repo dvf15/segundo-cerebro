@@ -40,8 +40,9 @@ projeto.
 
 - `operacoes.html`, `quiosques.html`, `midia.html`, `obras.html`,
   `apresentacao.html`, `simulador-estrutura.html`, `simulador-remuneracao.html`,
-  `clausulas.html`, `renovacoes.html`
-- os vídeos do passo a passo do Radar de Renovações (`renovacoes-*.mp4`)
+  `clausulas.html`, `renovacoes.html`, `vendas.html`, `legalizacoes.html`
+- os vídeos do passo a passo do Radar de Renovações (`renovacoes-*.mp4`) e do
+  Radar de Vendas (`vendas-*.mp4`)
 - manifests (`*.webmanifest`), ícones (`*-icon-*.png|svg`), service workers
   (`sw-*.js`) e as planilhas em `exemplos/`
 

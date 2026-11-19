@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de Eventos</title>
+<link rel="icon" type="image/png" sizes="192x192" href="eventos-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="eventos-icon-180.png">
+<link rel="manifest" href="eventos.webmanifest">
+<meta name="theme-color" content="#00616f">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topo">
+  <button class="menu-btn" data-action="menu" aria-label="Menu">☰</button>
+  <a class="marca" href="#/painel"><svg viewBox="0 0 512 512" aria-hidden="true">
+  <rect width="512" height="512" fill="#00616f"/>
+  <g transform="rotate(-10 256 256)">
+    <!-- ingresso: recortes semicirculares nas laterais -->
+    <path d="M92 136h328a22 22 0 0 1 22 22v52a46 46 0 0 0 0 92v52a22 22 0 0 1-22 22H92a22 22 0 0 1-22-22v-52a46 46 0 0 0 0-92v-52a22 22 0 0 1 22-22z"
+          fill="none" stroke="#ffffff" stroke-width="30" stroke-linejoin="round"/>
+    <!-- picote do canhoto -->
+    <path d="M316 176v160" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-dasharray="2 44"/>
+    <!-- estrela: a atração -->
+    <polygon points="216.0,194.0 231.3,235.0 275.0,236.8 240.7,264.0 252.4,306.2 216.0,282.0 179.6,306.2 191.3,264.0 157.0,236.8 200.7,235.0" fill="#6cc680" stroke="#6cc680" stroke-width="14" stroke-linejoin="round"/>
+  </g>
+</svg>Radar de Eventos</a>
+  <span class="shopping-nome" id="shopping-nome"></span>
+</header>
+<nav class="lateral" id="nav">
+  <a href="#/painel" data-nav="painel">Painel</a>
+  <a href="#/eventos" data-nav="eventos">Eventos</a>
+  <a href="#/areas" data-nav="areas">Áreas</a>
+  <a href="#/operadores" data-nav="operadores">Operadores</a>
+  <a href="#/prospeccao" data-nav="prospeccao">Prospecção no raio</a>
+  <a href="#/shopping" data-nav="shopping">Shopping &amp; caderno técnico</a>
+  <a href="#/dados" data-nav="dados">Backup</a>
+</nav>
+<main id="app"></main>
+<div class="toast" id="toast" hidden></div>
+<script src="calc.js"></script>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>Radar de Legalizações Promo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: mesa de processo. Resumo de prazos no topo, depois a fila de prazos e as promoções; cada promoção abre como um dossiê com abas. */
+:root{
+  --bg:#f2f5f6; --surface:#ffffff; --sunk:#e8edef; --line:#d3dcdf;
+  --fg:#13232b; --muted:#566a73;
+  --accent:#0d5c6b; --accent-fg:#ffffff; --accent-soft:#dcecee;
+  --bad:#b3261e; --bad-soft:#fbe4e1; --warn:#8a5a00; --warn-soft:#fbeccb;
+  --good:#1d6b3c; --good-soft:#dcf0e2; --info:#3d5560; --info-soft:#e3eaed;
+  --display:"Space Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"Inter","Segoe UI",system-ui,sans-serif;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0e171b; --surface:#16232a; --sunk:#1d2d35; --line:#2c4049;
+  --fg:#e6eef0; --muted:#9cb0b8;
+  --accent:#58b9c8; --accent-fg:#06222a; --accent-soft:#17363e;
+  --bad:#ff9a90; --bad-soft:#44201d; --warn:#f2c466; --warn-soft:#3d2f10;
+  --good:#7fd19c; --good-soft:#173524; --info:#a9bcc4; --info-soft:#22333b;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0e171b; --surface:#16232a; --sunk:#1d2d35; --line:#2c4049;
+  --fg:#e6eef0; --muted:#9cb0b8;
+  --accent:#58b9c8; --accent-fg:#06222a; --accent-soft:#17363e;
+  --bad:#ff9a90; --bad-soft:#44201d; --warn:#f2c466; --warn-soft:#3d2f10;
+  --good:#7fd19c; --good-soft:#173524; --info:#a9bcc4; --info-soft:#22333b;
+  color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.2}
+h1{font-size:1.5rem;font-weight:700} h2{font-size:1.15rem;font-weight:600} h3{font-size:1rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--fg);padding-bottom:12px}
+.top .sub{color:var(--muted);font-size:.85rem}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+button,.btn{font:inherit;font-weight:500;font-size:.9rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:7px 12px;border-radius:var(--r);cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.pri{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+button.danger{color:var(--bad);border-color:var(--bad)}
+button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button.link{border:0;background:none;color:var(--accent);padding:0;text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.kpi{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-family:var(--display);font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi.bad b{color:var(--bad)} .kpi.warn b{color:var(--warn)}
+.sec{display:flex;flex-direction:column;gap:10px}
+.sechead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.row{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:4px 14px;padding:10px 14px;border-top:1px solid var(--line);align-items:start}
+.row:first-child{border-top:0}
+.row .dt{font-variant-numeric:tabular-nums;font-weight:600}
+.row .dt small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.row .what{min-width:0}
+.row .what small{display:block;color:var(--muted);font-size:.8rem}
+.row .act{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.row.done .what>span{text-decoration:line-through;color:var(--muted)}
+@media (max-width:560px){.row{grid-template-columns:80px minmax(0,1fr)}.row .act{grid-column:1/-1;justify-content:flex-start}}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap;letter-spacing:.02em}
+.pill.vencido{background:var(--bad);color:var(--surface)} .pill.critico{background:var(--bad-soft);color:var(--bad)}
+.pill.atencao{background:var(--warn-soft);color:var(--warn)} .pill.ok,.pill.feito{background:var(--good-soft);color:var(--good)}
+.pill.info,.pill.ex{background:var(--info-soft);color:var(--info)}
+.promo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:12px 14px;border-top:1px solid var(--line);cursor:pointer;text-align:left;width:100%;border-left:0;border-right:0;border-bottom:0;border-radius:0;background:none}
+.promo:first-child{border-top:0}
+.promo:hover{background:var(--sunk)}
+.promo .meta{color:var(--muted);font-size:.82rem;font-weight:400}
+.promo .right{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.note{background:var(--accent-soft);border-radius:var(--r);padding:10px 12px;font-size:.88rem}
+.note.warn{background:var(--warn-soft);color:var(--warn)} .note.bad{background:var(--bad-soft);color:var(--bad)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;font-weight:500;color:var(--muted);min-width:0}
+label.chk{flex-direction:row;align-items:center;gap:8px;color:var(--fg);font-size:.9rem}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:7px 9px;min-width:0;width:100%}
+input[type=checkbox]{width:auto}
+textarea{min-height:160px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem}
+.pad{padding:14px;display:flex;flex-direction:column;gap:14px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:6px 12px;padding:10px 14px;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.item small{display:block;color:var(--muted);font-size:.8rem}
+.item .extra{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+@media (max-width:560px){.item{grid-template-columns:minmax(0,1fr)}}
+.crit{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--bad)}
+.crit.m{color:var(--warn)}
+.bar{height:6px;background:var(--sunk);border-radius:99px;overflow:hidden;width:120px}
+.bar i{display:block;height:100%;background:var(--accent)}
+.legal dt{font-weight:600;margin-top:10px} .legal dd{margin:2px 0 0;color:var(--muted)}
+footer{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:12px}
+.empty{padding:20px 14px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Sorteio · Compre e ganhe · SPA/MF · Lei 5.768/1971</div>
+      <h1>Radar de Legalizações Promo</h1>
+      <div class="sub" id="hoje"></div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+  </header>
+  <main id="app" class="sec"></main>
+  <footer>
+    Prazos calculados conforme a Portaria SEAE/ME nº 7.638/2022. Os dados ficam salvos só neste navegador; use Backup para levar a outro computador.
+    A ferramenta organiza o cronograma e não substitui a conferência do texto vigente das normas nem a análise jurídica do caso.
+  </footer>
+</div>
+
+<script>
+const KEY='radar-legalizacoes-v1', MS=864e5;
+const iso=d=>d.toISOString().slice(0,10);
+const D=s=>new Date(s+'T00:00:00Z');
+const hoje=()=>{const d=new Date();return iso(new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())))};
+const add=(s,n)=>iso(new Date(D(s).getTime()+n*MS));
+const diff=(a,b)=>Math.round((D(a)-D(b))/MS);
+const fmt=s=>s?s.split('-').reverse().join('/'):'—';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+
+/* 3º dia útil após o decêndio da apuração (art. 49, IV). Não considera feriados. */
+function irDue(s){const d=D(s),y=d.getUTCFullYear(),m=d.getUTCMonth(),day=d.getUTCDate();
+  const end=day<=10?10:day<=20?20:new Date(Date.UTC(y,m+1,0)).getUTCDate();
+  let x=new Date(Date.UTC(y,m,end)),n=0;
+  while(n<3){x=new Date(x.getTime()+MS);const w=x.getUTCDay();if(w!==0&&w!==6)n++}
+  return iso(x)}
+
+const MODS=[
+ {id:'sorteio',nome:'Sorteio',fam:'s'},{id:'asorteio',nome:'Assemelhada a sorteio',fam:'s'},
+ {id:'concurso',nome:'Concurso',fam:'c'},{id:'aconcurso',nome:'Assemelhada a concurso',fam:'c'},
+ {id:'vb',nome:'Vale-brinde',fam:'v'},{id:'avb',nome:'Assemelhada a vale-brinde',fam:'v'}];
+const fam=p=>(MODS.find(m=>m.id===p.modalidade)||MODS[0]).fam;
+const modNome=p=>(MODS.find(m=>m.id===p.modalidade)||MODS[0]).nome;
+
+const DOCS=[
+ {k:'taxa',t:'Comprovante de recolhimento da taxa de fiscalização',b:'Art. 18, I'},
+ {k:'procuracao',t:'Procuração com poderes específicos',b:'Art. 18, II',se:p=>p.procuracao},
+ {k:'atos',t:'Atos constitutivos, alterações e ata de eleição da diretoria atual',b:'Art. 18, III'},
+ {k:'cndfed',t:'Certidão federal e Dívida Ativa da União',b:'Art. 18, IV e parágrafo único — emitida automaticamente pelo SCPC no pedido'},
+ {k:'cndest',t:'Certidão estadual (negativa ou positiva com efeito de negativa)',b:'Art. 18, IV',val:1},
+ {k:'cndmun',t:'Certidão municipal de tributos mobiliários',b:'Art. 18, IV',val:1},
+ {k:'adesao',t:'Termos de adesão de todas as lojas aderentes (Anexo III)',b:'Art. 18, V; art. 22, § 6º',se:p=>p.coletiva},
+ {k:'mandataria',t:'Termo de mandatária (Anexo IV)',b:'Art. 18, VI',se:p=>p.coletiva},
+ {k:'receita',t:'Demonstrativo consolidado da receita operacional, assinado por representante legal e contador',b:'Art. 18, VII — tantos meses anteriores quantos durar a promoção'},
+ {k:'plano',t:'Plano de distribuição de prêmios / regulamento',b:'Anexo II'},
+ {k:'termoresp',t:'Termo de responsabilidade (Anexo V) — urnas, postos de troca ou exibição de prêmios em estabelecimento não participante',b:'Art. 13 — marque "Não se aplica" se não houver'}];
+const DOCST=[['pendente','Pendente'],['solicitado','Solicitado ao shopping'],['recebido','Recebido'],['validado','Validado'],['na','Não se aplica']];
+
+/* Criticidade (alta/média) é classificação editorial desta ferramenta, não da norma. */
+const REG=[
+ {k:'modal',c:'a',t:'Modalidade enquadrada corretamente e mecânica coerente com ela',b:'Art. 2º'},
+ {k:'series',c:'a',t:'Séries de no máximo 100.000 números, vinculadas à Loteria Federal, com premiação idêntica por série',b:'Art. 2º, II e § 2º; Anexo II, XVII, b',se:p=>fam(p)==='s'},
+ {k:'aprox',c:'a',t:'Critério de aproximação caso o número sorteado não tenha sido distribuído',b:'Anexo II, XVII, b, 5',se:p=>fam(p)==='s'},
+ {k:'random',c:'a',t:'Contemplação por contador ou cronograma de data e horário, sem meio randômico',b:'Art. 2º, V, b e § 3º',se:p=>fam(p)==='v'},
+ {k:'propvb',c:'m',t:'Proporção entre vale-brindes e produtos, séries, numeração e encerramento antecipado se esgotarem',b:'Anexo II, XVII, a',se:p=>fam(p)==='v'},
+ {k:'urna',c:'a',t:'Urna única, inviolável durante a participação e lacrada até a apuração',b:'Art. 2º, V, c; art. 4º',se:p=>p.modalidade==='aconcurso'},
+ {k:'premios',c:'a',t:'Prêmios com quantidade, descrição detalhada (marca, modelo) e valores unitário e total',b:'Anexo II, XV'},
+ {k:'dinheiro',c:'a',t:'Prêmios não podem ser convertidos em dinheiro',b:'Anexo II, XVI'},
+ {k:'datas',c:'a',t:'Início, término e período de participação; término igual à última apuração; execução de até 12 meses',b:'Anexo II, XI a XIII'},
+ {k:'apur',c:'a',t:'Data, horário e endereço da apuração, com acesso livre aos interessados',b:'Anexo II, XX',se:p=>fam(p)!=='v'},
+ {k:'caduc',c:'a',t:'Caducidade do prêmio em 180 dias e recolhimento ao Tesouro em 45 dias',b:'Anexo II, XXV; art. 64'},
+ {k:'entrega',c:'a',t:'Entrega em até 30 dias, livre de ônus para o contemplado',b:'Art. 66'},
+ {k:'cert',c:'a',t:'Número do certificado em todo material de divulgação; nada divulgado antes da autorização',b:'Arts. 34 e 35'},
+ {k:'social',c:'a',t:'Promoção em rede social: declarações e cláusulas obrigatórias',b:'Arts. 23 e 24',se:p=>p.redeSocial},
+ {k:'ident',c:'m',t:'Identificação da requerente e das aderentes (razão social, CNPJ, endereço)',b:'Anexo II, I a VII'},
+ {k:'partic',c:'m',t:'Critério de participação e condições que invalidam o cupom',b:'Anexo II, XVII e XVIII'},
+ {k:'divulg',c:'m',t:'Forma de divulgação do resultado e de notificação do contemplado em até 30 dias',b:'Anexo II, XXI'},
+ {k:'locais',c:'m',t:'Endereço de exibição e de entrega dos prêmios',b:'Anexo II, XIX e XXIII'},
+ {k:'bdscpc',c:'m',t:'Banco de participantes anexado no SCPC (aba Apurações) antes da extração',b:'Anexo II, XXII',se:p=>fam(p)==='s'},
+ {k:'dados',c:'m',t:'Cadastro de participantes: vedada a comercialização ou cessão dos dados',b:'Art. 12'},
+ {k:'imagem',c:'m',t:'Uso de imagem do contemplado por até um ano, vinculado ao plano',b:'Anexo II, XXVI'},
+ {k:'reclam',c:'m',t:'Canal de dúvidas e reclamações: mandatária, depois SPA ou defesa do consumidor',b:'Anexo II, XXVII e XXVIII'}];
+const REGST=[['pendente','A revisar'],['ok','Conforme'],['ajustar','Ajustar'],['na','Não se aplica']];
+
+const PC=[
+ {k:'declvb',t:'Declaração de entrega de brindes e guarda de comprovantes (Anexo VIII)',b:'Art. 48, I',se:p=>fam(p)==='v'},
+ {k:'propvb',t:'Comprovante de propriedade dos brindes, emitido antes do início da promoção',b:'Art. 48, II',se:p=>fam(p)==='v'},
+ {k:'prop',t:'Comprovante de propriedade dos prêmios (até 8 dias antes da apuração) ou garantia bancária',b:'Art. 49, I; art. 50',se:p=>fam(p)!=='v'},
+ {k:'ata',t:'Ata de definição do contemplado: data, horário, local, nº da autorização, signatário e duas testemunhas',b:'Art. 49, II; art. 16',se:p=>fam(p)!=='v'},
+ {k:'recibos',t:'Recibos de entrega assinados (Anexo IX); RG e CPF do contemplado se o prêmio for de R$ 10.000,00 ou mais',b:'Art. 49, III',se:p=>fam(p)!=='v'},
+ {k:'ir',t:'DARF 0916 — Imposto de Renda de 20% sobre o valor dos prêmios, com o nº da autorização',b:'Art. 49, IV',se:p=>fam(p)!=='v'},
+ {k:'darf0394',t:'DARF 0394 — valor dos prêmios não entregues ou prescritos, se houver',b:'Art. 48, III; art. 49, V; art. 64'}];
+const PCST=[['pendente','Pendente'],['pronto','Pronto'],['enviado','Enviado no SCPC'],['na','Não se aplica']];
+
+function prazos(p,cfg){
+  const v=fam(p)==='v', L=[], ap=v?null:(p.apuracao||p.fim);
+  const push=(k,date,t,b,kind)=>{if(date)L.push({k,date,t,b,kind:kind||'acao'})};
+  if(p.inicio){
+    push('captacao',add(p.inicio,-120-(cfg.captacaoDias||0)),'Iniciar captação de documentos com o shopping','Marco interno, ajustável em Base legal','interno');
+    push('janela',add(p.inicio,-120),'Abre a janela de protocolo no SCPC','Art. 20 — máximo de 120 dias antes do início','info');
+    push('protocolo',add(p.inicio,-40),'Último dia para protocolar o pedido de autorização','Art. 20 — mínimo de 40 dias antes do início');
+    if(p.protocolo&&!p.certificado)push('decisao',add(p.protocolo,30),'Prazo da SPA para decidir (suspenso enquanto houver exigência; exigência se cumpre em 15 dias)','Art. 20, §§ 2º, 4º e 5º','info');
+    push('inicio',p.inicio,'Início da promoção — certificado emitido e nº em todo material','Arts. 34 e 35');
+    if(v)push('prop',add(p.inicio,-1),'Comprovar propriedade dos brindes antes do início','Art. 50, II');
+  }
+  if(ap){
+    push('prop',add(ap,-8),'Comprovar propriedade dos prêmios (ou garantia bancária)','Art. 49, I; art. 50, I');
+    if(fam(p)==='s')push('bd',add(ap,-1),'Anexar banco de participantes na aba Apurações do SCPC, antes da extração','Anexo II, XXII');
+    push('apuracao',ap,'Apuração e lavratura da ata (ocorrências: enviar a ata em até 5 dias)','Art. 16');
+    push('ir',irDue(ap),'Recolher IR de 20% — DARF 0916 (3º dia útil após o decêndio; confira feriados)','Art. 49, IV');
+    push('divulg',add(ap,30),'Divulgar o resultado e notificar os contemplados','Art. 14; Anexo II, XXI');
+    push('entrega',add(ap,30),'Entregar os prêmios, sem ônus ao contemplado','Art. 66');
+  }
+  const base=v?p.fim:ap;
+  if(base){const presc=add(base,180);
+    push('presc',presc,'Prescrição dos prêmios não reclamados','Art. 64 — 180 dias','info');
+    push('pc',add(presc,30),'Prestação de contas no SCPC','Art. 47 — até 30 dias após a prescrição');
+    push('darf0394',add(presc,45),'Recolher DARF 0394 dos prêmios prescritos, se houver','Art. 64 — 45 dias');
+  }
+  const h=hoje();
+  L.forEach(d=>{
+    const auto=(d.k==='protocolo'&&p.protocolo)||(d.k==='inicio'&&p.certificado&&p.inicio<=h);
+    d.done=!!(p.marcos&&p.marcos[d.k])||!!auto; d.dias=diff(d.date,h);
+    d.st=d.done?'feito':d.kind==='info'?'info':d.dias<0?'vencido':d.dias<=7?'critico':d.dias<=30?'atencao':'ok';
+  });
+  return L.sort((a,b)=>a.date<b.date?-1:a.date>b.date?1:0)}
+const ORD={vencido:0,critico:1,atencao:2,ok:3,feito:4,info:5};
+const STN={vencido:'Vencido',critico:'Crítico',atencao:'Atenção',ok:'No prazo',feito:'Feito',info:'Informativo'};
+function situacao(p){const a=prazos(p,S.cfg).filter(d=>d.kind!=='info'&&!d.done);
+  if(!a.length)return 'feito';return a.reduce((w,d)=>ORD[d.st]<ORD[w]?d.st:w,'ok')}
+const quando=d=>d.done?'':d.dias<0?`há ${-d.dias} d`:d.dias===0?'hoje':`em ${d.dias} d`;
+function alertas(p){const A=[],h=hoje();
+  if(p.inicio&&p.fim&&diff(p.fim,p.inicio)>365)A.push(['bad','O prazo de execução passa de 12 meses (Anexo II, XI).']);
+  if(p.inicio&&p.fim&&p.fim<p.inicio)A.push(['bad','A data de término é anterior ao início.']);
+  if(p.inicio&&p.protocolo){const d=diff(p.inicio,p.protocolo);
+    if(d<40)A.push(['warn',`Protocolo feito ${d} dias antes do início, abaixo do mínimo de 40 (art. 20). Só vale se a SPA tiver reduzido o prazo (§ 1º).`]);
+    if(d>120)A.push(['warn',`Protocolo feito ${d} dias antes do início, acima do máximo de 120 (art. 20).`])}
+  if(p.inicio&&!p.protocolo&&diff(p.inicio,h)<40&&p.inicio>h)A.push(['bad','Faltam menos de 40 dias para o início e não há protocolo. A redução do prazo mínimo depende da SPA (art. 20, § 1º); avalie adiar o início.']);
+  if(p.inicio&&p.inicio<=h&&!p.certificado)A.push(['bad','A promoção já começou sem certificado registrado. Divulgar ou executar sem autorização é vedado (art. 34).']);
+  if(fam(p)!=='v'&&p.apuracao&&p.fim&&p.apuracao!==p.fim)A.push(['warn','O término da promoção deve coincidir com a última apuração (Anexo II, XII).']);
+  return A}
+
+/* estado */
+let S={cfg:{captacaoDias:30},promos:[]}, V={tela:'painel',id:null,aba:'crono',filtro:'',del:0,exp:null};
+function novo(o){return Object.assign({id:uid(),shopping:'',titulo:'',mecanica:'sorteio',modalidade:'sorteio',coletiva:true,procuracao:false,redeSocial:false,
+  inicio:'',fim:'',apuracao:'',protocolo:'',certificado:'',responsavel:'',contato:'',notas:'',docs:{},reg:{},pc:{},marcos:{}},o)}
+function exemplos(){const h=hoje();return [
+  novo({ex:1,shopping:'Shopping Exemplo Norte',titulo:'Natal Premiado',mecanica:'sorteio',modalidade:'sorteio',inicio:add(h,52),fim:add(h,100),apuracao:add(h,100),
+    responsavel:'Marketing do shopping',docs:{atos:{st:'recebido'},cndest:{st:'solicitado'},receita:{st:'solicitado'}},reg:{modal:'ok',series:'ok',cert:'ajustar'}}),
+  novo({ex:1,shopping:'Shopping Exemplo Sul',titulo:'Compre e Ganhe Dia das Mães',mecanica:'compre',modalidade:'avb',inicio:add(h,-150),fim:add(h,-120),
+    protocolo:add(h,-212),certificado:'EXEMPLO',responsavel:'Marketing do shopping',marcos:{captacao:1,prop:1},
+    docs:Object.fromEntries(DOCS.map(d=>[d.k,{st:'validado'}])),pc:{propvb:{st:'pronto'}}})]}
+function load(){try{const r=localStorage.getItem(KEY);if(r){const o=JSON.parse(r);if(o&&Array.isArray(o.promos)){S=o;S.cfg=S.cfg||{captacaoDias:30};return}}}catch(e){}
+  S.promos=exemplos()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const P=()=>S.promos.find(p=>p.id===V.id);
+
+/* telas */
+const pill=st=>`<span class="pill ${st}">${STN[st]}</span>`;
+const opts=(arr,v)=>arr.map(([k,n])=>`<option value="${k}"${k===v?' selected':''}>${esc(n)}</option>`).join('');
+function nav(){const b=(t,n)=>`<button data-go="${t}" class="${V.tela===t||(t==='painel'&&V.tela==='promo')?'on':''}">${n}</button>`;
+  document.getElementById('nav').innerHTML=b('painel','Painel')+b('legal','Base legal')+b('backup','Backup')+`<button class="pri" data-go="nova">Nova promoção</button>`;
+  document.getElementById('hoje').textContent='Hoje: '+fmt(hoje())}
+
+function painel(){
+  const todos=[];S.promos.forEach(p=>prazos(p,S.cfg).forEach(d=>todos.push({p,d})));
+  const pend=todos.filter(x=>x.d.kind!=='info'&&!x.d.done);
+  const n=f=>pend.filter(f).length;
+  const shops=[...new Set(S.promos.map(p=>p.shopping).filter(Boolean))].sort();
+  const lista=pend.filter(x=>!V.filtro||x.p.shopping===V.filtro).filter(x=>x.d.dias<=60).sort((a,b)=>a.d.date<b.d.date?-1:1);
+  const promos=S.promos.filter(p=>!V.filtro||p.shopping===V.filtro);
+  return `
+  ${S.promos.some(p=>p.ex)?`<div class="note">As promoções marcadas como Exemplo são fictícias e servem só para mostrar o funcionamento. <button class="link" data-act="limpaex">Remover exemplos</button></div>`:''}
+  <div class="kpis">
+    <div class="kpi"><span class="eyebrow">Promoções</span><b>${S.promos.length}</b></div>
+    <div class="kpi bad"><span class="eyebrow">Prazos vencidos</span><b>${n(x=>x.d.st==='vencido')}</b></div>
+    <div class="kpi warn"><span class="eyebrow">Vencem em 7 dias</span><b>${n(x=>x.d.st==='critico')}</b></div>
+    <div class="kpi"><span class="eyebrow">Vencem em 30 dias</span><b>${n(x=>x.d.st==='atencao')}</b></div>
+  </div>
+  <section class="sec">
+    <div class="sechead"><h2>Prazos vencidos e dos próximos 60 dias</h2>
+      <label style="flex-direction:row;align-items:center;gap:8px">Shopping <select id="filtro" style="width:auto"><option value="">Todos</option>${shops.map(s=>`<option${s===V.filtro?' selected':''}>${esc(s)}</option>`).join('')}</select></label></div>
+    <div class="panel">${lista.length?lista.map(x=>linha(x.d,x.p,true)).join(''):'<div class="empty">Nenhum prazo pendente nesse período.</div>'}</div>
+  </section>
+  <section class="sec">
+    <h2>Promoções</h2>
+    <div class="panel">${promos.length?promos.map(p=>{const st=situacao(p),prox=prazos(p,S.cfg).find(d=>d.kind!=='info'&&!d.done);
+      const dd=DOCS.filter(d=>!d.se||d.se(p)),ok=dd.filter(d=>['recebido','validado','na'].includes((p.docs[d.k]||{}).st)).length;
+      return `<button class="promo" data-abre="${p.id}">
+        <span><b>${esc(p.titulo||'Sem título')}</b> ${p.ex?'<span class="pill ex">Exemplo</span>':''}<br><span class="meta">${esc(p.shopping||'Shopping não informado')} · ${modNome(p)} · ${fmt(p.inicio)} a ${fmt(p.fim)}</span>
+        <br><span class="meta">${prox?`Próximo: ${fmt(prox.date)} — ${esc(prox.t)}`:'Sem prazos pendentes'}</span></span>
+        <span class="right">${pill(st)}<span class="meta">Documentos ${ok}/${dd.length}</span><span class="bar"><i style="width:${dd.length?ok/dd.length*100:0}%"></i></span></span></button>`}).join(''):'<div class="empty">Nenhuma promoção cadastrada. Use Nova promoção para começar.</div>'}</div>
+  </section>`}
+function linha(d,p,comPromo){return `<div class="row ${d.done?'done':''}">
+  <div class="dt">${fmt(d.date)}<small>${quando(d)}</small></div>
+  <div class="what"><span>${esc(d.t)}</span><small>${comPromo?`<button class="link" data-abre="${p.id}">${esc(p.shopping||'—')} · ${esc(p.titulo||'Sem título')}</button> · `:''}${esc(d.b)}</small></div>
+  <div class="act">${pill(d.st)}${d.kind!=='info'?`<label class="chk"><input type="checkbox" data-marco="${d.k}" data-pid="${p.id}" ${d.done?'checked':''}> Feito</label>`:''}</div></div>`}
+
+function form(p){return `<div class="grid">
+  <label>Shopping<input id="f_shopping" data-f="shopping" value="${esc(p.shopping)}"></label>
+  <label>Título da promoção<input id="f_titulo" data-f="titulo" value="${esc(p.titulo)}"></label>
+  <label>Mecânica<select id="f_mecanica" data-f="mecanica">${opts([['sorteio','Sorteio'],['compre','Compre e ganhe'],['outra','Outra']],p.mecanica)}</select></label>
+  <label>Modalidade no SCPC<select id="f_modalidade" data-f="modalidade">${opts(MODS.map(m=>[m.id,m.nome]),p.modalidade)}</select></label>
+  <label>Início da promoção<input type="date" id="f_inicio" data-f="inicio" value="${p.inicio}"></label>
+  <label>Término da promoção<input type="date" id="f_fim" data-f="fim" value="${p.fim}"></label>
+  ${fam(p)!=='v'?`<label>Última apuração<input type="date" id="f_apuracao" data-f="apuracao" value="${p.apuracao}"></label>`:''}
+  <label>Data do protocolo no SCPC<input type="date" id="f_protocolo" data-f="protocolo" value="${p.protocolo}"></label>
+  <label>Nº do certificado de autorização<input id="f_certificado" data-f="certificado" value="${esc(p.certificado)}"></label>
+  <label>Responsável no shopping<input id="f_responsavel" data-f="responsavel" value="${esc(p.responsavel)}"></label>
+  <label>Contato do responsável<input id="f_contato" data-f="contato" value="${esc(p.contato)}"></label>
+ </div>
+ <div class="grid">
+  <label class="chk"><input type="checkbox" id="f_coletiva" data-f="coletiva" ${p.coletiva?'checked':''}> Promoção coletiva (shopping como mandatária das lojas)</label>
+  <label class="chk"><input type="checkbox" id="f_procuracao" data-f="procuracao" ${p.procuracao?'checked':''}> Pedido feito por procurador</label>
+  <label class="chk"><input type="checkbox" id="f_redeSocial" data-f="redeSocial" ${p.redeSocial?'checked':''}> Realizada em rede social</label>
+ </div>
+ ${p.mecanica==='compre'?`<div class="note">Compre e ganhe com quantidade fixa de prêmios ou limitado a estoque entra como concurso (primeiros consumidores a cumprir o critério) ou vale-brinde, conforme o art. 2º, III e IV. Confirme o enquadramento com a SPA antes de protocolar.</div>`:''}
+ <label>Anotações<input id="f_notas" data-f="notas" value="${esc(p.notas)}"></label>`}
+
+function promo(){const p=P();if(!p)return painel();
+  const abas=[['crono','Cronograma'],['docs','Documentos'],['reg','Regulamento'],['pc','Prestação de contas'],['dados','Dados']];
+  let corpo='';
+  if(V.aba==='crono')corpo=`<div class="panel">${prazos(p,S.cfg).map(d=>linha(d,p)).join('')||'<div class="empty">Informe as datas na aba Dados para gerar o cronograma.</div>'}</div>`;
+  if(V.aba==='docs')corpo=`<div class="panel">${DOCS.filter(d=>!d.se||d.se(p)).map(d=>{const o=p.docs[d.k]||{};
+    const venc=d.val&&o.validade&&p.inicio&&o.validade<add(p.inicio,-40);
+    return `<div class="item"><div>${esc(d.t)}<small>${esc(d.b)}</small>${venc?'<small style="color:var(--bad)">A validade termina antes do último dia de protocolo.</small>':''}</div>
+    <select id="d_${d.k}" data-doc="${d.k}" data-c="st">${opts(DOCST,o.st||'pendente')}</select>
+    <div class="extra"><input id="dl_${d.k}" placeholder="Link do arquivo (Drive, SharePoint…)" data-doc="${d.k}" data-c="link" value="${esc(o.link)}">
+    ${d.val?`<label>Validade<input type="date" id="dv_${d.k}" data-doc="${d.k}" data-c="validade" value="${o.validade||''}"></label>`:''}
+    <input id="do_${d.k}" placeholder="Observação" data-doc="${d.k}" data-c="obs" value="${esc(o.obs)}"></div></div>`}).join('')}</div>
+    <p class="eyebrow">Lista do art. 18 e Anexo I da Portaria SEAE/ME 7.638/2022. A SPA pode pedir documentos complementares (art. 20, § 3º).</p>`;
+  if(V.aba==='reg'){const it=REG.filter(r=>!r.se||r.se(p)),aj=it.filter(r=>p.reg[r.k]==='ajustar').length,pe=it.filter(r=>!p.reg[r.k]||p.reg[r.k]==='pendente').length;
+    corpo=`<div class="note ${aj?'bad':pe?'warn':''}">${aj} ponto(s) a ajustar e ${pe} a revisar, de ${it.length}. A criticidade é uma classificação desta ferramenta para ordenar a revisão.</div>
+    <div class="panel">${it.map(r=>`<div class="item"><div><span class="crit ${r.c==='m'?'m':''}">${r.c==='a'?'Criticidade alta':'Criticidade média'}</span><br>${esc(r.t)}<small>${esc(r.b)}</small></div>
+    <select id="r_${r.k}" data-reg="${r.k}">${opts(REGST,p.reg[r.k]||'pendente')}</select></div>`).join('')}</div>`}
+  if(V.aba==='pc'){const pz=prazos(p,S.cfg).find(d=>d.k==='pc');
+    corpo=`${pz?`<div class="note">Prazo final da prestação de contas: <b>${fmt(pz.date)}</b> (${quando(pz)||'feito'}). ${fam(p)==='v'?'Vale-brinde: art. 48.':'Demais modalidades: art. 49.'} Guarde cupons e termos de adesão até a homologação.</div>`:''}
+    <div class="panel">${PC.filter(d=>!d.se||d.se(p)).map(d=>{const o=p.pc[d.k]||{};return `<div class="item"><div>${esc(d.t)}<small>${esc(d.b)}</small></div>
+    <select id="p_${d.k}" data-pc="${d.k}" data-c="st">${opts(PCST,o.st||'pendente')}</select>
+    <div class="extra"><input id="pl_${d.k}" placeholder="Link do arquivo" data-pc="${d.k}" data-c="link" value="${esc(o.link)}"></div></div>`}).join('')}</div>`}
+  if(V.aba==='dados')corpo=`<div class="panel pad">${form(p)}
+    <div class="tabs">${V.del===0?`<button class="danger" data-act="del">Excluir promoção</button>`:V.del===1?`<span>Excluir "${esc(p.titulo)}" e todos os registros dela?</span> <button class="danger" data-act="del">Sim, continuar</button> <button data-act="nodel">Cancelar</button>`:`<span>Confirmação final: a exclusão não pode ser desfeita.</span> <button class="danger" data-act="del">Excluir definitivamente</button> <button data-act="nodel">Cancelar</button>`}</div></div>`;
+  return `<div class="sechead"><div><button class="link" data-go="painel">← Painel</button>
+    <h2>${esc(p.titulo||'Sem título')} ${p.ex?'<span class="pill ex">Exemplo</span>':''}</h2>
+    <div class="eyebrow">${esc(p.shopping||'Shopping não informado')} · ${modNome(p)}${p.certificado?' · Certificado '+esc(p.certificado):''}</div></div>
+    <div class="tabs">${pill(situacao(p))}<button data-act="aviso">Gerar aviso ao shopping</button></div></div>
+  ${alertas(p).map(a=>`<div class="note ${a[0]}">${esc(a[1])}</div>`).join('')}
+  <div class="tabs">${abas.map(a=>`<button data-aba="${a[0]}" class="${V.aba===a[0]?'on':''}">${a[1]}</button>`).join('')}</div>
+  ${corpo}`}
+
+function aviso(p){const pz=prazos(p,S.cfg).filter(d=>d.kind!=='info'&&!d.done&&d.dias<=60);
+  const dd=DOCS.filter(d=>(!d.se||d.se(p))&&!['recebido','validado','na'].includes((p.docs[d.k]||{}).st));
+  return `${p.shopping} — ${p.titulo}\nLegalização da promoção (${modNome(p)}) — posição em ${fmt(hoje())}\n\nPRAZOS DOS PRÓXIMOS 60 DIAS\n`+
+   (pz.length?pz.map(d=>`- ${fmt(d.date)} (${d.dias<0?'VENCIDO há '+(-d.dias)+' dias':d.dias===0?'hoje':'em '+d.dias+' dias'}): ${d.t} [${d.b}]`).join('\n'):'- Nenhum')+
+   `\n\nDOCUMENTOS PENDENTES\n`+(dd.length?dd.map(d=>`- ${d.t} [${d.b}]`).join('\n'):'- Nenhum')+
+   `\n\nBase: Lei 5.768/1971, Decreto 70.951/1972 e Portaria SEAE/ME 7.638/2022. Pedido e prestação de contas pelo SCPC (SPA/MF).`}
+function ics(){const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Radar de Legalizacoes Promo//PT'];
+  S.promos.forEach(p=>prazos(p,S.cfg).filter(d=>d.kind!=='info'&&!d.done).forEach(d=>{const a=d.date.replace(/-/g,''),b=add(d.date,1).replace(/-/g,'');
+    L.push('BEGIN:VEVENT',`UID:${p.id}-${d.k}@radar-legalizacoes`,`DTSTAMP:${a}T000000Z`,`DTSTART;VALUE=DATE:${a}`,`DTEND;VALUE=DATE:${b}`,
+      `SUMMARY:${(p.shopping+' - '+d.t).replace(/[,;]/g,' ')}`,`DESCRIPTION:${(p.titulo+' | '+d.b).replace(/[,;]/g,' ')}`,
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Prazo de legalizacao','TRIGGER:-P7D','END:VALARM','END:VEVENT')}));
+  L.push('END:VCALENDAR');return L.join('\r\n')}
+
+function backup(){const e=V.exp;return `<h2>Backup e exportação</h2>
+  <p>Os registros ficam neste navegador. Para centralizar a carteira entre pessoas, exporte o backup e importe no outro computador.</p>
+  <div class="tabs"><button data-act="expjson">Exportar backup (JSON)</button><button data-act="expics">Exportar prazos para agenda (.ics)</button><button data-act="impjson">Importar backup colado abaixo</button></div>
+  <div class="panel pad"><label>${e?esc(e.nome):'Cole aqui um backup para importar'}<textarea id="caixa">${e?esc(e.txt):''}</textarea></label>
+  <div class="tabs"><button data-act="copiar">Copiar texto</button>${e?`<a class="btn" id="baixar" download="${esc(e.nome)}" href="data:text/plain;charset=utf-8,${encodeURIComponent(e.txt)}">Baixar arquivo</a>`:''}<span id="msg" class="eyebrow"></span></div>
+  ${e?'<p class="eyebrow">Se o download não iniciar dentro do Claude, copie o texto e salve em um arquivo com esse nome.</p>':''}</div>`}
+
+function legal(){return `<h2>Base legal e parâmetros</h2>
+  <div class="panel pad">
+   <label style="max-width:340px">Antecedência interna para iniciar a captação de documentos (dias antes da abertura da janela de 120 dias)
+     <input type="number" min="0" max="180" id="cfg_capt" value="${S.cfg.captacaoDias}"></label>
+   <p class="eyebrow">É um marco de gestão, não um prazo legal.</p>
+  </div>
+  <div class="panel pad"><dl class="legal" style="margin:0">
+   <dt>Normas</dt>
+   <dd><a href="https://www.planalto.gov.br/ccivil_03/leis/l5768.htm" target="_blank" rel="noopener">Lei nº 5.768/1971</a> · <a href="https://www.planalto.gov.br/ccivil_03/decreto/antigos/d70951.htm" target="_blank" rel="noopener">Decreto nº 70.951/1972</a> · <a href="https://www.in.gov.br/en/web/dou/-/portaria-seae/me-n-7.638-de-18-de-outubro-de-2022-437720665" target="_blank" rel="noopener">Portaria SEAE/ME nº 7.638/2022</a> · <a href="https://www.in.gov.br/web/dou/-/portaria-spa/mf-n-1.818-de-22-de-junho-de-2026-716789586" target="_blank" rel="noopener">Portaria SPA/MF nº 1.818/2026</a> (regime sancionador)</dd>
+   <dt>Órgão e sistema</dt>
+   <dd>Secretaria de Prêmios e Apostas do Ministério da Fazenda. Pedido e prestação de contas pelo <a href="https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas/promocao-comercial" target="_blank" rel="noopener">SCPC</a> (Portaria 7.638, art. 17).</dd>
+   <dt>Pedido de autorização</dt>
+   <dd>De 120 a 40 dias antes do início (art. 20). A SPA pode reduzir o mínimo (§ 1º) e decide em até 30 dias, com suspensão durante exigências (§§ 2º e 4º). Exigência não cumprida em 15 dias leva ao indeferimento (§ 5º); recurso em 10 dias (art. 31).</dd>
+   <dt>Promoção coletiva de shopping</dt>
+   <dd>A administradora do centro comercial pode pedir em nome das lojas (art. 22, § 1º). A mandatária responde solidariamente com as aderentes (§ 2º) e guarda os termos de adesão até a homologação (§ 6º).</dd>
+   <dt>Divulgação</dt>
+   <dd>Nenhum ato de lançamento, divulgação ou execução antes da autorização (art. 34). Número do certificado em todo material (art. 35).</dd>
+   <dt>Aditamento e cancelamento</dt>
+   <dd>Aditamento analisado em até 10 dias; depois do primeiro, novo pedido e nova taxa; não muda modalidade nem mecânica (art. 36). Cancelamento antes da data de início, no SCPC (art. 37).</dd>
+   <dt>Apuração, entrega e prescrição</dt>
+   <dd>Ata com duas testemunhas (art. 16). Propriedade dos prêmios comprovada até 8 dias antes da apuração, ou antes do início no vale-brinde (art. 50). Entrega em até 30 dias (art. 66). Prêmio não reclamado em 180 dias caduca e o valor vai ao Tesouro em 45 dias, DARF 0394 (art. 64).</dd>
+   <dt>Prestação de contas</dt>
+   <dd>Até 30 dias após a prescrição dos prêmios (art. 47). Documentos nos arts. 48 (vale-brinde) e 49 (demais). IR de 20% por DARF 0916 até o 3º dia útil após o decêndio da apuração (art. 49, IV).</dd>
+   <dt>Sanções</dt>
+   <dd>Promover sem autorização ou descumprir o plano: multa de até 100% do valor dos prêmios, proibição de realizar promoções por até dois anos, cassação e advertência (Portaria SPA/MF 1.818/2026, arts. 29 e 30).</dd>
+   <dt>Fora desta ferramenta</dt>
+   <dd>Valor da taxa de fiscalização (Anexo I da MP 2.158-35/2001) e limite de premiação sobre a receita operacional (Decreto 70.951, art. 3º) devem ser conferidos direto na norma.</dd>
+  </dl></div>`}
+
+function render(){nav();const a=document.getElementById('app');
+  a.innerHTML=V.tela==='promo'?promo():V.tela==='legal'?legal():V.tela==='backup'?backup():painel()}
+const set=(p)=>{save()};
+
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go],[data-abre],[data-aba],[data-act]');if(!t)return;
+  if(t.dataset.go){if(t.dataset.go==='nova'){const p=novo({});S.promos.unshift(p);save();V={...V,tela:'promo',id:p.id,aba:'dados',del:0}}else{V.tela=t.dataset.go;V.del=0}}
+  else if(t.dataset.abre){V.tela='promo';V.id=t.dataset.abre;V.aba='crono';V.del=0}
+  else if(t.dataset.aba){V.aba=t.dataset.aba;V.del=0}
+  else{const a=t.dataset.act,p=P();
+    if(a==='limpaex'){S.promos=S.promos.filter(x=>!x.ex);save()}
+    if(a==='del'){if(V.del<2)V.del++;else{S.promos=S.promos.filter(x=>x.id!==V.id);save();V.tela='painel';V.del=0}}
+    if(a==='nodel')V.del=0;
+    if(a==='aviso'&&p){V.exp={nome:'aviso-'+(p.shopping||'shopping')+'.txt',txt:aviso(p)};V.tela='backup'}
+    if(a==='expjson')V.exp={nome:'radar-legalizacoes-'+hoje()+'.json',txt:JSON.stringify(S,null,1)};
+    if(a==='expics')V.exp={nome:'prazos-legalizacoes.ics',txt:ics()};
+    if(a==='copiar'){const c=document.getElementById('caixa'),m=document.getElementById('msg');
+      const ok=()=>m.textContent='Copiado';const fb=()=>{c.select();m.textContent='Texto selecionado: use Ctrl+C'};
+      try{navigator.clipboard.writeText(c.value).then(ok,fb)}catch(x){fb()}return}
+    if(a==='impjson'){const m=document.getElementById('msg');try{const o=JSON.parse(document.getElementById('caixa').value);
+      if(!o||!Array.isArray(o.promos))throw 0;S={cfg:o.cfg||{captacaoDias:30},promos:o.promos.map(x=>novo(x))};save();V.exp=null;V.tela='painel'}
+      catch(x){m.textContent='O texto colado não é um backup válido deste app.';return}}
+  }
+  render();window.scrollTo(0,0)});
+document.addEventListener('change',e=>{const t=e.target,p=P();
+  if(t.id==='filtro'){V.filtro=t.value;render();return}
+  if(t.id==='cfg_capt'){S.cfg.captacaoDias=Math.max(0,Math.min(180,parseInt(t.value)||0));save();return}
+  if(t.dataset.marco){const q=S.promos.find(x=>x.id===t.dataset.pid);if(q){q.marcos[t.dataset.marco]=t.checked;save();render()}return}
+  if(!p)return;
+  if(t.dataset.f){p[t.dataset.f]=t.type==='checkbox'?t.checked:t.value;
+    if(t.dataset.f==='fim'&&fam(p)!=='v'&&!p.apuracao)p.apuracao=p.fim;
+    save();render();return}
+  if(t.dataset.doc){(p.docs[t.dataset.doc]=p.docs[t.dataset.doc]||{})[t.dataset.c]=t.value;save();if(t.dataset.c!=='link'&&t.dataset.c!=='obs')render();return}
+  if(t.dataset.reg){p.reg[t.dataset.reg]=t.value;save();render();return}
+  if(t.dataset.pc){(p.pc[t.dataset.pc]=p.pc[t.dataset.pc]||{})[t.dataset.c]=t.value;save();return}
+});
+load();render();
+</script>
+
+</body>
+</html>

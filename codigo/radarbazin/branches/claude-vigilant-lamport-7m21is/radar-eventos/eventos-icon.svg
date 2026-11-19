@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Radar de Eventos">
+  <rect width="512" height="512" fill="#00616f"/>
+  <g transform="rotate(-10 256 256)">
+    <!-- ingresso: recortes semicirculares nas laterais -->
+    <path d="M92 136h328a22 22 0 0 1 22 22v52a46 46 0 0 0 0 92v52a22 22 0 0 1-22 22H92a22 22 0 0 1-22-22v-52a46 46 0 0 0 0-92v-52a22 22 0 0 1 22-22z"
+          fill="none" stroke="#ffffff" stroke-width="30" stroke-linejoin="round"/>
+    <!-- picote do canhoto -->
+    <path d="M316 176v160" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-dasharray="2 44"/>
+    <!-- estrela: a atração -->
+    <polygon points="216.0,194.0 231.3,235.0 275.0,236.8 240.7,264.0 252.4,306.2 216.0,282.0 179.6,306.2 191.3,264.0 157.0,236.8 200.7,235.0" fill="#6cc680" stroke="#6cc680" stroke-width="14" stroke-linejoin="round"/>
+  </g>
+</svg>

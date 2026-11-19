@@ -206,5 +206,13 @@
     "updated": null,
     "kind": "html",
     "owner": "shared"
+  },
+  {
+    "slug": "radar-de-legalizacoes-promo",
+    "title": "Radar de Legalizações Promo",
+    "url": "https://claude.ai/artifact/YBqfbUAv52H1CjbCQov5zQ",
+    "updated": "2026-11-19",
+    "kind": "html",
+    "owner": "mine"
   }
 ]

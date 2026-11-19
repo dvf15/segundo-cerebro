@@ -1,15 +1,16 @@
 ---
 title: "Artifacts"
-generated: 2026-11-16
-count: 26
+generated: 2026-11-19
+count: 27
 tags: ["index"]
 ---
 # Artifacts
 
-_26 notas · gerado em 2026-11-16 por scripts/gerar-indices.mjs_
+_27 notas · gerado em 2026-11-19 por scripts/gerar-indices.mjs_
 
 | Data | Nota | Link |
 | --- | --- | --- |
+| 2026-11-19 | [[claude/artifacts/radar-de-legalizacoes-promo/radar-de-legalizacoes-promo\|Radar de Legalizações Promo]] | https://claude.ai/artifact/YBqfbUAv52H1CjbCQov5zQ |
 | 2026-11-16 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas — Gestão e Aprovação]] | https://claude.ai/artifact/CPsSPhCanFUYRWuGS3Er93 |
 | 2026-11-16 | [[claude/artifacts/radar-de-renovacoes-mobile/radar-de-renovacoes-mobile\|Radar de Renovações Mobile]] | https://claude.ai/artifact/MTP5pLH3BSEoRFUZrE4kNG |
 | 2026-11-14 | [[claude/artifacts/nova-america-x-norteshopping/nova-america-x-norteshopping\|Nova América × NorteShopping]] | https://claude.ai/artifact/S7WBWYC8bp8kM7LRCxzqsk |

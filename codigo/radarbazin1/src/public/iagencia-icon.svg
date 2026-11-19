@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="IAgencia">
+  <rect width="512" height="512" fill="#00616f"/>
+  <!-- lápis: a mão de quem cria -->
+  <g transform="translate(226 222) rotate(45)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M-44 -176h88v236l-44 84-44-84z"/>
+    <path d="M-44 -112h88"/>
+    <path d="M-44 60h88"/>
+  </g>
+  <!-- o traço que o lápis acabou de fazer -->
+  <path d="M84 430c44-40 78 34 124 -2" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round"/>
+  <!-- selo: a centelha da ideia -->
+  <circle cx="368" cy="364" r="98" fill="#00616f"/>
+  <circle cx="368" cy="364" r="84" fill="#ffffff"/>
+  <circle cx="368" cy="364" r="64" fill="#6cc680"/>
+  <path d="M368 314q7 43 50 50q-43 7-50 50q-7-43-50-50q43-7 50-50z" fill="#00616f"/>
+</svg>

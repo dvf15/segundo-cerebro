@@ -1,16 +1,16 @@
 ---
 title: "radarbazin1"
-date: 2026-11-16
+date: 2026-11-19
 source: "github"
 source_id: "dvf15/radarbazin1"
 url: "https://github.com/dvf15/radarbazin1"
 private: true
 branch: "main"
-commit: "7737740"
-files: 305
-size_mb: 43.2
-skipped: 2
-branches_with_work: 23
+commit: "71ed500"
+files: 362
+size_mb: 23.7
+skipped: 8
+branches_with_work: 22
 tags: ["codigo", "github", "repo/radarbazin1"]
 ---
 # radarbazin1
@@ -18,14 +18,20 @@ tags: ["codigo", "github", "repo/radarbazin1"]
 Radar de shopping centers: docs, workflows de leads, app bloquinhos
 
 - **GitHub:** https://github.com/dvf15/radarbazin1
-- **Branch padrão espelhado:** main · **commit:** 7737740 · **último commit:** 2026-11-16T00:54:41+00:00
-- **Código-fonte do branch padrão:** pasta `src/` (305 arquivos, 43.2 MB). Histórico de commits fica no GitHub.
-- **Trabalho em outros branches:** pasta `branches/` (23 branches, 354 arquivos, 82.0 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
+- **Branch padrão espelhado:** main · **commit:** 71ed500 · **último commit:** 2026-11-19T10:25:41-03:00
+- **Código-fonte do branch padrão:** pasta `src/` (362 arquivos, 23.7 MB). Histórico de commits fica no GitHub.
+- **Trabalho em outros branches:** pasta `branches/` (22 branches, 352 arquivos, 81.9 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
 
 ## Arquivos do branch padrão acima de 20 MB (só no GitHub)
 
-- public/midia-como-usar.mp4 (30.0 MB)
-- public/midia-passo-a-passo-celular.mp4 (49.3 MB)
+- docs/NuTre-Guia-de-Uso-vertical.mp4 (vídeo, 3.5 MB)
+- docs/NuTre-Guia-de-Uso.mp4 (vídeo, 2.9 MB)
+- public/midia-como-usar.mp4 (vídeo, 30.0 MB)
+- public/midia-passo-a-passo-celular.mp4 (vídeo, 49.3 MB)
+- public/renovacoes-celular.mp4 (vídeo, 5.8 MB)
+- public/renovacoes-como-usar.mp4 (vídeo, 11.8 MB)
+- public/vendas-novidades.mp4 (vídeo, 8.7 MB)
+- public/vendas-passo-a-passo-celular.mp4 (vídeo, 13.5 MB)
 
 ## Branches com trabalho não mesclado
 
@@ -34,7 +40,6 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 | `claude/ai-orchestration-training-6576av` | `branches/claude-ai-orchestration-training-6576av/` | 3 | 3 | 2026-07-11 — Módulos de guardrails e auditoria do modelo no treinamento de orquestração |
 | `claude/benefits-ux-improvements-7ptjlq` | `branches/claude-benefits-ux-improvements-7ptjlq/` | 4 | 8 | 2026-07-03 — Add 'Anexo para consulta' page with verbatim source texts |
 | `claude/casas-bahia-risk-analysis-6rceir` | `branches/claude-casas-bahia-risk-analysis-6rceir/` | 2 | 3 | 2026-08-16 — Amplia deck da Casas Bahia com erros estratégicos, exposição e pipeline |
-| `claude/clause-approval-strategy-sbulaw` | `branches/claude-clause-approval-strategy-sbulaw/` | 3 | 2 | 2026-11-16 — Matcher inclui o Radar de Renovacoes e seus videos |
 | `claude/exec-compensation-simulator-y9fq93` | `branches/claude-exec-compensation-simulator-y9fq93/` | 6 | 8 | 2026-09-01 — Torna o simulador instalavel: service worker, botao e instrucoes |
 | `claude/fable5-agent-builder-config-4vn6pq` | `branches/claude-fable5-agent-builder-config-4vn6pq/` | 3 | 5 | 2026-07-16 — Base de teste completa (Excel + 3 CSVs) para exercitar todas as funcionalidad |
 | `claude/fitness-photo-workout-app-swee4u` | `branches/claude-fitness-photo-workout-app-swee4u/` | 1 | 19 | 2026-11-14 — Aumenta um pouco a fonte dos textos do app (+1px nos tamanhos pequenos) |
@@ -74,10 +79,12 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - [[codigo/radarbazin1/src/docs/OTIMIZADOR-DE-OBRAS|docs/OTIMIZADOR-DE-OBRAS.md]]
 - [[codigo/radarbazin1/src/docs/PESQUISA-EXECUTIVOS|docs/PESQUISA-EXECUTIVOS.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-CLAUSULAS|docs/RADAR-CLAUSULAS.md]]
+- [[codigo/radarbazin1/src/docs/RADAR-LEGALIZACOES|docs/RADAR-LEGALIZACOES.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-MIDIA|docs/RADAR-MIDIA.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-QUIOSQUES|docs/RADAR-QUIOSQUES.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-RENOVACOES|docs/RADAR-RENOVACOES.md]]
 - [[codigo/radarbazin1/src/docs/RADAR-VAREJO|docs/RADAR-VAREJO.md]]
+- [[codigo/radarbazin1/src/docs/RADAR-VENDAS|docs/RADAR-VENDAS.md]]
 - [[codigo/radarbazin1/src/docs/SEGUNDA-PESSOA|docs/SEGUNDA-PESSOA.md]]
 - [[codigo/radarbazin1/src/docs/SIMULADOR-ESTRUTURA-SHOPPINGS|docs/SIMULADOR-ESTRUTURA-SHOPPINGS.md]]
 - [[codigo/radarbazin1/src/docs/Shopping-Inteligente|docs/Shopping-Inteligente.md]]
@@ -118,6 +125,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - [[codigo/radarbazin1/src/obsidian/Skills/Skill - Paleta ALLOS (pptallos)|obsidian/Skills/Skill - Paleta ALLOS (pptallos).md]]
 - [[codigo/radarbazin1/src/public/exemplos/LEIA-ME-base-de-teste|public/exemplos/LEIA-ME-base-de-teste.md]]
 - [[codigo/radarbazin1/src/public/exemplos/renovacoes-guia-de-teste|public/exemplos/renovacoes-guia-de-teste.md]]
+- [[codigo/radarbazin1/src/public/exemplos/vendas-roteiro-de-testes|public/exemplos/vendas-roteiro-de-testes.md]]
 - [[codigo/radarbazin1/src/sistema/COMO_USAR_NO_CLAUDE_CHAT|sistema/COMO_USAR_NO_CLAUDE_CHAT.md]]
 - [[codigo/radarbazin1/src/sistema/README|sistema/README.md]]
 - [[codigo/radarbazin1/src/sistema/_fonte/MODELO_FONTE|sistema/_fonte/MODELO_FONTE.md]]
@@ -240,10 +248,12 @@ docs/NuTre-Guia-de-Uso.mp4
 docs/OTIMIZADOR-DE-OBRAS.md
 docs/PESQUISA-EXECUTIVOS.md
 docs/RADAR-CLAUSULAS.md
+docs/RADAR-LEGALIZACOES.md
 docs/RADAR-MIDIA.md
 docs/RADAR-QUIOSQUES.md
 docs/RADAR-RENOVACOES.md
 docs/RADAR-VAREJO.md
+docs/RADAR-VENDAS.md
 docs/Radar-Quiosques-Guia-Executivo.pptx
 docs/SEGUNDA-PESSOA.md
 docs/SIMULADOR-ESTRUTURA-SHOPPINGS.md
@@ -353,6 +363,12 @@ public/clausulas-icon-192.png
 public/clausulas-icon-512.png
 public/clausulas.html
 public/clausulas.webmanifest
+public/eventos-icon-180.png
+public/eventos-icon-192.png
+public/eventos-icon-512.png
+public/eventos-icon.svg
+public/eventos.html
+public/eventos.webmanifest
 public/exemplos/LEIA-ME-base-de-teste.md
 public/exemplos/anunciantes-exemplo.csv
 public/exemplos/base-teste-anunciantes.csv
@@ -372,10 +388,57 @@ public/exemplos/renovacoes-base-teste.xlsx
 public/exemplos/renovacoes-dispersao-teste.csv
 public/exemplos/renovacoes-guia-de-teste.md
 public/exemplos/renovacoes-modelo-importacao.xlsx
+public/exemplos/vendas-base-teste.json
+public/exemplos/vendas-base-teste.xlsx
+public/exemplos/vendas-lojistas-base-teste.csv
+public/exemplos/vendas-roteiro-de-testes.md
+public/exemplos/vendas-simulacao/0-base/base-ficticia.json
+public/exemplos/vendas-simulacao/0-base/base-ficticia.xlsx
+public/exemplos/vendas-simulacao/00-roteiro-de-simulacao.xlsx
+public/exemplos/vendas-simulacao/1-carteira/lojistas-novos-e-com-erros.xlsx
+public/exemplos/vendas-simulacao/2-auditoria/bela-livro-entradas-2025.pdf
+public/exemplos/vendas-simulacao/2-auditoria/bela-livro-saidas-2025.pdf
+public/exemplos/vendas-simulacao/2-auditoria/cafe-aurora-extrato-pgdas-d-2025-12.pdf
+public/exemplos/vendas-simulacao/2-auditoria/ficha-vendas-informadas-2025.xlsx
+public/exemplos/vendas-simulacao/2-auditoria/otica-livro-fiscal-planilha-2025.xlsx
+public/exemplos/vendas-simulacao/2-auditoria/trilha-sped-efd-2025-01.txt
+public/exemplos/vendas-simulacao/2-auditoria/trilha-sped-efd-2025-02.txt
+public/exemplos/vendas-simulacao/2-auditoria/trilha-sped-efd-2025-03.txt
+public/exemplos/vendas-simulacao/2-auditoria/urbano-resumo-cst-cfop-entradas-2025.pdf
+public/exemplos/vendas-simulacao/2-auditoria/urbano-resumo-cst-cfop-saidas-2025.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/bambu-decor-pdv-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/bambu-decor-reducao-z-foto-01-10-2026.jpg
+public/exemplos/vendas-simulacao/3-triangulacao/bambu-decor-reducao-z-foto-02-10-2026.jpg
+public/exemplos/vendas-simulacao/3-triangulacao/bambu-decor-reducao-z-foto-03-10-2026.jpg
+public/exemplos/vendas-simulacao/3-triangulacao/bela-pdv-marco-2025.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/bela-reducao-z-marco-2025.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/ficha-vendas-informadas-2026-10.xlsx
+public/exemplos/vendas-simulacao/3-triangulacao/lume-joias-pdv-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/lume-joias-reducao-z-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/mundo-pet-pdv-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/mundo-pet-reducao-z-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/napp-vendas-diarias-2026-10.xlsx
+public/exemplos/vendas-simulacao/3-triangulacao/raiz-natural-reducao-z-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/trilha-pdv-2025-01.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/trilha-reducao-z-2025-01.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/vertice-calcados-pdv-2026-10.pdf
+public/exemplos/vendas-simulacao/3-triangulacao/vertice-calcados-reducao-z-2026-10.pdf
+public/iagencia-icon-180.png
+public/iagencia-icon-192.png
+public/iagencia-icon-512.png
+public/iagencia-icon.svg
+public/iagencia.html
+public/iagencia.webmanifest
 public/icon-pink.png
 public/icon-pink.svg
 public/icon.png
 public/icon.svg
+public/legalizacoes-icon-180.png
+public/legalizacoes-icon-192.png
+public/legalizacoes-icon-512.png
+public/legalizacoes-icon.svg
+public/legalizacoes.html
+public/legalizacoes.webmanifest
 public/midia-como-usar.mp4
 public/midia-icon-180.png
 public/midia-icon-192.png
@@ -409,6 +472,14 @@ public/renovacoes-icon.svg
 public/renovacoes.html
 public/renovacoes.webmanifest
 public/simulador-estrutura.html
+public/vendas-icon-180.png
+public/vendas-icon-192.png
+public/vendas-icon-512.png
+public/vendas-icon.svg
+public/vendas-novidades.mp4
+public/vendas-passo-a-passo-celular.mp4
+public/vendas.html
+public/vendas.webmanifest
 scripts/test-clausulas.mjs
 scripts/vercel-build.mjs
 sistema/COMO_USAR_NO_CLAUDE_CHAT.md
