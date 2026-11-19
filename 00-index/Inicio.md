@@ -30,9 +30,9 @@ _874 notas indexadas · gerado em 2026-11-19_
 | 2026-11-19 | [[claude/artifacts/radar-de-legalizacoes-promo/radar-de-legalizacoes-promo\|Radar de Legalizações Promo]] | claude-artifact |
 | 2026-11-19 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-19 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
+| 2026-11-19 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-16 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas — Gestão e Aprovação]] | claude-artifact |
 | 2026-11-16 | [[claude/artifacts/radar-de-renovacoes-mobile/radar-de-renovacoes-mobile\|Radar de Renovações Mobile]] | claude-artifact |
-| 2026-11-16 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-14 | [[claude/artifacts/nova-america-x-norteshopping/nova-america-x-norteshopping\|Nova América × NorteShopping]] | claude-artifact |
 | 2026-11-14 | [[claude/artifacts/planta-3d-shoppings/planta-3d-shoppings\|Planta 3D Shoppings]] | claude-artifact |
 | 2026-11-12 | [[codigo/radarbazin1/_infra\|radarbazin1 · infraestrutura (Vercel + Neon)]] | github |
