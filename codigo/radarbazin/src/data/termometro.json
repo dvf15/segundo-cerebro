@@ -1,94 +1,95 @@
 {
-  "atualizadoEm": "2026-11-18T18:47:03.001Z",
+  "atualizadoEm": "2026-11-20T18:30:17.470Z",
   "origem": "scripts/termometro.mjs",
-  "score": -4,
+  "score": -8,
   "scoreMin": -10,
   "scoreMax": 10,
-  "nivel": "risk-off",
+  "nivel": "risk-off forte",
   "cor": "ruim",
-  "frase": "Aversão a risco: pressão sobre bolsa e real; dólar e juros tendem a subir.",
+  "frase": "Estresse global: dia de proteção, não de compra.",
   "vies": {
     "ibovespa": "baixa",
-    "mediaSinais": -1.08,
+    "mediaSinais": -2.05,
     "texto": "Viés de abertura negativo para o Ibovespa.",
-    "eua": "indefinido",
-    "mediaEua": 0.09,
-    "textoEua": "Wall Street sem direção clara nos futuros."
+    "eua": "baixa",
+    "mediaEua": -2.44,
+    "textoEua": "Futuros e Europa apontam abertura negativa em Wall Street."
   },
   "manchetes": [
     {
-      "titulo": "&#x2018;GTA 6&#x2019; is the biggest game ever. Take-Two&#x2019;s stock, delivery apps and podcasts are along for the ride.",
-      "link": "https://www.marketwatch.com/story/gta-6-is-the-biggest-game-ever-take-twos-stock-delivery-apps-and-podcasts-are-along-for-the-ride-71014bf2?mod=mw_rss_topstories",
+      "titulo": "Why year-end portfolio rebalancing is a risky bet that bonds will beat stocks in 2027",
+      "link": "https://www.marketwatch.com/story/why-year-end-portfolio-rebalancing-is-a-risky-bet-that-bonds-will-beat-stocks-in-2027-1b438892?mod=mw_rss_topstories",
       "fonte": "MarketWatch",
-      "publicadoEm": "2026-11-18T18:28:00.000Z"
+      "publicadoEm": "2026-11-20T17:49:00.000Z"
     },
     {
-      "titulo": "Nvidia retreats, weighs on AI stocks as strong outlook fails to dispel Huang uncertainty",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNlVnb2FaQlk2WUUtQ3dtaUlBRF9oSnFadkhYVUNwSzRKdnFQNENDUmgyMXBFV1NKaDhUcXJYTGF3Z21LM1F0OEZMVTJZU0lhWHlhOHBCb0t5WVRmMVRMU1ZCRTlJRUpYRlFCZ3RBYVV4WlF0Nms2Q1NvbkVjU0p5NVVQbmFrdzdfZmdLdVgxZnZBUkRGbkpZMTNR?oc=5",
-      "fonte": "Reuters",
-      "publicadoEm": "2026-11-18T16:30:00.000Z"
-    },
-    {
-      "titulo": "Fed’s Waller says central bank may need to ‘shock people’ with half-point rate hike",
-      "link": "https://www.cnbc.com/2026/11/18/federal-reserve-governor-christopher-waller.html",
+      "titulo": "Warsh wants Fed officials to talk less. Instead, they’re talking more",
+      "link": "https://www.cnbc.com/2026/11/20/warsh-fed-forward-guidance-rate-hikes.html",
       "fonte": "CNBC",
-      "publicadoEm": "2026-11-18T15:13:39.000Z"
+      "publicadoEm": "2026-11-20T15:20:54.000Z"
     },
     {
-      "titulo": "Anthropic Approaches Final IPO Hurdle After Tech Stocks Decline",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObkpRRjhQeXlnQkZLand6bWFiV0QzSTh3aGI1WTFmZWJOWm9iSHgtYURCRWVxZVFzWVdrUXdfQkwyNmRhLUpEczRfeldHaVVJbEIwZHViY0trdk0tbDFsaUhFRVNXYUpmaktXTmc1c0ZTdHRCNjFCNndLV1liV2ZQSlVCWERnMC1IdG5oTGFKcHl3MzJIS2NyZ05wQ3p5Znlub0NoRHJVbE9Rd0pQdmtLcmNB?oc=5",
-      "fonte": "Bloomberg.com",
-      "publicadoEm": "2026-11-18T14:54:45.000Z"
+      "titulo": "The bull market has a new problem. The 'smart money' is selling",
+      "link": "https://www.cnbc.com/2026/11/20/equity-issuance-bull-market-problem.html",
+      "fonte": "CNBC",
+      "publicadoEm": "2026-11-20T14:15:29.000Z"
     },
     {
-      "titulo": "Waller Says Fed Should Consider Half-Point Rate Hike",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaG00RjB3SWxWcEJCcGZjb1ducUJDdWpSc0I0dU8zUFdnRVdOOE1DYXQwaUl0RHIxVEhnRVJBMUpHZWZMcjZ3VjNKVENQUkZkS2YwYjY2QlcyaFNINWhCZVVubkZyS09Qb3B6TjVvclJ1dnpOYnZXRE50ejhmUnBfY21OcU12SUs0VnN4VlVlVjhzYVJ1SDYxWnJXbHN2UDBfVlI1RXo4NDZBdmlkeWc?oc=5",
+      "titulo": "A ‘Shock’ Rate Hike by the Fed? In This Economy?",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQ1N1UEpzQUo3X0NFTW1tdEhiWlRtQzFzVEdCa1R4V1hJbjc4VUo4cWxZdHZEdHVUT0JZWkIyMHdfSThfVUNPeFRKanpxTndYTnA2d1BwN0hyVWtCamhiYVRMYW1qTWxNMDkwa1ZMcF9pY0xWVHBxUDBrTWItX2trcTZxOHZiOWhGVVBSLWZNREh0QVJBRFhONThHRUs0WHhpNmZhTlFlSEJoaWRzU04xRzJKS0ZCYjFvSkZ0dQ?oc=5",
       "fonte": "Bloomberg.com",
-      "publicadoEm": "2026-11-18T13:18:21.000Z"
+      "publicadoEm": "2026-11-20T10:00:02.000Z"
+    },
+    {
+      "titulo": "US AI chip curbs hit China tech stocks, spur self-sufficiency push",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNM3JhZ1hpWlJqYlVISU9pcFFUS0N1Sk9MeEx5aU9jWmt5OVBxY2RkeWNCWDBITU5nYmdNdzFNQm4xTkZVbTM3T214cjhzSDBPWHFsaGt0Uk56c2F0TUFOOWl2ZlZHRGhjdXN5WDNPM3BiS3E1QW9lbHZ0NjZDUVNtaVZBbGUzNmxMR1o4c3REOGE3c3R4ZFk3d1VpR3diM0FmTnphSVdtR0M5MWpHRm9OeFJtaTQ5U1p6bnVRc3VnTW54cVVW?oc=5",
+      "fonte": "Reuters",
+      "publicadoEm": "2026-11-20T08:23:43.000Z"
     }
   ],
   "motivos": {
-    "positivos": [],
+    "positivos": [
+      "Treasury 10a em 4.94% (-12 bp)"
+    ],
     "negativos": [
+      "VIX em 32.4 (estresse), subindo 14% no dia",
+      "S&P 500 futuro -2.07%",
       "EWZ -2.29% na última sessão em NY",
-      "Dólar a R$ 5.85 (+1.08%)",
+      "Dólar a R$ 5.95 (+1.14%)",
       "Vol. realizada do Ibovespa (20d) em 55% a.a. (alta)",
-      "Europa (DAX/Stoxx) média -1.06%"
+      "Ásia (Nikkei/Hang Seng) média -3.47%",
+      "Europa (DAX/Stoxx) média -2.70%"
     ],
     "neutros": [
-      "VIX em 23.6 (atento)",
-      "S&P 500 futuro +0.09%",
-      "Treasury 10a em 5.06% (-4 bp)",
-      "DXY +0.25%",
-      "Brent US$ 88 (-5.01%)",
-      "Ásia (Nikkei/Hang Seng) média -0.31%"
+      "DXY -0.07%",
+      "Brent US$ 90 (-2.70%)"
     ]
   },
   "pontos": [
     {
       "id": "vix",
-      "pontos": 0,
-      "motivo": "VIX em 23.6 (atento)"
+      "pontos": -3,
+      "motivo": "VIX em 32.4 (estresse), subindo 14% no dia"
     },
     {
       "id": "spx",
-      "pontos": 0,
-      "motivo": "S&P 500 futuro +0.09%"
+      "pontos": -1,
+      "motivo": "S&P 500 futuro -2.07%"
     },
     {
       "id": "us10",
-      "pontos": 0,
-      "motivo": "Treasury 10a em 5.06% (-4 bp)"
+      "pontos": 1,
+      "motivo": "Treasury 10a em 4.94% (-12 bp)"
     },
     {
       "id": "dxy",
       "pontos": 0,
-      "motivo": "DXY +0.25%"
+      "motivo": "DXY -0.07%"
     },
     {
       "id": "brent",
       "pontos": 0,
-      "motivo": "Brent US$ 88 (-5.01%)"
+      "motivo": "Brent US$ 90 (-2.70%)"
     },
     {
       "id": "ewz",
@@ -98,7 +99,7 @@
     {
       "id": "brl",
       "pontos": -1,
-      "motivo": "Dólar a R$ 5.85 (+1.08%)"
+      "motivo": "Dólar a R$ 5.95 (+1.14%)"
     },
     {
       "id": "volibov",
@@ -107,13 +108,13 @@
     },
     {
       "id": "asia",
-      "pontos": 0,
-      "motivo": "Ásia (Nikkei/Hang Seng) média -0.31%"
+      "pontos": -1,
+      "motivo": "Ásia (Nikkei/Hang Seng) média -3.47%"
     },
     {
       "id": "europa",
       "pontos": -1,
-      "motivo": "Europa (DAX/Stoxx) média -1.06%"
+      "motivo": "Europa (DAX/Stoxx) média -2.70%"
     }
   ],
   "metodo": "Soma de pontos por regra fixa: VIX por faixa (±2) e salto diário; S&P futuro, DXY, Treasury 10a, EWZ, dólar/real, Ásia e Europa (±1 cada quando cruzam limiares); volatilidade realizada do Ibovespa (20 pregões) por faixa. VXEWZ é exibido mas não pontua, porque o dado público dele é irregular. EWZ e S&P 500 da Hyperliquid (perps 24/7 da dex xyz, licenciados pela S&P DJI) também são exibidos mas não pontuam: servem para ver a tendência fora do horário de pregão dos EUA, quando o Yahoo ainda mostra o fechamento anterior. Escala de −10 a +10. Viés do Ibovespa = média de S&P futuro, EWZ, Europa e câmbio invertido. Viés de Wall Street = média de S&P e Nasdaq futuros, Europa e o movimento do VIX (invertido). Manchetes: itens das últimas 36h de CNBC, BBC, MarketWatch e Google News (Reuters, Bloomberg, FT), ranqueados por palavras-chave de mercado e posição no feed. É leitura de posicionamento na abertura, não previsão de fechamento.",
@@ -125,15 +126,13 @@
       "simbolo": "^VIX",
       "unidade": "pts",
       "casas": 1,
-      "valor": 23.64,
-      "anterior": 25.459999084472656,
-      "variacaoPct": -7.148464846499635,
-      "percentil1a": 89,
+      "valor": 32.35,
+      "anterior": 28.440000534057617,
+      "variacaoPct": 13.748239776789251,
+      "percentil1a": 100,
       "min1a": 13.470000267028809,
-      "max1a": 31.049999237060547,
+      "max1a": 32.349998474121094,
       "serie30": [
-        15.41,
-        14.84,
         15.21,
         15.27,
         16.87,
@@ -161,11 +160,13 @@
         19.3,
         22.91,
         25.46,
-        23.64
+        24.56,
+        28.44,
+        32.35
       ],
-      "horaMercado": "2026-11-18T18:32:01.000Z",
+      "horaMercado": "2026-11-20T18:15:16.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "spx",
@@ -174,15 +175,13 @@
       "simbolo": "ES=F",
       "unidade": "pts",
       "casas": 0,
-      "valor": 7365.5,
-      "anterior": 7359,
-      "variacaoPct": 0.08832721837206403,
-      "percentil1a": 47,
+      "valor": 7048,
+      "anterior": 7197.25,
+      "variacaoPct": -2.0737087081871497,
+      "percentil1a": 39,
       "min1a": 6388.25,
       "max1a": 7874,
       "serie30": [
-        7816.25,
-        7859.75,
         7858,
         7855.75,
         7770.25,
@@ -210,11 +209,13 @@
         7583,
         7439,
         7359,
-        7365.5
+        7340.5,
+        7197.25,
+        7048
       ],
-      "horaMercado": "2026-11-18T18:37:03.000Z",
+      "horaMercado": "2026-11-20T18:20:20.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "ndx",
@@ -223,15 +224,13 @@
       "simbolo": "NQ=F",
       "unidade": "pts",
       "casas": 0,
-      "valor": 27238,
-      "anterior": 27075.5,
-      "variacaoPct": 0.6001735886687287,
-      "percentil1a": 44,
+      "valor": 25638.5,
+      "anterior": 26600.25,
+      "variacaoPct": -3.615567522861629,
+      "percentil1a": 27,
       "min1a": 23139.75,
       "max1a": 31483.25,
       "serie30": [
-        30969.5,
-        31108.8,
         30898.3,
         30791.5,
         30182.8,
@@ -259,11 +258,13 @@
         28034.8,
         27284.3,
         27075.5,
-        27238
+        27186.8,
+        26600.3,
+        25638.5
       ],
-      "horaMercado": "2026-11-18T18:37:05.000Z",
+      "horaMercado": "2026-11-20T18:20:20.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "us10",
@@ -272,15 +273,13 @@
       "simbolo": "^TNX",
       "unidade": "%",
       "casas": 2,
-      "valor": 5.06,
-      "anterior": 5.103000164031982,
-      "variacaoPct": -0.8426447707187146,
-      "percentil1a": 90,
+      "valor": 4.936,
+      "anterior": 5.052000045776367,
+      "variacaoPct": -2.2961212336754966,
+      "percentil1a": 82,
       "min1a": 3.9619998931884766,
       "max1a": 5.310999870300293,
       "serie30": [
-        5.231,
-        5.244,
         5.24,
         5.217,
         5.19,
@@ -308,11 +307,13 @@
         5.154,
         5.121,
         5.103,
-        5.06
+        5.066,
+        5.052,
+        4.936
       ],
-      "horaMercado": "2026-11-18T18:32:05.000Z",
+      "horaMercado": "2026-11-20T18:15:15.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "dxy",
@@ -321,15 +322,13 @@
       "simbolo": "DX-Y.NYB",
       "unidade": "pts",
       "casas": 2,
-      "valor": 103.753,
-      "anterior": 103.48999786376953,
-      "variacaoPct": 0.2541329033330042,
-      "percentil1a": 100,
+      "valor": 103.827,
+      "anterior": 103.9000015258789,
+      "variacaoPct": -0.0702613328265711,
+      "percentil1a": 99,
       "min1a": 96.22000122070312,
-      "max1a": 103.75299835205078,
+      "max1a": 103.9000015258789,
       "serie30": [
-        102.14,
-        102.21,
         102.58,
         102.18,
         102.55,
@@ -357,11 +356,13 @@
         103.41,
         103.55,
         103.49,
-        103.753
+        103.86,
+        103.9,
+        103.827
       ],
-      "horaMercado": "2026-11-18T18:37:08.000Z",
+      "horaMercado": "2026-11-20T18:20:23.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "brent",
@@ -370,15 +371,13 @@
       "simbolo": "BZ=F",
       "unidade": "US$",
       "casas": 2,
-      "valor": 88.47,
-      "anterior": 93.13999938964844,
-      "variacaoPct": -5.013956860909596,
-      "percentil1a": 43,
+      "valor": 89.5,
+      "anterior": 91.9800033569336,
+      "variacaoPct": -2.6962418639079666,
+      "percentil1a": 45,
       "min1a": 58.91999816894531,
       "max1a": 118.3499984741211,
       "serie30": [
-        104.28,
-        104.72,
         106.65,
         105.69,
         106.06,
@@ -406,11 +405,13 @@
         95.84,
         92.44,
         93.14,
-        88.47
+        91.95,
+        91.98,
+        89.5
       ],
-      "horaMercado": "2026-11-18T18:37:05.000Z",
+      "horaMercado": "2026-11-20T18:20:00.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "ouro",
@@ -419,15 +420,13 @@
       "simbolo": "GC=F",
       "unidade": "US$",
       "casas": 0,
-      "valor": 3744.6,
-      "anterior": 3864.199951171875,
-      "variacaoPct": -3.0950766700259535,
+      "valor": 3528.4,
+      "anterior": 3685.5,
+      "variacaoPct": -4.262650929317591,
       "percentil1a": 0,
-      "min1a": 3744.60009765625,
+      "min1a": 3528.39990234375,
       "max1a": 5318.39990234375,
       "serie30": [
-        4157,
-        4216.3,
         4190.6,
         4177.3,
         4107.9,
@@ -455,11 +454,13 @@
         3886.3,
         3853,
         3864.2,
-        3744.6
+        3741.9,
+        3685.5,
+        3528.4
       ],
-      "horaMercado": "2026-11-18T18:37:10.000Z",
+      "horaMercado": "2026-11-20T18:20:28.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "cobre",
@@ -468,15 +469,13 @@
       "simbolo": "HG=F",
       "unidade": "US$/lb",
       "casas": 2,
-      "valor": 5.688,
-      "anterior": 5.97599983215332,
-      "variacaoPct": -4.81927443511233,
-      "percentil1a": 17,
+      "valor": 5.4965,
+      "anterior": 5.625,
+      "variacaoPct": -2.2844444444444445,
+      "percentil1a": 12,
       "min1a": 4.959499835968018,
       "max1a": 6.803500175476074,
       "serie30": [
-        6.519,
-        6.6425,
         6.6985,
         6.678,
         6.6115,
@@ -504,11 +503,13 @@
         6.0795,
         5.9975,
         5.976,
-        5.6885
+        5.6595,
+        5.625,
+        5.4965
       ],
-      "horaMercado": "2026-11-18T18:37:14.000Z",
+      "horaMercado": "2026-11-20T18:20:28.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "nikkei",
@@ -517,15 +518,13 @@
       "simbolo": "^N225",
       "unidade": "pts",
       "casas": 0,
-      "valor": 59024.28,
-      "anterior": 58860.4296875,
-      "variacaoPct": 0.2783709078746144,
-      "percentil1a": 43,
-      "min1a": 48537.69921875,
+      "valor": 56436.65,
+      "anterior": 59444.2109375,
+      "variacaoPct": -5.05946818044597,
+      "percentil1a": 33,
+      "min1a": 48625.87890625,
       "max1a": 72366.34375,
       "serie30": [
-        69946.9,
-        70684,
         70035.7,
         69042.1,
         69030.9,
@@ -553,11 +552,13 @@
         60819.4,
         61142.4,
         59662,
-        58860.4
+        58860.4,
+        59024.3,
+        59444.2
       ],
-      "horaMercado": "2026-11-18T06:45:03.000Z",
+      "horaMercado": "2026-11-20T06:45:03.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "hsi",
@@ -566,15 +567,13 @@
       "simbolo": "^HSI",
       "unidade": "pts",
       "casas": 0,
-      "valor": 23294.75,
-      "anterior": 23508.169921875,
-      "variacaoPct": -0.9078542591118843,
-      "percentil1a": 5,
+      "valor": 22410.8,
+      "anterior": 22841.619140625,
+      "variacaoPct": -1.8861147188062755,
+      "percentil1a": 0,
       "min1a": 22671.859375,
       "max1a": 27968.08984375,
       "serie30": [
-        24280.6,
-        24130.5,
         23785.8,
         24211.3,
         24271.2,
@@ -602,11 +601,13 @@
         24008.6,
         23637.6,
         23753.8,
-        23508.2
+        23508.2,
+        23294.8,
+        22841.6
       ],
-      "horaMercado": "2026-11-18T08:08:28.000Z",
+      "horaMercado": "2026-11-20T08:08:54.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "dax",
@@ -615,15 +616,13 @@
       "simbolo": "^GDAXI",
       "unidade": "pts",
       "casas": 0,
-      "valor": 25736.24,
-      "anterior": 26045.369140625,
-      "variacaoPct": -1.1868871543188275,
-      "percentil1a": 83,
+      "valor": 24802.78,
+      "anterior": 25463.810546875,
+      "variacaoPct": -2.5959608270653134,
+      "percentil1a": 41,
       "min1a": 22300.75,
       "max1a": 26771.880859375,
       "serie30": [
-        24807,
-        25087.3,
         25277.7,
         25259.9,
         25298.6,
@@ -651,11 +650,13 @@
         26749.9,
         26598.6,
         26045.4,
-        25736.2
+        25736.2,
+        25463.8,
+        24802.8
       ],
-      "horaMercado": "2026-11-18T17:00:00.000Z",
+      "horaMercado": "2026-11-20T17:00:00.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "stoxx",
@@ -664,15 +665,13 @@
       "simbolo": "^STOXX50E",
       "unidade": "pts",
       "casas": 0,
-      "valor": 6154.39,
-      "anterior": 6212.10986328125,
-      "variacaoPct": -0.9291507161266144,
-      "percentil1a": 57,
+      "valor": 5941.95,
+      "anterior": 6113.85986328125,
+      "variacaoPct": -2.811805751612173,
+      "percentil1a": 33,
       "min1a": 5501.27978515625,
       "max1a": 6551.22021484375,
       "serie30": [
-        6126.73,
-        6173.37,
         6201.21,
         6167.01,
         6190.37,
@@ -700,11 +699,13 @@
         6386.86,
         6348.35,
         6212.11,
-        6154.39
+        6154.39,
+        6113.86,
+        5941.95
       ],
-      "horaMercado": "2026-11-18T17:00:00.000Z",
+      "horaMercado": "2026-11-20T17:00:00.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "btc",
@@ -713,15 +714,13 @@
       "simbolo": "BTC-USD",
       "unidade": "US$",
       "casas": 0,
-      "valor": 63193.54,
-      "anterior": 64893.9453125,
-      "variacaoPct": -2.6202834552770837,
-      "percentil1a": 8,
+      "valor": 58901.33,
+      "anterior": 61901.8203125,
+      "variacaoPct": -4.847176217682403,
+      "percentil1a": 1,
       "min1a": 58558.859375,
       "max1a": 96929.328125,
       "serie30": [
-        82941,
-        84012,
         81311.9,
         81074.2,
         80790.8,
@@ -749,11 +748,13 @@
         65305.1,
         64855.8,
         64893.9,
-        63193.5
+        62987.3,
+        61901.8,
+        58901.3
       ],
-      "horaMercado": "2026-11-18T18:47:19.000Z",
+      "horaMercado": "2026-11-20T18:30:34.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "ibov",
@@ -762,14 +763,13 @@
       "simbolo": "^BVSP",
       "unidade": "pts",
       "casas": 0,
-      "valor": 168140.36,
-      "anterior": 169817,
-      "variacaoPct": -0.9873216462427337,
-      "percentil1a": 22,
+      "valor": 166376.44,
+      "anterior": 167538,
+      "variacaoPct": -0.6933113681672154,
+      "percentil1a": 18,
       "min1a": 154770,
       "max1a": 209067,
       "serie30": [
-        205835,
         204302,
         206220,
         209067,
@@ -798,11 +798,12 @@
         172458,
         169295,
         169817,
-        168140
+        167538,
+        166376
       ],
-      "horaMercado": "2026-11-18T18:32:01.000Z",
+      "horaMercado": "2026-11-19T21:20:00.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "ewz",
@@ -811,15 +812,13 @@
       "simbolo": "EWZ",
       "unidade": "US$",
       "casas": 2,
-      "valor": 30.31,
-      "anterior": 31.020000457763672,
-      "variacaoPct": -2.2888473477954863,
+      "valor": 28.835,
+      "anterior": 29.510000228881836,
+      "variacaoPct": -2.2873609747423918,
       "percentil1a": 0,
-      "min1a": 30.309999465942383,
+      "min1a": 28.834999084472656,
       "max1a": 43.540000915527344,
       "serie30": [
-        42.59,
-        43.54,
         43.54,
         42.87,
         42.6,
@@ -847,11 +846,13 @@
         32.22,
         30.92,
         31.02,
-        30.31
+        30.07,
+        29.51,
+        28.835
       ],
-      "horaMercado": "2026-11-18T18:47:25.000Z",
+      "horaMercado": "2026-11-20T18:30:41.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "brl",
@@ -860,15 +861,13 @@
       "simbolo": "BRL=X",
       "unidade": "R$",
       "casas": 4,
-      "valor": 5.8451,
-      "anterior": 5.782599925994873,
-      "variacaoPct": 1.0808299865976645,
+      "valor": 5.9488,
+      "anterior": 5.881700038909912,
+      "variacaoPct": 1.140825962667158,
       "percentil1a": 100,
       "min1a": 4.906400203704834,
-      "max1a": 5.845099925994873,
+      "max1a": 5.948800086975098,
       "serie30": [
-        5.0192,
-        5.0177,
         4.9859,
         4.985,
         5.0258,
@@ -896,11 +895,13 @@
         5.6407,
         5.6648,
         5.7826,
-        5.8451
+        5.7768,
+        5.8817,
+        5.9488
       ],
-      "horaMercado": "2026-11-18T18:47:28.000Z",
+      "horaMercado": "2026-11-20T18:19:15.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "vxewz",
@@ -909,18 +910,18 @@
       "simbolo": "^VXEWZ",
       "unidade": "pts",
       "casas": 1,
-      "valor": 35.62,
-      "anterior": 35.65,
-      "variacaoPct": -0.08415147265077305,
+      "valor": 37.77,
+      "anterior": 36.24,
+      "variacaoPct": 4.221854304635775,
       "percentil1a": null,
-      "min1a": 35.619998931884766,
-      "max1a": 35.619998931884766,
+      "min1a": 37.77000045776367,
+      "max1a": 37.77000045776367,
       "serie30": [
-        35.62
+        37.77
       ],
-      "horaMercado": "2026-11-18T18:32:16.000Z",
+      "horaMercado": "2026-11-20T18:15:31.000Z",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "ewz_hl",
@@ -929,15 +930,13 @@
       "simbolo": "xyz:EWZ",
       "unidade": "US$",
       "casas": 2,
-      "valor": 30.307,
-      "anterior": 30.985,
-      "variacaoPct": -2.1881555591415247,
-      "percentil1a": 1,
-      "min1a": 30.294,
+      "valor": 28.832,
+      "anterior": 29.737,
+      "variacaoPct": -3.0433466724955394,
+      "percentil1a": 0,
+      "min1a": 28.839,
       "max1a": 45.267,
       "serie30": [
-        43.15,
-        42.524,
         41.927,
         42.853,
         45.267,
@@ -965,11 +964,13 @@
         31.801,
         30.96,
         31.102,
-        30.294
+        30.29,
+        29.616,
+        28.839
       ],
-      "horaMercado": "2026-11-18T18:47:03.001Z",
+      "horaMercado": "2026-11-20T18:30:17.470Z",
       "fonte": "Hyperliquid (perp xyz, 24/7)",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "spx_hl",
@@ -978,15 +979,13 @@
       "simbolo": "xyz:SP500",
       "unidade": "pts",
       "casas": 0,
-      "valor": 7354.2,
-      "anterior": 7338.5,
-      "variacaoPct": 0.21394017851059655,
-      "percentil1a": 24,
+      "valor": 7016.6,
+      "anterior": 7238.1,
+      "variacaoPct": -3.0601953551346317,
+      "percentil1a": 12,
       "min1a": 6322.6,
       "max1a": 7827.5,
       "serie30": [
-        7732.3,
-        7718.3,
         7663.8,
         7624.4,
         7630.8,
@@ -1014,11 +1013,13 @@
         7587.2,
         7425.7,
         7397.3,
-        7354.1
+        7357.2,
+        7173.7,
+        7016.4
       ],
-      "horaMercado": "2026-11-18T18:47:03.001Z",
+      "horaMercado": "2026-11-20T18:30:17.470Z",
       "fonte": "Hyperliquid (perp xyz, 24/7)",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "volibov",
@@ -1027,14 +1028,13 @@
       "simbolo": "^BVSP (calc.)",
       "unidade": "% a.a.",
       "casas": 1,
-      "valor": 55.07,
-      "anterior": 55.86,
-      "variacaoPct": -1.409354550745423,
+      "valor": 55.09,
+      "anterior": 55.08,
+      "variacaoPct": 0.024006590818070883,
       "percentil1a": 93,
       "min1a": 10.782149193396638,
       "max1a": 63.413566752337644,
       "serie30": [
-        29.88,
         29.77,
         29.62,
         29.53,
@@ -1063,11 +1063,12 @@
         55.89,
         55.74,
         55.86,
-        55.07
+        55.08,
+        55.09
       ],
-      "horaMercado": "2026-11-18T18:32:01.000Z",
+      "horaMercado": "2026-11-19T21:20:00.000Z",
       "fonte": "calculado sobre Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     },
     {
       "id": "volbrl",
@@ -1076,15 +1077,13 @@
       "simbolo": "BRL=X (calc.)",
       "unidade": "% a.a.",
       "casas": 1,
-      "valor": 29.96,
-      "anterior": 30.16,
-      "variacaoPct": -0.6656604280999123,
-      "percentil1a": 93,
+      "valor": 30.2,
+      "anterior": 30.19,
+      "variacaoPct": 0.04777256799683993,
+      "percentil1a": 95,
       "min1a": 6.652304032592024,
       "max1a": 34.85937164711619,
       "serie30": [
-        18.07,
-        18.07,
         18.15,
         17.99,
         18.3,
@@ -1112,11 +1111,13 @@
         30.3,
         29.99,
         30.16,
-        29.96
+        30.08,
+        30.19,
+        30.2
       ],
-      "horaMercado": "2026-11-18T18:47:28.000Z",
+      "horaMercado": "2026-11-20T18:19:15.000Z",
       "fonte": "calculado sobre Yahoo Finance",
-      "ts": "2026-11-18T18:47:03.001Z"
+      "ts": "2026-11-20T18:30:17.470Z"
     }
   ]
 }

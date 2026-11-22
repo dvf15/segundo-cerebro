@@ -49,6 +49,23 @@ Fontes de preço, em ordem de tentativa:
 Se todos falharem para um ticker, o valor anterior é preservado e marcado como
 defasado — o painel nunca substitui um preço bom por lixo.
 
+Fora de pregão, o endpoint da B3 continua respondendo, mas com dado que não
+descreve o dia corrente: ele já rolou `prvsDayAdjstmntPric` para o fechamento da
+última sessão e segue reajustando `curPrc` depois dela. A variação sai da
+comparação entre duas medidas da *mesma* sessão — pequena, plausível e sem
+significado — e o candle do dia vira cópia do pregão anterior.
+
+Por isso o coletor só aceita cotação da B3 como observação do dia dentro da
+janela de pregão: dia útil, das 13h às 22h UTC (a folga até 22h cobre os crons
+de 21:23 e 21:38, que pegam o fechamento). Fora dela, preserva preço e variação
+da última sessão e não grava candle. Há ainda uma segunda guarda para feriado
+dentro da janela: se *todos* os papéis da B3 voltarem exatamente no fechamento
+anterior, o coletor conclui que não houve sessão — a checagem é sobre a carteira
+inteira porque um papel isolado pode fechar no zero a zero de verdade.
+
+A guarda cobre só os papéis da B3. Os ativos dos EUA ainda podem receber um
+candle datado do dia quando a rotina roda com a bolsa fechada.
+
 ### Publicação
 
 `.github/workflows/publicar-painel.yml` publica a raiz do repositório no GitHub

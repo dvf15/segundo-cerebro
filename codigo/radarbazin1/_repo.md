@@ -10,7 +10,7 @@ commit: "71ed500"
 files: 362
 size_mb: 23.7
 skipped: 8
-branches_with_work: 22
+branches_with_work: 24
 tags: ["codigo", "github", "repo/radarbazin1"]
 ---
 # radarbazin1
@@ -20,7 +20,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 - **GitHub:** https://github.com/dvf15/radarbazin1
 - **Branch padrão espelhado:** main · **commit:** 71ed500 · **último commit:** 2026-11-19T10:25:41-03:00
 - **Código-fonte do branch padrão:** pasta `src/` (362 arquivos, 23.7 MB). Histórico de commits fica no GitHub.
-- **Trabalho em outros branches:** pasta `branches/` (22 branches, 352 arquivos, 81.9 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
+- **Trabalho em outros branches:** pasta `branches/` (24 branches, 354 arquivos, 82.3 MB). Cada pasta traz só os arquivos novos ou alterados no branch desde que divergiu do padrão.
 
 ## Arquivos do branch padrão acima de 20 MB (só no GitHub)
 
@@ -48,6 +48,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 | `claude/media-screening-tool-executives-xlp20a` | `branches/claude-media-screening-tool-executives-xlp20a/` | 2 | 2 (+2 só no GitHub) | 2026-10-27 — Radar de Mídia: vídeos do fluxo revisado e das mudanças pedidas no teste |
 | `claude/media-vehicle-reit-analysis-dekwqf` | `branches/claude-media-vehicle-reit-analysis-dekwqf/` | 3 | 29 | 2026-06-26 — Add Obsidian vault: concept stubs, deep-dive notes, README as MOC |
 | `claude/radar-auditoria` | `branches/claude-radar-auditoria/` | 2 | 43 (+2 só no GitHub) | 2026-11-16 — Radar de Auditoria no template e paleta do Radar de Varejo |
+| `claude/radar-eventos-cluster-dcl` | `branches/claude-radar-eventos-cluster-dcl/` | 1 | 1 | 2026-11-20 — Radar de Eventos: cluster, Event Occupancy Score e Deal Conversion |
 | `claude/seguro-lojas-estrategia-auzz4y` | `branches/claude-seguro-lojas-estrategia-auzz4y/` | 3 | 4 | 2026-08-23 — docs: deck PPTX do material de pre-comite de Seguro para Lojas |
 | `claude/shopping-ai-efficiency-presentation-vlfzql` | `branches/claude-shopping-ai-efficiency-presentation-vlfzql/` | 134 | 137 (+1 só no GitHub) | 2026-10-29 — Workshop: versao final (VF) a partir do PDF de referencia + versao de 1h30 pa |
 | `claude/shopping-app-guidelines-pzkv93` | `branches/claude-shopping-app-guidelines-pzkv93/` | 2 | 1 | 2026-07-21 — Adiciona Ciclo 2 das orientações: Goal, shopping ativo e revisão dos agentes |
@@ -58,6 +59,7 @@ Radar de shopping centers: docs, workflows de leads, app bloquinhos
 | `claude/training-markdown-file-11rsdm` | `branches/claude-training-markdown-file-11rsdm/` | 1 | 1 | 2026-07-07 — Adiciona treinamento Shopping Inteligente IA (Mooca Plaza) em Markdown |
 | `claude/treino-funcional-jiu-jitsu-hhyk9q` | `branches/claude-treino-funcional-jiu-jitsu-hhyk9q/` | 1 | 1 | 2026-07-19 — Agenda semanal padrao do dono: musculacao, BJJ e HIIT por dia da semana |
 | `claude/via-center-niteroi-development-3sqqae` | `branches/claude-via-center-niteroi-development-3sqqae/` | 8 | 5 | 2026-09-02 — Dossie Via Center: compacta o slide de riscos para a regularidade do Plaza |
+| `claude/vigilant-lamport-7m21is` | `branches/claude-vigilant-lamport-7m21is/` | 1 | 1 | 2026-11-20 — Radar de Eventos: cluster, Event Occupancy Score e Deal Conversion |
 | `nutritreino` | `branches/nutritreino/` | 29 | 43 | 2026-11-14 — Aumenta um pouco a fonte dos textos do app (+1px nos tamanhos pequenos) (#182 |
 
 **Só no GitHub (`claude/media-screening-tool-executives-xlp20a`):** public/midia-o-que-mudou.mp4 (vídeo), public/midia-passo-a-passo-celular.mp4 (vídeo)

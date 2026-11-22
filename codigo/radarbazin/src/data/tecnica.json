@@ -1,210 +1,215 @@
 {
-  "atualizadoEm": "2026-11-19T02:46:50.244Z",
+  "atualizadoEm": "2026-11-21T02:47:19.682Z",
   "metodo": "Volume Profile (POC, Value Area 70%, HVNs) + pivôs de swing (fractais de 5 barras) + MM21/MM200, sobre candles diários de 1 ano. Valores com origem 'manual' foram levantados em análises publicadas e são substituídos pelo cálculo automático na primeira execução do workflow.",
   "ativos": {
     "ALOS3": {
-      "preco": 26.21,
+      "preco": 25.75,
       "suporte": 25.2,
       "suporteBase": [
         "pivô"
       ],
-      "resistencia": 27.81,
+      "resistencia": 26.81,
       "resistenciaBase": [
-        "pivô"
+        "HVN"
       ],
-      "poc": 28.55,
-      "val": 26.29,
-      "vah": 31.73,
-      "mm21": 27.56,
-      "mm200": 29.16,
+      "poc": 28.8,
+      "val": 26.31,
+      "vah": 31.62,
+      "mm21": 27.09,
+      "mm200": 29.13,
       "max52": 36.26,
-      "min52": 0,
+      "min52": 23,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "ITSA4": {
-      "preco": 13.15,
-      "suporte": 12.32,
+      "preco": 13.17,
+      "suporte": 12.89,
       "suporteBase": [
-        "pivô"
-      ],
-      "resistencia": 13.45,
-      "resistenciaBase": [
-        "pivô",
         "HVN",
         "POC"
       ],
-      "poc": 13.51,
-      "val": 12.06,
-      "vah": 14.55,
-      "mm21": 13.59,
+      "resistencia": 13.31,
+      "resistenciaBase": [
+        "HVN",
+        "pivô"
+      ],
+      "poc": 12.89,
+      "val": 12,
+      "vah": 14.32,
+      "mm21": 13.47,
       "mm200": 13.73,
       "max52": 16.63,
-      "min52": 0,
+      "min52": 11.19,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "BBDC4": {
-      "preco": 14.08,
+      "preco": 13.83,
       "suporte": 13.44,
       "suporteBase": [
-        "pivô"
+        "pivô",
+        "mínima 52s"
       ],
-      "resistencia": 14.84,
+      "resistencia": 14.04,
       "resistenciaBase": [
-        "pivô"
+        "HVN"
       ],
-      "poc": 18.11,
-      "val": 17.25,
-      "vah": 21.27,
-      "mm21": 15.57,
-      "mm200": 18.48,
+      "poc": 18.1,
+      "val": 17.26,
+      "vah": 21.33,
+      "mm21": 15.25,
+      "mm200": 18.44,
       "max52": 23,
-      "min52": 0,
+      "min52": 13.44,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "CMIG4": {
-      "preco": 10.93,
-      "suporte": 10.69,
+      "preco": 10.94,
+      "suporte": 10.75,
       "suporteBase": [
+        "HVN",
         "pivô"
       ],
-      "resistencia": 11.11,
+      "resistencia": 11.05,
       "resistenciaBase": [
+        "HVN",
+        "POC",
         "pivô"
       ],
-      "poc": 10.92,
-      "val": 10.4,
-      "vah": 12.14,
-      "mm21": 10.72,
+      "poc": 11.01,
+      "val": 10.56,
+      "vah": 12.17,
+      "mm21": 10.68,
       "mm200": 11.43,
       "max52": 13.87,
-      "min52": 0,
+      "min52": 9.86,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "SAPR11": {
-      "preco": 33.79,
-      "suporte": 33.19,
+      "preco": 34.14,
+      "suporte": 33.77,
       "suporteBase": [
         "HVN",
-        "VAL"
+        "pivô"
       ],
       "resistencia": 35.62,
       "resistenciaBase": [
         "pivô"
       ],
-      "poc": 37.15,
-      "val": 32.89,
-      "vah": 43.85,
-      "mm21": 34.04,
-      "mm200": 38.57,
+      "poc": 36.82,
+      "val": 32.2,
+      "vah": 42.89,
+      "mm21": 33.72,
+      "mm200": 38.5,
       "max52": 48.72,
-      "min52": 0,
+      "min52": 29.29,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "KLBN4": {
-      "preco": 3.41,
-      "suporte": 3.34,
+      "preco": 3.34,
+      "suporte": 3.3,
       "suporteBase": [
         "VAL",
         "pivô"
       ],
-      "resistencia": 3.45,
+      "resistencia": 3.43,
       "resistenciaBase": [
+        "HVN",
         "pivô"
       ],
-      "poc": 3.42,
-      "val": 3.37,
-      "vah": 3.89,
-      "mm21": 3.53,
+      "poc": 3.52,
+      "val": 3.31,
+      "vah": 3.77,
+      "mm21": 3.51,
       "mm200": 3.64,
       "max52": 4.21,
-      "min52": 0,
+      "min52": 3.24,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "TAEE11": {
-      "preco": 40.56,
-      "suporte": 39.68,
+      "preco": 40.17,
+      "suporte": 39.42,
       "suporteBase": [
         "pivô"
       ],
-      "resistencia": 41.72,
+      "resistencia": 41.07,
       "resistenciaBase": [
-        "MM200",
+        "pivô",
         "HVN",
         "POC",
-        "pivô"
+        "MM200"
       ],
-      "poc": 41.63,
-      "val": 38.7,
-      "vah": 43.39,
-      "mm21": 41.39,
-      "mm200": 41.33,
+      "poc": 41.22,
+      "val": 38.57,
+      "vah": 43.37,
+      "mm21": 41.12,
+      "mm200": 41.32,
       "max52": 46.91,
-      "min52": 0,
-      "tendencia": "lateral",
+      "min52": 36.8,
+      "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "BBSE3": {
-      "preco": 36.66,
-      "suporte": 36.36,
+      "preco": 36.99,
+      "suporte": 36.16,
       "suporteBase": [
         "pivô"
       ],
-      "resistencia": 37.98,
+      "resistencia": 37.56,
       "resistenciaBase": [
-        "MM200",
-        "HVN"
+        "HVN",
+        "MM200"
       ],
-      "poc": 34.92,
-      "val": 33.26,
-      "vah": 39.91,
-      "mm21": 40.06,
-      "mm200": 37.72,
+      "poc": 34.86,
+      "val": 33.59,
+      "vah": 39.53,
+      "mm21": 39.81,
+      "mm200": 37.71,
       "max52": 44.34,
-      "min52": 0,
+      "min52": 33.02,
       "tendencia": "lateral",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "AURE3": {
-      "preco": 11.88,
-      "suporte": 11.66,
+      "preco": 11.91,
+      "suporte": 11.74,
       "suporteBase": [
         "HVN",
         "POC"
@@ -214,110 +219,112 @@
         "MM200",
         "pivô"
       ],
-      "poc": 11.66,
-      "val": 10.63,
-      "vah": 12.68,
-      "mm21": 12.12,
-      "mm200": 12.17,
+      "poc": 11.74,
+      "val": 10.65,
+      "vah": 12.66,
+      "mm21": 11.96,
+      "mm200": 12.18,
       "max52": 16.36,
-      "min52": 0,
+      "min52": 9.64,
       "tendencia": "baixa",
       "barras": 248,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 248 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "NVDA": {
-      "preco": 150.96,
-      "suporte": 148.8,
+      "preco": 125.53,
+      "suporte": 124.5,
       "suporteBase": [
         "mínima 52s"
       ],
-      "resistencia": 185.45,
+      "resistencia": 185.42,
       "resistenciaBase": [
         "HVN",
         "POC"
       ],
-      "poc": 185.45,
-      "val": 172.44,
-      "vah": 215,
-      "mm21": 190.61,
-      "mm200": 203.72,
+      "poc": 185.42,
+      "val": 172.05,
+      "vah": 216.62,
+      "mm21": 182.86,
+      "mm200": 203.35,
       "max52": 243.37,
-      "min52": 148.8,
+      "min52": 124.5,
       "tendencia": "baixa",
       "barras": 251,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 251 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "PLTR": {
-      "preco": 156.67,
-      "suporte": 153.21,
+      "preco": 143.49,
+      "suporte": 134.34,
       "suporteBase": [
-        "MM200",
-        "pivô"
+        "HVN",
+        "POC"
       ],
-      "resistencia": 163.7,
+      "resistencia": 150.33,
       "resistenciaBase": [
-        "pivô"
+        "HVN"
       ],
       "poc": 134.34,
       "val": 125.02,
       "vah": 175.64,
-      "mm21": 177.81,
-      "mm200": 153.83,
+      "mm21": 173.01,
+      "mm200": 153.97,
       "max52": 212.94,
       "min52": 106.37,
-      "tendencia": "alta",
+      "tendencia": "lateral",
       "barras": 251,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 251 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "TSLA": {
-      "preco": 383.72,
-      "suporte": 380.15,
+      "preco": 345.82,
+      "suporte": 338.15,
       "suporteBase": [
         "pivô"
       ],
-      "resistencia": 387.69,
+      "resistencia": 368.45,
       "resistenciaBase": [
-        "pivô"
+        "pivô",
+        "HVN"
       ],
       "poc": 400.62,
-      "val": 357.81,
-      "vah": 443.43,
-      "mm21": 386.14,
-      "mm200": 382.08,
+      "val": 352.78,
+      "vah": 438.39,
+      "mm21": 384.2,
+      "mm200": 381.66,
       "max52": 498.83,
       "min52": 297.38,
-      "tendencia": "alta",
+      "tendencia": "lateral",
       "barras": 251,
       "origem": "calculado",
       "fonte": "Yahoo Finance, 251 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "SPY": {
-      "preco": 730.2,
-      "suporte": 719.59,
+      "preco": 689.81,
+      "suporte": 644.51,
       "suporteBase": [
-        "pivô"
+        "VAL"
       ],
-      "resistencia": 743.54,
+      "resistencia": 739.31,
       "resistenciaBase": [
+        "MM200",
         "HVN",
         "VAH"
       ],
-      "poc": 684.5,
-      "val": 633.09,
-      "vah": 743.54,
-      "mm21": 754.64,
-      "mm200": 732.55,
+      "poc": 688.31,
+      "val": 644.51,
+      "vah": 747.34,
+      "mm21": 748.39,
+      "mm200": 732.76,
       "max52": 781.62,
       "min52": 629.28,
       "tendencia": "lateral",
@@ -325,11 +332,11 @@
       "origem": "calculado",
       "fonte": "Yahoo Finance, 251 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "VUAA": {
-      "preco": 141.84,
-      "suporte": 140.46,
+      "preco": 141.54,
+      "suporte": 140.04,
       "suporteBase": [
         "pivô"
       ],
@@ -340,10 +347,10 @@
         "pivô"
       ],
       "poc": 131.05,
-      "val": 125.51,
+      "val": 126.25,
       "vah": 146.19,
-      "mm21": 147.15,
-      "mm200": 141.93,
+      "mm21": 146.38,
+      "mm200": 142.02,
       "max52": 152.09,
       "min52": 122.56,
       "tendencia": "lateral",
@@ -351,7 +358,7 @@
       "origem": "calculado",
       "fonte": "Yahoo Finance, 253 candles diários",
       "confianca": 7,
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     }
   }
 }

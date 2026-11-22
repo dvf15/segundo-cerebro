@@ -1,19 +1,19 @@
 ---
 title: "Início"
-generated: 2026-11-19
+generated: 2026-11-22
 total: 874
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_874 notas indexadas · gerado em 2026-11-19_
+_874 notas indexadas · gerado em 2026-11-22_
 
 ## Mapas de conteúdo
 
 - [[00-index/Conversas|Conversas do claude.ai]] — 268
 - [[00-index/Projetos|Projetos do claude.ai]] — 103
 - [[00-index/Sessoes-Code|Sessões do Claude Code]] — 1
-- [[00-index/Artifacts|Artifacts]] — 27
+- [[00-index/Artifacts|Artifacts]] — 28
 - [[00-index/Skills|Skills (SKILL.md)]] — 44
 - [[00-index/Codigo|Código e documentação dos repositórios]] — 4
 - [[00-index/Memoria|Memória do Claude]] — 51
@@ -27,9 +27,10 @@ _874 notas indexadas · gerado em 2026-11-19_
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
+| 2026-11-21 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-19 | [[claude/artifacts/radar-de-legalizacoes-promo/radar-de-legalizacoes-promo\|Radar de Legalizações Promo]] | claude-artifact |
-| 2026-11-19 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-19 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
+| 2026-11-19 | [[claude/artifacts/regional-inteligente-evolucao-do-projeto/regional-inteligente-evolucao-do-projeto\|Regional Inteligente — evolução do projeto (reporte ao Diretor Executivo de Operações)]] | claude-artifact |
 | 2026-11-19 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-16 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas — Gestão e Aprovação]] | claude-artifact |
 | 2026-11-16 | [[claude/artifacts/radar-de-renovacoes-mobile/radar-de-renovacoes-mobile\|Radar de Renovações Mobile]] | claude-artifact |
@@ -66,7 +67,6 @@ _874 notas indexadas · gerado em 2026-11-19_
 | 2026-10-19 | [[claude/projetos/manual-operacional/claude-mo-5-academia-operacional-md_1a13c50f\|claude/mo-5-academia-operacional.md]] | claude-project-doc |
 | 2026-10-19 | [[claude/projetos/manual-operacional/claude-mo-6-lideranca-e-gestao-md_d54d4e9a\|claude/mo-6-lideranca-e-gestao.md]] | claude-project-doc |
 | 2026-10-19 | [[claude/projetos/manual-operacional/claude-mo-7-programa-pro-md_efc201f0\|claude/mo-7-programa-pro.md]] | claude-project-doc |
-| 2026-10-19 | [[claude/conversas/2026-10/2026-10-19_erros-de-execucao-da-obra_d59206f9\|Erros de execução da obra]] | claude-chat |
 
 ## Como manter
 

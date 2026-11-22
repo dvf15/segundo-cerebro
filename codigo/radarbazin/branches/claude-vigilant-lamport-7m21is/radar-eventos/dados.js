@@ -79,6 +79,39 @@
   var TIPOS_AREA = ['Praça de eventos', 'Área interna (mall)', 'Área externa', 'Estacionamento', 'Outro'];
   var PIPELINE = ['Novo', 'Contatado', 'Reunião', 'Proposta', 'Parceiro ativo', 'Descartado'];
 
+  /* Clusters e batalhas — Shopping Inteligente OS v5 (02_CONTEXTO_CLUSTERIZACAO_POSICIONAMENTO_v5).
+     A ordem das batalhas é a prioridade do cluster. */
+  var CLUSTERS = [
+    { nome: 'Sofisticados', essencia: 'Vitrines que ampliam seu mundo.', batalhas: ['Lojas', 'Gastronomia', 'Hospitality'] },
+    { nome: 'Compactos de Alto Padrão', essencia: 'Proximidade que realiza o seu dia, do seu jeito.', batalhas: ['Serviços', 'Gastronomia', 'Relacionamento com o entorno', 'Jornada sem fricção'] },
+    { nome: 'Entretenimento', essencia: 'Seu portal para um mundo de diversão.', batalhas: ['Entretenimento', 'Gastronomia', 'Lojas'] },
+    { nome: 'Passeio Familiar', essencia: 'Referência que acompanha e expande a sua vida.', batalhas: ['Gastronomia', 'Entretenimento', 'Ambiência'] },
+    { nome: 'Imensos', essencia: 'Um universo de infinitas possibilidades.', batalhas: ['Entretenimento', 'Gastronomia', 'Ambiência'] },
+    { nome: 'Convenientes', essencia: 'O shopping sob medida para você.', batalhas: ['Serviços', 'Gastronomia', 'Relacionamento com o entorno', 'Jornada sem fricção'] }
+  ];
+  var FORA_BATALHA = 'Fora das batalhas do cluster';
+
+  /* Event Occupancy Score — pesos do dicionário v5 (08_DICIONARIO_DADOS_SCORES_UNDERWRITING_v5). Soma 100.
+     auto: calculado pelo app a partir de outros dados; os demais são nota 0–5 dada pelo time. */
+  var EOS_CRITERIOS = [
+    { id: 'fitCluster', nome: 'Fit com o cluster', peso: 20, guia: '5 = atende a 1ª batalha do cluster e o target central · 3 = atende batalha secundária · 0 = fora das batalhas' },
+    { id: 'atratividade', nome: 'Atratividade', peso: 20, guia: '5 = atração inédita na praça, com histórico de público comprovado · 0 = conceito já saturado na região' },
+    { id: 'seguranca', nome: 'Segurança', peso: 15, auto: true, guia: 'Automático: regras do caderno técnico avaliadas na aba Viabilidade' },
+    { id: 'patrocinio', nome: 'Patrocínio', peso: 10, guia: '5 = cotas fechadas ou com proposta aceita · 3 = anunciantes em negociação · 0 = sem prospecção' },
+    { id: 'fluxo', nome: 'Fluxo', peso: 15, guia: '5 = gera visita dedicada (motivo de vinda) · 3 = retém o público que já vem · 0 = não altera fluxo' },
+    { id: 'lojistas', nome: 'Lojistas conectados', peso: 10, guia: '5 = ação combinada com lojistas (PB, cupom, ativação) · 0 = evento isolado do mix' },
+    { id: 'montagem', nome: 'Complexidade de montagem (5 = simples)', peso: 5, guia: '5 = montagem leve, sem obra nem estrutura · 0 = estrutura pesada, longa e de alto risco' },
+    { id: 'recorrencia', nome: 'Recorrência', peso: 5, guia: '5 = edição anual/recorrente confirmada · 3 = recorrência possível · 0 = evento único' }
+  ];
+
+  /* Deal Conversion Layer — estágios v5 (05_SKILL_1_DEAL_CONVERSION_LAYER_v5) e correspondência com o fluxo do evento. */
+  var DCL_ESTAGIOS = ['Lead', 'Qualified Lead', 'Contacted', 'Meeting Scheduled', 'Meeting Done', 'Proposal', 'Technical Feasibility', 'Investor Match',
+    'Contract Negotiation', 'Contract Signed', 'Construction / Obra', 'Opening', 'Ramp-up', 'Seller Plan Active', 'Performance Review', 'Lost / Parked'];
+  var ETAPA_DCL = { prospeccao: 'Lead', qualificacao: 'Qualified Lead', visita: 'Meeting Done', viabilidade: 'Technical Feasibility', proposta: 'Proposal',
+    contrato: 'Contract Negotiation', assinaturas: 'Contract Negotiation', documentacao: 'Contract Signed', montagem: 'Construction / Obra',
+    operacao: 'Opening', encerramento: 'Performance Review', cancelado: 'Lost / Parked' };
+
   root.RadarDados = { ETAPAS: ETAPAS, CONTRATO_STATUS: CONTRATO_STATUS, CONTRATO_TIPOS: CONTRATO_TIPOS, DOCS_MODELO: DOCS_MODELO,
-    REGRAS_MODELO: REGRAS_MODELO, TEMAS: TEMAS, TIPOS_AREA: TIPOS_AREA, PIPELINE: PIPELINE };
+    REGRAS_MODELO: REGRAS_MODELO, TEMAS: TEMAS, TIPOS_AREA: TIPOS_AREA, PIPELINE: PIPELINE,
+    CLUSTERS: CLUSTERS, FORA_BATALHA: FORA_BATALHA, EOS_CRITERIOS: EOS_CRITERIOS, DCL_ESTAGIOS: DCL_ESTAGIOS, ETAPA_DCL: ETAPA_DCL };
 })(typeof globalThis !== 'undefined' ? globalThis : this);

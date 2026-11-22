@@ -24,6 +24,9 @@ Ordem sugerida: **Shopping & caderno técnico** → **Áreas** → **Prospecçã
 | Eventos — documentos | Checklist de abertura por evento, copiado de um modelo editável |
 | Eventos — simulador | Bilheteria potencial em 3 cenários, locação (fixa ou por m²/dia, somada ou "maior entre" com % da bilheteria), sublocação e mídia |
 | Eventos — mídia | Prompt de pesquisa de anunciantes baseado no entorno, no momento e no tema; registro dos anunciantes prospectados |
+| Eventos — cluster e score | Cluster do evento (ou do shopping) e batalha atendida, com justificativa. **Event Occupancy Score** 0–100 com os pesos do OS v5: fit cluster 20, atratividade 20, segurança 15 (automático, pelas regras avaliadas), patrocínio 10, fluxo 15, lojistas conectados 10, montagem 5, recorrência 5. Cluster Fit = nota de fit × 20 |
+| Eventos — Deal Conversion | Dono, próxima ação, prazo, blocker, probabilidade, apoio, sponsor, critério de kill e revisão. Estágio do OS derivado da etapa do fluxo; regras do OS aplicadas (sem dono, ação > 7 dias, proposta sem blocker, fit < 40, fit > 85) e decisão sugerida |
+| Deal Conversion (tela) | Pipeline de todos os eventos no formato do OS, KPIs, impacto ponderado; exporta CSV (Excel pt-BR), JSON e Markdown para o comitê semanal |
 | Prospecção no raio | Buscas prontas (Google/Maps) e prompt de pesquisa de operadores por tema; a resposta em JSON é importada para o pipeline |
 | Operadores | Pipeline em kanban |
 
@@ -34,6 +37,8 @@ Ordem sugerida: **Shopping & caderno técnico** → **Áreas** → **Prospecçã
 - **Regras e documentos são modelos genéricos.** Substitua pelo caderno técnico
   oficial do shopping e pelas exigências do Corpo de Bombeiros e da prefeitura
   locais; valide o checklist com o jurídico.
+- **Score não fecha com nota faltando.** O Event Occupancy Score só aparece com cluster, batalha e todas as notas. As faixas reaproveitam as do Cluster Fit (o dicionário v5 não define faixas próprias) e a regra de segurança (obrigatórias = 80% do peso, recomendações = 20%) é escolha do app.
+- **Conversion Score fica em branco** no export: o app não tem os dados para calculá-lo.
 - **A busca de operadores e anunciantes não é automática.** O app é estático e não
   chama APIs de busca: ele gera os links e os prompts, e importa o resultado.
 

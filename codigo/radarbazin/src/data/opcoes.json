@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-11-19T02:47:15.164Z",
+  "atualizadoEm": "2026-11-21T02:47:29.673Z",
   "origem": "scripts/opcoes.mjs",
   "objetivo": "Dividendo sintético para carteira previdenciária: vender put coberta por caixa em papel que se quer ter, com strike abaixo do preço, prazo curto e prêmio que, sozinho, renda pelo menos o CDI sobre o caixa reservado (que segue aplicado). Se exercido, compra o papel abaixo do teto Bazin; se não, embolsa o prêmio.",
   "regras": {
@@ -14,10 +14,10 @@
   "taxas": {
     "BR": {
       "valor": 0.1365,
-      "fonte": "CDI anualizado (BCB SGS 4389, 17/11/2026)"
+      "fonte": "CDI anualizado (BCB SGS 4389, 19/11/2026)"
     },
     "US": {
-      "valor": 0.0506,
+      "valor": 0.04936,
       "fonte": "Treasury 10 anos (termômetro)"
     }
   },

@@ -77,10 +77,16 @@ async function viaB3(codigo) {
   const preco = [q.curPrc, q.closPric, q.avrgPric].map(num).find(bom);
   if (!bom(preco)) throw new Error(`B3 sem preço para ${codigo} (campos: ${Object.keys(q).join(",")})`);
   const anterior = num(q.prvsDayAdjstmntPric ?? q.prvsDayClosPric);
+  // Fora de pregão (fim de semana, feriado, antes da abertura) a B3 devolve o
+  // fechamento anterior como preço corrente: a variação sairia exatamente 0 e o
+  // candle do dia seria uma cópia do último pregão. Marcamos o caso e deixamos
+  // o chamador decidir — um papel isolado pode fechar no zero a zero de verdade.
+  const semGiro = bom(anterior) && Math.abs(preco - anterior) < 1e-8;
   return {
     preco,
     variacao: bom(anterior) ? (preco / anterior - 1) * 100 : null,
     fonte: "B3 (cotacao.b3.com.br)",
+    semGiro,
     candle: { o: num(q.opngPric), h: num(q.maxPric), l: num(q.minPric), c: preco, v: num(q.tradQty ?? q.trdQty ?? q.finVol ?? 0) || 0 },
   };
 }
@@ -161,6 +167,20 @@ async function cambioUsdBrl() {
 
 const agora = new Date().toISOString();
 const hoje = agora.slice(0, 10);
+
+// A B3 opera das 13h às 21h UTC em dias úteis. Fora dessa janela o endpoint
+// continua respondendo, mas com dado que não descreve o dia corrente: já rolou
+// `prvsDayAdjstmntPric` para o fechamento da última sessão e segue ajustando
+// `curPrc` depois dela. A variação sai da comparação entre duas medidas da MESMA
+// sessão — um número pequeno e plausível, porém sem significado — e o candle do
+// dia vira cópia do pregão anterior. Observado em 20/11/2026 02:24 e 02:33 UTC,
+// quando os crons de 13:23 e 17:23 chegaram atrasados: ALOS3 saiu de -1,76%
+// (real, medido às 21:39) para +0,16% e +0,50%.
+// A folga até 22h UTC acomoda os crons de 21:23 e 21:38, que pegam o fechamento.
+const dataUtc = new Date(agora);
+const diaUtil = dataUtc.getUTCDay() >= 1 && dataUtc.getUTCDay() <= 5;
+const horaUtc = dataUtc.getUTCHours();
+const sessaoB3 = diaUtil && horaUtc >= 13 && horaUtc < 22;
 const lerJson = async (p, padrao) => { try { return JSON.parse(await readFile(p, "utf8")); } catch { return padrao; } };
 
 const anterior = await lerJson(arq.cotacoes, { cotacoes: {}, cambio: {} });
@@ -171,6 +191,7 @@ const saida = { atualizadoEm: agora, origem: "scripts/atualizar-cotacoes.mjs", n
 const tecnica = { atualizadoEm: agora, metodo: tecnicaAnterior.metodo, ativos: { ...tecnicaAnterior.ativos } };
 
 let sucessos = 0, mantidos = 0, niveis = 0;
+const giroB3 = new Map(); // ticker da B3 -> houve negócio novo hoje?
 
 for (const [ticker, cfg] of Object.entries(MAPA)) {
   const cadeia = [];
@@ -191,12 +212,26 @@ for (const [ticker, cfg] of Object.entries(MAPA)) {
     continue;
   }
 
+  // Fora da janela de pregão da B3 não há observação nova do dia: preserva preço
+  // e variação da última sessão e não inventa candle. O preço que o endpoint
+  // devolve aqui é reajuste do fechamento anterior, não negócio de hoje.
+  if (cfg.b3 && !sessaoB3) {
+    const previa = anterior.cotacoes?.[ticker];
+    if (previa) {
+      saida.cotacoes[ticker] = { ...previa };
+      mantidos += 1;
+      console.log(`  ${ticker}: fora de pregão, mantendo ${previa.preco} (${previa.variacao}%)`);
+      continue;
+    }
+  }
+
   saida.cotacoes[ticker] = {
     preco: Number(cot.preco.toFixed(4)),
     variacao: cot.variacao == null ? null : Number(cot.variacao.toFixed(2)),
     moeda: cfg.moeda, fonte: cot.fonte, ts: agora,
   };
   sucessos += 1;
+  if (cfg.b3 && cot.semGiro !== undefined) giroB3.set(ticker, !cot.semGiro);
   console.log(`  ${ticker}: ${cot.preco} (${cot.fonte})`);
 
   // histórico próprio: um candle por dia
@@ -228,6 +263,20 @@ for (const [ticker, cfg] of Object.entries(MAPA)) {
   } else {
     console.warn(`  ${ticker}: histórico curto (${barras?.length ?? 0} candles), níveis mantidos`);
   }
+}
+
+// Se TODOS os papéis da B3 voltaram no fechamento anterior, não houve pregão —
+// um papel isolado pode fechar no zero a zero, a carteira inteira não. Nesse
+// caso a variação do dia seria um 0% falso e o candle, uma cópia do último
+// pregão: preserva a variação da última sessão e descarta o candle do dia.
+const b3Lidos = [...giroB3.keys()];
+if (b3Lidos.length > 0 && b3Lidos.every((t) => !giroB3.get(t))) {
+  for (const t of b3Lidos) {
+    saida.cotacoes[t].variacao = anterior.cotacoes?.[t]?.variacao ?? null;
+    const serie = historico.ativos[t];
+    if (serie) historico.ativos[t] = serie.filter((x) => x.d !== hoje);
+  }
+  console.log(`  B3 sem pregão em ${hoje}: variação da última sessão preservada, candle do dia descartado.`);
 }
 
 const cambio = await cambioUsdBrl();

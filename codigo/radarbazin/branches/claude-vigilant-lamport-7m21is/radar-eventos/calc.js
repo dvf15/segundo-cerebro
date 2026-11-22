@@ -175,7 +175,119 @@
     return { itens: r, falhas: falhas, faltas: faltas, veredito: falhas ? 'inviavel' : faltas ? 'pendente' : 'apto' };
   }
 
-  var api = { num: num, diasEntre: diasEntre, simular: simular, viabilidade: viabilidade, conflitos: conflitos };
+  /* ---------- Cluster e batalha ---------- */
+  function clusterDef(defs, nome) { return (defs.CLUSTERS || []).filter(function (c) { return c.nome === nome; })[0] || null; }
+
+  /* Faixas do Cluster Fit (OS v5). [SISTEMA] Reaproveitadas para o Event Occupancy Score, que não tem faixas próprias no dicionário. */
+  function faixa(score) {
+    if (score === null || score === undefined) return null;
+    if (score <= 40) return { id: 'baixo', nome: 'Baixo fit', acao: 'Não priorizar, salvo emergência de ocupação da praça' };
+    if (score <= 70) return { id: 'aceitavel', nome: 'Fit aceitável', acao: 'Priorizar só com pressão de ocupação ou ganho financeiro claro' };
+    if (score <= 85) return { id: 'forte', nome: 'Fit forte', acao: 'Priorizar' };
+    return { id: 'estrategico', nome: 'Fit estratégico', acao: 'Priorizar com sponsor executivo, mesmo com negociação mais difícil' };
+  }
+
+  /* Segurança [SISTEMA]: regra obrigatória "não atende" zera; obrigatória não avaliada deixa em falta;
+     com todas as obrigatórias atendidas vale 80% do peso, e os 20% restantes vêm das recomendações atendidas. */
+  function notaSeguranca(ev, caderno) {
+    var regras = (caderno && caderno.regras) || [];
+    if (!regras.length) return { nota: null, falta: 'regras do caderno técnico (Shopping & caderno técnico)' };
+    var m = ev.regras || {}, ob = regras.filter(function (g) { return g.obrigatoria; }), rec = regras.filter(function (g) { return !g.obrigatoria; });
+    if (ob.some(function (g) { return m[g.id] === 'nao'; })) return { nota: 0, detalhe: 'regra obrigatória não atendida' };
+    var semAval = ob.filter(function (g) { return m[g.id] !== 'atende' && m[g.id] !== 'na'; }).length;
+    if (semAval) return { nota: null, falta: semAval + ' regra(s) obrigatória(s) sem avaliação (aba Viabilidade)' };
+    var okRec = rec.filter(function (g) { return m[g.id] === 'atende' || m[g.id] === 'na'; }).length;
+    var frac = rec.length ? 0.8 + 0.2 * okRec / rec.length : 1;
+    return { nota: 5 * frac, detalhe: 'obrigatórias atendidas · recomendações ' + okRec + '/' + rec.length };
+  }
+
+  /* Event Occupancy Score (0–100). Nada é estimado: nota ausente deixa o score em aberto. */
+  function eventScore(ev, caderno, defs, clusterNome) {
+    ev = ev || {};
+    var notas = ev.eos || {}, faltas = [], itens = [], soma = 0, possivel = 0;
+    var cl = clusterNome || null, batalha = ev.batalha || '';
+    if (!cl) faltas.push('cluster do evento (ou do shopping)');
+    if (!batalha) faltas.push('batalha do cluster atendida pelo evento');
+    (defs.EOS_CRITERIOS || []).forEach(function (c) {
+      var nota, det = '';
+      if (c.id === 'seguranca') { var s = notaSeguranca(ev, caderno); nota = s.nota; det = s.detalhe || ''; if (nota === null) faltas.push('Segurança: ' + s.falta); }
+      else {
+        nota = num(notas[c.id]);
+        if (nota !== null && (nota < 0 || nota > 5)) { faltas.push(c.nome + ': nota fora da escala 0–5'); nota = null; }
+        else if (nota === null) faltas.push(c.nome + ': nota 0–5');
+      }
+      var pts = nota === null ? null : c.peso * nota / 5;
+      if (pts !== null) { soma += pts; possivel += c.peso; }
+      itens.push({ id: c.id, nome: c.nome, peso: c.peso, nota: nota, pontos: pts, detalhe: det, auto: !!c.auto });
+    });
+    var fitNota = num(notas.fitCluster);
+    var clusterFit = fitNota === null || fitNota < 0 || fitNota > 5 ? null : Math.round(fitNota * 20);
+    var alertas = [];
+    if (batalha === defs.FORA_BATALHA) alertas.push('Evento fora das batalhas do cluster: justificar ou rever o fit');
+    var def = cl ? clusterDef(defs, cl) : null;
+    if (def && batalha && batalha !== defs.FORA_BATALHA && def.batalhas.indexOf(batalha) < 0) alertas.push('Batalha "' + batalha + '" não pertence ao cluster ' + cl);
+    var score = faltas.length ? null : Math.round(soma);
+    return { score: score, faixa: faixa(score), apurado: Math.round(soma), possivel: possivel, itens: itens, faltas: faltas,
+      clusterFit: clusterFit, clusterFitFaixa: faixa(clusterFit), cluster: cl, batalha: batalha, alertas: alertas };
+  }
+
+  /* ---------- Deal Conversion Layer ---------- */
+  function somaDias(iso, d) { var x = new Date(iso + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + d); return x.toISOString().slice(0, 10); }
+
+  /* ctx: { shopping, area, operador, receitaBase, score (resultado de eventScore), hoje } */
+  function dealConversion(ev, ctx, defs) {
+    ev = ev || {}; ctx = ctx || {};
+    var d = ev.dcl || {}, hoje = ctx.hoje || new Date().toISOString().slice(0, 10), sc = ctx.score || {};
+    var estagio = (defs.ETAPA_DCL || {})[ev.etapa] || 'Lead';
+    var est = defs.DCL_ESTAGIOS || [], iEst = est.indexOf(estagio), iProp = est.indexOf('Proposal');
+    var perdido = estagio === 'Lost / Parked', encerrado = ev.etapa === 'encerramento';
+    var prob = num(d.probabilidade), alertas = [], faltas = [];
+    if (!perdido && !encerrado) {
+      if (!d.dono) alertas.push({ nivel: 'risco', txt: 'Sem dono: lead sem dono é risco' });
+      if (!d.proximaAcao || !d.prazo) alertas.push({ nivel: 'rebaixar', txt: 'Sem próxima ação com prazo: rebaixar' });
+      else if (d.prazo < hoje) alertas.push({ nivel: 'rebaixar', txt: 'Prazo da próxima ação vencido em ' + d.prazo.split('-').reverse().join('/') });
+      else if (d.prazo > somaDias(hoje, 7)) alertas.push({ nivel: 'rebaixar', txt: 'Próxima ação a mais de 7 dias: rebaixar' });
+      if (iEst >= iProp && !d.blocker) alertas.push({ nivel: 'cobrar', txt: 'Proposta sem blocker claro: cobrar' });
+      if (sc.clusterFit !== null && sc.clusterFit !== undefined && sc.clusterFit < 40) alertas.push({ nivel: 'pausar', txt: 'Cluster Fit abaixo de 40: pausar, salvo emergência de ocupação' });
+      if (sc.clusterFit !== null && sc.clusterFit !== undefined && sc.clusterFit > 85 && !d.sponsor) alertas.push({ nivel: 'sponsor', txt: 'Cluster Fit acima de 85: definir sponsor executivo' });
+      if (prob === null) faltas.push('probabilidade de fechamento');
+      if (ctx.receitaBase === null || ctx.receitaBase === undefined) faltas.push('impacto financeiro (simulação incompleta)');
+      if (!d.criterioKill) faltas.push('critério de matar ou pausar');
+    }
+    if (prob !== null && (prob < 0 || prob > 100)) { faltas.push('probabilidade fora de 0–100%'); prob = null; }
+    var niveis = alertas.map(function (a) { return a.nivel; });
+    var decisao = perdido ? 'Perdido / pausado' : encerrado ? 'Revisar performance' : niveis.indexOf('pausar') >= 0 ? 'Pausar' :
+      niveis.indexOf('rebaixar') >= 0 || niveis.indexOf('risco') >= 0 ? 'Rebaixar até definir dono e próxima ação' :
+      niveis.indexOf('cobrar') >= 0 ? 'Cobrar blocker' : sc.clusterFit > 85 ? 'Avançar com sponsor executivo' : 'Avançar';
+    var receita = ctx.receitaBase === undefined ? null : ctx.receitaBase;
+    return {
+      oportunidade_id: 'EVT-' + (ev.id || ''), shopping: (ctx.shopping && ctx.shopping.nome) || '', cluster: sc.cluster || '', batalha: ev.batalha || '',
+      tipo: 'evento', nome: ev.nome || '', categoria: ev.tema || '', loja_relacionada: (ctx.area && ctx.area.nome) || '', investidor_relacionado: '',
+      marca_relacionada: (ctx.operador && ctx.operador.nome) || '', estagio: estagio, dono: d.dono || '', proxima_acao: d.proximaAcao || '', prazo: d.prazo || '',
+      blocker: d.blocker || '', probabilidade_fechamento: prob, impacto_financeiro_estimado: receita,
+      impacto_ponderado: receita !== null && prob !== null ? receita * prob / 100 : null,
+      cluster_fit_score: sc.clusterFit === undefined ? null : sc.clusterFit, event_occupancy_score: sc.score === undefined ? null : sc.score,
+      conversion_score: null, apoio_necessario: d.apoio || '', sponsor_executivo: d.sponsor || '', criterio_de_kill: d.criterioKill || '',
+      ultima_atualizacao: d.ultimaAtualizacao || '', proxima_revisao: d.proximaRevisao || '', decisao: decisao, alertas: alertas, faltas: faltas
+    };
+  }
+
+  var COLS_DCL = ['oportunidade_id', 'shopping', 'cluster', 'batalha', 'tipo', 'nome', 'categoria', 'loja_relacionada', 'marca_relacionada', 'estagio', 'dono',
+    'proxima_acao', 'prazo', 'blocker', 'probabilidade_fechamento', 'impacto_financeiro_estimado', 'impacto_ponderado', 'cluster_fit_score', 'event_occupancy_score',
+    'apoio_necessario', 'sponsor_executivo', 'criterio_de_kill', 'ultima_atualizacao', 'proxima_revisao', 'decisao', 'alertas'];
+  /* CSV com ; e BOM para abrir direto no Excel em pt-BR. */
+  function csvDcl(regs) {
+    function cel(v) {
+      if (Array.isArray(v)) v = v.map(function (a) { return a.txt || a; }).join(' | ');
+      if (typeof v === 'number') v = String(Math.round(v * 100) / 100).replace('.', ',');
+      v = v === null || v === undefined ? '' : String(v);
+      return /[;"\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+    }
+    return '﻿' + [COLS_DCL.join(';')].concat(regs.map(function (r) { return COLS_DCL.map(function (c) { return cel(r[c]); }).join(';'); })).join('\r\n');
+  }
+
+  var api = { num: num, diasEntre: diasEntre, simular: simular, viabilidade: viabilidade, conflitos: conflitos,
+    faixa: faixa, notaSeguranca: notaSeguranca, eventScore: eventScore, dealConversion: dealConversion, csvDcl: csvDcl, COLS_DCL: COLS_DCL };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.RadarCalc = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

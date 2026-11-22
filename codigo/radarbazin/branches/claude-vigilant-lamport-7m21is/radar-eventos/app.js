@@ -10,8 +10,8 @@
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
   function estadoInicial() {
     return {
-      versao: 1,
-      shopping: { nome: '', endereco: '', cidade: '', uf: '', raioKm: null, perfil: '', fluxoMensal: null, entorno: '' },
+      versao: 2,
+      shopping: { nome: '', endereco: '', cidade: '', uf: '', raioKm: null, perfil: '', fluxoMensal: null, entorno: '', cluster: '', clusterStatus: '' },
       caderno: { folgaAlturaM: null, horarioMontagem: '', linkCaderno: '', observacoes: '',
         regras: D.REGRAS_MODELO.map(function (r) { return { id: uid(), texto: r.texto, obrigatoria: r.obrigatoria }; }) },
       docsModelo: D.DOCS_MODELO.map(function (d) { return { id: uid(), nome: d.nome, obrigatorio: d.obrigatorio, quando: d.quando }; }),
@@ -20,6 +20,22 @@
   }
   var S;
   try { S = JSON.parse(localStorage.getItem(CHAVE)) || estadoInicial(); } catch (e) { S = estadoInicial(); }
+  /* v1 → v2: cluster, batalha, Event Occupancy Score e Deal Conversion Layer por evento */
+  function migrar(st) {
+    st.shopping = st.shopping || {};
+    if (st.shopping.cluster === undefined) st.shopping.cluster = '';
+    if (st.shopping.clusterStatus === undefined) st.shopping.clusterStatus = '';
+    (st.eventos || []).forEach(function (e) {
+      if (e.cluster === undefined) e.cluster = '';
+      if (e.batalha === undefined) e.batalha = '';
+      e.eos = e.eos || {};
+      e.dcl = e.dcl || novoDcl();
+    });
+    st.versao = 2;
+    return st;
+  }
+  function novoDcl() { return { dono: '', proximaAcao: '', prazo: '', blocker: '', probabilidade: null, apoio: '', sponsor: '', criterioKill: '', proximaRevisao: '', ultimaAtualizacao: '' }; }
+  migrar(S);
   function salvar() {
     try { localStorage.setItem(CHAVE, JSON.stringify(S)); } catch (e) { toast('Não foi possível salvar no navegador: ' + e.message); }
   }
@@ -92,6 +108,7 @@
   /* ---------- domínio ---------- */
   function novoEvento() {
     return { id: uid(), nome: 'Novo evento', tema: '', descricao: '', areaId: '', operadorId: '', inicio: '', fim: '', etapa: 'prospeccao',
+      cluster: S.shopping.cluster || '', batalha: '', eos: {}, dcl: novoDcl(),
       historico: [{ etapa: 'prospeccao', data: hoje() }], tarefas: {}, regras: {},
       req: { areaM2: null, alturaM: null, cargaKva: null, agua: '', esgoto: '', publicoSimultaneo: null, cargaPisoKgM2: null },
       docs: S.docsModelo.map(function (d) { return { id: uid(), nome: d.nome, obrigatorio: d.obrigatorio, quando: d.quando, status: 'pendente', validade: '', obs: '' }; }),
@@ -114,6 +131,16 @@
   function etapaNome(ev) { return ev.etapa === 'cancelado' ? 'Cancelado' : (D.ETAPAS[etapaIdx(ev)] || {}).nome || '—'; }
   var VER = { apto: ['ok', 'Apto'], pendente: ['falta', 'Pendente'], inviavel: ['falha', 'Inviável'] };
   function seloViab(ev) { var v = viab(ev); return selo(VER[v.veredito][0], VER[v.veredito][1]); }
+  function clusterEv(ev) { return ev.cluster || S.shopping.cluster || ''; }
+  function score(ev) { return C.eventScore(ev, S.caderno, D, clusterEv(ev)); }
+  function deal(ev) {
+    return C.dealConversion(ev, { shopping: S.shopping, area: porId(S.areas, ev.areaId), operador: porId(S.operadores, ev.operadorId),
+      receitaBase: simu(ev).cenarios[1].total, score: score(ev), hoje: hoje() }, D);
+  }
+  var FAIXA_COR = { baixo: 'falha', aceitavel: 'falta', forte: 'ok', estrategico: 'ok' };
+  function seloScore(sc) { return sc.score === null ? selo('falta', 'Score em aberto') : selo(FAIXA_COR[sc.faixa.id], sc.score + ' · ' + sc.faixa.nome); }
+  var DEC_COR = { 'Avançar': 'ok', 'Avançar com sponsor executivo': 'ok', 'Cobrar blocker': 'falta', 'Revisar performance': 'falta', 'Pausar': 'falha', 'Perdido / pausado': '' };
+  function seloDec(r) { return selo(DEC_COR[r.decisao] !== undefined ? DEC_COR[r.decisao] : 'falha', r.decisao); }
 
   /* ---------- telas ---------- */
   var telas = {};
@@ -129,12 +156,13 @@
       '<div class="kpi"><b>' + S.areas.length + '</b><span>áreas cadastradas</span></div>' +
       '<div class="kpi"><b>' + ativos.length + '</b><span>eventos em andamento</span></div>' +
       '<div class="kpi"><b>' + S.operadores.filter(function (o) { return o.estagio !== 'Descartado'; }).length + '</b><span>operadores no pipeline</span></div>' +
-      '<div class="kpi"><b>' + (comSim ? brl(soma) : '—') + '</b><span>receita do shopping, cenário base (' + comSim + ' evento(s) com simulação completa' + (semSim ? '; ' + semSim + ' sem' : '') + ')</span></div></div>';
-    html += '<div class="card"><h2>Eventos por etapa</h2>' + (ativos.length ? '<div class="rolagem"><table><tr><th>Evento</th><th>Área</th><th>Período</th><th>Etapa</th><th>Viabilidade</th><th class="n">Receita base</th></tr>' +
+      '<div class="kpi"><b>' + (comSim ? brl(soma) : '—') + '</b><span>receita do shopping, cenário base (' + comSim + ' evento(s) com simulação completa' + (semSim ? '; ' + semSim + ' sem' : '') + ')</span></div>' +
+      '<div class="kpi"><b>' + (S.shopping.cluster ? h(S.shopping.cluster) : '—') + '</b><span>cluster do shopping' + (S.shopping.clusterStatus === 'inferido' ? ' (inferido — validar)' : '') + '</span></div></div>';
+    html += '<div class="card"><h2>Eventos por etapa</h2>' + (ativos.length ? '<div class="rolagem"><table><tr><th>Evento</th><th>Área</th><th>Período</th><th>Etapa</th><th>Viabilidade</th><th>Score</th><th>Decisão DCL</th><th class="n">Receita base</th></tr>' +
       ativos.map(function (e) {
         var a = porId(S.areas, e.areaId);
         return '<tr><td><a href="#/eventos/' + e.id + '">' + h(e.nome) + '</a></td><td>' + (a ? h(a.nome) : falta('área')) + '</td><td>' + (e.inicio ? data(e.inicio) + ' a ' + data(e.fim) : falta('datas')) +
-          '</td><td>' + h(etapaNome(e)) + '</td><td>' + seloViab(e) + '</td><td class="n">' + brl(simu(e).cenarios[1].total, 'simulação incompleta') + '</td></tr>';
+          '</td><td>' + h(etapaNome(e)) + '</td><td>' + seloViab(e) + '</td><td>' + seloScore(score(e)) + '</td><td>' + seloDec(deal(e)) + '</td><td class="n">' + brl(simu(e).cenarios[1].total, 'simulação incompleta') + '</td></tr>';
       }).join('') + '</table></div>' : '<div class="vazio">Nenhum evento em andamento. <a href="#/eventos">Criar evento</a></div>') + '</div>';
     var pend = [];
     ativos.forEach(function (e) {
@@ -142,6 +170,7 @@
       if (v.falhas) pend.push('<li><a href="#/eventos/' + e.id + '/viabilidade">' + h(e.nome) + '</a>: ' + v.falhas + ' item(ns) em desacordo com a área ou o caderno técnico</li>');
       var sp = e.contrato.signatarios.filter(function (s) { return s.status !== 'assinado'; }).length;
       if (sp) pend.push('<li><a href="#/eventos/' + e.id + '/contrato">' + h(e.nome) + '</a>: ' + sp + ' assinatura(s) pendente(s)</li>');
+      deal(e).alertas.forEach(function (a) { pend.push('<li><a href="#/eventos/' + e.id + '/deal">' + h(e.nome) + '</a>: ' + h(a.txt) + '</li>'); });
     });
     html += '<div class="card"><h2>Pendências críticas</h2>' + (pend.length ? '<ul>' + pend.join('') + '</ul>' : '<div class="vazio">Sem pendências críticas registradas.</div>') + '</div>';
     return html;
@@ -152,8 +181,12 @@
     var html = '<h1>Shopping &amp; caderno técnico</h1><p class="sub">Dados usados nas análises de viabilidade e nos prompts de prospecção.</p>';
     html += '<div class="card"><h2>Shopping</h2><div class="grade">' + campo('Nome', 'shopping.nome') + campo('Endereço', 'shopping.endereco') + campo('Cidade', 'shopping.cidade') + campo('UF', 'shopping.uf') +
       campo('Raio de prospecção (km)', 'shopping.raioKm', { tipo: 'number' }) + campo('Fluxo mensal de visitantes', 'shopping.fluxoMensal', { tipo: 'number' }) +
+      campo('Cluster (Shopping Inteligente OS)', 'shopping.cluster', { opts: D.CLUSTERS.map(function (c) { return c.nome; }), rr: 1 }) +
+      campo('Situação do cluster', 'shopping.clusterStatus', { opts: [['validado', 'Validado'], ['inferido', 'Inferido — validar']] }) +
       campo('Perfil de público / posicionamento', 'shopping.perfil', { tipo: 'area', cheio: true }) +
-      campo('Entorno: empreendimentos, obras e investimentos conhecidos', 'shopping.entorno', { tipo: 'area', cheio: true, ph: 'Ex.: lançamentos imobiliários, novas concessionárias, universidades, hospitais, obras viárias…' }) + '</div></div>';
+      campo('Entorno: empreendimentos, obras e investimentos conhecidos', 'shopping.entorno', { tipo: 'area', cheio: true, ph: 'Ex.: lançamentos imobiliários, novas concessionárias, universidades, hospitais, obras viárias…' }) + '</div>' +
+      (function () { var def =D.CLUSTERS.filter(function (x) { return x.nome === S.shopping.cluster; })[0];
+        return def ? '<p class="sub">Essência: “' + h(def.essencia) + '” · Batalhas, em ordem de prioridade: ' + def.batalhas.map(function (b, i) { return (i + 1) + '. ' + h(b); }).join(' · ') + '</p>' : ''; })() + '</div>';
     html += '<div class="card"><h2>Caderno técnico — parâmetros</h2><p class="nota">As regras abaixo são um modelo genérico. Substitua pelo caderno técnico oficial do shopping e pelas exigências do Corpo de Bombeiros e da prefeitura locais.</p><div class="grade">' +
       campo('Folga mínima sob o pé-direito (m)', 'caderno.folgaAlturaM', { tipo: 'number' }) + campo('Horário de montagem/desmontagem', 'caderno.horarioMontagem') + campo('Link do caderno técnico', 'caderno.linkCaderno', { tipo: 'url' }) +
       campo('Observações', 'caderno.observacoes', { tipo: 'area', cheio: true }) + '</div>' +
@@ -215,15 +248,15 @@
     if (id) return telaEvento(id, aba || 'dados');
     var html = '<div class="cab"><div><h1>Eventos</h1><p class="sub">Cada evento passa por viabilidade técnica, fluxo de negociação, contrato, documentos e simulação.</p></div><button class="pri" data-action="add-evento">+ Novo evento</button></div>';
     if (!S.eventos.length) return html + '<div class="card vazio">Nenhum evento cadastrado.</div>';
-    return html + '<div class="card rolagem"><table><tr><th>Evento</th><th>Tema</th><th>Área</th><th>Operador</th><th>Período</th><th>Etapa</th><th>Viabilidade</th></tr>' +
+    return html + '<div class="card rolagem"><table><tr><th>Evento</th><th>Tema</th><th>Área</th><th>Operador</th><th>Período</th><th>Etapa</th><th>Viabilidade</th><th>Event Occupancy Score</th></tr>' +
       S.eventos.map(function (e) {
         var a = porId(S.areas, e.areaId), o = porId(S.operadores, e.operadorId);
         return '<tr><td><a href="#/eventos/' + e.id + '">' + h(e.nome) + '</a></td><td>' + h(e.tema) + '</td><td>' + (a ? h(a.nome) : falta('área')) + '</td><td>' + (o ? h(o.nome) : falta('operador')) + '</td><td>' +
-          (e.inicio ? data(e.inicio) + ' a ' + data(e.fim) : falta('datas')) + '</td><td>' + h(etapaNome(e)) + '</td><td>' + seloViab(e) + '</td></tr>';
+          (e.inicio ? data(e.inicio) + ' a ' + data(e.fim) : falta('datas')) + '</td><td>' + h(etapaNome(e)) + '</td><td>' + seloViab(e) + '</td><td>' + seloScore(score(e)) + '</td></tr>';
       }).join('') + '</table></div>';
   };
 
-  var ABAS = [['dados', 'Dados e requisitos'], ['viabilidade', 'Viabilidade técnica'], ['fluxo', 'Fluxo de negociação'], ['contrato', 'Contrato e assinaturas'], ['documentos', 'Documentos'], ['simulador', 'Simulador'], ['midia', 'Mídia e anunciantes']];
+  var ABAS = [['dados', 'Dados e requisitos'], ['cluster', 'Cluster e score'], ['viabilidade', 'Viabilidade técnica'], ['fluxo', 'Fluxo de negociação'], ['contrato', 'Contrato e assinaturas'], ['documentos', 'Documentos'], ['simulador', 'Simulador'], ['midia', 'Mídia e anunciantes'], ['deal', 'Deal Conversion']];
   function telaEvento(id, aba) {
     var ev = porId(S.eventos, id);
     if (!ev) return '<p>Evento não encontrado. <a href="#/eventos">Voltar</a></p>';
@@ -246,6 +279,52 @@
       campo('Carga das estruturas no piso (kg/m²)', 'req.cargaPisoKgM2', { tipo: 'number' }) + '</div></div>' +
       (a ? '<div class="card"><h2>Área vinculada: <a href="#/areas/' + a.id + '">' + h(a.nome) + '</a></h2><p>' + txt(a.tipo, 'tipo') + ' · ' + n(a.metragem, 'metragem', 'm²') + ' · pé-direito ' +
         (a.peDireitoLivre === 'sim' ? 'céu aberto' : n(a.peDireito, 'pé-direito', 'm')) + ' · energia ' + (a.energia.disponivel === 'nao' ? 'sem ponto' : n(a.energia.cargaKva, 'carga', 'kVA')) + ' · lotação ' + n(a.lotacaoMax, 'lotação') + '</p></div>' : '');
+  };
+
+  abasEvento.cluster = function (ev) {
+    var cl = clusterEv(ev), def = D.CLUSTERS.filter(function (c) { return c.nome === cl; })[0];
+    var bat = def ? def.batalhas.map(function (b, i) { return [b, (i + 1) + 'ª batalha — ' + b]; }) : [];
+    bat.push([D.FORA_BATALHA, D.FORA_BATALHA]);
+    var html = '<div class="card"><h2>Cluster e batalha</h2><p class="sub">Cluster First: todo evento declara a batalha do cluster que atende. Em branco, o evento usa o cluster do shopping' +
+      (S.shopping.cluster ? ' (' + h(S.shopping.cluster) + (S.shopping.clusterStatus === 'inferido' ? ', inferido — validar' : '') + ')' : ' — ' + falta('cluster do shopping')) + '.</p><div class="grade">' +
+      campo('Cluster do evento (vazio = o do shopping)', 'cluster', { opts: D.CLUSTERS.map(function (c) { return c.nome; }), rr: 1 }) +
+      campo('Batalha atendida', 'batalha', { opts: bat, rr: 1 }) +
+      campo('Justificativa do fit (público, ocasião, por que este evento neste cluster)', 'fitJustificativa', { tipo: 'area', cheio: true }) + '</div>' +
+      (def ? '<p class="sub">' + h(def.nome) + ': “' + h(def.essencia) + '”</p>' : '') + '</div>';
+    html += '<div class="card"><h2>Event Occupancy Score</h2><p class="sub">Pesos do dicionário de scores do Shopping Inteligente OS v5. Dê nota de 0 a 5 com base em fato (histórico do operador, proposta, anunciante): o app não estima. Segurança é calculada pelas regras avaliadas na aba Viabilidade.</p>' +
+      '<div class="rolagem"><table><tr><th>Critério</th><th class="n">Peso</th><th>Nota (0–5)</th><th>Como pontuar</th></tr>' + D.EOS_CRITERIOS.map(function (c) {
+        return '<tr><td>' + h(c.nome) + '</td><td class="n">' + c.peso + '</td><td>' + (c.auto ? '<span class="sub">automático</span>' : campo('', 'eos.' + c.id, { nu: 1, tipo: 'number' })) + '</td><td><small>' + h(c.guia) + '</small></td></tr>';
+      }).join('') + '</table></div>' + live('eos', function () {
+        var sc = score(ev), o = '<h3>Resultado</h3><p>' + seloScore(sc) + (sc.faixa ? ' ' + h(sc.faixa.acao) + '.' : ' Apurado até agora: ' + sc.apurado + ' de ' + sc.possivel + ' pontos possíveis (o score só fecha com todos os critérios).') + '</p>';
+        o += '<p>Cluster Fit (nota de fit × 20): ' + (sc.clusterFit === null ? falta('nota de fit com o cluster') : '<b>' + sc.clusterFit + '</b> · ' + h(sc.clusterFitFaixa.nome) + ' — ' + h(sc.clusterFitFaixa.acao)) + '</p>';
+        o += '<table><tr><th>Critério</th><th class="n">Nota</th><th class="n">Pontos</th><th>Detalhe</th></tr>' + sc.itens.map(function (i) {
+          return '<tr><td>' + h(i.nome) + '</td><td class="n">' + (i.nota === null ? falta('nota') : Number(i.nota.toFixed(2)).toLocaleString('pt-BR')) + '</td><td class="n">' + (i.pontos === null ? '—' : Number(i.pontos.toFixed(1)).toLocaleString('pt-BR') + ' / ' + i.peso) + '</td><td><small>' + h(i.detalhe) + '</small></td></tr>';
+        }).join('') + '</table>';
+        if (sc.alertas.length) o += '<p class="nota">' + sc.alertas.map(h).join('<br>') + '</p>';
+        if (sc.faltas.length) o += '<h3>Para fechar o score</h3><ul>' + sc.faltas.map(function (f) { return '<li>' + falta(f) + '</li>'; }).join('') + '</ul>';
+        o += '<p class="sub">Faixas: as mesmas do Cluster Fit do OS (0–40 baixo · 41–70 aceitável · 71–85 forte · 86–100 estratégico). O dicionário não define faixas próprias para este score; esta é uma escolha do app.</p>';
+        return o;
+      }) + '</div>';
+    return html;
+  };
+
+  abasEvento.deal = function (ev) {
+    var html = '<div class="card"><h2>Deal Conversion Layer</h2><p class="sub">Estágio vem do fluxo de negociação. Nenhum evento fica sem dono, próxima ação e prazo. Os dados aparecem na tela <a href="#/deal">Deal Conversion</a> e saem em CSV/JSON no formato do OS.</p><div class="grade">' +
+      campo('Dono', 'dcl.dono') + campo('Próxima ação', 'dcl.proximaAcao') + campo('Prazo da próxima ação', 'dcl.prazo', { tipo: 'date' }) +
+      campo('Blocker', 'dcl.blocker', { ph: 'O que impede avançar' }) + campo('Probabilidade de fechamento (%)', 'dcl.probabilidade', { tipo: 'number' }) +
+      campo('Apoio necessário', 'dcl.apoio', { ph: 'Ex.: Operações, Jurídico, Marketing' }) + campo('Sponsor executivo (obrigatório se Cluster Fit > 85)', 'dcl.sponsor') +
+      campo('Próxima revisão', 'dcl.proximaRevisao', { tipo: 'date' }) + campo('Critério de matar ou pausar', 'dcl.criterioKill', { tipo: 'area', cheio: true, ph: 'Ex.: sem resposta após 3 tentativas; viabilidade inviável; receita base abaixo do custo da praça' }) + '</div></div>';
+    html += '<div class="card"><h2>Registro no pipeline</h2>' + live('dcl', function () {
+      var r = deal(ev);
+      var o = '<table>' + [['Estágio', h(r.estagio) + ' <small>(etapa: ' + h(etapaNome(ev)) + ')</small>'], ['Decisão', seloDec(r)], ['Cluster / batalha', (r.cluster ? h(r.cluster) : falta('cluster')) + ' · ' + (r.batalha ? h(r.batalha) : falta('batalha'))],
+        ['Cluster Fit', r.cluster_fit_score === null ? falta('nota de fit') : r.cluster_fit_score], ['Event Occupancy Score', r.event_occupancy_score === null ? falta('score em aberto') : r.event_occupancy_score],
+        ['Impacto financeiro (receita base do shopping)', brl(r.impacto_financeiro_estimado, 'simulação incompleta')], ['Impacto ponderado pela probabilidade', brl(r.impacto_ponderado, 'impacto ou probabilidade')],
+        ['Última atualização', r.ultima_atualizacao ? data(r.ultima_atualizacao) : '—']].map(function (l) { return '<tr><th>' + l[0] + '</th><td>' + l[1] + '</td></tr>'; }).join('') + '</table>';
+      if (r.alertas.length) o += '<h3>Regras do Deal Conversion acionadas</h3><ul>' + r.alertas.map(function (a) { return '<li>' + h(a.txt) + '</li>'; }).join('') + '</ul>';
+      if (r.faltas.length) o += '<ul>' + r.faltas.map(function (f) { return '<li>' + falta(f) + '</li>'; }).join('') + '</ul>';
+      return o;
+    }) + '</div>';
+    return html;
   };
 
   abasEvento.viabilidade = function (ev) {
@@ -419,6 +498,46 @@
     return html;
   };
 
+  telas.deal = function () {
+    var regs = S.eventos.map(function (e) { return { ev: e, r: deal(e) }; });
+    var html = '<div class="cab"><div><h1>Deal Conversion</h1><p class="sub">Eventos no pipeline do Shopping Inteligente OS: estágio, dono, próxima ação, prazo, blocker, probabilidade, impacto e decisão.</p></div>' +
+      '<div class="acoes"><button data-action="dcl-csv">Baixar CSV</button><button data-action="dcl-json">Baixar JSON</button><button class="pri" data-action="dcl-md">Copiar para o comitê</button></div></div>';
+    if (!regs.length) return html + '<div class="card vazio">Nenhum evento cadastrado.</div>';
+    var ativos = regs.filter(function (x) { return x.r.estagio !== 'Lost / Parked'; });
+    var semDono = ativos.filter(function (x) { return x.r.alertas.some(function (a) { return a.nivel === 'risco'; }); }).length;
+    var rebaixar = ativos.filter(function (x) { return x.r.alertas.some(function (a) { return a.nivel === 'rebaixar'; }); }).length;
+    var pond = 0, comPond = 0;
+    ativos.forEach(function (x) { if (x.r.impacto_ponderado !== null) { pond += x.r.impacto_ponderado; comPond++; } });
+    html += '<div class="kpis"><div class="kpi"><b>' + ativos.length + '</b><span>eventos ativos no pipeline</span></div><div class="kpi"><b>' + semDono + '</b><span>sem dono</span></div>' +
+      '<div class="kpi"><b>' + rebaixar + '</b><span>sem próxima ação em até 7 dias</span></div><div class="kpi"><b>' + (comPond ? brl(pond) : '—') + '</b><span>impacto ponderado (' + comPond + ' de ' + ativos.length + ' com receita e probabilidade)</span></div></div>';
+    html += '<div class="card rolagem"><table><tr><th>Oportunidade</th><th>Estágio</th><th>Dono</th><th>Próxima ação</th><th>Prazo</th><th>Blocker</th><th class="n">Prob.</th><th class="n">Impacto</th><th class="n">Cluster Fit</th><th class="n">EOS</th><th>Apoio</th><th>Decisão</th></tr>' +
+      regs.map(function (x) {
+        var r = x.r;
+        return '<tr><td><a href="#/eventos/' + x.ev.id + '/deal">' + h(r.nome) + '</a><br><small>' + h(r.batalha || '') + '</small></td><td>' + h(r.estagio) + '</td><td>' + (r.dono ? h(r.dono) : falta('dono')) + '</td><td>' + (r.proxima_acao ? h(r.proxima_acao) : falta('próxima ação')) +
+          '</td><td>' + (r.prazo ? data(r.prazo) : falta('prazo')) + '</td><td>' + h(r.blocker) + '</td><td class="n">' + (r.probabilidade_fechamento === null ? falta('%') : r.probabilidade_fechamento + '%') +
+          '</td><td class="n">' + brl(r.impacto_financeiro_estimado, 'simulação') + '</td><td class="n">' + (r.cluster_fit_score === null ? falta('fit') : r.cluster_fit_score) + '</td><td class="n">' + (r.event_occupancy_score === null ? falta('score') : r.event_occupancy_score) +
+          '</td><td>' + h(r.apoio_necessario) + '</td><td>' + seloDec(r) + (r.alertas.length ? '<br><small>' + r.alertas.map(function (a) { return h(a.txt); }).join('<br>') + '</small>' : '') + '</td></tr>';
+      }).join('') + '</table></div>';
+    html += '<p class="sub">Estágio: Prospecção → Lead · Qualificação → Qualified Lead · Visita técnica → Meeting Done · Viabilidade → Technical Feasibility · Proposta → Proposal · Minuta e Assinaturas → Contract Negotiation · Documentação → Contract Signed · Montagem → Construction / Obra · Operação → Opening · Encerramento → Performance Review · Cancelado → Lost / Parked. Conversion Score fica em branco: o app não tem os dados para calculá-lo.</p>';
+    return html;
+  };
+  function mdComite() {
+    var linhas = S.eventos.map(deal).filter(function (r) { return r.estagio !== 'Lost / Parked'; });
+    function c(v, o) { return v === null || v === undefined || v === '' ? '[FALTA: ' + o + ']' : String(v).replace(/\|/g, '/'); }
+    return '# Deal Conversion — Eventos' + (S.shopping.nome ? ' — ' + S.shopping.nome : '') + '\n\nData: ' + data(hoje()) + ' · Cluster do shopping: ' + c(S.shopping.cluster, 'cluster') + '\n\n' +
+      '| Oportunidade | Estágio | Dono | Próxima ação | Prazo | Blocker | Probabilidade | Impacto financeiro | Cluster Fit | EOS | Apoio necessário | Decisão |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n' +
+      linhas.map(function (r) {
+        return '| ' + [c(r.nome, 'nome'), r.estagio, c(r.dono, 'dono'), c(r.proxima_acao, 'próxima ação'), r.prazo ? data(r.prazo) : '[FALTA: prazo]', r.blocker || '—',
+          r.probabilidade_fechamento === null ? '[FALTA: %]' : r.probabilidade_fechamento + '%',
+          r.impacto_financeiro_estimado === null ? '[FALTA: simulação]' : r.impacto_financeiro_estimado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
+          c(r.cluster_fit_score, 'fit'), c(r.event_occupancy_score, 'score'), r.apoio_necessario || '—', r.decisao].join(' | ') + ' |';
+      }).join('\n') + '\n';
+  }
+  function baixar(nome, conteudo, tipo) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([conteudo], { type: tipo })); a.download = nome; a.click();
+  }
+
   telas.dados = function () {
     return '<h1>Backup</h1><p class="sub">Os dados ficam apenas neste navegador. Exporte para guardar ou levar para outro computador. Arquivos de planta não entram no backup — use o campo de link da planta para isso.</p>' +
       '<div class="card"><h2>Exportar</h2><button class="pri" data-action="exportar">Baixar backup (.json)</button></div>' +
@@ -455,13 +574,14 @@
       if (arq && confirm('Importar substitui TODOS os dados atuais. Continuar?') && confirm('Confirma a substituição? Esta ação não pode ser desfeita.')) arq.text().then(function (t) {
         var d = JSON.parse(t);
         if (!d.shopping || !Array.isArray(d.eventos) || !Array.isArray(d.areas)) throw new Error('formato');
-        S = d; salvar(); toast('Backup importado'); location.hash = '#/painel'; render();
+        S = migrar(d); salvar(); toast('Backup importado'); location.hash = '#/painel'; render();
       }).catch(function () { toast('Arquivo inválido'); });
       return;
     }
     if (!el.dataset.b || !raiz) return;
     var v = el.type === 'checkbox' ? el.checked : el.type === 'number' ? C.num(el.value) : el.value;
     gravar(raiz, el.dataset.b, v);
+    if (el.dataset.b.indexOf('dcl.') === 0) raiz.dcl.ultimaAtualizacao = hoje();
     if (raiz !== prosp) salvar();
     if (el.dataset.rr) render(); else atualizarLive();
   });
@@ -501,7 +621,7 @@
         if (v.veredito !== 'apto') return toast('Bloqueado: viabilidade técnica "' + VER[v.veredito][1] + '". Resolva os itens na aba Viabilidade.');
         if (ev.contrato.status !== 'Assinado') return toast('Bloqueado: o contrato precisa estar com status "Assinado".');
       }
-      ev.etapa = prox.id; ev.historico.push({ etapa: prox.id, data: hoje() });
+      ev.etapa = prox.id; ev.historico.push({ etapa: prox.id, data: hoje() }); ev.dcl.ultimaAtualizacao = hoje();
     },
     'voltar-etapa': function () { var ev = raiz, i = etapaIdx(ev); if (i > 0) { ev.etapa = D.ETAPAS[i - 1].id; ev.historico.push({ etapa: ev.etapa, data: hoje() }); } },
     'cancelar-evento': function () { if (confirmar2('Cancelar este evento?')) { raiz.etapaAnterior = raiz.etapa; raiz.etapa = 'cancelado'; raiz.historico.push({ etapa: 'cancelado', data: hoje() }); } },
@@ -519,6 +639,9 @@
       toast(novos + ' operador(es) importado(s); ' + (l.length - novos) + ' ignorado(s) (duplicado ou sem nome)');
       if (novos) location.hash = '#/operadores';
     },
+    'dcl-csv': function () { baixar('deal-conversion-eventos-' + hoje() + '.csv', C.csvDcl(S.eventos.map(deal)), 'text/csv;charset=utf-8'); return 'semrender'; },
+    'dcl-json': function () { baixar('deal-conversion-eventos-' + hoje() + '.json', JSON.stringify(S.eventos.map(deal), null, 2), 'application/json'); return 'semrender'; },
+    'dcl-md': function () { copiar(mdComite()); return 'semrender'; },
     'exportar': function () {
       var a = document.createElement('a');
       a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 2)], { type: 'application/json' }));

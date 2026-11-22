@@ -1,112 +1,112 @@
 {
-  "atualizadoEm": "2026-11-19T02:46:50.244Z",
+  "atualizadoEm": "2026-11-21T02:47:19.682Z",
   "origem": "scripts/atualizar-cotacoes.mjs",
   "nota": "Valores iniciais copiados da planilha enviada em 06/09/2026. São substituídos automaticamente pelo workflow de atualização.",
   "cambio": {
     "USDBRL": {
-      "valor": 5.8102,
-      "fonte": "Banco Central (PTAX venda, 18/11/2026)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "valor": 5.8889,
+      "fonte": "Banco Central (PTAX venda, 19/11/2026)",
+      "ts": "2026-11-21T02:47:19.682Z"
     }
   },
   "cotacoes": {
     "ALOS3": {
-      "preco": 26.21,
-      "variacao": 0,
+      "preco": 25.79,
+      "variacao": 0.16,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "TAEE11": {
-      "preco": 40.56,
-      "variacao": 0,
+      "preco": 40.13,
+      "variacao": -0.1,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "AURE3": {
-      "preco": 11.88,
-      "variacao": 0,
+      "preco": 11.89,
+      "variacao": -0.17,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "BBSE3": {
-      "preco": 36.66,
-      "variacao": 0,
+      "preco": 36.93,
+      "variacao": -0.16,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "ITSA4": {
-      "preco": 13.15,
-      "variacao": 0,
+      "preco": 13.14,
+      "variacao": -0.23,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "KLBN4": {
-      "preco": 3.41,
-      "variacao": 0,
+      "preco": 3.33,
+      "variacao": -0.3,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "SAPR11": {
-      "preco": 33.79,
-      "variacao": 0,
+      "preco": 34.02,
+      "variacao": -0.35,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "CMIG4": {
-      "preco": 10.93,
-      "variacao": 0,
+      "preco": 10.92,
+      "variacao": -0.18,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "BBDC4": {
-      "preco": 14.08,
-      "variacao": 0,
+      "preco": 13.84,
+      "variacao": 0.07,
       "moeda": "BRL",
       "fonte": "B3 (cotacao.b3.com.br)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-20T21:16:00.485Z"
     },
     "NVDA": {
-      "preco": 155.46,
-      "variacao": -0.44,
+      "preco": 128.3744,
+      "variacao": -12.06,
       "moeda": "USD",
       "fonte": "Nasdaq (api.nasdaq.com)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "PLTR": {
-      "preco": 156.56,
-      "variacao": -2.39,
+      "preco": 153.68,
+      "variacao": -1.91,
       "moeda": "USD",
       "fonte": "Nasdaq (api.nasdaq.com)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "TSLA": {
-      "preco": 383.72,
-      "variacao": 0.95,
+      "preco": 374.41,
+      "variacao": -2.43,
       "moeda": "USD",
       "fonte": "Nasdaq (api.nasdaq.com)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "SPY": {
-      "preco": 730.25,
-      "variacao": -0.3,
+      "preco": 715.84,
+      "variacao": -1.97,
       "moeda": "USD",
       "fonte": "Nasdaq (api.nasdaq.com)",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     },
     "VUAA": {
-      "preco": 141.56,
-      "variacao": -2.35,
+      "preco": 136.74,
+      "variacao": -3.4,
       "moeda": "USD",
       "fonte": "Yahoo Finance",
-      "ts": "2026-11-19T02:46:50.244Z"
+      "ts": "2026-11-21T02:47:19.682Z"
     }
   }
 }
