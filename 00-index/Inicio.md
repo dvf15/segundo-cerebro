@@ -27,11 +27,11 @@ _874 notas indexadas · gerado em 2026-11-22_
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
+| 2026-11-22 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-21 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-19 | [[claude/artifacts/radar-de-legalizacoes-promo/radar-de-legalizacoes-promo\|Radar de Legalizações Promo]] | claude-artifact |
 | 2026-11-19 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
 | 2026-11-19 | [[claude/artifacts/regional-inteligente-evolucao-do-projeto/regional-inteligente-evolucao-do-projeto\|Regional Inteligente — evolução do projeto (reporte ao Diretor Executivo de Operações)]] | claude-artifact |
-| 2026-11-19 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-16 | [[claude/artifacts/radar-de-clausulas/radar-de-clausulas\|Radar de Cláusulas — Gestão e Aprovação]] | claude-artifact |
 | 2026-11-16 | [[claude/artifacts/radar-de-renovacoes-mobile/radar-de-renovacoes-mobile\|Radar de Renovações Mobile]] | claude-artifact |
 | 2026-11-14 | [[claude/artifacts/nova-america-x-norteshopping/nova-america-x-norteshopping\|Nova América × NorteShopping]] | claude-artifact |
