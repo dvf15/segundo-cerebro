@@ -1,12 +1,12 @@
 ---
 title: "Início"
-generated: 2026-11-22
+generated: 2026-11-23
 total: 874
 tags: ["index"]
 ---
 # Segundo Cérebro · Início
 
-_874 notas indexadas · gerado em 2026-11-22_
+_874 notas indexadas · gerado em 2026-11-23_
 
 ## Mapas de conteúdo
 
@@ -27,7 +27,7 @@ _874 notas indexadas · gerado em 2026-11-22_
 
 | Data | Nota | Fonte |
 | --- | --- | --- |
-| 2026-11-22 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
+| 2026-11-23 | [[claude/claude-code-cloud/tarefas-agendadas\|Tarefas agendadas do Claude Code]] | claude-routines |
 | 2026-11-21 | [[codigo/radarbazin/_repo\|radarbazin]] | github |
 | 2026-11-19 | [[claude/artifacts/radar-de-legalizacoes-promo/radar-de-legalizacoes-promo\|Radar de Legalizações Promo]] | claude-artifact |
 | 2026-11-19 | [[codigo/radarbazin1/_repo\|radarbazin1]] | github |
